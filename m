@@ -2,108 +2,137 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B390B20378B
-	for <lists+cake@lfdr.de>; Mon, 22 Jun 2020 15:11:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B81EC203933
+	for <lists+cake@lfdr.de>; Mon, 22 Jun 2020 16:27:15 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1F9623CB42;
-	Mon, 22 Jun 2020 09:11:17 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 973D53CB42;
+	Mon, 22 Jun 2020 10:27:14 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1592831477;
-	bh=tP8qT7fiHf8EsqDNWAKOQcE5Hmr2qb5DBjuT7+Se9HI=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:Cc:From;
-	b=KKFeEKwABZMf6NUx42HgbLYHhiTawoco7YwQowZlq8gLP5ryAjaG/FSkM8zWzDt8H
-	 S8WaRexxJvaSjw/T03N0kZKATjpNAwDZPArBKlGSx8NfpkezQKSx3VAm77H4aprr5r
-	 fmlyoj4xtLUaLfVO61IAw/xJ8YFldOr+fJzgfFaKz0ykneLEr6MxyYw5P01CJNerCI
-	 9fD+hwequ26j1su69XFfDeS7zlJZ3B0EC+e0da4bgt2PqZqD/u7/GNcD5aob17fO2m
-	 gN66+MwMQY2k+xjl14scoWfYMhHeWs7rzp9BH6AP7IXv0MO3kD7/TRzG1F4e5+YNz8
-	 1YnrfzRjzPF6g==
-X-Original-To: cake@lists.bufferbloat.net
-Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com
- [IPv6:2a00:1450:4864:20::131])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
- (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id AFAB03B2A4
- for <cake@lists.bufferbloat.net>; Mon, 22 Jun 2020 09:11:15 -0400 (EDT)
-Received: by mail-lf1-x131.google.com with SMTP id u25so9604893lfm.1
- for <cake@lists.bufferbloat.net>; Mon, 22 Jun 2020 06:11:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to:cc;
- bh=/u5yAPxKUNQ3BOuZnWEksh38cHAg48bj+tiU84KA8MY=;
- b=ZyTpXy+hUkCtXDLO5xQWo3lPl26NlQaWrg731+qItG7esr8ON/M1rMR/VemO6VEawF
- PaWo17OWJSOnq94XVXfkbt7YLh7/nwmiS+A2O8/XFeRV1Jj2Np3eIl5cLDJnfBiDCTCd
- pjdgUoaEf++OKcGQlK6SzmyYhsPg+QJhwreaN5YY1Kfe5ql8K5ODGhF42/Y1GZ+L2l8m
- VBfy/budoSwe9e2RkG8rrC6mGrL4mR6o8VTc13/4dKpjTbikPpLPACtz6q6jXMXBcIB/
- 7U+AcAKVC8p53VE8VLbrfCAxcxbrVlGlYGJrGePC/5Pot6IxMPohoG68SZqNOeFv/Zxl
- LRRg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
- bh=/u5yAPxKUNQ3BOuZnWEksh38cHAg48bj+tiU84KA8MY=;
- b=ZuB2DfsJ+mpU0UDpWdYjZVJsRHb2GPDpSv3E1xQBfSQtIwfsP9utpsOzqSLRrPOKvI
- cY6t0bbgatE9a60qroz07zxUTTFujFHl4N/mWJb/AhIUVX56scrdA+wCmXb6qch2iU+Z
- VK1Ay+ieODeTzGX17+AB/fc0hrxssXiLZje4G1mXgcOcrLjYPuenHfP8NUUCX1mVScpD
- JdNHl73ynPQhBHjWSfEy+rnGQcjlQK/fYd4LeptztpOrTv+d49VMTjgbdcKGuCMhi+1i
- UoUfFR9pz1aHwTbg9Bk51d3goCXUL820msOP01QDQKW/PdCXznIitgeD+CuNIXINIl30
- hlxA==
-X-Gm-Message-State: AOAM532FaymuTXJjMvZCL5VMb0xQMym6Ui/vDzQS+khU5ynCTbm7T9WD
- lK2sMfRrlG4F4bJrGHuqOWb4mQ9UJCokvCgdXF0l1uJG
-X-Google-Smtp-Source: ABdhPJz2qWa9yTyhLLn97dc1XvLLgg4BfvEKJu20I7EZ1UBAWmGcGDm5Zkkd57nZGfnuA3eoR0ispyuchrZANS5RbeY=
-X-Received: by 2002:a19:23cc:: with SMTP id j195mr9810214lfj.210.1592831474127; 
- Mon, 22 Jun 2020 06:11:14 -0700 (PDT)
-MIME-Version: 1.0
-From: Jose Blanquicet <blanquicet@gmail.com>
-Date: Mon, 22 Jun 2020 15:10:37 +0200
-Message-ID: <CAFC8iJKY+1iuiTHuo5OditK7RtpqZ=bbap+gzdEuM=gt5fiNZw@mail.gmail.com>
+	d=lists.bufferbloat.net; s=201610; t=1592836034;
+	bh=nD1o9ZvzmRWexTMYUjV3TxdokYHiiR3jaL32spXib6c=;
+	h=To:References:In-Reply-To:List-Id:List-Post:From:List-Subscribe:
+	 List-Unsubscribe:List-Archive:Reply-To:List-Help:Subject:From;
+	b=g8MBdCigmpsByttkR/WPXPx3CNiyZzNL152dRKExIhKlDRFHCt10vMGelsFuGDFQl
+	 8lDY4HMyLLgw1xCEB+6zwcXX2zmcylz+47BRPPKVQ25oMvA6Hpq5ol7xAk9HrQNY5b
+	 ezmjXjZsaBlXRlS69E9tt5JWkSphkQmrpoLEdSKrCFK05MQcmJ7rUY7shpvsLyygCZ
+	 +NI6DdpiT/rPEJowa+qAbuwC8deob1/H+oe6hK93XxaU5N+lNC2WBNyJHu2gKvZSeJ
+	 8COX7uErbBg79IoBkF6SdNbpwVGmR6+oJxHuWtiRfJcIdRFCgcoE7Ql7Nctzluq+8j
+	 Fzph47T7ca4PA==
 To: cake@lists.bufferbloat.net
-Subject: [Cake] [CAKE] Rate is much lower than expected - CPU load is higher
-	than expected
-X-BeenThere: cake@lists.bufferbloat.net
-X-Mailman-Version: 2.1.20
-Precedence: list
+References: <CAFC8iJKY+1iuiTHuo5OditK7RtpqZ=bbap+gzdEuM=gt5fiNZw@mail.gmail.com>
+In-Reply-To: <CAFC8iJKY+1iuiTHuo5OditK7RtpqZ=bbap+gzdEuM=gt5fiNZw@mail.gmail.com>
+MIME-Version: 1.0
+Message-ID: <mailman.626.1592836033.24343.cake@lists.bufferbloat.net>
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
+List-Post: <mailto:cake@lists.bufferbloat.net>
+From: Y via Cake <cake@lists.bufferbloat.net>
+Precedence: list
+X-Mailman-Version: 2.1.20
+X-BeenThere: cake@lists.bufferbloat.net
+List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
+ <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 List-Unsubscribe: <https://lists.bufferbloat.net/options/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=unsubscribe>
 List-Archive: <https://lists.bufferbloat.net/pipermail/cake>
-List-Post: <mailto:cake@lists.bufferbloat.net>
+Reply-To: Y <intruder_tkyf@yahoo.fr>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
-List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
- <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: marco maniezzo <marco.maniezzo@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Subject: Re: [Cake] [CAKE] Rate is much lower than expected - CPU load is
+ higher than expected
+Content-Type: multipart/mixed; boundary="===============3398551301154662422=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SGkgZXZlcnlvbmUsCgpXZSBoYXZlIGFuIGVtYmVkZGVkIHN5c3RlbSB3aXRoIGxpbWl0ZWQgQ1BV
-IHJlc291cmNlcyB0aGF0IGFjdHMgYXMgYQpnYXRld2F5IHRvIHByb3ZpZGUgSW50ZXJuZXQgYWNj
-ZXNzIGZyb20gTFRFIHRvIGEgcHJpdmF0ZSBVU0ItTkNNCm5ldHdvcmsgKEFuZCBhbHNvIHRvIGEg
-V2ktRmkgcHJpdmF0ZSBuZXR3b3JrIGJ1dCB3ZSB3aWxsIHdvcmsgb24gaXQKbGF0ZXIpLiBPdXIg
-cHJvYmxlbSBpcyB0aGF0IHRoZSBiYW5kd2lkdGggb24gTFRFIGFuZCBVU0IgbGluayBpcwpoaWdo
-ZXIgdGhhbiB3aGF0IHRoZSBzeXN0ZW0gaXMgYWJsZSB0byBoYW5kbGUgdGh1cyBpdCByZWFjaGVz
-IDEwMCUgb2YKQ1BVIGxvYWQgd2hlbiB3ZSBwZXJmb3JtIGEgc2ltcGxlIHNwZWVkIHRlc3QgZnJv
-bSBhIGRldmljZSBvbiB0aGUKcHJpdmF0ZSBuZXR3b3JrLgoKVGhlcmVmb3JlLCB3ZSB3YW50IHRv
-IGxpbWl0IHRoZSBiYW5kd2lkdGggdG8gYXZvaWQgc3lzdGVtIGdldHRpbmcKc2F0dXJhdGVkIGlu
-IHN1Y2ggdXNlLWNhc2UuIFRvIGRvIHNvLCB3ZSB0aG91Z2h0IHRvIHVzZSB0aGUgQ0FLRSBvbgp0
-aGUgVVNCIGludGVyZmFjZS4gRm9yIGluc3RhbmNlLCB3ZSB0cmllZDoKCiAgICB0YyBxZGlzYyBy
-ZXBsYWNlIHJvb3QgZGV2IGV0aDAgY2FrZSBiYW5kd2lkdGggMjBtYml0IGV0aGVybmV0CmludGVy
-bmV0IGZsb3dibGluZCBub25hdCBiZXN0ZWZmb3J0IG5vd2FzaAoKSXQgd29ya2VkIGNvcnJlY3Rs
-eSBhbmQgdGhlIG1heGltdW0gcmF0ZSB3YXMgbGltaXRlZCBidXQgdGhlcmUgYXJlIHR3bwp0aGlu
-Z3MgdGhhdCBhcmUgd29ycnlpbmcgdXM6CgoxKSBUaGUgbWF4aW11bSByYXRlIHJlYWNoZWQgYWZ0
-ZXIgYXBwbHlpbmcgQ0FLRSB3YXMgaW4gYmV0d2VlbiAxMk1icHMKYW5kIDE1TWJwcyB3aGljaCBp
-cyBxdWl0ZSBsb3dlciB0aGFuIHRoZSAyME1icHMgd2UgYXJlIGNvbmZpZ3VyaW5nLCB3ZQp3ZXJl
-IGV4cGVjdGluZyBhcm91bmQgMTgtMTkuIFdoeT8gSXMgdGhlcmUgc29tZXRoaW5nIGluIHRoZSBw
-YXJhbWV0ZXJzCndlIGFyZSBkb2luZyB3cm9uZz8gUGxlYXNlIHRha2UgaW50byBhY2NvdW50IHRo
-YXQgb3VyIGdvYWwgaXMgdG8gbGltaXQKdGhlIHJhdGUgYnV0IGFkZGluZyBhcyBsaXR0bGUgQ1BV
-IGxvYWQgYXMgcG9zc2libGUuCgoyKSBUaGUgQ1BVIGxvYWQgYWRkZWQgYnkgQ0FLRSB3YXMgbm90
-IG5lZ2xpZ2libGUgZm9yIG91ciBzeXN0ZW0uIEluCmZhY3QsIHdlIGNvbXBhcmVkIHRoZSBDUFUg
-bG9hZCB3aGVuIGxpbWl0YXRpb24gd2FzIGRvbmUgYnkgQ0FLRSBhbmQgYnkKdGhlIGRldmljZSBv
-biB0aGUgcHJpdmF0ZSBuZXR3b3JrLCBlLmcuIGN1cmwgdG9vbCB3aXRoIHBhcmFtZXRlcgoiLS1s
-aW1pdC1yYXRlIi4gQXMgYSByZXN1bHQsIHdlIGZvdW5kIHRoYXQgdGhlIENQVSBsb2FkIHdoZW4g
-dXNpbmcKQ0FLRSB3YXMgMzAlLiBJcyB0aGVyZSBhbnkgd2F5IHRvIG1ha2UgaXQgbGlnaHRlciB3
-aXRoIGEgZGlmZmVyZW50CmNvbmZpZ3VyYXRpb24/CgpUaGFua3MgaW4gYWR2YW5jZSBmb3IgdGhl
-IHN1cHBvcnQuIEFueSBzdWdnZXN0aW9uIGlzIHdlbGNvbWUuCgpKb3NlIEJsYW5xdWljZXQKX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5n
-IGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9h
-dC5uZXQvbGlzdGluZm8vY2FrZQo=
+--===============3398551301154662422==
+Content-Type: message/rfc822
+Content-Disposition: inline
+
+Return-Path: <intruder_tkyf@yahoo.fr>
+X-Original-To: cake@lists.bufferbloat.net
+Delivered-To: cake@lists.bufferbloat.net
+Received: from sonic308-44.consmr.mail.ir2.yahoo.com (sonic308-44.consmr.mail.ir2.yahoo.com [77.238.178.180])
+	(using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+	(No client certificate requested)
+	by lists.bufferbloat.net (Postfix) with ESMTPS id 0F0D13B2A4
+	for <cake@lists.bufferbloat.net>; Mon, 22 Jun 2020 10:27:12 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=yahoo.fr; s=s2048; t=1592836032; bh=b37NSUdvkerGYgCO8JRnNf1IP7s6Waa5/RrShXPbLyY=; h=Subject:To:References:From:Date:In-Reply-To:From:Subject; b=DpM+pwD+SfKPxlnpnkKa2BYNQYh0kdh1+SZjzKLRAN6391paGLe2xWirmynmvvC/f0bki+gKFtz0FJCYM1zhQdmrGxM10rN/vBKm9j8TmJcYbYgnmvS2F3z5BFSDYSIE65dl9211w774mOHxMq6xjuJ/AB2JFoPU0DulVhEa2SfrLWU6DIi78KvsmmLLGnhRvCz71j4BpGJAi2q3DkG8IbLBA7mCqLcpitBQXrZj7FQrs5aPmVDfcF6wiUG2E8GjjLb30yzqOKFVcAZorKKI6c1OnHvfROffTI+N0pFjdwGX7s6OlPKf5OJ4tK9t3kp7HJwX041XGdzcmf8HqqSUCA==
+X-YMail-OSG: N_6BpMEVRDvd.miR6A7lED5GPdAEx7ojsA--
+Received: from sonic.gate.mail.ne1.yahoo.com by sonic308.consmr.mail.ir2.yahoo.com with HTTP; Mon, 22 Jun 2020 14:27:12 +0000
+Received: by smtp411.mail.sg3.yahoo.com (VZM Hermes SMTP Server) with ESMTPA ID 65a622fe53d916d3d79f7e1e79711216;
+          Mon, 22 Jun 2020 14:25:10 +0000 (UTC)
+Subject: Re: [Cake] [CAKE] Rate is much lower than expected - CPU load is
+ higher than expected
+To: cake@lists.bufferbloat.net
+References: <CAFC8iJKY+1iuiTHuo5OditK7RtpqZ=bbap+gzdEuM=gt5fiNZw@mail.gmail.com>
+From: Y <intruder_tkyf@yahoo.fr>
+Message-ID: <a0a7c1a9-93d5-2719-b786-59f99359e480@yahoo.fr>
+Date: Mon, 22 Jun 2020 23:25:05 +0900
+User-Agent: Mozilla/5.0 (X11; Linux armv7l; rv:68.0) Gecko/20100101
+ Thunderbird/68.8.0
+MIME-Version: 1.0
+In-Reply-To: <CAFC8iJKY+1iuiTHuo5OditK7RtpqZ=bbap+gzdEuM=gt5fiNZw@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Mailer: WebService/1.1.16138 hermes_yahoo Apache-HttpAsyncClient/4.1.4 (Java/11.0.7)
+
+
+You should paste this result.
+
+tc -s qdisc show dev eth0
+
+Yutaka
+
+On 22/06/2020 22:10, Jose Blanquicet wrote:
+> Hi everyone,
+> 
+> We have an embedded system with limited CPU resources that acts as a
+> gateway to provide Internet access from LTE to a private USB-NCM
+> network (And also to a Wi-Fi private network but we will work on it
+> later). Our problem is that the bandwidth on LTE and USB link is
+> higher than what the system is able to handle thus it reaches 100% of
+> CPU load when we perform a simple speed test from a device on the
+> private network.
+> 
+> Therefore, we want to limit the bandwidth to avoid system getting
+> saturated in such use-case. To do so, we thought to use the CAKE on
+> the USB interface. For instance, we tried:
+> 
+>      tc qdisc replace root dev eth0 cake bandwidth 20mbit ethernet
+> internet flowblind nonat besteffort nowash
+> 
+> It worked correctly and the maximum rate was limited but there are two
+> things that are worrying us:
+> 
+> 1) The maximum rate reached after applying CAKE was in between 12Mbps
+> and 15Mbps which is quite lower than the 20Mbps we are configuring, we
+> were expecting around 18-19. Why? Is there something in the parameters
+> we are doing wrong? Please take into account that our goal is to limit
+> the rate but adding as little CPU load as possible.
+> 
+> 2) The CPU load added by CAKE was not negligible for our system. In
+> fact, we compared the CPU load when limitation was done by CAKE and by
+> the device on the private network, e.g. curl tool with parameter
+> "--limit-rate". As a result, we found that the CPU load when using
+> CAKE was 30%. Is there any way to make it lighter with a different
+> configuration?
+> 
+> Thanks in advance for the support. Any suggestion is welcome.
+> 
+> Jose Blanquicet
+> _______________________________________________
+> Cake mailing list
+> Cake@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/cake
+> 
+
+--===============3398551301154662422==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============3398551301154662422==--
