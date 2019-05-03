@@ -2,89 +2,90 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id B91E1133FB
-	for <lists+cake@lfdr.de>; Fri,  3 May 2019 21:23:22 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4826B13665
+	for <lists+cake@lfdr.de>; Sat,  4 May 2019 01:57:50 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 9EEE53CB39;
-	Fri,  3 May 2019 15:23:21 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id DC5273CB39;
+	Fri,  3 May 2019 19:57:48 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1556911401;
-	bh=v9/eNBWP0ZPXskWRQHu8Q1FSauCweD4VPD6vaDz8Ays=;
+	d=lists.bufferbloat.net; s=201610; t=1556927868;
+	bh=mtPcF38cj4kNC5UWm6voh5KoT3FoW3Wjt1NbYofN0o8=;
 	h=From:To:Date:References:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=Mp7L2fqsY4fgfPQg5aBS7dYjrQV75C7qo4rGf7a1TPR0D0OTO5msLZnULkmTTEFM1
-	 xW7tucvijcbmc9kCjZf2V2JsNj/VcL5AJLIYo7cuuM/Uzh99DWQY1Xm7PqBVVsp3PJ
-	 EcW/+yRYt+O0wl7phAPtT+8hmufFJk67MdZ3XzlGjsBCweSFNqiKIUq11xAyk1//VI
-	 Y4zrB9GTs2WI1yLBTVavcJ1DPVuEIxEBR1U5hfxqCBp8dC6sTafXvh0cBicT6qSzVe
-	 5l8UwVtZ8F25Q6FpzHxemXo1ZLd5Ga0bYye0mNka23jYfQ8slQVudIUUknughWw2/x
-	 h+qp+ATcH1S4Q==
+	b=CHQ1FXH4UePA6kvdtrG7aAB7ug4tCZBJNUvxLvLiiCDcG5HyAJyVyleczDCKGKWnB
+	 /e48g7zNjxMGaUvPbLYh4VijzENrxRsE2JWTHmxuatHjRKZXWbKYsUnHypmVqpHTsp
+	 ItW8+5dmttWQT8sSVDBX3+cgbfgiQ7yWSGK+xXu8yaebWncN0HGcyJvzTB696ko5l0
+	 prhfTdLFjJXdks+xN0VTFPOvwr/2aD1OgxeUOig7WLwKl01lwugumU52GTteMZ8BZv
+	 YKAMZ0fsvKcfYsVUkKPlaSzfVAqQ7Gcb5YOScZLLVfUBJFtiW6Kb8pe9+SbeanfsmT
+	 eQY4sdb+YeqSg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from EUR01-HE1-obe.outbound.protection.outlook.com
- (mail-eopbgr130042.outbound.protection.outlook.com [40.107.13.42])
+Received: from EUR04-DB3-obe.outbound.protection.outlook.com
+ (mail-eopbgr60044.outbound.protection.outlook.com [40.107.6.44])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id DE72D3CB35
- for <cake@lists.bufferbloat.net>; Fri,  3 May 2019 15:23:20 -0400 (EDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 2D93C3CB35
+ for <cake@lists.bufferbloat.net>; Fri,  3 May 2019 19:57:47 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=darbyshire-bryant.me.uk; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=3H87qc8vItyjPPGLuf8XB8kSevKr9yoDZWbbmk3crbc=;
- b=NtAhoijFXrLrvJlC1kZX+dg3FWavIvV4fOsWAa1/579coash+H1qhOZ67LiwP3LQUbrEvIU9Yh+HVJm/0R5b/PEOoIUI/mm+6zAITvUzQ+twfh1evdMVujHfz7RVsxmzQJQkHRrBQgrVLG5MoS9AHC6ZVsWGpa3GdCANemtAg54=
+ bh=J4YRooVdD5mZQvNdIXNzCC80HEyrIG2WVAELTA6jquY=;
+ b=K+7nVneVAAl+7miArAUoQFS21EqlqGiBA+7uxmYKVgXtReW7sOjmwjcgNAEShJqYqOZJhCVbCKDvKXQcI5JFa7w652pFMY9T/UT5guntsncDEM5dlEWF5NDgNrTisZP6HhhfYVAJ8UWhCi4NU8ssqd/DJKg2VODoUUj/5HKwyfo=
 Received: from VI1PR0302MB2750.eurprd03.prod.outlook.com (10.171.105.143) by
- VI1PR0302MB3470.eurprd03.prod.outlook.com (52.134.14.29) with Microsoft SMTP
+ VI1PR0302MB3422.eurprd03.prod.outlook.com (52.134.13.160) with Microsoft SMTP
  Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.1835.13; Fri, 3 May 2019 19:23:17 +0000
+ 15.20.1856.11; Fri, 3 May 2019 23:57:44 +0000
 Received: from VI1PR0302MB2750.eurprd03.prod.outlook.com
  ([fe80::b584:8ced:9d52:d88e]) by VI1PR0302MB2750.eurprd03.prod.outlook.com
  ([fe80::b584:8ced:9d52:d88e%6]) with mapi id 15.20.1835.018; Fri, 3 May 2019
- 19:23:17 +0000
+ 23:57:44 +0000
 From: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
 To: =?utf-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
 Thread-Topic: [Cake] Possible conntrack lookup improvements
-Thread-Index: AQHVAbfnPteC/tjlzk2+6Qn9IvtEYaZZci6AgABOYwCAAAR8gIAAAtSA
-Date: Fri, 3 May 2019 19:23:17 +0000
-Message-ID: <0D8001E5-0B7B-44BD-914A-B3F41E0558D0@darbyshire-bryant.me.uk>
+Thread-Index: AQHVAbfnPteC/tjlzk2+6Qn9IvtEYaZZci6AgABOYwCAAAR8gIAAAtSAgABMrwA=
+Date: Fri, 3 May 2019 23:57:44 +0000
+Message-ID: <A48EED9B-B4BE-4EF4-BD9C-472FF90A5987@darbyshire-bryant.me.uk>
 References: <493B2B95-93C5-4CEB-906E-CFF0BF3187E9@darbyshire-bryant.me.uk>
  <069B5A62-314A-4559-8D6C-C67A5D1FE75F@gmail.com>
  <05CE7D6A-0A66-4540-A398-B5D6FC4EF06B@darbyshire-bryant.me.uk>
  <87h8abgxmi.fsf@toke.dk>
-In-Reply-To: <87h8abgxmi.fsf@toke.dk>
+ <0D8001E5-0B7B-44BD-914A-B3F41E0558D0@darbyshire-bryant.me.uk>
+In-Reply-To: <0D8001E5-0B7B-44BD-914A-B3F41E0558D0@darbyshire-bryant.me.uk>
 Accept-Language: en-GB, en-US
 Content-Language: en-US
 X-MS-Has-Attach: 
 X-MS-TNEF-Correlator: 
 authentication-results: spf=none (sender IP is )
  smtp.mailfrom=kevin@darbyshire-bryant.me.uk; 
-x-originating-ip: [193.240.142.133]
+x-originating-ip: [2a02:c7f:1240:ee00::dc83]
 x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: f4f208e5-be0a-47fe-13bf-08d6cffccbcc
+x-ms-office365-filtering-correlation-id: f3e03492-6c50-4e2a-8327-08d6d02322f9
 x-microsoft-antispam: BCL:0; PCL:0;
  RULEID:(2390118)(7020095)(4652040)(7021145)(8989299)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(5600141)(711020)(4605104)(2017052603328)(7193020);
- SRVR:VI1PR0302MB3470; 
-x-ms-traffictypediagnostic: VI1PR0302MB3470:
-x-microsoft-antispam-prvs: <VI1PR0302MB34704FFAA79E222F6B3FF3CAA5350@VI1PR0302MB3470.eurprd03.prod.outlook.com>
+ SRVR:VI1PR0302MB3422; 
+x-ms-traffictypediagnostic: VI1PR0302MB3422:
+x-microsoft-antispam-prvs: <VI1PR0302MB34228BC8EEC3B9791A029ED5A5350@VI1PR0302MB3422.eurprd03.prod.outlook.com>
 x-ms-oob-tlc-oobclassifiers: OLM:10000;
 x-forefront-prvs: 0026334A56
 x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(366004)(39830400003)(376002)(396003)(346002)(136003)(199004)(189003)(256004)(5660300002)(66946007)(446003)(66066001)(14454004)(82746002)(66574012)(6436002)(76176011)(86362001)(4326008)(99286004)(14444005)(186003)(33656002)(71200400001)(6512007)(25786009)(53936002)(54906003)(66476007)(83716004)(66446008)(5024004)(76116006)(73956011)(66556008)(64756008)(316002)(91956017)(508600001)(6246003)(74482002)(71190400001)(8676002)(2906002)(229853002)(6486002)(305945005)(6506007)(81166006)(68736007)(7736002)(3846002)(36756003)(8936002)(6116002)(486006)(2616005)(11346002)(26005)(81156014)(6916009)(102836004)(53546011)(476003);
- DIR:OUT; SFP:1101; SCL:1; SRVR:VI1PR0302MB3470;
+ SFS:(10009020)(366004)(376002)(396003)(136003)(346002)(39830400003)(199004)(189003)(486006)(6916009)(86362001)(6512007)(74482002)(5660300002)(6436002)(14454004)(81156014)(256004)(14444005)(6246003)(5024004)(36756003)(99286004)(305945005)(8936002)(8676002)(508600001)(71190400001)(71200400001)(83716004)(81166006)(316002)(2906002)(6116002)(229853002)(53546011)(76176011)(6506007)(4326008)(53936002)(102836004)(6486002)(82746002)(25786009)(7736002)(33656002)(66574012)(68736007)(186003)(2616005)(476003)(66946007)(46003)(11346002)(91956017)(66476007)(66556008)(64756008)(66446008)(73956011)(446003)(76116006);
+ DIR:OUT; SFP:1101; SCL:1; SRVR:VI1PR0302MB3422;
  H:VI1PR0302MB2750.eurprd03.prod.outlook.com; FPR:; SPF:None; LANG:en;
  PTR:InfoNoRecords; A:1; MX:1; 
 received-spf: None (protection.outlook.com: darbyshire-bryant.me.uk does not
  designate permitted sender hosts)
 x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: xIwWKQOQ+r+/FAMhGbW3uDrVP+qohqSBG70arnYUyEn7PQMUEjbrcA3KkV8nugT00YT+pFerwyebpKJIxk1/mdlXcUFdawBwQj5iLl+2Le2o6G/W0GMQpodpNAxjopDl/h/kPdOdazhMWO4AvjgoG6qizCLdC+MyID7MP6W1Nbs0iAjh16tFpsCvJUYvNf12iZeoDcVsH/7YoA8Mh7tTquFS8AK+dBoGrjXmf4m7x8/8O3HlKrfzfp6ecptGrhIuhT2ldI56HHlCvNkTn5DAnRxI0y7+5/IKUhzpt8M0tH46UeaP54QPk7+MzdgFxma1Xu3hrYXU/eDEizj2pcSoeSGU+nIl4pycaJxNoaMVm4Y5cOsr2DjtKq0Viz7I+lVEd1yjnxr+/jSek4iA8ZHxY6EgRA1t+iQikMKxTa/bmKE=
-Content-ID: <0261D1F97F8C4F45B0CAF112286FD280@eurprd03.prod.outlook.com>
+x-microsoft-antispam-message-info: SKMvjlE5qDLlMFIbOhHlYUMBhcrDVwwLsSbdiVTAgfKet3ngqcNHQ7RrWVPEdzU76+i8n4RnyfGhmaxU+I6XYgVi3CTzcp9RZIKt6ikV30S5pK22K4GZuHPBUP15vS9MBbtd1LyivsjXQr/Tqf1gUixf1VPZWwEdS8IZZyudWN9H8rQrEXayEk2c6To+jZMSERkk4pgIYfvakuzeYm3qV1QxtYx1UfZFwfwHw3tFTysdIPHnR4AX7OWtuPhMn5KDdXO7qcuat+GEAsFeOcgrWu+BbeU37iZHLjebSKCjJLUlsRNec6c1pWyyf2HUpxRjm4ViW+7YC+I9pnyw7aITDnnS7D8lmVZrhwoWQ0938JHVTc5TQMlfKxJhsCX7TD3BJbGo+EnnlMB73CSwWyT0U5fA4svmTcuRsupFFkMw+bI=
+Content-ID: <CACBE223FBB39348AD4F2D1B64D88F24@eurprd03.prod.outlook.com>
 MIME-Version: 1.0
 X-OriginatorOrg: darbyshire-bryant.me.uk
-X-MS-Exchange-CrossTenant-Network-Message-Id: f4f208e5-be0a-47fe-13bf-08d6cffccbcc
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 May 2019 19:23:17.6210 (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f3e03492-6c50-4e2a-8327-08d6d02322f9
+X-MS-Exchange-CrossTenant-originalarrivaltime: 03 May 2019 23:57:44.8403 (UTC)
 X-MS-Exchange-CrossTenant-fromentityheader: Hosted
 X-MS-Exchange-CrossTenant-id: 9151708b-c553-406f-8e56-694f435154a4
 X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR0302MB3470
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR0302MB3422
 Subject: Re: [Cake] Possible conntrack lookup improvements
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -103,36 +104,41 @@ Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-DQoNCj4gT24gMyBNYXkgMjAxOSwgYXQgMjA6MTMsIFRva2UgSMO4aWxhbmQtSsO4cmdlbnNlbiA8
-dG9rZUByZWRoYXQuY29tPiB3cm90ZToNCj4gDQo+IEtldmluIERhcmJ5c2hpcmUtQnJ5YW50IDxr
-ZXZpbkBkYXJieXNoaXJlLWJyeWFudC5tZS51az4gd3JpdGVzOg0KPiANCj4+PiBPbiAzIE1heSAy
-MDE5LCBhdCAxNToxNiwgSm9uYXRoYW4gTW9ydG9uIDxjaHJvbWF0aXg5OUBnbWFpbC5jb20+IHdy
-b3RlOg0KPj4+IA0KPj4+PiBPbiAzIE1heSwgMjAxOSwgYXQgNDo1NSBwbSwgS2V2aW4gRGFyYnlz
-aGlyZS1CcnlhbnQgPGtldmluQGRhcmJ5c2hpcmUtYnJ5YW50Lm1lLnVrPiB3cm90ZToNCj4+Pj4g
-DQo+Pj4+IFR3byBwYXRjaGVzIGF0dGFjaGVkIC0gb25lIGlzIGEgc2ltcGxlIHZhcmlhYmxlIGVs
-aW1pbmF0aW9uIHdpdGggbm8gZnVuY3Rpb25hbCBjaGFuZ2UuICBUaGUgc2Vjb25kIGNoYW5nZXMv
-c2ltcGxpZmllcyB0aGUgY29ubnRyYWNrIHR1cGxlIGxvb2t1cCAmIHVzYWdlLiAgSeKAmXZlIGhh
-ZCBhIHBsYXkgYW5kIEkgZG9u4oCZdCB0aGluayBJ4oCZdmUgYnJva2VuIGFueSBvZiB0aGUgaG9z
-dCBmYWlybmVzcyBCVVQgaXQgY291bGQgZG8gd2l0aCBzb21lIG1vcmUgdGVzdGluZywgdGhhdOKA
-mXMgd2hlcmUgeW91IGNvbWUgaW7igKYgDQo+Pj4gDQo+Pj4gTG9va3MgbGlrZSBzb3VuZCBsb2dp
+DQoNCj4gT24gMyBNYXkgMjAxOSwgYXQgMjA6MjMsIEtldmluIERhcmJ5c2hpcmUtQnJ5YW50IDxr
+ZXZpbkBkYXJieXNoaXJlLWJyeWFudC5tZS51az4gd3JvdGU6DQo+IA0KPiANCj4gDQo+PiBPbiAz
+IE1heSAyMDE5LCBhdCAyMDoxMywgVG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2VuIDx0b2tlQHJlZGhh
+dC5jb20+IHdyb3RlOg0KPj4gDQo+PiBLZXZpbiBEYXJieXNoaXJlLUJyeWFudCA8a2V2aW5AZGFy
+YnlzaGlyZS1icnlhbnQubWUudWs+IHdyaXRlczoNCj4+IA0KPj4+PiBPbiAzIE1heSAyMDE5LCBh
+dCAxNToxNiwgSm9uYXRoYW4gTW9ydG9uIDxjaHJvbWF0aXg5OUBnbWFpbC5jb20+IHdyb3RlOg0K
+Pj4+PiANCj4+Pj4+IE9uIDMgTWF5LCAyMDE5LCBhdCA0OjU1IHBtLCBLZXZpbiBEYXJieXNoaXJl
+LUJyeWFudCA8a2V2aW5AZGFyYnlzaGlyZS1icnlhbnQubWUudWs+IHdyb3RlOg0KPj4+Pj4gDQo+
+Pj4+PiBUd28gcGF0Y2hlcyBhdHRhY2hlZCAtIG9uZSBpcyBhIHNpbXBsZSB2YXJpYWJsZSBlbGlt
+aW5hdGlvbiB3aXRoIG5vIGZ1bmN0aW9uYWwgY2hhbmdlLiAgVGhlIHNlY29uZCBjaGFuZ2VzL3Np
+bXBsaWZpZXMgdGhlIGNvbm50cmFjayB0dXBsZSBsb29rdXAgJiB1c2FnZS4gIEnigJl2ZSBoYWQg
+YSBwbGF5IGFuZCBJIGRvbuKAmXQgdGhpbmsgSeKAmXZlIGJyb2tlbiBhbnkgb2YgdGhlIGhvc3Qg
+ZmFpcm5lc3MgQlVUIGl0IGNvdWxkIGRvIHdpdGggc29tZSBtb3JlIHRlc3RpbmcsIHRoYXTigJlz
+IHdoZXJlIHlvdSBjb21lIGlu4oCmIA0KPj4+PiANCj4+Pj4gTG9va3MgbGlrZSBzb3VuZCBsb2dp
 YywgYXMgbG9uZyBhcyBpdCBkb2VzIGFjdHVhbGx5IHdvcmsuICBJdCBjb3VsZCBiZSBhIHVzZWZ1
 bCBzcGVlZHVwIGZvciB0aG9zZSBzbWFsbCBDUEUgZGV2aWNlcyB3aGljaCBuZWVkIE5BVCBhbmQg
-aG9zdC1mYWlybmVzcyB3b3JraW5nLg0KPj4gDQo+PiBJdOKAmXMgaW50ZXJlc3RpbmcgeW91IGJy
-aW5nIHRoYXQgdXAgLSBhcmUgd2Ugc3VyZSB0aGF0IGluZ3Jlc3MgaG9zdCBOQVQNCj4+IGZhaXJu
-ZXNzIHdvcmtzIGluIHRoZSB1cHN0cmVhbSBrZXJuZWwgdmVyc2lvbiBvZiBDQUtFIGFueXdheT8g
-IEnigJltDQo+PiBsb29raW5nIGF0IGNha2VfdXBkYXRlX2Zsb3drZXlzKOKApikgYW5kIHRoaW5r
-aW5nIGhhbGYgb2YgaXQgaXMgbWlzc2luZz8NCj4gDQo+IE5vLCBpdCdzIGp1c3QgbW92ZWQgaW50
-byBuZl9jb25udHJhY2tfZ2V0X3R1cGxlX3NrYigpOyB0aGlzIHdhcyBwYXJ0IG9mDQo+IHRoZSB3
-b3JrIHdlIGRpZCB0byBlbnN1cmUgc2NoX2Nha2UgY291bGQgbG9hZCB3aXRob3V0IGEgZGVwZW5k
-ZW5jeSBvbg0KPiB0aGUgY29ubnRyYWNrIG1vZHVsZS4uLg0KPiANCj4gSXQgZG9lcyBjYXJyeSBv
-dmVyIHRoZSAnbmZfY3RfdHVwbGUoY3QsICFoYXNoLT50dXBsZS5kc3QuZGlyKTsnIGFuZCB0aGUN
-Cj4gc3Vic2VxdWVudCByZXZlcnNpb24sIHRob3VnaCwgYnV0IEkgdGhpbmsgdGhlIGxvZ2ljIGZp
-dHMgd2hhdCdzIGluIHRoZQ0KPiBvdXQtb2YtdHJlZSB2ZXJzaW9uPw0KPiANCj4gLVRva2UNCg0K
-QWhoISB5ZXMgSSBzZWUsIHRoYW5rcy4gLSBlbGl4aXIgb3IgbXkgYWJpbGl0eSB0byBvcGVyYXRl
-IGVsaXhpciB3YXMgZmFpbGluZyBlYXJsaWVyLg0KDQpZZXMgYW5kIGFncmVlIHRoZSBsb2dpYyBm
-b2xsb3dzIHRoZSBvdXQtb2YtdHJlZeKApmFuZCBJIGNhbiBzZWUgaG93IG15IGNoYW5nZSB0byBp
-dCB3b3VsZCBiZSBhcHBsaWVkLCBhc3N1bWluZyBpdCBkb2VzIGFjdHVhbGx5IHdvcmsuDQoNCg0K
-Q2hlZXJzLA0KDQpLZXZpbiBELUINCg0KZ3BnOiAwMTJDIEFDQjIgMjhDNiBDNTNFIDk3NzUgIDkx
-MjMgQjNBMiAzODlCIDlERTIgMzM0QQ0KDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0
-Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+aG9zdC1mYWlybmVzcyB3b3JraW5nLg0KPj4+IA0KPj4+IEl04oCZcyBpbnRlcmVzdGluZyB5b3Ug
+YnJpbmcgdGhhdCB1cCAtIGFyZSB3ZSBzdXJlIHRoYXQgaW5ncmVzcyBob3N0IE5BVA0KPj4+IGZh
+aXJuZXNzIHdvcmtzIGluIHRoZSB1cHN0cmVhbSBrZXJuZWwgdmVyc2lvbiBvZiBDQUtFIGFueXdh
+eT8gIEnigJltDQo+Pj4gbG9va2luZyBhdCBjYWtlX3VwZGF0ZV9mbG93a2V5cyjigKYpIGFuZCB0
+aGlua2luZyBoYWxmIG9mIGl0IGlzIG1pc3Npbmc/DQo+PiANCj4+IE5vLCBpdCdzIGp1c3QgbW92
+ZWQgaW50byBuZl9jb25udHJhY2tfZ2V0X3R1cGxlX3NrYigpOyB0aGlzIHdhcyBwYXJ0IG9mDQo+
+PiB0aGUgd29yayB3ZSBkaWQgdG8gZW5zdXJlIHNjaF9jYWtlIGNvdWxkIGxvYWQgd2l0aG91dCBh
+IGRlcGVuZGVuY3kgb24NCj4+IHRoZSBjb25udHJhY2sgbW9kdWxlLi4uDQo+PiANCj4+IEl0IGRv
+ZXMgY2Fycnkgb3ZlciB0aGUgJ25mX2N0X3R1cGxlKGN0LCAhaGFzaC0+dHVwbGUuZHN0LmRpcik7
+JyBhbmQgdGhlDQo+PiBzdWJzZXF1ZW50IHJldmVyc2lvbiwgdGhvdWdoLCBidXQgSSB0aGluayB0
+aGUgbG9naWMgZml0cyB3aGF0J3MgaW4gdGhlDQo+PiBvdXQtb2YtdHJlZSB2ZXJzaW9uPw0KPj4g
+DQo+PiAtVG9rZQ0KPiANCj4gQWhoISB5ZXMgSSBzZWUsIHRoYW5rcy4gLSBlbGl4aXIgb3IgbXkg
+YWJpbGl0eSB0byBvcGVyYXRlIGVsaXhpciB3YXMgZmFpbGluZyBlYXJsaWVyLg0KPiANCj4gWWVz
+IGFuZCBhZ3JlZSB0aGUgbG9naWMgZm9sbG93cyB0aGUgb3V0LW9mLXRyZWXigKZhbmQgSSBjYW4g
+c2VlIGhvdyBteSBjaGFuZ2UgdG8gaXQgd291bGQgYmUgYXBwbGllZCwgYXNzdW1pbmcgaXQgZG9l
+cyBhY3R1YWxseSB3b3JrLg0KPiANCg0KTXkgdGVzdGluZyBzdHJhdGVneSB3YXMgZmxhd2VkLCB0
+aGUgMm5kIHBhdGNoIGRvZXMgbm90IHdvcmsgY29ycmVjdGx5LiAgV2lsbCB0aGluayBhZ2Fpbi4N
+Cg0KPiANCg0KDQpDaGVlcnMsDQoNCktldmluIEQtQg0KDQpncGc6IDAxMkMgQUNCMiAyOEM2IEM1
+M0UgOTc3NSAgOTEyMyBCM0EyIDM4OUIgOURFMiAzMzRBDQoNCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMu
+YnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nh
+a2UK
