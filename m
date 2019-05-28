@@ -2,67 +2,66 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 882422CB46
-	for <lists+cake@lfdr.de>; Tue, 28 May 2019 18:12:06 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 937D02CBB3
+	for <lists+cake@lfdr.de>; Tue, 28 May 2019 18:20:34 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 403723CB38;
-	Tue, 28 May 2019 12:12:05 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 2EA0D3CB38;
+	Tue, 28 May 2019 12:20:33 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1559059925;
-	bh=7KOB9JTUqYU/UXYgmaTK59rHEbYqXL7uBVUTVI8r+lo=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1559060433;
+	bh=0vKLPESj0UUKOHDiSEft75/6jnKQ1qoewDDAWES5qaw=;
+	h=From:To:In-Reply-To:References:Date:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=BGYgyIPBCrVz+bZJhDF8FXOiItq1Eq0leoyc1KqMtCphqCWUapV+KP/2q4lF+WuBc
-	 CmBhG8003+3r28e275joNpITbW3YG7inkHEW/8zCtSVOK0teJYdIU2nXuNRhXTRmFh
-	 iBBxgL0UbZhUR/oMgYXeMzsYx9r6r7+udmBjsj/z5SADYm0SO0xjfuMSVMBeS3JF2q
-	 28nB0W4Lcul8txkfggxgsFiRpr3/uNpCsBGrD7ggBCWi9oBhltyeWhB/tocM23DNbD
-	 CCduTzgaXodrCs6tY8WvEIzCewa0yRohpG7iitZ3D/qHpTZfGYrR2RybyJ8+3lWwKV
-	 BMYmeROo8u+Mg==
+	b=mA1GDCpmboQEk5l5oOjo4koMTBUl7QRDVdc99PhYJCCTFQjxsZfLwMD6ItMqb3D+p
+	 TO9Yz8SB3HANz7lWOOHN28wVE46zo9bhXL6RltT9ofqlb54xzj+b/FrSMfgpDu5LrO
+	 d/98yUEiHYkkjwPxzmRoM6HCqVupL84H482me9HRiIM+7h4r/QWc+rPTJ5Yr+wOXwj
+	 fEZLtlWc6DjnM6PEdaeF5N3FgYbJo0N1jCOufcJirwdPLhSN2l1/w8rGCR8lL6CY5M
+	 JuvRTDB0xdG6m3HquagHczbXzoNG/mEWku5npVtj/JRBQ00dfH8vJNHAzedrtK5K57
+	 ff7naSdGKWDOw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-wm1-x331.google.com (mail-wm1-x331.google.com
- [IPv6:2a00:1450:4864:20::331])
+Received: from mail-lj1-f179.google.com (mail-lj1-f179.google.com
+ [209.85.208.179])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 7008D3B29E
- for <cake@lists.bufferbloat.net>; Tue, 28 May 2019 12:02:00 -0400 (EDT)
-Received: by mail-wm1-x331.google.com with SMTP id d17so3564725wmb.3
- for <cake@lists.bufferbloat.net>; Tue, 28 May 2019 09:02:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=uP+X6CLAR5ihOYgarlRBZFY24hDmrsh3/yfRunEcp8w=;
- b=Ci2K/NXzoPqliveAuprmX0xD47KVoGoJDuwabgKb7d8dNalwUfutwRNXleRxyGBvAR
- cvsNPgXsk7HEFGc9kg+GPt4bw/Iq0b7NTeFa87FAVyJKF7a1Q5QL3sLdpOA2t8cZj6r6
- +9GQtJURSgv5NJ9F/oWVN1hECA+CWw3Yr4WZKxmiW6j2ACCV/cOrnJ0dkv/BmFiYMHGY
- Xkj9NtD4Hwl2O+cuc/3YNtQpBGRded/xOpaUj/4ZgsqncuVx5Dr2FegaWuvcRceYvnsK
- CyIHRc8C71lyycewNNv4Td+4voVHoccxrVDZZ74CrNC9/dthTluB9T4jMc9Efg8UkvzF
- sEgw==
+ by lists.bufferbloat.net (Postfix) with ESMTPS id E8D903B29E
+ for <cake@lists.bufferbloat.net>; Tue, 28 May 2019 12:20:31 -0400 (EDT)
+Received: by mail-lj1-f179.google.com with SMTP id q62so18295355ljq.7
+ for <cake@lists.bufferbloat.net>; Tue, 28 May 2019 09:20:31 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=uP+X6CLAR5ihOYgarlRBZFY24hDmrsh3/yfRunEcp8w=;
- b=YCG7SWapVVxdx9IumBaT+ZvRksGa9jGmuHxNuwBW8aHrDPaw3s6RugN57h6ygVtvge
- 3+D5QiUpDyOKUk1TTlUWxuCWJwlv4B8VOmkSQ1iqctD3mAA1tE/sHtw2AciktICv3xm/
- /XbxbsNfzZkEi/6VcYk+VwCD+xCsoAIhjou5bBBKqXcnOZeveNc9+fk0a84NFNvvvn1y
- eVc6Zzuca/dmqnVWeElU2n/AtGp8IwS7F4lKaMEj3M87h42kQEtkIWvFsjYkNd+CcPZP
- a/7tVQPqXg/C9G1a280H600/LzqDP5bSt79ERkXBbgadK7GrF8I6/XcVolmDR/KFbJFw
- zwxg==
-X-Gm-Message-State: APjAAAVPRP/P7etpE2TJpDbJCZrADuBcqy206/uma5ivjplK7STES/2s
- trXCfEp312t1cUdnHXgFZNFcppg+EuvUML6LynI=
-X-Google-Smtp-Source: APXvYqzl/hfkNLgkDKnZ7veZXd+da650JltEI0Es4rD3jS8I20F7avQ8GNuRHlWyhLLks10dIwng4msymAIOXelTAaY=
-X-Received: by 2002:a1c:cb0c:: with SMTP id b12mr3432043wmg.86.1559059318980; 
- Tue, 28 May 2019 09:01:58 -0700 (PDT)
-MIME-Version: 1.0
+ h=x-gm-message-state:from:to:cc:subject:in-reply-to:references:date
+ :message-id:mime-version;
+ bh=QUBK0smUCEmAkLWUMviQy/y2cmdfwPzjFuxose3v4AE=;
+ b=U+gHs7BKZnARN3ppftb/6Ioff49f+Oi6HO+f4JWjJRilxmMfmuGSsvma1oFdV5MaYR
+ QKzHnB5mFbHXCcRrFds2Sp7uJvlsGZXH6KgHRlek1GOA6gnmo6up48TLPE7e34sys3KW
+ iSekJSllTBbXAaSKOCFFtQXFaB0yprM8Rvw5X/k9A/9wDJ2Y8r9/OMXj8lk5qaF4LbXg
+ iDFEm8i0WfYtV0LUv1wcsjtvSWGNSfvaaGrmS+ZcmMrTg4ZrovKoUGqwXKcMD9pTsaAO
+ +SJm98d8wTjOwwgpGjTlFRqzaITmExkLVI8J7fLKMdSMa/72APOyX18o4lFZBhoP1zeV
+ i0yQ==
+X-Gm-Message-State: APjAAAWGs2LTZEvtjPm9l4eqekvwWLvepmG1D7RwwC7Or4EBBlIkGJGG
+ pUKHeUZ9w0/rbAim4FGKUVqEHQ==
+X-Google-Smtp-Source: APXvYqzVt9C1LB4cbm3+M9Bns2HZLMoJ07zH/TtGTIfCyJBNb8EkZUGWbTwvimZvSCMSIkjZGg8MlA==
+X-Received: by 2002:a2e:5c08:: with SMTP id q8mr15090148ljb.113.1559060430904; 
+ Tue, 28 May 2019 09:20:30 -0700 (PDT)
+Received: from alrua-x1.borgediget.toke.dk (alrua-x1.vpn.toke.dk.
+ [2a00:7660:6da:10::2])
+ by smtp.gmail.com with ESMTPSA id p6sm2994117lfo.55.2019.05.28.09.20.30
+ (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
+ Tue, 28 May 2019 09:20:30 -0700 (PDT)
+Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
+ id 881DE18031E; Tue, 28 May 2019 18:20:29 +0200 (CEST)
+From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
+To: Akshat Kakkar <akshat.1984@gmail.com>
+In-Reply-To: <CAA5aLPhrDbqJqfVVBWfCZ6TK0ZFMOSsqxK9DS9D1cd4GZJ0ctw@mail.gmail.com>
 References: <CAA5aLPgz2Pzi5qNZkHwtN=fEXEwRpCQYFUkEzRWkdT39+YNWFA@mail.gmail.com>
  <875zpvvsar.fsf@toke.dk>
-In-Reply-To: <875zpvvsar.fsf@toke.dk>
-From: Akshat Kakkar <akshat.1984@gmail.com>
-Date: Tue, 28 May 2019 21:31:45 +0530
-Message-ID: <CAA5aLPhrDbqJqfVVBWfCZ6TK0ZFMOSsqxK9DS9D1cd4GZJ0ctw@mail.gmail.com>
-To: =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
-X-Mailman-Approved-At: Tue, 28 May 2019 12:12:03 -0400
+ <CAA5aLPhrDbqJqfVVBWfCZ6TK0ZFMOSsqxK9DS9D1cd4GZJ0ctw@mail.gmail.com>
+X-Clacks-Overhead: GNU Terry Pratchett
+Date: Tue, 28 May 2019 18:20:29 +0200
+Message-ID: <87muj6tusy.fsf@toke.dk>
+MIME-Version: 1.0
 Subject: Re: [Cake] Cake not doing rate limiting in a way it is expected to
 	do
 X-BeenThere: cake@lists.bufferbloat.net
@@ -83,12 +82,17 @@ Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SXQncyBhIGNvbnRyb2xsZWQgbGFiIHNldHVwLiBVc2VycyBjb25uZWN0ZWQgdG8gZW5vMiBhbmQg
-c2VydmVyIG9uIGVubzEuCkxpbmsgc3BlZWQgMUdicHMuCk5vIGluZ3Jlc3Mgc2hhcGluZy4KU2lt
-cGxlIGh0dHAgZG93bmxvYWQuCgpJIGFtIGhhdmluZyBtdWx0aXBsZSByYXRlcyByZXF1aXJlbWVu
-dCBmb3IgbXVsdGlwbGUgdXNlciBncm91cHMsIHdoaWNoCkkgYW0gY29udHJvbGxpbmcgdXNpbmcg
-dmFyaW91cyBjbGFzc2VzIGFuZCB0aHVzIHVzaW5nIGh0Yi4KCkp1c3QgdG8gbWVudGlvbiBvbmNl
-IGFnYWluLCBmcV9jb2RlbCBpcyB3b3JraW5nIGl0J3MgZXhwZWN0ZWQgd2F5LgpfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApD
-YWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9s
-aXN0aW5mby9jYWtlCg==
+QWtzaGF0IEtha2thciA8YWtzaGF0LjE5ODRAZ21haWwuY29tPiB3cml0ZXM6Cgo+IEl0J3MgYSBj
+b250cm9sbGVkIGxhYiBzZXR1cC4gVXNlcnMgY29ubmVjdGVkIHRvIGVubzIgYW5kIHNlcnZlciBv
+biBlbm8xLgo+IExpbmsgc3BlZWQgMUdicHMuCj4gTm8gaW5ncmVzcyBzaGFwaW5nLgo+IFNpbXBs
+ZSBodHRwIGRvd25sb2FkLgo+Cj4gSSBhbSBoYXZpbmcgbXVsdGlwbGUgcmF0ZXMgcmVxdWlyZW1l
+bnQgZm9yIG11bHRpcGxlIHVzZXIgZ3JvdXBzLCB3aGljaAo+IEkgYW0gY29udHJvbGxpbmcgdXNp
+bmcgdmFyaW91cyBjbGFzc2VzIGFuZCB0aHVzIHVzaW5nIGh0Yi4KCldlbGwsIENBS0UgaGFzIGl0
+cyBvd24gYnVpbHQtaW4gc2hhcGVyLCBzbyBpdCBoYXNuJ3Qgc2VlbiBtdWNoIHRlc3RpbmcKd2l0
+aCBIVEIgYXMgYSBwYXJlbnQuIFRoZW9yZXRpY2FsbHkgaXQgKnNob3VsZCogd29yaywgdGhvdWdo
+LCBhcyBsb25nIGFzCkNBS0UgaXMgcnVubmluZyBpbiB1bmxpbWl0ZWQgbW9kZS4KCkNvdWxkIHlv
+dSBwbGVhc2Ugc2hhcmUgeW91ciBmdWxsIGNvbmZpZywgYW5kIHRoZSBvdXRwdXQgb2YgYHRjIC1z
+IHFkaXNjYAphZnRlciBhIHJ1bj8KClRoYW5rcywKCi1Ub2tlCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMu
+YnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nh
+a2UK
