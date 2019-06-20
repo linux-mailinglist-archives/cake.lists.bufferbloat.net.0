@@ -2,66 +2,82 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id ACB464C828
-	for <lists+cake@lfdr.de>; Thu, 20 Jun 2019 09:17:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B592C4D4A9
+	for <lists+cake@lfdr.de>; Thu, 20 Jun 2019 19:15:21 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 422943CB39;
-	Thu, 20 Jun 2019 03:17:04 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 262333CB38;
+	Thu, 20 Jun 2019 13:15:20 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1561015024;
-	bh=hJWUHe3lhNSakJWib42OdvdgkIO2WocJHsT75YCDfMQ=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1561050920;
+	bh=kCwdrfMBMPBzjV0c11Y3V/tqePs6u3I/gpk7Pw9Oc8Y=;
+	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Reply-To:Cc:From;
-	b=Ebd1x5UiTueifEM+VjFuj+fyjSgzRshH4pXfnXrhNhEbT2j764o6KADETNq3NEKi9
-	 gjADzHZFJyk60FyaN4beQD0XcZBJ4W6rhErU7kl37CuBfgD7dj6zgRIQ20iOv8sCvH
-	 EqsK9R6SVI6KwV49b8f+Snl18Y01RRgfbRfJWepIj5K33lJTF+tZwJDBc6uDpEOFY2
-	 3JgDS6Kw2OkTnuWIkfTjajr2Wy6Hs4/v62C134X5tzI5Nw1Uz8NR6KuZGKXudlgicp
-	 SIsNqeRd8XrYxRGE5PalEamRYy6yueGIDCcPbrG+QPK5LQCiLZKTbpWwb/K1gCeWls
-	 Kbc8jbb5IrHmw==
+	 Cc:From;
+	b=qCyY9yEzPwmHTS0cbnWM8VR4qWLqtkwmdrGOLf0qdxr7HsCXAtPgdWXf8rR3xbFUz
+	 lZdUkwbmSyz8idRgsa75R0L0BugtEF0ZnF549NWneY0Da/pu1rQ8FE9kAy81vOczan
+	 vFngkumGCUWASY+KJWxPtET4kFMJK0f+aAbEABdzQJrqlG3L2NMyVLzP6mPqjn6AWF
+	 /1QKGfzCT4RQ0VFL+RVjCYKtgi/Rt+rIteYblDjL6tKzz/klu8N+LhVyumvFROzdbA
+	 gmfPJMUetx4TGClDVSmAGRMnpUD6VBXh8eq5nscIPITAX+64MzGzpGUUPUyytSGMkT
+	 tulfyEq96u8og==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-io1-xd2a.google.com (mail-io1-xd2a.google.com
- [IPv6:2607:f8b0:4864:20::d2a])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from korolev.univ-paris7.fr (korolev.univ-paris7.fr
+ [IPv6:2001:660:3301:8000::1:2])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 328853B2A4;
- Thu, 20 Jun 2019 03:17:03 -0400 (EDT)
-Received: by mail-io1-xd2a.google.com with SMTP id j6so578668ioa.5;
- Thu, 20 Jun 2019 00:17:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:reply-to:from:date:message-id
- :subject:to:cc;
- bh=4/4kRsavFvhs76EdOR3op/SsW3mNUGBAUvscmcKRt8I=;
- b=fZ6aUm/mPUJaW6b9CnwjOsgUybCKebqrgX3tIO1jZIR0XwwCCjkWtirNy4x7V4agIB
- tS2y1l1vHggLNT2bGmP6wol6qNmT9/KtGyGwv1FfFX3IraoCSSY4Y03KQ5t5T2LMwsKb
- wMgoBxV9LAlmKDtJxjGe/4NtIyg9VGVcTZo62XGbZxtyJPW8kKHEdJNmAPO5M2VMaU2H
- 9MV2+D5DCo5+y38mGUkwbw0MZKysWebOMNZJiBMsDK4hIL9guYvdDZjOerw+b9MakhPO
- QXffqmKHFLj05X3bpQy8XBucfS58SCAsfo8fQNZ+JDxd2uYeTjZA4mOK2anOS3psFHUw
- 0+lA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:reply-to
- :from:date:message-id:subject:to:cc;
- bh=4/4kRsavFvhs76EdOR3op/SsW3mNUGBAUvscmcKRt8I=;
- b=ZAvPlQK9bvLEPU3MIwDQXkycEcKS7Z0bUMJc6KiIvwNaoRSTi99GhSPGjih9EkVibw
- LbpJyJOGoSCu0QMhGGe5aEsCBgF4aEfJoQ/5adAK7mztYxA4dLs95XSTEyy+8gyNaFTj
- czKtVFZ+QShvz/PyfAaQCYQ2wX5maWJyrHdAAkZJawCrRCo8QdpzLU8mZmj7xrhfDH//
- heOtlCs5x8lyw9/Yknkrk1t0DHOm6XM2kpQAPoIxd1nAOh2M0L302C18fy90knYTh0sw
- zzIhafWoLHVcAoPLpFJBZiud/LZKBQbJPt1lC9nfceVWN4NvkxtH6p8seTxFjJFUw4U3
- 2q9A==
-X-Gm-Message-State: APjAAAUcQoAiJRvmMWJw+b6NZEeJPuroo/aEu9NhYmFn+AK02ONuR2i9
- V8PRmXkDufBubAPFS30+YFe9bVeRkqClSMWsrAc=
-X-Google-Smtp-Source: APXvYqy66E59Gbs0YN0WvuS2kVnHAYn4tM3J5C7et+k0ZjnPo2Fxnj84+Emoqxozgli6Z0oitjmnVKqWTwH2gYr2Z1Y=
-X-Received: by 2002:a6b:b804:: with SMTP id i4mr78670035iof.119.1561015022487; 
- Thu, 20 Jun 2019 00:17:02 -0700 (PDT)
-MIME-Version: 1.0
-References: <CAA93jw6C3agU4sencGgeJWHThEDsa-ingmkMG+EzUwydGw96GQ@mail.gmail.com>
-In-Reply-To: <CAA93jw6C3agU4sencGgeJWHThEDsa-ingmkMG+EzUwydGw96GQ@mail.gmail.com>
-From: Benjamin Henrion <zoobab@gmail.com>
-Date: Thu, 20 Jun 2019 09:16:50 +0200
-Message-ID: <CANjd3neaD2QA9Zc7NGAAk=c2tyRhX6YZNx6Cq3UwS3vsiz-W_w@mail.gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id B0BD73CB35;
+ Thu, 20 Jun 2019 12:00:15 -0400 (EDT)
+Received: from potemkin.univ-paris7.fr (potemkin.univ-paris7.fr
+ [IPv6:2001:660:3301:8000::1:1])
+ by korolev.univ-paris7.fr (8.14.4/8.14.4/relay1/82085) with ESMTP id
+ x5KG0793025830
+ (version=TLSv1/SSLv3 cipher=DHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+ Thu, 20 Jun 2019 18:00:07 +0200
+Received: from mailhub.math.univ-paris-diderot.fr
+ (mailhub.math.univ-paris-diderot.fr [81.194.30.253])
+ by potemkin.univ-paris7.fr (8.14.4/8.14.4/relay2/82085) with ESMTP id
+ x5KG07x2001264; Thu, 20 Jun 2019 18:00:07 +0200
+Received: from mailhub.math.univ-paris-diderot.fr (localhost [127.0.0.1])
+ by mailhub.math.univ-paris-diderot.fr (Postfix) with ESMTP id 65E1B2933B;
+ Thu, 20 Jun 2019 18:00:09 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at math.univ-paris-diderot.fr
+Received: from mailhub.math.univ-paris-diderot.fr ([127.0.0.1])
+ by mailhub.math.univ-paris-diderot.fr (mailhub.math.univ-paris-diderot.fr
+ [127.0.0.1]) (amavisd-new, port 10023)
+ with ESMTP id nILnPVUwzQOI; Thu, 20 Jun 2019 18:00:08 +0200 (CEST)
+Received: from lanthane.irif.fr (unknown [172.23.36.89])
+ (Authenticated sender: jch)
+ by mailhub.math.univ-paris-diderot.fr (Postfix) with ESMTPSA id 0FD1029337;
+ Thu, 20 Jun 2019 18:00:08 +0200 (CEST)
+Date: Thu, 20 Jun 2019 18:00:08 +0200
+Message-ID: <875zp0uu0n.wl-jch@irif.fr>
+From: Juliusz Chroboczek <jch@irif.fr>
 To: Dave Taht <dave.taht@gmail.com>
+In-Reply-To: <CAA93jw6C3agU4sencGgeJWHThEDsa-ingmkMG+EzUwydGw96GQ@mail.gmail.com>
+References: <CAA93jw6C3agU4sencGgeJWHThEDsa-ingmkMG+EzUwydGw96GQ@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.2.7
+ (korolev.univ-paris7.fr [IPv6:2001:660:3301:8000::1:2]);
+ Thu, 20 Jun 2019 18:00:07 +0200 (CEST)
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.2.7
+ (potemkin.univ-paris7.fr [194.254.61.141]);
+ Thu, 20 Jun 2019 18:00:07 +0200 (CEST)
+X-Miltered: at korolev with ID 5D0BAD87.001 by Joe's j-chkmail (http : //
+ j-chkmail dot ensmp dot fr)!
+X-Miltered: at potemkin with ID 5D0BAD87.002 by Joe's j-chkmail (http : //
+ j-chkmail dot ensmp dot fr)!
+X-j-chkmail-Enveloppe: 5D0BAD87.001 from
+ potemkin.univ-paris7.fr/potemkin.univ-paris7.fr/null/potemkin.univ-paris7.fr/<jch@irif.fr>
+X-j-chkmail-Enveloppe: 5D0BAD87.002 from
+ mailhub.math.univ-paris-diderot.fr/mailhub.math.univ-paris-diderot.fr/null/mailhub.math.univ-paris-diderot.fr/<jch@irif.fr>
+X-j-chkmail-Score: MSGID : 5D0BAD87.001 on korolev.univ-paris7.fr : j-chkmail
+ score : . : R=. U=. O=. B=0.000 -> S=0.000
+X-j-chkmail-Score: MSGID : 5D0BAD87.002 on potemkin.univ-paris7.fr : j-chkmail
+ score : . : R=. U=. O=. B=0.000 -> S=0.000
+X-j-chkmail-Status: Ham
+X-j-chkmail-Status: Ham
+X-Mailman-Approved-At: Thu, 20 Jun 2019 13:15:18 -0400
 Subject: Re: [Cake] [Babel-users] althea presentation on isp in a box at
 	nanog 76
 X-BeenThere: cake@lists.bufferbloat.net
@@ -75,7 +91,6 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Reply-To: zoobab@gmail.com
 Cc: Cake List <cake@lists.bufferbloat.net>, HOMENET <homenet@ietf.org>,
  babel-users <babel-users@lists.alioth.debian.org>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>
@@ -84,21 +99,14 @@ Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-T24gVGh1LCBKdW4gMjAsIDIwMTkgYXQgNzoxMSBBTSBEYXZlIFRhaHQgPGRhdmUudGFodEBnbWFp
-bC5jb20+IHdyb3RlOgo+Cj4gaHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1HNEVLYmdT
-aHlMdwo+Cj4gSW50ZXJlc3Rpbmcgc3R1ZmYgLSB3aXJlZ3VhcmQsIGZxX2NvZGVsL3NjaF9jYWtl
-LCBiYWJlbCB3aXRoIG5ldwo+IG1ldHJpYyB0aGF0IGFsbG93cyBmb3IgY3J5cHRvY3VycmVuY3kg
-dHJhZmZpYyBiaWxsaW5nLgoKSXMgaXQgaGFja2FibGU/CgpMaWtlIGNvdWxkIHlvdSBjaGVhdCBv
-biB0aGUgYW1vdW50IG9mIHRyYWZmaWMgdHJhbnNtaXR0ZWQ/CgotLQpCZW5qYW1pbiBIZW5yaW9u
-ICh6b29iYWIpCkVtYWlsOiB6b29iYWIgYXQgZ21haWwuY29tCk1vYmlsZTogKzMyLTQ4NC01NjYx
-MDkKV2ViOiBodHRwOi8vd3d3Lnpvb2JhYi5jb20KRkZJSS5vcmcgQnJ1c3NlbHMKIkluIEp1bHkg
-MjAwNSwgYWZ0ZXIgc2V2ZXJhbCBmYWlsZWQgYXR0ZW1wdHMgdG8gbGVnYWxpc2Ugc29mdHdhcmUK
-cGF0ZW50cyBpbiBFdXJvcGUsIHRoZSBwYXRlbnQgZXN0YWJsaXNobWVudCBjaGFuZ2VkIGl0cyBz
-dHJhdGVneS4KSW5zdGVhZCBvZiBleHBsaWNpdGx5IHNlZWtpbmcgdG8gc2FuY3Rpb24gdGhlIHBh
-dGVudGFiaWxpdHkgb2YKc29mdHdhcmUsIHRoZXkgYXJlIG5vdyBzZWVraW5nIHRvIGNyZWF0ZSBh
-IGNlbnRyYWwgRXVyb3BlYW4gcGF0ZW50CmNvdXJ0LCB3aGljaCB3b3VsZCBlc3RhYmxpc2ggYW5k
-IGVuZm9yY2UgcGF0ZW50YWJpbGl0eSBydWxlcyBpbiB0aGVpcgpmYXZvciwgd2l0aG91dCBhbnkg
-cG9zc2liaWxpdHkgb2YgY29ycmVjdGlvbiBieSBjb21wZXRpbmcgY291cnRzIG9yCmRlbW9jcmF0
-aWNhbGx5IGVsZWN0ZWQgbGVnaXNsYXRvcnMuIgpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJs
-b2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+PiBJbnRlcmVzdGluZyBzdHVmZiAtIHdpcmVndWFyZCwgZnFfY29kZWwvc2NoX2Nha2UsIGJhYmVs
+IHdpdGggbmV3Cj4gbWV0cmljIHRoYXQgYWxsb3dzIGZvciBjcnlwdG9jdXJyZW5jeSB0cmFmZmlj
+IGJpbGxpbmcuCgpKdXN0aW4sIGNvdWxkIHlvdSBwbGVhc2UgZG9jdW1lbnQgdGhlIHByaXZhdGUg
+VExWcyB0aGF0IHlvdSdyZSB1c2luZyBhbmQKcmVnaXN0ZXIgdGhlbSB3aXRoIElBTkE/ICAoSSdt
+IGN1cnJlbnRseSB1bmRlciBwcmVzc3VyZSB0byBtYWtlIHRoZSBUTFYKYWxsb2NhdGlvbiBtb3Jl
+IG9uZXJvdXMsIGFuZCB5b3VycyBpcyBhIGdvb2QgZXhhbXBsZSBvZiB3aHkgcmVxdWlyaW5nIGFu
+ClJGQyBmb3IgZXZlcnkgQmFiZWwgZXh0ZW5zaW9uIGlzIGEgYmFkIGlkZWEuKQoKWW91J3JlIHJ1
+bm5pbmcgV2lyZWd1YXJkIG92ZXIgQmFiZWwgb3IgdGhlIG90aGVyIHdheSBhcm91bmQ/ICBBbnkg
+aXNzdWVzCndpdGggdGhhdD8KCi0tIEp1bGl1c3oKX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJi
+bG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
