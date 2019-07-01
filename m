@@ -2,106 +2,134 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id E089C5BB67
-	for <lists+cake@lfdr.de>; Mon,  1 Jul 2019 14:22:40 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5FA6E5BB4B
+	for <lists+cake@lfdr.de>; Mon,  1 Jul 2019 14:13:32 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id DBAFF3CB3B;
-	Mon,  1 Jul 2019 08:22:39 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 02F203CB3A;
+	Mon,  1 Jul 2019 08:13:31 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1561983759;
-	bh=njtBSJaowDpVOQMwNeeCYkrvDBvrnG0Ma5Vwyo3fQUI=;
-	h=To:In-Reply-To:References:List-Id:List-Post:From:Cc:
-	 List-Subscribe:List-Unsubscribe:List-Archive:Reply-To:List-Help:
-	 Subject:From;
-	b=Z+kaiMRcNiwBfOFDitFWlz+L/19eZTWRhawflpcnK3mF6MPO/M5CdUEoht9bM9ef6
-	 KcgnQN0wukiRMS29C0BItU7iAmpv8wY8wakiiCqv853Tj2HQZ8DqYidvYsNDB12bfc
-	 wl/6B1bjWbD0Rn/2ZeUJtoGN+5NrXGxMXana8eBIzt8GkUGQouivuzbDRniOoAKuub
-	 cPgwRD+ievEF+awfqw1YR+WCDeivwOwixxzN0vfMrJqoKVbw0KWD8EqctGpS6ewqPw
-	 Vv6p/sVQu1BnMcO92RCOs3QeY+OjYXQzX/iATvYtiCaPtmUQ+eB/E0xWkeldECC/hi
-	 afmppx0gmmliA==
-To: Alban <albeu@free.fr>, cake@lists.bufferbloat.net
-In-Reply-To: <20190701135251.08defe75@eos>
-References: <20190701135251.08defe75@eos>
+	d=lists.bufferbloat.net; s=201610; t=1561983211;
+	bh=6wFv5VTZgHCzJO/k0ob+edDx3jS4/csvGoF3mEDVaBQ=;
+	h=Date:From:To:Subject:List-Id:List-Unsubscribe:List-Archive:
+	 List-Post:List-Help:List-Subscribe:Cc:From;
+	b=nifjH7/RZOYVegBiu82HXoS6Fks9sm58GCwB+8iGst29BQRr3BSlALzpZL/7uTd9Y
+	 T15EWQZwR00IQEF4u+NOPvjYNlfgIPm0y7ZuCKquuYyCbmVxRTQSa3vNbtdrnrr2Hh
+	 tlPZ8EAU/rIHvuCytQIxo4xt4hMvi2SHvVz37gr76tBHsa2Bn7VFt8AjD5UfIUsmZk
+	 S6irZE49HxCeP0KCKI3gEbN5wHb6AYpB3wZ5RuGVWBO1HfvvPPUJ8137ypTXTh/XOa
+	 iEB76ZlEavEQEk1YlnOjtHpWiLLleO+XmBnI671Ro6QkjvRkHII2rwlQe4ulIP2zMQ
+	 3253PiuUdMeyQ==
+X-Original-To: cake@lists.bufferbloat.net
+Delivered-To: cake@lists.bufferbloat.net
+Received: from smtp6-g21.free.fr (smtp6-g21.free.fr [212.27.42.6])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 6FB083B2A4
+ for <cake@lists.bufferbloat.net>; Mon,  1 Jul 2019 07:52:57 -0400 (EDT)
+Received: from eos (unknown [213.61.153.180]) (Authenticated sender: albeu)
+ by smtp6-g21.free.fr (Postfix) with ESMTPSA id A95DA7802C2;
+ Mon,  1 Jul 2019 11:52:53 +0000 (UTC)
+Date: Mon, 1 Jul 2019 13:52:51 +0200
+From: Alban <albeu@free.fr>
+To: cake@lists.bufferbloat.net
+Message-ID: <20190701135251.08defe75@eos>
+X-Mailer: Claws Mail 3.16.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-Message-ID: <mailman.9.1561983759.1240.cake@lists.bufferbloat.net>
-List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
-List-Post: <mailto:cake@lists.bufferbloat.net>
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= via Cake
- <cake@lists.bufferbloat.net>
-Precedence: list
-Cc: Alban <albeu@free.fr>
-X-Mailman-Version: 2.1.20
+X-Mailman-Approved-At: Mon, 01 Jul 2019 08:13:29 -0400
+Subject: [Cake] Recommendations for using cake in complex setup (wireguard +
+ vlan + bond)
 X-BeenThere: cake@lists.bufferbloat.net
-List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
- <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
+X-Mailman-Version: 2.1.20
+Precedence: list
+List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
 List-Unsubscribe: <https://lists.bufferbloat.net/options/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=unsubscribe>
 List-Archive: <https://lists.bufferbloat.net/pipermail/cake>
-Reply-To: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
+List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
-Subject: Re: [Cake] Recommendations for using cake in complex setup
-	(wireguard + vlan + bond)
-Content-Type: multipart/mixed; boundary="===============8562197537333516739=="
+List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
+ <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
+Cc: Alban <albeu@free.fr>
+Content-Type: multipart/mixed; boundary="===============0221317501601334909=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8562197537333516739==
-Content-Type: message/rfc822
-Content-Disposition: inline
+--===============0221317501601334909==
+Content-Type: multipart/signed; micalg=pgp-sha512;
+ boundary="Sig_/qzol4EptnSofl3Z2O6RP+Tm"; protocol="application/pgp-signature"
 
-Return-Path: <toke@toke.dk>
-X-Original-To: cake@lists.bufferbloat.net
-Delivered-To: cake@lists.bufferbloat.net
-Received: from mail.toke.dk (mail.toke.dk [52.28.52.200])
-	(using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
-	(No client certificate requested)
-	by lists.bufferbloat.net (Postfix) with ESMTPS id 4C6873CB37
-	for <cake@lists.bufferbloat.net>; Mon,  1 Jul 2019 08:22:39 -0400 (EDT)
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
-	t=1561983758; bh=qkP4c+Zh1Wtu2gGKRL5QpauHEA1pbZjl4c1/4O1xRuc=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=hdAfaLqYGEQXj+T7cBf3LHHq5ruUNkX90YVsxkyFMG+JbIluMuceSHOfRGlOB7XJB
-	 Jw+eZESr585DJ1RdMtqb9wB5gU8VDPOrcLbQt0HHTOVvO7oKXU5zKHT/0im95KQWGS
-	 NYu7+ZgAZmgiyVUULde6utSQSX5MfPWxgpsVcNh2SHa4q3XVRUPLXBAG2KU+uwFgUR
-	 o8x3T7RrZXgNBai1vNNo1tb4gevIwbc9t5vKMvpGrABpSSxyyfCqtfRGFEI24GIaPr
-	 PqBjnzh/EL9FOdbaWpTzKDBHUX8+Hox7tAsQU71O7bJw0YIbZwHfkKSdeq3aJJkPX9
-	 rs57sUgBLb1WQ==
-To: Alban <albeu@free.fr>, cake@lists.bufferbloat.net
-Cc: Alban <albeu@free.fr>
-Subject: Re: [Cake] Recommendations for using cake in complex setup (wireguard + vlan + bond)
-In-Reply-To: <20190701135251.08defe75@eos>
-References: <20190701135251.08defe75@eos>
-Date: Mon, 01 Jul 2019 14:22:37 +0200
-X-Clacks-Overhead: GNU Terry Pratchett
-Message-ID: <87tvc654he.fsf@toke.dk>
-MIME-Version: 1.0
-Content-Type: text/plain
+--Sig_/qzol4EptnSofl3Z2O6RP+Tm
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: quoted-printable
 
-Alban <albeu@free.fr> writes:
+Hi everybody,
 
-> Hi everybody,
->
-> I am setting a new router with a non trivial setup and I really like to
-> get some recommendations on how to best use cake. First of all the
-> router is using VLAN on top of 2 bonded gigabit Ethernet interface:
->
->                         +--> VLAN1 (LAN)
->  eth0 <--+              |
->          +---> bond0 <--+--> VLAN2 (WAN1)
->  eth1 <--+              |
->                         +--> VLAN3 (WAN2)
->
-> The bond is using LACP, but mainly for redundancy and not for the
-> increased bandwidth. Both WAN VLAN are going to ISP provided FritzBox
-> connected to 50/10Mbit VDSL2 lines.
+I am setting a new router with a non trivial setup and I really like to
+get some recommendations on how to best use cake. First of all the
+router is using VLAN on top of 2 bonded gigabit Ethernet interface:
 
-What are the physical interfaces connected to? How is the traffic
-getting to the FritzBoxes?
+                        +--> VLAN1 (LAN)
+ eth0 <--+              |
+         +---> bond0 <--+--> VLAN2 (WAN1)
+ eth1 <--+              |
+                        +--> VLAN3 (WAN2)
 
--Toke
+The bond is using LACP, but mainly for redundancy and not for the
+increased bandwidth. Both WAN VLAN are going to ISP provided FritzBox
+connected to 50/10Mbit VDSL2 lines.
 
---===============8562197537333516739==
+As far as i understand I should use cake on the WAN VLAN interfaces.
+But what about the bond and physical Ethernet interface? Per default
+the Ethernet interfaces use the fq_codel qdisc, should I replace it
+with noqueue if cake is running on the VLAN interface? Any other
+recommendation regarding queuing in general with such layering of
+interfaces?
+
+But there is one more component, on each WAN interface there is a
+wireguard tunnel which is used to encrypt most of the traffic going out
+on the interface. Unlike unencrypted IP in IP tunnel the kernel flow
+dissector is not able to distinguish the flows, so all the encrypted
+traffic is just one big flow for cake. Ideally I would like to achieve a
+setup where cake can handle the encrypted traffic just like unencrypted
+traffic.
+
+Looking at the wireguard code it seems that the incoming skb get
+encrypted/encapsulated and resent again while still using the same skb.
+This give me the hope that it might be possible to classify the traffic
+entering the wireguard tunnel and somehow pass this information down to
+the cake instance running on the lower device.
+
+I have seen that cake can use classifier and that the tin can be passed
+via fw mark, however I'm unsure if that would really be useful/usable in
+this case. Any suggestion would be welcome, from what can be done with
+the current code, up to what kind of changes would be needed to achieve
+the ideal case.
+
+Alban
+
+--Sig_/qzol4EptnSofl3Z2O6RP+Tm
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCgAdFiEE0W61GceYqNjiMSkodJSaS524LbwFAl0Z9BMACgkQdJSaS524
+LbxOjw//Wx99k2o6H4pLIQUuE2RM6yMg6YSYD33n4K1dKW22g4wlqhv/4H2FMogD
+TiOHyrezktoLYhqDLdeQuoTTsIUyS64YsLSeN1f5BrUr429BTiOKGG5mU6C0ZdsD
+0vYuDi/4IPS2WIwiIMhPFki/prxrALAGbShQXeM5ccVsUTey8gpPrtaEMHi7j7fV
+GaOzi1FEqyNmRyldf3OF2ML6JfduUypFCzAY5EB+GKavckjpahk7za4lapwfNVni
+cEZO24IQnN+JLxOxrrbSVE247N9nbURwuudmG6c3fWN+fIzqapia7guw7w7afW25
+8Gk1OIYGS0xMm9CuZkHIYGNfBTBQ+UaUrenzu/t+wYC9JXmSApngzeOWh95nsxjy
+r3MmNXOfw0ZNbgUQ9TIMsbbSpo9VidqpllN0Dtf3OjlURV7whqFmn3YG36lthj3p
+f7gfXfHU3pkINEIV8N1vEc38vao67KMOznnr+9/4cxVrvt7b6y9v1xt0eoejJ5y/
+HR7sJp/oOqT34gS9af9F+Rk1mJZGOU7Io84tqmgtA98TozAPSHaLrH+uhLxTiwUs
+g8IOxeS7+qGJXgsJtsG6JocDccOAQn7BgTM3rGLFTRm/rg3MD6auwaI8WjsQ2z3j
+M62MTs27SIwWmrl2S2F7y+37WBnpaLWvK3DcGYZwgxzrrinE3W8=
+=Hi1o
+-----END PGP SIGNATURE-----
+
+--Sig_/qzol4EptnSofl3Z2O6RP+Tm--
+
+--===============0221317501601334909==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -111,4 +139,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============8562197537333516739==--
+--===============0221317501601334909==--
