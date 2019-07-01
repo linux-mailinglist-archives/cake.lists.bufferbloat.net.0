@@ -2,41 +2,45 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5FA6E5BB4B
-	for <lists+cake@lfdr.de>; Mon,  1 Jul 2019 14:13:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id EF73E5BCD1
+	for <lists+cake@lfdr.de>; Mon,  1 Jul 2019 15:24:33 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 02F203CB3A;
-	Mon,  1 Jul 2019 08:13:31 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 9AAB33CB3D;
+	Mon,  1 Jul 2019 09:24:32 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1561983211;
-	bh=6wFv5VTZgHCzJO/k0ob+edDx3jS4/csvGoF3mEDVaBQ=;
-	h=Date:From:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:Cc:From;
-	b=nifjH7/RZOYVegBiu82HXoS6Fks9sm58GCwB+8iGst29BQRr3BSlALzpZL/7uTd9Y
-	 T15EWQZwR00IQEF4u+NOPvjYNlfgIPm0y7ZuCKquuYyCbmVxRTQSa3vNbtdrnrr2Hh
-	 tlPZ8EAU/rIHvuCytQIxo4xt4hMvi2SHvVz37gr76tBHsa2Bn7VFt8AjD5UfIUsmZk
-	 S6irZE49HxCeP0KCKI3gEbN5wHb6AYpB3wZ5RuGVWBO1HfvvPPUJ8137ypTXTh/XOa
-	 iEB76ZlEavEQEk1YlnOjtHpWiLLleO+XmBnI671Ro6QkjvRkHII2rwlQe4ulIP2zMQ
-	 3253PiuUdMeyQ==
+	d=lists.bufferbloat.net; s=201610; t=1561987472;
+	bh=n+MLI2YQiKD19xDXOcxSRHHmbFxKCWQF9lUrTTN0Jfw=;
+	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=X1lzM0xtLzAUrGBXVgyszxc0wbjlU75KybuTONnfiPC3G8clvQ5aJGPaQV89wJqKu
+	 sTktdCgsRcoYpa+ZCW/Fh1ii9nVoDZCGVrMb3YY4tiQ9ygZIUmBQGmvLlXcp4p9RDN
+	 pDTbOQfGmm5a8UIg9cvnIqF+uvcF0gIfobO5tPOZEl4ofnOYvIAGcLHhDGfikPxEeT
+	 smzCZfnT3xEPVGxR+fH9n9IFME296SIYVy5cG9Gsi3azXa6zd921t7nj+VPVN5V7q6
+	 uQU4sluIbpV1/YEZx05Vok32GAp89kzYQR5FChORm6cFDca9/kMDf0W5ONfSF1RWNK
+	 StGf5MHD2az2w==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
 Received: from smtp6-g21.free.fr (smtp6-g21.free.fr [212.27.42.6])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 6FB083B2A4
- for <cake@lists.bufferbloat.net>; Mon,  1 Jul 2019 07:52:57 -0400 (EDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id AD0A13CB37
+ for <cake@lists.bufferbloat.net>; Mon,  1 Jul 2019 09:13:23 -0400 (EDT)
 Received: from eos (unknown [213.61.153.180]) (Authenticated sender: albeu)
- by smtp6-g21.free.fr (Postfix) with ESMTPSA id A95DA7802C2;
- Mon,  1 Jul 2019 11:52:53 +0000 (UTC)
-Date: Mon, 1 Jul 2019 13:52:51 +0200
+ by smtp6-g21.free.fr (Postfix) with ESMTPSA id 93D137802E5;
+ Mon,  1 Jul 2019 13:13:17 +0000 (UTC)
+Date: Mon, 1 Jul 2019 15:13:16 +0200
 From: Alban <albeu@free.fr>
-To: cake@lists.bufferbloat.net
-Message-ID: <20190701135251.08defe75@eos>
+To: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@toke.dk>
+Message-ID: <20190701151316.2f037eea@eos>
+In-Reply-To: <87tvc654he.fsf@toke.dk>
+References: <20190701135251.08defe75@eos>
+	<87tvc654he.fsf@toke.dk>
 X-Mailer: Claws Mail 3.16.0 (GTK+ 2.24.32; x86_64-pc-linux-gnu)
 MIME-Version: 1.0
-X-Mailman-Approved-At: Mon, 01 Jul 2019 08:13:29 -0400
-Subject: [Cake] Recommendations for using cake in complex setup (wireguard +
- vlan + bond)
+X-Mailman-Approved-At: Mon, 01 Jul 2019 09:24:31 -0400
+Subject: Re: [Cake] Recommendations for using cake in complex setup
+ (wireguard + vlan + bond)
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -48,88 +52,90 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Alban <albeu@free.fr>
-Content-Type: multipart/mixed; boundary="===============0221317501601334909=="
+Cc: cake@lists.bufferbloat.net, Alban <albeu@free.fr>
+Content-Type: multipart/mixed; boundary="===============4585986048179659041=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============0221317501601334909==
+--===============4585986048179659041==
 Content-Type: multipart/signed; micalg=pgp-sha512;
- boundary="Sig_/qzol4EptnSofl3Z2O6RP+Tm"; protocol="application/pgp-signature"
+ boundary="Sig_/R3Jr2h7CStzFC3R.jdT06EI"; protocol="application/pgp-signature"
 
---Sig_/qzol4EptnSofl3Z2O6RP+Tm
-Content-Type: text/plain; charset=US-ASCII
+--Sig_/R3Jr2h7CStzFC3R.jdT06EI
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: quoted-printable
 
-Hi everybody,
+On Mon, 01 Jul 2019 14:22:37 +0200
+Toke H=C3=B8iland-J=C3=B8rgensen <toke@toke.dk> wrote:
 
-I am setting a new router with a non trivial setup and I really like to
-get some recommendations on how to best use cake. First of all the
-router is using VLAN on top of 2 bonded gigabit Ethernet interface:
+> Alban <albeu@free.fr> writes:
+>=20
+> > Hi everybody,
+> >
+> > I am setting a new router with a non trivial setup and I really
+> > like to get some recommendations on how to best use cake. First of
+> > all the router is using VLAN on top of 2 bonded gigabit Ethernet
+> > interface:
+> >
+> >                         +--> VLAN1 (LAN)
+> >  eth0 <--+              |
+> >          +---> bond0 <--+--> VLAN2 (WAN1)
+> >  eth1 <--+              |
+> >                         +--> VLAN3 (WAN2)
+> >
+> > The bond is using LACP, but mainly for redundancy and not for the
+> > increased bandwidth. Both WAN VLAN are going to ISP provided
+> > FritzBox connected to 50/10Mbit VDSL2 lines. =20
+>=20
+> What are the physical interfaces connected to? How is the traffic
+> getting to the FritzBoxes?
 
-                        +--> VLAN1 (LAN)
- eth0 <--+              |
-         +---> bond0 <--+--> VLAN2 (WAN1)
- eth1 <--+              |
-                        +--> VLAN3 (WAN2)
+I should have mentioned that the above diagram depict the logical
+interfaces inside the router. The router only physical connection
+is via the bond to a switch stack, the logical separation of LAN and
+WAN is done using VLANs.
 
-The bond is using LACP, but mainly for redundancy and not for the
-increased bandwidth. Both WAN VLAN are going to ISP provided FritzBox
-connected to 50/10Mbit VDSL2 lines.
+The physical interfaces (eth0/1) are gigabit Ethernet, one FritzBox is
+directly connected to the same switch, the second one is connected via
+yet another switches as it is not in the same physical location. Like
+this:
 
-As far as i understand I should use cake on the WAN VLAN interfaces.
-But what about the bond and physical Ethernet interface? Per default
-the Ethernet interfaces use the fq_codel qdisc, should I replace it
-with noqueue if cake is running on the VLAN interface? Any other
-recommendation regarding queuing in general with such layering of
-interfaces?
-
-But there is one more component, on each WAN interface there is a
-wireguard tunnel which is used to encrypt most of the traffic going out
-on the interface. Unlike unencrypted IP in IP tunnel the kernel flow
-dissector is not able to distinguish the flows, so all the encrypted
-traffic is just one big flow for cake. Ideally I would like to achieve a
-setup where cake can handle the encrypted traffic just like unencrypted
-traffic.
-
-Looking at the wireguard code it seems that the incoming skb get
-encrypted/encapsulated and resent again while still using the same skb.
-This give me the hope that it might be possible to classify the traffic
-entering the wireguard tunnel and somehow pass this information down to
-the cake instance running on the lower device.
-
-I have seen that cake can use classifier and that the tin can be passed
-via fw mark, however I'm unsure if that would really be useful/usable in
-this case. Any suggestion would be welcome, from what can be done with
-the current code, up to what kind of changes would be needed to achieve
-the ideal case.
+             (VLAN1)      (VLAN1)
+             clients      clients
+                |            |
+             +-----+      +-----+
+  Router <-->| SW1 |<---->| SW2 |
+             +--+--+      +--+--+
+                |            |
+               FB1          FB2
+             (VLAN2)      (VLAN3)
 
 Alban
 
---Sig_/qzol4EptnSofl3Z2O6RP+Tm
+--Sig_/R3Jr2h7CStzFC3R.jdT06EI
 Content-Type: application/pgp-signature
 Content-Description: OpenPGP digital signature
 
 -----BEGIN PGP SIGNATURE-----
 
-iQIzBAEBCgAdFiEE0W61GceYqNjiMSkodJSaS524LbwFAl0Z9BMACgkQdJSaS524
-LbxOjw//Wx99k2o6H4pLIQUuE2RM6yMg6YSYD33n4K1dKW22g4wlqhv/4H2FMogD
-TiOHyrezktoLYhqDLdeQuoTTsIUyS64YsLSeN1f5BrUr429BTiOKGG5mU6C0ZdsD
-0vYuDi/4IPS2WIwiIMhPFki/prxrALAGbShQXeM5ccVsUTey8gpPrtaEMHi7j7fV
-GaOzi1FEqyNmRyldf3OF2ML6JfduUypFCzAY5EB+GKavckjpahk7za4lapwfNVni
-cEZO24IQnN+JLxOxrrbSVE247N9nbURwuudmG6c3fWN+fIzqapia7guw7w7afW25
-8Gk1OIYGS0xMm9CuZkHIYGNfBTBQ+UaUrenzu/t+wYC9JXmSApngzeOWh95nsxjy
-r3MmNXOfw0ZNbgUQ9TIMsbbSpo9VidqpllN0Dtf3OjlURV7whqFmn3YG36lthj3p
-f7gfXfHU3pkINEIV8N1vEc38vao67KMOznnr+9/4cxVrvt7b6y9v1xt0eoejJ5y/
-HR7sJp/oOqT34gS9af9F+Rk1mJZGOU7Io84tqmgtA98TozAPSHaLrH+uhLxTiwUs
-g8IOxeS7+qGJXgsJtsG6JocDccOAQn7BgTM3rGLFTRm/rg3MD6auwaI8WjsQ2z3j
-M62MTs27SIwWmrl2S2F7y+37WBnpaLWvK3DcGYZwgxzrrinE3W8=
-=Hi1o
+iQIzBAEBCgAdFiEE0W61GceYqNjiMSkodJSaS524LbwFAl0aBuwACgkQdJSaS524
+LbwVJBAArtJRG27bfzo3Jcqw+H8P+bRRtXx2LoNSbrpWJcGpk32sw8rwyV4r4pNw
+Wq2DCfeAttEqY21gs5mAgjk1gXqcRG3MDDpk5YqiV2FO/b0LoVGrTKBKduzzeH42
+Zx7qglkDpHjGFgh6pPEDNkhJMyzcX0wzZZoQb2n3SPP8P5FlJA0sbzwjwlYqnYdl
+cKDGdHKO1Fm1ZckZLeakgct2HW+E8oq4zjw/0Na2g/+FNFdcWHy5xtxVVEz1LO9b
+b37M9RJTSI2LRIMLusHoD/efBXkMHy4aMkEVW8lGFZqHAzEAgC3Pm/rsWpyX7tj7
+zy5OLD07aDRXQnB46vFVeMtvJz74399oOct5m9EOTjlGN5GviFhe1zaCKS74kR5A
+47Wz6iaY2qoKSN7ln1VTxzUSh0UowdMHqMW1GC5YSmZO/43vKuQE9iGgGhgp8Z9d
+U4Yx0C7uBkJoDC65bqU+G6yncxGgmfAEU9+0S9u9xTnCBUWtnSyfX8010muY6xmi
+K8ejlnRs4APsC394WRft9AjySDPyomL3zdeWAjca64QqZeyb80CkldgD8+Wx+OOf
+F1i1cc6ogCDt753sFPoXTFRspfKn0gjtbMR7g4Y8GyiSoIYMFFCi67rKsk9LL1z1
+G5cqJ/qv4x7FFP7R76DXGIJbFz1F2U+qeHxO7oFFcwFGt3Dzls4=
+=M6z5
 -----END PGP SIGNATURE-----
 
---Sig_/qzol4EptnSofl3Z2O6RP+Tm--
+--Sig_/R3Jr2h7CStzFC3R.jdT06EI--
 
---===============0221317501601334909==
+--===============4585986048179659041==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -139,4 +145,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============0221317501601334909==--
+--===============4585986048179659041==--
