@@ -2,65 +2,50 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8068B917DB
-	for <lists+cake@lfdr.de>; Sun, 18 Aug 2019 18:33:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A33295E20
+	for <lists+cake@lfdr.de>; Tue, 20 Aug 2019 14:10:03 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 00BD63CB38;
-	Sun, 18 Aug 2019 12:33:53 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id B06703CB38;
+	Tue, 20 Aug 2019 08:10:01 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1566146033;
-	bh=wIXnv6U+55XdZjDdagU1gGcZK2T3qkz91uWq5a1g6qI=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=edRWrx1AJJVm+kcbymwURXZaqDqUjdvM59WheXa6lsJrKft0HoJPQYzm5vGr6VZr/
-	 jcqq6zM57aQ74tvJKoKU7gC9DSOnKcZ2WhQYo4wLQ6GMLwR6XbpTNNQaCyPsQwYLvs
-	 DU4D5L9W57kEbTfhCOSGGhyYD+LXT1Ddj1rY4XADAEgJ0UkKCxC9Dr64guq2P1zxDV
-	 Ss9CXY64s4nV1gZp1kMe6I//rYXdV2U5lEfkBUya2wySZpsOS7ioSfjJ9Z3MKcTtJO
-	 yyAUrP0s9qPWfDim+r7BNxK7viFDTH/VFHHtvLh1pr6M4yVEbqj2Qjdct4UOUPRPaT
-	 rsimpaoNc9AmQ==
+	d=lists.bufferbloat.net; s=201610; t=1566303001;
+	bh=vFtnKHqckWnwUyHtMablnOUP00ewP5kYUgwQfz+Fqe4=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 From;
+	b=NCk/0bYeK8W439lsCt/54WQeum/wMhgRtyeq2aH0O6rdWC86Rm2r6HQNHVxwmyBpg
+	 gbePcZ+ysjmf4bv+qth7i+TB5G4Ahmh0EmQGgoCNLTe4OrFxCWr1bxPQVfei/fdiOM
+	 LZNap1Q4XqAZeDD5sSZPdUPYQAGTC1IRDIt/cY8fsz/K9F6l94yuj9yJmOzrHoEjTF
+	 VpsMGF856mHNXhNwYJimUMv1sojz3DdlNVLgolXuGNJMP+PSzvZnTYqoJcqAZO4ifM
+	 MDUPka7k/vzvRBdoZ8O1hWdO7gk8u61rrD2LUi+LyaDXYqGFxVn/ioW5YWneQiQA9t
+	 H+TYyScQYBPug==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-io1-xd31.google.com (mail-io1-xd31.google.com
- [IPv6:2607:f8b0:4864:20::d31])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from webmail.newmedia-net.de (smtps.newmedia-net.de
+ [IPv6:2a05:a1c0:0:de::167])
+ (using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id E596D3CB35
- for <cake@lists.bufferbloat.net>; Sun, 18 Aug 2019 12:33:51 -0400 (EDT)
-Received: by mail-io1-xd31.google.com with SMTP id e20so15777308iob.9
- for <cake@lists.bufferbloat.net>; Sun, 18 Aug 2019 09:33:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=5tVkksZBXe6e0MSly9YzUpaVO9jP9dcnwi7pcBzf8AM=;
- b=T+nSpfSldBTzo71HsP4u64kmi08KHLxLugklH7ECjg1iOZV5NiYYOMuHh5/Efp7dz+
- R8NMPiX/D5awJZTMN5wQuDgCfISVS17uk0dRyIy1q/WbGBXkLGQl3rLTU99UNsnN3zKB
- k3u7NOQa5C0NFtRXrRDS38ZGt+1sFTXZ7IGdIzhlSm+ZPJPLUW5vmWTD8BTMv/wmUxTQ
- oD3aSHKpMJUdnkwWxBBReIhUwuo4nMG7y51rMk2E4UDnzdea2CRt2OF+dfGgVW7wLW2m
- agupVJ67y1dhEszyHdnZITWAH2AoLNXeSUWC81uSPQrZrt+G8GLSyV3hfprdSpcHaREO
- 99lQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=5tVkksZBXe6e0MSly9YzUpaVO9jP9dcnwi7pcBzf8AM=;
- b=BXHER7h9rDZOZsjdlyUSK5WHwNCbBss7VlfHCRRYvQeoI/EIA/RR6QhUtGQyeKfpmJ
- hiH/ev2xQvXEAl1wIHVWqZProy1qtyr5azqqzFvC2KgSliBwOujIZ0ukuPwGvh9I8y3k
- 2/e1HNbRR0dr2RikZVidZRbpLwd2xoY25H9xerGJNwk7aqJSTqfrB1kmNKVYbhN5UIbm
- GuquyxiktBQUGGBrdG50fsowJpyDLCo2cKi7yKNtejQqNstZuCwKELTOP414bAC+x4KQ
- 0P4bnlTsitL8cHRM+6kTRHtFw8HeDMB/0wmWl0Y8FN6tihmK1Vkt+GmFzXvKt/kN5mjz
- +OBw==
-X-Gm-Message-State: APjAAAVhlF53GanDgn+fQJ2bPbZcMteEDET8CWv3ith2tTSoR4p/sWfu
- SD/IipZZzxlVoeI8Y+Pefu5uSE6yp+xv9obHu3oIAjEY
-X-Google-Smtp-Source: APXvYqw/6IZJrTviLfpJmiU4KIUrXkS9ED9WwsONnR+F6Z6yvIiftErGZQjjHrVPVwoD2Zjog4SNUsYl45S46/lGed8=
-X-Received: by 2002:a05:6638:45:: with SMTP id
- a5mr19709779jap.61.1566146030959; 
- Sun, 18 Aug 2019 09:33:50 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 232AA3B2A4
+ for <cake@lists.bufferbloat.net>; Tue, 20 Aug 2019 08:10:00 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=newmedia-net.de; s=mikd; 
+ h=Content-Transfer-Encoding:Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject;
+ bh=zx7OXPzxbcZVBAcuOg8eGNoOFhmsuthzs19Q5RH6rfw=; 
+ b=fpD6NXP/3uLnGiZqkSsHhc5l4nGXwwYmbi+mWhgB2nCxvkpSY93Z/nFwAsnkGikz63cFPghHTK2Q6SaYR/FOC/OURbGcLnNHIOyAg/kFjUcb4YO8lnC57px7hTo6WB9+lsZwzB9vLRjjDQD1K114rZ9n6m4fJPshUllfuzQICJ4=;
+To: Dave Taht <dave.taht@gmail.com>, Cake List <cake@lists.bufferbloat.net>
+References: <CAA93jw4FDjYjxxStyzMu8eCz_6Ezcumg-iZaYeM3kBZ5da8MBQ@mail.gmail.com>
+From: Sebastian Gottschall <s.gottschall@newmedia-net.de>
+Message-ID: <fc64c772-d85c-deba-a0e4-4e590cfb76ee@newmedia-net.de>
+Date: Tue, 20 Aug 2019 14:08:58 +0200
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:60.0) Gecko/20100101
+ Thunderbird/60.8.0
 MIME-Version: 1.0
-From: Dave Taht <dave.taht@gmail.com>
-Date: Sun, 18 Aug 2019 09:33:39 -0700
-Message-ID: <CAA93jw4FDjYjxxStyzMu8eCz_6Ezcumg-iZaYeM3kBZ5da8MBQ@mail.gmail.com>
-To: Cake List <cake@lists.bufferbloat.net>
-Subject: [Cake] cake in dd-wrt
+In-Reply-To: <CAA93jw4FDjYjxxStyzMu8eCz_6Ezcumg-iZaYeM3kBZ5da8MBQ@mail.gmail.com>
+X-Received: from [212.111.244.1] (helo=[172.29.0.186])
+ by webmail.newmedia-net.de with esmtpsa (TLSv1:AES128-SHA:128)
+ (Exim 4.72) (envelope-from <s.gottschall@newmedia-net.de>)
+ id 1i02xh-0000hK-PD; Tue, 20 Aug 2019 14:10:05 +0200
+Subject: Re: [Cake] cake in dd-wrt
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -72,13 +57,15 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-aHR0cHM6Ly9zdm4uZGQtd3J0LmNvbS90aWNrZXQvNTc5NgoKLS0gCgpEYXZlIFTDpGh0CkNUTywg
-VGVrTGlicmUsIExMQwpodHRwOi8vd3d3LnRla2xpYnJlLmNvbQpUZWw6IDEtODMxLTIwNS05NzQw
-Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFp
-bGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVy
-YmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+Oi0pIGknbSBmb2xsb3dpbmcgdGhpcyBsaXN0IGFuZCB5ZXMgd2UgYXJlIHdvcmtpbmcgb24gYnJp
+bmdpbmcgY2FrZSBpbiA6LSkKaXMgdGhlcmUgYW55IHF1ZXN0aW9uIGJlaGluZCB0aGlzIGxpbmsg
+ZnJvbSB5b3VyIHNpZGU/CgpTZWJhc3RpYW4KCkFtIDE4LjA4LjIwMTkgdW0gMTg6MzMgc2Nocmll
+YiBEYXZlIFRhaHQ6Cj4gaHR0cHM6Ly9zdm4uZGQtd3J0LmNvbS90aWNrZXQvNTc5Ngo+Cl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBs
+aXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQu
+bmV0L2xpc3RpbmZvL2Nha2UK
