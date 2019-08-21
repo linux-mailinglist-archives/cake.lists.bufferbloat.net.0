@@ -2,103 +2,62 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 000ED9804D
-	for <lists+cake@lfdr.de>; Wed, 21 Aug 2019 18:38:42 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 77673980AA
+	for <lists+cake@lfdr.de>; Wed, 21 Aug 2019 18:50:42 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 62D0E3CB3C;
-	Wed, 21 Aug 2019 12:38:41 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 700233CB38;
+	Wed, 21 Aug 2019 12:50:41 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1566405521;
-	bh=3g3EV2OMeH+9ugfJgQwog4ZnHaE6sI1unU02h49Dc60=;
-	h=From:To:Date:References:In-Reply-To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1566406241;
+	bh=oPQotfqpZTd4bB48HSTOqXaPDNpZhp0yL37BQMVrw7Y=;
+	h=From:To:References:Date:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=pzuIn+pVYi+XfwEMrM6CrAVenJ2rvrOIL4ctCg6JafUm4j5DaibOx9uRLUgUqL5I2
-	 K3Neo5mVL2QTdvlJhnIV10Lapdr51rJ2S+uYtuFKJDX6eVP3LpcE1uzGX2UgeSIhN/
-	 IeWf9d6doqRVN2zkbizzVLk4J0/02yLDcPtSQDVEB9Uf3TU2pXUd7aj8FFv+JJH0kv
-	 vfaHQu1STu1tb0ZJi5ekaPDqcmOmIDh6oqvjDLpWgBTKa+G71eJHv8JWWYhgo5EKPz
-	 ooHCFJ51FyqCT/O4knCj6gnssGSGFSrWjm24JjTpfDNI1N+Pye8nsiQVTedumGq+9n
-	 TTVQNBl5YIxag==
+	b=DxY4JM6qqQWYCIC9iVbW7BEXIbiSxaVL/TIemWyKtA6atLXxEKgNRPjzRqc0+CCIE
+	 zQR3ZMkih/hG/tTawtqSvmlDnDKupu3chu7MoEOnGodeH3B3iBbl69DXtso1WJcrBR
+	 blCsXxvJ4E7JAcbxu7M81h2AceFFlFzAUjL267r3qVHmNyExh4PSS/+aNb/9Dm9V0w
+	 QmBdp319FZTSPR2MWuJ8IlxTQZesKwwbTIqx/17jC04PabL4pFfZjI/j3u3stZ6r1O
+	 XR+3wRgu1mnnWJyR/adZUSIrk2JS+xTEYRK1UvLy9v++j/0n7fSyv2Xzrp/EVA9w0e
+	 kAuyyrfL0hzXQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from EUR01-HE1-obe.outbound.protection.outlook.com
- (mail-eopbgr130044.outbound.protection.outlook.com [40.107.13.44])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail.taht.net (mail.taht.net [176.58.107.8])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 3546A3CB35;
- Wed, 21 Aug 2019 12:38:40 -0400 (EDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=iwGfMTrReRrlrxwVUdwt0lG62vkYkiTG/YllFB3yNDxrjyAoX7pdNvzXQ42XcBWgizvcpPaiNr2o+PaBdN1DRFp9w3gAomzoxwjZ0btGWedWHOMHKKd9Jk03CIpOOLe8pB4FTAuW6OiKDYf/jVyTkAeU2aktfRmID44zd3k3tANEBlNOoMmsrQh5kU8jhheGoAkcSNKYO0LVP4PfACtzlk2KtnY3QWxvgTXGglxIAc7OKe6YNid1HOXfqQceBe7DZzWiHpB+jBQW7Mf768cab/TtY1aPxETu3yvs5hLfXnOID2ZCf3yBu9IYWzS11Kg8tPdyG++dA36d1e8X6+XPdA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tuQRpHLJsVyAZbXMQ3475b4Ijrt132syMWg+QdF4s+w=;
- b=gOEp+ivbFhEyhdADRPwJ0tRPIZmd7dwfPZTjUA8Zs8KXq15r6eUJAYv+mW7Q/JuERgpAfaRaF7K41ZLb2HfCMZcPfwmQ0iaXZIWFmn49Oyx2ymC1gnihRFZV3TY4VsvaGvLFGSiQrvG8ldZ1EurvUSW2GZ5i3ktFjPsMl896pUKD/kRVmDTx5tM4fiO1ULK6RLGdZFrRw6DWN4cV86LZpn8lEyg3WmB/oAd17tlk7C1luV8rOsp4hAsINVi+DF2d1x3951TmA4/p25pDS8UMx3ZF9Er8PeaUMz5xSZCZq8/xurywVi37ZQXZghRoKfFj1jA2QeHi6eoH3a3JGeYLfA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=darbyshire-bryant.me.uk; dmarc=pass action=none
- header.from=darbyshire-bryant.me.uk; dkim=pass
- header.d=darbyshire-bryant.me.uk; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=darbyshire-bryant.me.uk; s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=tuQRpHLJsVyAZbXMQ3475b4Ijrt132syMWg+QdF4s+w=;
- b=KUmO9BmlqHAQFwXj7vNI27fQLGPEpoPKt5sJiKMw1pZfGt4ZCu9ix7+l+Uzjz3kksqrxXJcrXRnjGc2IkcypS7c5YyB4WVBBHJwN6C/9CEkhWGt35cesUL5ASVnuEx1zzPz05rTjXDWfpC05+s6Nvlw0c0OKzxun02+1rd4HwwU=
-Received: from VI1PR0302MB2750.eurprd03.prod.outlook.com (10.171.106.21) by
- VI1PR0302MB3279.eurprd03.prod.outlook.com (52.134.12.140) with Microsoft SMTP
- Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.2178.16; Wed, 21 Aug 2019 16:38:37 +0000
-Received: from VI1PR0302MB2750.eurprd03.prod.outlook.com
- ([fe80::2dbf:849c:f0bf:d843]) by VI1PR0302MB2750.eurprd03.prod.outlook.com
- ([fe80::2dbf:849c:f0bf:d843%10]) with mapi id 15.20.2178.018; Wed, 21 Aug
- 2019 16:38:36 +0000
-From: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
-To: Dave Taht <dave.taht@gmail.com>
-Thread-Topic: [Cake] https://tools.ietf.org/html/draft-ietf-tsvwg-le-phb-06	is
- in last call
-Thread-Index: AQHVWDI0upjdqMYFlUm6YbHZgg8diqcFzV0A
-Date: Wed, 21 Aug 2019 16:38:36 +0000
-Message-ID: <30EA2270-684E-48BC-8B57-43F4D8485BE8@darbyshire-bryant.me.uk>
-References: <CAA93jw6Fe8x2s=W3Vp6h0WoN7Q8ia4CddL6e4kA+GQNn87LiUw@mail.gmail.com>
- <CAA93jw5fW4XbgT_VFYJGep+qQ2WTYEF0my5_XQ-VADOBq8TMvA@mail.gmail.com>
-In-Reply-To: <CAA93jw5fW4XbgT_VFYJGep+qQ2WTYEF0my5_XQ-VADOBq8TMvA@mail.gmail.com>
-Accept-Language: en-GB, en-US
-Content-Language: en-US
-X-MS-Has-Attach: yes
-X-MS-TNEF-Correlator: 
-authentication-results: spf=none (sender IP is )
- smtp.mailfrom=kevin@darbyshire-bryant.me.uk; 
-x-originating-ip: [2a02:c7f:1268:6500::dc83]
-x-ms-publictraffictype: Email
-x-ms-office365-filtering-correlation-id: 7d53d299-60a3-404c-0614-08d7265603d7
-x-microsoft-antispam: BCL:0; PCL:0;
- RULEID:(2390118)(7020095)(4652040)(7021145)(8989299)(4534185)(7022145)(4603075)(4627221)(201702281549075)(8990200)(7048125)(7024125)(7027125)(7023125)(5600148)(711020)(4605104)(1401327)(2017052603328)(49563074)(7193020);
- SRVR:VI1PR0302MB3279; 
-x-ms-traffictypediagnostic: VI1PR0302MB3279:
-x-ms-exchange-purlcount: 1
-x-microsoft-antispam-prvs: <VI1PR0302MB327932448905035F446B8E03A5AA0@VI1PR0302MB3279.eurprd03.prod.outlook.com>
-x-ms-oob-tlc-oobclassifiers: OLM:6790;
-x-forefront-prvs: 0136C1DDA4
-x-forefront-antispam-report: SFV:NSPM;
- SFS:(10009020)(366004)(346002)(136003)(39830400003)(396003)(376002)(199004)(189003)(14454004)(71200400001)(53936002)(36756003)(6436002)(6486002)(6512007)(33656002)(6506007)(53546011)(99286004)(6306002)(53386004)(6916009)(5660300002)(229853002)(5024004)(71190400001)(54906003)(6246003)(102836004)(4326008)(46003)(66476007)(76116006)(66556008)(64756008)(186003)(2906002)(256004)(446003)(486006)(316002)(25786009)(76176011)(11346002)(2616005)(305945005)(966005)(8936002)(99936001)(81156014)(81166006)(508600001)(66616009)(66946007)(66574012)(7736002)(476003)(86362001)(66446008)(6116002)(91956017);
- DIR:OUT; SFP:1101; SCL:1; SRVR:VI1PR0302MB3279;
- H:VI1PR0302MB2750.eurprd03.prod.outlook.com; FPR:; SPF:None; LANG:en;
- PTR:InfoNoRecords; A:1; MX:1; 
-received-spf: None (protection.outlook.com: darbyshire-bryant.me.uk does not
- designate permitted sender hosts)
-x-ms-exchange-senderadcheck: 1
-x-microsoft-antispam-message-info: K9c6qHoEuhV+KAOUyDgn6PWuOnxQe+lBH7oOmesT898jKrtOzXuRvVrtVz5cFBdw8AtlE9wIlSdH2hjQmmjjwP27/emIZOuOYYr2Jw4X/8Sb9AEaD8+t/Vhxg8ZgudwwkhewUmBqq2tGd2hnP7j2P6YQKDNBHElv/+f8e8npIDefpW8g+mH4ElONh1lEC6Lm5kcTXjrcUX72UIsZirt2XBt2hxkf1jZ9t/343a8N1xS57gJ6XLGAfrbR10p7Ie/RtlNtzd4IqJEbr4J6y1Oa8uRsZITr2uaHMETtrW8nSJPEVl87kIlJfW6aGkNy5nhkFZ4tgim7iv03nMGK2ZqEk8P5rAn1/Rr5lp68E1P6ok/ZgKFL9ZoTLYxJR8743bWMLs3SCIlKPfvuNozS12UgWs9SjZD443tx8u5524UTCzE=
-x-ms-exchange-transport-forked: True
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 5BC4C3CB35
+ for <cake@lists.bufferbloat.net>; Wed, 21 Aug 2019 12:50:40 -0400 (EDT)
+Received: from dancer.taht.net (unknown
+ [IPv6:2603:3024:1536:86f0:eea8:6bff:fefe:9a2])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail.taht.net (Postfix) with ESMTPSA id A09EF21425;
+ Wed, 21 Aug 2019 16:50:38 +0000 (UTC)
+From: Dave Taht <dave@taht.net>
+To: Sebastian Gottschall <s.gottschall@newmedia-net.de>
+References: <CAA93jw4FDjYjxxStyzMu8eCz_6Ezcumg-iZaYeM3kBZ5da8MBQ@mail.gmail.com>
+ <fc64c772-d85c-deba-a0e4-4e590cfb76ee@newmedia-net.de>
+ <CAA93jw4Fm=uY08A3XHWh3d=OKNfraCeYHwFGtAdPH7a51vG6WA@mail.gmail.com>
+ <384866b4-4c91-cf2c-c267-ee4036e5fbf7@newmedia-net.de>
+ <87wof7sriw.fsf@toke.dk>
+ <6782ec15-30eb-63b0-f54f-376c5e6b840b@newmedia-net.de>
+ <87tvabsp99.fsf@toke.dk>
+ <74bccc2b-b805-255f-b6a7-83ade9af6765@newmedia-net.de>
+ <87r25fsn70.fsf@toke.dk>
+ <b52b087d-c21c-e190-1bc7-a06e5fe6305f@newmedia-net.de>
+ <54438C64-C613-438E-9CB9-6C6D0C5EAFA0@gmail.com>
+ <87sgpvflo4.fsf@taht.net> <87wof6rf7t.fsf@toke.dk>
+ <7656FCDE-C590-4B0C-B191-B9FAC928A762@gmail.com>
+ <CAA93jw4sEE_oQsX66xLkE+YUv=wM7AchfpUspC0y_Bf2nLdVOQ@mail.gmail.com>
+ <5eb4c395-c718-2d28-65a7-9762cf8d5bea@newmedia-net.de>
+ <47AD5102-B66F-44A5-AADE-D167ECB94A61@gmx.de>
+ <1d772664-b6cc-a528-9725-96a431032875@newmedia-net.de>
+Date: Wed, 21 Aug 2019 09:50:26 -0700
+In-Reply-To: <1d772664-b6cc-a528-9725-96a431032875@newmedia-net.de> (Sebastian
+ Gottschall's message of "Wed, 21 Aug 2019 18:28:38 +0200")
+Message-ID: <87v9uqea3x.fsf@taht.net>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/24.5 (gnu/linux)
 MIME-Version: 1.0
-X-OriginatorOrg: darbyshire-bryant.me.uk
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7d53d299-60a3-404c-0614-08d7265603d7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 21 Aug 2019 16:38:36.8951 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 9151708b-c553-406f-8e56-694f435154a4
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: dyoRKXEgrpwENaBHqHkLpBiIbiM2Zqi8AnaOdlnvQuf8Nd5MwAmcSKQiSPnvDfiW+vQ1BfRDwUR6caXwKAUhzuVtz/hUxnVc7iPjFFvBmf4=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR0302MB3279
-Subject: Re: [Cake]
- https://tools.ietf.org/html/draft-ietf-tsvwg-le-phb-06	is in last call
+Subject: Re: [Cake] pie in dd-wrt
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -110,181 +69,74 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>,
- cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============7079638442721975260=="
+Cc: cake@lists.bufferbloat.net
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============7079638442721975260==
-Content-Language: en-US
-Content-Type: multipart/signed;
-	boundary="Apple-Mail=_8CA122F2-7662-45B9-A1C9-7D4AE999731B";
-	protocol="application/pgp-signature";
-	micalg=pgp-sha256
-
---Apple-Mail=_8CA122F2-7662-45B9-A1C9-7D4AE999731B
-Content-Type: multipart/mixed;
-	boundary="Apple-Mail=_4D646E21-9517-4081-BB6A-922E6A22344A"
-
-
---Apple-Mail=_4D646E21-9517-4081-BB6A-922E6A22344A
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain;
-	charset=utf-8
-
-Maybe attached patch is more comprehensive?
-
-KDB
-
-> On 21 Aug 2019, at 16:07, Dave Taht <dave.taht@gmail.com> wrote:
->=20
-> Just ressurrecting this old thread for review now that this is an
-> official RFC. I note also that the NQB diffserv codepoint is entering
-> last call also.
->=20
-> https://tools.ietf.org/html/draft-white-tsvwg-nqb-02
->=20
-> On Sun, Feb 3, 2019 at 10:39 AM Dave Taht <dave.taht@gmail.com> wrote:
->>=20
->> And seems likely to be adopted.
->>=20
->> There seems to be an urge to make this codepoint starvable, which
->> since I ascribe to nagle's dictum "every application has a right to
->> one packet in the network" - doesn't work for me - but the draft is
->> vaguely worded enough to just start dumping this codepoint into the
->> background queue of both sqm and cake and worry about it in a decade
->> or three.
->>=20
->> it's 000001 which I guess is:
->>=20
->> diff --git a/sch_cake.c b/sch_cake.c
->> index 3a26db0..67263b3 100644
->> --- a/sch_cake.c
->> +++ b/sch_cake.c
->> @@ -343,7 +343,7 @@ static const u8 diffserv4[] =3D {
->> };
->>=20
->> static const u8 diffserv3[] =3D {
->> -       0, 0, 0, 0, 2, 0, 0, 0,
->> +       0, 1, 0, 0, 2, 0, 0, 0,
->>        1, 0, 0, 0, 0, 0, 0, 0,
->>        0, 0, 0, 0, 0, 0, 0, 0,
->>        0, 0, 0, 0, 0, 0, 0, 0,
->>=20
->> (or is that reversed? my big endian/little endian chops scuks, and
->> nobody modified the gen_cake_const tool to match what cake expects
->> now)
->>=20
->> on my off days I kind of wish the diffserv lookup we do in cake had
->> managed to make it into the linux mqprio/prio stuff by default.
->>=20
->> --
->>=20
->> Dave T=C3=A4ht
->> CTO, TekLibre, LLC
->> http://www.teklibre.com
->> Tel: 1-831-205-9740
->=20
->=20
->=20
-> --
->=20
-> Dave T=C3=A4ht
-> CTO, TekLibre, LLC
-> http://www.teklibre.com
-> Tel: 1-831-205-9740
-> _______________________________________________
-> Cake mailing list
-> Cake@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/cake
-
-
-Cheers,
-
-Kevin D-B
-
-gpg: 012C ACB2 28C6 C53E 9775  9123 B3A2 389B 9DE2 334A
-
---Apple-Mail=_4D646E21-9517-4081-BB6A-922E6A22344A
-Content-Disposition: attachment;
-	filename=0001-RFC-8622-diffserv3-4-8-LE-PHB-support.patch
-Content-Type: application/octet-stream;
-	x-unix-mode=0644;
-	name="0001-RFC-8622-diffserv3-4-8-LE-PHB-support.patch"
-Content-Transfer-Encoding: quoted-printable
-
-=46rom=201f460443d1bd54d269e3efda6999c0bbd91f7a03=20Mon=20Sep=2017=20=
-00:00:00=202001=0AFrom:=20Kevin=20Darbyshire-Bryant=20=
-<ldir@darbyshire-bryant.me.uk>=0ADate:=20Mon,=204=20Feb=202019=20=
-21:27:58=20+0000=0ASubject:=20[PATCH]=20RFC=208622=20diffserv3,=204=20&=20=
-8=20LE=20PHB=20support=0A=0AChange=20tin=20mapping=20on=20diffserv3,=204=20=
-&=208=20for=20LE=20PHB=20support,=0Ain=20essence=20make=20LE=20a=20=
-member=20of=20the=20Bulk=20tin.=0A=0ABulk=20has=20the=20least=20priority=20=
-and=20minimum=20of=201/16th=20total=20bandwidth=20in=20the=0Aface=20of=20=
-higher=20priority=20traffic.=0A=0ANB:=20Diffserv=203=20&=204=20swap=20=
-tin=200=20&=201=20priorities=20from=20the=20default=20order=20as=0Afound=20=
-in=20diffserv8,=20in=20case=20anyone=20is=20wondering=20why=20it=20looks=20=
-a=20bit=20odd.=0A=0ASigned-off-by:=20Kevin=20Darbyshire-Bryant=20=
-<ldir@darbyshire-bryant.me.uk>=0A---=0A=20sch_cake.c=20|=208=20++++----=0A=
-=201=20file=20changed,=204=20insertions(+),=204=20deletions(-)=0A=0Adiff=20=
---git=20a/sch_cake.c=20b/sch_cake.c=0Aindex=2093c0c8a..81950ad=20100644=0A=
----=20a/sch_cake.c=0A+++=20b/sch_cake.c=0A@@=20-333,8=20+333,8=20@@=20=
-static=20const=20u8=20precedence[]=20=3D=20{=0A=20};=0A=20=0A=20static=20=
-const=20u8=20diffserv8[]=20=3D=20{=0A-=092,=205,=201,=202,=204,=202,=20=
-2,=202,=0A-=090,=202,=201,=202,=201,=202,=201,=202,=0A+=092,=200,=201,=20=
-2,=204,=202,=202,=202,=0A+=091,=202,=201,=202,=201,=202,=201,=202,=0A=20=09=
-5,=202,=204,=202,=204,=202,=204,=202,=0A=20=093,=202,=203,=202,=203,=20=
-2,=203,=202,=0A=20=096,=202,=203,=202,=203,=202,=203,=202,=0A@@=20-344,7=20=
-+344,7=20@@=20static=20const=20u8=20diffserv8[]=20=3D=20{=0A=20};=0A=20=0A=
-=20static=20const=20u8=20diffserv4[]=20=3D=20{=0A-=090,=202,=200,=200,=20=
-2,=200,=200,=200,=0A+=090,=201,=200,=200,=202,=200,=200,=200,=0A=20=091,=20=
-0,=200,=200,=200,=200,=200,=200,=0A=20=092,=200,=202,=200,=202,=200,=20=
-2,=200,=0A=20=092,=200,=202,=200,=202,=200,=202,=200,=0A@@=20-355,7=20=
-+355,7=20@@=20static=20const=20u8=20diffserv4[]=20=3D=20{=0A=20};=0A=20=0A=
-=20static=20const=20u8=20diffserv3[]=20=3D=20{=0A-=090,=200,=200,=200,=20=
-2,=200,=200,=200,=0A+=090,=201,=200,=200,=202,=200,=200,=200,=0A=20=091,=20=
-0,=200,=200,=200,=200,=200,=200,=0A=20=090,=200,=200,=200,=200,=200,=20=
-0,=200,=0A=20=090,=200,=200,=200,=200,=200,=200,=200,=0A--=20=0A2.20.1=20=
-(Apple=20Git-117)=0A=0A=
-
---Apple-Mail=_4D646E21-9517-4081-BB6A-922E6A22344A--
-
---Apple-Mail=_8CA122F2-7662-45B9-A1C9-7D4AE999731B
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
-	filename=signature.asc
-Content-Type: application/pgp-signature;
-	name=signature.asc
-Content-Description: Message signed with OpenPGP
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEASyssijGxT6XdZEjs6I4m53iM0oFAl1dc4wACgkQs6I4m53i
-M0pNRQ//eKfcrJ1jSt8moAvnIdYB/z67Kx/SBESYS8fVeUkjX1e/zJySLydf/1ka
-T5JO0ZT5433MGDrf3lKVm+h5k3o7vymF+VYHEoXH4sgBFPjl61M6DZZQHsxhw/iT
-7E8QkGlhiEx2LepLe/w1W0ifIBbvSMCd3PwfFpanFeBvoY35cJEylBeRAVRgl2BD
-AzCibdJlXs4gNnzEGCXQSpN8qEr5W+dPqNXZKQsuzCEP+2Hp/sl27Hlq7k1LS4aU
-eRz9h/miKb7QUFlxE2knM6cXeoFsmqi5XIxIk4wtJOhQju2DHOvt/rc3G9kTkicG
-w6LrRHAzcMRjE85tZ0DpcBNFPwENiYh2WJsUKhWYMPhDPNWZt/8110rfK/JkmHX+
-h53UbBnmF8pI6rcsSzLLL2Yb5+7b38rh/QC+HNXbzhx2BuracJo3++8CQ1BCFA3O
-b94bekXSI8jOeBa7hZlRztoNHY8OczRzbWehL3vLJlDYDH5L1UXgaeyxI7DJgpQl
-+WUE4d0gyySyIWiNDwH0zKMVfor+1cbocDsH3m0YtY6I6rj2+PiNak7x/9TJID2e
-aARMb8T6AgI0STUhR2Hg8WBBCqLx7YBckGolDVIWImT1IvbXTKQMrQIVWQ3RDI0J
-qpbd+QQ50982IoLQK/doLojyTYztOXjsx/GhBVrBsufs86oCysE=
-=R/NP
------END PGP SIGNATURE-----
-
---Apple-Mail=_8CA122F2-7662-45B9-A1C9-7D4AE999731B--
-
---===============7079638442721975260==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============7079638442721975260==--
+CgpTZWJhc3RpYW4gR290dHNjaGFsbCA8cy5nb3R0c2NoYWxsQG5ld21lZGlhLW5ldC5kZT4gd3Jp
+dGVzOgoKPiBBbSAyMS4wOC4yMDE5IHVtIDE4OjIxIHNjaHJpZWIgU2ViYXN0aWFuIE1vZWxsZXI6
+Cj4+Cj4+IE9uIEF1Z3VzdCAyMSwgMjAxOSA2OjEyOjAzIFBNIEdNVCswMjowMCwgU2ViYXN0aWFu
+IEdvdHRzY2hhbGwgPHMuZ290dHNjaGFsbEBuZXdtZWRpYS1uZXQuZGU+IHdyb3RlOgo+Pj4gdGhh
+dHMgcmF0aGVyIG9sZC4gaSByZXdyb3RlIGFsbCB0aGUgcW9zIGNvZGUgaW4gdGhlIGxhc3QgNCBv
+ciA1IGRheXMuCj4+PiBzbwo+Pj4gdGhpbmdzIG1pZ2h0IGJlIGNoYW5nZWQuIG5leHQgcGhhc2Ug
+aXMgYnJpbmdpbmcgYWxsIHRoZSBsaW5rIGxldmVsCj4+PiBkZXRhaWwgY29uZmlndXJhdGlvbiBz
+dHVmZiBpbnRvIHRoZSBndWkgd2hpY2ggd2lsbCBiZSBkb25lCj4+PiB0b21vcnJvdyBvciBhdCBs
+ZWFzdCBzdGlsbCB3aXRoaW4gdGhpcyB3ZWVrLgo+Pj4gaSBhbHNvIGFkZGVkIG5vdyBjYWtlIHRv
+IHNvbWUgc21hbGxlciBsb3cgYnVkZ2VkIHJvdXRlcnMgd2l0aCBsaW1pdGVkCj4+PiByZXNvdXJj
+ZXMsIHNvIHNlZSBob3cgaXQgcnVucy4gaSBoYWQgYmFkIGV4cGVyaWVuY2VzIHdpdGggZnFfY29k
+ZWwgaW4KPj4+IHRoZSBwYXN0IGR1ZSBzb21lIGhpZ2ggbWVtb3J5IHVzYWdlLgo+Pj4gZXNwZWNp
+YWxseSBzaW5jZSBpdHMgaGFyZCBjb2RlZCBzb21ld2hhdCBpbnRvIHRoZSB3aXJlbGVzcyBhdGg5
+awo+Pj4gZHJpdmVyLgo+Pj4gc28gaSBhbHJlYWR5IG1vZGRlZCBpdCBmb3IgbW9yZSBlZmZpY2ll
+bnQgaGFuZGxpbmcuIDQgbWIgbWF4IHBlciBxdWV1ZQo+Pj4gaXMgc2ltcGx5IHRvbyBtdWNoIGZv
+csKgIGEgMzIgbWIgcmFtIGJhc2VkIHJvdXRlci4KPj4gVGhpcyBpcyB3aHkgSSdtIHNxbSB3ZSBy
+ZWR1Y2VkIHRoZSBxdWV1ZWQgcGFja2V0IG1heGltdW0gbSB0byBhcm91bmQgMTAwMCwgYW5kIGFs
+c28gd2h5IGNha2UgaGFzIGFuIGV4cGxpY2l0IG1lbWxpbWl0IGtleXdvcmQuCj4geWVhaCBidXQg
+ZG9lcyB0aGlzIGhlbHAgaWYgZnFfY29kZWwgaXMgaGFyZGNvZGVkIGludG8gbWFjODAyMTE/Cj4g
+ZnFfY29kZWwgaGFzIGEgbWVtbGltaXTCoCBrZXl3b3JkIHRvbyBidHcuIGl0cyBmaXhlZCB0byA0
+TUIuIGkgcmVkdWNlZAo+IGl0IHRvIDI1NmtiIG9uIGxvdyBtZW1vcnkgYXJjaGl0ZWN0dXJlcy4g
+bm8gb3RoZXIgd2F5IHRvIGdldCBhcm91bmQKPiBPT00gcHJvYmxlbXMKPiBtYWM4MDIxMcKgIGRv
+ZXMgYWx3YXlzIG1ha2UgdXNlIG9mIGZxX2NvZGVsLiBpdCBoYXMgYSBvd24gYnVpbGQgaW4KPiBp
+bXBsZW1lbnRhdGlvbgoKQ2VydGFpbmx5IG1lbW9yeSBsaW1pdHMgYXJlIGEgaHVnZSBwcm9ibGVt
+IHRocm91Z2hvdXQgY29tcGxleCBxZGlzY3MsCmVzcGVjaWFsbHkgd2hlbiBzdGFja2VkIHVwIChl
+ZyBoZnNjIDEgLT4gcWRpc2N4IGhmc2MgMiAtPiBxZGlzYyB4KSwKYW5kIAoKT09NcyBzdWNrLiBQ
+YXJ0aWN1bGFybHkgYXMgZmV3IHRlc3QgcGFja2V0IGZsb29kaW5nIHRoZWlyIGRldmljZXMKYWZ0
+ZXIgc2V0dGluZyB1cCBhIGNvbXBsZXggcWRpc2Mgc3lzdGVtLiAKCkJ5dGVzID0gdGltZS4gSXQg
+ZG9lc24ndCBtYXR0ZXIgaG93IG1hbnkgcXVldWVzIHlvdSBoYXZlLiBUaGlzCnRvIG1lIGhhcyBh
+bHdheXMgYmVlbiBvbmUgb2YgdGhlIGJpZ2dlc3QgZmxhd3Mgb2YgdGhlIHRjIHN1YnN5c3RlbQpp
+biBnZW5lcmFsIGlzIHRoYXQgdGhlIHRvdGFsIGFtb3VudCBvZiBtZW1vcnkgaW4gdXNlIG9uCmEg
+Z2l2ZW4gcGh5c2ljYWwgaW50ZXJmYWNlIHNob3VsZCBiZSBtYW5hZ2VkIGJ5IHRoZSB0b3Btb3N0
+IGxheWVyLgoKU2FtZSBwcm9ibGVtIGZvciB3aWZpIGluIG11bHRpcGxlIFNTSURzLi4uIGl0J3Mg
+c3RpbGwganVzdCBvbmUgZGV2aWNlLgoKSG93ZXZlciB3ZSBkbyBuZWVkIGVub3VnaCBieXRlcyB0
+byBrZWVwIHRoZSBkZXZpY2UgYnVzeSBhbmQgdGhlcmUKYXJlIG90aGVyIHByb2JsZW1zIHdpdGgg
+cGVyIHBhY2tldCBsaW1pdHMgbGVhZGluZyBtZSB0byBwcmVmZXIKdXNpbmcganVzdCBtZW1vcnkg
+bGltaXRzLiBPbmUgaXMsIHRoYXQgeW91ciB0eXBpY2FsIGFjayBwYWNrZXQKY29taW5nIG9mZiB0
+aGUgcnggcmluZyBpcyBhY3R1YWxseSAyayBpbiBzaXplLCBub3QgNjQgYnl0ZXMuCkkgaGFkIGF0
+IG9uZSBwb2ludCAoaW4gb3BlbndydCkgc29tZXRoaW5nIHRoYXQgdG9vayBzbWFsbCBwYWNrZXRz
+CmFuZCBjb3BpZWQgdGhlbSB0byBhIHNtYWxsZXIgYWxsb2NhdGlvbiB3aGljaCB0b29rIHByZXNz
+dXJlIG9mZiB0aGUKbWVtb3J5IGFsbG9jYXRvci4KCkkndmUga2luZCBvZiBsb3N0IHRyYWNrLCBk
+aWQgdGhlIGF0aDlrIHdpZmkgc3R1ZmYgdXNlIDEgYWxsb2NhdGlvbiBmb3IKYWxsIDQgaHcgcXVl
+dWVzPyBJJ20gYWZyYWlkIHRvIGxvb2sgdGhpcyBtb3JuaW5nLi4uIChhbmQgSSdtIG5vdCBiaWcK
+b24gdGhlIDQgaHcgcXVldWVzIGVpdGhlcikKCk9uZSBhZHZhbnRhZ2Ugb2YgY2FrZSBhcyBjYWtl
+IGFzIHRoZSBzaGFwZXIgaXMgaXQgdXNlcyBvbmUgYWxsb2NhdGlvbgpmb3IgYWxsLiAgaGZzYyAt
+PiBjYWtlL2ZxX2NvZGVsL3BpZS9ldGMsIG5vdCBzbyBtdWNoLgoKc2ltaWxhcmx5LCBteSBvbGQg
+InBsYW4iIGZvciBhIHNjaF9tcV9zaGFwZXIgKGZvciBoYXJkd2FyZSBtcSkgd2FzIHRoYXQKdGhl
+IHN1Yi1xZGlzY3Mgd291bGQgYWxsIHNoYXJlIHRoZSBzYW1lIGJhbmR3aWR0aCBhbmQgbWVtb3J5
+IGFsbG9jYXRpb24uCgoKCj4+Cj4+IEJlc3QgUmVnYXJkcwo+PiAgICAgICAgICBTZWJhc3RpYW4K
+Pj4KPj4KPj4+Cj4+PiBTZWJhc3RpYW4KPj4+Cj4+PiBBbSAyMS4wOC4yMDE5IHVtIDE3OjQyIHNj
+aHJpZWIgRGF2ZSBUYWh0Ogo+Pj4+IHRoaXMgc2hvd3Mgc29tZSBnb29kIHJlc3VsdHMgd2l0aCBw
+aWUgb24gdGhlIGRvd25sb2FkCj4+Pj4KPj4+Pgo+Pj4gaHR0cHM6Ly9mb3J1bS5kZC13cnQuY29t
+L3BocEJCMi92aWV3dG9waWMucGhwP3Q9MzEzODg2JnBvc3RkYXlzPTAmcG9zdG9yZGVyPWFzYyZz
+dGFydD0zMCZzaWQ9NGQ0ZDJhNTgzYWZhZDczNzU5Y2JlZWUxYThmNGIzMjkKPj4+PiBfX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4+IENha2UgbWFpbGlu
+ZyBsaXN0Cj4+Pj4gQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKPj4+PiBodHRwczovL2xpc3Rz
+LmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCj4+PiBfX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fXwo+Pj4gQ2FrZSBtYWlsaW5nIGxpc3QKPj4+IENha2VA
+bGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4+PiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9s
+aXN0aW5mby9jYWtlCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KPiBDYWtlIG1haWxpbmcgbGlzdAo+IENha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4g
+aHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtl
+QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0
+aW5mby9jYWtlCg==
