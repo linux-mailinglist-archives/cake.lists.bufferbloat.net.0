@@ -2,91 +2,71 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id C547B9A7C7
-	for <lists+cake@lfdr.de>; Fri, 23 Aug 2019 08:48:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C63719CAAE
+	for <lists+cake@lfdr.de>; Mon, 26 Aug 2019 09:35:21 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 9A9DA3CB38;
-	Fri, 23 Aug 2019 02:48:26 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 3C86D3CB38;
+	Mon, 26 Aug 2019 03:35:20 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1566542906;
-	bh=LoePHfnmmL8jHZktoB6ir9I/d+WzzkwVUyW40Dy4ZVI=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=emKuKMBcE+brHfa1F3Q0+m0cwxGtml+x8i8WNcHT4+o6ERinaDVdwnDnKD1wsjR5L
-	 Wx+0hGx+fD96MHln7R9Z16r4u5TcbbX03IqXYSBVEfRpa0bM/XjouI97Et8nxbhLtw
-	 C1FSoUtEEuSj0D6xwi/AtrCxhPKyW0ZGoCCHimiB8sj+Kol+9U9xf5/1iATbWHluTo
-	 f3djFQ4Yy4oBRZSA1c0miZ32DJZ96jAnKMIwJh+xUCrXwZM0irUdhTOmGXuH57z+BU
-	 IJ4YpVMJhvsgsgGwbrNh6/glnOR3/HSOGxZxCyiGYj3LQL0Kd0tDqW+J1CUpU4Ow/C
-	 1nDq2CmbgA9SA==
+	d=lists.bufferbloat.net; s=201610; t=1566804920;
+	bh=ofH/JqiiqQYfChQRDb4HbzCntFLN43gSS2x3IhOsUsg=;
+	h=From:To:References:Date:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From;
+	b=DaE2ZorH0DfwQGJVuBzTIXNDSdWVv/G4dt0Z2WUZbDBXFb4erTJGO3LDoqqCDVwEh
+	 pV6H/j5Zy2QdaA0pbeM0sJYYhxkKgRc45bIC77Ew59vNx9+ONFoOIoF3k7Fj7McL57
+	 fSbxweS/uWSmjUgG3DFK421YaFJslD8pnS0tr87lcB389BvfPNReShC6cup/8TRAyK
+	 wEv2xeyQ53jJHKvp/moybiBnXsxB+ycpz8A3YaJvB+eoHnM+ENUCzTSYZKOU7poPxr
+	 qAiGlbG3wF+6NXKANppy11Kk1BE9diSfRT4QBPOFaAuprKizuDTeZnmI4SDMTrWSGN
+	 iM45cUkW2MI3w==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
+Received: from mx1.redhat.com (mx1.redhat.com [209.132.183.28])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ (No client certificate requested)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id F04663CB36
+ for <cake@lists.bufferbloat.net>; Mon, 26 Aug 2019 03:35:18 -0400 (EDT)
+Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
+ [209.85.208.70])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 1B7873B29E;
- Fri, 23 Aug 2019 02:48:24 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1566542902;
- bh=u4Oq1NdA3NpJRT459l0X5vadcXrK9dTI0RdILdoX+6I=;
- h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
- b=TWMUHCnAlkS+UZOke9Xyeo0Jah1Ad2wVjPe2NNVCYW8rRDNjEo7pYiQvxy9/rWdZh
- 8qveqnLoMpjDo13316vTZWP91ICsVM+sJADx1QCbwzIbH/TmE0R0V8fOIoUpzVy6xq
- JxkJXkLUpN7Z0WiV89r19eoo+siLzIpy0uIpVUS0=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [10.11.12.32] ([134.76.241.253]) by mail.gmx.com (mrgmx002
- [212.227.17.190]) with ESMTPSA (Nemesis) id 0LqQzp-1iVSR508A5-00e92J; Fri, 23
- Aug 2019 08:48:22 +0200
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
-From: Sebastian Moeller <moeller0@gmx.de>
-In-Reply-To: <877e74epnn.fsf@taht.net>
-Date: Fri, 23 Aug 2019 08:48:20 +0200
-Message-Id: <3A2A8915-5A5E-42E8-BA51-50D44AD852B0@gmx.de>
-References: <CAA93jw4FDjYjxxStyzMu8eCz_6Ezcumg-iZaYeM3kBZ5da8MBQ@mail.gmail.com>
- <b52b087d-c21c-e190-1bc7-a06e5fe6305f@newmedia-net.de>
- <54438C64-C613-438E-9CB9-6C6D0C5EAFA0@gmail.com> <87sgpvflo4.fsf@taht.net>
- <87wof6rf7t.fsf@toke.dk> <7656FCDE-C590-4B0C-B191-B9FAC928A762@gmail.com>
- <CAA93jw4sEE_oQsX66xLkE+YUv=wM7AchfpUspC0y_Bf2nLdVOQ@mail.gmail.com>
- <5eb4c395-c718-2d28-65a7-9762cf8d5bea@newmedia-net.de>
- <47AD5102-B66F-44A5-AADE-D167ECB94A61@gmx.de>
- <1d772664-b6cc-a528-9725-96a431032875@newmedia-net.de>
- <87v9uqea3x.fsf@taht.net> <87tvaap57q.fsf@toke.dk>
- <CAA93jw6f0kedxwoN-ER3W1QKeg0sMxVCy6YYk_gRbrVwhD42jQ@mail.gmail.com>
- <5bbd2b81-9846-3a7a-130c-0f59e04fd2d1@newmedia-net.de>
- <CAA93jw4=13D-+WHLYPiV4NPqeVJwrLJe=nkr+a9D9Cqvq49pEQ@mail.gmail.com>
- <dcb92eaf-928e-f909-981d-c2baf74fbc90@newmedia-net.de>
- <87ftltdter.fsf@taht.net>
- <e7e08148-5791-2afc-f26c-6c4a0a3f1a9d@newmedia-net.de>
- <87pnkxnjo4.fsf@toke.dk>
- <CAA93jw7kSn9gwZsqqgO9w031oz5PgpUw1nhQwt5Y1x9dQ63MoA@mail.gmail.com>
- <981dd67a-7fb8-1e6a-3e50-6f63a414f1a1@newmedia-net.de>
- <877e74epnn.fsf@taht.net>
-To: Dave Taht <dave@taht.net>
-X-Mailer: Apple Mail (2.3445.104.11)
-X-Provags-ID: V03:K1:iyhdxwgLixANPPC2K2NneSB3PcorMiAVzZAjUkpP1ayKoT/Sa7S
- gublCNIPfTQFdIyvNpjP6wfyFveOpP35UwXtLps9ml1lSwNefostkuM2OgMoUCnLqRQNhFF
- alnwLhvUzdY/TrwP3L3WEuIegE95f2Liy1dsuIQheaZc/6ZdVmzks1KdTihBzid/RJuVytU
- fjifv8Qxt7MR/4Q9jb5Bw==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:ZCnjNBk7ODo=:ZXVn6y9qF0ahl3V4Lf0ruf
- YHihdHbN1oS5F830Rfj30pdDEElmk5c/mN9f5ULMPaB/OxQ5Lu+SAOMgh3lhksO74aqpaatXi
- 2ljBieuTtu2splqJBZiugL6h4MI2F0HnHxvgaDnl00ImEoI4CYQd5LGiIuvS30yGyqziqXy5v
- OrQQVf35vYJpURTFs5JcWxKfSMrI5Sr2+2xELqbhGmFEtuL+wNAsYpHCM6spu+b8N34Hf6qM9
- fizEVXAv5/ufTYzSBggbTy/mwmdRqKE6ofMOEvcPtmLNjLgx6O03/Flf18I+qy/Ov+e+XBD8W
- 1yjjddFaTpT3mFGxgIhPip5dJt+u6Vz4rdYer/Ycz/MLsKKs3qtnfzVKpSZdTJZJ0mbkZal7x
- pSFK49ErlPUz/KzcR8DNsGnRKdo51qlpskTfxT3atklqmiiHae1nptJFOoHSDVXrMW1D+4N9I
- XSvjFRYsrjql5QFQw4oiIc5wbNQxHlk3C+GTo1PxJzNIi1AXJWJiZIf4X73YK8oRZ7qzOxso2
- cBZWxmcphJfjXmEOTHFOp+OGNidvYVnJucQepyOfkfY4l2a9ZvQR9Gr7XO4joZrvIyzcM6D47
- AlDkWJD6lGnHzwMpEXc2SAwB0ZfkOnfJLb/mp+rTEjrBo7M6bdnnkhFF87jidbMU8ddLRWNh+
- 0V8F1e4+fNB01kHmzQW1Lo1UgoaYVdH1X57cIe9qhwMW1+x8pPUKfridDP1E7Dgr/tN4r002V
- o11CB7KkDd1J2f5aMimS55DvQHNWfBT9c0qfkuoo33UWZq08ziD6DgrnHeTiQZQwR6mujIapQ
- NR29hgakFDG6kjaVMNusdEYwzxpisU+KYDF00YKtskqWcLGj+cyTPENVUbBOFnppYN94rnrXL
- jg0H2K61zvmJ0zwqEQgAbZgz/aAQfyzJp5dDYhMS0/F3xv7gHdY1mqqTdKfTL7v+F93kxB84T
- FK0XlsAFzElePhHZxJTwXtYIhsNyXAyBA16dSA7V79VXw4QfJZ2Gwj6vCPX3+GLbd5rkfJn0u
- OW5tNHwFvf3bkBnisrMS+YYzk/Ep6Z5qm5FgTZpwXuAptftKF+KY+zsyoBbikipkcs7+mQ6RO
- UnpwUq880BWqjwyI9SZ52WzE7UE1Yzb/Fh5wIWZ9+xiOF8VbWhb86j5A3T3wMzXUNHNc6bE5h
- evbIg=
-Subject: Re: [Cake] Wifi Memory limits in small platforms
+ by mx1.redhat.com (Postfix) with ESMTPS id B858B86679
+ for <cake@lists.bufferbloat.net>; Mon, 26 Aug 2019 07:35:17 +0000 (UTC)
+Received: by mail-ed1-f70.google.com with SMTP id d64so9118658edd.1
+ for <cake@lists.bufferbloat.net>; Mon, 26 Aug 2019 00:35:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:from:to:subject:references:date:message-id
+ :mime-version;
+ bh=9sGPDvWl+fyzPFsAk3xs2aX8vVRA7urKHCgRoquXdAE=;
+ b=UHB7WmJWSGGZadLnKV8rBBabDv132OT7E97629undFf4sBlBnrxpmJJ8072f4w3C0s
+ 5fVFRqO/mlyKvDE9uudIo5c2KVU6n8dIkweWYQ7U14ek5iDO10UFsflQH3lFIU7sY7l9
+ BWx3RX/QkVAfbPq9A5gHxHW1VjK9pN0ERc1yrnT9qcacmjcBS7MstXAOae3A4AE3DvFQ
+ zOiEIxVwXdJXW6CB67Y3vhFXWk348nLlJeWfGxwEA6CxaCRMs0N6db4VrgWqb3NUF8pA
+ p+Mxfn77uqDnrc1bjeVd4T85+R92duD240NmxYDRKYjrDhol8Q+3REqD/LQDg5xLsc1V
+ aHoA==
+X-Gm-Message-State: APjAAAUaXUc7sZyNDkyGf1IHdv8vEQe5iPn0uDshyQ7YgQKqClNKd0A1
+ 3OjDQnmCcFh2WXGZ2MDP3LDyBTiWxfVBzVapbggRvRxuDsOGHDzm/xyStIh4i/+Ozmb2U5RvY2O
+ RxWQvf2jfoFtxV4MLmCJGXg==
+X-Received: by 2002:a50:871c:: with SMTP id i28mr17193679edb.29.1566804916568; 
+ Mon, 26 Aug 2019 00:35:16 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqyVjFYDLfSVlZJjfJ2eBfqvtEP5KFpHeg04w/RsohA4GmANa2jyPWRIp1XQynYjCsSWMgHblA==
+X-Received: by 2002:a50:871c:: with SMTP id i28mr17193674edb.29.1566804916411; 
+ Mon, 26 Aug 2019 00:35:16 -0700 (PDT)
+Received: from alrua-x1.borgediget.toke.dk ([2a00:7660:6da:443::2])
+ by smtp.gmail.com with ESMTPSA id r10sm1093562edp.25.2019.08.26.00.35.15
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 26 Aug 2019 00:35:15 -0700 (PDT)
+Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
+ id E8DEC181C2E; Mon, 26 Aug 2019 09:35:14 +0200 (CEST)
+From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
+To: bloat@lists.bufferbloat.net, cake@lists.bufferbloat.net
+References: <9cbefe10-b172-ae2a-0ac7-d972468eb7a2@gmail.com>
+X-Clacks-Overhead: GNU Terry Pratchett
+Date: Mon, 26 Aug 2019 09:35:14 +0200
+Message-ID: <87h864l6q5.fsf@toke.dk>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="=-=-="
+Subject: [Cake] Fwd: Re: Unable to create htb tc classes more than 64K
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -98,150 +78,252 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-Cgo+IE9uIEF1ZyAyMywgMjAxOSwgYXQgMDE6MzksIERhdmUgVGFodCA8ZGF2ZUB0YWh0Lm5ldD4g
-d3JvdGU6Cj4gCj4gU2ViYXN0aWFuIEdvdHRzY2hhbGwgPHMuZ290dHNjaGFsbEBuZXdtZWRpYS1u
-ZXQuZGU+IHdyaXRlczoKPiAKPj4+Pj4gYnV0IHdpdGggY3VycmVudCBtYWM4MDIxMSB2ZXJzaW9u
-cyAoY3VycmVudCBtZWFucyBsYXN0IDItMyB5ZWFycykuIHRoZXkKPj4+Pj4gYXJlIGp1c3QgdW5z
-dGFibGUgYW5kIHJ1bm5pbmcgb3V0IG9mIG1lbW9yeSBhZnRlciBhIHdoaWxlCj4+Pj4+IHRoZSBv
-bmx5IHRoaW5nIHdoaWNoIGhlbHBlZCB3YXMgY3V0dGluZyBvZiB0aGUgbWVtb3J5IGxpbWl0IG9m
-IGZxX2NvZGVsCj4+Pj4+IGluc2lkZSBtYWM4MDIxMQo+Pj4+PiBpIGFsc28gaGF2ZSBhbm90aGVy
-IGZhbmN5IHRlc3R1bml0IHdoaWNoIGlzIGEgbGlua3N5cyB3cnQ0MDAgd2l0aCAzMiBtYgo+Pj4+
-PiByYW0gYW5kIDIgYXRoOWsgYmFzZWQgd2lmaSBjaGlwc2V0cy4gbm8gaG9wZSBoZXJlIGZvbnIg
-cnVubmluZyBzdGFibGUKPj4+Pj4gZm9yIG9ubHkgNSBtaW51dGVzIGV2ZW4gd2l0aCBhIHNpbmds
-ZSBjb25uZWN0aW9uIHVuZGVyIGxvYWQgKG15IGNyYXNoaW5nCj4+Pj4+IHRlc3QgaXMgcnVubmlu
-ZyBhIGhkdHYgaXB0diBzdHJlYW0gY29udmVydGVkIHRvIHVuaWNhc3QgdXNpbmcgYQo+Pj4+PiBz
-dGF0ZWxlc3MgZW9pcCB0dW5uZWwpCj4+Pj4+IAo+Pj4+Pj4gSSB0cnkgdG8gZW5jb3VyYWdlIGZv
-bGsgdG8gcnVuIHRoZSBydHRfZmFpciB0ZXN0cyBpbiBmbGVudCB3aGVuCj4+Pj4+PiB0d2lkZGxp
-bmcgd2l0aCB3aWZpLiBUaG9zZSByZWFsbHkgc2hvd3MgaG93IGJhZCB0aGluZ3MgYXJlIHdoZW4g
-eW91Cj4+Pj4+PiBkb24ndCBoYXZlIEFURiArIEZRICsgUGVyIHN0YXRpb24gYWdncmVnYXRpb24g
-YW5kIGxvdHMgb2YKPj4+Pj4+IGNsaWVudHMuIFNpbmdsZSB0aHJlYWRlZCB0ZXN0cyBhcmUgbWlz
-bGVhZGluZy4KPj4+Pj4gaSBrbm93IGJ1dCBldmVuIHNpbmdsZSB0aHJlYWRlZCB0ZXN0cyBhcmVu
-dCB3b3JraW5nIGdvb2Qgb24gc3VjaAo+Pj4+PiBkZXZpY2VzLiBzbyB0aGVyZSBpcyBubyBuZWVk
-IHRvIHRhbGsgYWJvdXQgdGhlIGJlbmVmaXRzIG9mIGF0ZixmcV9jb2RlbCBldGMuCj4+Pj4+IGJ1
-dCB0aGVyZSBpcyBuZWVkIHRvIHRhbGsgYWJvdXQgY29uZmlndXJhYmxlIHVzZSBvZiBpdCB3aGlj
-aCBhbHNvIGFsbG93cwo+Pj4+PiB0byBkaXNhYmxlIGl0IGlmIHJlcXVpcmVkLgo+Pj4gSSAxMTAl
-IGFncmVlIHRoYXQgYSBzeXN0ZW0gdGhhdCBjYW4gc3RheSB1cCBmb3IgeWVhcnMgaXMgbXVjaCBi
-ZXR0ZXIKPj4+IHRoYW4gb25lIHRoYXQgaXMgZmFzdCBmb3IgNSBtaW51dGVzIQo+Pj4gCj4+PiBI
-b3dldmVyIEknZCBsaWtlIGEgY2hhbmNlLCBpbiBjb2xsYWJvcmF0aW5nIHdpdGggeW91IGFuZCB5
-b3VyIHVwY29taW5nCj4+PiBwYXRjaGVzIC0gdG8gdHJ5IGFuZCBuYXJyb3cKPj4+IGRvd24gY3Jh
-c2ggYnVncyB0byB2YXJpb3VzIHN1YnN5c3RlbXMgYW5kIGJlIGFibGUgdG8gZ2V0IHNvbWUKPj4+
-IGJlbmNobWFya3MgZG9uZSB0aGF0IEkgc2ltcGx5Cj4+PiBjb3VsZG4ndCBkbyBhbnltb3JlIGF0
-IHRoZSBmaW5hbmNpYWwgY29uY2x1c2lvbiBvZiB0aGUgbWFrZS13aWZpLWZhc3QKPj4+IGFuZCBj
-YWtlIHByb2plY3RzLgo+Pj4gCj4+PiBJIHRoaW5rIEkgaGF2ZSBhIGxvdCBvZiBnZWFyIHRoYXQg
-aXMgZGQtd3J0IGNvbXBhdGlibGUgLSBhcHUyLAo+Pj4gd25kcjM3MDBzLCAzODAwcy4uLi4KPj4g
-aWYgaXRzIHY0LCB0aGVzZSBhcmUgaGF2aW5nIDEyOCBtYiAoaSBoYXZlIHRoZW0gdG9vKS4KPiAK
-PiBUaGVzZSBhcmUgZnJvbSB0aGUgY2Vyb3dydCBlcmEsIHNvLCAzMiBvciA2NE1CIG9mIHJhbS4K
-CglJIGJlbGlldmUgd2Ugb25seSB1c2VkIHduZHIzNzAwdjIgKDY0TUIpIGFuZCB3bmRyMzgwMCAo
-MTI4TUIpLCBhdCBsZWFzdCB0aG9zZSB3ZXJlIHRoZSByZWNvbW1lbmRlZCBvbmVzLiBJIGFsc28g
-cmVtZW1iZXIgbWFraW5nIHRoZXNlIE9PTSB3aXRoIGEgc2ltcGxlIFVEUCBmbG9vZCB3aXRoIHJh
-bmRvbWl6ZWQgcG9ydCBhZGRyZXNzZXMgcXVpdGUgZWFzaWx5IGludGlhbGx5LiBUaGF0IGlzLCB1
-bnRpbCB3ZSB1c2VkIGZxX2NvZGVsJ3MgbGltaXQga2V5d29yZCB0byByZXN0cmljdCB0aGUgbnVt
-YmVyIG9mIG1heGltYWxseSBxdWV1ZWQgcGFja2V0cy4gVGhpcyBleHBlcmllbmNlIGFsc28gY2Fy
-cmllZCBpbnRvIGNha2UgYW5kIGN1bG1pbmF0ZWQgaW50byB0aGUgbWVtbGltaXQga2V5d29yZC4g
-SXQgc2VlbXMgSSBjb21wbGV0ZWx5IG1pc3NlZCB0aGUgYWRkaXRpb24gb2YgdGhlICJtZW1vcnlf
-bGltaXQgQllURVMiIGtleXdvcmQgdG8gZnFfY29kZWwsIHdoaWNoIHNlZW1zIGEgYmV0dGVyIGZp
-dCB0byBvdXIgbmVlZHMgdGhhbiB0aGUgImxpbWl0IDEwMDEiIHdlIGN1cnJlbnRseSB1c2UgKHdo
-eSAxMDAxIGluc3RlYWQgb2YgMTAwMCwgc2ltcGx5IHRvIGJlIGFibGUgdG8gcXVpY2tseSBzZWUg
-d2hldGhlciB0aGlzIGlzIG91ciBsaW1pdCBvciBzb21ldGhpbmcgdGhlIHVzZXIgdXNlZCwgcGxl
-b3BsZSB0ZWQgdG8gbGVhdmUgdGhlIGxhc3QgZGlnaXQgYWxvbmUgd2hlbiBwbGF5aW5nIHdpdGgg
-dGhlc2UgcGFyYW1ldGVycyA7KSkuCkkgZ3Vlc3MgSSBoYXZlIG5vdCBib3RoZXJlZCB0byByZXBl
-YXQgdGhhdCB0ZXN0IHNpbmNlIGZxX2NvZGVsIGJlY2FtZSB0aGUgZGVmYXVsdCBxZGlzYyBpbiBP
-cGVuV3J0Li4uCgpCZXN0IFJlZ2FyZHMKCVNlYmFzdGlhbgoKCj4gCj4+IGFuZCBhcHUyIGhhcyAy
-Cj4+IGdiLiBzbyBpdHMgZ2V0dGluZyByZWFsIGludGVyZXN0aW5nCj4+IGlmIHlvdSBjaG9vc2Ug
-c3VjaCBhIGJhZCBvbmUgd2l0aCAzMiBtYiByYW0gd2hpY2ggYXJlIHN0aWxsIGNvbW1vbmx5Cj4+
-IHVzZWQgYnkgImZyZWlmdW5rIgo+IAo+IE9uZSB0aGluZyB3ZSBjYW4gc3RhcnQgZG9pbmcgbW9y
-ZSAncm91bmQgaGVyZSBpcyB0byBib290IHRoZSB4ODYgYm94ZXMKPiB3aXRoIG1lbT0zMk1CIG9y
-IHNvbWV0aGluZyBzaW1pbGFyICg0MCUgbGFyZ2VyIGR1ZSB0byA2NCBiaXRzPyBubyBpZGVhLAo+
-IG1heWJlIGxvb2sgYXQgZnJlZSBtZW0gb24gYSBzaW1pbGFyIGNvbmZpZykgdG8gc2VlIHdoYXQg
-c2hvd3MgdXAuIAo+IAo+IEZvciBleGFtcGxlLCBvbmUgb2YgbXkgQVBVMnMgaGFzIGR1YWwgYXRo
-OS9hdGgxMGsgY2FyZHMgd2hpY2ggaXMgYQo+IGEgcmVhc29uYWJsZSBzaW0gb2Ygb25lIG9mIHlv
-dXIgY29uZmlncy4gCj4gCj4+PiBUaGUgcmVkdWNlIHRydWVzaXplIHBhdGNoIGhhZCBoZWxwZWQg
-YSBsb3QgYXQgdGhlIHRpbWUgKDIwMTIpLiBUaGVyZQo+Pj4gd2VyZSBhbGwga2luZHMgb2YgZmxh
-a3kgYnVncyB0aGF0IGRpc2FwcGVhcmVkLgo+PiBpIHRlc3RlZCBhbmQgaXQgaGVscGVkIHRvIG1h
-a2UgZXRoZXJuZXQgdW5hdmFpbGFibGUuIGl0IHdvcmtlZCBmb3IKPiAKPiB0aHggZm9yIG1ha2lu
-ZyBtZSBjaG9ydGxlIGluIHNhZCBlbXBhdGh5Lgo+IAo+PiB3aWZpIGludGVyZmFjZXMuIGJ1dCB0
-aGUgZXRoMCBhbmQgZXRoMSBvbiBteSBpcHE4MDY0IGJhc2VkCj4+IHRlc3Rib2FyZCBkaWQgbm90
-IHdvcmsgYW55bW9yZS4gbm8gZGhjcCBsZWFzZSwgbm8gcGluZy4gYnV0IGkgd2FzIGFibGUKPj4g
-dG8gY2FwdHVyZSBpbmJvdW5kIHBhY2tldHMuIChxb3Mgd2FzIG5vdCBldmVuIGVuYWJsZWQgd2hp
-bGUgdGVzdGluZywKPj4gc28gbm8gY2FrZSwgZnFfY29kZSBsZXRjLiBqdXN0IHN0YW5kYXJkIHNm
-cSBzY2hlZHVsZXIpCj4+IHNvIGkgcmV2ZXJ0ZWQgYW5kIGFsbCB3b3JrZWQgYWdhaW4KPiAKPiBP
-Sy4gVGh4IGZvciB0cnlpbmcuIHRoZXJlIGhhdmUgYmVlbiBzbyBtYW55IGJ1Z3MgaW4gZ3NvL2dy
-byBhbmQgaGFyZHdhcmUKPiBvZmZsb2FkcyB0aGF0IEkgZmlndXJlIHRoYXQgdGhhdCdzIHdoeSB0
-aGUgcGF0Y2ggd2FzIGRyb3BwZWQgb3ZlciB0aW1lLgo+IAo+IGlzIGNha2UncyBnc28tc3BsaXR0
-aW5nIHdvcmtpbmcgb24gdGhhdCBzYW1lIGhhcmR3YXJlPyBJJ20gbm90IHN1cmUKPiB0byB3aGF0
-IGV4dGVudCB0aGF0IHJlZHVjZXMgcGFja2V0IHNpemUgb3Igbm90IHRoZXNlIGRheXMuCj4gCj4g
-SSdsbCB0cnkgdGhhdCBhZ2FpbiBvbiB4ODYsIG1heWJlIGl0IG5lZWRlZCB0byBwdWxsc2tiLi4u
-Lgo+IAo+Pj4gCj4+PiB0aGUgbmV3IGRyb3AgbW9uaXRvciBwYXRjaHNldCBsb29rcyBXT05ERVJG
-VUwgZm9yIHNlZWluZyBtb3JlIGFib3V0Cj4+PiBwYWNrZXQgZHJvcCBiZWhhdmlvciBpbiB0aGUg
-c3RhY2ssIGJ1dAo+Pj4gaXQncyBhIDUuMyg/KSBmZWF0dXJlIG9ubHkuCj4+IGkgbG92ZSBiYWNr
-cG9ydGluZyA6LSkKPiAKPiBJIHVzZWQgdG8gYnV0IHRoZXNlIGRheXMgSSdtIGNvbnRlbnQgdG8g
-d29yayBvdXQgb2YgbmV0LW5leHQgeC55LjAtcmM0Cj4gb3IgbGF0ZXIuIEkgZ2V0IG1vcmUgc2xl
-ZXAgdGhhdCB3YXkuIE9oLCB3YWl0LCBpdCBqdXN0IGhpdCB0aGF0Li4uLgo+IAo+Pj4gCj4+PiBJ
-IG5vdGUgdGhhdCBJIHJ1biAxOC4wNi4xIG9uIG15IDMyTUIgcGljbyBhbmQgbmFub3N0YXRpb25z
-IG9uIHRoZQo+Pj4gbHVwaW4gY2FtcHVzLCBidXQgSSBydW4gbm8gZ3VpLCBmZXcgYWRkaXRpb25h
-bCBhcHBsaWNhdGlvbnMgYXQgYWxsCj4+PiAoZXhjZXB0IGJhYmVsLCBzbm1wZCwgbmV0cGVyZiwg
-YW5kIHRoZSBvdGhlciBjb3JlIG5lZWRlZCBkYWVtb25zKS4gIE15Cj4+PiB1cHRpbWVzIGFyZSBw
-cmluY2lwYWxseSBnb3Zlcm5lZCBieSBwb3dlciBmYWlsdXJlcy4gSSBjYW4ndCByZW1lbWJlcgo+
-Pj4gdGhlIGxhc3QgICJjcmFzaCwgY3Jhc2giIEkgaGFkLCBhbmQgSSBkbyB0cmFjayBtZW1vcnkg
-bGVha3MgKG5vbmUpLgo+Pj4gVGhhdCBzYWlkLCBJJ20gcGFpbmZ1bGx5IGF3YXJlIHRoYXQgSSBz
-aG91bGQgcHJvYmFibHkgZ2l2ZSBkZC13cnQgYW5kCj4+PiBvcGVud3J0IDE5Lnggc29tZSB0ZXN0
-aW5nIGp1c3QgdG8gbWFrZSBzdXJlIHRoZXJlJ3Mgbm8gcmVncmVzc2lvbnMsCj4+PiBidXQgaGF2
-ZSBiZWVuIHJlbHVjdGFudCB0byBnZXQgaW52b2x2ZWQgYWdhaW4gd2l0aG91dCBtb3JlIHBhcnRu
-ZXJzIGluCj4+PiBjcmltZSwgYmVjYXVzZSB0aGUgc2NhcnMgZnJvbSBkZXBsb3lpbmcgMTgueCB3
-aWRlbHkgYXJlIG9ubHkgYmVnaW5uaW5nCj4+PiB0byBoZWFsLi4uIGFuZCBvbmx5IGxhc3Qgd2Vl
-ayBkaWQgdGhlIG5lZWRlZCBiYWJlbCAxLjkgdXBncmFkZSBhcnJpdmUKPj4+IHNvIEkgY2FuIGZp
-bmFsbHkgcmVkZXBsb3kgaXB2NiB1bml2ZXJzYWxseS4gSSBmZWFyIG15IGN1cnJlbnQKPj4+IHJl
-bGlhYmlsaXR5IG1ldHJpY3MgYXJlIHNvIGdvb2QgYmVjYXVzZSBJIHRvb2sgZG93biBpcHY2IGxh
-c3QgeWVhci4uLi4KPj4gbXkgd29ya2Fyb3VuZCB3aXRoIG1lbW9yeSBwcm9ibGVtcyBpcyBhbHNv
-IGRpc2FibGluZyBodHRwIG5vcm1hbGx5LiBpCj4+IGhhdmUgc29tZSBvZiB0aGVzZSBuYW5vc3Rh
-dGlvbnMgaW4gdGhlIGZpZWxkCj4+IAo+PiBqdXN0IHJ1bm5pbmcgaG9zdGFwZCwgc25tcCwgc3lz
-bG9nLiBidXQgYW55dGhpbmcgZWxzZSBpcyBkaXNhYmxlZCBkdWUKPj4gdGhlIG9vbSBwcm9ibGVt
-YXRpY3MuIGl0IG5ldmVyIHdhcyBhIHJlYWwgY3Jhc2guCj4+IAo+PiBidXQgb29tLiBidXQgaSBu
-ZXZlciBwbGF5ZWQgd2l0aCBiYWJlbC4gb3NwZiBldGMuIGFsbCB3b3JraW5nIG91dCBvZgo+PiB0
-aGUgYm94IGJhc2VkIG9uIHF1YWdnYSBvbiBsb3cgZW5kIGRldmljZXMgYW5kIGZyciBvbiBiaWdn
-ZXIgb25lcy4KPj4gCj4+PiAKPj4+IFBpY286Cj4+PiAKPj4+IHJvb3RAcG9vbDI6fiMgZnJlZQo+
-Pj4gICAgICAgICAgICAgIHRvdGFsICAgICAgICAgdXNlZCAgICAgICAgIGZyZWUgICAgICAgc2hh
-cmVkICAgICAgYnVmZmVycwo+Pj4gTWVtOiAgICAgICAgIDI4NDgwICAgICAgICAyMzc5NiAgICAg
-ICAgIDQ2ODQgICAgICAgICAgIDkyICAgICAgICAgMTg2OAo+Pj4gLS8rIGJ1ZmZlcnM6ICAgICAg
-ICAgICAgICAyMTkyOCAgICAgICAgIDY1NTIKPj4+IFN3YXA6ICAgICAgICAgICAgMCAgICAgICAg
-ICAgIDAgICAgICAgICAgICAwCj4+PiAKPj4+IHJvb3RAcG9vbDI6fiMgdXB0aW1lCj4+PiAgMTE6
-Mzg6MDkgdXAgNDMgZGF5cywgMjE6MzcsICBsb2FkIGF2ZXJhZ2U6IDAuMDQsIDAuMDMsIDAuMDQK
-Pj4+IAo+Pj4gU2FtZSB3b3JrbG9hZCBvdmVyIGhlcmUsIG9uIGEgd25kcjM4MDAsIGFsbW9zdCBl
-eGFjdGx5IHRoZSBzYW1lIGNvbmZpZwo+Pj4gCj4+PiByb290QGNvdWNoOn4jIGZyZWUKPj4+ICAg
-ICAgICAgICAgICB0b3RhbCAgICAgICB1c2VkICAgICAgIGZyZWUgICAgIHNoYXJlZCAgICBidWZm
-ZXJzICAgICBjYWNoZWQKPj4+IE1lbTogICAgICAgICA2MDMyMCAgICAgIDIyODcyICAgICAgMzc0
-NDggICAgICAgICA2OCAgICAgICAxOTYwICAgICAgIDYxMjAKPj4+IC0vKyBidWZmZXJzL2NhY2hl
-OiAgICAgIDE0NzkyICAgICAgNDU1MjgKPj4+IFN3YXA6ICAgICAgICAgICAgMCAgICAgICAgICAw
-ICAgICAgICAgIDAKPj4gCj4+IE5TMgo+PiAKPj4gcm9vdEBUUk8xOn4jIGZyZWUKPj4gCj4+ICAg
-ICAgICAgICAgICAgdG90YWwgICAgICAgIHVzZWQgICAgICAgIGZyZWUgICAgICBzaGFyZWQgYnVm
-Zi9jYWNoZSAgCj4+IGF2YWlsYWJsZQo+PiBNZW06ICAgICAgICAgIDI5MTI0ICAgICAgIDE5MjI4
-ICAgICAgICAzNTUyICAgICAgICAgICAwIDYzNDQgICAgICAgIDc3NTIKPj4gU3dhcDogICAgICAg
-ICAgICAgMCAgICAgICAgICAgMCAgICAgICAgICAgMAo+IAo+IEl0IGxvb2tzIGxpa2UgeW91IGFy
-ZSBydW5uaW5nIGV2ZW4gbGVzcyBzdHVmZiB0aGFuIEkgYW0uIEFuZCB0aGlzCj4gbWFjaGluZSBp
-cyBydW5uaW5nIHdpdGggMjU2ayBidWZzPwo+IAo+PiB3bmRyMzcwMHY0Cj4+IAo+PiByb290QERE
-LVdSVDp+IyBmcmVlCj4+ICAgICAgICAgICAgICAgdG90YWwgICAgICAgIHVzZWQgICAgICAgIGZy
-ZWUgICAgICBzaGFyZWQgYnVmZi9jYWNoZSAgCj4+IGF2YWlsYWJsZQo+PiBNZW06ICAgICAgICAg
-MTI1ODg0ICAgICAgIDIzMDQ4ICAgICAgIDkyOTQwICAgICAgICAgICAwIDk4OTYgICAgICAgOTk4
-MjQKPj4gU3dhcDogICAgICAgICAgICAgMCAgICAgICAgICAgMCAgICAgICAgICAgMAo+PiByb290
-QERELVdSVDp+Iwo+PiAKPj4gCj4+PiAKPj4+PiBEaXNhYmxpbmcgdGhlIGZxIHBhcnQgd29uJ3Qg
-YWN0dWFsbHkgZ2FpbiB5b3UgbXVjaCBpbiB0ZXJtcyBvZiBtZW1vcnkKPj4+PiB1c2FnZSwgdGhv
-dWdoLCBhcyBtb3N0IG9mIGl0IGlzIHBhY2tldCBtZW1vcnkgd2hpY2ggaXMgYWxyZWFkeQo+Pj4+
-IGNvbmZpZ3VyYWJsZS4KPj4+PiAKPj4+PiBUaGUgb25lIGV4Y2VwdGlvbiB0byB0aGlzIGlzIHRo
-ZSBzdGF0aWMgb3ZlcmhlYWQgb2YgJ3N0cnVjdCBmcV9mbG93Jywgb2YKPj4+PiB3aGljaCBtYWM4
-MDIxMSBjdXJyZW50bHkgYWxsb2NhdGVzIDRrLiBUaGF0J3MgMzAwayBvZiBtZW1vcnkgd2hpY2gg
-aXMKPj4+PiBjdXJyZW50bHkgbm90IGNvbmZpZ3VyYWJsZS4gQnV0IHRoYXQgY291bGQgYmUgZml4
-ZWQgOikKPj4+PiAKPj4+PiAtVG9rZQo+Pj4gLS0KPj4+IAo+Pj4gRGF2ZSBUw6RodAo+Pj4gQ1RP
-LCBUZWtMaWJyZSwgTExDCj4+PiBodHRwOi8vd3d3LnRla2xpYnJlLmNvbQo+Pj4gVGVsOiAxLTgz
-MS0yMDUtOTc0MAo+Pj4gCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KPiBDYWtlIG1haWxpbmcgbGlzdAo+IENha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0
-Cj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQoKX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QK
-Q2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQv
-bGlzdGluZm8vY2FrZQo=
+--=-=-=
+Content-Type: text/plain
+
+Turns out that with the "earliest departure time" support in sched_fq,
+it is now possible to write a shaper in eBPF, thus avoiding the global
+qdisc lock in sched_htb. This is pretty cool, if you ask me! :)
+
+-Toke
+
+
+--=-=-=
+Content-Type: message/rfc822
+Content-Disposition: inline
+
+Delivered-To: thoiland@gapps.redhat.com
+Received: by 2002:a2e:878d:0:0:0:0:0 with SMTP id n13csp4081304lji;
+        Sun, 25 Aug 2019 23:33:12 -0700 (PDT)
+X-Google-Smtp-Source: APXvYqzWr9JH7yQq/0SpS5H4whLnLXpcQINeteatpf2vhrd/Au17orvZ9f6xK4DWtbMfJ9g7hOhg
+X-Received: by 2002:a0c:fba4:: with SMTP id m4mr14141117qvp.136.1566801192174;
+        Sun, 25 Aug 2019 23:33:12 -0700 (PDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1566801192; cv=none;
+        d=google.com; s=arc-20160816;
+        b=Ai3h1GVyGzz1cGJpne95fg3kLRKUG/+HC/cGvh8AU6wkqL5Jo7oHH8rkeyKk24a1n1
+         O5dqWy1piCbkF7Cgiq6nprk0y3q4dxo+uGakdk8k8BAHqeLIOkErVxnmkq2DRT5DcY5M
+         fvweEQ4GDPCnWnbpQm+Y1IIGCA1X65e0Hqid2edOv9l5lEgC0Ue+FGEPHMuR5K/eRY96
+         AAGQApUwub5js8HvYpoDXTZDsvoIki8skPbHGx1DPjJ6k9QppkNQ0PrVHJAyJiRx2ex5
+         KoglDCa5S6ovZFqwPJWu2+JOAt15NxoGfTiSBftd1XRpoJRE3YPvf11cAFnbG3sRgR38
+         PwBA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=arc-20160816;
+        h=list-id:precedence:sender:content-transfer-encoding
+         :content-language:in-reply-to:mime-version:user-agent:date
+         :message-id:from:references:cc:to:subject:dkim-signature
+         :delivered-to;
+        bh=iOQM757QAYxCOX3hrCBVbTdwFWv0y68ZG1Z8cM2cfis=;
+        b=gmOsAEMu5FJ6y0krPVhH7KQgiS4HTOtjLDOIINicw8eWPw6GwZmeWezJeiDLQgX08F
+         0iyHMULJ5WdhLxXlKMZc4UdIgb/6zNMK5oSDnKQTP5x2M+UyeSM9YfsbrB5DxcUwH41f
+         LGm2Gx/LQDblJnNHz5E9WuIhuE+7T0+bc1qhd0WSh6CKywFx2s483P1FR1EBJEpZInFE
+         d0CyMlUDSoeU4yKdmwCskworAKU3ASWggpmF07k5fJa5YsZmNNUzsDd96thETcIL+rA3
+         5JcszIjerdWo+v0JclowL8unbM9HLfwSnx3faZ53o/Zc4FSPUc7VLiZkzOtyoz5rgvm3
+         JzHw==
+ARC-Authentication-Results: i=1; mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YlqVEOnt;
+       spf=pass (google.com: best guess record for domain of netdev-owner@vger.kernel.org designates 209.132.180.67 as permitted sender) smtp.mailfrom=netdev-owner@vger.kernel.org
+Return-Path: <netdev-owner@vger.kernel.org>
+Received: from mx1.redhat.com (mx1.redhat.com. [209.132.183.28])
+        by mx.google.com with ESMTPS id d41si7220260qve.113.2019.08.25.23.33.11
+        for <thoiland@gapps.redhat.com>
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 25 Aug 2019 23:33:12 -0700 (PDT)
+Received-SPF: pass (google.com: best guess record for domain of netdev-owner@vger.kernel.org designates 209.132.180.67 as permitted sender) client-ip=209.132.180.67;
+Authentication-Results: mx.google.com;
+       dkim=pass header.i=@gmail.com header.s=20161025 header.b=YlqVEOnt;
+       spf=pass (google.com: best guess record for domain of netdev-owner@vger.kernel.org designates 209.132.180.67 as permitted sender) smtp.mailfrom=netdev-owner@vger.kernel.org
+Received: from smtp.corp.redhat.com (int-mx05.intmail.prod.int.phx2.redhat.com [10.5.11.15])
+	(using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+	(No client certificate requested)
+	by mx1.redhat.com (Postfix) with ESMTPS id 4E8BA883BA
+	for <thoiland@gapps.redhat.com>; Mon, 26 Aug 2019 06:33:11 +0000 (UTC)
+Received: by smtp.corp.redhat.com (Postfix)
+	id 41A535B6A5; Mon, 26 Aug 2019 06:33:11 +0000 (UTC)
+Delivered-To: toke@redhat.com
+Received: from mx1.redhat.com (ext-mx22.extmail.prod.ext.phx2.redhat.com [10.5.110.63])
+	by smtp.corp.redhat.com (Postfix) with ESMTPS id 257E75D6A5;
+	Mon, 26 Aug 2019 06:33:00 +0000 (UTC)
+Received: from vger.kernel.org (vger.kernel.org [209.132.180.67])
+	by mx1.redhat.com (Postfix) with ESMTP id EE2FE189DACC;
+	Mon, 26 Aug 2019 06:32:57 +0000 (UTC)
+Received: (majordomo@vger.kernel.org) by vger.kernel.org via listexpand
+        id S1729721AbfHZGc4 (ORCPT <rfc822;eperezma@redhat.com> + 65 others);
+        Mon, 26 Aug 2019 02:32:56 -0400
+Received: from mail-wm1-f68.google.com ([209.85.128.68]:36934 "EHLO
+        mail-wm1-f68.google.com" rhost-flags-OK-OK-OK-OK) by vger.kernel.org
+        with ESMTP id S1725385AbfHZGc4 (ORCPT
+        <rfc822;netdev@vger.kernel.org>); Mon, 26 Aug 2019 02:32:56 -0400
+Received: by mail-wm1-f68.google.com with SMTP id d16so14632194wme.2;
+        Sun, 25 Aug 2019 23:32:53 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20161025;
+        h=subject:to:cc:references:from:message-id:date:user-agent
+         :mime-version:in-reply-to:content-language:content-transfer-encoding;
+        bh=iOQM757QAYxCOX3hrCBVbTdwFWv0y68ZG1Z8cM2cfis=;
+        b=YlqVEOnteRAXr3AyXxEvf5T8pIkl9Aqp5LydmGjEw+Kh9BFPlP5+6PPUU+baYGL/kW
+         QHy/QL9HDZUuD9uKYurUKaB47D7CaCwJVexYZafYe6Bx86SdG4X9a5j6rNngwtxPwNeG
+         28uDavKdKPhnBis6TnUUO/bIzMJTFW6oO+2BQZKplwQ3Ywao+NqzaX3kH22Y2dFvIDcq
+         FAOWTn2yheq0H0br1S06jpiNk3Sep+qptt5vHoR7Kp2ivBsa8wFLRkxMm3wRstVbux1d
+         DJvBQDAvbgvquFSDqKEE1sukGLR38norAhfKPq8y3c0nYXWPOxrrDczU6+RAwj7AZzOg
+         5Mbg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20161025;
+        h=x-gm-message-state:subject:to:cc:references:from:message-id:date
+         :user-agent:mime-version:in-reply-to:content-language
+         :content-transfer-encoding;
+        bh=iOQM757QAYxCOX3hrCBVbTdwFWv0y68ZG1Z8cM2cfis=;
+        b=PZkwHMW25NGYUZUacJQauj6LjTv2dt9XUGFQUPstzq9Psokup4mw2rJ/frJXNUgPdX
+         s5x0n1DIZaYVoQ6s++FyG2mQBmzDgMlYXk6OZPJYtxVucUnD9W9VL62LtouUlPyZ3DF4
+         jVzfFzpG9c5GpMysMzaSJ01FoZrAn0N4fsYtd6LDKcDu5afyv9T73pCus+IJzzo8efpl
+         1Qk8EnvoAuwSEzD3gDF7jnCv11VhH5kQVC3PXYlORp9GjvxoIuCdGUkn/IEAxQXyBCI3
+         1LMltCo8IFUyhOAvImgQA4TeLb0aqMful5IjAm4CmEifnD0+X1evkCf5SNTZn85VQxtb
+         jzdg==
+X-Gm-Message-State: APjAAAWhTvEzMM++H+egW9PlW0gd93q2uTq+qRNB05gnmaS+1J5L95n5
+        ca2HfPhifP6A9bo4APR1ZBffLFrg
+X-Received: by 2002:a05:600c:48b:: with SMTP id d11mr20559520wme.124.1566801172751;
+        Sun, 25 Aug 2019 23:32:52 -0700 (PDT)
+Received: from [192.168.8.147] (234.173.185.81.rev.sfr.net. [81.185.173.234])
+        by smtp.gmail.com with ESMTPSA id l15sm9151503wru.56.2019.08.25.23.32.51
+        (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
+        Sun, 25 Aug 2019 23:32:52 -0700 (PDT)
+Subject: Re: Unable to create htb tc classes more than 64K
+To: Cong Wang <xiyou.wangcong@gmail.com>,
+        Akshat Kakkar <akshat.1984@gmail.com>
+Cc: Anton Danilov <littlesmilingcloud@gmail.com>,
+        NetFilter <netfilter-devel@vger.kernel.org>,
+        lartc <lartc@vger.kernel.org>, netdev <netdev@vger.kernel.org>
+References: <CAA5aLPhf1=wzQG0BAonhR3td-RhEmXaczug8n4hzXCzreb+52g@mail.gmail.com>
+ <CAM_iQpVyEtOGd5LbyGcSNKCn5XzT8+Ouup26fvE1yp7T5aLSjg@mail.gmail.com>
+ <CAA5aLPiqyhnWjY7A3xsaNJ71sDOf=Rqej8d+7=_PyJPmV9uApA@mail.gmail.com>
+ <CAM_iQpUH6y8oEct3FXUhqNekQ3sn3N7LoSR0chJXAPYUzvWbxA@mail.gmail.com>
+ <CAA5aLPjzX+9YFRGgCgceHjkU0=e6x8YMENfp_cC9fjfHYK3e+A@mail.gmail.com>
+ <CAM_iQpXBhrOXtfJkibyxyq781Pjck-XJNgZ-=Ucj7=DeG865mw@mail.gmail.com>
+ <CAA5aLPjO9rucCLJnmQiPBxw2pJ=6okf3C88rH9GWnh3p0R+Rmw@mail.gmail.com>
+ <CAM_iQpVtGUH6CAAegRtTgyemLtHsO+RFP8f6LH2WtiYu9-srfw@mail.gmail.com>
+From: Eric Dumazet <eric.dumazet@gmail.com>
+Message-ID: <9cbefe10-b172-ae2a-0ac7-d972468eb7a2@gmail.com>
+Date: Mon, 26 Aug 2019 08:32:48 +0200
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:60.0) Gecko/20100101
+ Thunderbird/60.7.2
+In-Reply-To: <CAM_iQpVtGUH6CAAegRtTgyemLtHsO+RFP8f6LH2WtiYu9-srfw@mail.gmail.com>
+Content-Language: en-US
+Sender: netdev-owner@vger.kernel.org
+Precedence: bulk
+List-ID: <netdev.vger.kernel.org>
+X-Mailing-List: netdev@vger.kernel.org
+X-Greylist: Sender passed SPF test, Sender IP whitelisted by DNSRBL, ACL 238 matched, not delayed by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.63]); Mon, 26 Aug 2019 06:32:59 +0000 (UTC)
+X-Greylist: inspected by milter-greylist-4.6.2 (mx1.redhat.com [10.5.110.63]); Mon, 26 Aug 2019 06:32:59 +0000 (UTC) for IP:'209.132.180.67' DOMAIN:'vger.kernel.org' HELO:'vger.kernel.org' FROM:'netdev-owner@vger.kernel.org' RCPT:''
+X-RedHat-Spam-Score: -5.625  (DKIM_SIGNED,DKIM_VALID,DKIM_VALID_AU,FREEMAIL_FORGED_FROMDOMAIN,FREEMAIL_FROM,HEADER_FROM_DIFFERENT_DOMAINS,MAILING_LIST_MULTI,RCVD_IN_DNSWL_HI,SPF_HELO_NONE,SPF_NONE) 209.132.180.67 vger.kernel.org 209.132.180.67 vger.kernel.org <netdev-owner@vger.kernel.org>
+X-Scanned-By: MIMEDefang 2.84 on 10.5.110.63
+X-Scanned-By: MIMEDefang 2.79 on 10.5.11.15
+X-Greylist: Sender IP whitelisted, not delayed by milter-greylist-4.5.16 (mx1.redhat.com [10.5.110.26]); Mon, 26 Aug 2019 06:33:11 +0000 (UTC)
+MIME-Version: 1.0
+Content-Type: text/plain
+
+
+
+On 8/25/19 7:52 PM, Cong Wang wrote:
+> On Wed, Aug 21, 2019 at 11:00 PM Akshat Kakkar <akshat.1984@gmail.com> wrote:
+>>
+>> On Thu, Aug 22, 2019 at 3:37 AM Cong Wang <xiyou.wangcong@gmail.com> wrote:
+>>>> I am using ipset +  iptables to classify and not filters. Besides, if
+>>>> tc is allowing me to define qdisc -> classes -> qdsic -> classes
+>>>> (1,2,3 ...) sort of structure (ie like the one shown in ascii tree)
+>>>> then how can those lowest child classes be actually used or consumed?
+>>>
+>>> Just install tc filters on the lower level too.
+>>
+>> If I understand correctly, you are saying,
+>> instead of :
+>> tc filter add dev eno2 parent 100: protocol ip prio 1 handle
+>> 0x00000001 fw flowid 1:10
+>> tc filter add dev eno2 parent 100: protocol ip prio 1 handle
+>> 0x00000002 fw flowid 1:20
+>> tc filter add dev eno2 parent 100: protocol ip prio 1 handle
+>> 0x00000003 fw flowid 2:10
+>> tc filter add dev eno2 parent 100: protocol ip prio 1 handle
+>> 0x00000004 fw flowid 2:20
+>>
+>>
+>> I should do this: (i.e. changing parent to just immediate qdisc)
+>> tc filter add dev eno2 parent 1: protocol ip prio 1 handle 0x00000001
+>> fw flowid 1:10
+>> tc filter add dev eno2 parent 1: protocol ip prio 1 handle 0x00000002
+>> fw flowid 1:20
+>> tc filter add dev eno2 parent 2: protocol ip prio 1 handle 0x00000003
+>> fw flowid 2:10
+>> tc filter add dev eno2 parent 2: protocol ip prio 1 handle 0x00000004
+>> fw flowid 2:20
+> 
+> 
+> Yes, this is what I meant.
+> 
+> 
+>>
+>> I tried this previously. But there is not change in the result.
+>> Behaviour is exactly same, i.e. I am still getting 100Mbps and not
+>> 100kbps or 300kbps
+>>
+>> Besides, as I mentioned previously I am using ipset + skbprio and not
+>> filters stuff. Filters I used just to test.
+>>
+>> ipset  -N foo hash:ip,mark skbinfo
+>>
+>> ipset -A foo 10.10.10.10, 0x0x00000001 skbprio 1:10
+>> ipset -A foo 10.10.10.20, 0x0x00000002 skbprio 1:20
+>> ipset -A foo 10.10.10.30, 0x0x00000003 skbprio 2:10
+>> ipset -A foo 10.10.10.40, 0x0x00000004 skbprio 2:20
+>>
+>> iptables -A POSTROUTING -j SET --map-set foo dst,dst --map-prio
+> 
+> Hmm..
+> 
+> I am not familiar with ipset, but it seems to save the skbprio into
+> skb->priority, so it doesn't need TC filter to classify it again.
+> 
+> I guess your packets might go to the direct queue of HTB, which
+> bypasses the token bucket. Can you dump the stats and check?
+
+With more than 64K 'classes' I suggest to use a single FQ qdisc [1], and
+an eBPF program using EDT model (Earliest Departure Time)
+
+The BPF program would perform the classification, then find a data structure
+based on the 'class', and then update/maintain class virtual times and skb->tstamp
+
+TBF = bpf_map_lookup_elem(&map, &classid);
+
+uint64_t now = bpf_ktime_get_ns();
+uint64_t time_to_send = max(TBF->time_to_send, now);
+
+time_to_send += (u64)qdisc_pkt_len(skb) * NSEC_PER_SEC / TBF->rate;
+if (time_to_send > TBF->max_horizon) {
+    return TC_ACT_SHOT;
+}
+TBF->time_to_send = time_to_send;
+skb->tstamp = max(time_to_send, skb->tstamp);
+if (time_to_send - now > TBF->ecn_horizon)
+    bpf_skb_ecn_set_ce(skb);
+return TC_ACT_OK;
+
+tools/testing/selftests/bpf/progs/test_tc_edt.c shows something similar.
+
+
+[1]  MQ + FQ if the device is multi-queues.
+
+   Note that this setup scales very well on SMP, since we no longer are forced
+ to use a single HTB hierarchy (protected by a single spinlock)
+
+
+--=-=-=
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--=-=-=--
