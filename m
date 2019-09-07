@@ -2,74 +2,76 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 92F409F3B9
-	for <lists+cake@lfdr.de>; Tue, 27 Aug 2019 22:04:16 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 73D43AC9B9
+	for <lists+cake@lfdr.de>; Sun,  8 Sep 2019 00:43:41 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id D1F9F3CB38;
-	Tue, 27 Aug 2019 16:04:14 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 0096B3CB67;
+	Sat,  7 Sep 2019 18:43:40 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1566936254;
-	bh=rwkE0JqtwbexVCDpaw4tWLWTV3JsSM8WdI0cfajS6dg=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=fMZkTnJ/BdmHRfdKedzEf+zY8zSVzbpS3oX2Iihf+j9aNTaEmkMOY7zjIAg7Wk3Zr
-	 rpp1Aeg0pQ7a0lvZhPBddmf1kabTH4O6yvQ2yTUxcP1TnhFXeEqoR8VMf0+KzRCo6g
-	 i6SFeIp5a2jEJfhAlVh5IS95/6tdfDaPLRGJty30cY/B+mxqQ61fsp2bXrHnuOs6ag
-	 qT6SfGPK6Y8IGgXuQEwJFdGd+xHmmPLyMNa0Gpt5m7Oa3Yq7aBf5IajxJ7rRawJEHX
-	 rP85aJgGxrDbDOKJ9/ZVSbV9EuWD6NvmiT44ajfpBsYtKuiXNmKZclE2lb231ToXV1
-	 pI0nop/IiNLJg==
+	d=lists.bufferbloat.net; s=201610; t=1567896220;
+	bh=E3BbhnY6O3F/kMSpQBdms5sXyXzpE3/ZWG3Jy0ZMDGU=;
+	h=Date:From:To:Subject:List-Id:List-Unsubscribe:List-Archive:
+	 List-Post:List-Help:List-Subscribe:From;
+	b=bCt1eyAMjrc16JUzIeUpbei+s61BiVyPf98CMcyFlcSrHdCfokcc6QyiQHExq4RgY
+	 deecQerBFi+02HBmfzSMFsvnI+KeJu/i1zAqKRnxeIC28ASD4m7ZPpKT5hL731MeMu
+	 1qiyUO0M0pwcCx3BGn3N+kekYTVq0OpO8T5AvKahTSh48rphf2YilQhejYa7pCeNhG
+	 94dyjyR+gwExB1ZMsVjVQ0QKwiQHa+gadTczVjtBdwMj35mLwqM1UpZugHfLsEx/Ln
+	 xchBZCHSAZgU6o2cLH7URgmI1gP1B7PtgqCahjPZBMU2TfnCHei4EOwmC025ZkxKB2
+	 LwDjYesfdbZ8A==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-qt1-x82b.google.com (mail-qt1-x82b.google.com
- [IPv6:2607:f8b0:4864:20::82b])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from wout2-smtp.messagingengine.com (wout2-smtp.messagingengine.com
+ [64.147.123.25])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id A92713CB35
- for <cake@lists.bufferbloat.net>; Tue, 27 Aug 2019 16:04:13 -0400 (EDT)
-Received: by mail-qt1-x82b.google.com with SMTP id j15so278792qtl.13
- for <cake@lists.bufferbloat.net>; Tue, 27 Aug 2019 13:04:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=networkplumber-org.20150623.gappssmtp.com; s=20150623;
- h=date:from:to:cc:subject:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=KY082qgeuRGnDMr7yiCbUIqz+KKVYzFt94uEHZYqXrU=;
- b=tJDsJIEgpUGXKJzalhH3cw5qagPEZ9f01+v2ExpuKs+8pzSzx39hAC/FIpv/nLDMtL
- DhQmnDeY1fuxNWN0G6fMTBiPRnwQ2+QGp1+euOEnA1F/cbfGaCEAOJqvGqbSvvN+1PgS
- IyVcpwMceIJvR0xJfWFaYNFKPOw47/pF1XwGz1LuUrP8O27cSTV4UeyMjQZ8dM9GbD2C
- 4OqUFu3oMW3f3NXjsm0br/BWQ0yZ58NKgKvqQgODNJEM7SBIwuZwvXcZeV1shnGrEFMo
- jfpdXcsrirb5L2gbVQ/FD/i4EyRUhs8Y7h3HQJMuO7+xwzApEMKFW7psUtod4yJbPXKj
- BODg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=KY082qgeuRGnDMr7yiCbUIqz+KKVYzFt94uEHZYqXrU=;
- b=uIDiBbeH/1HH0csWKGE6tw1XF2a+PsJHeLlwUIA673yM2d++/AXEAEWUSIzOjTbVIQ
- F5zxHvCf6VwSEJv92Z8MPvotjfD0aXr3Le5vczhAvdXeHZ024jxM5FHcbiHwuITCcJxl
- BLhK5JaVSKXS0ygCfurbDTNVyz4zd40cIgPqDaD+SR1rOIJWUojt4TbJ9CWZQDWo1IqN
- TW4CEyvGOLkvtcoaDKgnOFLxtQMcnHXAwK4422JgcwUp6mWQuiAKmXHtZQcEzQ0xFxM2
- j6mJe3ssJijCBUDROlc5Z697K9VAeX5L/rJxkiXm133gB11Tv9Vpc9iRB/HS2gzDGuTa
- bjPQ==
-X-Gm-Message-State: APjAAAXdnwux8W9X/PzNdiLlOrJCR7uw8VxVjTxUbL2VYM0p0RaWx5uM
- ivD6FgSGVNj1rZBpdAgJ4Lw+ZA==
-X-Google-Smtp-Source: APXvYqweaK9/oef37qLF6OfRjn/1t1nOUA3QhIWjszr7nxco24vzUx4sWB27l6wHSxGfvx9KY0rdEg==
-X-Received: by 2002:ac8:269a:: with SMTP id 26mr679751qto.186.1566936253064;
- Tue, 27 Aug 2019 13:04:13 -0700 (PDT)
-Received: from xps13 (pool-96-233-168-28.spfdma.east.verizon.net.
- [96.233.168.28])
- by smtp.gmail.com with ESMTPSA id d45sm48532qtk.57.2019.08.27.13.04.12
- (version=TLS1_2 cipher=ECDHE-RSA-CHACHA20-POLY1305 bits=256/256);
- Tue, 27 Aug 2019 13:04:12 -0700 (PDT)
-Date: Tue, 27 Aug 2019 16:04:09 -0400
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@redhat.com>
-Message-ID: <20190827160409.3c1afcc2@xps13>
-In-Reply-To: <87h864l6q5.fsf@toke.dk>
-References: <9cbefe10-b172-ae2a-0ac7-d972468eb7a2@gmail.com>
- <87h864l6q5.fsf@toke.dk>
-MIME-Version: 1.0
-Subject: Re: [Cake] Fwd: Re: Unable to create htb tc classes more than 64K
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 3038E3B2A4
+ for <cake@lists.bufferbloat.net>; Sat,  7 Sep 2019 18:43:38 -0400 (EDT)
+Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
+ by mailout.west.internal (Postfix) with ESMTP id 39B7A321
+ for <cake@lists.bufferbloat.net>; Sat,  7 Sep 2019 18:43:37 -0400 (EDT)
+Received: from imap2 ([10.202.2.52])
+ by compute4.internal (MEProxy); Sat, 07 Sep 2019 18:43:37 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=althea.net; h=
+ mime-version:message-id:date:from:to:subject:content-type; s=
+ fm1; bh=gDwhozsak50E4sRdf5vkENblPKYK7LzOuFJ2gZU20Jc=; b=hzuuW8Uo
+ dWzlWBHDqNp4NrIlXk64Bv6YgjKOfPsbV0XHNXfGjIG8w7jVijpUmy0KYlWf2SIe
+ dmnhYFArJx9IpAX9fKAcONtGHwOsgNnW8E0d5+uJvDwxpdtCKiaXSUbTgIYQEDB/
+ bKmTYWByUHagwzLESo/EG5LPwvgdWIfPxUxxXdpdEaWVOxBlNmRvVQAZeB5oYiEm
+ Rh1yQqtmEl39tCODSX5QKEBkRnDFwtSXM6ygFsPDTx0ImpE+oQHVpein3BMViKjV
+ C9TUBO2S/+bUc61ChoyXI+Rq77tmfy4UVkSS/+5mcMdLzm8l4ztuNROVaN8hIo1T
+ /W+BKatDWx8uBQ==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=content-type:date:from:message-id
+ :mime-version:subject:to:x-me-proxy:x-me-proxy:x-me-sender
+ :x-me-sender:x-sasl-enc; s=fm3; bh=gDwhozsak50E4sRdf5vkENblPKYK7
+ LzOuFJ2gZU20Jc=; b=WoAecH4IQiPOiQcHxq9i0zHY2AjwguBmHlxoxKpasEx/+
+ 7D8xcIn4uMaGC2+b65VB8UQDNpC3Z7nkcgFMs8fVtjxMxqIJOtqgqsq616VFj2cH
+ dpzjVIj8uy4873Z/Oau2chuT1s110EpmAgknsjuqOwfLNvS5439PGFeeVF1UQGfE
+ rcVK8BUbnZDVcqucOAr3GxB0atwUCe6X/PEUpVp9na3ryrDfTNmIwhYSNmC+MoQA
+ TRbyGKUv5ezgUJz0nCYTUxT7BjMeRbfQntThh9k6elGHsmU5yvOU8r/o/okKt5y2
+ gGu8shdk0snzHTSCcTu+6F8bobqbsoxZfzPZ9qlhQ==
+X-ME-Sender: <xms:mDJ0Xa6TQzL97PX1XRw36qihdy3q8VDtneGH5XXH73iFjozKt_GIBw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduvddrudekvddguddtucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucenucfjughrpefofgggkfffhffvufgtsehttdertd
+ erredtnecuhfhrohhmpedflfhushhtihhnucfmihhlphgrthhrihgtkhdfuceojhhushht
+ ihhnsegrlhhthhgvrgdrnhgvtheqnecuffhomhgrihhnpeihohhuthhusggvrdgtohhmne
+ curfgrrhgrmhepmhgrihhlfhhrohhmpehjuhhsthhinhesrghlthhhvggrrdhnvghtnecu
+ vehluhhsthgvrhfuihiivgeptd
+X-ME-Proxy: <xmx:mDJ0XRFqjPmwqtw6laPYiZD1hp5Mo5sjfc_ZGSk_nNWvyAAa7fWU_w>
+ <xmx:mDJ0XSC9w4KPkrpjZ5hI7Fwp2JuG_D4R8UXFuQCOZ2dEYgP09f5e5A>
+ <xmx:mDJ0XWzk_Vz7R5ZOPSrTpHtYGFl_OUjqjY0GHqArCHHyJOHbDPp0zw>
+ <xmx:mDJ0XZhKvz7yh-nqTnRQIl7wPxX-BRmTh4wFpjZZ5p3lVIPBlfGRiw>
+Received: by mailuser.nyi.internal (Postfix, from userid 501)
+ id 903B5E00A4; Sat,  7 Sep 2019 18:43:36 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
+User-Agent: Cyrus-JMAP/3.1.7-188-g385deb1-fmstable-20190905v2
+Mime-Version: 1.0
+Message-Id: <ac3db996-6769-4e38-b19b-eaa08ac40cd5@www.fastmail.com>
+Date: Sat, 07 Sep 2019 18:42:55 -0400
+From: "Justin Kilpatrick" <justin@althea.net>
+To: cake@lists.bufferbloat.net
+Subject: [Cake] Fighting bloat in the face of uncertinty
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -81,19 +83,35 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: cake@lists.bufferbloat.net, bloat@lists.bufferbloat.net
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-T24gTW9uLCAyNiBBdWcgMjAxOSAwOTozNToxNCArMDIwMApUb2tlIEjDuGlsYW5kLUrDuHJnZW5z
-ZW4gPHRva2VAcmVkaGF0LmNvbT4gd3JvdGU6Cgo+IFR1cm5zIG91dCB0aGF0IHdpdGggdGhlICJl
-YXJsaWVzdCBkZXBhcnR1cmUgdGltZSIgc3VwcG9ydCBpbiBzY2hlZF9mcSwKPiBpdCBpcyBub3cg
-cG9zc2libGUgdG8gd3JpdGUgYSBzaGFwZXIgaW4gZUJQRiwgdGh1cyBhdm9pZGluZyB0aGUgZ2xv
-YmFsCj4gcWRpc2MgbG9jayBpbiBzY2hlZF9odGIuIFRoaXMgaXMgcHJldHR5IGNvb2wsIGlmIHlv
-dSBhc2sgbWUhIDopCj4gCj4gLVRva2UKPiAKClRoYW5rcywgSSBtYXkgdXNlIHRoaXMgdG8gcmV2
-aXNpdCBkb2luZyBuZXRlbSBpbiBlQlBGICh4bmV0ZW0pLgpOb3QgaGF2aW5nIHRoaXMgZmVhdHVy
-ZSB3YXMgYSBzaG93IHN0b3BwZXIgYXQgdGhlIHRpbWUuCl9fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVm
-ZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+SSdtIHVzaW5nIENha2Ugb24gZW1iZWRkZWQgT3BlbldSVCBkZXZpY2VzLiBZb3UgcHJvYmFibHkg
+c2F3IHRoaXMgdmlkZW8gb24gdGhlIGxpc3QgYSBtb250aCBvciB0d28gYWdvLiAKCmh0dHBzOi8v
+d3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9RzRFS2JnU2h5THcKCkFueXdheXMgdXAgdW50aWwgbm93
+IEkndmUgbGVmdCBjYWtlIHRvdGFsbHkgdW50dW5lZCBhbmQgaGFkIHByZXR0eSBncmVhdCByZXN1
+bHRzLiBCdXQgd2UndmUgZmluYWxseSBlbmNvdW50ZXJlZCBhIHNjZW5hcmlvIHdoZXJlIHVudHVu
+ZWQgQ2FrZSBhbGxvd2VkIGZvciB1bmFjY2VwdGFibGUgYnVmZmVyYmxvYXQgb24gYSBsaW5rLgoK
+SGFuZCBjb25maWd1cmF0aW9uIGluIGFjY29yZGFuY2Ugd2l0aCB0aGUgYmVzdCBwcmFjdGljZXMg
+cHJvdmlkZWQgaW4gdGhlIFJGQyB3b3JrcyBvdXQgcGVyZmVjdGx5LCBidXQgSSBuZWVkIGEgc2V0
+IG9mIHNldHRpbmdzIEkgY2FuIHNoaXAgd2l0aCBhbnkgZGV2aWNlIHdpdGggdGhlIGV4cGVjdGF0
+aW9uIHRoYXQgaXQgd2lsbCBiZSB1c2VkIGFuZCBhYnVzZWQgaW4gbWFueSBub24tc3RhbmRhcmQg
+c2l0dWF0aW9ucy4gUHJvZHVjaW5nIG5vbi1vcHRpbWFsIG91dGNvbWVzIGlzIGZpbmUsIHByb2R1
+Y2luZyBkcmFtYXRpY2FsbHkgZGVncmFkZWQgb3V0Y29tZXMgaXMgdW5hY2NlcHRhYmxlLiAKCldo
+aWNoIGxlYWRzIHRvIGEgZmV3IHF1ZXN0aW9ucwoKMSkgV2hhdCBoYXBwZW5zIGlmIHRoZSB0YXJn
+ZXQgaXMgZHJhbWF0aWNhbGx5IHRvbyBsb3c/IAoKTW9zdCBvZiBvdXIgbGlua3MgY2FuIGV4cGVj
+dCBsYXRlbmN5IGJldHdlZW4gMS0xMG1zLCBidXQgdGhleSBtYXkgb2NjYXNpb25hbGx5IGdvIG11
+Y2ggbG9uZ2VyIHRoYW4gdGhhdC4gV2hhdCBhcmUgdGhlIGNvbnNlcXVlbmNlcyBvZiBoYXZpbmcg
+YSAxMDBtcyBsaW5rIGNvbmZpZ3VyZWQgd2l0aCBhIHRhcmdldCBvZiAxMG1zPwoKMikgSWYgaW50
+ZXJ2YWwgaXMgZHJhbWF0aWNhbGx5IHVucHJlZGljdGFibGUgaXMgaXQgYmVzdCB0byBlcnIgb24g
+dGhlIHNpZGUgb2YgdW5kZXIgb3Igb3ZlciBlc3RpbWF0aW5nPwoKIFRoZSB1c2VyIG1heSBzZWxl
+Y3QgYW4gVlBOL2V4aXQgc2VydmVyIG9mIHRoZWlyIG93biBjaG9vc2luZywgdGhlIHBhdGggdG8g
+aXQgb3ZlciB0aGUgbmV0d29yayBtYXkgY2hhbmdlIG9yIHRoZSBleGl0IG1heSBiZSBtdWNoIGZ1
+cnRoZXIgYXdheS4gQm90aCAxMG1zIGFuZCA4MG1zIHdvdWxkIGJlIHNhbmUgY2hvaWNlcyBvZiB0
+YXJnZXQgZGVwZW5kaW5nIG9uIGZhY3RvcnMgdGhhdCBtYXkgY2hhbmdlIG9uIHRoZSBmbHkuIAoK
+VGhhbmtzIGZvciB0aGUgZmVlZGJhY2shIAoKLS0gCiAgSnVzdGluIEtpbHBhdHJpY2sKICBqdXN0
+aW5AYWx0aGVhLm5ldApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczov
+L2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
