@@ -2,37 +2,60 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 391A7B380A
-	for <lists+cake@lfdr.de>; Mon, 16 Sep 2019 12:22:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5FFEAB39DC
+	for <lists+cake@lfdr.de>; Mon, 16 Sep 2019 14:00:54 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id A9B533CB40;
-	Mon, 16 Sep 2019 06:22:34 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 2EB093CB40;
+	Mon, 16 Sep 2019 08:00:52 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1568629354;
-	bh=DJq34dlj7/Nh7058QC0lioAKUNtV2stRXFIohyDZ45o=;
-	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1568635252;
+	bh=9WJ0Hb+Khuy/QMTiZ9jFKGP5HTlapCTxBA9rj3y6WhM=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 From;
-	b=VGeWLZTedeKjLQB5dc79QmfguFQpg37/LO8RsgrxexoeuNT/HmMVnpEmM8cfLPURm
-	 WEzVcYQ5wMQmZTXOdFWbov8G0sI3WXX4tG4JFuaBTgQ8+wTLnu74DZ1p7G/jFilZlg
-	 nvAx+nuOZQfRSgz1y4bGZUKWn5VJgMqPuPmiawa0jFsgbVVr9xc+UvXQQ3irn+NUwc
-	 D5+Eufp1/otoU6HWhSgVyswTPNZF7KF3EoR2C1DaP2WZYcHxPwSdo+NCq/aCv+ng20
-	 G1+fsYjXIt6p70nYZAF10DBupfIjNPi8COyZIj8eG4kDTe4WJbtUPmb3/ElcX0acdF
-	 t4hUCXxvPgOsg==
+	 Cc:From;
+	b=WUK7ARV6JWWTFhzRj+djlGxzj+9O0LPfdrbRlRJUe6lBYWRMuF9vV99Xn2msXMgWh
+	 87yuYNAaNVQm7gwe78NuSoAk6SezlpwEIpHPaQ+qKaCiNaZMK1tsA0J9QC+H02Aqo7
+	 q533nSFm+oNnn8CSsyafUB1QF6IgJxmO1MeQbUMPXoL82sGKmR8RhguC2HKHxu2a2Y
+	 Iv9+q+EbRhiwbCbTgjJqLSTbcS4s+8z2JM9erS9pygqPb02SuGIkZIHkIycSr1ULUr
+	 n3ZfIY4PnL1llWHaIbIbD8UWMUlGm8AfBjJ1YnYokubPngHuwmPa3vFJM8yRsqOOxu
+	 fSI4cLbH5nQ7g==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from webmail.newmedia-net.de (smtps.newmedia-net.de
- [IPv6:2a05:a1c0:0:de::167])
- (using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+Received: from mail-io1-xd44.google.com (mail-io1-xd44.google.com
+ [IPv6:2607:f8b0:4864:20::d44])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id B034C3CB35
- for <cake@lists.bufferbloat.net>; Mon, 16 Sep 2019 06:22:32 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=newmedia-net.de; s=mikd; 
- h=Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject;
- bh=4rIgkyMDm2pmPz7WcSWDeufFh7PozknVzaBxEtJQlEQ=; 
- b=FscsjgPN5zpsQ4L9p43Z06kBCGbRTpKz866RXXA9UZlqVf2LCo11/zete+5AKGjVqlxsuYUajIzOfU2I1CvylqYjczQXL1GttnlhDrVTb4sbb6PDdumw5wDoWzOpLijTPWcxGX6Q+ofCnDaPX/D4l1zTGD+ap673OrAkYkkmBSE=;
-To: cake@lists.bufferbloat.net
+ by lists.bufferbloat.net (Postfix) with ESMTPS id F17F03B2A4
+ for <cake@lists.bufferbloat.net>; Mon, 16 Sep 2019 08:00:50 -0400 (EDT)
+Received: by mail-io1-xd44.google.com with SMTP id j4so77937594iog.11
+ for <cake@lists.bufferbloat.net>; Mon, 16 Sep 2019 05:00:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=P9rAc0sJGhgUsIImweWTsJpv8BA9zDVP/lfpvXWUC8c=;
+ b=nh4HUyZFJ0KoMjNumaIlz5Gx2ECuJyuecC5F/8541wXKBYXoalBSOd2EsGAYplM8q3
+ /TI98qCluN7hPOpTjwtWrlAgh266607pvxHf0r2Zgh/amWg6ndft1IPtHUs2+MAVMQC0
+ 5ewpa8OpFmptz2h5XP3RE0jaSFAObI6yev8h+huIOND/+UjgmGmYEoGUSFAI8+2vQPkV
+ jvqscYyw8jwOGOnAQgd7g9CnkRcyh+iF7XwYw40CAVc4+m8qAu1jhKDKqGWQ/o/waOD7
+ xZzyOy1bsMgon92p/UVt9HXFbsaO3YgBakSQc1Y2xOYPFHr01qGdIrdzOUHB3o2ekxQU
+ CYYw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=P9rAc0sJGhgUsIImweWTsJpv8BA9zDVP/lfpvXWUC8c=;
+ b=UKyrGuL6aJUc8QvOMlc7FucQSYy9g2R9/GoBuuhdw5luFO4cSv9yAm3cR83BmuDcX6
+ H039CvLQmJP2jkJRb4jAOEG8fx0kKbS21tI2SJKRaaRO1sBE40na90JQZC8nDmr1ntww
+ NVou4FCh1y/JN8f6nmCjEc2/3mZQ2qyGtq3XWqnDS0rj/MVEZGGU7c1xi/Pnd2Irl5f1
+ gnUhFgFfdtHjSvTno17yywrVrfEANDxX+1RSdtwNcIqlZJma/mojabeEAIixurIT0Nqa
+ QPEm6nY7+PdURRHhy00GoSAXXAbriOwHmAdFMH8K50HC0qLYvyH2agJVEV2LU+J5SwOz
+ VGLA==
+X-Gm-Message-State: APjAAAVPnU2ReHL0vzVqxZ6vlKxB6iEXQJQdZz1QagV/LWshYqxwauCG
+ jXawcPTm3vq2CfcrGBjD9Pz9rUHdraHP09Ocfxsmtear
+X-Google-Smtp-Source: APXvYqx4tbTz9a/6ooC19JDrZaXDXjFcyfs5EvDOkcKE+p27u34jrxdLfSnCh3hKli2VmpXFl4WwBIObuMh9e4HOaZY=
+X-Received: by 2002:a6b:5814:: with SMTP id m20mr15462217iob.249.1568635250052; 
+ Mon, 16 Sep 2019 05:00:50 -0700 (PDT)
+MIME-Version: 1.0
 References: <ac3db996-6769-4e38-b19b-eaa08ac40cd5@www.fastmail.com>
  <2825CE14-2109-4580-A086-9701F4D3ADF0@gmail.com>
  <18b1c174-b88d-4664-9aa8-9c42925fc14c@www.fastmail.com>
@@ -41,19 +64,13 @@ References: <ac3db996-6769-4e38-b19b-eaa08ac40cd5@www.fastmail.com>
  <43F02160-E691-4393-A0C0-8AB4AD962700@gmail.com>
  <a75b079e-8a29-46f1-9890-7eb73e18b0f2@www.fastmail.com>
  <E975CC03-A531-4450-A896-5C3921A9D063@gmail.com>
-From: Sebastian Gottschall <s.gottschall@newmedia-net.de>
-Message-ID: <057ea708-6797-23f5-ef01-9d3d7b002578@newmedia-net.de>
-Date: Mon, 16 Sep 2019 12:21:02 +0200
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.1.0
-MIME-Version: 1.0
-In-Reply-To: <E975CC03-A531-4450-A896-5C3921A9D063@gmail.com>
-X-Received: from [212.111.244.1] (helo=[172.29.0.186])
- by webmail.newmedia-net.de with esmtpsa (TLSv1:AES128-SHA:128)
- (Exim 4.72) (envelope-from <s.gottschall@newmedia-net.de>)
- id 1i9o9X-00006E-FU
- for cake@lists.bufferbloat.net; Mon, 16 Sep 2019 12:22:39 +0200
-Subject: [Cake] cake memory consumption
+ <057ea708-6797-23f5-ef01-9d3d7b002578@newmedia-net.de>
+In-Reply-To: <057ea708-6797-23f5-ef01-9d3d7b002578@newmedia-net.de>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Mon, 16 Sep 2019 13:00:38 +0100
+Message-ID: <CAA93jw6+=SuQhFbvVWMbL3m3r_0pRWSMmgScHbhZ=sSN9prntw@mail.gmail.com>
+To: Sebastian Gottschall <s.gottschall@newmedia-net.de>
+Subject: Re: [Cake] cake memory consumption
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -65,182 +82,119 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2985598976982647864=="
+Cc: Cake List <cake@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-This is a multi-part message in MIME format.
---===============2985598976982647864==
-Content-Type: multipart/alternative;
- boundary="------------B4B8411D588B2C083E8FF7E3"
-
-This is a multi-part message in MIME format.
---------------B4B8411D588B2C083E8FF7E3
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8bit
-
-after we found out serious out of memory issues on smaller embedded 
-devices (128 mb ram) we made some benchmarks with different schedulers
-with the result that cake takes a serious amount of memory. we use the 
-out of tree cake module and we use it class based since we have complex 
-methods of doing qos per interface, per mac addresse or even per 
-ip/network. so its not just simple cake on a single interface solution. 
-we made some benchmarks with different schedulers. does anybody have a 
-solution for making that better?
-
-HTB/FQ_CODEL ------- 62M
-HTB/SFQ ------- 62M
-HTB/PIE ------- 62M
-HTB/FQ_CODEL_FAST ------- 67M
-HTB/CAKE -------111M
-
-HFSC/FQ_CODEL_FAST ------- 47M
-HTB/PIE ------- 49M
-HTB/SFQ ------- 50M
-HFSC /FQ_CODEL ------- 52M
-HFSC/CAKE -------109M
-
-
-consider that the benchmark doesnt show the real values. its system 
-overall and does not consider memory taken by the wireless driver for 
-instance which is about 45 mb of ram for ath10k
-so this makes all even more worse unfortunatly since there is not that 
-many ram left for cake. just about 70mb maybe.
-Am 08.09.2019 um 19:27 schrieb Jonathan Morton:
->>> You could also set it back to 'internet' and progressively reduce the
->>> bandwidth parameter, making the Cake shaper into the actual bottleneck.
->>> This is the correct fix for the problem, and you should notice an
->>> instant improvement as soon as the bandwidth parameter is correct.
->> Hand tuning this one link is not a problem. I'm searching for a set of settings that will provide generally good performance across a wide range of devices, links, and situations.
->>
->>  From what you've indicated so far there's nothing as effective as a correct bandwidth estimation if we consider the antenna (link) a black box. Expecting the user to input expected throughput for every link and then managing that information is essentially a non-starter.
->>
->> Radio tuning provides some improvement, but until ubiquiti starts shipping with Codel on non-router devices I don't think there's a good solution here.
->>
->> Any way to have the receiving device detect bloat and insert an ECN?
-> That's what the qdisc itself is supposed to do.
->
->> I don't think the time spent in the intermediate device is detectable at the kernel level but we keep track of latency for routing decisions and could detect bloat with some accuracy, the problem is how to respond.
-> As long as you can detect which link the bloat is on (and in which direction), you can respond by reducing the bandwidth parameter on that half-link by a small amount.  Since you have a cooperating network, maintaining a time standard on each node sufficient to observe one-way delays seems feasible, as is establishing a normal baseline latency for each link.
->
-> The characteristics of the bandwidth parameter being too high are easy to observe.  Not only will the one-way delay go up, but the received throughput in the same direction at the same time will be lower than configured.  You might use the latter as a hint as to how far you need to reduce the shaped bandwidth.
->
-> Deciding when and by how much to *increase* bandwidth, which is presumably desirable when link conditions improve, is a more difficult problem when the link hardware doesn't cooperate by informing you of its status.  (This is something you could reasonably ask Ubiquiti to address.)
->
-> I would assume that link characteristics will change slowly, and run an occasional explicit bandwidth probe to see if spare bandwidth is available.  If that probe comes through without exhibiting bloat, *and* the link is otherwise loaded to capacity, then increase the shaper by an amount within the probe's capacity of measurement - and schedule a repeat.
->
-> A suitable probe might be 100x 1500b packets paced out over a second, bypassing the shaper.  This will occupy just over 1Mbps of bandwidth, and can be expected to induce 10ms of delay if injected into a saturated 100Mbps link.  Observe the delay experienced by each packet *and* the quantity of other traffic that appears between them.  Only if both are favourable can you safely open the shaper, by 1Mbps.
->
-> Since wireless links can be expected to change their capacity over time, due to eg. weather and tree growth, this seems to be more generally useful than a static guess.  You could deploy a new link with a conservative "guess" of say 10Mbps, and just probe from there.
->
->   - Jonathan Morton
-> _______________________________________________
-> Cake mailing list
-> Cake@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/cake
-
---------------B4B8411D588B2C083E8FF7E3
-Content-Type: text/html; charset=utf-8
-Content-Transfer-Encoding: 8bit
-
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-  <body>
-    <p>after we found out serious out of memory issues on smaller
-      embedded devices (128 mb ram) we made some benchmarks with
-      different schedulers<br>
-      with the result that cake takes a serious amount of memory. we use
-      the out of tree cake module and we use it class based since we
-      have complex methods of doing qos per interface, per mac addresse
-      or even per ip/network. so its not just simple cake on a single
-      interface solution. we made some benchmarks with different
-      schedulers. does anybody have a solution for making that better?</p>
-    <pre class="wiki" style="background: rgb(247, 247, 247); border: 1px solid rgb(215, 215, 215); box-shadow: rgb(238, 238, 238) 0px 0px 1em; border-radius: 0.3em; margin: 1em 1.75em; padding: 0.25em; overflow: auto; clear: right; color: rgb(0, 0, 0); font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">HTB/FQ_CODEL ------- 62M
-HTB/SFQ ------- 62M
-HTB/PIE ------- 62M
-HTB/FQ_CODEL_FAST ------- 67M
-HTB/CAKE -------111M
-
-HFSC/FQ_CODEL_FAST ------- 47M
-HTB/PIE ------- 49M
-HTB/SFQ ------- 50M
-HFSC /FQ_CODEL ------- 52M
-HFSC/CAKE -------109M</pre>
-    <div class="moz-cite-prefix"><br>
-    </div>
-    <div class="moz-cite-prefix">consider that the benchmark doesnt show
-      the real values. its system overall and does not consider memory
-      taken by the wireless driver for instance which is about 45 mb of
-      ram for ath10k <br>
-      so this makes all even more worse unfortunatly since there is not
-      that many ram left for cake. just about 70mb maybe.<br>
-    </div>
-    <div class="moz-cite-prefix">Am 08.09.2019 um 19:27 schrieb Jonathan
-      Morton:<br>
-    </div>
-    <blockquote type="cite"
-      cite="mid:E975CC03-A531-4450-A896-5C3921A9D063@gmail.com">
-      <blockquote type="cite">
-        <blockquote type="cite">
-          <pre class="moz-quote-pre" wrap="">You could also set it back to 'internet' and progressively reduce the 
-bandwidth parameter, making the Cake shaper into the actual bottleneck. 
-This is the correct fix for the problem, and you should notice an 
-instant improvement as soon as the bandwidth parameter is correct.
-</pre>
-        </blockquote>
-        <pre class="moz-quote-pre" wrap="">
-Hand tuning this one link is not a problem. I'm searching for a set of settings that will provide generally good performance across a wide range of devices, links, and situations. 
-
-From what you've indicated so far there's nothing as effective as a correct bandwidth estimation if we consider the antenna (link) a black box. Expecting the user to input expected throughput for every link and then managing that information is essentially a non-starter. 
-
-Radio tuning provides some improvement, but until ubiquiti starts shipping with Codel on non-router devices I don't think there's a good solution here. 
-
-Any way to have the receiving device detect bloat and insert an ECN?
-</pre>
-      </blockquote>
-      <pre class="moz-quote-pre" wrap="">
-That's what the qdisc itself is supposed to do.
-
-</pre>
-      <blockquote type="cite">
-        <pre class="moz-quote-pre" wrap="">I don't think the time spent in the intermediate device is detectable at the kernel level but we keep track of latency for routing decisions and could detect bloat with some accuracy, the problem is how to respond.
-</pre>
-      </blockquote>
-      <pre class="moz-quote-pre" wrap="">
-As long as you can detect which link the bloat is on (and in which direction), you can respond by reducing the bandwidth parameter on that half-link by a small amount.  Since you have a cooperating network, maintaining a time standard on each node sufficient to observe one-way delays seems feasible, as is establishing a normal baseline latency for each link.
-
-The characteristics of the bandwidth parameter being too high are easy to observe.  Not only will the one-way delay go up, but the received throughput in the same direction at the same time will be lower than configured.  You might use the latter as a hint as to how far you need to reduce the shaped bandwidth.
-
-Deciding when and by how much to *increase* bandwidth, which is presumably desirable when link conditions improve, is a more difficult problem when the link hardware doesn't cooperate by informing you of its status.  (This is something you could reasonably ask Ubiquiti to address.)
-
-I would assume that link characteristics will change slowly, and run an occasional explicit bandwidth probe to see if spare bandwidth is available.  If that probe comes through without exhibiting bloat, *and* the link is otherwise loaded to capacity, then increase the shaper by an amount within the probe's capacity of measurement - and schedule a repeat.
-
-A suitable probe might be 100x 1500b packets paced out over a second, bypassing the shaper.  This will occupy just over 1Mbps of bandwidth, and can be expected to induce 10ms of delay if injected into a saturated 100Mbps link.  Observe the delay experienced by each packet *and* the quantity of other traffic that appears between them.  Only if both are favourable can you safely open the shaper, by 1Mbps.
-
-Since wireless links can be expected to change their capacity over time, due to eg. weather and tree growth, this seems to be more generally useful than a static guess.  You could deploy a new link with a conservative "guess" of say 10Mbps, and just probe from there.
-
- - Jonathan Morton
-_______________________________________________
-Cake mailing list
-<a class="moz-txt-link-abbreviated" href="mailto:Cake@lists.bufferbloat.net">Cake@lists.bufferbloat.net</a>
-<a class="moz-txt-link-freetext" href="https://lists.bufferbloat.net/listinfo/cake">https://lists.bufferbloat.net/listinfo/cake</a>
-</pre>
-    </blockquote>
-  </body>
-</html>
-
---------------B4B8411D588B2C083E8FF7E3--
-
---===============2985598976982647864==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============2985598976982647864==--
+SSBhbSBwdXp6bGVkIGFzIHRvIHdoeSBmcV9jb2RlbF9mYXN0IHdvdWxkIHVzZSBtb3JlIHJhbSB0
+aGFuIGZxX2NvZGVsCndvdWxkLCB3YXMgc2NlIChnc28tc3Bsb3R0aW5nKSBlbmFibGVkPwoKc2lt
+aWxhcmx5LCB0aGUgZGlmZmVyZW5jZXMgYmV0d2VlbiBoZnNjIGFuZCBodGIgYXJlIGludGVyZXN0
+aW5nLiBJCmRvbid0IGdldCB0aGF0IGVpdGhlci4KCkhvdyBtYW55IGNha2UgaW5zdGFuY2VzIGFy
+ZSBiZWluZyBjcmVhdGVkPwoKQW5kIGZvciB0aGUgc2FrZSBvZiBkaXNjdXNzaW9uLCB3aGF0IGRv
+ZXMgY2FrZSBzdGFuZGFsb25lIGNvbnN1bWU/CgpPbiBNb24sIFNlcCAxNiwgMjAxOSBhdCAxMToy
+MiBBTSBTZWJhc3RpYW4gR290dHNjaGFsbAo8cy5nb3R0c2NoYWxsQG5ld21lZGlhLW5ldC5kZT4g
+d3JvdGU6Cj4KPiBhZnRlciB3ZSBmb3VuZCBvdXQgc2VyaW91cyBvdXQgb2YgbWVtb3J5IGlzc3Vl
+cyBvbiBzbWFsbGVyIGVtYmVkZGVkIGRldmljZXMgKDEyOCBtYiByYW0pIHdlIG1hZGUgc29tZSBi
+ZW5jaG1hcmtzIHdpdGggZGlmZmVyZW50IHNjaGVkdWxlcnMKPiB3aXRoIHRoZSByZXN1bHQgdGhh
+dCBjYWtlIHRha2VzIGEgc2VyaW91cyBhbW91bnQgb2YgbWVtb3J5LiB3ZSB1c2UgdGhlIG91dCBv
+ZiB0cmVlIGNha2UgbW9kdWxlIGFuZCB3ZSB1c2UgaXQgY2xhc3MgYmFzZWQgc2luY2Ugd2UgaGF2
+ZSBjb21wbGV4IG1ldGhvZHMgb2YgZG9pbmcgcW9zIHBlciBpbnRlcmZhY2UsIHBlciBtYWMgYWRk
+cmVzc2Ugb3IgZXZlbiBwZXIKCkkgbm90ZSB0aGF0IEkgb2Z0ZW4gdGhvdWdodCBhYm91dCBoYXZp
+bmcgbWFjIGFkZHJlc3MgZnVuY3Rpb25hbGl0eQptaWdodCBiZSBhIHZhbHVhYmxlIG1vZGUgZm9y
+IGNha2UuCgo+aXAvbmV0d29yay4gc28gaXRzIG5vdCBqdXN0IHNpbXBsZSBjYWtlIG9uIGEgc2lu
+Z2xlIGludGVyZmFjZSBzb2x1dGlvbi4gd2UgbWFkZSBzb21lIGJlbmNobWFya3Mgd2l0aCBkaWZm
+ZXJlbnQgc2NoZWR1bGVycy4gZG9lcyBhbnlib2R5IGhhdmUgYSBzb2x1dGlvbiBmb3IgbWFraW5n
+IHRoYXQgYmV0dGVyPwoKV2l0aCBzdWNoIGNvbXBsZXhpdHkgcmVxdWlyZWQgSSdkIHN0aWNrIHRv
+IGhmc2MgKyBmcV9YIHJhdGhlciB0aGFuCmxheWVyIGluIGNha2UuCgpVbmRlcnN0YW5kaW5nIHRo
+ZSBtb2RlbCAoc2ggLXggdGhlIHRjIGNvbW1hbmRzIGZvciwgc2F5LCBoZnNjICsKc29tZXRoaW5n
+IGFuZCBodGIgKyBzb21ldGhpbmcgKSB5b3VyIHVzZXJzIHJlcXVpcmUsIHRob3VnaCwgd291bGQg
+YmUKaGVscGZ1bC4gV2UgdHJpZWQgdG8gZGVzaWduIGNha2Ugc28gdGhhdCBhIGppbGxpb24gb3B0
+aW1pemF0aW9ucyBzdWNoCmFzIGFjayBwcmlvcml0aXphdGlvbiwgcGVyIG5ldHdvcmsgZnEgKGlu
+c3RlYWQgcGVyIGZsb3cvcGVyIGhvc3QpIC0KYnV0IHdlIGNvdWxkbid0IHBvc3NpYmx5IGNvdmVy
+IGFsbCB1c2UgY2FzZXMgaW4gaXQgd2l0aCBvdXQgbW9yZQpmZWVkYmFjayBmcm9tIHRoZSBmaWVs
+ZC4KClN0aWxsLi4uIHN1Y2ggYSBiaWcgZGlmZmVyZW5jZSBpbiBtZW1vcnkgdXNlIGRvZXNuJ3Qg
+YWRkIHVwLiBDYWtlIGhhcwphIGxhcmdlciBmaXhlZCBtZW1vcnkgYWxsb2NhdGlvbgp0aGFuIGZx
+X2NvZGVsLCBidXQgdGhlIHJlc3QgaXMganVzdCBwYWNrZXRzIHdoaWNoIGNvbWUgZnJvbSBnbG9i
+YWwgbWVtb3J5LgoKQ2FuIHlvdSBwb2ludCB0byBhIGJ1aWxkIGFuZCBhIGNvdXBsZSB0YXJnZXRz
+IHdlIGNvdWxkIHRyeT8gSSBhbQpwcmVzZW50bHkgdHJhdmVsbGluZyAoaW4gcG9ydHVnYWwpIGFu
+ZCB3b24ndApiZSBiYWNrIG9ubGluZSB1bnRpbCBsYXRlciB0aGlzIHdlZWsuCj4KPiBIVEIvRlFf
+Q09ERUwgLS0tLS0tLe+DoCA2Mk0KPiBIVEIvU0ZRIC0tLS0tLS3vg6AgNjJNCj4gSFRCL1BJRSAt
+LS0tLS0t74OgIDYyTQo+IEhUQi9GUV9DT0RFTF9GQVNUIC0tLS0tLS3vg6AgNjdNCj4gSFRCL0NB
+S0UgLS0tLS0tLe+DoDExMU0KPgo+IEhGU0MvRlFfQ09ERUxfRkFTVCAtLS0tLS0t74OgIDQ3TQo+
+IEhUQi9QSUUgLS0tLS0tLe+DoCA0OU0KPiBIVEIvU0ZRIC0tLS0tLS3vg6AgNTBNCj4gSEZTQyAv
+RlFfQ09ERUwgLS0tLS0tLe+DoCA1Mk0KPiBIRlNDL0NBS0UgLS0tLS0tLe+DoDEwOU0KPgo+Cj4g
+Y29uc2lkZXIgdGhhdCB0aGUgYmVuY2htYXJrIGRvZXNudCBzaG93IHRoZSByZWFsIHZhbHVlcy4g
+aXRzIHN5c3RlbSBvdmVyYWxsIGFuZCBkb2VzIG5vdCBjb25zaWRlciBtZW1vcnkgdGFrZW4gYnkg
+dGhlIHdpcmVsZXNzIGRyaXZlciBmb3IgaW5zdGFuY2Ugd2hpY2ggaXMgYWJvdXQgNDUgbWIgb2Yg
+cmFtIGZvciBhdGgxMGsKPiBzbyB0aGlzIG1ha2VzIGFsbCBldmVuIG1vcmUgd29yc2UgdW5mb3J0
+dW5hdGx5IHNpbmNlIHRoZXJlIGlzIG5vdCB0aGF0IG1hbnkgcmFtIGxlZnQgZm9yIGNha2UuIGp1
+c3QgYWJvdXQgNzBtYiBtYXliZS4KPiBBbSAwOC4wOS4yMDE5IHVtIDE5OjI3IHNjaHJpZWIgSm9u
+YXRoYW4gTW9ydG9uOgo+Cj4gWW91IGNvdWxkIGFsc28gc2V0IGl0IGJhY2sgdG8gJ2ludGVybmV0
+JyBhbmQgcHJvZ3Jlc3NpdmVseSByZWR1Y2UgdGhlCj4gYmFuZHdpZHRoIHBhcmFtZXRlciwgbWFr
+aW5nIHRoZSBDYWtlIHNoYXBlciBpbnRvIHRoZSBhY3R1YWwgYm90dGxlbmVjay4KPiBUaGlzIGlz
+IHRoZSBjb3JyZWN0IGZpeCBmb3IgdGhlIHByb2JsZW0sIGFuZCB5b3Ugc2hvdWxkIG5vdGljZSBh
+bgo+IGluc3RhbnQgaW1wcm92ZW1lbnQgYXMgc29vbiBhcyB0aGUgYmFuZHdpZHRoIHBhcmFtZXRl
+ciBpcyBjb3JyZWN0Lgo+Cj4gSGFuZCB0dW5pbmcgdGhpcyBvbmUgbGluayBpcyBub3QgYSBwcm9i
+bGVtLiBJJ20gc2VhcmNoaW5nIGZvciBhIHNldCBvZiBzZXR0aW5ncyB0aGF0IHdpbGwgcHJvdmlk
+ZSBnZW5lcmFsbHkgZ29vZCBwZXJmb3JtYW5jZSBhY3Jvc3MgYSB3aWRlIHJhbmdlIG9mIGRldmlj
+ZXMsIGxpbmtzLCBhbmQgc2l0dWF0aW9ucy4KPgo+IEZyb20gd2hhdCB5b3UndmUgaW5kaWNhdGVk
+IHNvIGZhciB0aGVyZSdzIG5vdGhpbmcgYXMgZWZmZWN0aXZlIGFzIGEgY29ycmVjdCBiYW5kd2lk
+dGggZXN0aW1hdGlvbiBpZiB3ZSBjb25zaWRlciB0aGUgYW50ZW5uYSAobGluaykgYSBibGFjayBi
+b3guIEV4cGVjdGluZyB0aGUgdXNlciB0byBpbnB1dCBleHBlY3RlZCB0aHJvdWdocHV0IGZvciBl
+dmVyeSBsaW5rIGFuZCB0aGVuIG1hbmFnaW5nIHRoYXQgaW5mb3JtYXRpb24gaXMgZXNzZW50aWFs
+bHkgYSBub24tc3RhcnRlci4KPgo+IFJhZGlvIHR1bmluZyBwcm92aWRlcyBzb21lIGltcHJvdmVt
+ZW50LCBidXQgdW50aWwgdWJpcXVpdGkgc3RhcnRzIHNoaXBwaW5nIHdpdGggQ29kZWwgb24gbm9u
+LXJvdXRlciBkZXZpY2VzIEkgZG9uJ3QgdGhpbmsgdGhlcmUncyBhIGdvb2Qgc29sdXRpb24gaGVy
+ZS4KPgo+IEFueSB3YXkgdG8gaGF2ZSB0aGUgcmVjZWl2aW5nIGRldmljZSBkZXRlY3QgYmxvYXQg
+YW5kIGluc2VydCBhbiBFQ04/Cj4KPiBUaGF0J3Mgd2hhdCB0aGUgcWRpc2MgaXRzZWxmIGlzIHN1
+cHBvc2VkIHRvIGRvLgo+Cj4gSSBkb24ndCB0aGluayB0aGUgdGltZSBzcGVudCBpbiB0aGUgaW50
+ZXJtZWRpYXRlIGRldmljZSBpcyBkZXRlY3RhYmxlIGF0IHRoZSBrZXJuZWwgbGV2ZWwgYnV0IHdl
+IGtlZXAgdHJhY2sgb2YgbGF0ZW5jeSBmb3Igcm91dGluZyBkZWNpc2lvbnMgYW5kIGNvdWxkIGRl
+dGVjdCBibG9hdCB3aXRoIHNvbWUgYWNjdXJhY3ksIHRoZSBwcm9ibGVtIGlzIGhvdyB0byByZXNw
+b25kLgo+Cj4gQXMgbG9uZyBhcyB5b3UgY2FuIGRldGVjdCB3aGljaCBsaW5rIHRoZSBibG9hdCBp
+cyBvbiAoYW5kIGluIHdoaWNoIGRpcmVjdGlvbiksIHlvdSBjYW4gcmVzcG9uZCBieSByZWR1Y2lu
+ZyB0aGUgYmFuZHdpZHRoIHBhcmFtZXRlciBvbiB0aGF0IGhhbGYtbGluayBieSBhIHNtYWxsIGFt
+b3VudC4gIFNpbmNlIHlvdSBoYXZlIGEgY29vcGVyYXRpbmcgbmV0d29yaywgbWFpbnRhaW5pbmcg
+YSB0aW1lIHN0YW5kYXJkIG9uIGVhY2ggbm9kZSBzdWZmaWNpZW50IHRvIG9ic2VydmUgb25lLXdh
+eSBkZWxheXMgc2VlbXMgZmVhc2libGUsIGFzIGlzIGVzdGFibGlzaGluZyBhIG5vcm1hbCBiYXNl
+bGluZSBsYXRlbmN5IGZvciBlYWNoIGxpbmsuCj4KPiBUaGUgY2hhcmFjdGVyaXN0aWNzIG9mIHRo
+ZSBiYW5kd2lkdGggcGFyYW1ldGVyIGJlaW5nIHRvbyBoaWdoIGFyZSBlYXN5IHRvIG9ic2VydmUu
+ICBOb3Qgb25seSB3aWxsIHRoZSBvbmUtd2F5IGRlbGF5IGdvIHVwLCBidXQgdGhlIHJlY2VpdmVk
+IHRocm91Z2hwdXQgaW4gdGhlIHNhbWUgZGlyZWN0aW9uIGF0IHRoZSBzYW1lIHRpbWUgd2lsbCBi
+ZSBsb3dlciB0aGFuIGNvbmZpZ3VyZWQuICBZb3UgbWlnaHQgdXNlIHRoZSBsYXR0ZXIgYXMgYSBo
+aW50IGFzIHRvIGhvdyBmYXIgeW91IG5lZWQgdG8gcmVkdWNlIHRoZSBzaGFwZWQgYmFuZHdpZHRo
+Lgo+Cj4gRGVjaWRpbmcgd2hlbiBhbmQgYnkgaG93IG11Y2ggdG8gKmluY3JlYXNlKiBiYW5kd2lk
+dGgsIHdoaWNoIGlzIHByZXN1bWFibHkgZGVzaXJhYmxlIHdoZW4gbGluayBjb25kaXRpb25zIGlt
+cHJvdmUsIGlzIGEgbW9yZSBkaWZmaWN1bHQgcHJvYmxlbSB3aGVuIHRoZSBsaW5rIGhhcmR3YXJl
+IGRvZXNuJ3QgY29vcGVyYXRlIGJ5IGluZm9ybWluZyB5b3Ugb2YgaXRzIHN0YXR1cy4gIChUaGlz
+IGlzIHNvbWV0aGluZyB5b3UgY291bGQgcmVhc29uYWJseSBhc2sgVWJpcXVpdGkgdG8gYWRkcmVz
+cy4pCj4KPiBJIHdvdWxkIGFzc3VtZSB0aGF0IGxpbmsgY2hhcmFjdGVyaXN0aWNzIHdpbGwgY2hh
+bmdlIHNsb3dseSwgYW5kIHJ1biBhbiBvY2Nhc2lvbmFsIGV4cGxpY2l0IGJhbmR3aWR0aCBwcm9i
+ZSB0byBzZWUgaWYgc3BhcmUgYmFuZHdpZHRoIGlzIGF2YWlsYWJsZS4gIElmIHRoYXQgcHJvYmUg
+Y29tZXMgdGhyb3VnaCB3aXRob3V0IGV4aGliaXRpbmcgYmxvYXQsICphbmQqIHRoZSBsaW5rIGlz
+IG90aGVyd2lzZSBsb2FkZWQgdG8gY2FwYWNpdHksIHRoZW4gaW5jcmVhc2UgdGhlIHNoYXBlciBi
+eSBhbiBhbW91bnQgd2l0aGluIHRoZSBwcm9iZSdzIGNhcGFjaXR5IG9mIG1lYXN1cmVtZW50IC0g
+YW5kIHNjaGVkdWxlIGEgcmVwZWF0Lgo+Cj4gQSBzdWl0YWJsZSBwcm9iZSBtaWdodCBiZSAxMDB4
+IDE1MDBiIHBhY2tldHMgcGFjZWQgb3V0IG92ZXIgYSBzZWNvbmQsIGJ5cGFzc2luZyB0aGUgc2hh
+cGVyLiAgVGhpcyB3aWxsIG9jY3VweSBqdXN0IG92ZXIgMU1icHMgb2YgYmFuZHdpZHRoLCBhbmQg
+Y2FuIGJlIGV4cGVjdGVkIHRvIGluZHVjZSAxMG1zIG9mIGRlbGF5IGlmIGluamVjdGVkIGludG8g
+YSBzYXR1cmF0ZWQgMTAwTWJwcyBsaW5rLiAgT2JzZXJ2ZSB0aGUgZGVsYXkgZXhwZXJpZW5jZWQg
+YnkgZWFjaCBwYWNrZXQgKmFuZCogdGhlIHF1YW50aXR5IG9mIG90aGVyIHRyYWZmaWMgdGhhdCBh
+cHBlYXJzIGJldHdlZW4gdGhlbS4gIE9ubHkgaWYgYm90aCBhcmUgZmF2b3VyYWJsZSBjYW4geW91
+IHNhZmVseSBvcGVuIHRoZSBzaGFwZXIsIGJ5IDFNYnBzLgo+Cj4gU2luY2Ugd2lyZWxlc3MgbGlu
+a3MgY2FuIGJlIGV4cGVjdGVkIHRvIGNoYW5nZSB0aGVpciBjYXBhY2l0eSBvdmVyIHRpbWUsIGR1
+ZSB0byBlZy4gd2VhdGhlciBhbmQgdHJlZSBncm93dGgsIHRoaXMgc2VlbXMgdG8gYmUgbW9yZSBn
+ZW5lcmFsbHkgdXNlZnVsIHRoYW4gYSBzdGF0aWMgZ3Vlc3MuICBZb3UgY291bGQgZGVwbG95IGEg
+bmV3IGxpbmsgd2l0aCBhIGNvbnNlcnZhdGl2ZSAiZ3Vlc3MiIG9mIHNheSAxME1icHMsIGFuZCBq
+dXN0IHByb2JlIGZyb20gdGhlcmUuCj4KPiAgLSBKb25hdGhhbiBNb3J0b24KPiBfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IENha2UgbWFpbGluZyBsaXN0
+Cj4gQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0
+Lm5ldC9saXN0aW5mby9jYWtlCj4KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+IENha2UgbWFpbGluZyBsaXN0Cj4gQ2FrZUBsaXN0cy5idWZmZXJibG9h
+dC5uZXQKPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCgoKCi0t
+IAoKRGF2ZSBUw6RodApDVE8sIFRla0xpYnJlLCBMTEMKaHR0cDovL3d3dy50ZWtsaWJyZS5jb20K
+VGVsOiAxLTgzMS0yMDUtOTc0MApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApo
+dHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
