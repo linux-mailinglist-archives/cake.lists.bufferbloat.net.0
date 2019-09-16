@@ -2,69 +2,37 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id DC283AD02D
-	for <lists+cake@lfdr.de>; Sun,  8 Sep 2019 19:27:09 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 391A7B380A
+	for <lists+cake@lfdr.de>; Mon, 16 Sep 2019 12:22:36 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 84D033CB45;
-	Sun,  8 Sep 2019 13:27:08 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id A9B533CB40;
+	Mon, 16 Sep 2019 06:22:34 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1567963628;
-	bh=ErbMENH7f1K9//HVNxhhcdZ5/Gb0HWo9Pq+gjSEmWus=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1568629354;
+	bh=DJq34dlj7/Nh7058QC0lioAKUNtV2stRXFIohyDZ45o=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=nwhIn1Xttzw3RvGl8z5KI2jNdQp3a9ZUm6WGDA2+aSD51dlXSwgF+CCc0DN+Kh7cc
-	 EUhlTcbtgYkAdA2Rl8619rXAYjlSg5yKgetoA/eJ2A61ETYLuD94jdu2zOOJQtujIY
-	 gR9V/pwuypcy0W6AFrT9yNGdkzeieX9rWKN7egAB1d4OOGKsWhyIlZLwcsiVNdwO8d
-	 DaGf3Wi4jNClYKXpij65p/oWQWk5X5hFumQMCmGHenV+0sDYy2XWtxe/65rC42n1p6
-	 yjlZP/GNwvqZy76z25qcVnecO5+GricISvkFfP5vxszxgrA5Tt881A5FsZPhlNMhB/
-	 EcYtZu7n63myw==
+	 From;
+	b=VGeWLZTedeKjLQB5dc79QmfguFQpg37/LO8RsgrxexoeuNT/HmMVnpEmM8cfLPURm
+	 WEzVcYQ5wMQmZTXOdFWbov8G0sI3WXX4tG4JFuaBTgQ8+wTLnu74DZ1p7G/jFilZlg
+	 nvAx+nuOZQfRSgz1y4bGZUKWn5VJgMqPuPmiawa0jFsgbVVr9xc+UvXQQ3irn+NUwc
+	 D5+Eufp1/otoU6HWhSgVyswTPNZF7KF3EoR2C1DaP2WZYcHxPwSdo+NCq/aCv+ng20
+	 G1+fsYjXIt6p70nYZAF10DBupfIjNPi8COyZIj8eG4kDTe4WJbtUPmb3/ElcX0acdF
+	 t4hUCXxvPgOsg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lj1-x241.google.com (mail-lj1-x241.google.com
- [IPv6:2a00:1450:4864:20::241])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from webmail.newmedia-net.de (smtps.newmedia-net.de
+ [IPv6:2a05:a1c0:0:de::167])
+ (using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id EC6663B29E
- for <cake@lists.bufferbloat.net>; Sun,  8 Sep 2019 13:27:06 -0400 (EDT)
-Received: by mail-lj1-x241.google.com with SMTP id a22so10492917ljd.0
- for <cake@lists.bufferbloat.net>; Sun, 08 Sep 2019 10:27:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=V4FJpXaqXSNZ1dWk6HKSSJHRHFLNJa3J4JWK7ZGV9gA=;
- b=EwEg81h7OaVrqCUFP4stKqqDcnRVG+r6JlUlg9sXkYHaq/QF9vwkAx4lNeY5xl86lB
- wRss0oJfjn31oxoEZS3aszzGWDF+l4VsGD4mh1NpE1APiBRtygUUDPE9/RpBq7GS16rc
- aTK9FquK7TSkvgxtIpHCV+Wht8J3smX9gwmwd61OWs7cyXsPyqXwTCZiSEIKm8+9jpXy
- zcLi/Bc6hXdTwucEJeHC61jxh1TS1Ex3JSTmRNsn+BvvGETbsMt1cggcwEvzGEWSSpmt
- C/GX7IvtacxWWBCqp5k9+v6XN18huMFnepVtUgACXymSl89NleurSwDy7q3nbyErjrRW
- pP0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=V4FJpXaqXSNZ1dWk6HKSSJHRHFLNJa3J4JWK7ZGV9gA=;
- b=Oh6uj5OJy/TgZHLo40DbXWZ6i76sCwHshkZTPRy2+mFlTcz9wZ7nq5ahOirwudhI3C
- giCyFZTXmL2yfDylPFaAdU895cZ3W6ZjDBA/iSCvtChnyfxP3FG6s7zWfjg85iamPDRy
- hcLA+OyshCJESqQ241rdsuKD/Cn9iILK//K95On3Z1/xW23LELSQNn5TWDrIktvqryMP
- fWCnS1ok2TREsD8CENeTtARI1FTrXbZQbuY19mDMcLIKoKOVgNemrhBImdwsnugVgMQ/
- Gba7UGIJ7K1B+m2H2QVHmObsdyoSkYfIPFpmyIwaJxKVa75rtfQJlmXh7d0fu2UGE8sB
- pThg==
-X-Gm-Message-State: APjAAAXJprwm+SrqUH0VMzFD833mkqa8h94fJ3AbKxq9eH8c51jGlJ+O
- 1Tx86Vnz0CS1wr9kdJjOY8I=
-X-Google-Smtp-Source: APXvYqwQah9J8EhcAD7vrPWqsyT9hLZbMNEOKVTGntfcj26BqFGffapTIfeduV/BZT1Z2hREjJGMeQ==
-X-Received: by 2002:a2e:9b43:: with SMTP id o3mr1929240ljj.214.1567963625796; 
- Sun, 08 Sep 2019 10:27:05 -0700 (PDT)
-Received: from jonathartonsmbp.lan (83-245-237-193-nat-p.elisa-mobile.fi.
- [83.245.237.193])
- by smtp.gmail.com with ESMTPSA id t6sm2086779lji.3.2019.09.08.10.27.04
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sun, 08 Sep 2019 10:27:05 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
-From: Jonathan Morton <chromatix99@gmail.com>
-In-Reply-To: <a75b079e-8a29-46f1-9890-7eb73e18b0f2@www.fastmail.com>
-Date: Sun, 8 Sep 2019 20:27:03 +0300
-Message-Id: <E975CC03-A531-4450-A896-5C3921A9D063@gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id B034C3CB35
+ for <cake@lists.bufferbloat.net>; Mon, 16 Sep 2019 06:22:32 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=newmedia-net.de; s=mikd; 
+ h=Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:To:Subject;
+ bh=4rIgkyMDm2pmPz7WcSWDeufFh7PozknVzaBxEtJQlEQ=; 
+ b=FscsjgPN5zpsQ4L9p43Z06kBCGbRTpKz866RXXA9UZlqVf2LCo11/zete+5AKGjVqlxsuYUajIzOfU2I1CvylqYjczQXL1GttnlhDrVTb4sbb6PDdumw5wDoWzOpLijTPWcxGX6Q+ofCnDaPX/D4l1zTGD+ap673OrAkYkkmBSE=;
+To: cake@lists.bufferbloat.net
 References: <ac3db996-6769-4e38-b19b-eaa08ac40cd5@www.fastmail.com>
  <2825CE14-2109-4580-A086-9701F4D3ADF0@gmail.com>
  <18b1c174-b88d-4664-9aa8-9c42925fc14c@www.fastmail.com>
@@ -72,9 +40,20 @@ References: <ac3db996-6769-4e38-b19b-eaa08ac40cd5@www.fastmail.com>
  <9a90111b-2389-4dc6-8409-18c40f895540@www.fastmail.com>
  <43F02160-E691-4393-A0C0-8AB4AD962700@gmail.com>
  <a75b079e-8a29-46f1-9890-7eb73e18b0f2@www.fastmail.com>
-To: Justin Kilpatrick <justin@althea.net>
-X-Mailer: Apple Mail (2.3445.9.1)
-Subject: Re: [Cake] Fighting bloat in the face of uncertinty
+ <E975CC03-A531-4450-A896-5C3921A9D063@gmail.com>
+From: Sebastian Gottschall <s.gottschall@newmedia-net.de>
+Message-ID: <057ea708-6797-23f5-ef01-9d3d7b002578@newmedia-net.de>
+Date: Mon, 16 Sep 2019 12:21:02 +0200
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.1.0
+MIME-Version: 1.0
+In-Reply-To: <E975CC03-A531-4450-A896-5C3921A9D063@gmail.com>
+X-Received: from [212.111.244.1] (helo=[172.29.0.186])
+ by webmail.newmedia-net.de with esmtpsa (TLSv1:AES128-SHA:128)
+ (Exim 4.72) (envelope-from <s.gottschall@newmedia-net.de>)
+ id 1i9o9X-00006E-FU
+ for cake@lists.bufferbloat.net; Mon, 16 Sep 2019 12:22:39 +0200
+Subject: [Cake] cake memory consumption
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -86,69 +65,182 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: cake@lists.bufferbloat.net
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2985598976982647864=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-Pj4gWW91IGNvdWxkIGFsc28gc2V0IGl0IGJhY2sgdG8gJ2ludGVybmV0JyBhbmQgcHJvZ3Jlc3Np
-dmVseSByZWR1Y2UgdGhlIAo+PiBiYW5kd2lkdGggcGFyYW1ldGVyLCBtYWtpbmcgdGhlIENha2Ug
-c2hhcGVyIGludG8gdGhlIGFjdHVhbCBib3R0bGVuZWNrLiAKPj4gVGhpcyBpcyB0aGUgY29ycmVj
-dCBmaXggZm9yIHRoZSBwcm9ibGVtLCBhbmQgeW91IHNob3VsZCBub3RpY2UgYW4gCj4+IGluc3Rh
-bnQgaW1wcm92ZW1lbnQgYXMgc29vbiBhcyB0aGUgYmFuZHdpZHRoIHBhcmFtZXRlciBpcyBjb3Jy
-ZWN0Lgo+IAo+IEhhbmQgdHVuaW5nIHRoaXMgb25lIGxpbmsgaXMgbm90IGEgcHJvYmxlbS4gSSdt
-IHNlYXJjaGluZyBmb3IgYSBzZXQgb2Ygc2V0dGluZ3MgdGhhdCB3aWxsIHByb3ZpZGUgZ2VuZXJh
-bGx5IGdvb2QgcGVyZm9ybWFuY2UgYWNyb3NzIGEgd2lkZSByYW5nZSBvZiBkZXZpY2VzLCBsaW5r
-cywgYW5kIHNpdHVhdGlvbnMuIAo+IAo+IEZyb20gd2hhdCB5b3UndmUgaW5kaWNhdGVkIHNvIGZh
-ciB0aGVyZSdzIG5vdGhpbmcgYXMgZWZmZWN0aXZlIGFzIGEgY29ycmVjdCBiYW5kd2lkdGggZXN0
-aW1hdGlvbiBpZiB3ZSBjb25zaWRlciB0aGUgYW50ZW5uYSAobGluaykgYSBibGFjayBib3guIEV4
-cGVjdGluZyB0aGUgdXNlciB0byBpbnB1dCBleHBlY3RlZCB0aHJvdWdocHV0IGZvciBldmVyeSBs
-aW5rIGFuZCB0aGVuIG1hbmFnaW5nIHRoYXQgaW5mb3JtYXRpb24gaXMgZXNzZW50aWFsbHkgYSBu
-b24tc3RhcnRlci4gCj4gCj4gUmFkaW8gdHVuaW5nIHByb3ZpZGVzIHNvbWUgaW1wcm92ZW1lbnQs
-IGJ1dCB1bnRpbCB1YmlxdWl0aSBzdGFydHMgc2hpcHBpbmcgd2l0aCBDb2RlbCBvbiBub24tcm91
-dGVyIGRldmljZXMgSSBkb24ndCB0aGluayB0aGVyZSdzIGEgZ29vZCBzb2x1dGlvbiBoZXJlLiAK
-PiAKPiBBbnkgd2F5IHRvIGhhdmUgdGhlIHJlY2VpdmluZyBkZXZpY2UgZGV0ZWN0IGJsb2F0IGFu
-ZCBpbnNlcnQgYW4gRUNOPwoKVGhhdCdzIHdoYXQgdGhlIHFkaXNjIGl0c2VsZiBpcyBzdXBwb3Nl
-ZCB0byBkby4KCj4gSSBkb24ndCB0aGluayB0aGUgdGltZSBzcGVudCBpbiB0aGUgaW50ZXJtZWRp
-YXRlIGRldmljZSBpcyBkZXRlY3RhYmxlIGF0IHRoZSBrZXJuZWwgbGV2ZWwgYnV0IHdlIGtlZXAg
-dHJhY2sgb2YgbGF0ZW5jeSBmb3Igcm91dGluZyBkZWNpc2lvbnMgYW5kIGNvdWxkIGRldGVjdCBi
-bG9hdCB3aXRoIHNvbWUgYWNjdXJhY3ksIHRoZSBwcm9ibGVtIGlzIGhvdyB0byByZXNwb25kLgoK
-QXMgbG9uZyBhcyB5b3UgY2FuIGRldGVjdCB3aGljaCBsaW5rIHRoZSBibG9hdCBpcyBvbiAoYW5k
-IGluIHdoaWNoIGRpcmVjdGlvbiksIHlvdSBjYW4gcmVzcG9uZCBieSByZWR1Y2luZyB0aGUgYmFu
-ZHdpZHRoIHBhcmFtZXRlciBvbiB0aGF0IGhhbGYtbGluayBieSBhIHNtYWxsIGFtb3VudC4gIFNp
-bmNlIHlvdSBoYXZlIGEgY29vcGVyYXRpbmcgbmV0d29yaywgbWFpbnRhaW5pbmcgYSB0aW1lIHN0
-YW5kYXJkIG9uIGVhY2ggbm9kZSBzdWZmaWNpZW50IHRvIG9ic2VydmUgb25lLXdheSBkZWxheXMg
-c2VlbXMgZmVhc2libGUsIGFzIGlzIGVzdGFibGlzaGluZyBhIG5vcm1hbCBiYXNlbGluZSBsYXRl
-bmN5IGZvciBlYWNoIGxpbmsuCgpUaGUgY2hhcmFjdGVyaXN0aWNzIG9mIHRoZSBiYW5kd2lkdGgg
-cGFyYW1ldGVyIGJlaW5nIHRvbyBoaWdoIGFyZSBlYXN5IHRvIG9ic2VydmUuICBOb3Qgb25seSB3
-aWxsIHRoZSBvbmUtd2F5IGRlbGF5IGdvIHVwLCBidXQgdGhlIHJlY2VpdmVkIHRocm91Z2hwdXQg
-aW4gdGhlIHNhbWUgZGlyZWN0aW9uIGF0IHRoZSBzYW1lIHRpbWUgd2lsbCBiZSBsb3dlciB0aGFu
-IGNvbmZpZ3VyZWQuICBZb3UgbWlnaHQgdXNlIHRoZSBsYXR0ZXIgYXMgYSBoaW50IGFzIHRvIGhv
-dyBmYXIgeW91IG5lZWQgdG8gcmVkdWNlIHRoZSBzaGFwZWQgYmFuZHdpZHRoLgoKRGVjaWRpbmcg
-d2hlbiBhbmQgYnkgaG93IG11Y2ggdG8gKmluY3JlYXNlKiBiYW5kd2lkdGgsIHdoaWNoIGlzIHBy
-ZXN1bWFibHkgZGVzaXJhYmxlIHdoZW4gbGluayBjb25kaXRpb25zIGltcHJvdmUsIGlzIGEgbW9y
-ZSBkaWZmaWN1bHQgcHJvYmxlbSB3aGVuIHRoZSBsaW5rIGhhcmR3YXJlIGRvZXNuJ3QgY29vcGVy
-YXRlIGJ5IGluZm9ybWluZyB5b3Ugb2YgaXRzIHN0YXR1cy4gIChUaGlzIGlzIHNvbWV0aGluZyB5
-b3UgY291bGQgcmVhc29uYWJseSBhc2sgVWJpcXVpdGkgdG8gYWRkcmVzcy4pCgpJIHdvdWxkIGFz
-c3VtZSB0aGF0IGxpbmsgY2hhcmFjdGVyaXN0aWNzIHdpbGwgY2hhbmdlIHNsb3dseSwgYW5kIHJ1
-biBhbiBvY2Nhc2lvbmFsIGV4cGxpY2l0IGJhbmR3aWR0aCBwcm9iZSB0byBzZWUgaWYgc3BhcmUg
-YmFuZHdpZHRoIGlzIGF2YWlsYWJsZS4gIElmIHRoYXQgcHJvYmUgY29tZXMgdGhyb3VnaCB3aXRo
-b3V0IGV4aGliaXRpbmcgYmxvYXQsICphbmQqIHRoZSBsaW5rIGlzIG90aGVyd2lzZSBsb2FkZWQg
-dG8gY2FwYWNpdHksIHRoZW4gaW5jcmVhc2UgdGhlIHNoYXBlciBieSBhbiBhbW91bnQgd2l0aGlu
-IHRoZSBwcm9iZSdzIGNhcGFjaXR5IG9mIG1lYXN1cmVtZW50IC0gYW5kIHNjaGVkdWxlIGEgcmVw
-ZWF0LgoKQSBzdWl0YWJsZSBwcm9iZSBtaWdodCBiZSAxMDB4IDE1MDBiIHBhY2tldHMgcGFjZWQg
-b3V0IG92ZXIgYSBzZWNvbmQsIGJ5cGFzc2luZyB0aGUgc2hhcGVyLiAgVGhpcyB3aWxsIG9jY3Vw
-eSBqdXN0IG92ZXIgMU1icHMgb2YgYmFuZHdpZHRoLCBhbmQgY2FuIGJlIGV4cGVjdGVkIHRvIGlu
-ZHVjZSAxMG1zIG9mIGRlbGF5IGlmIGluamVjdGVkIGludG8gYSBzYXR1cmF0ZWQgMTAwTWJwcyBs
-aW5rLiAgT2JzZXJ2ZSB0aGUgZGVsYXkgZXhwZXJpZW5jZWQgYnkgZWFjaCBwYWNrZXQgKmFuZCog
-dGhlIHF1YW50aXR5IG9mIG90aGVyIHRyYWZmaWMgdGhhdCBhcHBlYXJzIGJldHdlZW4gdGhlbS4g
-IE9ubHkgaWYgYm90aCBhcmUgZmF2b3VyYWJsZSBjYW4geW91IHNhZmVseSBvcGVuIHRoZSBzaGFw
-ZXIsIGJ5IDFNYnBzLgoKU2luY2Ugd2lyZWxlc3MgbGlua3MgY2FuIGJlIGV4cGVjdGVkIHRvIGNo
-YW5nZSB0aGVpciBjYXBhY2l0eSBvdmVyIHRpbWUsIGR1ZSB0byBlZy4gd2VhdGhlciBhbmQgdHJl
-ZSBncm93dGgsIHRoaXMgc2VlbXMgdG8gYmUgbW9yZSBnZW5lcmFsbHkgdXNlZnVsIHRoYW4gYSBz
-dGF0aWMgZ3Vlc3MuICBZb3UgY291bGQgZGVwbG95IGEgbmV3IGxpbmsgd2l0aCBhIGNvbnNlcnZh
-dGl2ZSAiZ3Vlc3MiIG9mIHNheSAxME1icHMsIGFuZCBqdXN0IHByb2JlIGZyb20gdGhlcmUuCgog
-LSBKb25hdGhhbiBNb3J0b24KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0
-cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+This is a multi-part message in MIME format.
+--===============2985598976982647864==
+Content-Type: multipart/alternative;
+ boundary="------------B4B8411D588B2C083E8FF7E3"
+
+This is a multi-part message in MIME format.
+--------------B4B8411D588B2C083E8FF7E3
+Content-Type: text/plain; charset=utf-8; format=flowed
+Content-Transfer-Encoding: 8bit
+
+after we found out serious out of memory issues on smaller embedded 
+devices (128 mb ram) we made some benchmarks with different schedulers
+with the result that cake takes a serious amount of memory. we use the 
+out of tree cake module and we use it class based since we have complex 
+methods of doing qos per interface, per mac addresse or even per 
+ip/network. so its not just simple cake on a single interface solution. 
+we made some benchmarks with different schedulers. does anybody have a 
+solution for making that better?
+
+HTB/FQ_CODEL ------- 62M
+HTB/SFQ ------- 62M
+HTB/PIE ------- 62M
+HTB/FQ_CODEL_FAST ------- 67M
+HTB/CAKE -------111M
+
+HFSC/FQ_CODEL_FAST ------- 47M
+HTB/PIE ------- 49M
+HTB/SFQ ------- 50M
+HFSC /FQ_CODEL ------- 52M
+HFSC/CAKE -------109M
+
+
+consider that the benchmark doesnt show the real values. its system 
+overall and does not consider memory taken by the wireless driver for 
+instance which is about 45 mb of ram for ath10k
+so this makes all even more worse unfortunatly since there is not that 
+many ram left for cake. just about 70mb maybe.
+Am 08.09.2019 um 19:27 schrieb Jonathan Morton:
+>>> You could also set it back to 'internet' and progressively reduce the
+>>> bandwidth parameter, making the Cake shaper into the actual bottleneck.
+>>> This is the correct fix for the problem, and you should notice an
+>>> instant improvement as soon as the bandwidth parameter is correct.
+>> Hand tuning this one link is not a problem. I'm searching for a set of settings that will provide generally good performance across a wide range of devices, links, and situations.
+>>
+>>  From what you've indicated so far there's nothing as effective as a correct bandwidth estimation if we consider the antenna (link) a black box. Expecting the user to input expected throughput for every link and then managing that information is essentially a non-starter.
+>>
+>> Radio tuning provides some improvement, but until ubiquiti starts shipping with Codel on non-router devices I don't think there's a good solution here.
+>>
+>> Any way to have the receiving device detect bloat and insert an ECN?
+> That's what the qdisc itself is supposed to do.
+>
+>> I don't think the time spent in the intermediate device is detectable at the kernel level but we keep track of latency for routing decisions and could detect bloat with some accuracy, the problem is how to respond.
+> As long as you can detect which link the bloat is on (and in which direction), you can respond by reducing the bandwidth parameter on that half-link by a small amount.  Since you have a cooperating network, maintaining a time standard on each node sufficient to observe one-way delays seems feasible, as is establishing a normal baseline latency for each link.
+>
+> The characteristics of the bandwidth parameter being too high are easy to observe.  Not only will the one-way delay go up, but the received throughput in the same direction at the same time will be lower than configured.  You might use the latter as a hint as to how far you need to reduce the shaped bandwidth.
+>
+> Deciding when and by how much to *increase* bandwidth, which is presumably desirable when link conditions improve, is a more difficult problem when the link hardware doesn't cooperate by informing you of its status.  (This is something you could reasonably ask Ubiquiti to address.)
+>
+> I would assume that link characteristics will change slowly, and run an occasional explicit bandwidth probe to see if spare bandwidth is available.  If that probe comes through without exhibiting bloat, *and* the link is otherwise loaded to capacity, then increase the shaper by an amount within the probe's capacity of measurement - and schedule a repeat.
+>
+> A suitable probe might be 100x 1500b packets paced out over a second, bypassing the shaper.  This will occupy just over 1Mbps of bandwidth, and can be expected to induce 10ms of delay if injected into a saturated 100Mbps link.  Observe the delay experienced by each packet *and* the quantity of other traffic that appears between them.  Only if both are favourable can you safely open the shaper, by 1Mbps.
+>
+> Since wireless links can be expected to change their capacity over time, due to eg. weather and tree growth, this seems to be more generally useful than a static guess.  You could deploy a new link with a conservative "guess" of say 10Mbps, and just probe from there.
+>
+>   - Jonathan Morton
+> _______________________________________________
+> Cake mailing list
+> Cake@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/cake
+
+--------------B4B8411D588B2C083E8FF7E3
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p>after we found out serious out of memory issues on smaller
+      embedded devices (128 mb ram) we made some benchmarks with
+      different schedulers<br>
+      with the result that cake takes a serious amount of memory. we use
+      the out of tree cake module and we use it class based since we
+      have complex methods of doing qos per interface, per mac addresse
+      or even per ip/network. so its not just simple cake on a single
+      interface solution. we made some benchmarks with different
+      schedulers. does anybody have a solution for making that better?</p>
+    <pre class="wiki" style="background: rgb(247, 247, 247); border: 1px solid rgb(215, 215, 215); box-shadow: rgb(238, 238, 238) 0px 0px 1em; border-radius: 0.3em; margin: 1em 1.75em; padding: 0.25em; overflow: auto; clear: right; color: rgb(0, 0, 0); font-size: 13px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">HTB/FQ_CODEL ------- 62M
+HTB/SFQ ------- 62M
+HTB/PIE ------- 62M
+HTB/FQ_CODEL_FAST ------- 67M
+HTB/CAKE -------111M
+
+HFSC/FQ_CODEL_FAST ------- 47M
+HTB/PIE ------- 49M
+HTB/SFQ ------- 50M
+HFSC /FQ_CODEL ------- 52M
+HFSC/CAKE -------109M</pre>
+    <div class="moz-cite-prefix"><br>
+    </div>
+    <div class="moz-cite-prefix">consider that the benchmark doesnt show
+      the real values. its system overall and does not consider memory
+      taken by the wireless driver for instance which is about 45 mb of
+      ram for ath10k <br>
+      so this makes all even more worse unfortunatly since there is not
+      that many ram left for cake. just about 70mb maybe.<br>
+    </div>
+    <div class="moz-cite-prefix">Am 08.09.2019 um 19:27 schrieb Jonathan
+      Morton:<br>
+    </div>
+    <blockquote type="cite"
+      cite="mid:E975CC03-A531-4450-A896-5C3921A9D063@gmail.com">
+      <blockquote type="cite">
+        <blockquote type="cite">
+          <pre class="moz-quote-pre" wrap="">You could also set it back to 'internet' and progressively reduce the 
+bandwidth parameter, making the Cake shaper into the actual bottleneck. 
+This is the correct fix for the problem, and you should notice an 
+instant improvement as soon as the bandwidth parameter is correct.
+</pre>
+        </blockquote>
+        <pre class="moz-quote-pre" wrap="">
+Hand tuning this one link is not a problem. I'm searching for a set of settings that will provide generally good performance across a wide range of devices, links, and situations. 
+
+From what you've indicated so far there's nothing as effective as a correct bandwidth estimation if we consider the antenna (link) a black box. Expecting the user to input expected throughput for every link and then managing that information is essentially a non-starter. 
+
+Radio tuning provides some improvement, but until ubiquiti starts shipping with Codel on non-router devices I don't think there's a good solution here. 
+
+Any way to have the receiving device detect bloat and insert an ECN?
+</pre>
+      </blockquote>
+      <pre class="moz-quote-pre" wrap="">
+That's what the qdisc itself is supposed to do.
+
+</pre>
+      <blockquote type="cite">
+        <pre class="moz-quote-pre" wrap="">I don't think the time spent in the intermediate device is detectable at the kernel level but we keep track of latency for routing decisions and could detect bloat with some accuracy, the problem is how to respond.
+</pre>
+      </blockquote>
+      <pre class="moz-quote-pre" wrap="">
+As long as you can detect which link the bloat is on (and in which direction), you can respond by reducing the bandwidth parameter on that half-link by a small amount.  Since you have a cooperating network, maintaining a time standard on each node sufficient to observe one-way delays seems feasible, as is establishing a normal baseline latency for each link.
+
+The characteristics of the bandwidth parameter being too high are easy to observe.  Not only will the one-way delay go up, but the received throughput in the same direction at the same time will be lower than configured.  You might use the latter as a hint as to how far you need to reduce the shaped bandwidth.
+
+Deciding when and by how much to *increase* bandwidth, which is presumably desirable when link conditions improve, is a more difficult problem when the link hardware doesn't cooperate by informing you of its status.  (This is something you could reasonably ask Ubiquiti to address.)
+
+I would assume that link characteristics will change slowly, and run an occasional explicit bandwidth probe to see if spare bandwidth is available.  If that probe comes through without exhibiting bloat, *and* the link is otherwise loaded to capacity, then increase the shaper by an amount within the probe's capacity of measurement - and schedule a repeat.
+
+A suitable probe might be 100x 1500b packets paced out over a second, bypassing the shaper.  This will occupy just over 1Mbps of bandwidth, and can be expected to induce 10ms of delay if injected into a saturated 100Mbps link.  Observe the delay experienced by each packet *and* the quantity of other traffic that appears between them.  Only if both are favourable can you safely open the shaper, by 1Mbps.
+
+Since wireless links can be expected to change their capacity over time, due to eg. weather and tree growth, this seems to be more generally useful than a static guess.  You could deploy a new link with a conservative "guess" of say 10Mbps, and just probe from there.
+
+ - Jonathan Morton
+_______________________________________________
+Cake mailing list
+<a class="moz-txt-link-abbreviated" href="mailto:Cake@lists.bufferbloat.net">Cake@lists.bufferbloat.net</a>
+<a class="moz-txt-link-freetext" href="https://lists.bufferbloat.net/listinfo/cake">https://lists.bufferbloat.net/listinfo/cake</a>
+</pre>
+    </blockquote>
+  </body>
+</html>
+
+--------------B4B8411D588B2C083E8FF7E3--
+
+--===============2985598976982647864==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============2985598976982647864==--
