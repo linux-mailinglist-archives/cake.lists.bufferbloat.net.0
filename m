@@ -2,72 +2,52 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 138F6BAD40
-	for <lists+cake@lfdr.de>; Mon, 23 Sep 2019 06:26:43 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 32B2ABAE2A
+	for <lists+cake@lfdr.de>; Mon, 23 Sep 2019 08:57:21 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 0059E3CB3B;
-	Mon, 23 Sep 2019 00:26:42 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 0D35D3CB3B;
+	Mon, 23 Sep 2019 02:57:19 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1569212802;
-	bh=U8Xvf3XOpwncT31+UzSa1JULtlbYWJjpxBeXMDls6Yw=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1569221839;
+	bh=cZ07VHulIpWu8p4xOSO+sBKno0fDGL1YsMwtKEqkmK0=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=XMrlbqU3NrUd5wqFrBHzapykzzae811tiSeGAa8kASG18bvM476n/0nOFtZ3R1DaD
-	 gP/f2O35pmuVXECEZkuJPtctvJj7vOsDOBftLZS/1pimaPIUlL2kDFb37risE18Oty
-	 8r7WwHKv9XUbwOK4sH23v9Y6J7c+oOlAoz79h0xGTh3PvULHa92HXr6jk66nrvigOa
-	 NsrzKhgkIoy4vOA1eO8RCAjLEMaO4G3DHsBpmBa70Agr4Ey8UpSgd+qKCJk55BBMYo
-	 mEeedW3o8LBxpmu8tZahpIp/ioahw165W9ogbmsAnf/CnycZ0LnEHJC+AWSrllbKKi
-	 HyeYoWxjTuKCQ==
+	 Reply-To:Cc:From;
+	b=iaQ0jtj1D5Hp7NrZMrGDWGJlN/EemuKyMvStXqZUfI3fTaB4e+cshMLoZtb89fDhF
+	 YiTVrphArgbMxI6WSFOrT2A9Kd0jP6cclaOxTXGpC73OblSAiPmJb6N2zLtPgIl+rv
+	 3x+crFz5u4UIj/tct93sYgxAYx6oax5ZbGrtFwJzdx5ov+s1rF9AYiK8MJqM5NXkfq
+	 mh7pfXvZ8vReDGvq6FKEnSrPnSSOYsEyFW3mWCuL9sM0PQ9t2Xv+fgT10MCyL9bOxR
+	 f/IobEeFlOxCrPjWOBUPcDCAsGnFAGNx3gJV5mcrnF9r1dvZ/kCLtTaTOHhzCKS+1O
+	 u1BbkTm4hjuww==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com
- [IPv6:2a00:1450:4864:20::131])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from web.heavenlysanctuary.com (web.heavenlysanctuary.com
+ [74.80.207.230])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 6BA3F3B2A4
- for <cake@lists.bufferbloat.net>; Mon, 23 Sep 2019 00:26:40 -0400 (EDT)
-Received: by mail-lf1-x131.google.com with SMTP id w67so9008022lff.4
- for <cake@lists.bufferbloat.net>; Sun, 22 Sep 2019 21:26:40 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=Df3pEO3cNCft4LJ3fkAjxOiiXfNtrJGSEIB9oaRBThI=;
- b=OZMPGeBooOdHPfI1w5XwG3ajvvFCqmduAubx9lwDo8p6ELLbyyc/57oiQUdf1R7Smf
- pAeEr89nZJaLQDm1KFcxIP494pzCBd7aTI7DX0gmrKFa2V37rXr5ah1MU9EHkDMb3oXK
- 2hE1JRfVn5w2ixy2IE5zO3JrFdT8smljhupnsezA1tH6DmRThnSsw4evmCAC7wTm/lzZ
- v+EpXJR348Xm1Cu1yn23ngKlwepVJB4KM2hIi1aKVkS69eFW6euG6ex/bsZigGRpCq1i
- BSmme3XHsX4BuKUwVsUwehbx1D+WesFG9/m0tDDJUSXT50UBQ0qomaVOEYL7GsCibrTM
- B0kg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=Df3pEO3cNCft4LJ3fkAjxOiiXfNtrJGSEIB9oaRBThI=;
- b=YRnNC/xBitTr+RKsMS43bN4GUrjykGbCHnfVEgkxCunzamYI4+vFt8LQnSsS7uzaNl
- W+Y3RahRZjtaLU2wOF6GwZao7os9Jlrz0zX6s3E3VXZLUHAZTskjKuyHF4o0a3OIM2Id
- axOtdMahlSkJtV7AjBAbYGgOuPeYvPeYgdLfmqwd10XGDfokmCfNJa0KDBGtJEu8BYQJ
- XcU2VZ1amDfdegSiOiOpc2In9vtldM79RN0db9MEkwqKqvtl4L4rO+AEGQHubLBD2UDD
- KOJHM594uPfpRRphzpaReV2xalkDmmQRKfNNiwo6TJHHIpktS58gZh6PpD8UVeWa/GwQ
- uJ0w==
-X-Gm-Message-State: APjAAAVkAePUbkeOM+YTI+TAYTlFoL4rc3/0JAmxaPF3c0ROIKIfioeE
- Ljal9Pfh8aub0mAtf9fc1eUddWMA
-X-Google-Smtp-Source: APXvYqwhv4nml/3/3G3H1oc+UcZ0bOA0l68wCXpjxdtvd9niQgBpSWHDYPT8nBBge1dssloEi5nRug==
-X-Received: by 2002:ac2:5965:: with SMTP id h5mr15377101lfp.129.1569212798880; 
- Sun, 22 Sep 2019 21:26:38 -0700 (PDT)
-Received: from jonathartonsmbp.lan (83-245-236-164-nat-p.elisa-mobile.fi.
- [83.245.236.164])
- by smtp.gmail.com with ESMTPSA id 28sm1958959lfy.47.2019.09.22.21.26.37
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sun, 22 Sep 2019 21:26:38 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
-From: Jonathan Morton <chromatix99@gmail.com>
-In-Reply-To: <e3d4558a-1d56-a77c-5336-51bb3e6427ea@heavenlysanctuary.com>
-Date: Mon, 23 Sep 2019 07:26:36 +0300
-Message-Id: <F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id DD0D73B2A4
+ for <cake@lists.bufferbloat.net>; Mon, 23 Sep 2019 02:57:17 -0400 (EDT)
+Received: from [192.168.10.101] (unknown [47.145.169.78])
+ (using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+ key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+ (No client certificate requested)
+ by web.heavenlysanctuary.com (Postfix) with ESMTPSA id 63E9321E00A2;
+ Sun, 22 Sep 2019 23:57:16 -0700 (PDT)
+To: Jonathan Morton <chromatix99@gmail.com>
 References: <e3d4558a-1d56-a77c-5336-51bb3e6427ea@heavenlysanctuary.com>
-To: marco@heavenlysanctuary.com
-X-Mailer: Apple Mail (2.3445.9.1)
+ <F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com>
+From: Marco Belmonte <marco@heavenlysanctuary.com>
+Message-ID: <e3b4ea05-1fd4-bffb-31f4-44eb58a5114c@heavenlysanctuary.com>
+Date: Sun, 22 Sep 2019 23:57:19 -0700
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101
+ Thunderbird/70.0
+MIME-Version: 1.0
+In-Reply-To: <F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com>
+Content-Language: en-US
+X-Spam-Status: No, score=-1.0 required=3.0 tests=ALL_TRUSTED, NO_DNS_FOR_FROM, 
+ SHORTCIRCUIT shortcircuit=ham autolearn=disabled version=3.4.2
+X-Spam-Checker-Version: SpamAssassin 3.4.2 (2018-09-13) on
+ web.heavenlysanctuary.com
 Subject: Re: [Cake] Frontier FIOS Framing
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -80,57 +60,74 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
+Reply-To: marco@heavenlysanctuary.com
 Cc: cake@lists.bufferbloat.net
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============5427086712957501300=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-PiBJIGhhdmUgc2VhcmNoZWQgZXZlcnkgbm9vayBhbmQgY3Jhbm55IG9mIHRoZSBibG9hdGVkIGlu
-dGVybmV0IGxvb2tpbmcgZm9yIGFueSBpbmZvcm1hdGlvbiBJIGNhbiBmaW5kIG9uIHdoZXRoZXIg
-RnJvbnRpZXIvVmVyaXpvbiBGSU9TIChhc3N1bWluZyB0aGUgb25seSBkaWZmZXJlbmNlIGJldHdl
-ZW4gdGhlIHNlcnZpY2Ugb2ZmZXJlZCBieSBib3RoIEZyb250aWVyIGFuZCBWZXJpem9uIGlzIGlu
-IG5hbWUgb25seSkgcmVxdWlyZXMgYW55IHNwZWNpYWwgZnJhbWluZyBwYXJhbWV0ZXJzIHBhc3Nl
-ZCBvbiB0byBzY2hfY2FrZSdzIG92ZXJoZWFkIHNldHRpbmdzLiBNb3N0IG1lbnRpb25zIG9mIGNh
-a2UvZnEvc2NtL2V0YyBhbmQgRklPUyBhcmUgZXRoZXIgdmVyeSBkYXRlZCBhbmQgaW5jb25jbHVz
-aXZlIG9yIEkgZmluZCBtZXNzYWdlcyBhbmQgZm9ydW0gcG9zdHMgYXNraW5nIHF1ZXN0aW9ucyBh
-IGxvdCBsaWtlIHRoaXMgb25lLgoKSSBkb24ndCBrbm93IHByZWNpc2VseSB3aGF0IGZyYW1pbmcg
-RklPUyB1c2VzLiAgSG93ZXZlciwgbW9zdCBwcm92aXNpb25pbmcgc2hhcGVycyB1c2VkIGJ5IGNh
-YmxlL2ZpYnJlIElTUHMgb3BlcmF0ZSBvbiBFdGhlcm5ldCBmcmFtZXMsIHNvIGlmIHlvdSB1c2Ug
-dGhlICJldGhlcm5ldCIga2V5d29yZCB5b3Ugc2hvdWxkIG1hdGNoIHdoYXQgdGhlIHNoYXBlciBp
-cyBkb2luZy4gIFRoZSBwcm9vZiBvZiB0aGUgcHVkZGluZyBpcyBpbiB0aGUgZWF0aW5nLCBvZiBj
-b3Vyc2UuCgo+IEN1cnJlbnRseSB0aGlzIGlzIHdoYXQgSSBoYXZlIGFuZCBhbSBhbHNvIGN1cmlv
-dXMgaWYgSSBzaG91bGQgYmUgdXNpbmcgdGhlICJuYXQiIGtleXdvcmQgZm9yIGJvdGggaW5ncmVz
-cyBhbmQgZWdyZXNzPyBJJ20gbm90IGVudGlyZWx5IHN1cmUgLSBzZWUgYmVsb3c6CgpJZiB5b3Vy
-IGJveCBpcyBkb2luZyBOQVQgKmFuZCogeW91IGFyZSB1c2luZyBhIGZsb3ctbW9kZSB0aGF0IGRl
-cGVuZHMgb24gYWNjdXJhdGUgaW50ZXJuYWwgaG9zdCBpbmZvcm1hdGlvbiwgdGhlbiB5b3Ugc2hv
-dWxkIGhhdmUgdGhlICJuYXQiIGtleWJvYXJkIG9uIGluIGJvdGggZGlyZWN0aW9ucy4gIE90aGVy
-d2lzZSBpdCdzIG1vcmUgZWZmaWNpZW50IHRvIHN3aXRjaCBpdCBvZmYsIHRob3VnaCBsZWF2aW5n
-IGl0IG9uIGRvZXMgbm8gaGFybSBvdGhlcndpc2UuCgpUaGUgZGVmYXVsdCBmbG93LW1vZGUgaXMg
-InRyaXBsZS1pc29sYXRlIiwgd2hpY2ggZG9lcyB1c2UgaW50ZXJuYWwgaG9zdCBpbmZvcm1hdGlv
-bi4gIFNvIGRvIHRoZSAiZHVhbC1zcmNob3N0IiBhbmQgImR1YWwtZHN0aG9zdCIgbW9kZXMsIHdo
-aWNoIGFyZSBtb3JlIHByZWNpc2UgYnV0IG5lZWQgeW91IHRvIHNwZWNpZnkgd2hpY2ggZGlyZWN0
-aW9uIHRoZSB0cmFmZmljIGlzIGZsb3dpbmcuICBUaGUgImJlc3RlZmZvcnQiIGFuZCAiZmxvd3Mi
-IG1vZGVzIGRvIG5vdCwgYnV0IHlvdSBzaG91bGQgb25seSB1c2UgdGhvc2UgaWYgeW91J3JlIGRl
-bGliZXJhdGVseSBleHBlcmltZW50aW5nIHdpdGggc29tZXRoaW5nLgoKPiBJbiBhYnNlbmNlIG9m
-IGZyYW1pbmcgY29tcGVuc2F0aW9uIEkgZmlndXJlZCBJIHNob3VsZCBqdXN0IGdvIGV4dHJlbWUg
-YnkgcmVzZXJ2aW5nIG1vcmUgYmFuZHdpZHRoIHRoYW4gdGhlIHFkaXNjIG5lZWRzIGJlY2F1c2Ug
-SSBhbHNvIHJlYWQgc29tZXdoZXJlIEkgdGhpbmsgdGhhdCBtZW50aW9uZWQgdGhhdCBpZiB5b3Ug
-ZG9uJ3QgY29tcGVuc2F0ZSBhbmQgYXJlIGluY29ycmVjdCBldmVyeXRoaW5nIHN0b3BzIHdvcmtp
-bmcgYXMgb3Bwb3NlZCB0byBpZiB5b3Ugb3ZlciBjb21wZW5zYXRlIHlvdSBtaWdodCBsb3NlIG91
-dCBvbiBiYW5kd2lkdGggYnV0IHlvdSdsbCBzdGlsbCB3aW4gaW4gdGhlIGxhdGVuY3kgZGVwYXJ0
-bWVudC4KClRoYXQncyBhcHByb3hpbWF0ZWx5IGNvcnJlY3QsIGNsb3NlIGVub3VnaCBmb3IgYWN0
-dWFsIHByYWN0aWNlLiAgSXQncyBhbHNvIHdoeSB3ZSBpbmNsdWRlZCB0aGUgImNvbnNlcnZhdGl2
-ZSIga2V5d29yZCwgd2hpY2ggYXBwbGllcyB0aGUgbWF4aW11bSBhbW91bnQgb2YgZnJhbWluZyBj
-b21wZW5zYXRpb24gdGhhdCBpcyBldmVyIGxpa2VseSB0byBiZSBzZWVuIGluIHRoZSB3aWxkIC0g
-bXVjaCBtb3JlIHRoYW4geW91J2QgZXhwZWN0IHRvIHNlZSBvbiBhIGNhYmxlL2ZpYnJlIGxpbmss
-IGJ1dCBvbmx5IHNsaWdodGx5IG1vcmUgdGhhbiBvbiBtb3N0IEFEU0wgbGluZXMuCgpUaGUgb3Zl
-cmhlYWQgY29tcGVuc2F0aW9uIG1hdHRlcnMgbW9yZSB3aXRoIHNtYWxsIHBhY2tldHMgdGhhbiB3
-aXRoIHRoZSBsYXJnZXIgb25lcyB1c2VkIGZvciBidWxrIHRyYW5zZmVyczsgZm9yIHRoZSBsYXR0
-ZXIsIHJlc2VydmluZyBhIGxpdHRsZSBtb3JlIGJhbmR3aWR0aCB3aWxsIGFwcGVhciB0byBtYWtl
-IGV2ZXJ5dGhpbmcgd29yay4gIEZvciBmaWJyZSBJIHdvdWxkIHRyeSAiZXRoZXJuZXQiIGFuZCBy
-ZXNlcnZlIGFib3V0IDElIGJhbmR3aWR0aCBlYWNoIHdheSwgdGhlbiBpZiBwb3NzaWJsZSB0ZXN0
-IHRvIHNlZSB3aGV0aGVyIHRoZXJlIGlzIGFueSBibG9hdC4KCiAtIEpvbmF0aGFuIE1vcnRvbgpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxp
-bmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJs
-b2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============5427086712957501300==
+Content-Type: text/html; charset=utf-8
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p>Thank you, Jonathan - I will add the ethernet keyword and run
+      some tests to get a more precise reading of exactly what 1% should
+      be in both directions and also play with the "dual-*host" settings
+      and post back my findings or more than likely a few more questions
+      :-)</p>
+    <p>Marco<br>
+    </p>
+    <div class="moz-cite-prefix">On 9/22/2019 9:26 PM, Jonathan Morton
+      wrote:<br>
+    </div>
+    <blockquote type="cite"
+      cite="mid:F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com">
+      <blockquote type="cite">
+        <pre class="moz-quote-pre" wrap="">I have searched every nook and cranny of the bloated internet looking for any information I can find on whether Frontier/Verizon FIOS (assuming the only difference between the service offered by both Frontier and Verizon is in name only) requires any special framing parameters passed on to sch_cake's overhead settings. Most mentions of cake/fq/scm/etc and FIOS are ether very dated and inconclusive or I find messages and forum posts asking questions a lot like this one.
+</pre>
+      </blockquote>
+      <pre class="moz-quote-pre" wrap="">
+I don't know precisely what framing FIOS uses.  However, most provisioning shapers used by cable/fibre ISPs operate on Ethernet frames, so if you use the "ethernet" keyword you should match what the shaper is doing.  The proof of the pudding is in the eating, of course.
+
+</pre>
+      <blockquote type="cite">
+        <pre class="moz-quote-pre" wrap="">Currently this is what I have and am also curious if I should be using the "nat" keyword for both ingress and egress? I'm not entirely sure - see below:
+</pre>
+      </blockquote>
+      <pre class="moz-quote-pre" wrap="">
+If your box is doing NAT *and* you are using a flow-mode that depends on accurate internal host information, then you should have the "nat" keyboard on in both directions.  Otherwise it's more efficient to switch it off, though leaving it on does no harm otherwise.
+
+The default flow-mode is "triple-isolate", which does use internal host information.  So do the "dual-srchost" and "dual-dsthost" modes, which are more precise but need you to specify which direction the traffic is flowing.  The "besteffort" and "flows" modes do not, but you should only use those if you're deliberately experimenting with something.
+
+</pre>
+      <blockquote type="cite">
+        <pre class="moz-quote-pre" wrap="">In absence of framing compensation I figured I should just go extreme by reserving more bandwidth than the qdisc needs because I also read somewhere I think that mentioned that if you don't compensate and are incorrect everything stops working as opposed to if you over compensate you might lose out on bandwidth but you'll still win in the latency department.
+</pre>
+      </blockquote>
+      <pre class="moz-quote-pre" wrap="">
+That's approximately correct, close enough for actual practice.  It's also why we included the "conservative" keyword, which applies the maximum amount of framing compensation that is ever likely to be seen in the wild - much more than you'd expect to see on a cable/fibre link, but only slightly more than on most ADSL lines.
+
+The overhead compensation matters more with small packets than with the larger ones used for bulk transfers; for the latter, reserving a little more bandwidth will appear to make everything work.  For fibre I would try "ethernet" and reserve about 1% bandwidth each way, then if possible test to see whether there is any bloat.
+
+ - Jonathan Morton</pre>
+    </blockquote>
+  </body>
+</html>
+
+--===============5427086712957501300==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============5427086712957501300==--
