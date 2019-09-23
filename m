@@ -2,52 +2,74 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [45.79.142.77])
-	by mail.lfdr.de (Postfix) with ESMTPS id 32B2ABAE2A
-	for <lists+cake@lfdr.de>; Mon, 23 Sep 2019 08:57:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 816E9BAE9D
+	for <lists+cake@lfdr.de>; Mon, 23 Sep 2019 09:44:16 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [IPv6:::1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 0D35D3CB3B;
-	Mon, 23 Sep 2019 02:57:19 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 807E83CB3B;
+	Mon, 23 Sep 2019 03:44:15 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1569221839;
-	bh=cZ07VHulIpWu8p4xOSO+sBKno0fDGL1YsMwtKEqkmK0=;
-	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1569224655;
+	bh=hL0aebIlvtJ82gNtOGBuoVssC7MAWyWieqGhKw3n9j8=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Reply-To:Cc:From;
-	b=iaQ0jtj1D5Hp7NrZMrGDWGJlN/EemuKyMvStXqZUfI3fTaB4e+cshMLoZtb89fDhF
-	 YiTVrphArgbMxI6WSFOrT2A9Kd0jP6cclaOxTXGpC73OblSAiPmJb6N2zLtPgIl+rv
-	 3x+crFz5u4UIj/tct93sYgxAYx6oax5ZbGrtFwJzdx5ov+s1rF9AYiK8MJqM5NXkfq
-	 mh7pfXvZ8vReDGvq6FKEnSrPnSSOYsEyFW3mWCuL9sM0PQ9t2Xv+fgT10MCyL9bOxR
-	 f/IobEeFlOxCrPjWOBUPcDCAsGnFAGNx3gJV5mcrnF9r1dvZ/kCLtTaTOHhzCKS+1O
-	 u1BbkTm4hjuww==
+	 Cc:From;
+	b=Nw/e9h6G392sjhyrO/cGgoIysLzYGs0eDmzv1F4VQP5ZLggJjXajlZHuHnAUpKAYa
+	 I+M6fnIm4W1+J5Fz1cMBMUy2uquQXL/TZk2N0NWgt2gbBinP1FmF/KSvvBC52h94Bz
+	 VdWqaOMzj0UgHS9jRtBU1bKxkk8DRSwUJWJ5yvF6FW/diUN/YbSXLGjftDZqPQrWPw
+	 4fuWCxMX/o9BUFZCT4TUKcBH2e+zYd6l4artdExsxLA5+yucAazpvdqfsZCMq0iTlq
+	 KVbqEXQ2bIu7NTXa/K2l9plUBHXWGzteG4LHdNYXcxCLdvnBRx5liLil38pQEIfrJx
+	 iO+qO+777ZqCg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from web.heavenlysanctuary.com (web.heavenlysanctuary.com
- [74.80.207.230])
- (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id DD0D73B2A4
- for <cake@lists.bufferbloat.net>; Mon, 23 Sep 2019 02:57:17 -0400 (EDT)
-Received: from [192.168.10.101] (unknown [47.145.169.78])
- (using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
- key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
- (No client certificate requested)
- by web.heavenlysanctuary.com (Postfix) with ESMTPSA id 63E9321E00A2;
- Sun, 22 Sep 2019 23:57:16 -0700 (PDT)
-To: Jonathan Morton <chromatix99@gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id E84FB3B2A4
+ for <cake@lists.bufferbloat.net>; Mon, 23 Sep 2019 03:44:13 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1569224646;
+ bh=wnglEFdX21ntICFDdG6KZj3utGLFBXe+0kSUN0PCs1Y=;
+ h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
+ b=khSwfjTdKoENEvjzt0QHjdi5+saa8GaoVYRyo9P9zdoIvfCQIDOV25OPL0VYSXSGH
+ QNPzIirL2qPUOTDnbKxOSrctoqA6sKpWcJY9P2HLRgCkTDHbp2v4hDt7XRq3J5mYqL
+ 6pOFY2qTd9PbXdW1w9R7K3RbGu2l4G+AqdFtUVLg=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [10.11.12.32] ([134.76.241.253]) by mail.gmx.com (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MdebB-1hdWEB1miX-00ZdyY; Mon, 23
+ Sep 2019 09:44:06 +0200
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+From: Sebastian Moeller <moeller0@gmx.de>
+In-Reply-To: <F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com>
+Date: Mon, 23 Sep 2019 09:44:05 +0200
+Message-Id: <310A6A0A-04F6-4EB9-B9AA-912B8E66C4BF@gmx.de>
 References: <e3d4558a-1d56-a77c-5336-51bb3e6427ea@heavenlysanctuary.com>
  <F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com>
-From: Marco Belmonte <marco@heavenlysanctuary.com>
-Message-ID: <e3b4ea05-1fd4-bffb-31f4-44eb58a5114c@heavenlysanctuary.com>
-Date: Sun, 22 Sep 2019 23:57:19 -0700
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:70.0) Gecko/20100101
- Thunderbird/70.0
-MIME-Version: 1.0
-In-Reply-To: <F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com>
-Content-Language: en-US
-X-Spam-Status: No, score=-1.0 required=3.0 tests=ALL_TRUSTED, NO_DNS_FOR_FROM, 
- SHORTCIRCUIT shortcircuit=ham autolearn=disabled version=3.4.2
-X-Spam-Checker-Version: SpamAssassin 3.4.2 (2018-09-13) on
- web.heavenlysanctuary.com
+To: Jonathan Morton <chromatix99@gmail.com>
+X-Mailer: Apple Mail (2.3445.104.11)
+X-Provags-ID: V03:K1:g0W09AYdNpbVd30lN4gl8MTHMb5IAmq1GPAFgMHdCXA5rhG4IBE
+ 1ZRf0q9DfROBlOBM593CmmTyt5/QTfrneXE1ozeCkCf5DBWgot9oD4Sh/14AoeIbgRUOCIB
+ 0vcQcjpLNHf72vDC46GMFAYwCHGGrbX+QTCxKNpltB/xROuw2vAZf5ssDs8ac/qKbTt1l4J
+ BwOhK7qM4Q61fzew0sxog==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:INFOwLHfv4o=:KpDCTPMZuLQRkT3Dq9nf3x
+ j0hMrqKLadIHRQt7fskatLUG2Xy+onJQBmgoYzZwseuK888UNYevB5fOqdd9SJ8FcU7yJ6ex6
+ pM9HIfd+XxEtBZHZRvDIgbCuxGPhi0G1DIovzcf8UFOVXt+jbNaIuoVlfDfYntWG1rNSbrgFx
+ GyIYPBwb+JuZrxPI5QXEgorKpn0ezevVeVO0ymJNJ10Qp5Xlv8auLxbRUn6WUQVvvZWOj3dD8
+ 5rHvL/d+PQW9fWGUIGwmEUJO0jedGUgsmcQ96TYrmNefWICuQ+YBgkzYwQcGrr1pQOGU9WYWD
+ 7LGuraVicdcuVH/Rxn9ndcRZLEJSII0orO4hka1YkJcpY5hsIvkIA0AHDvUEWy7pOdYFOtycK
+ RRdzCq5v1IJMTLXzmt3e1LAmmnUgTJHaRs6kThY4euR0xSsl4h2wcV860TdFajNgkKp8pimoo
+ krk8+5Jr4ENggwQJa38QcIYlEZ+F8D2DSJ+sYKVksA1KETD1CzsNpVYYTJ+SYhG5kcIs64NHZ
+ TQRWoYUZELG7OogoQSoljtkEmvxobCVbKLsyhtjrMBLdKNnxvqyU/RotjQrMBeKVo85NETyV9
+ KO9HBnYeovMTw5Qqdh2xUrIcgL3OcDe/iX/s2NX4vwNFssUdWkiWSb+lzSZVwUqnSbUQea4eq
+ FQUBh8rTMobLsXWdKySm2n3LFAOLb34LxJraQn7qjSa1pbxmYrZT/80a0rHvK2K40W0OfD+95
+ IC7kF/lQKwZxUzZ3HN9kY4DuHJuynRCsx9M1PPif0PBY9cCrBgSkhs4a+T9GFk5KyfefbjltZ
+ b1pDI3o82WXwHzVhINyyU7nbJSXgZRaZBdXY53U+eXlFExl/w0dcrFQ2O4oVbQqEwo6zFDTNY
+ UvJ/VBDd/woAyP776l5F1JPe7xTuh0WPcHSgjYSzvqtGXtKEkVtksF977ECSgkrRAEw3T+o0a
+ XS4gU86nQqm2kbrpOPVhiBHYHE4YVdqR6z5Yuruerax8SjOSYuGCRbay1dF0AP5/lSshe4tpK
+ qjGWBNC5hxo6NH7+vKuJI1s6gexIhwWBVdlIo4QfH2fwZcgc+ggGPrIzYSF0fr7o5YgqlBW0y
+ xvSB8epRlA1OR0KSH+YNXB8nfVcXUhKKYAQE5n8ixnDpgiKslK+nru4CWAPlICLbrWDQ5LzW8
+ gSEaP5jafuvl9yXxIGAIauOrZmFi2NU7WMX5SPpW6TKcESGGC+ky9748rEn2U6GENWh3HmFFJ
+ JFAfXRA70RnhA74ABSKDEwgoBPYh1SnYD02nXz2e7PZNbaEbkU6UedmRQoSM=
 Subject: Re: [Cake] Frontier FIOS Framing
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -60,74 +82,100 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Reply-To: marco@heavenlysanctuary.com
 Cc: cake@lists.bufferbloat.net
-Content-Type: multipart/mixed; boundary="===============5427086712957501300=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============5427086712957501300==
-Content-Type: text/html; charset=utf-8
-Content-Language: en-US
-Content-Transfer-Encoding: 7bit
-
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  </head>
-  <body>
-    <p>Thank you, Jonathan - I will add the ethernet keyword and run
-      some tests to get a more precise reading of exactly what 1% should
-      be in both directions and also play with the "dual-*host" settings
-      and post back my findings or more than likely a few more questions
-      :-)</p>
-    <p>Marco<br>
-    </p>
-    <div class="moz-cite-prefix">On 9/22/2019 9:26 PM, Jonathan Morton
-      wrote:<br>
-    </div>
-    <blockquote type="cite"
-      cite="mid:F35FA667-3AE9-487E-9747-2EFCB6627556@gmail.com">
-      <blockquote type="cite">
-        <pre class="moz-quote-pre" wrap="">I have searched every nook and cranny of the bloated internet looking for any information I can find on whether Frontier/Verizon FIOS (assuming the only difference between the service offered by both Frontier and Verizon is in name only) requires any special framing parameters passed on to sch_cake's overhead settings. Most mentions of cake/fq/scm/etc and FIOS are ether very dated and inconclusive or I find messages and forum posts asking questions a lot like this one.
-</pre>
-      </blockquote>
-      <pre class="moz-quote-pre" wrap="">
-I don't know precisely what framing FIOS uses.  However, most provisioning shapers used by cable/fibre ISPs operate on Ethernet frames, so if you use the "ethernet" keyword you should match what the shaper is doing.  The proof of the pudding is in the eating, of course.
-
-</pre>
-      <blockquote type="cite">
-        <pre class="moz-quote-pre" wrap="">Currently this is what I have and am also curious if I should be using the "nat" keyword for both ingress and egress? I'm not entirely sure - see below:
-</pre>
-      </blockquote>
-      <pre class="moz-quote-pre" wrap="">
-If your box is doing NAT *and* you are using a flow-mode that depends on accurate internal host information, then you should have the "nat" keyboard on in both directions.  Otherwise it's more efficient to switch it off, though leaving it on does no harm otherwise.
-
-The default flow-mode is "triple-isolate", which does use internal host information.  So do the "dual-srchost" and "dual-dsthost" modes, which are more precise but need you to specify which direction the traffic is flowing.  The "besteffort" and "flows" modes do not, but you should only use those if you're deliberately experimenting with something.
-
-</pre>
-      <blockquote type="cite">
-        <pre class="moz-quote-pre" wrap="">In absence of framing compensation I figured I should just go extreme by reserving more bandwidth than the qdisc needs because I also read somewhere I think that mentioned that if you don't compensate and are incorrect everything stops working as opposed to if you over compensate you might lose out on bandwidth but you'll still win in the latency department.
-</pre>
-      </blockquote>
-      <pre class="moz-quote-pre" wrap="">
-That's approximately correct, close enough for actual practice.  It's also why we included the "conservative" keyword, which applies the maximum amount of framing compensation that is ever likely to be seen in the wild - much more than you'd expect to see on a cable/fibre link, but only slightly more than on most ADSL lines.
-
-The overhead compensation matters more with small packets than with the larger ones used for bulk transfers; for the latter, reserving a little more bandwidth will appear to make everything work.  For fibre I would try "ethernet" and reserve about 1% bandwidth each way, then if possible test to see whether there is any bloat.
-
- - Jonathan Morton</pre>
-    </blockquote>
-  </body>
-</html>
-
---===============5427086712957501300==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============5427086712957501300==--
+Cgo+IE9uIFNlcCAyMywgMjAxOSwgYXQgMDY6MjYsIEpvbmF0aGFuIE1vcnRvbiA8Y2hyb21hdGl4
+OTlAZ21haWwuY29tPiB3cm90ZToKPiAKPj4gSSBoYXZlIHNlYXJjaGVkIGV2ZXJ5IG5vb2sgYW5k
+IGNyYW5ueSBvZiB0aGUgYmxvYXRlZCBpbnRlcm5ldCBsb29raW5nIGZvciBhbnkgaW5mb3JtYXRp
+b24gSSBjYW4gZmluZCBvbiB3aGV0aGVyIEZyb250aWVyL1Zlcml6b24gRklPUyAoYXNzdW1pbmcg
+dGhlIG9ubHkgZGlmZmVyZW5jZSBiZXR3ZWVuIHRoZSBzZXJ2aWNlIG9mZmVyZWQgYnkgYm90aCBG
+cm9udGllciBhbmQgVmVyaXpvbiBpcyBpbiBuYW1lIG9ubHkpIHJlcXVpcmVzIGFueSBzcGVjaWFs
+IGZyYW1pbmcgcGFyYW1ldGVycyBwYXNzZWQgb24gdG8gc2NoX2Nha2UncyBvdmVyaGVhZCBzZXR0
+aW5ncy4gTW9zdCBtZW50aW9ucyBvZiBjYWtlL2ZxL3NjbS9ldGMgYW5kIEZJT1MgYXJlIGV0aGVy
+IHZlcnkgZGF0ZWQgYW5kIGluY29uY2x1c2l2ZSBvciBJIGZpbmQgbWVzc2FnZXMgYW5kIGZvcnVt
+IHBvc3RzIGFza2luZyBxdWVzdGlvbnMgYSBsb3QgbGlrZSB0aGlzIG9uZS4KPiAKPiBJIGRvbid0
+IGtub3cgcHJlY2lzZWx5IHdoYXQgZnJhbWluZyBGSU9TIHVzZXMuICBIb3dldmVyLCBtb3N0IHBy
+b3Zpc2lvbmluZyBzaGFwZXJzIHVzZWQgYnkgY2FibGUvZmlicmUgSVNQcyBvcGVyYXRlIG9uIEV0
+aGVybmV0IGZyYW1lcywgc28gaWYgeW91IHVzZSB0aGUgImV0aGVybmV0IiBrZXl3b3JkIHlvdSBz
+aG91bGQgbWF0Y2ggd2hhdCB0aGUgc2hhcGVyIGlzIGRvaW5nLiAgVGhlIHByb29mIG9mIHRoZSBw
+dWRkaW5nIGlzIGluIHRoZSBlYXRpbmcsIG9mIGNvdXJzZS4KCglFdGhlcm5ldCB3aWxsIGFzc3Vt
+ZSAzOCBieXRlcyAgb2Ygb3ZlcmhlYWQsIGluY2x1ZGluZyB0aGUgInNpbGVudCIgaW50ZXItZnJh
+bWUtZ2FwIG92ZXJoZWFkICh3aGljaCBlc3NlbnRpYWxseSBpcyBhIGdhcCBpbiB0cmFuc21pc3Np
+b24gc2l6ZWQgc28gdGhhdCBvbmUgY291bGQgdHJhbnNtaXQgMTIgb2N0ZXRzIGluc3RlYWQpLCBm
+b3IgcmVhbCBhY3RpdmUgZXRoZXJuZXQgb3ZlciBmaWJlciB0aGF0IHNob3VsZCBiZSBjb3JyZWN0
+IChtYXliZSBpdCBuZWVkcyBhbm90aGVyIDQgYnl0ZXMgaWYgYSB2bGFuIHRhZyBpcyB1c2VkKS4K
+CUJ1dCBhY2NvcmRpbmcgdG8gaHR0cHM6Ly93d3cubGlnaHRyZWFkaW5nLmNvbS9naWdhYml0L2Z0
+dHgvdmVyaXpvbi1wcmVwcy1uZXh0LW1ham9yLWJyb2FkYmFuZC11cGdyYWRlL2QvZC1pZC83MjIw
+NjIgdmVyaXpvbiB1c2VzIEdQT04sIGFuZCBhbGwgd2Uga25vdyBhYm91dCBHUE9OIGlzIHRoYXQg
+aXMgdXNlcyBhIDUgYnl0ZSBHRU0gaGVhZGVyIHdoaWNoIHJlcGxhY2VzIHBhcnRzIG9mIHRoZSBl
+dGhlcm5ldCBvdmVyaGVhZCAoSUZHLCBQcmVhbWJsZSwgU0ZELCAtPiAxMis3KzEgPSAyMEJ5dGVz
+KSBmb3IgYW4gZXN0aW1hdGVkIHBlciBwYWNrZXQgb3ZlcmhlYWQgb2YgMzgtMjArNSA9IDIzIEJ5
+dGVzLiBCdXQgSSBkbyBub3Qga25vdyBob3cgbXVjaCBhZGRpdGlvbmFsICJoaWRkZW4iIG92ZXJo
+ZWFkIEdQT04gYWRkcyB0byBlYWNoIHBhY2tldC4gU28gImV0aGVybmV0J3MiIDM4IGJ5dGVzIHNo
+b3VsZCBiZSBhIGRlY2VudCBzYWZlIGJldCAoaXQgaXMgYWx3YXlzIGJldHRlciB0byBvdmVyLWVz
+dGltYXRlIHBlci1wYWNrZXQtb3ZlcmhlYWQsIGFzIG90aGVyd2lzZSBzbWFsbCBwYWNrZXRzIHdp
+bGwgZm9vbCB0aGUgc2hhcGVyKS4KCgo+IAo+PiBDdXJyZW50bHkgdGhpcyBpcyB3aGF0IEkgaGF2
+ZSBhbmQgYW0gYWxzbyBjdXJpb3VzIGlmIEkgc2hvdWxkIGJlIHVzaW5nIHRoZSAibmF0IiBrZXl3
+b3JkIGZvciBib3RoIGluZ3Jlc3MgYW5kIGVncmVzcz8gSSdtIG5vdCBlbnRpcmVseSBzdXJlIC0g
+c2VlIGJlbG93Ogo+IAo+IElmIHlvdXIgYm94IGlzIGRvaW5nIE5BVCAqYW5kKiB5b3UgYXJlIHVz
+aW5nIGEgZmxvdy1tb2RlIHRoYXQgZGVwZW5kcyBvbiBhY2N1cmF0ZSBpbnRlcm5hbCBob3N0IGlu
+Zm9ybWF0aW9uLCB0aGVuIHlvdSBzaG91bGQgaGF2ZSB0aGUgIm5hdCIga2V5Ym9hcmQgb24gaW4g
+Ym90aCBkaXJlY3Rpb25zLiAgT3RoZXJ3aXNlIGl0J3MgbW9yZSBlZmZpY2llbnQgdG8gc3dpdGNo
+IGl0IG9mZiwgdGhvdWdoIGxlYXZpbmcgaXQgb24gZG9lcyBubyBoYXJtIG90aGVyd2lzZS4KPiAK
+PiBUaGUgZGVmYXVsdCBmbG93LW1vZGUgaXMgInRyaXBsZS1pc29sYXRlIiwgd2hpY2ggZG9lcyB1
+c2UgaW50ZXJuYWwgaG9zdCBpbmZvcm1hdGlvbi4gIFNvIGRvIHRoZSAiZHVhbC1zcmNob3N0IiBh
+bmQgImR1YWwtZHN0aG9zdCIgbW9kZXMsIHdoaWNoIGFyZSBtb3JlIHByZWNpc2UgYnV0IG5lZWQg
+eW91IHRvIHNwZWNpZnkgd2hpY2ggZGlyZWN0aW9uIHRoZSB0cmFmZmljIGlzIGZsb3dpbmcuICBU
+aGUgImJlc3RlZmZvcnQiIGFuZCAiZmxvd3MiIG1vZGVzIGRvIG5vdCwgYnV0IHlvdSBzaG91bGQg
+b25seSB1c2UgdGhvc2UgaWYgeW91J3JlIGRlbGliZXJhdGVseSBleHBlcmltZW50aW5nIHdpdGgg
+c29tZXRoaW5nLgo+IAo+PiBJbiBhYnNlbmNlIG9mIGZyYW1pbmcgY29tcGVuc2F0aW9uIEkgZmln
+dXJlZCBJIHNob3VsZCBqdXN0IGdvIGV4dHJlbWUgYnkgcmVzZXJ2aW5nIG1vcmUgYmFuZHdpZHRo
+IHRoYW4gdGhlIHFkaXNjIG5lZWRzIGJlY2F1c2UgSSBhbHNvIHJlYWQgc29tZXdoZXJlIEkgdGhp
+bmsgdGhhdCBtZW50aW9uZWQgdGhhdCBpZiB5b3UgZG9uJ3QgY29tcGVuc2F0ZSBhbmQgYXJlIGlu
+Y29ycmVjdCBldmVyeXRoaW5nIHN0b3BzIHdvcmtpbmcgYXMgb3Bwb3NlZCB0byBpZiB5b3Ugb3Zl
+ciBjb21wZW5zYXRlIHlvdSBtaWdodCBsb3NlIG91dCBvbiBiYW5kd2lkdGggYnV0IHlvdSdsbCBz
+dGlsbCB3aW4gaW4gdGhlIGxhdGVuY3kgZGVwYXJ0bWVudC4KPiAKPiBUaGF0J3MgYXBwcm94aW1h
+dGVseSBjb3JyZWN0LCBjbG9zZSBlbm91Z2ggZm9yIGFjdHVhbCBwcmFjdGljZS4gIEl0J3MgYWxz
+byB3aHkgd2UgaW5jbHVkZWQgdGhlICJjb25zZXJ2YXRpdmUiIGtleXdvcmQsIHdoaWNoIGFwcGxp
+ZXMgdGhlIG1heGltdW0gYW1vdW50IG9mIGZyYW1pbmcgY29tcGVuc2F0aW9uIHRoYXQgaXMgZXZl
+ciBsaWtlbHkgdG8gYmUgc2VlbiBpbiB0aGUgd2lsZCAtIG11Y2ggbW9yZSB0aGFuIHlvdSdkIGV4
+cGVjdCB0byBzZWUgb24gYSBjYWJsZS9maWJyZSBsaW5rLCBidXQgb25seSBzbGlnaHRseSBtb3Jl
+IHRoYW4gb24gbW9zdCBBRFNMIGxpbmVzLgoKCUkgYW0gbm90IDEwMCUgc3VyZSB0aGUgImxpa2Vs
+eSB0byBiZSBzZWVuIGluIHRoZSB3aWxkIiBhc3N1bXB0aW9uIHN0aWxsIGhvbGRzLCBkcy1saXRl
+IHdpbGwgZWFzaWx5IGFkZCBhbm90aGVyIDQwIGJ5dGVzIG9mIG92ZXJoZWFkIGZvciBJUHY0IHBh
+Y2tldHMgKGFzIHdpbGwgb3RoZXIgSVB2NCBpbiBJUHY2IGVuY2Fwc3VsYXRpb25zKS4uLgoKPiAK
+PiBUaGUgb3ZlcmhlYWQgY29tcGVuc2F0aW9uIG1hdHRlcnMgbW9yZSB3aXRoIHNtYWxsIHBhY2tl
+dHMgdGhhbiB3aXRoIHRoZSBsYXJnZXIgb25lcyB1c2VkIGZvciBidWxrIHRyYW5zZmVyczsgZm9y
+IHRoZSBsYXR0ZXIsIHJlc2VydmluZyBhIGxpdHRsZSBtb3JlIGJhbmR3aWR0aCB3aWxsIGFwcGVh
+ciB0byBtYWtlIGV2ZXJ5dGhpbmcgd29yay4gIAoKCSsxLCBmb3IgYW55IGdpdmVuIHBhY2tldC1z
+aXplIHVuZGVyLWVzdGltYXRpb24gb2YgZWl0aGVyIGdyb3NzLXNoYXBlci1yYXRlIG9yIHBlci1w
+YWNrZXQtb3ZlcmhlYWQgY2FuIGJlIGNvbXBlbnNhdGVkIGJ5IG92ZXItZXN0aW1hdGluZyB0aGUg
+b3RoZXIsIGFuZCBzaW5jZSBtb3N0IHNwZWVkdGVzdHMgZW1wbG95IGxhcmdlIHBhY2tldHMgdGhh
+dCBjYW4gbGVhZCB0byB1bmRlci1lc3RpbWF0aW9uIG9mIHRoZSBvdmVyaGVhZCB3aGljaCB3aWxs
+IGNhdXNlIGJ1ZmZlcmJsb2F0IGlmIHRoZXJlIGFyZSBlbm91Z2ggc21hbGwgcGFja2V0cyBpbiBm
+bGlnaHQgKGZvciB3aGljaCBlZmZlY3RpdmUgdHJhbnNtaXQgZHVyYXRpb24gZXN0aW1hdGlvbiB3
+aWxsIGJlIHRvbyBzbWFsbCB3aXRoIHRvbyBsaXR0bGUgb3ZlcmhlYWQgbGVhZGluZyB0byBvYnNl
+cnZhYmxlIGJ1ZmZlcmJsb2F0KS4KCgo+IEZvciBmaWJyZSBJIHdvdWxkIHRyeSAiZXRoZXJuZXQi
+IGFuZCByZXNlcnZlIGFib3V0IDElIGJhbmR3aWR0aCBlYWNoIHdheSwgdGhlbiBpZiBwb3NzaWJs
+ZSB0ZXN0IHRvIHNlZSB3aGV0aGVyIHRoZXJlIGlzIGFueSBibG9hdC4KCglGaXJzdCB0aGUgaXRl
+cmF0aW9uLCBwZXJmb3JtIGEgc3BlZWR0ZXN0IGFuZCBwbHVnIHRoZSByZXN1bHRpbmcgZ29vZHB1
+dCBudW1iZXJzIGludG8gY2FrZSBhcyBncm9zcy1zaGFwZXItcmF0ZXMsIGFuZCB0aGVuIHlvdSBj
+YW4gc2xvd2x5IGluY3JlYXNlIHRoZXNlIGxpbWl0cyB1bnRpbCB5b3Ugc2VlIGxhdGVuY3kgdW5k
+ZXIgbG9hZCBpbmNyZWFzZSBtb3JlIHRoYW4geW91IGFyZSB3aWxsaW5nIHRvIGFjY2VwdC4gSSB3
+b3VsZCBmaXJzdCBrZWVwIHRoZSBpbmdyZXNzL2Rvd25sb2FkIHJhdGUgYXQgZ29vZHB1dCBudW1i
+ZXIgYW5kIG9wdGltaXplIGVncmVzcy91cGxvYWQgYW5kIHRoZW4gZG8gdGhlIHNhbWUgZm9yIHRo
+ZSBpbmdyZXNzIHJhdGUuIElkZWFsbHkgdXNlIGEgYmlkaXJlY3Rpb25hbGx5IHNhdHVyYXRpbmcg
+c3BlZWR0ZXN0IChsaWtlIGZsZW50J3MgUlJVTCBvciBSUlVMX0NTOCksIGFzIHRoYXQgd2lsbCB0
+eXBpY2FsbHkgYmUgbW9yZSBzZW5zaXRpdmUgYW5kIHNob3cgYSBoaWdoZXIgbWFnbml0dWRlIG9m
+IGxhdGVuY3kgdW5kZXIgbG9hZCBpbmNyZWFzZSBmb3IgdGhlIHNhbWUgc2V0dGluZ3MgdGhhbiBk
+b2luZyB0aGUgdXAtL2Rvd25sb2FkaW5nIHRlc3RzIHNlcXVlbnRpYWxseS4gCgpCZXN0IFJlZ2Fy
+ZHMKCVNlYmFzdGlhbgoKPiAKPiAtIEpvbmF0aGFuIE1vcnRvbgo+IF9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQ2FrZSBtYWlsaW5nIGxpc3QKPiBDYWtl
+QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+IGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xp
+c3RpbmZvL2Nha2UKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8v
+bGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
