@@ -2,85 +2,68 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 45F141072B6
-	for <lists+cake@lfdr.de>; Fri, 22 Nov 2019 14:03:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id E2C1510734A
+	for <lists+cake@lfdr.de>; Fri, 22 Nov 2019 14:33:39 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 14C133CB3C;
-	Fri, 22 Nov 2019 08:03:51 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id BFE6E3CB3F;
+	Fri, 22 Nov 2019 08:33:38 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1574427831;
-	bh=OvNmRgcBbLVDmqPDOX64UvKbBvvouukKyCxtYDMKZwc=;
-	h=From:To:In-Reply-To:References:Date:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1574429618;
+	bh=F56waBmmQUa95g4z1byBUOIKuBsXriWyifO95cW2z7w=;
+	h=From:To:Date:In-Reply-To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 From;
-	b=npDb66/L5+k+Gi+3ubHUrgARkiC4lcrmhRxsTWr6eWBcJEWqxi4lxaBqP5TCE8Yss
-	 SFJhB04oobklBoFAhcmYNwq68s5S/iXDPGI0nKN4WZIDg0fYyV5IRLPzKnLNrN5iH4
-	 FwoILPsgtJCbWytTq2bGBt8DipEK9BWfWqVxQbyp2O89wpGi9c5gcdNVdrE/0lg37+
-	 r4lNOYyxYDDmv+qYkwaPsqcXXwB2+KTq/AlM3FDMP56IuWp1L8199XMCSbRoP/jC1g
-	 BDgKofaeUnhIxo4ds8e+iU1tgVqXbigF1oY6h+sA7Z5VJZcuwEhbCxInJhqQLDPmp6
-	 hyPl8ezd5h2uQ==
+	 Reply-To:From;
+	b=WYusBO1hH+CWm+AUcZye57e1IoR3TSK8CCvTXcFq0tauPZKaguLfmdBJD5XnkKJZS
+	 3/c2P7VMh1b7GOFeUn3qUfjd/QpQtXJ5xycbzlDrSgIVcJGdTDV44kcj73IvZBvFnQ
+	 v8C5lY2J1oKjeNFreIttZ3tu33sxJz1JERC5TSp4n2qNiUX/kbLTk5n6pfQ9WLXemL
+	 7/hwTUp0z7+SP/dtkPSLczIOSi0hOQJK3x7GSCfpgmBzt2MVEj87RRCDNFcOISFXhv
+	 og6MPMpS7IhgspHszJJD3pOkDx+OH7gsRclTFmxI4fYFCBpH7+yZ8xpUBtjv+qc6nh
+	 2S5J2daHpedwg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-1.mimecast.com
- [207.211.31.81])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
+Received: from sa.plexicomm.net (sa.plexicomm.net [204.80.232.21])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id DC6D33B29D
- for <cake@lists.bufferbloat.net>; Fri, 22 Nov 2019 07:59:34 -0500 (EST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1574427574;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=XC0beJ814laU1MCAIT4dtHcaLap8hTfZ8MMjhFtrOZw=;
- b=h9sIupCA4rSz0MfkKYgo7uIP0DF6RPGVUG/x6L27UPzQZDlX3oLuIOSQhcF3YoWO0mAooC
- 9hiR3LTnn2KS05hvhadrHKsYz2zqZyyqQgRBkWKil54AgKNp1VMJ/5hNby5gaTY58mYoaz
- 1Xxn4xgTmcZI1Dn+dghJEfBw2yQeyG4=
-Received: from mail-lf1-f71.google.com (mail-lf1-f71.google.com
- [209.85.167.71]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-409-5j942JSVOPqdj8x5DiFgpg-1; Fri, 22 Nov 2019 07:59:32 -0500
-Received: by mail-lf1-f71.google.com with SMTP id x16so1757339lfe.19
- for <cake@lists.bufferbloat.net>; Fri, 22 Nov 2019 04:59:32 -0800 (PST)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:from:to:subject:in-reply-to:references:date
- :message-id:mime-version;
- bh=5Oz6O+Gl/LEmSPJQMQwaJzh1bmRAWUQt0SVKezSuR9Y=;
- b=uA4P3TZ6vE844uT47M9pp8dtXI6jdb9b5+1mFHds1njaqNk9W9LN2M+52+/71aWePp
- JC7nZSKZiQr8DcOQ+26DKTiPucsaax1YJn6Tz4P+0YarPt+GaFk1VmvycgkDqwzppHqE
- 5AjuWGyBK58WWxtAOtCDxDWlGARBDLhpQD9BbYPav9DnqSDkKNlx19wBEoUHxDfAazTa
- kGLnJCA5b6NGp+8NP6fvbQDGea0L0h0J5yke+bidTc5INZK/1AVSE6qUmn+BC4Bsw6TF
- wF0YZIfVYB147Z2ChjMhnY/Mzmo8A1DZ9KS16zgg5xrrhvTIkYqXaMdWdX9TkLXfzYnL
- gTtA==
-X-Gm-Message-State: APjAAAX7YqfD2Q14lkWQVy1+hC/+UCNu0+Qyho7q2pwpsJxf9NPREe29
- NKirxDHnxF0/KoRcGPdW+K5XkCDoCiRVIuE3pA3WXDbilN1tC+GbvDIx30nMIPHhRpWpTptcOz+
- c8njUDhVJ17NciQqzVCvElw==
-X-Received: by 2002:a2e:760d:: with SMTP id r13mr11868416ljc.15.1574427570882; 
- Fri, 22 Nov 2019 04:59:30 -0800 (PST)
-X-Google-Smtp-Source: APXvYqxbxhzIpJEEhRACMCImLJEX8eHsYv/w+MVw1e5xlKmewKr91fPUeWKeIAt5MFXW+rcQu6b3lQ==
-X-Received: by 2002:a2e:760d:: with SMTP id r13mr11868402ljc.15.1574427570658; 
- Fri, 22 Nov 2019 04:59:30 -0800 (PST)
-Received: from alrua-x1.borgediget.toke.dk ([2a00:7660:6da:443::2])
- by smtp.gmail.com with ESMTPSA id g23sm3143593ljn.63.2019.11.22.04.59.29
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Fri, 22 Nov 2019 04:59:29 -0800 (PST)
-Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
- id 1F0B51800B9; Fri, 22 Nov 2019 13:59:29 +0100 (CET)
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <thoiland@redhat.com>
-To: Justin Kilpatrick <justin@althea.net>, cake@lists.bufferbloat.net
-In-Reply-To: <e7dcb597-97b8-49b5-bbd7-06e67fb80234@www.fastmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id CE22E3B29D
+ for <cake@lists.bufferbloat.net>; Fri, 22 Nov 2019 08:33:37 -0500 (EST)
+Received: from localhost (localhost.localdomain [127.0.0.1])
+ by sa.plexicomm.net (Postfix) with ESMTP id 3C725412F17
+ for <cake@lists.bufferbloat.net>; Fri, 22 Nov 2019 08:32:10 -0500 (EST)
+X-Virus-Scanned: Debian amavisd-new at plexicomm.net
+X-Spam-Flag: NO
+X-Spam-Score: -0.077
+X-Spam-Level: 
+X-Spam-Status: No, score=-0.077 tagged_above=-9999 required=4.5
+ tests=[DKIM_SIGNED=0.1, DKIM_VALID=-0.1, DKIM_VALID_AU=-0.1,
+ DKIM_VALID_EF=-0.1, HTML_MESSAGE=0.125, SPF_HELO_PASS=-0.001,
+ SPF_PASS=-0.001] autolearn=unavailable autolearn_force=no
+Authentication-Results: sa.plexicomm.net (amavisd-new);
+ dkim=pass (1024-bit key) header.d=plexicomm.net
+Received: from sa.plexicomm.net ([127.0.0.1])
+ by localhost (sa.plexicomm.net [127.0.0.1]) (amavisd-new, port 10024)
+ with ESMTP id GzdNe8a6-vkJ for <cake@lists.bufferbloat.net>;
+ Fri, 22 Nov 2019 08:32:09 -0500 (EST)
+Received: from mail.plexicomm.net (mail.plexicomm.net [204.80.232.17])
+ by sa.plexicomm.net (Postfix) with ESMTP id 849A8412F18
+ for <cake@lists.bufferbloat.net>; Fri, 22 Nov 2019 08:32:09 -0500 (EST)
+DKIM-Signature: a=rsa-sha256; t=1574429609; x=1575034409; s=key1;
+ d=plexicomm.net; c=relaxed/relaxed; v=1;
+ bh=EMPpmtImqwhyAI0QyaoKsimV9SL49Hu6kWcuwsONhsU=;
+ h=From:Reply-To:Subject:Date:Message-ID:To:MIME-Version:Content-Type:In-Reply-To:References;
+ b=S6cbfNG9Nh4nnEBlXFdXcOSTP9rvk1T91afaJ+MgHd4PxKhd7LYlcsiN+JtDCWDgG2TNEq+54Rm5tQMq+nXy8RmKO+byJ5LYaJ3+N2bWADSDZLJ2etGm2HhSjOlkuokVKBEZ5O9PmBKwwLheAeWbxuxPs5JhkW08l6RnTkA76Bs=
+Received: from [192.168.11.33] ([23.226.94.156])
+ by mail.plexicomm.net (12.2.0 x64) with ASMTP id 201911220833295831
+ for <cake@lists.bufferbloat.net>; Fri, 22 Nov 2019 08:33:29 -0500
+From: "Adam Moffett" <adam@plexicomm.net>
+To: cake@lists.bufferbloat.net
+Date: Fri, 22 Nov 2019 13:33:36 +0000
+Message-Id: <em281f0a9b-a12d-4f64-8eab-6e13f4c7804f@adam-pc>
+In-Reply-To: <878so85e2d.fsf@toke.dk>
 References: <em287ad38a-b2b3-4e82-9836-99fab879ad14@adam-pc>
  <CAA93jw4N_-5bui532Ad5QwGn=GH2CnqWYm=BRn75Fgo93R6aJw@mail.gmail.com>
  <em348223d0-543c-4b79-ba6b-93f2244326c1@adam-pc> <878so85e2d.fsf@toke.dk>
- <e7dcb597-97b8-49b5-bbd7-06e67fb80234@www.fastmail.com>
-X-Clacks-Overhead: GNU Terry Pratchett
-Date: Fri, 22 Nov 2019 13:59:29 +0100
-Message-ID: <87o8x43w3y.fsf@toke.dk>
-MIME-Version: 1.0
-X-MC-Unique: 5j942JSVOPqdj8x5DiFgpg-1
-X-Mimecast-Spam-Score: 0
-X-Mailman-Approved-At: Fri, 22 Nov 2019 08:03:49 -0500
+User-Agent: eM_Client/7.2.36908.0
+Mime-Version: 1.0
 Subject: Re: [Cake] Cake implementations
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -93,33 +76,110 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Reply-To: Adam Moffett <adam@plexicomm.net>
+Content-Type: multipart/mixed; boundary="===============4533842203320844834=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-Ikp1c3RpbiBLaWxwYXRyaWNrIiA8anVzdGluQGFsdGhlYS5uZXQ+IHdyaXRlczoKCj4+ICBBbiBp
-ZGVhIHdoaWNoIHdhcyBmbG9hdGVkIHdhcyB0byBleHBlcmltZW50IHdpdGggcm91dGluZyBJU1Ag
-Y3VzdG9tZXIgCj4+ID50cmFmZmljIHRocm91Z2ggYSBMaW51eCBzZXJ2ZXIgdXNpbmcgY2FrZSB0
-byBpbXByb3ZlIGN1c3RvbWVyIAo+PiAgZXhwZXJpZW5jZS4gIEJhc2ljYWxseSBsaWtlIFByZXNl
-ZW0uICBNeSBjb2xsZWFndWUgaGFzIHRveWVkIHdpdGggaXQgYSAKPj4gPmJpdCBpbiBzbWFsbCB0
-ZXN0IGNhc2VzIGFuZCB3YXMgaW1wcmVzc2VkIHdpdGggdGhlIG91dGNvbWVzLgo+Cj4gQWx0aGVh
-Lm5ldCBydW5zIENha2UgYXQgZXZlcnkgaG9wLiBTaW5jZSB3ZSB1c2UgQmFiZWwgdG8gZHluYW1p
-Y2FsbHkKPiBnZW5lcmF0ZSB0aGUgbmV0d29yayB0b3BvbG9neSB3ZSByZWx5IG9uIGl0J3MgbmVp
-Z2hib3IgUlRUIGV4dGVuc2lvbgo+IGFuZCBiYW5kd2lkdGggY291bnRlcnMgdG8gcmVkdWNlIHRo
-ZSBiYW5kd2lkdGggb3ZlciBhIGxpbmsgd2hlbiBhbgo+IGludGVybWVkaWF0ZSBkZXZpY2UgaGFz
-IGRlY2lkZWQgdG8gYmVjb21lIGJsb2F0eS4KPgo+IEl0J3MgYmVlbiBhIHZlcnkgZWZmZWN0aXZl
-IHN5c3RlbSB0aGF0IHJlc3VsdHMgaW4gaGFwcGllciBjdXN0b21lcnMKPiBldmVuIHdoZW4gd2Ug
-aGF2ZSB3ZWFrIGxlYWtzIG9yIGNyYXp5IGZhaWxvdmVyIHNpdHVhdGlvbnMuIFVzdWFsbHkKPiB3
-aXJlbGVzcyBsaW5rcyBoYXZlIHRvIGJlIG92ZXIgcHJvdmlzaW9uZWQgYnkgYSBmYWN0b3Igb2Yg
-MmlzaCB0byBrZWVwCj4gbGF0ZW5jeSB1bmRlciBjb250cm9sIGluIHRoZSBmYWNlIG9mIGR5bmFt
-aWMgaW50ZXJmZXJlbmNlIGFuZCBvdGhlcgo+IGV4dGVybmFsIGZhY3RvcnMuIEluc3RlYWQgQWx0
-aGVhIG5ldHdvcmtzIGhhdmUgbW9yZSBzbWFsbGVyIGxpbmtzIHRoZW4KPiBiYWNrIGxpbmtzIGJl
-dHdlZW4gZWFjaCBwb3AuCgpUaGF0J3MgaW50ZXJlc3RpbmcuIFNvIHlvdSdyZSBydW5uaW5nIENB
-S0UgYXMgYSAoZHluYW1pY2FsbHkKY29uZmlndXJlZD8pIHNoYXBlciBvbiB0b3Agb2YgdGhlIHdp
-cmVsZXNzIGxpbms/IFdoYXQgcmFkaW8gY2hpcHNldHMgYXJlCnlvdSB1c2luZyBhbmQgaGF2ZSB5
-b3UgYmVuY2htYXJrZWQgdGhpcyBhZ2FpbnN0IGp1c3QgcmVseWluZyBvbiB0aGUKbWFjODAyMTEg
-RlEgaW1wbGVtZW50YXRpb24gKGlmIHRoYXQgaXMgYXZhaWxhYmxlIHdpdGggeW91ciBjaGlwc2V0
-KT8KCi1Ub2tlCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xp
-c3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============4533842203320844834==
+Content-Type: multipart/alternative;
+ boundary="------=_MB34B77BB8-C9AC-42F3-8AE2-96E3B06B2119"
+
+--------=_MB34B77BB8-C9AC-42F3-8AE2-96E3B06B2119
+Content-Type: text/plain; format=flowed; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+>
+>>  Second concern is that many of our equipment vendors already use
+>>  Linux. Even Cisco now in some products. Maybe we'll waste our time
+>>  trying to roll our own solution and then find that a software update
+>>  from a vendor next year gives us everything we needed anyway.
+>
+>This would be great, of course, and do go and bug your vendors to solve
+>this problem! Note, however, that just because a system is running
+>Linux on the control plane, it may be using a hardware-offloaded data
+>plane that does not have any of the bufferbloat mitigation features
+>(unless the vendor specifically implemented them). I'm hoping that
+>*eventually* these things will be ubiquitous across the industry, but
+>thus far this has seemed to be an "any decade now" kind of proposition :/
+>
+>-Toke
+That's a great point.
+
+Is the software more or less CPU independent? Would we run into any=20
+known problems with a 72-core Tilera platform?
+
+Thanks for all your help and input by the way.
+
+-Adam
+
+--------=_MB34B77BB8-C9AC-42F3-8AE2-96E3B06B2119
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head>
+
+<style id=3D"css_styles" type=3D"text/css">blockquote.cite { margin-left: 5=
+px; margin-right: 0px; padding-left: 10px; padding-right:0px; border-left:=
+ 1px solid #cccccc }
+blockquote.cite2 {margin-left: 5px; margin-right: 0px; padding-left: 10px;=
+ padding-right:0px; border-left: 1px solid #cccccc; margin-top: 3px; padding=
+-top: 0px; }
+a img { border: 0px; }
+li[style=3D'text-align: center;'], li[style=3D'text-align: right;'] {  list=
+-style-position: inside;}
+body { font-family: Segoe UI; font-size: 12pt;   }</style></head><body clas=
+s=3D"plain"><div><br /></div><div id=3D"xb88df2432c7845e"><blockquote type=
+=3D"cite" class=3D"cite2">
+<div class=3D"plain_line">=C2=A0</div>
+<blockquote type=3D"cite" class=3D"cite2">
+<div class=3D"plain_line"> Second concern is that many of our equipment ven=
+dors already use</div>
+<div class=3D"plain_line"> Linux. Even Cisco now in some products. Maybe we=
+'ll waste our time</div>
+<div class=3D"plain_line"> trying to roll our own solution and then find th=
+at a software update</div>
+<div class=3D"plain_line"> from a vendor next year gives us everything we n=
+eeded anyway.</div>
+</blockquote>
+<div class=3D"plain_line">=C2=A0</div>
+<div class=3D"plain_line">This would be great, of course, and do go and bug =
+your vendors to solve</div>
+<div class=3D"plain_line">this problem! Note, however, that just because a=
+ system is running</div>
+<div class=3D"plain_line">Linux on the control plane, it may be using a har=
+dware-offloaded data</div>
+<div class=3D"plain_line">plane that does not have any of the bufferbloat m=
+itigation features</div>
+<div class=3D"plain_line">(unless the vendor specifically implemented them)=
+. I'm hoping that</div>
+<div class=3D"plain_line">*eventually* these things will be ubiquitous acro=
+ss the industry, but</div>
+<div class=3D"plain_line">thus far this has seemed to be an "any decade now=
+" kind of proposition :/</div>
+<div class=3D"plain_line">=C2=A0</div>
+<div class=3D"plain_line">-Toke</div></blockquote><span style=3D"white-spac=
+e: pre-wrap;"><div id=3D"xb88df2432c7845e">That's a great point.</div><div=
+ id=3D"xb88df2432c7845e"><br /></div><div id=3D"xb88df2432c7845e">Is the sof=
+tware more or less CPU independent?  Would we run into any known problems w=
+ith a 72-core Tilera platform? </div><div id=3D"xb88df2432c7845e"><br /></d=
+iv><div id=3D"xb88df2432c7845e">Thanks for all your help and input by the w=
+ay.</div><div id=3D"xb88df2432c7845e"><br /></div><div id=3D"xb88df2432c784=
+5e">-Adam</div><div id=3D"xb88df2432c7845e"><br /></div></span></div>
+</body></html>
+--------=_MB34B77BB8-C9AC-42F3-8AE2-96E3B06B2119--
+
+
+--===============4533842203320844834==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============4533842203320844834==--
+
