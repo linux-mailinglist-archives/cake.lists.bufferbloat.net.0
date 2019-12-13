@@ -2,67 +2,48 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 842241075ED
-	for <lists+cake@lfdr.de>; Fri, 22 Nov 2019 17:40:24 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 26A5411E4D1
+	for <lists+cake@lfdr.de>; Fri, 13 Dec 2019 14:43:34 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1D5E33CB3B;
-	Fri, 22 Nov 2019 11:40:23 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 6E2D13CB4C;
+	Fri, 13 Dec 2019 08:43:32 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1574440823;
-	bh=oh2N9NLe+pnTUsVsppYMhAv79y2G5yeLMcY7nn1JS9Y=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=MjAhfJH2UR2i9jhkRJrBOkSvbV5MfDE4+eRjNkvf9o18Ge5IdlltVLLnv19MsD6WY
-	 RZprg6xnOaqEDmAkoriZk+b/QieK079kuXGNPdozuWiCze78ps6tQrRycUYJlxbLj3
-	 s5UTtV/j322vIGQi0yClllpWA9F2YiX/tCcItM9jLX92MEPI9DMi9ZTFMNQnweRNb0
-	 PP2Y3iuFzbwxbstmQ/oMAxGO0rW8PMLLZ3lqZzOjoJn+d5QLaL/O+IF68AUOMGKukv
-	 A8p4iXPz1t+PsXVb+rZ7/A1+gjb/SsgmVoTgHuWbudk4Q8fimWk9LNGHJpZ3cOt37T
-	 hCLeeSlblb6lA==
+	d=lists.bufferbloat.net; s=201610; t=1576244612;
+	bh=UtoRBkLmZKLtUwEoGYSYfRkmT5/KCPIC+9gwPFejK1c=;
+	h=Date:From:To:Subject:List-Id:List-Unsubscribe:List-Archive:
+	 List-Post:List-Help:List-Subscribe:From;
+	b=LWHxXvcZMErnxsIbghXm9bRl7+LCyAWlIsCenET6nY/gZGTXx08snS59dRa+ci6ov
+	 iegyvIEB9BIm8Y/7OAcCvwFQU2jlCvm0ppFsW8rZYPJmA1HSq5BlG7ITVDmH7nptgH
+	 tCHCdxugY/8A8rC3o2R+t8Kx8Kl3NIAzL/wdsmB+5coYbBSaBYnjq/a0FcyEfeo8K9
+	 /mMTcL/XeNKiUYq0RtAUdyowLiDc+48vD0Rde4LfY3cqT0Zu9kxK5WBLsBie9Gjvn8
+	 ggKUZrAE4/k6NPuDHzbq4ZAYWYtPSSx/VHY1adPg5dLZPNc77CQ+8Xah1F++JofRUO
+	 Ybi5vooNxFe/g==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from us-smtp-delivery-1.mimecast.com (us-smtp-2.mimecast.com
- [207.211.31.81])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
+Received: from vps.slashdirt.org (vps.slashdirt.org [144.91.108.218])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 757D03B29D
- for <cake@lists.bufferbloat.net>; Fri, 22 Nov 2019 11:40:22 -0500 (EST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1574440822;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=JormOtFU8nBxAb+OKwyZFrn1ksBq/RjEUAkCLOmlPo0=;
- b=ZVuQCxPcqSRnMNEk5l80WR6b2KoHgfXJxMOyfaA4W9JegX/gn/d8D7oehE340jFgyhPnOA
- ez4tGZECgdCGqQ0yrsoZ7+N5kJNSFGxK8NZjbnWAVKvotkq+27S+0epN4x+XW20+OdTShl
- QdgzGBip9HC9GgoNP8ayiv1MfyB2r7I=
-Received: from mimecast-mx01.redhat.com (mimecast-mx01.redhat.com
- [209.132.183.4]) (Using TLS) by relay.mimecast.com with ESMTP id
- us-mta-327-1YBhsjFXNa6EuniPopBr6Q-1; Fri, 22 Nov 2019 11:40:18 -0500
-Received: from smtp.corp.redhat.com (int-mx04.intmail.prod.int.phx2.redhat.com
- [10.5.11.14])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 900C33CB47
+ for <cake@lists.bufferbloat.net>; Fri, 13 Dec 2019 08:43:30 -0500 (EST)
+Received: from mail.zigoo.net (localhost [127.0.0.1])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mimecast-mx01.redhat.com (Postfix) with ESMTPS id 6CED2800A02;
- Fri, 22 Nov 2019 16:40:17 +0000 (UTC)
-Received: from carbon (ovpn-200-17.brq.redhat.com [10.40.200.17])
- by smtp.corp.redhat.com (Postfix) with ESMTP id 3C5451B472;
- Fri, 22 Nov 2019 16:40:10 +0000 (UTC)
-Date: Fri, 22 Nov 2019 17:40:08 +0100
-From: Jesper Dangaard Brouer <brouer@redhat.com>
-To: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@redhat.com>
-Message-ID: <20191122174008.3128f5d2@carbon>
-In-Reply-To: <878so85e2d.fsf@toke.dk>
-References: <em287ad38a-b2b3-4e82-9836-99fab879ad14@adam-pc>
- <CAA93jw4N_-5bui532Ad5QwGn=GH2CnqWYm=BRn75Fgo93R6aJw@mail.gmail.com>
- <em348223d0-543c-4b79-ba6b-93f2244326c1@adam-pc>
- <878so85e2d.fsf@toke.dk>
+ by vps.slashdirt.org (Postfix) with ESMTPSA id 8374E603EA
+ for <cake@lists.bufferbloat.net>; Fri, 13 Dec 2019 14:43:29 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 vps.slashdirt.org 8374E603EA
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=slashdirt.org; s=mail;
+ t=1576244609; bh=Q6CEMALZbs7jbbIZi0NeYYoHNtq9vGobFbOsaL+jdlY=;
+ h=Date:From:Subject:To:From;
+ b=LBjv10JIOZz4EeyNT0iTrNNhOH1tSipv23rYUPpXF7kI8GaIAaCy+WeisMs83KVJD
+ NvZnJfYlqZkiqpZRjccAI3lzaAWP527TZfw9YtNafVYrc9EUR1YSsNmmAGwYQjj5sK
+ y9SbRjjf+4UnCb+KAAVN87ootXcFY4uJYe19jNsk=
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 2.79 on 10.5.11.14
-X-MC-Unique: 1YBhsjFXNa6EuniPopBr6Q-1
-X-Mimecast-Spam-Score: 0
-Subject: Re: [Cake] Cake implementations
+Date: Fri, 13 Dec 2019 13:43:29 +0000
+X-Mailer: RainLoop/1.13.0
+From: "Thibaut" <hacks@slashdirt.org>
+Message-ID: <1d359153abfc413b4f61c647437427d6@slashdirt.org>
+To: cake@lists.bufferbloat.net
+Subject: [Cake] Trouble with CAKE
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -74,112 +55,113 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: cake@lists.bufferbloat.net, brouer@redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0332657502205083016=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-T24gRnJpLCAyMiBOb3YgMjAxOSAxMjo0NjoxOCArMDEwMApUb2tlIEjDuGlsYW5kLUrDuHJnZW5z
-ZW4gPHRva2VAcmVkaGF0LmNvbT4gd3JvdGU6Cgo+ICJBZGFtIE1vZmZldHQiIDxhZGFtQHBsZXhp
-Y29tbS5uZXQ+IHdyaXRlczoKPiAKPiA+Pj4KPiA+Pj4gIEFyZSB0aGVyZSBhbnkgY29tbWVyY2lh
-bCBwcm9kdWN0cyBhbHJlYWR5IHVzaW5nIENha2U/ICAKPiA+Pgo+ID4+RXZlbnJvdXRlLCBlZXJv
-LCB1Ym50IHRvcCB0aGF0IGxpc3QuIEV2ZW5yb3V0ZSdzIGltcGxlbWVudGF0aW9uIGlzCj4gPj5z
-dXBlcmIsIHRoZSBmaXJzdCBvbmUgdGhhdCB1c2VkIGFjdGl2ZSBsaW5lIG1lYXN1cmVtZW50cyB0
-byBoYW5kbGUKPiA+PiJzYWciLiBBbnl0aGluZyBkZXJpdmVkIGZyb20gb3BlbndydCAoc29tZXdo
-ZXJlIGJldHdlZW4gMTAtMzAlIG9mIHRoZQo+ID4+aG9tZSByb3V0ZXIgbWFya2V0KS4gSSdtIG5v
-dCBzdXJlIGlmIHByZXNlZW0gaXMgdXNpbmcgaXQgb3Igbm90Lgo+ID4+ZGQtd3J0LiBNb3N0IG90
-aGVyIHRoaW5ncyBkb2luZyAiU1FNIiBhcmUgZG9pbmcgaXQgdmlhIGh0YiArIGZxX2NvZGVsLgo+
-ID4+Cj4gPj4gIAo+ID4gQW4gaWRlYSB3aGljaCB3YXMgZmxvYXRlZCB3YXMgdG8gZXhwZXJpbWVu
-dCB3aXRoIHJvdXRpbmcgSVNQCj4gPiBjdXN0b21lciB0cmFmZmljIHRocm91Z2ggYSBMaW51eCBz
-ZXJ2ZXIgdXNpbmcgY2FrZSB0byBpbXByb3ZlCj4gPiBjdXN0b21lciBleHBlcmllbmNlLiAgQmFz
-aWNhbGx5IGxpa2UgUHJlc2VlbS4gIE15IGNvbGxlYWd1ZSBoYXMKPiA+IHRveWVkIHdpdGggaXQg
-YSBiaXQgaW4gc21hbGwgdGVzdCBjYXNlcyBhbmQgd2FzIGltcHJlc3NlZCB3aXRoIHRoZQo+ID4g
-b3V0Y29tZXMuCj4gPgo+ID4gSGUncyBsb29rZWQgY2xvc2VyIHRoYW4gSSBoYXZlLCBidXQgSSdt
-IHRyeWluZyB0byBwaWN0dXJlIGhvdyBoaXMKPiA+IGlkZWEgd291bGQgc2NhbGUuICBJIGJlbGll
-dmUgSSdtIHNlZWluZyBhIENMSSB0b29sIGZvciBjb25maWd1cmluZwo+ID4gcG9saWNpZXMuIEl0
-IHNlZW1zIGxpa2Ugd2UnZCBoYXZlIHRvIGNyZWF0ZSBhIG1pZGRsZSBsYXllciB0bwo+ID4gY3Jl
-YXRlL3VwZGF0ZSBwb2xpY2llcyBmb3IgY3VzdG9tZXIncyBJUCBhZGRyZXNzIGJhc2VkIG9uCj4g
-PiBpbmZvcm1hdGlvbiBvYnRhaW5lZCBmcm9tIG91ciBBQUEgYW5kIENSTSBzeXN0ZW1zLiAgSSBj
-YW4gcGljdHVyZQo+ID4gc29tZSBzaGFwZXMgdGhhdCBtaWdodCB0YWtlLCBidXQgSSB0aGluayBp
-dCB3b3VsZCB1bHRpbWF0ZWx5IGhhdmUKPiA+IHRvIHJldm9sdmUgYXJvdW5kIHNjcmlwdGluZyB0
-aGUgdGMgY29tbWFuZC4gIFRoZXJlIHdvdWxkIGJlCj4gPiB0aG91c2FuZHMgb2YgcG9saWNpZXMg
-YW5kIGEgcG9saWN5IHdvdWxkIGJlIGNyZWF0ZWQvdXBkYXRlZAo+ID4gd2hlbmV2ZXIgYSBzdWJz
-Y3JpYmVyIHJlY29ubmVjdHMgKGUuZy4gd2hlbiBhIERIQ1AgbGVhc2UgcmVuZXdzIG9yCj4gPiBh
-IFJBRElVUyBhdXRoIGV2ZW50IGhhcHBlbnMgb3Igc2ltaWxhcikuICAKPiAKPiBJIGtub3cgc2V2
-ZXJhbCBJU1BzIHRoYXQgZG8gdGhpcyAocm91dGUgdHJhZmZpYyB0aHJvdWdoIGEgTGludXggYm94
-IGFuZAo+IHNoYXBlIHRoZXJlKS4gVGhpcyBkZXBsb3ltZW50IG1vZGUgaGFzIG5vdCBiZWVuIHRo
-ZSBwcmltYXJ5IGZvY3VzIG9mCj4gQ0FLRSwgdGhvdWdoOyB0aGUgInN0YW5kYXJkIiB3YXkgdG8g
-ZG8gaXQgaXMgd2l0aCBIVEIrRlEtQ29EZWwsIHdoaWNoCj4gYWxsb3dzIHlvdSB0byBzZXQgdXAg
-YXJiaXRyYXJpbHkgY29tcGxleCBjb25maWd1cmF0aW9ucyBvbiBhIHNpbmdsZQo+IGludGVyZmFj
-ZS4gCgpZZXMsIEkgd29ya2VkIGZvciBhbiBJU1AgYmFjayBpbiAyMDA1LCB0aGF0IHJvdXRlIHRy
-YWZmaWMgdGhyb3VnaCBhCkxpbnV4IGJveCBhbmQgZG9lcyBzaGFwaW5nLiAgVGhlcmUgd2VyZSBh
-IG51bWJlciBvZiBzY2FsYWJpbGl0aWVzCmlzc3VlcywgdGhhdCB3ZSBmaXhlZCAodXBzdHJlYW0p
-IGFuZCBhbHNvIE9wZW4gU291cmNlcyBjb21wb25lbnRzIGZvcgpvdGhlcnMgdG8gcmV1c2UuCgpJ
-IGRpZCBhIHB1YmxpYyB0YWxrIGluIDIwMDggYWJvdXQgaG93IHdlIG1hZGUgaXQgc2NhbGU6CiBo
-dHRwOi8vcGVvcGxlLm5ldGZpbHRlci5vcmcvaGF3ay9wcmVzZW50YXRpb25zL29zZDIwMDgvb3Nk
-MjAwOF9pcHRhYmxlc19ydWxlc19KZXNwZXJEYW5nYWFyZEJyb3Vlci5wZGYKClRoaXMgd2FzIGJl
-Zm9yZSBDb2RlbCBhbmQgZXZlbi1iZWZvcmUgQnVmZmVyYmxvYXQgd2FzIGNvaW5lZC9kZWZpbmVk
-LgpPdXIgc2V0dXAgd2FzIEhUQitTRlEsIHdpdGggYSBzaGFwZXIgcGVyIGN1c3RvbWVyLiAgVGhp
-cyBhY3R1YWxseQpzb2x2ZWQgdGhlIGJ1ZmZlcmJsb2F0IHByb2JsZW0gaW4tcHJhY3RpY2UgZm9y
-IHBlb3BsZSwgYXMgU0ZRIGdhdmUgZWFjaAplbmQtdXNlciAxMjggcXVldWVzLgoKVG9kYXkgSSB3
-b3VsZCBub3QgdXNlIGlwdGFibGVzIGZvciB0aGlzLiAgSW5zdGVhZCBJIHdvdWxkIHVzZSBCUEYg
-b3IKbmZ0YWJsZXMgJ3NldCcgaW5mcmFzdHJ1Y3R1cmUuCgoKPiBUaGlzIGNhbiBhbHNvIGJlIG1h
-ZGUgdG8gc2NhbGUsIGJ1dCB0aGVyZSdzIGEgY2VudHJhbCBxZGlzYwo+IGxvY2sgaW4gTGludXgg
-dGhhdCB5b3UgaGF2ZSB0byBnZXQgYXJvdW5kIHRvIHNjYWxlIHRvIG11bHRpcGxlIGNvcmVzLgo+
-IEZvcnR1bmF0ZWx5LCBKZXNwZXIgaGFzIGFscmVhZHkgc29sdmVkIHRoaXMgcGFydGljdWxhciBp
-c3N1ZToKPiAKPiBodHRwczovL2dpdGh1Yi5jb20vbmV0b3B0aW1pemVyL3hkcC1jcHVtYXAtdGMK
-ClRoZSBjZW50cmFsIHFkaXNjIFRYIGxvY2sgaXMgYSBtYWpvciBzY2FsYWJpbGl0eSBpc3N1ZS4g
-IEJ1dCBJJ3ZlCnNvbHZlZCBpbiBhYm92ZSBsaW5rLCB2aWEgWERQIGFuZCBUQy4gIFRoaXMgYWN0
-dWFsbHkgcnVucyBpbiBwcm9kdWN0aW9uCmF0IGFuIElTUC4KCiAKPiA+IFNob3VsZCB3ZSBldmVu
-IHB1cnN1ZSB0aGlzIGlkZWE/ICAKPiAKPiBJbiBteSBvd24gdG90YWxseSBub24tYmlhc2VkIG9w
-aW5pb246IFllcyEgOikKCkl0IHdvdWxkIGJlIGdyZWF0LgoKCj4gPiBBbHRob3VnaCBtb3N0IHN0
-YWZmIHdobyB3b3VsZCB0b3VjaCB0aGlzIHdpbGwgaGF2ZSBzdHVkaWVkIHByb2dyYW1taW5nIAo+
-ID4gaW4gY29sbGVnZSwgSSB3b3VsZCBub3QgcXVhbGlmeSBhbnkgb2YgdXMgYXMgInByb2dyYW1t
-ZXJzIiBwZXIgc2UuICBNeSAKPiA+IGJpZ2dlc3QgY29uY2VybiB3b3VsZCBiZSBoaXR0aW5nIGEg
-c2VydmljZSBhZmZlY3RpbmcgcHJvYmxlbSB0aGF0IHdlIAo+ID4gY2FuJ3Qgc29sdmUuICAKPiAK
-PiBPbmUgd2F5IHRvIGdvIGFib3V0IHRoaXMgd291bGQgYmUgdG8gb3BlbiBzb3VyY2UgdGhlIGVu
-dGlyZSBzb2x1dGlvbi4KPiBUaGVyZSBhcmUgYWxyZWFkeSBiaXRzIGFuZCBwaWVjZXMgYXZhaWxh
-YmxlIGFzIG9wZW4gc291cmNlIChzdWNoIGFzCj4gSmVzcGVyJ3MgcmVwb3NpdG9yeSBhYm92ZSwg
-YW5kIHNxbS1zY3JpcHRzWzBdKSB0aGF0IHlvdSBjYW4gYnVpbGQgb24sCj4gYW5kIHRoaXMgd2F5
-IHlvdSBjb3VsZCBlbmxpc3QgY29tbXVuaXR5IGhlbHAgdG8gc29sdmUgYW55IGlzc3VlcyB3aXRo
-Cj4gdGhlIExpbnV4IHNpZGUuIFlvdSdkIHN0aWxsIG5lZWQgdG8gZ2V0IHRoZSBkYXRhIGZyb20g
-eW91ciBpbnRlcm5hbAo+IHN5c3RlbXMsIG9mIGNvdXJzZSwgYnV0IHlvdSBjb3VsZCBkZWZpbmUg
-YSBzaW1wbGUgY29uZmlndXJhdGlvbiBmb3JtYXQKPiB0aGF0IHdhcyBwYXJ0IG9mIHRoZSBvcGVu
-IHNvdXJjZSBjb2RlOyB0aGVuIHlvdSdsbCBqdXN0IG5lZWQgdG8gd3JpdGUgYQo+IHNjcmlwdCB0
-aGF0IGdyYWJzIGN1c3RvbWVyIGluZm8gZnJvbSB5b3VyIENSTSBhbmQgb3V0cHV0cyB0aGUgY29u
-ZmlnCj4gZm9ybWF0Li4uCgpZZXMsIHRoaXMgaXMgdGhlIGFkdmFudGFnZSBvZiBPcGVuIFNvdXJj
-ZSEgOi0pCgpJZiB5b3UgY3JlYXRlIHRoaXMgYXMgT3BlbiBTb3VyY2UsIHRoZW4gZmVlbCBmcmVl
-IHRvIHJlYWNoIG91dCB0byBtZQpkaXJlY3RseS4gIEFuZCBJIGtub3cgb2Ygc2V2ZXJhbCBvdGhl
-ciBwZW9wbGUgKHdvcmtpbmcgYXQgSVNQcykgdGhhdAp3b3VsZCBsaWtlbHkgYmUgaW50ZXJlc3Rl
-ZCBpbiBjb2xsYWJvcmF0aW5nLgoKQXMgVG9rZSB3cm90ZSwgeW91IGNhbiBzdGlsbCBrZWVwIHlv
-dXIgQ1JNIHN5c3RlbSBwcm9wcmlldGFyeSBhbmQKY2xvc2VkLXNvdXJjZSwgd2UgZG9uJ3QgY2Fy
-ZSBhbnlob3cgOy0pCgogCj4gPiBTZWNvbmQgY29uY2VybiBpcyB0aGF0IG1hbnkgb2Ygb3VyIGVx
-dWlwbWVudCB2ZW5kb3JzIGFscmVhZHkgdXNlCj4gPiBMaW51eC4gRXZlbiBDaXNjbyBub3cgaW4g
-c29tZSBwcm9kdWN0cy4gTWF5YmUgd2UnbGwgd2FzdGUgb3VyIHRpbWUKPiA+IHRyeWluZyB0byBy
-b2xsIG91ciBvd24gc29sdXRpb24gYW5kIHRoZW4gZmluZCB0aGF0IGEgc29mdHdhcmUgdXBkYXRl
-Cj4gPiBmcm9tIGEgdmVuZG9yIG5leHQgeWVhciBnaXZlcyB1cyBldmVyeXRoaW5nIHdlIG5lZWRl
-ZCBhbnl3YXkuICAKCkkgd291bGQgbm90IGhvbGQgbXkgYnJlYXRoLi4uIGFuZCBpZiBpdCBkb2Vz
-IGNvbWUgYXMgYSBzb2Z0d2FyZQp1cGdyYWRlLCB5b3UgY2FuIGV4cGVjdCB0byBwYXkgcGxlbnR5
-IGZvciBpdC4uLgoKTWF5YmUgSSdtIHRoZSB3cm9uZyBndXkgdG8gYXNrLCBidXQgSSByZWFsbHkg
-dGhpbmsgaXQgaXMgc3RyYWlnaHQKZm9yd2FyZCB0byBpbXBsZW1lbnQgYW4gSVNQIExpbnV4IHJv
-dXRlciB3aXRoIHBlciBjdXN0b21lciBoYW5kbGluZy4KQWxsIHRoZSBjb21wb25lbnRzIHNlZW1z
-IGF2YWlsIGFzIE9wZW4gU291cmNlLiAgKFRoZXJlIGRvIHNlZW0gdG8gYmUgYQpsYWNrIGFyb3Vu
-ZCBhIERIQ1Agc2VydmVyIHRoYXQgY2FuIGhhbmRsZSB0aGlzIHdlbGwpLgoKIAo+IFRoaXMgd291
-bGQgYmUgZ3JlYXQsIG9mIGNvdXJzZSwgYW5kIGRvIGdvIGFuZCBidWcgeW91ciB2ZW5kb3JzIHRv
-Cj4gc29sdmUgdGhpcyBwcm9ibGVtISBOb3RlLCBob3dldmVyLCB0aGF0IGp1c3QgYmVjYXVzZSBh
-IHN5c3RlbSBpcwo+IHJ1bm5pbmcgTGludXggb24gdGhlIGNvbnRyb2wgcGxhbmUsIGl0IG1heSBi
-ZSB1c2luZyBhCj4gaGFyZHdhcmUtb2ZmbG9hZGVkIGRhdGEgcGxhbmUgdGhhdCBkb2VzIG5vdCBo
-YXZlIGFueSBvZiB0aGUKPiBidWZmZXJibG9hdCBtaXRpZ2F0aW9uIGZlYXR1cmVzICh1bmxlc3Mg
-dGhlIHZlbmRvciBzcGVjaWZpY2FsbHkKPiBpbXBsZW1lbnRlZCB0aGVtKS4gSSdtIGhvcGluZyB0
-aGF0ICpldmVudHVhbGx5KiB0aGVzZSB0aGluZ3Mgd2lsbCBiZQo+IHViaXF1aXRvdXMgYWNyb3Nz
-IHRoZSBpbmR1c3RyeSwgYnV0IHRodXMgZmFyIHRoaXMgaGFzIHNlZW1lZCB0byBiZSBhbgo+ICJh
-bnkgZGVjYWRlIG5vdyIga2luZCBvZiBwcm9wb3NpdGlvbiA6LwoKSSB3b3VsZCBwcmVmZXIsIG5v
-dCB0byB3YXN0ZSB0aW1lIG9uIGNyZWF0aW5nIGJ1Z3MgZm9yIHlvdXIgdmVuZG9yLCBidXQKaW5z
-dGVhZCBhY3R1YWxseSBoYXZlIHRoZSBhYmlsaXR5IHRvIGZpeCB0aGUgaXNzdWUgbXlzZWxmLCBv
-ciBoaXJlIHNvbWUKTGludXggY29uc3VsdGFudCB0aGF0IGNhbi4uLgoKLS0gCkJlc3QgcmVnYXJk
-cywKICBKZXNwZXIgRGFuZ2FhcmQgQnJvdWVyCiAgTVNjLkNTLCBQcmluY2lwYWwgS2VybmVsIEVu
-Z2luZWVyIGF0IFJlZCBIYXQKICBMaW5rZWRJbjogaHR0cDovL3d3dy5saW5rZWRpbi5jb20vaW4v
-YnJvdWVyCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpD
-YWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3Rz
-LmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+
+--===============0332657502205083016==
+Content-Type: multipart/alternative;
+ boundary="--=_RainLoop_603_178428716.1576244609"
+
+
+----=_RainLoop_603_178428716.1576244609
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi list,=0A=0AI've been using CAKE on my DSL-connected Linux router for t=
+he last few years, and it worked well until very recently. Two things hap=
+pened:=0A=0A1) My ISP (French "Free") switched my DSLAM to native IPv6, w=
+hich for the time being means that I had to revert to using their set-top=
+-box (Freebox) instead of the VDSL2 model I was using in bridge mode unti=
+l then (CAKE in "bridged-ptm ether-vlan" mode)=0A2) I upgraded my router =
+from 3.16 (Devuan Jessie) to 4.9 (Devuan ASCII)=0A=0ASince then, no matte=
+r which setup I use, I cannot get CAKE to work as intended. Specifically,=
+ any long-standing best effort stream (such as a remote rsync) will be th=
+rottled to a near grinding halt even though there is no other significant=
+ traffic going on. Some random bursts can be seen (with iftop) but nothin=
+g ever gets close to half the maximum bandwidth. This is notably affectin=
+g the OpenWRT buildbots I'm hosting on this link.=0A=0AIn details:=0A=0A$=
+ uname -a=0ALinux rapid-ts1 4.9.0-11-686 #1 SMP Debian 4.9.189-3+deb9u2 (=
+2019-11-11) i686 GNU/Linux=0A=0ACake commit: 183b320 RFC 8622 diffserv3, =
+4 & 8 LE PHB support=0A=0Acake setup on the wan iface: bandwidth 1Mbit di=
+ffserv3 dual-srchost nat nowash ack-filter split-gso bridged-vcmux no-sce=
+=0Athe available ATM uplink bandwith is 1.2Mbps, I tried going as low as =
+700kbps, disabling ack-filter and setting "conservative" to see if it wou=
+ld make a difference, it wouldn't in any significant way: the upload woul=
+d still be severely throttled. I also tried disabling the ingress leg to =
+get that out of the equation: also no difference.=0A=0AAs I broke rule #1=
+ of any setup upgrade (by changing both the link - VDSL to ADSL - and the=
+ running kernel), I can't tell for sure where the fault lies; however I m=
+ust add something about the "native IPv6 DSLAM" bit:=0A=0AFree uses map-e=
+/map-t, i.e. ipip6 tunnels on its native v6 DSLAMs. The Freebox still off=
+ers a public IPv4 to the connected router, but inside the Freebox there i=
+s an ipip6 tunnel setup to encapsulate the IPv4 traffic into IPv6, a tunn=
+el over which I have no control. I wonder if this encapsulation and its a=
+ssociated overhead could be throwing CAKE computations off? FWIW, my rout=
+er now operates in dual-stack mode, with both a public IPv4 and a public =
+IPv6 (although for the time being my LAN remains IPv4 only).=0A=0AI haven=
+'t (yet) found a way to connect directly to the DSLAM without the Freebox=
+ (using my VDSL modem as I did before), so I can't get around this partic=
+ular blackbox.=0A=0AI hope this provides enough detail, I'm happy to expa=
+nd as needed: I would really want my CAKE back :)=0A=0ACheers,=0AThibaut
+
+----=_RainLoop_603_178428716.1576244609
+Content-Type: text/html; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+
+<!DOCTYPE html><html><head><meta http-equiv=3D"Content-Type" content=3D"t=
+ext/html; charset=3Dutf-8" /></head><body><div data-html-editor-font-wrap=
+per=3D"true" style=3D"font-family: arial, sans-serif; font-size: 13px;">H=
+i list,<br><br>I've been using CAKE on my DSL-connected Linux router for =
+the last few years, and it worked well until very recently. Two things ha=
+ppened:<br><br>1) My ISP (French "Free") switched my DSLAM to native IPv6=
+, which for the time being means that I had to revert to using their set-=
+top-box (Freebox) instead of the VDSL2 model I was using in bridge mode u=
+ntil then (CAKE in "bridged-ptm ether-vlan" mode)<br>2) I upgraded my rou=
+ter from 3.16 (Devuan Jessie) to 4.9 (Devuan ASCII)<br><br>Since then, no=
+ matter which setup I use, I cannot get CAKE to work as intended. Specifi=
+cally, any long-standing best effort stream (such as a remote rsync) will=
+ be throttled to a near grinding halt even though there is no other signi=
+ficant traffic going on. Some random bursts can be seen (with iftop) but =
+nothing ever gets close to half the maximum bandwidth. This is notably af=
+fecting the OpenWRT buildbots I'm hosting on this link.<br><br>In details=
+:<br><br>$ uname -a<br>Linux rapid-ts1 4.9.0-11-686 #1 SMP Debian 4.9.189=
+-3+deb9u2 (2019-11-11) i686 GNU/Linux<br><br><signature></signature>Cake =
+commit: 183b320 RFC 8622 diffserv3, 4 &amp; 8 LE PHB support<br><br><sign=
+ature></signature>cake setup on the wan iface: bandwidth 1Mbit diffserv3 =
+dual-srchost nat nowash ack-filter split-gso bridged-vcmux no-sce<br>the =
+available ATM uplink bandwith is 1.2Mbps, I tried going as low as 700kbps=
+, disabling ack-filter and setting "conservative" to see if it would make=
+ a difference, it wouldn't in any significant way: the upload would still=
+ be severely throttled. I also tried disabling the ingress leg to get tha=
+t out of the equation: also no difference.<br><br>As I broke rule #1 of a=
+ny setup upgrade (by changing both the link - VDSL to ADSL - and the runn=
+ing kernel), I can't tell for sure where the fault lies; however I must a=
+dd something about the "native IPv6 DSLAM" bit:<br><br>Free uses map-e/ma=
+p-t, i.e. ipip6 tunnels on its native v6 DSLAMs. The Freebox still offers=
+ a public IPv4 to the connected router, but inside the Freebox there is a=
+n ipip6 tunnel setup to encapsulate the IPv4 traffic into IPv6, a tunnel =
+over which I have no control. I wonder if this encapsulation and its asso=
+ciated overhead could be throwing CAKE computations off? FWIW, my router =
+now operates in dual-stack mode, with both a public IPv4 and a public IPv=
+6 (although for the time being my LAN remains IPv4 only).<br><br>I haven'=
+t (yet) found a way to connect directly to the DSLAM without the Freebox =
+(using my VDSL modem as I did before), so I can't get around this particu=
+lar blackbox.<br><br>I hope this provides enough detail, I'm happy to exp=
+and as needed: I would really want my CAKE back :)<br><br>Cheers,<br>Thib=
+aut</div></body></html>
+
+----=_RainLoop_603_178428716.1576244609--
+
+--===============0332657502205083016==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============0332657502205083016==--
