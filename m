@@ -2,69 +2,47 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8710111F1AB
-	for <lists+cake@lfdr.de>; Sat, 14 Dec 2019 13:09:34 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7409311F1AE
+	for <lists+cake@lfdr.de>; Sat, 14 Dec 2019 13:11:13 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 6138A3CB3C;
-	Sat, 14 Dec 2019 07:09:33 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 986973CB3D;
+	Sat, 14 Dec 2019 07:11:12 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1576325373;
-	bh=FJkqEqG7mmgCx/vlW0K7dvyEm9Q5cCBqFhoS/NtH+tM=;
+	d=lists.bufferbloat.net; s=201610; t=1576325472;
+	bh=0jQdDeEvD8+G2e2G5g5WQ07pdKf2gQxUDgOO6Uv3oNk=;
 	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=Ibw3oVKYhpEVlqUtD7t2xPzWV3w6KEXanZwiYammTXQbRLD4Sc+rX5EJxMDVUdYP2
-	 xJKRcVEut2SaTrdlry2CnXA6dzaHM2dvxxB1Dhto305noGP4EUL4DdnXLEvQ3xeAYo
-	 k3PbqFtHvQghGN7C5ILN3SduJetoFNLoo45rzqBKU2TvJT+WcKbDXGLZp6Pq5PZ1js
-	 cE/z9J3qqY2WSQF2dkiinc9KScHYZBb5Kh6o9H5WgXMYxatnuChVkNmkzv0ZwGlaZO
-	 0FZ4Ksn4vxWFm/v1u4HU28YhXgl4yreYWCbaAGSfXR5e0DK+6QNfO0XLEEklTgoBKe
-	 2sHtQ0iG5eNyg==
+	b=EfViw3FsY+9xgsTkq7VkGAxQsQHF5GE+nFgktHPwZyl3UhYGMhcIEcWqOvzzdQp/5
+	 oYwOf5gA6LchyRamxhlejXIcmcD1R+JbjvkWdHSMz0FL+s4Oq13h/pZ3vMB4HckZIo
+	 IoZJuZqqFZ1NxyvEqGn7yA6zQq50cEZo0x8W9+JdTd3RDLnkULA5mH1P8DFwudIdRr
+	 w1kjCMR8VqVfAsJ8hc9bqV6IlDNfXX2sMgXz6uef39GdcWidtkQOtNNrk3iSN1PyvS
+	 grahlx4e4I8SAOQR6bjgX1vE8QAOtPNX5Yo/8p1b1cDGNPnN2P7MDvGYpFyzu9lyPJ
+	 Lgj6IiIsV6ikA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lj1-x231.google.com (mail-lj1-x231.google.com
- [IPv6:2a00:1450:4864:20::231])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from vps.slashdirt.org (vps.slashdirt.org [144.91.108.218])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id C38F13B2A4
- for <cake@lists.bufferbloat.net>; Sat, 14 Dec 2019 07:09:32 -0500 (EST)
-Received: by mail-lj1-x231.google.com with SMTP id s22so1656087ljs.7
- for <cake@lists.bufferbloat.net>; Sat, 14 Dec 2019 04:09:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=r3Hcj8aC8UvETx+Euf74nSDiL0hzx6jAhi1IHwDybbs=;
- b=a23Go+Joad7MAM7EGP/4nqrSvW/wCUsEGK0hNcijkU1PtfTn47Uk46c9QtVnjrVU+x
- eMndT60rMSLqoZHBjITwdt6RRI+tXKD5dWKYS1WWc5WjQfgYb1WAh3zKS/dAj2PVZq7w
- seoa/FJe84CKGlhjKAypPdoRRlFhMqmi3ya+39NL9u/gM4IZVGpjJB4bKDJ8uSi+NK0p
- q42XcDII+FAAQnLWkhaRbsO/qi5BbHxYmsk+vjV92+4wu1lLGp2Op25woZmorPfvEh/f
- XTQKVyx4FaL2SiZshHRdoOgRh97Upy7tzk8XAeCQ5wiMtLOmTfaQOe4ubevt6ts00noi
- McJg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=r3Hcj8aC8UvETx+Euf74nSDiL0hzx6jAhi1IHwDybbs=;
- b=suwkZNxWRqgEjoZqGK30Ax3uG2Bx9LKR1dYdfRkwHlZGmcjr1dcPUti5WVjX3eLxqh
- pRndIwgVS5c+Fi11yIRNdAqueFfPxKX2nDDx6Q9C9At/V/vUNnk8JIF1d2Y6JLiUiVso
- QCsFUh4SdbZEzsdqpghkHqRASrEv4OZ5xPr+9uTSRkXx2erk0bkhZ05z3u1SFa5JO+Sr
- Du2faFAEhUk82KmYcX0HWuFB0hyxR/JvaBHxZ49BBVKMReMTYijSl+Mqm2F7a2qghAyM
- Wq7tllTp5NVER6MgL4Kk2tsbJ504Wl6CCNc6caS4Lbzz4r7RL4iyMwfbeEgZiIkd7TyT
- wZ6w==
-X-Gm-Message-State: APjAAAX3q73WsWHe9vW7WznqddUt8ivlDa+IuhUHt0ILT67X1TLg4TBk
- 0ouUnizUKJj+LeeNRmvAvGU=
-X-Google-Smtp-Source: APXvYqyaBU29mL/rHu7Nz4Gcmen/D5iFJcu1hiB2066DvuFC/q45aDHh1Z0VWzrm37OxeALZywFHFQ==
-X-Received: by 2002:a2e:9b95:: with SMTP id z21mr11050485lji.112.1576325371738; 
- Sat, 14 Dec 2019 04:09:31 -0800 (PST)
-Received: from jonathartonsmbp.lan (83-245-229-102-nat-p.elisa-mobile.fi.
- [83.245.229.102])
- by smtp.gmail.com with ESMTPSA id j10sm6533213ljc.76.2019.12.14.04.09.30
- (version=TLS1_2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128/128);
- Sat, 14 Dec 2019 04:09:31 -0800 (PST)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
-From: Jonathan Morton <chromatix99@gmail.com>
-In-Reply-To: <55F31738-C935-4361-B11E-9E7CA657489F@slashdirt.org>
-Date: Sat, 14 Dec 2019 14:09:29 +0200
-Message-Id: <1632300D-56B8-4E9A-B4FD-C244D4F5AED6@gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 5307F3B2A4
+ for <cake@lists.bufferbloat.net>; Sat, 14 Dec 2019 07:11:11 -0500 (EST)
+Received: from tama.lan (unknown [37.165.135.163])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by vps.slashdirt.org (Postfix) with ESMTPSA id 2C2C1603EA;
+ Sat, 14 Dec 2019 13:11:10 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 vps.slashdirt.org 2C2C1603EA
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=slashdirt.org; s=mail;
+ t=1576325470; bh=8ZH4Vrp5a/fP/KasHsRo1Mn/y9UTJtleD6f4ScM9vvQ=;
+ h=Subject:From:In-Reply-To:Date:Cc:References:To:From;
+ b=kDqU+brijpyuIE9nf4wj0TbxparwpiGnV37T+XqbH3/P7jAQekQBwsUo6tBY28QjY
+ cTLtfz3fJ6w2mUaCCu2cD2hZj2kUUhoVHUKxVHB3E38BpWPJrZ5J862x6g1FpNUgDH
+ ZytvcArL9YMgHddpNPRRgcLCtyBLLYFXfsdvODlU=
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.11\))
+From: Thibaut <hacks@slashdirt.org>
+In-Reply-To: <1632300D-56B8-4E9A-B4FD-C244D4F5AED6@gmail.com>
+Date: Sat, 14 Dec 2019 13:11:09 +0100
+Message-Id: <D6F8BB5F-EFA7-4275-84E6-48479356DD93@slashdirt.org>
 References: <1d359153abfc413b4f61c647437427d6@slashdirt.org>
  <8FC615C8-4885-4F0A-B2EE-934DC4E806E8@gmail.com>
  <6E9587F7-C208-4568-8429-AEBA9E694E24@slashdirt.org>
@@ -75,8 +53,9 @@ References: <1d359153abfc413b4f61c647437427d6@slashdirt.org>
  <A265EDE5-BDEE-4806-AB75-4BD70053EC0B@darbyshire-bryant.me.uk>
  <4E238145-37A2-45AC-B8BB-AD602C4D1044@darbyshire-bryant.me.uk>
  <55F31738-C935-4361-B11E-9E7CA657489F@slashdirt.org>
-To: Thibaut <hacks@slashdirt.org>
-X-Mailer: Apple Mail (2.3445.9.1)
+ <1632300D-56B8-4E9A-B4FD-C244D4F5AED6@gmail.com>
+To: Jonathan Morton <chromatix99@gmail.com>
+X-Mailer: Apple Mail (2.3445.104.11)
 Subject: Re: [Cake] Trouble with CAKE
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -96,10 +75,16 @@ Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-PiBPbiAxNCBEZWMsIDIwMTksIGF0IDE6NTkgcG0sIFRoaWJhdXQgPGhhY2tzQHNsYXNoZGlydC5v
-cmc+IHdyb3RlOgo+IAo+IEnigJltIHdvbmRlcmluZyBpZiB0aGlzIGNvdWxkIGJlIGFuIOKAnHVz
-ZSBvZiB1bmluaXRpYWxpemVkIGRhdGHigJ0gdHlwZSBvZiBidWcuCgpUaGlzIGlzIHdoeSBJIHdv
-dWxkbid0IGtlZXAgd29ya2luZyBvbiBhbiBvbGQga2VybmVsIHRoYXQncyBmdWxsIG9mIHZlbmRv
-ciBwYXRjaGVzLgoKIC0gSm9uYXRoYW4gTW9ydG9uCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVy
-YmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+Cgo+IE9uIDE0IERlYyAyMDE5LCBhdCAxMzowOSwgSm9uYXRoYW4gTW9ydG9uIDxjaHJvbWF0aXg5
+OUBnbWFpbC5jb20+IHdyb3RlOgo+IAo+PiBPbiAxNCBEZWMsIDIwMTksIGF0IDE6NTkgcG0sIFRo
+aWJhdXQgPGhhY2tzQHNsYXNoZGlydC5vcmc+IHdyb3RlOgo+PiAKPj4gSeKAmW0gd29uZGVyaW5n
+IGlmIHRoaXMgY291bGQgYmUgYW4g4oCcdXNlIG9mIHVuaW5pdGlhbGl6ZWQgZGF0YeKAnSB0eXBl
+IG9mIGJ1Zy4KPiAKPiBUaGlzIGlzIHdoeSBJIHdvdWxkbid0IGtlZXAgd29ya2luZyBvbiBhbiBv
+bGQga2VybmVsIHRoYXQncyBmdWxsIG9mIHZlbmRvciBwYXRjaGVzLgoKRm9yZ2l2ZSBtZSBmb3Ig
+dHJ5aW5nIHRvIHVzZSBjYWtlIG9uIGEgc3VwcG9ydGVkIHN0YWJsZSBkaXN0cm8uCgpBbGwgZGlz
+dHJvcyBhcmUgZnVsbCBvZiB2ZW5kb3IgcGF0Y2hlcyAoT3BlbldSVCBpcyBubyBleGNlcHRpb24p
+LiBUaGUgc3Vic2V0IG9mIGxpbnV4IG1hY2hpbmVzIHRoYXQgdXNlIHZhbmlsbGEgaXMg4oCYYmVs
+b3cgbWVhc3VyYWJsZSB0aHJlc2hvbGTigJnigKYKCkNoZWVycywKVGhpYmF1dApfX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApD
+YWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9s
+aXN0aW5mby9jYWtlCg==
