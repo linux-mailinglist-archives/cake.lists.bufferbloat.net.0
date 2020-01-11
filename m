@@ -2,53 +2,53 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E7153138234
+	by mail.lfdr.de (Postfix) with ESMTPS id E8A9A138235
 	for <lists+cake@lfdr.de>; Sat, 11 Jan 2020 16:59:47 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 324B43CB38;
+	by lists.bufferbloat.net (Postfix) with ESMTP id 481833CB3C;
 	Sat, 11 Jan 2020 10:59:46 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1578758386;
-	bh=j06sm9YVPcXSZIe8ESZ8inqlei6zld053Zin31PYL3A=;
+	bh=vNl88jdd6/fyO+zf0XgFTJ6U8K8VVtvS3sbCt4tnYHw=;
 	h=From:To:Date:In-Reply-To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=A+B7AFyhIrJ7aN9Daw9Y2eVWzXTKvHMe+8W8ucbYzc3/fXHC7itO4vzZWE8uwkNdA
-	 BR0rkM1BxpTf6OXhYqCPJVpcUF2JbD+SAXWm1krvMX3C9pPNMaNFEpMV+SbmE7zPIi
-	 aZXnsiGX3JZVcG4Nt2ETRTy4Re5J6xju+M0bInRs2em096pXqYCNa+dgrAGcQQz5Sp
-	 TNVgz/oGIQDKeiqX2tSnKdB1gXdHmdIEtN96QUdkrE/RKtybefAI0SY8hp300uF/kg
-	 gbdwXrLQnl+l7ie/RUu/PYyYjsYnxfWpugvPA+FBW5kFAXNtRFiqm4mkdi/VV//NmP
-	 mysvR/D5SpN6A==
+	b=d6QlFN6PhORDxkT/LT1zc/GNLyZ1RfqR6aSgxo+oLh3zUpzGIYWy87WOcn3b6bEVz
+	 V6oVNVugJ7nFlkjmBvZP/J/UGiDsuKRlGwOIu+bDA4h6/I6epNHmA+qN7Dq3KqtGqs
+	 mrQN3kRE1BO3k7sKuFx1D4MNkTRrS4Wt916UlJfg/ACsFI2YlrCO9IEqTE+ZlR6z32
+	 CKgZfus9A9c1/hdjN6frT7/fdZfn+QmlkRWH8nIsbAwFfejHlXIxF2zKBEG5aM+ONH
+	 5TE5DsFTh+X0p19Yz+2LA0XSHleMman+c8AGzmTWqLTsDi7G3LAtulE2jmUL6+blNP
+	 QZZDo+2KmHVzw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
 Received: from mail.kernel.org (mail.kernel.org [198.145.29.99])
  (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 457913B2A4
- for <cake@lists.bufferbloat.net>; Sat, 11 Jan 2020 05:18:41 -0500 (EST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 33D623B2A4
+ for <cake@lists.bufferbloat.net>; Sat, 11 Jan 2020 05:33:18 -0500 (EST)
 Received: from localhost (unknown [62.119.166.9])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by mail.kernel.org (Postfix) with ESMTPSA id 29A9020842;
- Sat, 11 Jan 2020 10:18:38 +0000 (UTC)
+ by mail.kernel.org (Postfix) with ESMTPSA id 258A320842;
+ Sat, 11 Jan 2020 10:33:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=default; t=1578737920;
- bh=mcjFmwhwJrbakRmABQ1xRFN6l3QsdshO9EqfWV3t6OE=;
+ s=default; t=1578738797;
+ bh=3s5JAX5Q2ODEjcC2HpUaI66ihhczXZpmWqli7dJibxU=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=V4QwhqXoiXRUBBEly3h4M+CMX/Qm9RO+rJdWfo3BiqYs+ceBM1ez9axlAixx60MXK
- +Kjus9Ke6fuJXbek4MlfDnMePv4SBlCNjKenf5gbIAQejuJfFd5tb7Bu/VAaf07g7c
- 9CxiLhsIbiEEo3MV2ELW1sWp2IAroeuvwZkbYCkc=
+ b=ATaFfo20IkngoTDMZUK5hCOVAQBwZf/0VXTcrJH9miBnIU2MUhs5XwQ8wZZXySMXx
+ w9ae/4kQjc4AXOE4lOkEPCIeVzsQ5YONt/rCyqzxoQ0BM8rqnboBc/vuKjWGiUz/Ww
+ xUO1n3fvQw4OShYchTBQzCI+aVnp0gqE6bBeZ+KY=
 From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 To: linux-kernel@vger.kernel.org
-Date: Sat, 11 Jan 2020 10:50:50 +0100
-Message-Id: <20200111094911.801043901@linuxfoundation.org>
+Date: Sat, 11 Jan 2020 10:51:06 +0100
+Message-Id: <20200111094939.776468385@linuxfoundation.org>
 X-Mailer: git-send-email 2.24.1
-In-Reply-To: <20200111094845.328046411@linuxfoundation.org>
-References: <20200111094845.328046411@linuxfoundation.org>
+In-Reply-To: <20200111094921.347491861@linuxfoundation.org>
+References: <20200111094921.347491861@linuxfoundation.org>
 User-Agent: quilt/0.66
 MIME-Version: 1.0
 X-Mailman-Approved-At: Sat, 11 Jan 2020 10:59:44 -0500
-Subject: [Cake] [PATCH 4.19 73/84] sch_cake: avoid possible divide by zero
+Subject: [Cake] [PATCH 5.4 147/165] sch_cake: avoid possible divide by zero
 	in cake_enqueue()
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -90,7 +90,7 @@ bGVyIDxkYXZlbUBkYXZlbWxvZnQubmV0PgpTaWduZWQtb2ZmLWJ5OiBHcmVnIEtyb2FoLUhhcnRt
 YW4gPGdyZWdraEBsaW51eGZvdW5kYXRpb24ub3JnPgotLS0KIG5ldC9zY2hlZC9zY2hfY2FrZS5j
 IHwgICAgMiArLQogMSBmaWxlIGNoYW5nZWQsIDEgaW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0p
 CgotLS0gYS9uZXQvc2NoZWQvc2NoX2Nha2UuYworKysgYi9uZXQvc2NoZWQvc2NoX2Nha2UuYwpA
-QCAtMTc1OCw3ICsxNzU4LDcgQEAgc3RhdGljIHMzMiBjYWtlX2VucXVldWUoc3RydWN0IHNrX2J1
+QCAtMTc2OSw3ICsxNzY5LDcgQEAgc3RhdGljIHMzMiBjYWtlX2VucXVldWUoc3RydWN0IHNrX2J1
 ZmYgKgogCQkJCQkJICAgICAgcS0+YXZnX3dpbmRvd19iZWdpbikpOwogCQkJdTY0IGIgPSBxLT5h
 dmdfd2luZG93X2J5dGVzICogKHU2NClOU0VDX1BFUl9TRUM7CiAKLQkJCWRvX2RpdihiLCB3aW5k
 b3dfaW50ZXJ2YWwpOworCQkJYiA9IGRpdjY0X3U2NChiLCB3aW5kb3dfaW50ZXJ2YWwpOwogCQkJ
