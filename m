@@ -2,69 +2,86 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4A7351964BB
-	for <lists+cake@lfdr.de>; Sat, 28 Mar 2020 10:16:14 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B8E3196907
+	for <lists+cake@lfdr.de>; Sat, 28 Mar 2020 20:58:19 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id E424C3CB3E;
-	Sat, 28 Mar 2020 05:16:12 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 6AAC93CB3C;
+	Sat, 28 Mar 2020 15:58:17 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1585386972;
-	bh=PRDtav0z+H4M2e81k5AvTSQRFoPpruSLdwo/QtvOM0M=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1585425497;
+	bh=gGttXBKxOFyzErMjLyWYzKXneoT7eFYCrOwLA/3vtQo=;
+	h=From:To:In-Reply-To:References:Date:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=SjxpZQW1a3zM6GyggrEEe8g4ikz76Gko+elL0NX5Zvr0cDNnD4eoKGsYZ5Cu0EZRR
-	 WCLBaus2FhCNwyLF6B3aMVCDbZsCjlCh4+f//e1ohOkvfjQP0qI9BCMFIsD5kHKoCa
-	 JbcWENFX3Zh3anLSkQujF1A/jH/MxOsi4c4ckEbBMFWZs8EVR2K4M67kYospPsOd28
-	 gOuGkvGtvzLQqgJ7ZUyJBx0JkYE2aCGGkTA8Z0Bnd6D1y8mlD8vAVjwMLoywYl2IWv
-	 48WAtusbSUsNod6m1nKmJATs768dK9Q4cyuZAOsRqQd+p6FEdbyruPi7PNt/BD+O4X
-	 TJ3AX/qj25UdQ==
+	b=EkODjT5dS1D0nQuTQ8Rw1AAbbvPkQFYA7YoGTmEDv3K4Ls2XHXVWIIZN1gvjw00gn
+	 ikoQx4usPzSMwVlZYTQCqs6kFzGh/ejQp/0XX+j7WkkX3J0LWhhAYY1o2qBbjGJTua
+	 oFrtMcmZCM8pEVFxOoWO/vp5ZVwQoS7+jblaY7bpZ+FcrUlLeezQJgnlZ2dP8FT+BV
+	 WINsSYAyB3ilfzWacZ4JuMFKOXjnak25mqTpAQccbKh+iuJwpsAiIwhEKbiiVKFnqL
+	 y+/E9SRorNsmz2BH6KJfn9aEGsvr3ui9y3Np3M6Ga/wETzn27ubuRyQE/QmNKj0+zh
+	 z+dcWPo2dmMIg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-wr1-x432.google.com (mail-wr1-x432.google.com
- [IPv6:2a00:1450:4864:20::432])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from us-smtp-delivery-74.mimecast.com
+ (us-smtp-delivery-74.mimecast.com [63.128.21.74])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id BF3803B2A4
- for <cake@lists.bufferbloat.net>; Sat, 28 Mar 2020 02:53:24 -0400 (EDT)
-Received: by mail-wr1-x432.google.com with SMTP id p10so14380404wrt.6
- for <cake@lists.bufferbloat.net>; Fri, 27 Mar 2020 23:53:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=freeswitch-com.20150623.gappssmtp.com; s=20150623;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=V4H7uWKByKwMhUfbyaGXIGugx12Kh7wbM+Lo4fufac4=;
- b=WBySsV6ZG0KuMiopqGheWRuClOJddWSoAQ2kn2FZAu718ZC7RbeiPGExUaiVO8RgN6
- m2+bMuim1lu9tKpotiN0GFGeiXZ5qy7gGru3nFwomnjMq17W4w9kp/uOaaRXrSKOkvRU
- IWM/PWuII1q/p89g3Lz2J9bHpoCHwZw82xucnw8d8UArndxiBHa/TVeuEwsuimJ3PpRt
- uA0NTFqJv6BXsub6gWBu2GqmO4khzdBpDaEycq09rTtQWn9OfstGBkjzZ2bXdUPD1WKS
- SnWSDZnb1nYhgJ0YHa2N+0s3BfxGyXLevd5Zjy+2E1++6ORPLYLINFYrvz/qi69yb6KD
- EwhA==
+ by lists.bufferbloat.net (Postfix) with ESMTPS id AA3F23CB35
+ for <cake@lists.bufferbloat.net>; Sat, 28 Mar 2020 15:58:15 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1585425494;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding:
+ in-reply-to:in-reply-to:references:references;
+ bh=X0W13ZR8OK6A0LCu6SU3hZ2sjSiwybH3M4Yx3ll1vXE=;
+ b=fvobG0ffyVOSTD6MhNZQTyK3DpAwAzDxXYM2qIjbSTJeKMU8HTOlxPEzyW7l9ZNEisC7Ck
+ 1RXih0ECSTds44yMXKg+Z/f+J/1w1WqPmhQgeHQJuqilShhh+1t0HphOv+HJaA76/TB9VB
+ z/NEgmgYTj+3cocFNo2oG9qfYQQTyDU=
+Received: from mail-lf1-f72.google.com (mail-lf1-f72.google.com
+ [209.85.167.72]) (Using TLS) by relay.mimecast.com with ESMTP id
+ us-mta-436-j-a8qAKzPciY-D02-T_x8w-1; Sat, 28 Mar 2020 15:58:12 -0400
+X-MC-Unique: j-a8qAKzPciY-D02-T_x8w-1
+Received: by mail-lf1-f72.google.com with SMTP id c22so2775020lfb.14
+ for <cake@lists.bufferbloat.net>; Sat, 28 Mar 2020 12:58:12 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=V4H7uWKByKwMhUfbyaGXIGugx12Kh7wbM+Lo4fufac4=;
- b=DnpefaUNaEAlTgjIGzucAmUSb3yomGFh+DLTOu0T1RQdink34jdDqzfZG5+QicCRS1
- IcH5+kXoZY/rNkCwPsuv9B4czm61BKrf66t7kMM1Q42yI7XIxXXju3RvPJXtivqCNbhr
- 5DTXiBhgPSo0ivRjzVsEhStrostYwMjSC2fei6cFATuTskO67emH4KYoAuajkof4XTFd
- 5PIkMJA56G79zkRprQ4woWPvPrCHbrH49ItHpnRum8OQ0jHd9xG+9VFGvte0LB9lc3WT
- GeCACQLDeWiKWFHdGljAnSXrvX7a0Ha3a/8ULdlL/nTJmL+8t3OfQ1/4OIvi2sDym8yC
- XASg==
-X-Gm-Message-State: ANhLgQ0SmogJEOGSpek/o3EwdrF1ycVUJYP3sXb+rlnLgKTNJMoqxoMV
- LdnU/zrYnUDxIoUpEkuIMB/WmuFURhJf4ElHVBR1lw==
-X-Google-Smtp-Source: ADFU+vtthlkfjb44o7Tihpc40s/G3z9Dt03jZ+xiw5Ac1pcqComyBvimbPb+Yya6K2cw5nFPOOP7C0f0osXEr9ZoI1o=
-X-Received: by 2002:a5d:6992:: with SMTP id g18mr3504412wru.426.1585378403864; 
- Fri, 27 Mar 2020 23:53:23 -0700 (PDT)
-MIME-Version: 1.0
+ h=x-gm-message-state:from:to:cc:subject:in-reply-to:references:date
+ :message-id:mime-version;
+ bh=X0W13ZR8OK6A0LCu6SU3hZ2sjSiwybH3M4Yx3ll1vXE=;
+ b=naYzNK7Wt/JARByt/IjYhAE6S0zDHhv2IvYwK/6GpqFXuCl9zEY91P9sUAK2X6tqSu
+ NTCVOrJEN88UO4OtbucqcDl61iTAt1yTDzP2wrr+bYEFvydze+HuMWMA9qcjc6/i1FNi
+ o4ks2dlJw8/WxdonjBAmMs+cgDvrZC0srMVK/AhnLwtPgfI4AJMhw+f+A74EMfqe+kvP
+ RPZtZz1qIAAFqX+NzfbRtNn0Opy31D8i+z7jt3x2X8cRavzWLCbLGjY/9JZ97kqyp1bS
+ 0CE6646xmr3+f2XtOoawcO8d3Ys+JwE+XZagBMxjWTNSdlq+3vCAcnz+aA9wAGdXwTUx
+ Iegw==
+X-Gm-Message-State: AGi0PuZF2vrwcKht1g+2esI6/k06OQpUAwyVIXEhz0T9g1a5QSCRmeS/
+ q9jaoOaBrA9pAMTdcUNTs3qM1fcgJ7OfvjKDZyiJxJ4Iff4b4SQRx5mouPqjeLMjADI/B+pFmV6
+ A1iWyJ2uWpV1C+V9VhH41oA==
+X-Received: by 2002:a2e:9757:: with SMTP id f23mr2836234ljj.269.1585425491125; 
+ Sat, 28 Mar 2020 12:58:11 -0700 (PDT)
+X-Google-Smtp-Source: APiQypJ7vkGFp2jEgE/fIb1d6LH2TJScU7xorzZbUbLh5epUrNRP11bNad+0S5LsQewjX6ESAsTPfw==
+X-Received: by 2002:a2e:9757:: with SMTP id f23mr2836218ljj.269.1585425490831; 
+ Sat, 28 Mar 2020 12:58:10 -0700 (PDT)
+Received: from alrua-x1.borgediget.toke.dk ([2a0c:4d80:42:443::2])
+ by smtp.gmail.com with ESMTPSA id y26sm3345794lfl.95.2020.03.28.12.58.09
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Sat, 28 Mar 2020 12:58:10 -0700 (PDT)
+Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
+ id 57E5C18158B; Sat, 28 Mar 2020 20:58:08 +0100 (CET)
+From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
+To: Dave Taht <dave.taht@gmail.com>, "David P. Reed" <dpreed@deepplum.com>
+In-Reply-To: <CAA93jw6o3N-3Yeox5NfP5T9=Ascpa9UXkpgw2fyX4NaMAvb8iA@mail.gmail.com>
 References: <CAA93jw7u5xtq9fzx9iCMd5StW4A=rY7D74YYbKRgAo+5YVajHw@mail.gmail.com>
-In-Reply-To: <CAA93jw7u5xtq9fzx9iCMd5StW4A=rY7D74YYbKRgAo+5YVajHw@mail.gmail.com>
-From: Anthony Minessale II <anthm@freeswitch.com>
-Date: Sat, 28 Mar 2020 01:53:12 -0500
-Message-ID: <CAPFLO2RseqZxqoeovkPRuve6kfJUf78teUxPoijT3BM0fgXCYg@mail.gmail.com>
-To: Dave Taht <dave.taht@gmail.com>
-X-Mailman-Approved-At: Sat, 28 Mar 2020 05:16:10 -0400
+ <1585335604.839628636@apps.rackspace.com>
+ <CAA93jw6o3N-3Yeox5NfP5T9=Ascpa9UXkpgw2fyX4NaMAvb8iA@mail.gmail.com>
+X-Clacks-Overhead: GNU Terry Pratchett
+Date: Sat, 28 Mar 2020 20:58:08 +0100
+Message-ID: <878sjkl0a7.fsf@toke.dk>
+MIME-Version: 1.0
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
 Subject: Re: [Cake] mo bettah open source multi-party videoconferncing in an
- age of bloated uplinks?
+	age of bloated uplinks?
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -76,226 +93,42 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Ken Rice <krice@freeswitch.org>,
+Cc: Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ Anthony Minessale II <anthm@freeswitch.org>,
+ Cake List <cake@lists.bufferbloat.net>, Ken Rice <krice@freeswitch.org>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============8365837784881689391=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8365837784881689391==
-Content-Type: multipart/alternative; boundary="00000000000098e40105a1e4acf0"
-
---00000000000098e40105a1e4acf0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Working on this a bit right now. I have the controls to tell the browser to
-send less manually but not auto. We might add transport-cc as google seems
-to have picked that one. We can have you on a call sometime to test.
-
-
-
-On Fri, Mar 27, 2020 at 12:27 PM Dave Taht <dave.taht@gmail.com> wrote:
-
-> sort of an outgrowth of this convo:
->
-> https://lwn.net/SubscriberLink/815751/786d161d06a90f0e/
->
-> I imagine worldwide videoconferencing quality could be much better if
-> we could convince more folk to
-> finally install sqm or upgrade to a working docsis 3.1 solution, etc.
-> Maybe some rag somewhere will finally pick up on bufferbloat solutions
-> and run with it? Or we can write some articles? Or reach out to school
-> systems? Or?
->
-> I've been fiddling with jitsi, and am about to give freeswitch a try.
-> Last I looked freeswitch's otherwise pretty nifty conference bridge
-> didn't dynamically adjust at all due to e2e signalling, but that was
-> years ago. (?)
->
-> I have to admit that p2p multiparty videoconferencing seems more
-> plausible in a de-bufferbloated age, but
-> haven't explored what tools are available. (?)
->
-> There's also been this somewhat entertaining convo on the ietf mbone
-> list:
-> https://mailarchive.ietf.org/arch/msg/mboned/2thFQk_IYn38XCZBQavhUmOd6tk/
->
-> Around me there has been this huge interest in "streaming". The user
-> agreement for these (see restream.io's) is scary - and the copyright
-> police have control... but I am very happy to report that even a
-> couple really lousy long distance fq_codel'd ath9k links work *really*
-> well (with facebook's implementation), where a non fq_codeled link
-> (ath10k) failed miserably... and setting up a reflector in nginx also
-> failed miserably.
->
-> Anyone working on the ath10k AQL backport for openwrt as yet?
->
-> --
-> Make Music, Not War
->
-> Dave T=C3=A4ht
-> CTO, TekLibre, LLC
-> http://www.teklibre.com
-> Tel: 1-831-435-0729
->
-
-
---=20
-
-[image: Inline image 1]
-
-Anthony Minessale II | President
-
-FreeSWITCH Solutions | 17345 Civic Drive #2531 Brookfield, WI 53045
-<https://maps.google.com/?q=3D17345+Civic+Drive+%232531+Brookfield,+WI+5304=
-5&entry=3Dgmail&source=3Dg>
-
-Email: anthm@freeswitch.com
-
-Mobile: +12623098501
-
-Website: https://www.FreeSWITCH.com <https://www.freeswitch.com/>
-
-[image: color-facebook-96.png] <https://www.facebook.com/freeswitch/>[image=
-:
-color-twitter-96.png]
-<https://twitter.com/freeswitch?ref_src=3Dtwsrc%5Egoogle%7Ctwcamp%5Eserp%7C=
-twgr%5Eauthor>
-
---00000000000098e40105a1e4acf0
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">Working on this a bit right now. I have the controls to te=
-ll the browser to send less manually but not auto. We might add transport-c=
-c as google seems to have picked that one. We can have you on a call someti=
-me to test.<div><br><div><br></div></div></div><br><div class=3D"gmail_quot=
-e"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Mar 27, 2020 at 12:27 PM D=
-ave Taht &lt;<a href=3D"mailto:dave.taht@gmail.com">dave.taht@gmail.com</a>=
-&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px =
-0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">sort=
- of an outgrowth of this convo:<br>
-<br>
-<a href=3D"https://lwn.net/SubscriberLink/815751/786d161d06a90f0e/" rel=3D"=
-noreferrer" target=3D"_blank">https://lwn.net/SubscriberLink/815751/786d161=
-d06a90f0e/</a><br>
-<br>
-I imagine worldwide videoconferencing quality could be much better if<br>
-we could convince more folk to<br>
-finally install sqm or upgrade to a working docsis 3.1 solution, etc.<br>
-Maybe some rag somewhere will finally pick up on bufferbloat solutions<br>
-and run with it? Or we can write some articles? Or reach out to school<br>
-systems? Or?<br>
-<br>
-I&#39;ve been fiddling with jitsi, and am about to give freeswitch a try.<b=
-r>
-Last I looked freeswitch&#39;s otherwise pretty nifty conference bridge<br>
-didn&#39;t dynamically adjust at all due to e2e signalling, but that was<br=
->
-years ago. (?)<br>
-<br>
-I have to admit that p2p multiparty videoconferencing seems more<br>
-plausible in a de-bufferbloated age, but<br>
-haven&#39;t explored what tools are available. (?)<br>
-<br>
-There&#39;s also been this somewhat entertaining convo on the ietf mbone<br=
->
-list: <a href=3D"https://mailarchive.ietf.org/arch/msg/mboned/2thFQk_IYn38X=
-CZBQavhUmOd6tk/" rel=3D"noreferrer" target=3D"_blank">https://mailarchive.i=
-etf.org/arch/msg/mboned/2thFQk_IYn38XCZBQavhUmOd6tk/</a><br>
-<br>
-Around me there has been this huge interest in &quot;streaming&quot;. The u=
-ser<br>
-agreement for these (see <a href=3D"http://restream.io" rel=3D"noreferrer" =
-target=3D"_blank">restream.io</a>&#39;s) is scary - and the copyright<br>
-police have control... but I am very happy to report that even a<br>
-couple really lousy long distance fq_codel&#39;d ath9k links work *really*<=
-br>
-well (with facebook&#39;s implementation), where a non fq_codeled link<br>
-(ath10k) failed miserably... and setting up a reflector in nginx also<br>
-failed miserably.<br>
-<br>
-Anyone working on the ath10k AQL backport for openwrt as yet?<br>
-<br>
--- <br>
-Make Music, Not War<br>
-<br>
-Dave T=C3=A4ht<br>
-CTO, TekLibre, LLC<br>
-<a href=3D"http://www.teklibre.com" rel=3D"noreferrer" target=3D"_blank">ht=
-tp://www.teklibre.com</a><br>
-Tel: 1-831-435-0729<br>
-</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
- class=3D"gmail_signature"><div dir=3D"ltr"><div style=3D"font-size:12.8px"=
-><font color=3D"#000000"><br><img src=3D"https://mail.google.com/mail/u/0/?=
-ui=3D2&amp;ik=3D009548450c&amp;view=3Dfimg&amp;th=3D15f7e5e73deb55fe&amp;at=
-tid=3D0.1&amp;disp=3Demb&amp;realattid=3Dii_15f73098599d14ae&amp;attbid=3DA=
-NGjdJ9iQKQyJDZpINTWf5VHgVeatd5GxAZm5JA7X4C4GeZAbp8jrw3xB-ooPktLogCSdIxZTpjG=
-CX1MX7iHRi_qtCk-oyJCnL4gAyPd38SkxydubgGBHkw9KleMY0Y&amp;sz=3Dw208-h70&amp;a=
-ts=3D1509661021285&amp;rm=3D15f7e5e73deb55fe&amp;atsh=3D1" alt=3D"Inline im=
-age 1" width=3D"104" height=3D"35" style=3D"margin-right: 0px;"><br></font>=
-</div><div style=3D"font-size:12.8px"><p dir=3D"ltr" style=3D"font-size:12.=
-8px;line-height:1.38;margin-top:0pt;margin-bottom:0pt;margin-left:4.5pt"><s=
-pan style=3D"font-size:8pt;font-family:Arial;background-color:transparent;v=
-ertical-align:baseline;white-space:pre-wrap"><font color=3D"#000000">Anthon=
-y Minessale II | President</font></span></p><p dir=3D"ltr" style=3D"font-si=
-ze:12.8px;line-height:1.38;margin-top:0pt;margin-bottom:0pt;margin-left:4.5=
-pt"><span style=3D"font-size:8pt;font-family:Arial;background-color:transpa=
-rent;vertical-align:baseline;white-space:pre-wrap"><font color=3D"#000000">=
-FreeSWITCH Solutions | <a href=3D"https://maps.google.com/?q=3D17345+Civic+=
-Drive+%232531+Brookfield,+WI+53045&amp;entry=3Dgmail&amp;source=3Dg" style=
-=3D"color:rgb(17,85,204)" target=3D"_blank">17345 Civic Drive #2531 Brookfi=
-eld, WI 53045</a></font></span></p><p dir=3D"ltr" style=3D"font-size:12.8px=
-;line-height:1.38;margin-top:0pt;margin-bottom:0pt;margin-left:4.5pt"><font=
- color=3D"#000000"><span style=3D"font-size:8pt;font-family:Arial;backgroun=
-d-color:transparent;vertical-align:baseline;white-space:pre-wrap">Email: </=
-span><a href=3D"mailto:anthm@freeswitch.com" style=3D"color:rgb(17,85,204)"=
- target=3D"_blank"><span style=3D"font-size:8pt;font-family:Arial;backgroun=
-d-color:transparent;vertical-align:baseline;white-space:pre-wrap">anthm@fre=
-eswitch.com</span></a></font></p><p dir=3D"ltr" style=3D"font-size:12.8px;l=
-ine-height:1.38;margin-top:0pt;margin-bottom:0pt;margin-left:4.5pt"><span s=
-tyle=3D"font-size:8pt;font-family:Arial;background-color:transparent;vertic=
-al-align:baseline;white-space:pre-wrap"><font color=3D"#000000">Mobile: <a =
-href=3D"tel:+12623098501" value=3D"+17038593757" style=3D"color:rgb(17,85,2=
-04)" target=3D"_blank">+12623098501</a> </font></span></p><p dir=3D"ltr" st=
-yle=3D"font-size:12.8px;line-height:1.38;margin-top:0pt;margin-bottom:0pt;m=
-argin-left:4.5pt"><font color=3D"#000000"><span style=3D"font-size:8pt;font=
--family:Arial;background-color:transparent;vertical-align:baseline;white-sp=
-ace:pre-wrap">Website: </span><a href=3D"https://www.freeswitch.com/" style=
-=3D"color:rgb(17,85,204)" target=3D"_blank"><span style=3D"font-size:8pt;fo=
-nt-family:Arial;background-color:transparent;vertical-align:baseline;white-=
-space:pre-wrap">https://www.FreeSWITCH.com</span></a></font></p><p dir=3D"l=
-tr" style=3D"font-size:12.8px;line-height:1.2;margin-top:0pt;margin-bottom:=
-0pt"><font color=3D"#000000"><a href=3D"https://www.facebook.com/freeswitch=
-/" style=3D"color:rgb(17,85,204)" target=3D"_blank"><span style=3D"font-siz=
-e:11pt;font-family:Arial;background-color:transparent;vertical-align:baseli=
-ne;white-space:pre-wrap"><img src=3D"https://lh6.googleusercontent.com/l9_7=
-QxvYIM4pcdS6eXAkIOZKqHnR2mYmt879_LZ93jSG-uGqOLzO0KVlBzTnPxn7QwU7I0Ednhi0MT_=
-4nRGSobPt4f-LXMWr891Agu25Mvx-AD3k45rf6vUBquJW8NMPkHb_DBaK" width=3D"23" hei=
-ght=3D"23" alt=3D"color-facebook-96.png" style=3D"border: none;"></span></a=
-><span style=3D"font-size:11pt;font-family:Arial;background-color:transpare=
-nt;vertical-align:baseline;white-space:pre-wrap"><a href=3D"https://twitter=
-.com/freeswitch?ref_src=3Dtwsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor" s=
-tyle=3D"color:rgb(17,85,204)" target=3D"_blank"><img src=3D"https://lh5.goo=
-gleusercontent.com/_iuGyx4UVI8fg3j3y7xgK6SX7BeTVYO7CLvH29tkkdgRnugoB6Ry39J5=
-IcLdAKinOWuYrprkLisaB8sxMNrHgXAaHBy-GC1510iJrNIwBP5bCM_LGbOisxBTgao6yWITZ4l=
-gQZVD" width=3D"23" height=3D"23" alt=3D"color-twitter-96.png" style=3D"bor=
-der: none;"></a></span></font></p></div></div></div>
-
---00000000000098e40105a1e4acf0--
-
---===============8365837784881689391==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8365837784881689391==--
+RGF2ZSBUYWh0IDxkYXZlLnRhaHRAZ21haWwuY29tPiB3cml0ZXM6Cgo+PiBTbzogMS4gV2UgcmVh
+bGx5IHNob3VsZCByZXRoaW5rIGhvdyB0aW1pbmctc2Vuc2l0aXZlIGFsZ29yaXRobXMgYXJlCj4+
+IGV4cHJlc3NlZCwgYW5kIGl0IGlzbid0IGdvbm5hIGJlIGdvb2QgdG8gYmFzZSB0aGVtIG9uIHNl
+bWFwaG9yZXMgYW5kCj4+IHRocmVhZHMgdGhhdCBydW4gYXQgcmFuZG9tIHJhdGVzLiBUaGF0IG1l
+YW5zIGEgdmVyeSBkaWZmZXJlbnQgT1MKPj4gY29uY2VwdHVhbCBmcmFtZXdvcmsuIENhbiB0aGlz
+IHNoYXJlIHdpdGgsIHNheSwgdGhlIExpbnV4IHdlIGtub3cgYW5kCj4+IGxvdmUgLSB5ZXMsIHRo
+ZSBoYXJkd2FyZSBjYW4gYmUgc2hhcmVkLiBPbmUgc2hvdWxkIGJlIGFibGUgdG8KPj4gZGVkaWNh
+dGUgdmlydHVhbCBwcm9jZXNzb3JzIHRoYXQgYXJlIG5vdCBydW5uaW5nIExpbnV4IHByb2Nlc3Nl
+cywgYnV0Cj4+IGluc3RlYWQgYW5vdGhlciBjb21wdXRhdGlvbmFsIG1vZGVsIChkYXRhZmxvdz8p
+Lgo+Cj4gTGludXggc3dpdGNoZWQgdG8gYW4gRURGIG1vZGVsIGZvciBuZXR3b3JraW5nIGluIDUu
+MAoKTm90IGVudGlyZWx5LiBUaGVyZSdzIEVEVCBzY2hlZHVsaW5nLCBhbmQgdGhlIFRDUCBzdGFj
+ayBpcyBtb3N0bHkKc3dpdGNoZWQgb3ZlciwgSSB0aGluay4gQnV0IGFzIGFsd2F5cywgTGludXgg
+ZXZvbHZlcyBwaWVjZW1hbCA6KQoKPj4gMi4gRUJQRiBpcyBpbnRlcmVzdGluZywgYmVjYXVzZSBp
+dCBpcyBtb3JlIHNlY3VyZSwgYW5kIGlzIGFnYWluCj4+IGZvY3VzZWQgb24gcnVubmluZyBjb2Rl
+IGF0IGtlcm5lbCBsZXZlbCwgZXZlbnQtZHJpdmVuLiBJIHRoaW5rIGl0Cj4+IHdvdWxkIGJlIGEg
+c2VyaW91c2x5IGRpZmZpY3VsdCBsaWZ0IHRvIGdldCBpdCB0byB0aGUgcG9pbnQgd2hlcmUgb25l
+Cj4+IGNvdWxkIHByb2dyYW0gdGhlIG5ldHdvcmtlZCBtZWRpYSBwcm9jZXNzaW5nIGluIEJQRi4K
+Pgo+IEJ1dCB0aGVyZSBpcyBodWdlIGRlbWFuZCBmb3IgaXQsIHNvIHBlb3BsZSBhcmUgd3JpdGlu
+ZyB3YXkgbW9yZSBpbiBpdAo+IHRoYW4gaSBldmVyIGV2ZXIgdGhvdWdodCBwb3NzaWJsZS4uLiBv
+ciBkZXNpcmFibGUuCgpUZWxsIG1lIGFib3V0IGl0LgoKV2UgaGF2ZSBzZWVuIGEgYml0IG9mIGlu
+dGVyZXN0IGZvciBjb21iaW5pbmcgZUJQRiB3aXRoIHJlYWx0aW1lLCB0aG91Z2guCldpdGggdGhl
+IHVwc3RyZWFtaW5nIG9mIHRoZSByZWFsdGltZSBjb2RlLCBzdXBwb3J0IGhhcyBsYW5kZWQgZm9y
+CnJ1bm5pbmcgZUJQRiBldmVuIG9uIHJlYWx0aW1lIGtlcm5lbHMuIEFuZCB3ZSdyZSBzdGFydGlu
+ZyB0byBzZWUgYSBiaXQKb2YgaW50ZXJlc3QgZm9yIGxvb2tpbmcgc3BlY2lmaWNhbGx5IGF0IGxh
+dGVuY3kgYm91bmRzIGZvciBuZXR3b3JrCnByb2Nlc3NpbmcgKGZvciBUU04pLCBpbmNsdWRpbmcg
+WERQLiBOb3RoaW5nIGNvbmNyZXRlIHlldCwgdGhvdWdoLgoKLVRva2UKCl9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VA
+bGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3Rp
+bmZvL2Nha2UK
