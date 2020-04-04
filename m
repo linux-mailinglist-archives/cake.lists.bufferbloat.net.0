@@ -2,64 +2,66 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D3E2619E2A3
-	for <lists+cake@lfdr.de>; Sat,  4 Apr 2020 06:12:38 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 370EC19E5EB
+	for <lists+cake@lfdr.de>; Sat,  4 Apr 2020 16:47:10 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 819993CB3D;
-	Sat,  4 Apr 2020 00:12:32 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 68A433CB3E;
+	Sat,  4 Apr 2020 10:47:04 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1585973552;
-	bh=B77fFUPNsOITclr6FbTGthMoPkkIknMGfK/gKXc2/bM=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=mUPtDE6AmK66VhcEsu23rfOvW1NqhLSsZl1DeMxVHsk/saV4d0bkU1F3l+MiZJXZz
-	 HdGfupz4hvAv4Nk9EMkBU8dNXxJdB/ytCszZ/kvR6+0EU4zkwhjfkKs6BZ/GK66TNP
-	 yOox5NcgBCbZ7RD8Sw8PpNEIT3Ohi7vUnEaAOKVvcpU+u+Z5dacg0I+MbHSZscCV/P
-	 zp5yKC5djPgbXPHdpv6rZ2BBfacVNC94pyTDL33cyH7S2ltoMqQkiJW2B/UkAMmteB
-	 9Hus1iIGG0EPaq6Wan3HspWRve9vf4nVFshsdZDRylyN34Oa3RqQTt4uTj73QfhSyr
-	 ZH2lVw37Aok/A==
+	d=lists.bufferbloat.net; s=201610; t=1586011624;
+	bh=8wsMnTKermfscVFceat0YKVmjCRkzDHn2ekodsRXgTU=;
+	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=EPi36W0JKT7DdYlmzrZ5TRdtBnNCqumlmuzZY7aruNsc2d9PsXkAFn+W4UEBCZfVw
+	 czrMrhjZn/BPEA1VmKFymbts6ilu5zr9aDm3N38hCm+44BQp8fj7Fl/xCPHAbH27Mc
+	 kLM3IsuCcrEyvFuiNSe6LkLcLt+ZidmDOTs2Dtn2XgeXbWUwzEfKUt7EUkC4atdz0C
+	 APl2qZf+FBTwChcrvde/M9nsSA02CefS1uNZY0vAwbDMoDOaThxZvBTRy2TS6Jv3GB
+	 BlMPCSgioxgJmcWvCDV8G7uw1XQ2rvuFae8xbLiQM9lGgq3Gtq9n6y0+0sHq2nBE3v
+	 IL7RRmnkCbJUw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-qk1-x72f.google.com (mail-qk1-x72f.google.com
- [IPv6:2607:f8b0:4864:20::72f])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from smtp127.iad3a.emailsrvr.com (smtp127.iad3a.emailsrvr.com
+ [173.203.187.127])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id B5DE23B29D;
- Sat,  4 Apr 2020 00:12:30 -0400 (EDT)
-Received: by mail-qk1-x72f.google.com with SMTP id o18so7610599qko.12;
- Fri, 03 Apr 2020 21:12:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to;
- bh=L4AUclCG6cnNRVbeQyiHxWnQxOahfqP1GFYmiCLdL30=;
- b=jWqrCv38RRS3nM7rrXE+BgBiN32MRnumPUBvm7wpdqXIuSQ/pHZV1S0K97dWKnYSeT
- rgTmn44xl57xcQMTGoC6OhmBZMIGC+kySTa0TDc0yg5brXheuNibY31rxs2lr2sy1JEE
- PhGslLmgoKMk1aeqFBTvizPFo0iCLzAWzdGFOEeN9rWbfgyuAIBjv0V4JZsr6ZFHcGsY
- UIOrD57mv7wDvPDYyli/ptKM6zorhhsmQcfir2ehb8zsqMBlTFWexJy5DQnA877+yLn1
- AkN1X82m5LmIeYpU4B3A4GZbsNqsx1NoOHW64asyHHUWOKqEQJ3gAnmUHFWQUxizzCW4
- aA9g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=L4AUclCG6cnNRVbeQyiHxWnQxOahfqP1GFYmiCLdL30=;
- b=K2bo/VreymOGF97x8gLK22/VMJkIcGMJbT4AfzB3G3vKlA4E/bbWCG4X21l7mJAerG
- dPfgkorGlahJ/52fNXm/tL5Zz5SyPCiacPOipsqIE6ms+jtQsWMjLaOCQU1xTbtQFYjC
- 54R8/8x3xncxyxK7/yKpjRHp8MD7a9eXx8g5MRS8jPMoVNHoLQnHZJuN793AzHLsjnLe
- FAgkFuHoHpsR+2xa95gVIqS71OEcvor/0RIvwcEflkcEQm/QWOLVcexBrQ2+8c9NV3e4
- Tqc8vdlyZuBM2/e5bVw3/g1bSfz0heCz3B/IVdn7Au+IKODEbOx3lVCKuEuAvzzZsacO
- NIaw==
-X-Gm-Message-State: AGi0PuZsJjohKgksIT5V6TRGl9Rx2eQg22Bs0jOsqogzdm+Ka4I+Lwih
- IJdZbcEwsv/t4GFb+SINN3zqniQIPa19aSail7s6GwBb
-X-Google-Smtp-Source: APiQypIi0CRmJMQVao1ZYon8oNdlNw3lNIQJM+VsrenUTKFlajAiMsOkau6iDa7EhBm3Goz/ofLArD9gD2Oe/gWLOqM=
-X-Received: by 2002:a05:620a:2231:: with SMTP id
- n17mr12609515qkh.189.1585973550063; 
- Fri, 03 Apr 2020 21:12:30 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 072E43CB37
+ for <cake@lists.bufferbloat.net>; Sat,  4 Apr 2020 10:47:02 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
+ s=20190322-9u7zjiwi; t=1586011622;
+ bh=KDAW1GV+fyyOb8x2zQR32vRJlk+13yZXLHn5sJqmPZ4=;
+ h=Date:Subject:From:To:From;
+ b=Rw1Q0Ytz0FA2rj0hW633HqkR+pe57nzZN4bR5RJfAf+uDyc+t+xHJ38x7NalxTsyf
+ h2xYDh5ImwVABpibAW0RRVatsVpbRkvkGlTVdSn90C2xPQD3m7vLevY/aHAcerOEt5
+ P3bVyFgiWrdkR1HMdYbjHPYEQ6Wsuv4sjs056s6M=
+Received: from app23.wa-webapps.iad3a (relay-webapps.rsapps.net
+ [172.27.255.140])
+ by smtp24.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id AE2092332E;
+ Sat,  4 Apr 2020 10:47:02 -0400 (EDT)
+X-Sender-Id: dpreed@deepplum.com
+Received: from app23.wa-webapps.iad3a (relay-webapps.rsapps.net
+ [172.27.255.140]) by 0.0.0.0:25 (trex/5.7.12);
+ Sat, 04 Apr 2020 10:47:02 -0400
+Received: from deepplum.com (localhost.localdomain [127.0.0.1])
+ by app23.wa-webapps.iad3a (Postfix) with ESMTP id 9B41661537;
+ Sat,  4 Apr 2020 10:47:02 -0400 (EDT)
+Received: by apps.rackspace.com
+ (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
+ with HTTP; Sat, 4 Apr 2020 10:47:02 -0400 (EDT)
+X-Auth-ID: dpreed@deepplum.com
+Date: Sat, 4 Apr 2020 10:47:02 -0400 (EDT)
+From: "David P. Reed" <dpreed@deepplum.com>
+To: "Aaron Wood" <woody77@gmail.com>
 MIME-Version: 1.0
-From: Aaron Wood <woody77@gmail.com>
-Date: Fri, 3 Apr 2020 21:12:19 -0700
-Message-ID: <CALQXh-P1JGWHXQYnRd68woqj-C8CLxaxeD5=4xjYLYiLubkSeQ@mail.gmail.com>
-To: cake@lists.bufferbloat.net, bloat <bloat@lists.bufferbloat.net>, 
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>
-Subject: [Cake] New board that looks interesting
+Importance: Normal
+X-Priority: 3 (Normal)
+X-Type: plain
+In-Reply-To: <CALQXh-P1JGWHXQYnRd68woqj-C8CLxaxeD5=4xjYLYiLubkSeQ@mail.gmail.com>
+References: <CALQXh-P1JGWHXQYnRd68woqj-C8CLxaxeD5=4xjYLYiLubkSeQ@mail.gmail.com>
+Message-ID: <1586011622.632930657@apps.rackspace.com>
+X-Mailer: webmail/17.3.5-RC
+X-Classification-ID: 1269ce5d-9b75-48a3-a1f8-de617153be20-1-1
+Subject: Re: [Cake] New board that looks interesting
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -71,50 +73,28 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============5959340780686657057=="
+Cc: cake@lists.bufferbloat.net,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============5959340780686657057==
-Content-Type: multipart/alternative; boundary="00000000000013259a05a26f3ecf"
-
---00000000000013259a05a26f3ecf
-Content-Type: text/plain; charset="UTF-8"
-
-https://www.seeedstudio.com/ODYSSEY-X86J4105800-p-4445.html
-
-quad-core Celeron J4105 1.5-2.5 GHz x64
-8GB Ram
-2x i211t intel ethernet controllers
-intel 9560 802.11ac (wave2) wifi/bluetooth chipset
-intel built-in graphics
-onboard ARM Cortex-M0 and RPi & Arduino headers
-m.2 and PCIe adapters
-<$200
-
---00000000000013259a05a26f3ecf
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr"><a href=3D"https://www.seeedstudio.com/OD=
-YSSEY-X86J4105800-p-4445.html">https://www.seeedstudio.com/ODYSSEY-X86J4105=
-800-p-4445.html</a><br></div><div dir=3D"ltr"><br></div><div>quad-core Cele=
-ron J4105 1.5-2.5 GHz x64</div><div>8GB Ram</div><div>2x i211t intel ethern=
-et controllers</div><div>intel 9560 802.11ac (wave2) wifi/bluetooth chipset=
-</div><div>intel built-in graphics</div><div>onboard ARM Cortex-M0 and RPi =
-&amp; Arduino headers</div><div>m.2 and PCIe adapters</div><div>&lt;$200</d=
-iv><div><br></div><div><br></div></div>
-
---00000000000013259a05a26f3ecf--
-
---===============5959340780686657057==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============5959340780686657057==--
+VGhhbmtzISBJIG9yZGVyZWQgb25lIGp1c3Qgbm93LiBJbiBteSBleHBlcmllbmNlLCB0aGlzIGNv
+bXBhbnkgZG9lcyByYXRoZXIgbmVhdCBzdHVmZi4gVGhlaXIgWE1PUyBiYXNlZCBtaWNyb3Bob25l
+IGFycmF5IChSZVNwZWFrZXIpIGlzIHJlYWxseSB1c2VmdWwuIFdoYXQncyB0aGUgc3RhdGUgb2Yg
+cGxheSBpbiBMaW51eC9PcGVuV1JUIGZvciBJbnRlbCA5NTYwIGNhcGFiaWxpdGllcyByZWdhcmRp
+bmcgQVFNPwoKT24gU2F0dXJkYXksIEFwcmlsIDQsIDIwMjAgMTI6MTJhbSwgIkFhcm9uIFdvb2Qi
+IDx3b29keTc3QGdtYWlsLmNvbT4gc2FpZDoKCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX18KPiBDYWtlIG1haWxpbmcgbGlzdAo+IENha2VAbGlzdHMuYnVm
+ZmVyYmxvYXQubmV0Cj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2Fr
+ZQo+IGh0dHBzOi8vd3d3LnNlZWVkc3R1ZGlvLmNvbS9PRFlTU0VZLVg4Nko0MTA1ODAwLXAtNDQ0
+NS5odG1sCj4gCj4gcXVhZC1jb3JlIENlbGVyb24gSjQxMDUgMS41LTIuNSBHSHogeDY0Cj4gOEdC
+IFJhbQo+IDJ4IGkyMTF0IGludGVsIGV0aGVybmV0IGNvbnRyb2xsZXJzCj4gaW50ZWwgOTU2MCA4
+MDIuMTFhYyAod2F2ZTIpIHdpZmkvYmx1ZXRvb3RoIGNoaXBzZXQKPiBpbnRlbCBidWlsdC1pbiBn
+cmFwaGljcwo+IG9uYm9hcmQgQVJNIENvcnRleC1NMCBhbmQgUlBpICYgQXJkdWlubyBoZWFkZXJz
+Cj4gbS4yIGFuZCBQQ0llIGFkYXB0ZXJzCj4gPCQyMDAKPiAKCgpfX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3Rz
+LmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9j
+YWtlCg==
