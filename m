@@ -2,68 +2,52 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 148191B2F72
-	for <lists+cake@lfdr.de>; Tue, 21 Apr 2020 20:45:08 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A921F1B329F
+	for <lists+cake@lfdr.de>; Wed, 22 Apr 2020 00:25:59 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id D09843CB42;
-	Tue, 21 Apr 2020 14:45:06 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 3D28A3CB42;
+	Tue, 21 Apr 2020 18:25:58 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1587494706;
-	bh=XNWqSMgnLVTZ0BPR7hm3EGPaOKcf9rttZMPtOfwFae0=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1587507958;
+	bh=NqY3pcDlWhzJU7TgXl44KG66gBeYI2ej0sJSPsCzWtM=;
+	h=From:Date:In-Reply-To:To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=XgBu3H6ODlAXnNsO6sgz6rxAKh2cAxICnHcfVjXF9eaMipA3BJmKtC+3/FHJcfR8t
-	 6kLo8riwckYYpjZKYJ/G2narPLl+AnHyVSm0r8zz4T5fbIFIGusb1oocitHP3XZMet
-	 qd+5ecs+Db7SqjE1bWPxA1/7P7b8ZwHloe0aSjnnZmfVW7vdvZSLLbf1YbBWODaBNb
-	 rYxYvNCOxpf4O0/ZTvkcOyR4bBxZRICmHRHm1gYp2KCDm85R0HhQawx8M1O1U68PfN
-	 AEp/AE3Zb70CNMnwKnxe2EEMP9aA79CNp+c54Y0T1i902YTrmX8jnNB3syfGYneMUV
-	 +Hwbm5PyVS3IQ==
+	b=iFTKpMTFjTC2CVpOJkMbwdDckP09s5avxNSi37fbYZ7m672tok4GiA6lOukZIqhj8
+	 AatNPWWM6kEPpiIWGND2w/Ngzyzh4SNC8CxtxCopHns8KjsbyU+fFCsWZZ3iUQ4C4S
+	 8+IU3ht3GYeEV7XluMwFDgJI7RNvNDtHV+rHpPp1LwmijSnNN7YAQdRX7WOAeuEjtE
+	 i6TU4DaffzBn+I9Hlp4rX1bH11WDfULk44TI92b520Smcp4B0K7Ckjtax7n4cU6c8E
+	 ngRT9Kqk/5G/cz9ponDK/XLlhmxk9z7xHAKhvvBNJwkzjugb7aAjmV29fn29G7EU6Q
+	 KR9YMbbzEW5uA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-io1-xd33.google.com (mail-io1-xd33.google.com
- [IPv6:2607:f8b0:4864:20::d33])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from vps.slashdirt.org (vps.slashdirt.org [144.91.108.218])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 97CB93B29D
- for <cake@lists.bufferbloat.net>; Tue, 21 Apr 2020 14:45:05 -0400 (EDT)
-Received: by mail-io1-xd33.google.com with SMTP id e9so8527906iok.9
- for <cake@lists.bufferbloat.net>; Tue, 21 Apr 2020 11:45:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=qaVr5qV5XK+eNleFJqyGv5nLtnd1470HUzuGruMBuyg=;
- b=XWT3GouBQDqksBryuwcJJ6tbnNWOOIEuh6g/4rynO+2RAPNVUNPXTSKosyK1vuFaap
- zSljFtIhbvHRBev0DySM6cDqht6jIQXQfrBPKG8TI6bLKrDyYkHynWyS/otTyosaqhGM
- jWZe+YQoicjf06QPpoyAUcfEZ8GXE9Iiq+7CZbGMYvQD7pOAt5Fy58V+ThBx/pM6t/l8
- uCHlI59RvSfz+zXnry1KyY5XGDwB5zMvr0ULvDHufGsLB4LEUvDfWJ/LBJ7PvMqvsdK6
- y/h3VEuDN6Co6HaWk5jLduyTSQl9hHPpaXKZioJswQi6fMXOJcorcKKc89kXA35KvSl0
- iehQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=qaVr5qV5XK+eNleFJqyGv5nLtnd1470HUzuGruMBuyg=;
- b=EOhq3oGufUwjxhQ9bGNBAPsYv9U7nmABs150a72zOOD9xepHGTaxvH5u3hdWQGaHn7
- DPIqB5A0Ke1qNF+B71x9rrBeGdaZZCRSPjzP7FB0JuJMSLwf4Tka5FiehTZjJsNQ7pGT
- Gxm6VRSGBMMc/mTofd/rfmv9oSqq7Zr7EI/B1sidWHOgJv20jHNKRVdezbcEZEeFTUIZ
- xdfTuSqBdj4KrUyKbUTnyWAtFSTTYXkMu3in7h0xE4YUenoGY+iV+5zCaTRe+Wtna1gy
- ltE5sgQn8PmWQXfXCQSYUXu/ogZNSNsdwAIfkRV25F2O0WUieX+pXmrb9UlH4tRPZ9wy
- AXgQ==
-X-Gm-Message-State: AGi0PubDS/EGNb5klMGW0K+y/Kdgwebol4CjhNgPzCFR+x1sTC6ZBubI
- P4j2658usbKVTPQBiRLn8ZXUs8Gji28itJQmWG9Y9PFcoJE=
-X-Google-Smtp-Source: APiQypIt7lS1c5IyDEyujpZiHnnToDgoWxmKgws5sxUeyXE2ZYC2bJMhw6SkMpEYjsxUagbdQEY9ystHv2Xae7ghXMo=
-X-Received: by 2002:a6b:b8d6:: with SMTP id
- i205mr22960880iof.123.1587494704923; 
- Tue, 21 Apr 2020 11:45:04 -0700 (PDT)
-MIME-Version: 1.0
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 1A7603B29D
+ for <cake@lists.bufferbloat.net>; Tue, 21 Apr 2020 18:25:57 -0400 (EDT)
+Received: from chuck.tardis.lan (tardis.herebedragons.eu [171.22.3.161])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by vps.slashdirt.org (Postfix) with ESMTPSA id CB526600A9;
+ Wed, 22 Apr 2020 00:25:55 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 vps.slashdirt.org CB526600A9
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=slashdirt.org; s=mail;
+ t=1587507956; bh=rjwKtEOXK4jgpDx9SAm0xlFuoooBKdScOxOD0Ck4vEA=;
+ h=From:Subject:Date:In-Reply-To:Cc:To:References:From;
+ b=r3jEif/zIjxBQPmb8D6oxm3+M3yD6TUnHxQ6JaQzU6yN79i0vRb8GavntVg3nXc64
+ /opG9ICEsWJCObmLo7W5BJXc+lMVCAkjhO4JRSkGeKOvQWhGtVvwwG8PZmDC1Xl56a
+ 1Oa+KmBrUf0hV9cFbI9Z+UP0YVLuHgfFCqaEbcWA=
+From: Thibaut <hacks@slashdirt.org>
+Message-Id: <AAAE0AE6-BA8C-4236-A68D-C5A4CF7DFEDA@slashdirt.org>
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.14\))
+Date: Wed, 22 Apr 2020 00:25:55 +0200
+In-Reply-To: <CAA93jw7kfSjuQP2j8uX5-+hs2PBLNZ6c0=tV=PjZE50fQ1oFLw@mail.gmail.com>
+To: Dave Taht <dave.taht@gmail.com>
 References: <d3f45591-7359-47a6-bd0b-f89f9b49c5a7@www.fastmail.com>
  <75FEC2D9-BFC8-4FA2-A972-D11A823C5528@gmail.com>
-In-Reply-To: <75FEC2D9-BFC8-4FA2-A972-D11A823C5528@gmail.com>
-From: Dave Taht <dave.taht@gmail.com>
-Date: Tue, 21 Apr 2020 11:44:52 -0700
-Message-ID: <CAA93jw7kfSjuQP2j8uX5-+hs2PBLNZ6c0=tV=PjZE50fQ1oFLw@mail.gmail.com>
-To: Jonathan Morton <chromatix99@gmail.com>
+ <CAA93jw7kfSjuQP2j8uX5-+hs2PBLNZ6c0=tV=PjZE50fQ1oFLw@mail.gmail.com>
+X-Mailer: Apple Mail (2.3445.104.14)
 Subject: Re: [Cake] Advantages to tightly tuning latency
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -77,63 +61,201 @@ List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============5822791421118460878=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SXQgaGFzIGFsd2F5cyBiZWVuIG15IGRyZWFtLCB0aGF0IGF0IGxlYXN0IGZvciBvdXRib3VuZCwg
-dGhlcmUgd291bGQKYmUgc3VmZmljaWVudCBiYWNrcHJlc3N1cmUgZnJvbSB0aGUgZHJpdmVyCnRv
-IG5vdCBoYXZlIHRvIHNoYXBlIGF0IGFsbCwgb3IgbW9uaXRvciB0aGUgbGluay4gV2UgaGF2ZSB0
-aGF0IG5vdyBpbgpCUUwgYW5kIEFRTC4gZnJlZS5mcidzIGRzbCBkcml2ZXIgImRvZXMgdGhlIHJp
-Z2h0IHRoaW5nIiAtIG5vIG90aGVyCmRzbCBkcml2ZXIgZG9lcy4gTm9yIHVzYiBuZXR3b3JrIGRl
-dmljZXMuIEkgaG9wZSBtb3JlIGZvbGsgcm9sbCB1cAp0aGVpciBzbGVldmVzIGFuZCB0ZXN0IHRo
-ZSBhdGgxMGsgc29tZSwgaXQncyBsb29raW5nIGxvdmVseSBmcm9tIGhlcmUuCgpodHRwczovL2Zv
-cnVtLm9wZW53cnQub3JnL3QvYXFsLWFuZC10aGUtYXRoMTBrLWlzLWxvdmVseS8KCm5leHQgdXAg
-ZWl0aGVyIHRoZSBuZXcgbWVkaWF0ZWsgY2hpcCBvciBpbnRlbC4uCgpPbiBUdWUsIEFwciAyMSwg
-MjAyMCBhdCAxMTo0MCBBTSBKb25hdGhhbiBNb3J0b24gPGNocm9tYXRpeDk5QGdtYWlsLmNvbT4g
-d3JvdGU6Cj4KPiA+IE9uIDIxIEFwciwgMjAyMCwgYXQgOToyMiBwbSwgSnVzdGluIEtpbHBhdHJp
-Y2sgPGp1c3RpbkBhbHRoZWEubmV0PiB3cm90ZToKPiA+Cj4gPiBJIGhhdmUgYSBmcmVxdWVudGx5
-IGNoYW5naW5nIGxpbmsgSSdtIHVzaW5nIGF1dG9tYXRlZCB0b29scyB0byBtb25pdG9yIGFuZCB0
-dW5lIHVzaW5nIENha2UuIEN1cnJlbnRseSBJJ20gb25seSB0dW5pbmcgYmFuZHdpZHRoIHBhcmFt
-ZXRlciB1c2luZyBsYXRlbmN5IGFuZCBwYWNrZXQgbG9zcyBkYXRhLgo+ID4KPiA+IE15IHJlYWRp
-bmcgb2YgdGhlIGNvZGVsIFJGQyBzZWVtcyB0byBzYXkgdGhhdCB0cnlpbmcgdG8gdHVuZSB0aGUg
-J2ludGVydmFsJyB2YWx1ZSB1c2luZyBrbm93biBwYXRoIGFuZCBsaW5rIGxhdGVuY3kgd29uJ3Qg
-cHJvdmlkZSBhbnkgYWR2YW50YWdlcyBvdmVyIGp1c3QgdHVuaW5nIHRoZSBiYW5kd2lkdGggcGFy
-YW1ldGVyLgo+ID4KPiA+IE9idmlvdXNseSBjb2RlbCBpcyBqdXN0IG9uZSBwYXJ0IG9mIHRoZSBD
-YWtlIHNldHVwIGFuZCBJJ20gd29uZGVyaW5nIGlmIHRoZXJlIGFyZSBhbnkgYWR2YW50YWdlcyBJ
-J20gbWlzc2luZyBieSBub3QgcHJvdmlkaW5nIHRoaXMgZXh0cmEgaW5wdXQgdXNpbmcgZGF0YSBJ
-IGFscmVhZHkgZ2F0aGVyLgo+Cj4gVGhlIGRlZmF1bHQgbGF0ZW5jeSBwYXJhbWV0ZXJzIGFyZSB0
-dW5lZCB3ZWxsIGZvciBnZW5lcmFsIEludGVybmV0IHBhdGhzLiAgVGhlIG1lZGlhbiBwYXRoIGxl
-bmd0aCBvbiB0aGUgcHVibGljIEludGVybmV0IGlzIGFib3V0IDgwbXMsIGZvciB3aGljaCB0aGUg
-ZGVmYXVsdCBpbnRlcnZhbCBvZiAxMDBtcyBhbmQgdGFyZ2V0IG9mIDVtcyB3b3JrcyB3ZWxsLiAg
-Q29kZWwgaXMgYWxzbyBkZXNpZ25lZCB0byBhY2NvbW1vZGF0ZSBhIHNpZ25pZmljYW50IGRldmlh
-dGlvbiBmcm9tIHRoZSBleHBlY3RlZCBwYXRoIGxlbmd0aCB3aXRob3V0IHRvbyBtdWNoIGRpZmZp
-Y3VsdHkuCj4KPiBJIHRoaW5rIGl0J3Mgb25seSB3b3J0aCB0cnlpbmcgdG8gYWRqdXN0IHRoaXMg
-aWYgeW91ciB0eXBpY2FsIHBhdGggaXMgc3Vic3RhbnRpYWxseSBkaWZmZXJlbnQgZnJvbSB0aGF0
-IG5vcm0uICBJZiBhbGwgeW91ciB0cmFmZmljIGdvZXMgb3ZlciBhIHNhdGVsbGl0ZSBsaW5rLCBm
-b3IgZXhhbXBsZSwgdGhlIGRlZmF1bHQgcGFyYW1ldGVycyBtaWdodCBiZSB0b28gdGlnaHQuICBJ
-ZiB0aGUgdmFzdCBtYWpvcml0eSBvZiBpdCBnb2VzIHRvIGEgbG9jYWwgQ0ROLCB5b3UgY291bGQg
-dHJ5IHRoZSAibWV0cm8iIGtleXdvcmQgdG8gdGlnaHRlbiB0aGluZ3MgdXAgYSBiaXQuICBPdGhl
-cndpc2UsIHlvdSdsbCBiZSBmaW5lLgo+Cj4gQWxzbywgbW9zdCBwcm90b2NvbHMgYXJlIGFjdHVh
-bGx5IG5vdCB2ZXJ5IHNlbnNpdGl2ZSB0byBob3cgdGlnaHQgdGhlIEFRTSBpcyBzZXQgaW4gdGhl
-IGZpcnN0IHBsYWNlLiAgRWl0aGVyIHRoZXkgZG9uJ3QgcmVhbGx5IGNhcmUgYWJvdXQgbGF0ZW5j
-eSBhdCBhbGwgKGVnLiBidWxrIGRvd25sb2Fkcykgb3IgdGhleSBhcmUgbGF0ZW5jeS1zZW5zaXRp
-dmUgYnV0IGFsc28gc3BhcnNlIChlZy4gRE5TLCBOVFAsIFZvSVApLiAgU28gdGhleSBhcmUgbW9y
-ZSBpbnRlcmVzdGVkIGluIGJlaW5nIGlzb2xhdGVkIGZyb20gdGhlIGluZmx1ZW5jZSBvZiBvdGhl
-ciBmbG93cywgd2hpY2ggQ2FrZSBkb2VzIHByZXR0eSB3ZWxsIHJlZ2FyZGxlc3Mgb2YgdGhlIEFR
-TSBzZXR0aW5ncy4KPgo+IEl0J3MgKmNvbnNpZGVyYWJseSogbW9yZSBpbXBvcnRhbnQgdG8gZW5z
-dXJlIHRoYXQgeW91ciBzaGFwZXIgaXMgY29uZmlndXJlZCBjb3JyZWN0bHkuICBUaGF0IG1lYW5z
-IHNldHRpbmcgbm90IG9ubHkgdGhlIGJhbmR3aWR0aCBwYXJhbWV0ZXIsIGJ1dCB0aGUgb3Zlcmhl
-YWQgcGFyYW1ldGVycyBhcyB3ZWxsLiAgQSBiYWQgc2hhcGVyIHNldHRpbmcgY291bGQgcmVzdWx0
-IGluIHNvbWUgb3IgYWxsIG9mIHlvdXIgdHJhZmZpYyBub3Qgc2VlaW5nIENha2UgYXMgdGhlIGVm
-ZmVjdGl2ZSBib3R0bGVuZWNrLCBhbmQgdGh1cyBub3QgcmVjZWl2aW5nIGl0cyBjYXJlLiAgVGhp
-cyBjYW4gYmUgYW4gb3JkZXJzLW9mLW1hZ25pdHVkZSBlZmZlY3QsIGRlcGVuZGluZyBvbiBqdXN0
-IGhvdyBibG9hdGVkIHRoZSB1bmRlcmx5aW5nIGhhcmR3YXJlIGlzLgo+Cj4gIC0gSm9uYXRoYW4g
-TW9ydG9uCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-PiBDYWtlIG1haWxpbmcgbGlzdAo+IENha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4gaHR0cHM6
-Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQoKCgotLSAKTWFrZSBNdXNpYywg
-Tm90IFdhcgoKRGF2ZSBUw6RodApDVE8sIFRla0xpYnJlLCBMTEMKaHR0cDovL3d3dy50ZWtsaWJy
-ZS5jb20KVGVsOiAxLTgzMS00MzUtMDcyOQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0
-Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+
+--===============5822791421118460878==
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_5C6C3759-3008-4C78-91B6-B51389B7DCFD"
+
+
+--Apple-Mail=_5C6C3759-3008-4C78-91B6-B51389B7DCFD
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+Hi,
+
+> Le 21 avr. 2020 =C3=A0 20:44, Dave Taht <dave.taht@gmail.com> a =C3=A9cr=
+it :
+>=20
+> It has always been my dream, that at least for outbound, there would
+> be sufficient backpressure from the driver
+> to not have to shape at all, or monitor the link. We have that now in
+> BQL and AQL. free.fr's dsl driver "does the right thing" - no other
+> dsl driver does.
+
+My curiosity is piqued. Can you elaborate on this? What does free.fr =
+<http://free.fr/> do?
+
+Thanks,
+Thibaut
+
+> Nor usb network devices. I hope more folk roll up
+> their sleeves and test the ath10k some, it's looking lovely from here.
+>=20
+> https://forum.openwrt.org/t/aql-and-the-ath10k-is-lovely/
+>=20
+> next up either the new mediatek chip or intel..
+>=20
+> On Tue, Apr 21, 2020 at 11:40 AM Jonathan Morton =
+<chromatix99@gmail.com> wrote:
+>>=20
+>>> On 21 Apr, 2020, at 9:22 pm, Justin Kilpatrick <justin@althea.net> =
+wrote:
+>>>=20
+>>> I have a frequently changing link I'm using automated tools to =
+monitor and tune using Cake. Currently I'm only tuning bandwidth =
+parameter using latency and packet loss data.
+>>>=20
+>>> My reading of the codel RFC seems to say that trying to tune the =
+'interval' value using known path and link latency won't provide any =
+advantages over just tuning the bandwidth parameter.
+>>>=20
+>>> Obviously codel is just one part of the Cake setup and I'm wondering =
+if there are any advantages I'm missing by not providing this extra =
+input using data I already gather.
+>>=20
+>> The default latency parameters are tuned well for general Internet =
+paths.  The median path length on the public Internet is about 80ms, for =
+which the default interval of 100ms and target of 5ms works well.  Codel =
+is also designed to accommodate a significant deviation from the =
+expected path length without too much difficulty.
+>>=20
+>> I think it's only worth trying to adjust this if your typical path is =
+substantially different from that norm.  If all your traffic goes over a =
+satellite link, for example, the default parameters might be too tight.  =
+If the vast majority of it goes to a local CDN, you could try the =
+"metro" keyword to tighten things up a bit.  Otherwise, you'll be fine.
+>>=20
+>> Also, most protocols are actually not very sensitive to how tight the =
+AQM is set in the first place.  Either they don't really care about =
+latency at all (eg. bulk downloads) or they are latency-sensitive but =
+also sparse (eg. DNS, NTP, VoIP).  So they are more interested in being =
+isolated from the influence of other flows, which Cake does pretty well =
+regardless of the AQM settings.
+>>=20
+>> It's *considerably* more important to ensure that your shaper is =
+configured correctly.  That means setting not only the bandwidth =
+parameter, but the overhead parameters as well.  A bad shaper setting =
+could result in some or all of your traffic not seeing Cake as the =
+effective bottleneck, and thus not receiving its care.  This can be an =
+orders-of-magnitude effect, depending on just how bloated the underlying =
+hardware is.
+>>=20
+>> - Jonathan Morton
+>> _______________________________________________
+>> Cake mailing list
+>> Cake@lists.bufferbloat.net
+>> https://lists.bufferbloat.net/listinfo/cake
+>=20
+>=20
+>=20
+> --=20
+> Make Music, Not War
+>=20
+> Dave T=C3=A4ht
+> CTO, TekLibre, LLC
+> http://www.teklibre.com
+> Tel: 1-831-435-0729
+> _______________________________________________
+> Cake mailing list
+> Cake@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/cake
+
+
+--Apple-Mail=_5C6C3759-3008-4C78-91B6-B51389B7DCFD
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" =
+class=3D"">Hi,<br class=3D""><div><br class=3D""><blockquote type=3D"cite"=
+ class=3D""><div class=3D"">Le 21 avr. 2020 =C3=A0 20:44, Dave Taht =
+&lt;<a href=3D"mailto:dave.taht@gmail.com" =
+class=3D"">dave.taht@gmail.com</a>&gt; a =C3=A9crit :</div><br =
+class=3D"Apple-interchange-newline"><div class=3D""><div class=3D"">It =
+has always been my dream, that at least for outbound, there would<br =
+class=3D"">be sufficient backpressure from the driver<br class=3D"">to =
+not have to shape at all, or monitor the link. We have that now in<br =
+class=3D"">BQL and AQL. <a href=3D"http://free.fr" =
+class=3D"">free.fr</a>'s dsl driver "does the right thing" - no other<br =
+class=3D"">dsl driver does. </div></div></blockquote><div><br =
+class=3D""></div><div>My curiosity is piqued. Can you elaborate on this? =
+What does <a href=3D"http://free.fr" =
+class=3D"">free.fr</a>&nbsp;do?</div><div><br =
+class=3D""></div><div>Thanks,</div><div>Thibaut</div><br =
+class=3D""><blockquote type=3D"cite" class=3D""><div class=3D""><div =
+class=3D"">Nor usb network devices. I hope more folk roll up<br =
+class=3D"">their sleeves and test the ath10k some, it's looking lovely =
+from here.<br class=3D""><br class=3D""><a =
+href=3D"https://forum.openwrt.org/t/aql-and-the-ath10k-is-lovely/" =
+class=3D"">https://forum.openwrt.org/t/aql-and-the-ath10k-is-lovely/</a><b=
+r class=3D""><br class=3D"">next up either the new mediatek chip or =
+intel..<br class=3D""><br class=3D"">On Tue, Apr 21, 2020 at 11:40 AM =
+Jonathan Morton &lt;chromatix99@gmail.com&gt; wrote:<br =
+class=3D""><blockquote type=3D"cite" class=3D""><br class=3D""><blockquote=
+ type=3D"cite" class=3D"">On 21 Apr, 2020, at 9:22 pm, Justin Kilpatrick =
+&lt;justin@althea.net&gt; wrote:<br class=3D""><br class=3D"">I have a =
+frequently changing link I'm using automated tools to monitor and tune =
+using Cake. Currently I'm only tuning bandwidth parameter using latency =
+and packet loss data.<br class=3D""><br class=3D"">My reading of the =
+codel RFC seems to say that trying to tune the 'interval' value using =
+known path and link latency won't provide any advantages over just =
+tuning the bandwidth parameter.<br class=3D""><br class=3D"">Obviously =
+codel is just one part of the Cake setup and I'm wondering if there are =
+any advantages I'm missing by not providing this extra input using data =
+I already gather.<br class=3D""></blockquote><br class=3D"">The default =
+latency parameters are tuned well for general Internet paths. &nbsp;The =
+median path length on the public Internet is about 80ms, for which the =
+default interval of 100ms and target of 5ms works well. &nbsp;Codel is =
+also designed to accommodate a significant deviation from the expected =
+path length without too much difficulty.<br class=3D""><br class=3D"">I =
+think it's only worth trying to adjust this if your typical path is =
+substantially different from that norm. &nbsp;If all your traffic goes =
+over a satellite link, for example, the default parameters might be too =
+tight. &nbsp;If the vast majority of it goes to a local CDN, you could =
+try the "metro" keyword to tighten things up a bit. &nbsp;Otherwise, =
+you'll be fine.<br class=3D""><br class=3D"">Also, most protocols are =
+actually not very sensitive to how tight the AQM is set in the first =
+place. &nbsp;Either they don't really care about latency at all (eg. =
+bulk downloads) or they are latency-sensitive but also sparse (eg. DNS, =
+NTP, VoIP). &nbsp;So they are more interested in being isolated from the =
+influence of other flows, which Cake does pretty well regardless of the =
+AQM settings.<br class=3D""><br class=3D"">It's *considerably* more =
+important to ensure that your shaper is configured correctly. &nbsp;That =
+means setting not only the bandwidth parameter, but the overhead =
+parameters as well. &nbsp;A bad shaper setting could result in some or =
+all of your traffic not seeing Cake as the effective bottleneck, and =
+thus not receiving its care. &nbsp;This can be an orders-of-magnitude =
+effect, depending on just how bloated the underlying hardware is.<br =
+class=3D""><br class=3D""> - Jonathan Morton<br =
+class=3D"">_______________________________________________<br =
+class=3D"">Cake mailing list<br class=3D"">Cake@lists.bufferbloat.net<br =
+class=3D"">https://lists.bufferbloat.net/listinfo/cake<br =
+class=3D""></blockquote><br class=3D""><br class=3D""><br class=3D"">-- =
+<br class=3D"">Make Music, Not War<br class=3D""><br class=3D"">Dave =
+T=C3=A4ht<br class=3D"">CTO, TekLibre, LLC<br =
+class=3D"">http://www.teklibre.com<br class=3D"">Tel: 1-831-435-0729<br =
+class=3D"">_______________________________________________<br =
+class=3D"">Cake mailing list<br class=3D"">Cake@lists.bufferbloat.net<br =
+class=3D"">https://lists.bufferbloat.net/listinfo/cake<br =
+class=3D""></div></div></blockquote></div><br class=3D""></body></html>=
+
+--Apple-Mail=_5C6C3759-3008-4C78-91B6-B51389B7DCFD--
+
+--===============5822791421118460878==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============5822791421118460878==--
