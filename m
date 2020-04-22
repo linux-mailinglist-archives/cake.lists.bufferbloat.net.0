@@ -2,73 +2,55 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D8E291B3310
-	for <lists+cake@lfdr.de>; Wed, 22 Apr 2020 01:27:44 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 13CDF1B3A05
+	for <lists+cake@lfdr.de>; Wed, 22 Apr 2020 10:28:42 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 9099B3CB42;
-	Tue, 21 Apr 2020 19:27:43 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 8D2333CB42;
+	Wed, 22 Apr 2020 04:28:40 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1587511663;
-	bh=dM/Eym4rA45LR38/KneyqdU/Z9tqXKdrEJ0QkosFawc=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1587544120;
+	bh=jzjb5VC4hv2Zej88FhlXobpnxGOKO6o8iCnUYrZrUbo=;
+	h=From:Date:In-Reply-To:To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=kq7DQAR9k+1z8xK8sDSTufpfGP1SDN5A0OcP2tx2fV3uTrmD25uHLOKIB503uCUCG
-	 bD5eipiT2E5nSXB2lrLGG9DGQwlLjx+VYhXlp59aeXWYutCzw2+/HqVi7bFnSxl37I
-	 t7DOBrw9Ga2z7U9LNbJMbvgi9GK8yYTAzFepWDxVWZdGtyC+CYYPRwQbkX5r4bsFjZ
-	 /0ArRitmO35PB1ajsVNYdWjYyhfA3UEnB+nnMpklFaF1wE8qsnnqgK1snzVT5BbW1g
-	 2aa5YR5AcmmGtapaBOGBIJjJPUha+Z1pMBUcRi6EAZky8GhN8KZuDnScSZgVtC7YKS
-	 7Zpo6qOxVxDfg==
+	b=Av+pKrOb0Idf8WSakHxt8/eR7fUt7me4LxTo+GGNlsuVO/ufBdGTna5iWB1i3Zmaa
+	 d/muKf/Z0ijWRtLXkCkU+9uPC9An0alKO87rT/Wp1SIX1QbQZjt5C8I5igyqVDKfDt
+	 vLuuVY21LGK0CrhtJk0GTMYzL3jjHOVmx8e/4tid8DEF/tLBMgVAIDoRWIFfxZ3Rbf
+	 JNGA3xqK0sUhRQesEVVvVN0nFqWNnm/Kdiyj09YvVW2X9CpxW7+xWT2Z4kAKuS8kcz
+	 b5cjDPVAmTCe3kaRP7qux4C9HvqZipUjTiZbrBbTvwbF79meEFrnqU0lnMIvu71mGl
+	 hOwUmLwXyqH6w==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-il1-x12a.google.com (mail-il1-x12a.google.com
- [IPv6:2607:f8b0:4864:20::12a])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from vps.slashdirt.org (vps.slashdirt.org [144.91.108.218])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 503C03B29D
- for <cake@lists.bufferbloat.net>; Tue, 21 Apr 2020 19:27:42 -0400 (EDT)
-Received: by mail-il1-x12a.google.com with SMTP id r2so89113ilo.6
- for <cake@lists.bufferbloat.net>; Tue, 21 Apr 2020 16:27:42 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=Ha1/f1Q/C9GBnZpJ8gcUE5BX1rV9QWA9BTGQr3abt+A=;
- b=Kzy/Ap6Nqt8pQiIYk0XwRqIdyKk6XkaJmtuGuLYYMby42IPW2fWjNP2/oiaxo+XNoA
- 66mzZcdTqnbvERFxmnlg+ziHw9d1cpU2G5ysyGr/AtLqp5KvG+peIlI9BKMOLBkGBnWk
- xN+MZyBNTCsdpI8w2PiiyKTqnCcN5CGhRAl0DyzZ86Hsvp2Zkv9jeLeKgidTXGTfbK0a
- j9aIhNOPVTi6e5RYBdwx5pMbFHJtioIFpZkFn3gwtDqV/HLKpUIT6Rq522N9fQe1Mfnx
- tx/jTAnP/gsDtkIO9C4CzQ+eOX4hb8M5VQkHSWNUDr2hV6tEu5QCcRw1TLyTMXjXwcnS
- wgiQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=Ha1/f1Q/C9GBnZpJ8gcUE5BX1rV9QWA9BTGQr3abt+A=;
- b=uRWNwQmqOPMThqeuuJFwg2DCnybd1AOJMvolqbg995QcyzFCvkFnakxSURQ4gciwUp
- Jf6c2wm5SyHwX9y4FkXWkeWMbaRQWTeAFEdeyXZCOA+WtB94yBzaS39sk6ike7Ccmfhu
- blb/qll7/qRaWBOFyVUMV3Qix720zHzWOFiwXDzsz8nBrtUxacsl4F+gNFTSxEJ6Gfwy
- sB/qcn7hJquaYyff+evEv9204o+BtdXEEeEq7bYkitps0XnME9aVQAMJc7Clp88/oHiA
- E+OdpGLU76C3LDZWD1efEquBOsHIBp2JMEhNlkUIHm5Thd/epTTX5+2IVMJtQJBmgCzZ
- qYVw==
-X-Gm-Message-State: AGi0PuZQc/t2EfZh4W3Xce1e+uXoeEeQSMFy9j52yVBK662fPmERxRJ/
- /h+0OMqet7ojwdqd/k9HXRIdpPE5v9uHkgfD9aw=
-X-Google-Smtp-Source: APiQypKOvkSKFjPIB/cl4fWQIEFIpWorUTRGlyL752qCGnXcJnEPeOSboyRc1vvagXzTuplswdjB2tQia+CJiCWhRl0=
-X-Received: by 2002:a92:c7a9:: with SMTP id f9mr9822451ilk.0.1587511661758;
- Tue, 21 Apr 2020 16:27:41 -0700 (PDT)
-MIME-Version: 1.0
+ by lists.bufferbloat.net (Postfix) with ESMTPS id E34843B29D
+ for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 04:28:38 -0400 (EDT)
+Received: from chuck.tardis.lan (tardis.herebedragons.eu [171.22.3.161])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by vps.slashdirt.org (Postfix) with ESMTPSA id 9C9C260075;
+ Wed, 22 Apr 2020 10:28:37 +0200 (CEST)
+DKIM-Filter: OpenDKIM Filter v2.11.0 vps.slashdirt.org 9C9C260075
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=slashdirt.org; s=mail;
+ t=1587544117; bh=rYf2pw1855Lfah/xdttTi6vc0BvjwkLD6t99IL8MMm8=;
+ h=From:Subject:Date:In-Reply-To:Cc:To:References:From;
+ b=nA0MANZ//yJ4QOUlpMfwTkgAWm6xAo9ZoAvtHJWibNNC5uTGbnP0DZQbxWJfMkQ6q
+ 64TzhnmeFudrEudb8Zwph1YqDkwV9kP8EzJVMqM35K/3eeOj7GSX14SQ8ikoRQQhEJ
+ j3miphQiPgJBZ/AsjhjJDRkct49X88bnC5cxY6O0=
+From: Thibaut <hacks@slashdirt.org>
+Message-Id: <E0E47C9C-F9AD-49B1-91D1-4B5CD4A8922F@slashdirt.org>
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.14\))
+Date: Wed, 22 Apr 2020 10:28:36 +0200
+In-Reply-To: <CAA93jw5yvybv+aXH4NLd1r_8xSP2CPwzeh0q6wm1c26jLPBxag@mail.gmail.com>
+To: Dave Taht <dave.taht@gmail.com>
 References: <d3f45591-7359-47a6-bd0b-f89f9b49c5a7@www.fastmail.com>
  <75FEC2D9-BFC8-4FA2-A972-D11A823C5528@gmail.com>
  <CAA93jw7kfSjuQP2j8uX5-+hs2PBLNZ6c0=tV=PjZE50fQ1oFLw@mail.gmail.com>
  <AAAE0AE6-BA8C-4236-A68D-C5A4CF7DFEDA@slashdirt.org>
  <603DFF79-D0C0-41BD-A2FB-E40B95A9CBB0@gmail.com>
  <CAA93jw5yvybv+aXH4NLd1r_8xSP2CPwzeh0q6wm1c26jLPBxag@mail.gmail.com>
- <CAA93jw4hr+YS+W371pEiVB0KLy88miHtXpTrnLpa85B5AjTA4A@mail.gmail.com>
- <2044323F-4CD0-4A75-91DF-FF2DA3E41B86@gmail.com>
-In-Reply-To: <2044323F-4CD0-4A75-91DF-FF2DA3E41B86@gmail.com>
-From: Dave Taht <dave.taht@gmail.com>
-Date: Tue, 21 Apr 2020 16:27:30 -0700
-Message-ID: <CAA93jw70uBiZrRTN4=yHXBg+oZZEg4s_ibYX7X1SLNFZ6if29g@mail.gmail.com>
-To: Jonathan Morton <chromatix99@gmail.com>
+X-Mailer: Apple Mail (2.3445.104.14)
 Subject: Re: [Cake] Advantages to tightly tuning latency
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -82,61 +64,170 @@ List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============5691385590501842192=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-T24gVHVlLCBBcHIgMjEsIDIwMjAgYXQgNDowNyBQTSBKb25hdGhhbiBNb3J0b24gPGNocm9tYXRp
-eDk5QGdtYWlsLmNvbT4gd3JvdGU6Cj4KPiA+IE9uIDIyIEFwciwgMjAyMCwgYXQgMTo1MCBhbSwg
-RGF2ZSBUYWh0IDxkYXZlLnRhaHRAZ21haWwuY29tPiB3cm90ZToKPiA+Cj4gPiBKb24sIGhvdydz
-IFNDRSBsb29raW5nPyByZWFkeSBmb3IgYSBiYWNrcG9ydCB5ZXQ/Cj4KPiBXZSBjYW4ndCBkbyBh
-bnkgc29ydCBvZiB3aWRlIGRlcGxveW1lbnQgb2YgU0NFIHVudGlsIGl0J3MgYmVlbiBhcHByb3Zl
-ZCBhcyBhbiBJbnRlcm5ldCBleHBlcmltZW50IGJ5IHRoZSBJRVRGLgoKSWYgdGhlIHByZXNlbnQg
-YWxnb3JpdGhtIG9uIHRoZSBxZGlzYyBpcyBzdGFibGUsIEknZCBsaWtlIHRvIHRyeSBpdCBvbiB3
-aWZpLgoKPiBJbnRlcmVzdGVkIGluZGl2aWR1YWxzIGNhbiBhbHJlYWR5IGNvbXBpbGUgdGhlIFND
-RS1lbmFibGVkIGtlcm5lbCBhbmQganVtcCB0aHJvdWdoIHRoZSBob29wcyB0byB0cnkgdGhpbmdz
-IG91dCAtIGNhcmVmdWxseS4gIFRoZXJlJ3MgYSBiaXQgb2YgaW5mcmFzdHJ1Y3R1cmUgY29kZSB0
-byBnbyB3aXRoIHRoZSBuZXcgVENQIGFsZ29yaXRobXMgYW5kIHFkaXNjcywgc28gSSdtIG5vdCBj
-ZXJ0YWluIGhvdyBlYXN5IGEgYmFja3BvcnQgd291bGQgYmU7IGJldHRlciB0byBqdXN0IGJ1aWxk
-IHRoZSAocmVsYXRpdmVseSkgY3VycmVudCBjb2RlIGZvciBub3cuCgpOb3Qgb24gb3BlbndydC4g
-SXQgc2VlbWVkIGVhc3kgdG8gYmFja3BvcnQganVzdCBjYWtlIHRoZXJlLCBhbmQgdGhlCnJlc3Qg
-b2YgdGhlIGNvZGUgb24gZGVkaWNhdGVkIHNlcnZlcnMgYW5kIGNsaWVudHMuIFNpbWlsYXJseSBJ
-J2QgdHJ5CmZvciB0aGUgd2lmaSBhdHRlbXB0IGFsc28uCgpJIGNhcmUgYWJvdXQgdGhlIGNwdSBp
-bXBhY3QgYSBsb3QuIEFsc28gYSByZWNlbnQgc3RyaW5nIG9mIHBvc3RpbmdzIG9uCm5ldGRldiB0
-aGF0IEkgaGF2ZSBoYWQgdG9vIG11Y2ggUFRTRCB0byByZXBseSB0byBzZWVtIHRvIGluZGljYXRl
-IHRoYXQKYWNjZWNuICpyZXF1aXJlcyogdGhhdCB0aGUgdGNwIG9mZmxvYWQgZW5naW5lIGJlIGRp
-c2FibGVkLCB3aGljaCBpcwpkaWZmaWN1bHQgdG8gc3dhbGxvdy4gQ2FuIFNDRSB3b3JrIHdpdGgg
-dGNwIG9mZmxvYWRzIGVuYWJsZWQgKG9uIHRoZQpzZXJ2ZXIsIGNsaWVudCBhbmQgcWRpc2M/KT8K
-ClRoZSBzYW1lIHBvc3QgY2xhaW1lZCB0aGF0IGFwcGxlIHByb3ZlZCB3ZSBjb3VsZCAianVzdCB0
-dXJuIGVjbiBvbiIsCmFuZCB0byBleHBsb3JlIHRoYXQgY2xhaW0gSSB1cGRhdGVkIG15IG9zeCB0
-byB0aGUgbGF0ZXN0IG9ubHkgdG8KaW1tZWRpYXRlIGZpbmQgYXBwbGUncyBoZXVyaXN0aWNzICpk
-aXNhYmxlZCogYXR0ZW1wdHMgYXQgZWNuCm5lZ290aWF0aW9uIG9uIHRoZSBzZWNvbmQgb2YgdHdv
-IHJydWwgdGVzdHMsIGFuZCBJJ2QgYWxzbyBwb2tlZCBpbnRvIGEKd29ybGR3aWRlIGRhdGFzZXQg
-dGhhdCBzaG93ZWQgV0FZIGxlc3MgZWNuIGF0dGVtcHRzIG1ha2luZyBpdCBmcm9tCmFwcGxlIGdl
-YXIgdG8gdGhlIHRlc3Qgc2VydmVyLgoKQW5vdGhlciBwb3N0ICh3aGljaCBJIGhhdmUgbm90IHJl
-c3BvbmRlZCB0byBlaXRoZXIpIHBvaW50ZWQgdG8gYW4KaW1wcm92ZW1lbnQgaW4gdGhlIDNXSFMg
-dGhhdCBtYXkgb3IgbWF5IG5vdCBiZSBnZW51aW5lbHkgdXNlZnVsLCBidXQKYXQgdGhhdCBwb2lu
-dCwgSSB3ZW50IGJhY2sgdG8gZml4aW5nIHdpZmkgd2l0aCB3aGF0IEkga25ldyB3b3JrZWQuCgpU
-aGUgY29kZSBpdHNlbGYsIHdhcyBub3QgYmFkLiBQZXJoYXBzIHNvbWUgcmV2aWV3IG9mIHRoYXQg
-c2V0IG9mCnBhdGNoZXMgYW5kIHRocmVhZCBpcyBuZWVkZWQgYnkgc29tZSBvdGhlcnMgd2l0aCBz
-dHJvbmdlciBzdG9tYWNocy4KCmh0dHBzOi8vd3d3LnNwaW5pY3MubmV0L2xpc3RzL25ldGRldi9t
-c2c2Mzg4ODIuaHRtbAoKCj4KPiBJRVRGIFRTVldHIGludGVyaW0gbWVldGluZyBuZXh0IHdlZWsg
-KHRoZSBzZWNvbmQgb2YgdHdvIHJlcGxhY2luZyBwbGFubmVkIGluLXBlcnNvbiBzZXNzaW9ucyBh
-dCBWYW5jb3V2ZXIpIHdpbGwgZGlzY3VzcyB0aGUgYmlnIEVDVCgxKSBpc3N1ZSwgd2hpY2ggaXMg
-aG90bHkgZGlzcHV0ZWQgYmV0d2VlbiBTQ0UgYW5kIEw0Uy4gIFRoZSBrZXkgcXVlc3Rpb24gaXMg
-d2hldGhlciBFQ1QoMSkgc2hvdWxkIGJlY29tZSBhIGNsYXNzaWZpZXIgaW5wdXQgdG8gdGhlIG5l
-dHdvcmsgKG9ydGhvZ29uYWwgdG8gRGlmZnNlcnYgYnV0IHdpdGggc29tZSBvZiB0aGUgc2FtZSBi
-YXNpYyBwcm9ibGVtcyksIG9yIGFuIGFkZGl0aW9uYWwgY29uZ2VzdGlvbiBzaWduYWwgb3V0cHV0
-IGZyb20gdGhlIG5ldHdvcmsgKGluZGljYXRpbmcgYSBsZXNzZXIgZGVncmVlIG9mIGNvbmdlc3Rp
-b24sIHRvIHdoaWNoIGEgc21hbGxlciBhbmQgbW9yZSBudWFuY2VkIHJlc3BvbnNlIGlzIGRlc2ly
-ZWQpLiAgSXQncyBhbnlvbmUncyBndWVzcyBob3cgdGhhdCB3aWxsIHR1cm4gb3V0LCBidXQgdGhl
-IHRlY2huaWNhbCBtZXJpdCBpcyBvbiBvdXIgc2lkZSBhbmQgdGhhdCByZWFsbHkgc2hvdWxkIGNv
-dW50IGZvciBzb21ldGhpbmcuCj4KPiBJZiB5b3UncmUga2VlcGluZyBhbiBleWUgb24gdGhlIFRT
-VldHIGxpc3QsIGV4cGVjdCBhIG1ham9yIGJvbWJzaGVsbCB0byBkcm9wIHRoZXJlIGluIHRoZSBu
-ZXh0IGZldyBkYXlzLgoKSSBkby4gSSB3aXNoIG1vcmUgZGlkLiBCZXZlcmFnZSBpbiBoYW5kLiA6
-KQoKPiAgLSBKb25hdGhhbiBNb3J0b24KPgoKCi0tIApNYWtlIE11c2ljLCBOb3QgV2FyCgpEYXZl
-IFTDpGh0CkNUTywgVGVrTGlicmUsIExMQwpodHRwOi8vd3d3LnRla2xpYnJlLmNvbQpUZWw6IDEt
-ODMxLTQzNS0wNzI5Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8v
-bGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+
+--===============5691385590501842192==
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_2844F9D9-1C1E-423E-B29D-94BD946A0212"
+
+
+--Apple-Mail=_2844F9D9-1C1E-423E-B29D-94BD946A0212
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+
+
+> Le 22 avr. 2020 =C3=A0 00:44, Dave Taht <dave.taht@gmail.com> a =C3=A9cr=
+it :
+>=20
+> On Tue, Apr 21, 2020 at 3:33 PM Jonathan Morton =
+<chromatix99@gmail.com> wrote:
+>>=20
+>>> On 22 Apr, 2020, at 1:25 am, Thibaut <hacks@slashdirt.org> wrote:
+>>>=20
+>>> My curiosity is piqued. Can you elaborate on this? What does free.fr =
+do?
+>>=20
+>> They're a large French ISP.  They made their own CPE devices, and =
+debloated both them and their network quite a while ago.  In that sense, =
+at least, they're a model for others to follow - but few have.
+>>=20
+>> - Jonathan Morton
+>=20
+> they are one of the few ISPs that insisted on getting full source code
+> to their DSL stack, and retained the chops to be able to modify it. I
+> really admire their revolution v6 product. First introduced in 2010,
+> it's been continuously updated, did ipv6 at the outset, got fq_codel
+> when it first came out, and they update the kernel regularly. All
+> kinds of great features on it, and ecn is enabled by default for those
+> also (things like samba). over 3 million boxes now I hear....
+>=20
+> with <1ms of delay in the dsl driver, they don't need to shape, they
+> just run at line rate using three tiers of DRR that look a lot like
+> cake. They shared their config with me, and before I lost heart for
+> future internet drafts, I'd stuck it here:
+>=20
+> =
+https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gateway_queue_m=
+anagement/middle.mkd =
+<https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gateway_queue_=
+management/middle.mkd>
+
+Very interesting, thanks. I wonder if they trickled down these =
+improvements to the older V5: I had to plug my old V5 back after my =
+DSLAM was moved to native IPV6 (I couldn=E2=80=99t find how to talk to =
+it over VDSL2 modem, as I did before the switch), and though there was a =
+massive drop in uplink bandwidth (from 10Mbps VDSL2 to 1Mbps ADSL), I =
+noticed that I no longer needed cake on the router wan interface. =
+Latency remained very well controlled without having to do anything =
+special. In fact, enabling cake with the previous settings was wrecking =
+havoc! (Maybe it interfered with whatever Free is doing in the box).
+
+> Occasionally they share some data with me. Sometimes I wish I lived in
+> paris just so I could have good internet! (their fiber offering is
+> reasonably buffered (not fq_codeled) and the wifi... maybe I can get
+> them to talk about what they did)
+
+You don=E2=80=99t have to live in Paris to enjoy good internet: I=E2=80=99=
+m currently stranded in the countryside and I enjoy a better connection =
+than many a Parisian, thanks to a public/private FTTH network that =
+appears to be very well handled by my current ISP (K-Net) :)
+
+> When free.fr shipped fq_codel 2 months after we finalized it, I
+> figured the rest of the world was only months behind. How hard is it
+> to add 50 lines of BQL oriented code to a DSL firmware?
+
+Heh.
+
+Cheers,
+Thibaut=
+
+--Apple-Mail=_2844F9D9-1C1E-423E-B29D-94BD946A0212
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" class=3D""><br =
+class=3D""><div><br class=3D""><blockquote type=3D"cite" class=3D""><div =
+class=3D"">Le 22 avr. 2020 =C3=A0 00:44, Dave Taht &lt;<a =
+href=3D"mailto:dave.taht@gmail.com" class=3D"">dave.taht@gmail.com</a>&gt;=
+ a =C3=A9crit :</div><br class=3D"Apple-interchange-newline"><div =
+class=3D""><div class=3D"">On Tue, Apr 21, 2020 at 3:33 PM Jonathan =
+Morton &lt;<a href=3D"mailto:chromatix99@gmail.com" =
+class=3D"">chromatix99@gmail.com</a>&gt; wrote:<br class=3D""><blockquote =
+type=3D"cite" class=3D""><br class=3D""><blockquote type=3D"cite" =
+class=3D"">On 22 Apr, 2020, at 1:25 am, Thibaut &lt;<a =
+href=3D"mailto:hacks@slashdirt.org" class=3D"">hacks@slashdirt.org</a>&gt;=
+ wrote:<br class=3D""><br class=3D"">My curiosity is piqued. Can you =
+elaborate on this? What does <a href=3D"http://free.fr" =
+class=3D"">free.fr</a> do?<br class=3D""></blockquote><br =
+class=3D"">They're a large French ISP. &nbsp;They made their own CPE =
+devices, and debloated both them and their network quite a while ago. =
+&nbsp;In that sense, at least, they're a model for others to follow - =
+but few have.<br class=3D""><br class=3D""> - Jonathan Morton<br =
+class=3D""></blockquote><br class=3D"">they are one of the few ISPs that =
+insisted on getting full source code<br class=3D"">to their DSL stack, =
+and retained the chops to be able to modify it. I<br class=3D"">really =
+admire their revolution v6 product. First introduced in 2010,<br =
+class=3D"">it's been continuously updated, did ipv6 at the outset, got =
+fq_codel<br class=3D"">when it first came out, and they update the =
+kernel regularly. All<br class=3D"">kinds of great features on it, and =
+ecn is enabled by default for those<br class=3D"">also (things like =
+samba). over 3 million boxes now I hear....<br class=3D""><br =
+class=3D"">with &lt;1ms of delay in the dsl driver, they don't need to =
+shape, they<br class=3D"">just run at line rate using three tiers of DRR =
+that look a lot like<br class=3D"">cake. They shared their config with =
+me, and before I lost heart for<br class=3D"">future internet drafts, =
+I'd stuck it here:<br class=3D""><br class=3D""><a =
+href=3D"https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gateway=
+_queue_management/middle.mkd" =
+class=3D"">https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gate=
+way_queue_management/middle.mkd</a><br =
+class=3D""></div></div></blockquote><div><br class=3D""></div>Very =
+interesting, thanks. I wonder if they trickled down these improvements =
+to the older V5: I had to plug my old V5 back after my DSLAM was moved =
+to native IPV6 (I couldn=E2=80=99t find how to talk to it over VDSL2 =
+modem, as I did before the switch), and though there was a massive drop =
+in uplink bandwidth (from 10Mbps VDSL2 to 1Mbps ADSL), I noticed that I =
+no longer needed cake on the router wan interface. Latency remained very =
+well controlled without having to do anything special. In fact, enabling =
+cake with the previous settings was wrecking havoc! (Maybe it interfered =
+with whatever Free is doing in the box).</div><div><br =
+class=3D""><blockquote type=3D"cite" class=3D""><div class=3D""><div =
+class=3D"">Occasionally they share some data with me. Sometimes I wish I =
+lived in<br class=3D"">paris just so I could have good internet! (their =
+fiber offering is<br class=3D"">reasonably buffered (not fq_codeled) and =
+the wifi... maybe I can get<br class=3D"">them to talk about what they =
+did)<br class=3D""></div></div></blockquote><div><br class=3D""></div>You =
+don=E2=80=99t have to live in Paris to enjoy good internet: I=E2=80=99m =
+currently stranded in the countryside and I enjoy a better connection =
+than many a Parisian, thanks to a public/private FTTH network that =
+appears to be very well handled by my current ISP (K-Net) =
+:)</div><div><br class=3D""><blockquote type=3D"cite" class=3D""><div =
+class=3D""><div class=3D"">When <a href=3D"http://free.fr" =
+class=3D"">free.fr</a> shipped fq_codel 2 months after we finalized it, =
+I<br class=3D"">figured the rest of the world was only months behind. =
+How hard is it<br class=3D"">to add 50 lines of BQL oriented code to a =
+DSL firmware?<br class=3D""></div></div></blockquote><div><br =
+class=3D""></div>Heh.</div><div><br =
+class=3D""></div><div>Cheers,</div><div>Thibaut</div></body></html>=
+
+--Apple-Mail=_2844F9D9-1C1E-423E-B29D-94BD946A0212--
+
+--===============5691385590501842192==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============5691385590501842192==--
