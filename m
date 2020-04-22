@@ -2,70 +2,97 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 55BC41B489A
-	for <lists+cake@lfdr.de>; Wed, 22 Apr 2020 17:28:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BBCBC1B494D
+	for <lists+cake@lfdr.de>; Wed, 22 Apr 2020 17:58:53 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 28F323CB38;
-	Wed, 22 Apr 2020 11:28:20 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 82AA23CB38;
+	Wed, 22 Apr 2020 11:58:52 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1587569300;
-	bh=TSW8a61YlVxqXEks6T+xMVa+yvASuwsbjCKh8+c1g/E=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=Xo2QHWmprNRVKxBvraHGs61OxQOKCw/I6fm2kb+6H3HRgdHTU9VdjKppThdvRUCBa
-	 a6jarUbGTHN+iFL1flYMpEFQQYv/NrPyMwb7lrDSeWXHgsuFyIpJy1emVNNhJ++1ty
-	 0oJVe5m4ANiyJkZFDOZZjpeCEfcgh9srY7bLQLyxtnRJGhExe98LXpQVcYxUTNbHBY
-	 V7+XyywzHViXh26rnIGkpQK9YE6JCmX4hT0ix7DqgdjtC2dC9jBmo8kqO0vPMnm9Xs
-	 w2BdJ+tQt3gsm157TfdKOKxB3vcRuIMei6kZi17Uj6hF0LHxK3P7wYPcWRGqtrL7MP
-	 iQhQi796wWEJA==
+	d=lists.bufferbloat.net; s=201610; t=1587571132;
+	bh=IR+KerNkO1+zCH3seqnwOmvFaWyhvBrFJc7ZCoEwHl4=;
+	h=From:To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:
+	 List-Post:List-Help:List-Subscribe:From;
+	b=aR2fF+N95Xud/wCd2HTDozr/vi9ywYkEMD/ACJvfsA7PBVeVzSORiQAN4u0fDPrcS
+	 7QzVlRsGw/VRbni7zqO84zV+v+BoqLBBtHjmiAXvjoKxtjfILnWBoJw5YgmIitmMdc
+	 oPQ2pxpNsQQtuFIkuG52q9SJKcGEkPem558si0eaYyuYl3dP75WTGF/xQ2DI97Dc5M
+	 FagMmRLYXgLXlfhDSeNyHN/jhniMDJiW/f4/9A+oGR+C9nEfwPzmX2JYGmU4439EbV
+	 QrfBCFfIcPhty4/1/IqNY/XcKOfZgHEhh/wLe/7oKgyQjEXOioxumQi6c2mwl9g15x
+	 6oOfLgE/HGgiw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-wm1-x32b.google.com (mail-wm1-x32b.google.com
- [IPv6:2a00:1450:4864:20::32b])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from EUR04-VI1-obe.outbound.protection.outlook.com
+ (mail-eopbgr80059.outbound.protection.outlook.com [40.107.8.59])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 958FD3B29E
- for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 11:28:18 -0400 (EDT)
-Received: by mail-wm1-x32b.google.com with SMTP id x25so2838945wmc.0
- for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 08:28:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ieee.org; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=HEYcSxCtfV8F2mk4jxQNftDGgQrGGLx9v27bxt2HZmc=;
- b=OmDslKFJ7/A4fpZCl91PxDp//YbrkeVU6NmBhL/v//HB+NuC4SoGFxgjcW7+YM1aq1
- PUzzE7MoUMEpeMUyOyXQRL3P/sQzfLiuaFFnPYTMnhltlb7wwKOas5OYScE5Rq0w0QUD
- cPPGIEutPSd5uZW0WnoOu+I33eQY092FplbZU=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=HEYcSxCtfV8F2mk4jxQNftDGgQrGGLx9v27bxt2HZmc=;
- b=X3ESs+Lf1dIDx31magGxcJyj1f5ITZA4qA33CtsyZwjePnyTdyUmAlWsaDSFnJBnN2
- iqteyS5UzSE3N6M8l+8iGSCWTq4GbOv4CAtp9uw/OnOnnIcWcmGWAqYGscuy+znUVlAX
- UpuiVblpMJpu4YxdUhk6U8tmuAMo5F5dwXeSNWZvQRH5tejhRBfzLVlWhXfjnOM5ViBA
- 7v+BcdrmAlUknXeUA5cfFmb5pc43ScLzTurKf7M6nT7aDHtVmJf2aetx1D7IJJ0Ou6hm
- Ip9zevkqD9z/M43A4hHU/7gVzjcecglwGrVtIy3qbWY6hZKco6TYR2bve/muRkL5pCsB
- 7Nww==
-X-Gm-Message-State: AGi0PubvBxlZsPr6CBr/XwCLqEw5n0GJRQ3+G6pyiAQRlt4lgJZxDGCM
- 7r+SJ1Htk75FZt1q6iaFvyYP70+BYxNM4ZG184a1AA==
-X-Google-Smtp-Source: APiQypI7DqD6JadGb9ZElt4bIFSgANFDTcPt+NG/tNbSXXfShIqRixdwshX8YEVRgm6THZzfbeLf+TB1FsTf1csAiGI=
-X-Received: by 2002:a1c:c2d6:: with SMTP id s205mr11745031wmf.90.1587569297621; 
- Wed, 22 Apr 2020 08:28:17 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 5FE913B29E
+ for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 11:58:51 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=C7F7USMcL5Pj/9PxM8PR/0C/WrVf9F1XrDwaprxR4wT2S1iYlKL0i3vya38IaRdNVTKIvvjeMKyCXh8X3lhHOTqLpSqwchKzoZfppaHfv51E9GxF7Jia7gP6KAtnWPCIkBNtvf9SVumtCSL+/wbaGq1Z44TVxAbMiJCicYFJt+IcUpgEBW5c9KO/akQIGxYHE8qaPyzHEkid4q1VJA0V66UVo6hZl2B23rFJ01j4BYhkVA3C4V6DbIaKp+0ue4Fx+QEKmIZW0kPnN7e40ZA8Rglfs2soJTTLDO0DuxCAtct5Hh5zTi8tOvOwx2R3k8WCHlQFDzIPHj1PclmrvFxGlg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y8zN/3b/Q8r92J3Yt/Wl5y9kTSME8rcJlig9GdovE0s=;
+ b=jkujowlDo/GFvnaex0gZ3fMZ2EuCBj1DVPwziDHoGB4BKAzBoVqqelMj/HL5OvwYhRUemOL7+zLv0Cz876PnXF0wfFkvDhQZfLyzbbMWYhlFePWQPFzCUY42VfyWijIzN6obtlo9sET0sErtq390htR3AZgQ2sMcaSzYQj/zLt5/G1684mntNgICYDS8fiYvY860yGKBNZa9WhmtbibUihgn1Ghx2bKIS4XVJ6GVH87xf6nZAT5lnHU8iE7UHgtSdsMwzywLgvu1bpO6zA+1oEOSerX4OzJqu0J8r70us7+xRoRxAxEiC0WYoIXeLq+YQ3V+XCwVF1fReyIAwVJeRA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=darbyshire-bryant.me.uk; dmarc=pass action=none
+ header.from=darbyshire-bryant.me.uk; dkim=pass
+ header.d=darbyshire-bryant.me.uk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=darbyshire-bryant.me.uk; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Y8zN/3b/Q8r92J3Yt/Wl5y9kTSME8rcJlig9GdovE0s=;
+ b=eGT7eQLjX4iTLB40g5LcO1DBZkCtevqkFRwubDwHE3h3ZqHc8mjuyFlHwNl404PAUBpbIJJ5JovBsj43lnOv8JgSocqR8sKmk5pCBzFK0GHT6q3EXLszggj+MePUQ0IQZYWJWhW43+QtLc8fTK6jYmw3hAXE0b50L8ZjBeIOkmY=
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com (2603:10a6:803:59::12)
+ by VI1PR03MB3807.eurprd03.prod.outlook.com (2603:10a6:803:67::28)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2921.29; Wed, 22 Apr
+ 2020 15:58:49 +0000
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::9504:608e:409d:2b32]) by VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::9504:608e:409d:2b32%4]) with mapi id 15.20.2921.030; Wed, 22 Apr 2020
+ 15:58:48 +0000
+From: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
+To: Cake List <cake@lists.bufferbloat.net>
+Thread-Topic: DSCP ramblings
+Thread-Index: AQHWGL7pYLom/V2kdU2rGX7OdJMk5Q==
+Date: Wed, 22 Apr 2020 15:58:48 +0000
+Message-ID: <F7A06AF9-12CF-42BB-8935-29F784CE882F@darbyshire-bryant.me.uk>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-mailer: Apple Mail (2.3608.80.23.2.2)
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=kevin@darbyshire-bryant.me.uk; 
+x-originating-ip: [2a02:c7f:1243:8e00::dc83]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 5460d839-d2f9-4522-ab01-08d7e6d60baa
+x-ms-traffictypediagnostic: VI1PR03MB3807:
+x-microsoft-antispam-prvs: <VI1PR03MB3807AFC51920AF3A0902A753A5D20@VI1PR03MB3807.eurprd03.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-forefront-prvs: 03818C953D
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:VI1PR03MB4575.eurprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(10009020)(346002)(39830400003)(396003)(136003)(366004)(376002)(81156014)(66556008)(6916009)(8676002)(66446008)(66476007)(66946007)(64756008)(66616009)(33656002)(76116006)(91956017)(36756003)(6506007)(2906002)(966005)(71200400001)(3480700007)(316002)(6486002)(2616005)(6512007)(5660300002)(7116003)(99936003)(8936002)(86362001)(508600001)(186003);
+ DIR:OUT; SFP:1101; 
+received-spf: None (protection.outlook.com: darbyshire-bryant.me.uk does not
+ designate permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: h9qwT1jSBPFtyPK70M9o9mlSvc9b2WHnAawzOMlLkH3eZJYWSoFQ1DCAvKB7vOVgKi0d+kD2h4yC/ShntIo6v0gp+wiinHYDpQCoD+PhP3xF74PekLHv6Rp/emIjJss16PddKS63qlnhn89XNY6ur08+H17efmq9Z/WaQE1cMsrtXOuC60qAja/OibqO8o5nzI5yoFoDCi0LhHsTEIbYw0wopuQSBt1mwCgPRIGLP2O8L/wdFZn1nc3K12kYjDCq/eDoroRFIyrgdMWkGUPY6eBFkUpT4McxcT1LmpTi2+SLFoJVUbCcNpCFkkYiO7lmu+H+FDtz0Os945pJHoRVkeFpfpvZ3wO1jgWjvcAkvWvMoIjsoOzjRIjvyJw+U8xMdorYog7I81CdI66yYII1b7tUTyAIGfmHzcjk4+QVLbxYwNdZ9zUhpDVUZRabX9uhupfgEzxybG/xUVI87FwjOEyRqtJbx2L8h9G87IF2zWQ+wX5/Oxg/VJ78jAbX8bonF3Ve/oWa3vajn4za8RZ9Rg==
+x-ms-exchange-antispam-messagedata: nvkM7dnSIuk9zWiqNNyTOBibcOvsnjUne5KMkSoMPhz93BgPVqSMmwQ4i4GCUXh9SZTtb5PaLqCGdZTj1C7sPdolezGSgHTORVb4JwEm5Zo7wLyqbKGZQXDk99WLPDVoeZx+1LZb2dmUZng+l3CMK/N9s49Bw70eUxnspTvnwlSAwXW1dlXVDDftdcWk7XFo
+x-ms-exchange-transport-forked: True
 MIME-Version: 1.0
-References: <d3f45591-7359-47a6-bd0b-f89f9b49c5a7@www.fastmail.com>
- <75FEC2D9-BFC8-4FA2-A972-D11A823C5528@gmail.com>
- <CAA93jw7kfSjuQP2j8uX5-+hs2PBLNZ6c0=tV=PjZE50fQ1oFLw@mail.gmail.com>
- <AAAE0AE6-BA8C-4236-A68D-C5A4CF7DFEDA@slashdirt.org>
- <603DFF79-D0C0-41BD-A2FB-E40B95A9CBB0@gmail.com>
- <CAA93jw5yvybv+aXH4NLd1r_8xSP2CPwzeh0q6wm1c26jLPBxag@mail.gmail.com>
- <CAH8sseTdDfswOYpYvaDFm_jsaMCpsT9Ebj2ZvkKwaqyyjZiWHA@mail.gmail.com>
- <CAA93jw54L6-mUU9oTgZVFHh5kY7HHGVQjZJZfUMw7Kuq+S9-8w@mail.gmail.com>
-In-Reply-To: <CAA93jw54L6-mUU9oTgZVFHh5kY7HHGVQjZJZfUMw7Kuq+S9-8w@mail.gmail.com>
-From: Luca Muscariello <muscariello@ieee.org>
-Date: Wed, 22 Apr 2020 17:28:06 +0200
-Message-ID: <CAH8sseQjSk4ghHXSvbeMMAvqGYnJ=0O9XLGo15bFVpwh+C8Zrg@mail.gmail.com>
-To: Dave Taht <dave.taht@gmail.com>
-Subject: Re: [Cake] Advantages to tightly tuning latency
+X-OriginatorOrg: darbyshire-bryant.me.uk
+X-MS-Exchange-CrossTenant-Network-Message-Id: 5460d839-d2f9-4522-ab01-08d7e6d60baa
+X-MS-Exchange-CrossTenant-originalarrivaltime: 22 Apr 2020 15:58:48.7989 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9151708b-c553-406f-8e56-694f435154a4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: s4HdQ3/pOx1KFbGn2DHoJoKPL7gh0IMke4rKwQP0VHMMmb8WARLY+TxTHlnY8Qps2QrE/oRMdI1YXQmBIXKk3W9jUnhGdMMLq3d/JlPdq2s=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR03MB3807
+Subject: [Cake] DSCP ramblings
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -77,417 +104,149 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>, Maxime Bizon <mbizon@freebox.fr>
-Content-Type: multipart/mixed; boundary="===============8662824120111991255=="
+Content-Type: multipart/mixed; boundary="===============7003785573223938386=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8662824120111991255==
-Content-Type: multipart/alternative; boundary="0000000000000ab5b205a3e2c88d"
+--===============7003785573223938386==
+Content-Language: en-US
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_BE5AB9D1-A44A-4C59-8FE2-796B214521DE";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
 
---0000000000000ab5b205a3e2c88d
-Content-Type: text/plain; charset="UTF-8"
+--Apple-Mail=_BE5AB9D1-A44A-4C59-8FE2-796B214521DE
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
 
-On Wed, Apr 22, 2020 at 4:48 PM Dave Taht <dave.taht@gmail.com> wrote:
+During these strange times of lockdown I=E2=80=99ve been trying to keep =
+myself occupied/entertained/sane(???) by =E2=80=98fiddling with stuff=E2=80=
+=99 and improving my coding.  This started with an idea of learning =
+Python which was great until the on-line bit of it ran out and someone =
+posted an idea on the Openwrt forum about graphing Cake stats.
 
-> On Wed, Apr 22, 2020 at 2:04 AM Luca Muscariello <muscariello@ieee.org>
-> wrote:
-> >
-> >
-> >
-> > On Wed, Apr 22, 2020 at 12:44 AM Dave Taht <dave.taht@gmail.com> wrote:
-> >>
-> >> On Tue, Apr 21, 2020 at 3:33 PM Jonathan Morton <chromatix99@gmail.com=
->
-> wrote:
-> >> >
-> >> > > On 22 Apr, 2020, at 1:25 am, Thibaut <hacks@slashdirt.org> wrote:
-> >> > >
-> >> > > My curiosity is piqued. Can you elaborate on this? What does
-> free.fr do?
-> >> >
-> >> > They're a large French ISP.  They made their own CPE devices, and
-> debloated both them and their network quite a while ago.  In that sense, =
-at
-> least, they're a model for others to follow - but few have.
-> >> >
-> >> >  - Jonathan Morton
-> >>
-> >> they are one of the few ISPs that insisted on getting full source code
-> >> to their DSL stack, and retained the chops to be able to modify it. I
-> >> really admire their revolution v6 product. First introduced in 2010,
-> >> it's been continuously updated, did ipv6 at the outset, got fq_codel
-> >> when it first came out, and they update the kernel regularly. All
-> >> kinds of great features on it, and ecn is enabled by default for those
-> >> also (things like samba). over 3 million boxes now I hear....
-> >>
-> >> with <1ms of delay in the dsl driver, they don't need to shape, they
-> >> just run at line rate using three tiers of DRR that look a lot like
-> >> cake. They shared their config with me, and before I lost heart for
-> >> future internet drafts, I'd stuck it here:
-> >>
-> >>
-> https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gateway_queue_=
-management/middle.mkd
-> >>
-> >> Occasionally they share some data with me. Sometimes I wish I lived in
-> >> paris just so I could have good internet! (their fiber offering is
-> >> reasonably buffered (not fq_codeled) and the wifi... maybe I can get
-> >> them to talk about what they did)
-> >>
-> >> When free.fr shipped fq_codel 2 months after we finalized it, I
-> >> figured the rest of the world was only months behind. How hard is it
-> >> to add 50 lines of BQL oriented code to a DSL firmware?
-> >>
-> >
-> > Free has been using SFQ since 2005 (if I remember well).
-> > They announced the wide deployment of SFQ in the free.fr newsgroup.
-> > Wi-Fi in the free.fr router was not as good though.
->
-> They're working on it. :)
->
-> > In Paris there is a lot of GPON now that is replacing DSL. But there is
-> > a nation-wide effort funded by local administrations to get fiber
-> > everywhere. There are small towns in the countryside with fiber.
-> > Public money has made, and is making that possible.
-> > There is still a little of Euro-DOCSIS, but frankly compared to fiber
-> > it has no chance to survive.
->
-> I am very, very happy for y'all. Fiber has always been the sanest
-> thing. Is there
-> a SPF+ gpon card yet I can plug into a convention open source router yet?
->
-> >
-> > I currently have 2Gbps/600Mbps access with orange.fr and free.fr has a
-> subscription
-> > at 10Gbps GPON. I won't tell you the price because you may feel depress=
-ed
-> > compared to other countries where prices are much higher.
->
-> I'd emigrate!!!
->
-> > The challenge becomes to keep up with these link rates in software
-> > as there is a lot of hardware offloading.
->
+That had nothing to do with Python and involved (new to me) technologies =
+such as =E2=80=98collectd=E2=80=99, =E2=80=98JSON=E2=80=99, a bit of =
+javascript and my usual level of cobbling something together in =
+=E2=80=98ash=E2=80=99=E2=80=A6. So that course was well spent :-)
+
+Anyway, data was collected and graphs produced in a very small =
+household.  What=E2=80=99s immediately apparent from those graphs and =
+cake in =E2=80=98diffserv4=E2=80=99 mode is that very, very few =
+applications are using DSCP at all.  Most things are to port 443.
+
+I was also a little surprised to see that my DNS over foo proxies such =
+as stubby & https-dns-proxy don=E2=80=99t use DSCP coding.  It surprised =
+me even more to see RFC recommendations that DNS be treated as =E2=80=98Be=
+st Effort=E2=80=99.  Now in the days of udp only and no dnssec (with =
+fallback to tcp) this may be good enough, but I wonder if this is =
+realistic these days?
+
+So putting aside the discussion of what codepoint should be used, I then =
+wondered how hard it would be to actually set a dscp in these =
+applications.  And this is where I had another surprise.  For example =
+https-dns-proxy uses libcurl.  libcurl has no standard =E2=80=98in-library=
+=E2=80=99 method for setting a socket=E2=80=99s dscp.  I cobbled a =
+workaround in the application =
+https://github.com/aarond10/https_dns_proxy/pull/83 - it works.
+
+Next I attacked stubby, which uses getdns.  getdns doesn=E2=80=99t even =
+have a callback or parameters passing so you can set a dscp on the =
+socket from a client application, pure =E2=80=98hack the library=E2=80=99 =
+stuff.
+
+To be blunt and on a small sample of 2 libraries/applications, it seems =
+that DSCP is completely ignored.  Applications signalling =E2=80=99this =
+is/isnt latency sensitive/bulk=E2=80=99 isn=E2=80=99t going to happen if =
+it isn=E2=80=99t easy to do.
+
+Apple should be marking facetime calls as being =E2=80=98video =
+conference=E2=80=99 or whatever.  BBC iplayer Radio apps should be =
+marking =E2=80=98audio streaming=E2=80=99. But every f*ing thing is CS0 =
+port 443.  And I=E2=80=99m wondering how much of this is because library =
+support is simply missing.  Maybe gaming apps are better? (I don=E2=80=99t=
+ game)
+
+Right, I=E2=80=99m off for a lie down.  Sorry for the rant.
 
 
-I just meant that these routers tend to use HW offloading
-and kernel qdiscs may be bypassed.
+Hack for getdns/stubby
+
+diff --git a/src/stub.c b/src/stub.c
+index 2547d10f..7e47aba5 100644
+--- a/src/stub.c
++++ b/src/stub.c
+@@ -52,6 +52,7 @@
+ #include "platform.h"
+ #include "general.h"
+ #include "pubkey-pinning.h"
++#include <netinet/ip.h>
+
+ /* WSA TODO:
+  * STUB_TCP_RETRY added to deal with edge triggered event loops (versus
+@@ -381,6 +382,9 @@ tcp_connect(getdns_upstream *upstream, =
+getdns_transport_list_t transport)
+ # else
+        static const int  enable =3D 1;
+ # endif
++#endif
++#if defined(IP_TOS)
++       int dscp =3D IPTOS_CLASS_CS4;
+ #endif
+        int fd =3D -1;
+
+@@ -390,6 +394,12 @@ tcp_connect(getdns_upstream *upstream, =
+getdns_transport_list_t transport)
+                   __FUNC__, (void*)upstream);
+        if ((fd =3D socket(upstream->addr.ss_family, SOCK_STREAM, =
+IPPROTO_TCP)) =3D=3D -1)
+                return -1;
++#if defined(IP_TOS)
++       if (upstream->addr.ss_family =3D=3D AF_INET6)
++               (void)setsockopt(fd, IPPROTO_IPV6, IP_TOS, &dscp, =
+sizeof(dscp));
++       else if (upstream->addr.ss_family =3D=3D AF_INET)
++               (void)setsockopt(fd, IPPROTO_IP, IP_TOS, &dscp, =
+sizeof(dscp));
++#endif
 
 
+Cheers,
 
->
-> At this point, I kind of buy the stanford sqrt(bdp) argument. All you
-> really need for gigE+ fiber access to work well
-> for most modern traffic is a fairly short fifo (say, 20ms). Any form
-> of FQ would help but be hardly noticible. I think
-> there needs to be work on the hop between the internet and the
-> subscriber...
->
-> Web traffic is dominated by RTT above 40mbit (presently).
-> streaming video traffic - is no more than 20Mbit, and your occasional
-> big download is a dozen big streams that would
-> bounce off a short fifo well.
-> gbit access to the home is (admittedly glorious, wonderful!) overkill
-> for all present forms of traffic.
->
-> I'm pretty sure if I had gig fiber I could come up with a way to use
-> it up (exiting the cloud entirely comes to mind), but
-> lacking new applications that demand that much bandwidth...
->
-> I of course, would like to see lola ( https://lola.conts.it/ ) finally
-> work, and videoconferencing and game stream with high rates and faster
-> (even raw) encoding also has potential to reduce e2e latencies
-> enormously at that layer.
->
-> >
-> > As soon as 802.11ax becomes the norm, software scheduling will become
-> > a challenge.
->
-> Do you mean in fiber or wireless? wireless is really problematic at ANY
-> speed.
->
+Kevin D-B
 
-I meant that software scheduling becomes a challenge for the same
-reason as above. Increase in total throughput of the box
-will call for hardware offloading and kernel qdisc may be bypassed.
-
-It is not a challenge per se, it is a challenge because traffic
-may not be managed by the kernel.
+gpg: 012C ACB2 28C6 C53E 9775  9123 B3A2 389B 9DE2 334A
 
 
+--Apple-Mail=_BE5AB9D1-A44A-4C59-8FE2-796B214521DE
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP
 
+-----BEGIN PGP SIGNATURE-----
 
->
-> at gfiber, the buffering moved to the wifi, and there are other
-> problems that really impact achievable bandwidth. When I was last in
-> paris, I could "hear" 300+ access points from my apt, and could only
-> get 100-200kbit per second out of the wireless n ap I had, unless I
-> cheated and stuck my traffic in the VI queue. A friend of mine there,
-> couldn't even get wifi across the room! Beacons ate into a lot of the
-> available
-> bandwidth. Since 5ghz (and soon 6ghz - is 6E a thing in france) is
-> shorter range I'm hoping that's got better, but with
-> 802.11ac and ax peeing on half the wifi spectrum by default, I imagine
-> achievable rates in high density locations with many APs will be very
-> low... and very jittery... and thus still require good ATF, fq, and
-> aqm technologies.
->
-> I have high hopes for OFDMA and DU but thus far haven't found an AP
-> doing it. I'm not sure what to do about the beaconing problem except
-> offer a free tradein to all my neighbors still emitting G style
-> frames....
->
-> And in looking over some preliminary code for the mt76 ax chip, I
-> worry about both bad design of the firmware, and
-> insufficient resources on-chip to manage well.
->
-> How is the 5G rollout going in france?
->
+iQIzBAEBCAAdFiEEASyssijGxT6XdZEjs6I4m53iM0oFAl6gabgACgkQs6I4m53i
+M0pgdBAA1Hjdb+uLj+05fT8PoNVh4Rs7GUQ/IIMR4ONjiKTT80dQD1FavD2qMd6g
+oRmtM1b0r/EkmO7QGR/Dc6Fnoo8I968q0DwtuIUw3cz4KbeX/FWOMs8AH6qhP6Pt
+ilBn9TuAt4e9FiYD54jAmg7uoV8rvNsEfzAlj/VW9F6Wn9GxCb4M7b0bTjl1U5Nw
+MALJKX75Q5Kgsh0zYXUbZqh8uyBNTGbGmHk4v3iD6/dhYE4t13DdHVaySWH7d2+7
+jevLqOfOcvVDLlGaGORjXTu8Sad8WCGcBygwM0BbdelE1uDxO5RUKhaOheVsKC9V
+mLkrFeHTiyvTXsQo/QwffOy5W/q3gBEanXgB4QcUmWRCd3mj9MeMkKMF4ViHpFIB
+5gfxTryGW/Qrx4sqR06HAmtkBPicX/VAQ+soheE1/9BvajhvZD8sHY+Qzn7EpriH
+47CRD5/0MNMGEKilz6YIyjNOE5pa6encmRdwabQg6Uvdycuoxfpp8I4J+kQIhZD5
+CldmNJr5mAx2aJk+Nr6qgzIBqC7f/1mNbjyXuS6ql2imcLkwViLgpvi1QmgyFFhD
+Ms6tmWEuAL5QX1WnuWhisPq6YgIf1OQgXEQJW2G83gb3zHuGDwV9PZiVTTNfOmxZ
+6S/kPiZQm2LsRKzxxjlOBJ+8iiNGzADtNGSTXrYsg+xq7BnUB/w=
+=9v4Z
+-----END PGP SIGNATURE-----
 
-Good question. I've just seen a speed test at Gbps on a phone
-which can drain your battery in less than 5 minutes. Amazing tech!
+--Apple-Mail=_BE5AB9D1-A44A-4C59-8FE2-796B214521DE--
 
-
-
->
-> I recently learned that much of japan is... wait for it... wimax.
->
-> >
-> > Luca
->
->
->
-> --
-> Make Music, Not War
->
-> Dave T=C3=A4ht
-> CTO, TekLibre, LLC
-> http://www.teklibre.com
-> Tel: 1-831-435-0729
->
-
---0000000000000ab5b205a3e2c88d
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"fon=
-t-family:monospace"><br></div></div><br><div class=3D"gmail_quote"><div dir=
-=3D"ltr" class=3D"gmail_attr">On Wed, Apr 22, 2020 at 4:48 PM Dave Taht &lt=
-;<a href=3D"mailto:dave.taht@gmail.com" target=3D"_blank">dave.taht@gmail.c=
-om</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
-n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
-">On Wed, Apr 22, 2020 at 2:04 AM Luca Muscariello &lt;<a href=3D"mailto:mu=
-scariello@ieee.org" target=3D"_blank">muscariello@ieee.org</a>&gt; wrote:<b=
-r>
-&gt;<br>
-&gt;<br>
-&gt;<br>
-&gt; On Wed, Apr 22, 2020 at 12:44 AM Dave Taht &lt;<a href=3D"mailto:dave.=
-taht@gmail.com" target=3D"_blank">dave.taht@gmail.com</a>&gt; wrote:<br>
-&gt;&gt;<br>
-&gt;&gt; On Tue, Apr 21, 2020 at 3:33 PM Jonathan Morton &lt;<a href=3D"mai=
-lto:chromatix99@gmail.com" target=3D"_blank">chromatix99@gmail.com</a>&gt; =
-wrote:<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt; &gt; On 22 Apr, 2020, at 1:25 am, Thibaut &lt;<a href=3D"mail=
-to:hacks@slashdirt.org" target=3D"_blank">hacks@slashdirt.org</a>&gt; wrote=
-:<br>
-&gt;&gt; &gt; &gt;<br>
-&gt;&gt; &gt; &gt; My curiosity is piqued. Can you elaborate on this? What =
-does <a href=3D"http://free.fr" rel=3D"noreferrer" target=3D"_blank">free.f=
-r</a> do?<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt; They&#39;re a large French ISP.=C2=A0 They made their own CPE=
- devices, and debloated both them and their network quite a while ago.=C2=
-=A0 In that sense, at least, they&#39;re a model for others to follow - but=
- few have.<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;=C2=A0 - Jonathan Morton<br>
-&gt;&gt;<br>
-&gt;&gt; they are one of the few ISPs that insisted on getting full source =
-code<br>
-&gt;&gt; to their DSL stack, and retained the chops to be able to modify it=
-. I<br>
-&gt;&gt; really admire their revolution v6 product. First introduced in 201=
-0,<br>
-&gt;&gt; it&#39;s been continuously updated, did ipv6 at the outset, got fq=
-_codel<br>
-&gt;&gt; when it first came out, and they update the kernel regularly. All<=
-br>
-&gt;&gt; kinds of great features on it, and ecn is enabled by default for t=
-hose<br>
-&gt;&gt; also (things like samba). over 3 million boxes now I hear....<br>
-&gt;&gt;<br>
-&gt;&gt; with &lt;1ms of delay in the dsl driver, they don&#39;t need to sh=
-ape, they<br>
-&gt;&gt; just run at line rate using three tiers of DRR that look a lot lik=
-e<br>
-&gt;&gt; cake. They shared their config with me, and before I lost heart fo=
-r<br>
-&gt;&gt; future internet drafts, I&#39;d stuck it here:<br>
-&gt;&gt;<br>
-&gt;&gt; <a href=3D"https://github.com/dtaht/bufferbloat-rfcs/blob/master/h=
-ome_gateway_queue_management/middle.mkd" rel=3D"noreferrer" target=3D"_blan=
-k">https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gateway_queue=
-_management/middle.mkd</a><br>
-&gt;&gt;<br>
-&gt;&gt; Occasionally they share some data with me. Sometimes I wish I live=
-d in<br>
-&gt;&gt; paris just so I could have good internet! (their fiber offering is=
-<br>
-&gt;&gt; reasonably buffered (not fq_codeled) and the wifi... maybe I can g=
-et<br>
-&gt;&gt; them to talk about what they did)<br>
-&gt;&gt;<br>
-&gt;&gt; When <a href=3D"http://free.fr" rel=3D"noreferrer" target=3D"_blan=
-k">free.fr</a> shipped fq_codel 2 months after we finalized it, I<br>
-&gt;&gt; figured the rest of the world was only months behind. How hard is =
-it<br>
-&gt;&gt; to add 50 lines of BQL oriented code to a DSL firmware?<br>
-&gt;&gt;<br>
-&gt;<br>
-&gt; Free has been using SFQ since 2005 (if I remember well).<br>
-&gt; They announced the wide deployment of SFQ in the <a href=3D"http://fre=
-e.fr" rel=3D"noreferrer" target=3D"_blank">free.fr</a> newsgroup.<br>
-&gt; Wi-Fi in the <a href=3D"http://free.fr" rel=3D"noreferrer" target=3D"_=
-blank">free.fr</a> router was not as good though.<br>
-<br>
-They&#39;re working on it. :)<br>
-<br>
-&gt; In Paris there is a lot of GPON now that is replacing DSL. But there i=
-s<br>
-&gt; a nation-wide effort funded by local administrations to get fiber<br>
-&gt; everywhere. There are small towns in the countryside with fiber.<br>
-&gt; Public money has made, and is making that possible.<br>
-&gt; There is still a little of Euro-DOCSIS, but frankly compared to fiber<=
-br>
-&gt; it has no chance to survive.<br>
-<br>
-I am very, very happy for y&#39;all. Fiber has always been the sanest<br>
-thing. Is there<br>
-a SPF+ gpon card yet I can plug into a convention open source router yet?<b=
-r>
-<br>
-&gt;<br>
-&gt; I currently have 2Gbps/600Mbps access with <a href=3D"http://orange.fr=
-" rel=3D"noreferrer" target=3D"_blank">orange.fr</a> and <a href=3D"http://=
-free.fr" rel=3D"noreferrer" target=3D"_blank">free.fr</a> has a subscriptio=
-n<br>
-&gt; at 10Gbps GPON. I won&#39;t tell you the price because you may feel de=
-pressed<br>
-&gt; compared to other countries where prices are much higher.<br>
-<br>
-I&#39;d emigrate!!!<br>
-<br>
-&gt; The challenge becomes to keep up with these link rates in software<br>
-&gt; as there is a lot of hardware offloading.<br></blockquote><div><br></d=
-iv><div><br></div><div><div class=3D"gmail_default" style=3D"font-family:mo=
-nospace">I just meant that these routers tend=C2=A0to use HW offloading=C2=
-=A0</div><div class=3D"gmail_default" style=3D"font-family:monospace">and k=
-ernel qdiscs may be bypassed.</div></div><div><br></div><div>=C2=A0</div><b=
-lockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-le=
-ft:1px solid rgb(204,204,204);padding-left:1ex">
-<br>
-At this point, I kind of buy the stanford sqrt(bdp) argument. All you<br>
-really need for gigE+ fiber access to work well<br>
-for most modern traffic is a fairly short fifo (say, 20ms). Any form<br>
-of FQ would help but be hardly noticible. I think<br>
-there needs to be work on the hop between the internet and the subscriber..=
-.<br>
-<br>
-Web traffic is dominated by RTT above 40mbit (presently).<br>
-streaming video traffic - is no more than 20Mbit, and your occasional<br>
-big download is a dozen big streams that would<br>
-bounce off a short fifo well.<br>
-gbit access to the home is (admittedly glorious, wonderful!) overkill<br>
-for all present forms of traffic.<br>
-<br>
-I&#39;m pretty sure if I had gig fiber I could come up with a way to use<br=
->
-it up (exiting the cloud entirely comes to mind), but<br>
-lacking new applications that demand that much bandwidth...<br>
-<br>
-I of course, would like to see lola ( <a href=3D"https://lola.conts.it/" re=
-l=3D"noreferrer" target=3D"_blank">https://lola.conts.it/</a> ) finally<br>
-work, and videoconferencing and game stream with high rates and faster<br>
-(even raw) encoding also has potential to reduce e2e latencies<br>
-enormously at that layer.<br>
-<br>
-&gt;<br>
-&gt; As soon as 802.11ax becomes the norm, software scheduling will become<=
-br>
-&gt; a challenge.<br>
-<br>
-Do you mean in fiber or wireless? wireless is really problematic at ANY spe=
-ed.<br></blockquote><div><br></div><div><div class=3D"gmail_default" style=
-=3D"font-family:monospace">I meant that software scheduling becomes a chall=
-enge for the same</div><div class=3D"gmail_default" style=3D"font-family:mo=
-nospace">reason as above. Increase in total throughput of the box</div><div=
- class=3D"gmail_default" style=3D"font-family:monospace">will call for hard=
-ware offloading and kernel qdisc may be bypassed.</div><div class=3D"gmail_=
-default" style=3D"font-family:monospace"><br></div><div class=3D"gmail_defa=
-ult" style=3D"font-family:monospace">It is not a challenge per se, it is a =
-challenge because traffic</div><div class=3D"gmail_default" style=3D"font-f=
-amily:monospace">may not be managed by the kernel.</div><br></div><div><br>=
-</div><div>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"margin:0p=
-x 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
-<br>
-at gfiber, the buffering moved to the wifi, and there are other<br>
-problems that really impact achievable bandwidth. When I was last in<br>
-paris, I could &quot;hear&quot; 300+ access points from my apt, and could o=
-nly<br>
-get 100-200kbit per second out of the wireless n ap I had, unless I<br>
-cheated and stuck my traffic in the VI queue. A friend of mine there,<br>
-couldn&#39;t even get wifi across the room! Beacons ate into a lot of the<b=
-r>
-available<br>
-bandwidth. Since 5ghz (and soon 6ghz - is 6E a thing in france) is<br>
-shorter range I&#39;m hoping that&#39;s got better, but with<br>
-802.11ac and ax peeing on half the wifi spectrum by default, I imagine<br>
-achievable rates in high density locations with many APs will be very<br>
-low... and very jittery... and thus still require good ATF, fq, and<br>
-aqm technologies.<br>
-<br>
-I have high hopes for OFDMA and DU but thus far haven&#39;t found an AP<br>
-doing it. I&#39;m not sure what to do about the beaconing problem except<br=
->
-offer a free tradein to all my neighbors still emitting G style<br>
-frames....<br>
-<br>
-And in looking over some preliminary code for the mt76 ax chip, I<br>
-worry about both bad design of the firmware, and<br>
-insufficient resources on-chip to manage well.<br>
-<br>
-How is the 5G rollout going in france?<br></blockquote><div><br></div><div>=
-<div class=3D"gmail_default" style=3D"font-family:monospace">Good question.=
- I&#39;ve just seen a speed test at Gbps on a phone</div><div class=3D"gmai=
-l_default" style=3D"font-family:monospace">which can drain your battery in =
-less than 5 minutes. Amazing tech!</div><br></div><div>=C2=A0</div><blockqu=
-ote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px=
- solid rgb(204,204,204);padding-left:1ex">
-<br>
-I recently learned that much of japan is... wait for it... wimax.<br>
-<br>
-&gt;<br>
-&gt; Luca<br>
-<br>
-<br>
-<br>
--- <br>
-Make Music, Not War<br>
-<br>
-Dave T=C3=A4ht<br>
-CTO, TekLibre, LLC<br>
-<a href=3D"http://www.teklibre.com" rel=3D"noreferrer" target=3D"_blank">ht=
-tp://www.teklibre.com</a><br>
-Tel: 1-831-435-0729<br>
-</blockquote></div></div>
-
---0000000000000ab5b205a3e2c88d--
-
---===============8662824120111991255==
+--===============7003785573223938386==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -497,4 +256,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============8662824120111991255==--
+--===============7003785573223938386==--
