@@ -2,59 +2,55 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8C8201B47AA
-	for <lists+cake@lfdr.de>; Wed, 22 Apr 2020 16:48:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 55BC41B489A
+	for <lists+cake@lfdr.de>; Wed, 22 Apr 2020 17:28:21 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id F21F43CB38;
-	Wed, 22 Apr 2020 10:48:55 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 28F323CB38;
+	Wed, 22 Apr 2020 11:28:20 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1587566935;
-	bh=oRWeZh81RferpwMwVnkD3RaQDk7O922+k7YYV4pDDJA=;
+	d=lists.bufferbloat.net; s=201610; t=1587569300;
+	bh=TSW8a61YlVxqXEks6T+xMVa+yvASuwsbjCKh8+c1g/E=;
 	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=c+8iTBwGq9XEDVwO1f7w4RnugJJdHZ48hh2M5M987l/Dn9bdZZ8EvuCPLgIphiW80
-	 w1jci65B9+bIJMMFO4lJJxV4aPkKABF1NtAhNUsJZcB9S5IsvTNhG81CoQX+PQwUHb
-	 dfqFImY5V52UEh4+7/aYKeMXKijuTd5odAJ43YXpcwAoyQ5Px3RUjgzKWOucePFjdh
-	 1VUcqQ2yJHhVTsbxp07/S5pJGPxftXAftztIa5N77LpfUUz/47BSYFrO6QjyV+S9nL
-	 OFodHldMkSNg1oKdHNsMr3ZUPnUuv+Vdxj93uma9JoG0pfOicsEFH2KZ30CYwZmZU4
-	 8YFDcg4CECWig==
+	b=Xo2QHWmprNRVKxBvraHGs61OxQOKCw/I6fm2kb+6H3HRgdHTU9VdjKppThdvRUCBa
+	 a6jarUbGTHN+iFL1flYMpEFQQYv/NrPyMwb7lrDSeWXHgsuFyIpJy1emVNNhJ++1ty
+	 0oJVe5m4ANiyJkZFDOZZjpeCEfcgh9srY7bLQLyxtnRJGhExe98LXpQVcYxUTNbHBY
+	 V7+XyywzHViXh26rnIGkpQK9YE6JCmX4hT0ix7DqgdjtC2dC9jBmo8kqO0vPMnm9Xs
+	 w2BdJ+tQt3gsm157TfdKOKxB3vcRuIMei6kZi17Uj6hF0LHxK3P7wYPcWRGqtrL7MP
+	 iQhQi796wWEJA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-il1-x141.google.com (mail-il1-x141.google.com
- [IPv6:2607:f8b0:4864:20::141])
+Received: from mail-wm1-x32b.google.com (mail-wm1-x32b.google.com
+ [IPv6:2a00:1450:4864:20::32b])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 779E63B29E
- for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 10:48:55 -0400 (EDT)
-Received: by mail-il1-x141.google.com with SMTP id q10so2163206ile.0
- for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 07:48:55 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 958FD3B29E
+ for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 11:28:18 -0400 (EDT)
+Received: by mail-wm1-x32b.google.com with SMTP id x25so2838945wmc.0
+ for <cake@lists.bufferbloat.net>; Wed, 22 Apr 2020 08:28:18 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ieee.org; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=TtBCB8njmpe9mzIch1+nmXVb9LlGaFDyR5dLKn18OU0=;
- b=OPWvym6b8h/Xk/xSdV3Tyyxz897qqPGJtXLEE7matoNpMX6ViIUyNTbgkx3ZD0FWf8
- f+Tf7NH1wRMhyH9YyqA+DAQwpD/I3XsJRANiHdk4T7HBzLZPGSIlrUXt10EAnkxd0bh0
- iI2C0VUniJmL8V7YATVWACUjUaYTJXEACK0so0spkMzL+xYPIkdXlizVFfroVZKAg/z9
- 1rJp/y0KW6HWaVJDDm+wEuDsnIMFaav3tVEEb4VD8vOCdWupNz7e0949VXrkgthjgkcc
- AWUZZBFstVyNpVduWOibdEwR4Cl4Y5KVNsGnGrAyUAaYOeXHqCI3unFyfdEapfXbH9cs
- NCFg==
+ :cc; bh=HEYcSxCtfV8F2mk4jxQNftDGgQrGGLx9v27bxt2HZmc=;
+ b=OmDslKFJ7/A4fpZCl91PxDp//YbrkeVU6NmBhL/v//HB+NuC4SoGFxgjcW7+YM1aq1
+ PUzzE7MoUMEpeMUyOyXQRL3P/sQzfLiuaFFnPYTMnhltlb7wwKOas5OYScE5Rq0w0QUD
+ cPPGIEutPSd5uZW0WnoOu+I33eQY092FplbZU=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=TtBCB8njmpe9mzIch1+nmXVb9LlGaFDyR5dLKn18OU0=;
- b=DWf8QqADy9IeLgFyV3h9G6MWSO5kklNzZYYJCIgIbIHo4+vohCFha3v1nOJjIo+33B
- Adw6X3buFN7QHM8Aq/zIepWZnIiCge3S4ugYjbS9P7hpWDwky8S8lc33xkucOgbP40wL
- paHCfvoNzVTtEJPfjeRaLzKF9dIjXZXMjHS3CWPWpzk55d1a23R0ud7ZYxk9bkQszrFl
- wVcED2+379VVoRWrqp8/zS34m8Jae4fj3zNs0S6eujbD7HNlo3+T4hjoLL+tBVv/OVJh
- gU8YV7WVjXcdg7IUjlX5ME4APMs7mwzHuKWzAF37htsF+CPbHQVv81LfyA2GGYhU2BL+
- YOMw==
-X-Gm-Message-State: AGi0PuZJuWJeiXsDxIubtHW69WtmeZbP0ntltn1TnSZd4RiYOBnEktm3
- jhtNjOiEu6vcyenI9sXRC6mGC0H4FlRoIeCMgzk=
-X-Google-Smtp-Source: APiQypIRV0sRhg12cCdWptQNoKbZUwixdBZnskNTj9hElAKfZdRdd7iuM+UEibl00aV39OropN+KswWT/mjsWkmjK64=
-X-Received: by 2002:a92:c7a9:: with SMTP id f9mr13013745ilk.0.1587566934777;
- Wed, 22 Apr 2020 07:48:54 -0700 (PDT)
+ :message-id:subject:to:cc;
+ bh=HEYcSxCtfV8F2mk4jxQNftDGgQrGGLx9v27bxt2HZmc=;
+ b=X3ESs+Lf1dIDx31magGxcJyj1f5ITZA4qA33CtsyZwjePnyTdyUmAlWsaDSFnJBnN2
+ iqteyS5UzSE3N6M8l+8iGSCWTq4GbOv4CAtp9uw/OnOnnIcWcmGWAqYGscuy+znUVlAX
+ UpuiVblpMJpu4YxdUhk6U8tmuAMo5F5dwXeSNWZvQRH5tejhRBfzLVlWhXfjnOM5ViBA
+ 7v+BcdrmAlUknXeUA5cfFmb5pc43ScLzTurKf7M6nT7aDHtVmJf2aetx1D7IJJ0Ou6hm
+ Ip9zevkqD9z/M43A4hHU/7gVzjcecglwGrVtIy3qbWY6hZKco6TYR2bve/muRkL5pCsB
+ 7Nww==
+X-Gm-Message-State: AGi0PubvBxlZsPr6CBr/XwCLqEw5n0GJRQ3+G6pyiAQRlt4lgJZxDGCM
+ 7r+SJ1Htk75FZt1q6iaFvyYP70+BYxNM4ZG184a1AA==
+X-Google-Smtp-Source: APiQypI7DqD6JadGb9ZElt4bIFSgANFDTcPt+NG/tNbSXXfShIqRixdwshX8YEVRgm6THZzfbeLf+TB1FsTf1csAiGI=
+X-Received: by 2002:a1c:c2d6:: with SMTP id s205mr11745031wmf.90.1587569297621; 
+ Wed, 22 Apr 2020 08:28:17 -0700 (PDT)
 MIME-Version: 1.0
 References: <d3f45591-7359-47a6-bd0b-f89f9b49c5a7@www.fastmail.com>
  <75FEC2D9-BFC8-4FA2-A972-D11A823C5528@gmail.com>
@@ -63,11 +59,12 @@ References: <d3f45591-7359-47a6-bd0b-f89f9b49c5a7@www.fastmail.com>
  <603DFF79-D0C0-41BD-A2FB-E40B95A9CBB0@gmail.com>
  <CAA93jw5yvybv+aXH4NLd1r_8xSP2CPwzeh0q6wm1c26jLPBxag@mail.gmail.com>
  <CAH8sseTdDfswOYpYvaDFm_jsaMCpsT9Ebj2ZvkKwaqyyjZiWHA@mail.gmail.com>
-In-Reply-To: <CAH8sseTdDfswOYpYvaDFm_jsaMCpsT9Ebj2ZvkKwaqyyjZiWHA@mail.gmail.com>
-From: Dave Taht <dave.taht@gmail.com>
-Date: Wed, 22 Apr 2020 07:48:43 -0700
-Message-ID: <CAA93jw54L6-mUU9oTgZVFHh5kY7HHGVQjZJZfUMw7Kuq+S9-8w@mail.gmail.com>
-To: Luca Muscariello <muscariello@ieee.org>
+ <CAA93jw54L6-mUU9oTgZVFHh5kY7HHGVQjZJZfUMw7Kuq+S9-8w@mail.gmail.com>
+In-Reply-To: <CAA93jw54L6-mUU9oTgZVFHh5kY7HHGVQjZJZfUMw7Kuq+S9-8w@mail.gmail.com>
+From: Luca Muscariello <muscariello@ieee.org>
+Date: Wed, 22 Apr 2020 17:28:06 +0200
+Message-ID: <CAH8sseQjSk4ghHXSvbeMMAvqGYnJ=0O9XLGo15bFVpwh+C8Zrg@mail.gmail.com>
+To: Dave Taht <dave.taht@gmail.com>
 Subject: Re: [Cake] Advantages to tightly tuning latency
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -81,110 +78,423 @@ List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>, Maxime Bizon <mbizon@freebox.fr>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8662824120111991255=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-T24gV2VkLCBBcHIgMjIsIDIwMjAgYXQgMjowNCBBTSBMdWNhIE11c2NhcmllbGxvIDxtdXNjYXJp
-ZWxsb0BpZWVlLm9yZz4gd3JvdGU6Cj4KPgo+Cj4gT24gV2VkLCBBcHIgMjIsIDIwMjAgYXQgMTI6
-NDQgQU0gRGF2ZSBUYWh0IDxkYXZlLnRhaHRAZ21haWwuY29tPiB3cm90ZToKPj4KPj4gT24gVHVl
-LCBBcHIgMjEsIDIwMjAgYXQgMzozMyBQTSBKb25hdGhhbiBNb3J0b24gPGNocm9tYXRpeDk5QGdt
-YWlsLmNvbT4gd3JvdGU6Cj4+ID4KPj4gPiA+IE9uIDIyIEFwciwgMjAyMCwgYXQgMToyNSBhbSwg
-VGhpYmF1dCA8aGFja3NAc2xhc2hkaXJ0Lm9yZz4gd3JvdGU6Cj4+ID4gPgo+PiA+ID4gTXkgY3Vy
-aW9zaXR5IGlzIHBpcXVlZC4gQ2FuIHlvdSBlbGFib3JhdGUgb24gdGhpcz8gV2hhdCBkb2VzIGZy
-ZWUuZnIgZG8/Cj4+ID4KPj4gPiBUaGV5J3JlIGEgbGFyZ2UgRnJlbmNoIElTUC4gIFRoZXkgbWFk
-ZSB0aGVpciBvd24gQ1BFIGRldmljZXMsIGFuZCBkZWJsb2F0ZWQgYm90aCB0aGVtIGFuZCB0aGVp
-ciBuZXR3b3JrIHF1aXRlIGEgd2hpbGUgYWdvLiAgSW4gdGhhdCBzZW5zZSwgYXQgbGVhc3QsIHRo
-ZXkncmUgYSBtb2RlbCBmb3Igb3RoZXJzIHRvIGZvbGxvdyAtIGJ1dCBmZXcgaGF2ZS4KPj4gPgo+
-PiA+ICAtIEpvbmF0aGFuIE1vcnRvbgo+Pgo+PiB0aGV5IGFyZSBvbmUgb2YgdGhlIGZldyBJU1Bz
-IHRoYXQgaW5zaXN0ZWQgb24gZ2V0dGluZyBmdWxsIHNvdXJjZSBjb2RlCj4+IHRvIHRoZWlyIERT
-TCBzdGFjaywgYW5kIHJldGFpbmVkIHRoZSBjaG9wcyB0byBiZSBhYmxlIHRvIG1vZGlmeSBpdC4g
-SQo+PiByZWFsbHkgYWRtaXJlIHRoZWlyIHJldm9sdXRpb24gdjYgcHJvZHVjdC4gRmlyc3QgaW50
-cm9kdWNlZCBpbiAyMDEwLAo+PiBpdCdzIGJlZW4gY29udGludW91c2x5IHVwZGF0ZWQsIGRpZCBp
-cHY2IGF0IHRoZSBvdXRzZXQsIGdvdCBmcV9jb2RlbAo+PiB3aGVuIGl0IGZpcnN0IGNhbWUgb3V0
-LCBhbmQgdGhleSB1cGRhdGUgdGhlIGtlcm5lbCByZWd1bGFybHkuIEFsbAo+PiBraW5kcyBvZiBn
-cmVhdCBmZWF0dXJlcyBvbiBpdCwgYW5kIGVjbiBpcyBlbmFibGVkIGJ5IGRlZmF1bHQgZm9yIHRo
-b3NlCj4+IGFsc28gKHRoaW5ncyBsaWtlIHNhbWJhKS4gb3ZlciAzIG1pbGxpb24gYm94ZXMgbm93
-IEkgaGVhci4uLi4KPj4KPj4gd2l0aCA8MW1zIG9mIGRlbGF5IGluIHRoZSBkc2wgZHJpdmVyLCB0
-aGV5IGRvbid0IG5lZWQgdG8gc2hhcGUsIHRoZXkKPj4ganVzdCBydW4gYXQgbGluZSByYXRlIHVz
-aW5nIHRocmVlIHRpZXJzIG9mIERSUiB0aGF0IGxvb2sgYSBsb3QgbGlrZQo+PiBjYWtlLiBUaGV5
-IHNoYXJlZCB0aGVpciBjb25maWcgd2l0aCBtZSwgYW5kIGJlZm9yZSBJIGxvc3QgaGVhcnQgZm9y
-Cj4+IGZ1dHVyZSBpbnRlcm5ldCBkcmFmdHMsIEknZCBzdHVjayBpdCBoZXJlOgo+Pgo+PiBodHRw
-czovL2dpdGh1Yi5jb20vZHRhaHQvYnVmZmVyYmxvYXQtcmZjcy9ibG9iL21hc3Rlci9ob21lX2dh
-dGV3YXlfcXVldWVfbWFuYWdlbWVudC9taWRkbGUubWtkCj4+Cj4+IE9jY2FzaW9uYWxseSB0aGV5
-IHNoYXJlIHNvbWUgZGF0YSB3aXRoIG1lLiBTb21ldGltZXMgSSB3aXNoIEkgbGl2ZWQgaW4KPj4g
-cGFyaXMganVzdCBzbyBJIGNvdWxkIGhhdmUgZ29vZCBpbnRlcm5ldCEgKHRoZWlyIGZpYmVyIG9m
-ZmVyaW5nIGlzCj4+IHJlYXNvbmFibHkgYnVmZmVyZWQgKG5vdCBmcV9jb2RlbGVkKSBhbmQgdGhl
-IHdpZmkuLi4gbWF5YmUgSSBjYW4gZ2V0Cj4+IHRoZW0gdG8gdGFsayBhYm91dCB3aGF0IHRoZXkg
-ZGlkKQo+Pgo+PiBXaGVuIGZyZWUuZnIgc2hpcHBlZCBmcV9jb2RlbCAyIG1vbnRocyBhZnRlciB3
-ZSBmaW5hbGl6ZWQgaXQsIEkKPj4gZmlndXJlZCB0aGUgcmVzdCBvZiB0aGUgd29ybGQgd2FzIG9u
-bHkgbW9udGhzIGJlaGluZC4gSG93IGhhcmQgaXMgaXQKPj4gdG8gYWRkIDUwIGxpbmVzIG9mIEJR
-TCBvcmllbnRlZCBjb2RlIHRvIGEgRFNMIGZpcm13YXJlPwo+Pgo+Cj4gRnJlZSBoYXMgYmVlbiB1
-c2luZyBTRlEgc2luY2UgMjAwNSAoaWYgSSByZW1lbWJlciB3ZWxsKS4KPiBUaGV5IGFubm91bmNl
-ZCB0aGUgd2lkZSBkZXBsb3ltZW50IG9mIFNGUSBpbiB0aGUgZnJlZS5mciBuZXdzZ3JvdXAuCj4g
-V2ktRmkgaW4gdGhlIGZyZWUuZnIgcm91dGVyIHdhcyBub3QgYXMgZ29vZCB0aG91Z2guCgpUaGV5
-J3JlIHdvcmtpbmcgb24gaXQuIDopCgo+IEluIFBhcmlzIHRoZXJlIGlzIGEgbG90IG9mIEdQT04g
-bm93IHRoYXQgaXMgcmVwbGFjaW5nIERTTC4gQnV0IHRoZXJlIGlzCj4gYSBuYXRpb24td2lkZSBl
-ZmZvcnQgZnVuZGVkIGJ5IGxvY2FsIGFkbWluaXN0cmF0aW9ucyB0byBnZXQgZmliZXIKPiBldmVy
-eXdoZXJlLiBUaGVyZSBhcmUgc21hbGwgdG93bnMgaW4gdGhlIGNvdW50cnlzaWRlIHdpdGggZmli
-ZXIuCj4gUHVibGljIG1vbmV5IGhhcyBtYWRlLCBhbmQgaXMgbWFraW5nIHRoYXQgcG9zc2libGUu
-Cj4gVGhlcmUgaXMgc3RpbGwgYSBsaXR0bGUgb2YgRXVyby1ET0NTSVMsIGJ1dCBmcmFua2x5IGNv
-bXBhcmVkIHRvIGZpYmVyCj4gaXQgaGFzIG5vIGNoYW5jZSB0byBzdXJ2aXZlLgoKSSBhbSB2ZXJ5
-LCB2ZXJ5IGhhcHB5IGZvciB5J2FsbC4gRmliZXIgaGFzIGFsd2F5cyBiZWVuIHRoZSBzYW5lc3QK
-dGhpbmcuIElzIHRoZXJlCmEgU1BGKyBncG9uIGNhcmQgeWV0IEkgY2FuIHBsdWcgaW50byBhIGNv
-bnZlbnRpb24gb3BlbiBzb3VyY2Ugcm91dGVyIHlldD8KCj4KPiBJIGN1cnJlbnRseSBoYXZlIDJH
-YnBzLzYwME1icHMgYWNjZXNzIHdpdGggb3JhbmdlLmZyIGFuZCBmcmVlLmZyIGhhcyBhIHN1YnNj
-cmlwdGlvbgo+IGF0IDEwR2JwcyBHUE9OLiBJIHdvbid0IHRlbGwgeW91IHRoZSBwcmljZSBiZWNh
-dXNlIHlvdSBtYXkgZmVlbCBkZXByZXNzZWQKPiBjb21wYXJlZCB0byBvdGhlciBjb3VudHJpZXMg
-d2hlcmUgcHJpY2VzIGFyZSBtdWNoIGhpZ2hlci4KCkknZCBlbWlncmF0ZSEhIQoKPiBUaGUgY2hh
-bGxlbmdlIGJlY29tZXMgdG8ga2VlcCB1cCB3aXRoIHRoZXNlIGxpbmsgcmF0ZXMgaW4gc29mdHdh
-cmUKPiBhcyB0aGVyZSBpcyBhIGxvdCBvZiBoYXJkd2FyZSBvZmZsb2FkaW5nLgoKQXQgdGhpcyBw
-b2ludCwgSSBraW5kIG9mIGJ1eSB0aGUgc3RhbmZvcmQgc3FydChiZHApIGFyZ3VtZW50LiBBbGwg
-eW91CnJlYWxseSBuZWVkIGZvciBnaWdFKyBmaWJlciBhY2Nlc3MgdG8gd29yayB3ZWxsCmZvciBt
-b3N0IG1vZGVybiB0cmFmZmljIGlzIGEgZmFpcmx5IHNob3J0IGZpZm8gKHNheSwgMjBtcykuIEFu
-eSBmb3JtCm9mIEZRIHdvdWxkIGhlbHAgYnV0IGJlIGhhcmRseSBub3RpY2libGUuIEkgdGhpbmsK
-dGhlcmUgbmVlZHMgdG8gYmUgd29yayBvbiB0aGUgaG9wIGJldHdlZW4gdGhlIGludGVybmV0IGFu
-ZCB0aGUgc3Vic2NyaWJlci4uLgoKV2ViIHRyYWZmaWMgaXMgZG9taW5hdGVkIGJ5IFJUVCBhYm92
-ZSA0MG1iaXQgKHByZXNlbnRseSkuCnN0cmVhbWluZyB2aWRlbyB0cmFmZmljIC0gaXMgbm8gbW9y
-ZSB0aGFuIDIwTWJpdCwgYW5kIHlvdXIgb2NjYXNpb25hbApiaWcgZG93bmxvYWQgaXMgYSBkb3pl
-biBiaWcgc3RyZWFtcyB0aGF0IHdvdWxkCmJvdW5jZSBvZmYgYSBzaG9ydCBmaWZvIHdlbGwuCmdi
-aXQgYWNjZXNzIHRvIHRoZSBob21lIGlzIChhZG1pdHRlZGx5IGdsb3Jpb3VzLCB3b25kZXJmdWwh
-KSBvdmVya2lsbApmb3IgYWxsIHByZXNlbnQgZm9ybXMgb2YgdHJhZmZpYy4KCkknbSBwcmV0dHkg
-c3VyZSBpZiBJIGhhZCBnaWcgZmliZXIgSSBjb3VsZCBjb21lIHVwIHdpdGggYSB3YXkgdG8gdXNl
-Cml0IHVwIChleGl0aW5nIHRoZSBjbG91ZCBlbnRpcmVseSBjb21lcyB0byBtaW5kKSwgYnV0Cmxh
-Y2tpbmcgbmV3IGFwcGxpY2F0aW9ucyB0aGF0IGRlbWFuZCB0aGF0IG11Y2ggYmFuZHdpZHRoLi4u
-CgpJIG9mIGNvdXJzZSwgd291bGQgbGlrZSB0byBzZWUgbG9sYSAoIGh0dHBzOi8vbG9sYS5jb250
-cy5pdC8gKSBmaW5hbGx5CndvcmssIGFuZCB2aWRlb2NvbmZlcmVuY2luZyBhbmQgZ2FtZSBzdHJl
-YW0gd2l0aCBoaWdoIHJhdGVzIGFuZCBmYXN0ZXIKKGV2ZW4gcmF3KSBlbmNvZGluZyBhbHNvIGhh
-cyBwb3RlbnRpYWwgdG8gcmVkdWNlIGUyZSBsYXRlbmNpZXMKZW5vcm1vdXNseSBhdCB0aGF0IGxh
-eWVyLgoKPgo+IEFzIHNvb24gYXMgODAyLjExYXggYmVjb21lcyB0aGUgbm9ybSwgc29mdHdhcmUg
-c2NoZWR1bGluZyB3aWxsIGJlY29tZQo+IGEgY2hhbGxlbmdlLgoKRG8geW91IG1lYW4gaW4gZmli
-ZXIgb3Igd2lyZWxlc3M/IHdpcmVsZXNzIGlzIHJlYWxseSBwcm9ibGVtYXRpYyBhdCBBTlkgc3Bl
-ZWQuCgphdCBnZmliZXIsIHRoZSBidWZmZXJpbmcgbW92ZWQgdG8gdGhlIHdpZmksIGFuZCB0aGVy
-ZSBhcmUgb3RoZXIKcHJvYmxlbXMgdGhhdCByZWFsbHkgaW1wYWN0IGFjaGlldmFibGUgYmFuZHdp
-ZHRoLiBXaGVuIEkgd2FzIGxhc3QgaW4KcGFyaXMsIEkgY291bGQgImhlYXIiIDMwMCsgYWNjZXNz
-IHBvaW50cyBmcm9tIG15IGFwdCwgYW5kIGNvdWxkIG9ubHkKZ2V0IDEwMC0yMDBrYml0IHBlciBz
-ZWNvbmQgb3V0IG9mIHRoZSB3aXJlbGVzcyBuIGFwIEkgaGFkLCB1bmxlc3MgSQpjaGVhdGVkIGFu
-ZCBzdHVjayBteSB0cmFmZmljIGluIHRoZSBWSSBxdWV1ZS4gQSBmcmllbmQgb2YgbWluZSB0aGVy
-ZSwKY291bGRuJ3QgZXZlbiBnZXQgd2lmaSBhY3Jvc3MgdGhlIHJvb20hIEJlYWNvbnMgYXRlIGlu
-dG8gYSBsb3Qgb2YgdGhlCmF2YWlsYWJsZQpiYW5kd2lkdGguIFNpbmNlIDVnaHogKGFuZCBzb29u
-IDZnaHogLSBpcyA2RSBhIHRoaW5nIGluIGZyYW5jZSkgaXMKc2hvcnRlciByYW5nZSBJJ20gaG9w
-aW5nIHRoYXQncyBnb3QgYmV0dGVyLCBidXQgd2l0aAo4MDIuMTFhYyBhbmQgYXggcGVlaW5nIG9u
-IGhhbGYgdGhlIHdpZmkgc3BlY3RydW0gYnkgZGVmYXVsdCwgSSBpbWFnaW5lCmFjaGlldmFibGUg
-cmF0ZXMgaW4gaGlnaCBkZW5zaXR5IGxvY2F0aW9ucyB3aXRoIG1hbnkgQVBzIHdpbGwgYmUgdmVy
-eQpsb3cuLi4gYW5kIHZlcnkgaml0dGVyeS4uLiBhbmQgdGh1cyBzdGlsbCByZXF1aXJlIGdvb2Qg
-QVRGLCBmcSwgYW5kCmFxbSB0ZWNobm9sb2dpZXMuCgpJIGhhdmUgaGlnaCBob3BlcyBmb3IgT0ZE
-TUEgYW5kIERVIGJ1dCB0aHVzIGZhciBoYXZlbid0IGZvdW5kIGFuIEFQCmRvaW5nIGl0LiBJJ20g
-bm90IHN1cmUgd2hhdCB0byBkbyBhYm91dCB0aGUgYmVhY29uaW5nIHByb2JsZW0gZXhjZXB0Cm9m
-ZmVyIGEgZnJlZSB0cmFkZWluIHRvIGFsbCBteSBuZWlnaGJvcnMgc3RpbGwgZW1pdHRpbmcgRyBz
-dHlsZQpmcmFtZXMuLi4uCgpBbmQgaW4gbG9va2luZyBvdmVyIHNvbWUgcHJlbGltaW5hcnkgY29k
-ZSBmb3IgdGhlIG10NzYgYXggY2hpcCwgSQp3b3JyeSBhYm91dCBib3RoIGJhZCBkZXNpZ24gb2Yg
-dGhlIGZpcm13YXJlLCBhbmQKaW5zdWZmaWNpZW50IHJlc291cmNlcyBvbi1jaGlwIHRvIG1hbmFn
-ZSB3ZWxsLgoKSG93IGlzIHRoZSA1RyByb2xsb3V0IGdvaW5nIGluIGZyYW5jZT8KCkkgcmVjZW50
-bHkgbGVhcm5lZCB0aGF0IG11Y2ggb2YgamFwYW4gaXMuLi4gd2FpdCBmb3IgaXQuLi4gd2ltYXgu
-Cgo+Cj4gTHVjYQoKCgotLSAKTWFrZSBNdXNpYywgTm90IFdhcgoKRGF2ZSBUw6RodApDVE8sIFRl
-a0xpYnJlLCBMTEMKaHR0cDovL3d3dy50ZWtsaWJyZS5jb20KVGVsOiAxLTgzMS00MzUtMDcyOQpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxp
-bmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJs
-b2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============8662824120111991255==
+Content-Type: multipart/alternative; boundary="0000000000000ab5b205a3e2c88d"
+
+--0000000000000ab5b205a3e2c88d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, Apr 22, 2020 at 4:48 PM Dave Taht <dave.taht@gmail.com> wrote:
+
+> On Wed, Apr 22, 2020 at 2:04 AM Luca Muscariello <muscariello@ieee.org>
+> wrote:
+> >
+> >
+> >
+> > On Wed, Apr 22, 2020 at 12:44 AM Dave Taht <dave.taht@gmail.com> wrote:
+> >>
+> >> On Tue, Apr 21, 2020 at 3:33 PM Jonathan Morton <chromatix99@gmail.com=
+>
+> wrote:
+> >> >
+> >> > > On 22 Apr, 2020, at 1:25 am, Thibaut <hacks@slashdirt.org> wrote:
+> >> > >
+> >> > > My curiosity is piqued. Can you elaborate on this? What does
+> free.fr do?
+> >> >
+> >> > They're a large French ISP.  They made their own CPE devices, and
+> debloated both them and their network quite a while ago.  In that sense, =
+at
+> least, they're a model for others to follow - but few have.
+> >> >
+> >> >  - Jonathan Morton
+> >>
+> >> they are one of the few ISPs that insisted on getting full source code
+> >> to their DSL stack, and retained the chops to be able to modify it. I
+> >> really admire their revolution v6 product. First introduced in 2010,
+> >> it's been continuously updated, did ipv6 at the outset, got fq_codel
+> >> when it first came out, and they update the kernel regularly. All
+> >> kinds of great features on it, and ecn is enabled by default for those
+> >> also (things like samba). over 3 million boxes now I hear....
+> >>
+> >> with <1ms of delay in the dsl driver, they don't need to shape, they
+> >> just run at line rate using three tiers of DRR that look a lot like
+> >> cake. They shared their config with me, and before I lost heart for
+> >> future internet drafts, I'd stuck it here:
+> >>
+> >>
+> https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gateway_queue_=
+management/middle.mkd
+> >>
+> >> Occasionally they share some data with me. Sometimes I wish I lived in
+> >> paris just so I could have good internet! (their fiber offering is
+> >> reasonably buffered (not fq_codeled) and the wifi... maybe I can get
+> >> them to talk about what they did)
+> >>
+> >> When free.fr shipped fq_codel 2 months after we finalized it, I
+> >> figured the rest of the world was only months behind. How hard is it
+> >> to add 50 lines of BQL oriented code to a DSL firmware?
+> >>
+> >
+> > Free has been using SFQ since 2005 (if I remember well).
+> > They announced the wide deployment of SFQ in the free.fr newsgroup.
+> > Wi-Fi in the free.fr router was not as good though.
+>
+> They're working on it. :)
+>
+> > In Paris there is a lot of GPON now that is replacing DSL. But there is
+> > a nation-wide effort funded by local administrations to get fiber
+> > everywhere. There are small towns in the countryside with fiber.
+> > Public money has made, and is making that possible.
+> > There is still a little of Euro-DOCSIS, but frankly compared to fiber
+> > it has no chance to survive.
+>
+> I am very, very happy for y'all. Fiber has always been the sanest
+> thing. Is there
+> a SPF+ gpon card yet I can plug into a convention open source router yet?
+>
+> >
+> > I currently have 2Gbps/600Mbps access with orange.fr and free.fr has a
+> subscription
+> > at 10Gbps GPON. I won't tell you the price because you may feel depress=
+ed
+> > compared to other countries where prices are much higher.
+>
+> I'd emigrate!!!
+>
+> > The challenge becomes to keep up with these link rates in software
+> > as there is a lot of hardware offloading.
+>
+
+
+I just meant that these routers tend to use HW offloading
+and kernel qdiscs may be bypassed.
+
+
+
+>
+> At this point, I kind of buy the stanford sqrt(bdp) argument. All you
+> really need for gigE+ fiber access to work well
+> for most modern traffic is a fairly short fifo (say, 20ms). Any form
+> of FQ would help but be hardly noticible. I think
+> there needs to be work on the hop between the internet and the
+> subscriber...
+>
+> Web traffic is dominated by RTT above 40mbit (presently).
+> streaming video traffic - is no more than 20Mbit, and your occasional
+> big download is a dozen big streams that would
+> bounce off a short fifo well.
+> gbit access to the home is (admittedly glorious, wonderful!) overkill
+> for all present forms of traffic.
+>
+> I'm pretty sure if I had gig fiber I could come up with a way to use
+> it up (exiting the cloud entirely comes to mind), but
+> lacking new applications that demand that much bandwidth...
+>
+> I of course, would like to see lola ( https://lola.conts.it/ ) finally
+> work, and videoconferencing and game stream with high rates and faster
+> (even raw) encoding also has potential to reduce e2e latencies
+> enormously at that layer.
+>
+> >
+> > As soon as 802.11ax becomes the norm, software scheduling will become
+> > a challenge.
+>
+> Do you mean in fiber or wireless? wireless is really problematic at ANY
+> speed.
+>
+
+I meant that software scheduling becomes a challenge for the same
+reason as above. Increase in total throughput of the box
+will call for hardware offloading and kernel qdisc may be bypassed.
+
+It is not a challenge per se, it is a challenge because traffic
+may not be managed by the kernel.
+
+
+
+
+>
+> at gfiber, the buffering moved to the wifi, and there are other
+> problems that really impact achievable bandwidth. When I was last in
+> paris, I could "hear" 300+ access points from my apt, and could only
+> get 100-200kbit per second out of the wireless n ap I had, unless I
+> cheated and stuck my traffic in the VI queue. A friend of mine there,
+> couldn't even get wifi across the room! Beacons ate into a lot of the
+> available
+> bandwidth. Since 5ghz (and soon 6ghz - is 6E a thing in france) is
+> shorter range I'm hoping that's got better, but with
+> 802.11ac and ax peeing on half the wifi spectrum by default, I imagine
+> achievable rates in high density locations with many APs will be very
+> low... and very jittery... and thus still require good ATF, fq, and
+> aqm technologies.
+>
+> I have high hopes for OFDMA and DU but thus far haven't found an AP
+> doing it. I'm not sure what to do about the beaconing problem except
+> offer a free tradein to all my neighbors still emitting G style
+> frames....
+>
+> And in looking over some preliminary code for the mt76 ax chip, I
+> worry about both bad design of the firmware, and
+> insufficient resources on-chip to manage well.
+>
+> How is the 5G rollout going in france?
+>
+
+Good question. I've just seen a speed test at Gbps on a phone
+which can drain your battery in less than 5 minutes. Amazing tech!
+
+
+
+>
+> I recently learned that much of japan is... wait for it... wimax.
+>
+> >
+> > Luca
+>
+>
+>
+> --
+> Make Music, Not War
+>
+> Dave T=C3=A4ht
+> CTO, TekLibre, LLC
+> http://www.teklibre.com
+> Tel: 1-831-435-0729
+>
+
+--0000000000000ab5b205a3e2c88d
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><div class=3D"gmail_default" style=3D"fon=
+t-family:monospace"><br></div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">On Wed, Apr 22, 2020 at 4:48 PM Dave Taht &lt=
+;<a href=3D"mailto:dave.taht@gmail.com" target=3D"_blank">dave.taht@gmail.c=
+om</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
+n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
+">On Wed, Apr 22, 2020 at 2:04 AM Luca Muscariello &lt;<a href=3D"mailto:mu=
+scariello@ieee.org" target=3D"_blank">muscariello@ieee.org</a>&gt; wrote:<b=
+r>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+&gt; On Wed, Apr 22, 2020 at 12:44 AM Dave Taht &lt;<a href=3D"mailto:dave.=
+taht@gmail.com" target=3D"_blank">dave.taht@gmail.com</a>&gt; wrote:<br>
+&gt;&gt;<br>
+&gt;&gt; On Tue, Apr 21, 2020 at 3:33 PM Jonathan Morton &lt;<a href=3D"mai=
+lto:chromatix99@gmail.com" target=3D"_blank">chromatix99@gmail.com</a>&gt; =
+wrote:<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; &gt; On 22 Apr, 2020, at 1:25 am, Thibaut &lt;<a href=3D"mail=
+to:hacks@slashdirt.org" target=3D"_blank">hacks@slashdirt.org</a>&gt; wrote=
+:<br>
+&gt;&gt; &gt; &gt;<br>
+&gt;&gt; &gt; &gt; My curiosity is piqued. Can you elaborate on this? What =
+does <a href=3D"http://free.fr" rel=3D"noreferrer" target=3D"_blank">free.f=
+r</a> do?<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; They&#39;re a large French ISP.=C2=A0 They made their own CPE=
+ devices, and debloated both them and their network quite a while ago.=C2=
+=A0 In that sense, at least, they&#39;re a model for others to follow - but=
+ few have.<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt;=C2=A0 - Jonathan Morton<br>
+&gt;&gt;<br>
+&gt;&gt; they are one of the few ISPs that insisted on getting full source =
+code<br>
+&gt;&gt; to their DSL stack, and retained the chops to be able to modify it=
+. I<br>
+&gt;&gt; really admire their revolution v6 product. First introduced in 201=
+0,<br>
+&gt;&gt; it&#39;s been continuously updated, did ipv6 at the outset, got fq=
+_codel<br>
+&gt;&gt; when it first came out, and they update the kernel regularly. All<=
+br>
+&gt;&gt; kinds of great features on it, and ecn is enabled by default for t=
+hose<br>
+&gt;&gt; also (things like samba). over 3 million boxes now I hear....<br>
+&gt;&gt;<br>
+&gt;&gt; with &lt;1ms of delay in the dsl driver, they don&#39;t need to sh=
+ape, they<br>
+&gt;&gt; just run at line rate using three tiers of DRR that look a lot lik=
+e<br>
+&gt;&gt; cake. They shared their config with me, and before I lost heart fo=
+r<br>
+&gt;&gt; future internet drafts, I&#39;d stuck it here:<br>
+&gt;&gt;<br>
+&gt;&gt; <a href=3D"https://github.com/dtaht/bufferbloat-rfcs/blob/master/h=
+ome_gateway_queue_management/middle.mkd" rel=3D"noreferrer" target=3D"_blan=
+k">https://github.com/dtaht/bufferbloat-rfcs/blob/master/home_gateway_queue=
+_management/middle.mkd</a><br>
+&gt;&gt;<br>
+&gt;&gt; Occasionally they share some data with me. Sometimes I wish I live=
+d in<br>
+&gt;&gt; paris just so I could have good internet! (their fiber offering is=
+<br>
+&gt;&gt; reasonably buffered (not fq_codeled) and the wifi... maybe I can g=
+et<br>
+&gt;&gt; them to talk about what they did)<br>
+&gt;&gt;<br>
+&gt;&gt; When <a href=3D"http://free.fr" rel=3D"noreferrer" target=3D"_blan=
+k">free.fr</a> shipped fq_codel 2 months after we finalized it, I<br>
+&gt;&gt; figured the rest of the world was only months behind. How hard is =
+it<br>
+&gt;&gt; to add 50 lines of BQL oriented code to a DSL firmware?<br>
+&gt;&gt;<br>
+&gt;<br>
+&gt; Free has been using SFQ since 2005 (if I remember well).<br>
+&gt; They announced the wide deployment of SFQ in the <a href=3D"http://fre=
+e.fr" rel=3D"noreferrer" target=3D"_blank">free.fr</a> newsgroup.<br>
+&gt; Wi-Fi in the <a href=3D"http://free.fr" rel=3D"noreferrer" target=3D"_=
+blank">free.fr</a> router was not as good though.<br>
+<br>
+They&#39;re working on it. :)<br>
+<br>
+&gt; In Paris there is a lot of GPON now that is replacing DSL. But there i=
+s<br>
+&gt; a nation-wide effort funded by local administrations to get fiber<br>
+&gt; everywhere. There are small towns in the countryside with fiber.<br>
+&gt; Public money has made, and is making that possible.<br>
+&gt; There is still a little of Euro-DOCSIS, but frankly compared to fiber<=
+br>
+&gt; it has no chance to survive.<br>
+<br>
+I am very, very happy for y&#39;all. Fiber has always been the sanest<br>
+thing. Is there<br>
+a SPF+ gpon card yet I can plug into a convention open source router yet?<b=
+r>
+<br>
+&gt;<br>
+&gt; I currently have 2Gbps/600Mbps access with <a href=3D"http://orange.fr=
+" rel=3D"noreferrer" target=3D"_blank">orange.fr</a> and <a href=3D"http://=
+free.fr" rel=3D"noreferrer" target=3D"_blank">free.fr</a> has a subscriptio=
+n<br>
+&gt; at 10Gbps GPON. I won&#39;t tell you the price because you may feel de=
+pressed<br>
+&gt; compared to other countries where prices are much higher.<br>
+<br>
+I&#39;d emigrate!!!<br>
+<br>
+&gt; The challenge becomes to keep up with these link rates in software<br>
+&gt; as there is a lot of hardware offloading.<br></blockquote><div><br></d=
+iv><div><br></div><div><div class=3D"gmail_default" style=3D"font-family:mo=
+nospace">I just meant that these routers tend=C2=A0to use HW offloading=C2=
+=A0</div><div class=3D"gmail_default" style=3D"font-family:monospace">and k=
+ernel qdiscs may be bypassed.</div></div><div><br></div><div>=C2=A0</div><b=
+lockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-le=
+ft:1px solid rgb(204,204,204);padding-left:1ex">
+<br>
+At this point, I kind of buy the stanford sqrt(bdp) argument. All you<br>
+really need for gigE+ fiber access to work well<br>
+for most modern traffic is a fairly short fifo (say, 20ms). Any form<br>
+of FQ would help but be hardly noticible. I think<br>
+there needs to be work on the hop between the internet and the subscriber..=
+.<br>
+<br>
+Web traffic is dominated by RTT above 40mbit (presently).<br>
+streaming video traffic - is no more than 20Mbit, and your occasional<br>
+big download is a dozen big streams that would<br>
+bounce off a short fifo well.<br>
+gbit access to the home is (admittedly glorious, wonderful!) overkill<br>
+for all present forms of traffic.<br>
+<br>
+I&#39;m pretty sure if I had gig fiber I could come up with a way to use<br=
+>
+it up (exiting the cloud entirely comes to mind), but<br>
+lacking new applications that demand that much bandwidth...<br>
+<br>
+I of course, would like to see lola ( <a href=3D"https://lola.conts.it/" re=
+l=3D"noreferrer" target=3D"_blank">https://lola.conts.it/</a> ) finally<br>
+work, and videoconferencing and game stream with high rates and faster<br>
+(even raw) encoding also has potential to reduce e2e latencies<br>
+enormously at that layer.<br>
+<br>
+&gt;<br>
+&gt; As soon as 802.11ax becomes the norm, software scheduling will become<=
+br>
+&gt; a challenge.<br>
+<br>
+Do you mean in fiber or wireless? wireless is really problematic at ANY spe=
+ed.<br></blockquote><div><br></div><div><div class=3D"gmail_default" style=
+=3D"font-family:monospace">I meant that software scheduling becomes a chall=
+enge for the same</div><div class=3D"gmail_default" style=3D"font-family:mo=
+nospace">reason as above. Increase in total throughput of the box</div><div=
+ class=3D"gmail_default" style=3D"font-family:monospace">will call for hard=
+ware offloading and kernel qdisc may be bypassed.</div><div class=3D"gmail_=
+default" style=3D"font-family:monospace"><br></div><div class=3D"gmail_defa=
+ult" style=3D"font-family:monospace">It is not a challenge per se, it is a =
+challenge because traffic</div><div class=3D"gmail_default" style=3D"font-f=
+amily:monospace">may not be managed by the kernel.</div><br></div><div><br>=
+</div><div>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"margin:0p=
+x 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+<br>
+at gfiber, the buffering moved to the wifi, and there are other<br>
+problems that really impact achievable bandwidth. When I was last in<br>
+paris, I could &quot;hear&quot; 300+ access points from my apt, and could o=
+nly<br>
+get 100-200kbit per second out of the wireless n ap I had, unless I<br>
+cheated and stuck my traffic in the VI queue. A friend of mine there,<br>
+couldn&#39;t even get wifi across the room! Beacons ate into a lot of the<b=
+r>
+available<br>
+bandwidth. Since 5ghz (and soon 6ghz - is 6E a thing in france) is<br>
+shorter range I&#39;m hoping that&#39;s got better, but with<br>
+802.11ac and ax peeing on half the wifi spectrum by default, I imagine<br>
+achievable rates in high density locations with many APs will be very<br>
+low... and very jittery... and thus still require good ATF, fq, and<br>
+aqm technologies.<br>
+<br>
+I have high hopes for OFDMA and DU but thus far haven&#39;t found an AP<br>
+doing it. I&#39;m not sure what to do about the beaconing problem except<br=
+>
+offer a free tradein to all my neighbors still emitting G style<br>
+frames....<br>
+<br>
+And in looking over some preliminary code for the mt76 ax chip, I<br>
+worry about both bad design of the firmware, and<br>
+insufficient resources on-chip to manage well.<br>
+<br>
+How is the 5G rollout going in france?<br></blockquote><div><br></div><div>=
+<div class=3D"gmail_default" style=3D"font-family:monospace">Good question.=
+ I&#39;ve just seen a speed test at Gbps on a phone</div><div class=3D"gmai=
+l_default" style=3D"font-family:monospace">which can drain your battery in =
+less than 5 minutes. Amazing tech!</div><br></div><div>=C2=A0</div><blockqu=
+ote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px=
+ solid rgb(204,204,204);padding-left:1ex">
+<br>
+I recently learned that much of japan is... wait for it... wimax.<br>
+<br>
+&gt;<br>
+&gt; Luca<br>
+<br>
+<br>
+<br>
+-- <br>
+Make Music, Not War<br>
+<br>
+Dave T=C3=A4ht<br>
+CTO, TekLibre, LLC<br>
+<a href=3D"http://www.teklibre.com" rel=3D"noreferrer" target=3D"_blank">ht=
+tp://www.teklibre.com</a><br>
+Tel: 1-831-435-0729<br>
+</blockquote></div></div>
+
+--0000000000000ab5b205a3e2c88d--
+
+--===============8662824120111991255==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============8662824120111991255==--
