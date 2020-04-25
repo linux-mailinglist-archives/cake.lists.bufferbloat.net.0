@@ -2,67 +2,102 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BED361B8979
-	for <lists+cake@lfdr.de>; Sat, 25 Apr 2020 22:56:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B8541B899B
+	for <lists+cake@lfdr.de>; Sat, 25 Apr 2020 23:31:40 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id E587F3CB38;
-	Sat, 25 Apr 2020 16:56:28 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 9B1633CB38;
+	Sat, 25 Apr 2020 17:31:39 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1587848188;
-	bh=RnBzY5uYxCnGVY5meF2srR5WBAYopDezPksWcJ/O27Y=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1587850299;
+	bh=ZxirUbebvYr66IDkmp6BZukYu2Ki3xAAPg3k+MjML5I=;
+	h=From:To:Date:References:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=HSvcOrTWEEBPaHb6SPl7wmgEWRAazRAy+hppySWirCBP1sggu9qkjLNXj3RDaBlKg
-	 XO7ZBsMVtn9uLhFOh6xZ4u3rHBi1GTG+bADG7ZvbH2cFfar7tAC5sU+WMeMJ4RxUsa
-	 +huNujhEtHLaubrVUMA/jr0lUvn6ZkNb4M677OA3oOOiOju17KVGo7uw/IZwJjn1U1
-	 cHiO5M/UaUAcd9nsCOgDyHRwuwIY0HpRWQIPCfH4n6ymse8GIfmEpLflv4UYqWuSgF
-	 CBV+sQQ+4qUh4F67hpNYq39b1DFzPaf14BLJyPr14hdzkzNulHQ5njLJG2+HF2JBoP
-	 Msb6/11pnj6Mg==
+	b=m6V9vWwVEmatzF0x+qtfJFLk0S34utwKhfhGo4i2j6NOB7Y7snjZTQ/Pe173NLpkY
+	 PdM0s/ynGdQP5KcMnRyURuM5SY2lufDg9dx8trJL7OJcOiyvg8PkhurJERlU6TIgF6
+	 IaDFqO1s6RWLYfoRFmMPombggIFiAnJG4DDCEwojERiKt8KCg/lIwXdR68R88Q29F4
+	 Z6GN615alkKhUK9EhI+Ss7Tvccutvhk6w/DjMhM7CAoW070AYeFY02o0iW/uunxV8G
+	 A1qQK2nPOL0WszOhAVr7SbaRDdgRwX1CC6wfnplz1uRBlPwcNCJ7YHb2hkqDL1BMjf
+	 zcmWy+cc13ZLg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp105.iad3a.emailsrvr.com (smtp105.iad3a.emailsrvr.com
- [173.203.187.105])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from EUR04-DB3-obe.outbound.protection.outlook.com
+ (mail-eopbgr60088.outbound.protection.outlook.com [40.107.6.88])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 2D9673B29E
- for <cake@lists.bufferbloat.net>; Sat, 25 Apr 2020 16:56:28 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
- s=20190322-9u7zjiwi; t=1587848187;
- bh=xgYP5h12/5n9b3wfax5ufOJzfGEAsQrivMOdxODUW0Y=;
- h=Date:Subject:From:To:From;
- b=uF3pQ1fM2uArlid3qY/MTNh3PwSmXi+IdiCa5WhcwSyeUuhLhezZP+/VwEkrKWcfB
- ohDCWv7BT2FEbK2b04dunRCICcRzsZxeJGi/UhvuRD0kdlLbZvTptkSykoCdwXGwsE
- euqqHjXd0vQw1E7jBrkUa+AsLOexOn9KV44bCwZo=
-Received: from app19.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp22.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id BE8C15EF6;
- Sat, 25 Apr 2020 16:56:27 -0400 (EDT)
-X-Sender-Id: dpreed@deepplum.com
-Received: from app19.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140]) by 0.0.0.0:25 (trex/5.7.12);
- Sat, 25 Apr 2020 16:56:27 -0400
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app19.wa-webapps.iad3a (Postfix) with ESMTP id D483CE0047;
- Sat, 25 Apr 2020 16:56:26 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Sat, 25 Apr 2020 16:56:26 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Sat, 25 Apr 2020 16:56:26 -0400 (EDT)
-From: "David P. Reed" <dpreed@deepplum.com>
-To: "Kevin Darbyshire-Bryant" <kevin@darbyshire-bryant.me.uk>
-MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <32DE972A-3359-462A-A12C-77714B2563F6@darbyshire-bryant.me.uk>
-References: <62228545-5DE2-4600-A9BB-52D891FF5AD4@darbyshire-bryant.me.uk> 
- <4D896254-FFB2-4CEB-B596-A6D2E510243C@gmail.com> 
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 38A943B29E
+ for <cake@lists.bufferbloat.net>; Sat, 25 Apr 2020 17:31:38 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=g4itTACkmt8yAiJ18Evn+xhfglfQJ54pk5jMdv6U3eZhl8jlu9nMS2dgcGo0X/P7Nvgn8oUC7azqmv84hAL0jpuyc4Ser31VgUjzlZvEWQd2sscFBu9a3rbjotASxLSWnjvFmzr3iy1zcnZMyHF/C1WsPnkIA41oiB3rACazGdmwhY0rmhU2hMfwB5/sIRrTNeajHBYrureipe8aOi1S1gjW4sAGv4r12G0mSej1NUDc6JiEeFd4Ps7y3hQJmYw2c+Qp9zfuiQAeAa8c+Qnj9UnXZ/vxcp2JviLjc+r2V9lYOFW2IMNl5IswcT/y20QgGOJhRrieyGyKuHf27L7K5w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SZyH0LyGtXt5TU3ftIipeJHeyGyeMLFV2W7xfNn4zMU=;
+ b=nONYvxekcPdtsPVbGd5ySw2KhN0FZBoTQ6jjHvNOM/UmO9jAYnwAudUqm8qYLxE3m2oFr7soowfRpexSow18gciP9h/PH4mh7r9tHFIJ3G0Rjt+TtjXsbOfDeugF2YnbP2eszI7qF7gnhqCh8okRUa3EBBVoW2xhnq4p5wEkbMZIIeOAAhSZN0JgZniLsS6pQ4uL2CqzX3gEuw2NIKhMCJmIFUBnYOfilUR/5N0ylX5gqFLvODXYlenqRD8o1OkZKWRehKs8oKrVbwmuIPwH9kPVbO/V/pc9hr1i3ZDUWjNmZob01wwn7+6xKiBS/yhfbDDEzvTehr51Kfl37RxFwQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=darbyshire-bryant.me.uk; dmarc=pass action=none
+ header.from=darbyshire-bryant.me.uk; dkim=pass
+ header.d=darbyshire-bryant.me.uk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=darbyshire-bryant.me.uk; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=SZyH0LyGtXt5TU3ftIipeJHeyGyeMLFV2W7xfNn4zMU=;
+ b=Y/WDZn8pL3S1Jv8ifIPUWrc6rhPlZBcGUsNrh7lUOTm0wiK8riaNWU7QY0K1SiEe2RxxCE5uAiN2nvt1qHJM+5pVOjtcXSgpiHwfONdzTqUGpuI6qxnbFMp7xwVJyF97yJ6CektH2/m2S3T5aKqeTbqzWVJcpTsMazNbNMaX9Mo=
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com (2603:10a6:803:59::12)
+ by VI1PR03MB3503.eurprd03.prod.outlook.com (2603:10a6:803:30::15)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2937.22; Sat, 25 Apr
+ 2020 21:31:35 +0000
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::982d:7d6a:5f6f:74a2]) by VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::982d:7d6a:5f6f:74a2%4]) with mapi id 15.20.2937.020; Sat, 25 Apr 2020
+ 21:31:35 +0000
+From: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
+To: "David P. Reed" <dpreed@deepplum.com>
+Thread-Topic: [Cake] Cake tin behaviour - discuss....
+Thread-Index: AQHWGvGmvsYI2khSOkWkfQsfjOsk4aiJ9aKAgABWX4CAAAYTAIAACdCA
+Date: Sat, 25 Apr 2020 21:31:35 +0000
+Message-ID: <0AA356B0-AC91-4F4E-94A6-184C3E090FCA@darbyshire-bryant.me.uk>
+References: <62228545-5DE2-4600-A9BB-52D891FF5AD4@darbyshire-bryant.me.uk>
+ <4D896254-FFB2-4CEB-B596-A6D2E510243C@gmail.com>
  <32DE972A-3359-462A-A12C-77714B2563F6@darbyshire-bryant.me.uk>
-Message-ID: <1587848186.866926178@apps.rackspace.com>
-X-Mailer: webmail/17.3.7-RC
-X-Classification-ID: d06e8b88-1de1-4259-b498-e01543f608d3-1-1
+ <1587848186.866926178@apps.rackspace.com>
+In-Reply-To: <1587848186.866926178@apps.rackspace.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-mailer: Apple Mail (2.3608.80.23.2.2)
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=kevin@darbyshire-bryant.me.uk; 
+x-originating-ip: [2a02:c7f:1243:8e00::dc83]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: ce3793d4-c3a8-41f6-30ff-08d7e9600806
+x-ms-traffictypediagnostic: VI1PR03MB3503:
+x-microsoft-antispam-prvs: <VI1PR03MB3503BCD2948793E59AEBC8EBA5D10@VI1PR03MB3503.eurprd03.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:6108;
+x-forefront-prvs: 0384275935
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:VI1PR03MB4575.eurprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(346002)(396003)(136003)(376002)(366004)(39830400003)(86362001)(8936002)(81156014)(8676002)(6486002)(33656002)(966005)(2906002)(71200400001)(36756003)(54906003)(2616005)(316002)(76116006)(66574012)(6506007)(186003)(6916009)(5660300002)(4744005)(508600001)(6512007)(4326008)(53546011)(91956017)(99936003)(66476007)(66446008)(66556008)(64756008)(66616009)(66946007);
+ DIR:OUT; SFP:1101; 
+received-spf: None (protection.outlook.com: darbyshire-bryant.me.uk does not
+ designate permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: 2hBnk137vdtKvwxNWkRWgZvCJNM4/sb6RQTC5aEV2uM6/pwcEcE1orOrOrLojW0heD97EfRVLONrYt/QUTzhg/DgMQQ6vv4+YbWjNhr46iv+UcXnTOXuFA9o/ZJyV3hupz+ra49kO8cpeeDYAZidbLXDiBMBBZ1ogMTFP1twlDTHa6W6aHW/WcQTYU0aSC8gqTDl07RMQzIs4jC9AjSlYyuPoOQExbjuOGNH6coAIXcFS178hhJjYuDo+qp60wTJe2xk7bKWFLO5/SUv+LpoCn4LVk19BPdKpnZLZ6fFv/X2zGVTCTMe4zaOkS3uyGwvFA9pRqfFlVEYp6NoErLEgBRsn6vpLxPAwqT5v2ID0sDSko/0NgPUnamyICmQOQybrkK4FOa+J/DcCMkkExhf54+W4FqgO+nA0h+27YAHXikK5li/dJtu5I6qypJy0KKd8bK8okUS1WCfBwpQRFai+nbCkMBPpyl5JePoeJ+wbyo0OxLogWd0H7Tlx3ZNKiy+n/P+iA/W33OzmtODMpLptA==
+x-ms-exchange-antispam-messagedata: cnQzaDCBC8NUFQuC7t2c7A0FsmBaWfxGYBdkEMkaiv4f7hNxpOvbntys+ZIfzq4uvbm5RPy6FvwhWuErf5C8f7Ew6q5AyU9I8n1kJWoIdDHivwFDoUuxXRceobzZBeUliVP2/nEWXC0U75UjIRtdgvBaDwU9zgMmJscZ5g0FoSUBNI8hszf0OB0j3jkE6u8IH92wo3cFp+ui022DN4sVRUlHOyNOJlYUuDLWO3jiMQNsZhL8yIOVQjsoJdpeeUKVR/nUnwbcTDUAx1lUkoNQ7az5OGvpwWA0KSDoZEjtfNIDQ3ayMcO2UZVFAyCaCbCQ5YZdx/I+K3oyOfrfU79AmR8xMrVJtANF1NxlYrsKKKnZRdfMpz8Enzf1zwR8NFPnLLCoxPrQlC8PfuysXuPj839MouuuAiiy07PE6yn26gXiKgXm/Hy0C/VbfWRT7WyOHMfLiYpRSKCkj0npK4HlIe4LrpCEYhiGmv+y+GUwH2EqrU37+ID+JK/wvGvFaBKYISEwqMs7io1IVksh+6UWtMEM61N4miAQzioWsImp3rxfJZF9KUhzFiQxMg0DhFgKVAOYhDOpXu3qvcex1dxRTXIedeJe8tvG93Uy+0Jc/xxzR8CNFVa/nlTlVKKC5zuDojykwm1vNL9kUQBXIcJivyEAU136cd7NC8Xp/Pyg0O2mGL9NGZf8dYNImyqh3oSsKN/9DTHTCL44eaPO5yJ8STk8UuRGnaOv4cUMhLCChghFOREO1LA1XPgH4ubsdfLnp2xpGXxHD93piQG05X1fi7MTJuUQJVFAUyagLO3G7qIAm4hCru9WAGoZFmENwtIttltBfm/VfUClsOimWFWNzg==
+x-ms-exchange-transport-forked: True
+MIME-Version: 1.0
+X-OriginatorOrg: darbyshire-bryant.me.uk
+X-MS-Exchange-CrossTenant-Network-Message-Id: ce3793d4-c3a8-41f6-30ff-08d7e9600806
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Apr 2020 21:31:35.5311 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9151708b-c553-406f-8e56-694f435154a4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: j4JTAphbeUuTl17rn1tB3MIEkK+H50WNJy0q6numZW6FupZuY+cx8tsG2aK0/7iN+gnGFZZGgscyk37O8+V+r2sJPvVEJxNQ9qZlWoGsvDY=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR03MB3503
 Subject: Re: [Cake] Cake tin behaviour - discuss....
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -76,130 +111,68 @@ List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============4196778712023097748=="
+Content-Type: multipart/mixed; boundary="===============8489899521861003710=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============4196778712023097748==
-Content-Type: multipart/alternative;boundary="----=_20200425165626000000_56464"
+--===============8489899521861003710==
+Content-Language: en-US
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_3331A43E-E022-492A-8763-5F688CAF47DF";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
 
-------=_20200425165626000000_56464
-Content-Type: text/plain; charset="UTF-8"
+--Apple-Mail=_3331A43E-E022-492A-8763-5F688CAF47DF
 Content-Transfer-Encoding: quoted-printable
-
-=0AQuestion: what's the "lag under load" experienced when these two loads a=
-re filling the capacity of the bottleneck router (the DSL link)?=0AI'm wond=
-ering whether your cake setup is deliberately building up a big queue withi=
-n the router for any of the 10 bulk/best efforts flows.=0A =0AOn Saturday, =
-April 25, 2020 4:34pm, "Kevin Darbyshire-Bryant" <kevin@darbyshire-bryant.m=
-e.uk> said:=0A=0A=0A=0A> _______________________________________________=0A=
-> Cake mailing list=0A> Cake@lists.bufferbloat.net=0A> https://lists.buffer=
-bloat.net/listinfo/cake=0A> =0A> =0A> > On 25 Apr 2020, at 16:25, Jonathan =
-Morton <chromatix99@gmail.com>=0A> wrote:=0A> >=0A> >> On 25 Apr, 2020, at =
-2:07 pm, Kevin Darbyshire-Bryant=0A> <kevin@darbyshire-bryant.me.uk> wrote:=
-=0A> >>=0A> >> Download from =E2=80=98onedrive=E2=80=99 from 1 box, using 5=
- flows,=0A> classified as Bulk. Little other traffic going on, sits there a=
-t circa 70Mbit, no=0A> problem.=0A> >>=0A> >> If I started another download=
- on another box, say 5 flows, classified as=0A> Best Effort, what rates wou=
-ld you expect the Bulk & Best effort tins to flow at?=0A> >=0A> > Approxima=
-tely speaking, Cake should give the Best Effort traffic priority=0A> over B=
-ulk, until the latter is squashed down to its tin's capacity. So you may=0A=
-> see 5-10Mbps of Bulk and 65-70Mbps of Best Effort, depending on some shor=
-t-term=0A> effects.=0A> >=0A> > This assumes that the Diffserv marking actu=
-ally reaches Cake, of course.=0A> =0A> Thanks Jonathan. I can assure you di=
-ffserv markings are reaching cake both egress=0A> & ingress due to my pet =
-=E2=80=98act_ctinfo/connmark -savedscp=E2=80=99 project. =0A> Amongst other=
- monitoring methods a simple 'watch -t tc -s qdisc show dev $1=E2=80=99=0A>=
- albeit with a slightly modified cake module & tc to report per tin traffic=
- as a=0A> percentage of total & per tin % of threshold is used.=0A> =0A> eg=
-:=0A> Bulk Best Effort Video Voice=0A> thresh 4812Kbit 77Mbit 38500Kbit 192=
-50Kbit=0A> target 5.0ms 5.0ms 5.0ms 5.0ms=0A> interval 100.0ms 100.0ms 100.=
-0ms 100.0ms=0A> pk_delay 961us 167us 311us 164us=0A> av_delay 453us 78us 14=
-1us 75us=0A> sp_delay 51us 12us 17us 9us=0A> backlog 9084b 0b 0b 0b=0A> pkt=
-s 60618617 2006708 460725 11129=0A> bytes 91414263264 2453185010 636385583 =
-5205008=0A> traffic% 89 0 0 0=0A> traftin% 1435 0 0 0=0A> way_inds 2703134 =
-8957 169 111=0A> way_miss 922 6192 104 525=0A> way_cols 0 0 0 0=0A> drops 8=
-442 230 37 0=0A> marks 5 0 0 0=0A> ack_drop 0 0 0 0=0A> sp_flows 2 3 1 3=0A=
-> bk_flows 1 0 0 0=0A> un_flows 0 0 0 0=0A> max_len 66616 12112 9084 3360=
-=0A> quantum 300 1514 1174 587=0A> =0A> Your expectation is that Best Effor=
-t would exert downward pressure on Bulk traffic=0A> reducing bulk traffic t=
-o about bulk threshold level which is my expectation also. =0A> Tin priorit=
-y then host (fairness), then flow.=0A> =0A> As you may have guessed, that=
-=E2=80=99s not quite what I=E2=80=99m seeing but as=0A> I=E2=80=99ve manage=
-d to see the issue when using =E2=80=98flowblind=E2=80=99 am now much=0A> l=
-ess inclined to point the finger at host fairness & friends. I remain confu=
-sed=0A> why =E2=80=98bulk=E2=80=99 is exceeding its allocation though in wh=
-at should be=0A> pressure from best effort but it ends up going all over th=
-e place and being a bit=0A> unstable. Odd.=0A> =0A> BTW: The =E2=80=98onedr=
-ive=E2=80=99 client box is actually running linux.=0A> =0A> 
-------=_20200425165626000000_56464
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<font face=3D"arial" size=3D"3"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 12pt; overflow-wrap: break-word;">Question: what's the "=
-lag under load" experienced when these two loads are filling the capacity o=
-f the bottleneck router (the DSL link)?</p>=0A<p style=3D"margin:0;padding:=
-0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">I'm wond=
-ering whether your cake setup is deliberately building up a big queue withi=
-n the router for any of the 10 bulk/best efforts flows.</p>=0A<p style=3D"m=
-argin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: break=
--word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; fon=
-t-size: 12pt; overflow-wrap: break-word;">On Saturday, April 25, 2020 4:34p=
-m, "Kevin Darbyshire-Bryant" &lt;kevin@darbyshire-bryant.me.uk&gt; said:<br=
- /><br /></p>=0A<div id=3D"SafeStyles1587847349">=0A<p style=3D"margin:0;pa=
-dding:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">&g=
-t; _______________________________________________<br />&gt; Cake mailing l=
-ist<br />&gt; Cake@lists.bufferbloat.net<br />&gt; https://lists.bufferbloa=
-t.net/listinfo/cake<br />&gt; <br />&gt; <br />&gt; &gt; On 25 Apr 2020, at=
- 16:25, Jonathan Morton &lt;chromatix99@gmail.com&gt;<br />&gt; wrote:<br /=
->&gt; &gt;<br />&gt; &gt;&gt; On 25 Apr, 2020, at 2:07 pm, Kevin Darbyshire=
--Bryant<br />&gt; &lt;kevin@darbyshire-bryant.me.uk&gt; wrote:<br />&gt; &g=
-t;&gt;<br />&gt; &gt;&gt; Download from =E2=80=98onedrive=E2=80=99 from 1 b=
-ox, using 5 flows,<br />&gt; classified as Bulk. Little other traffic going=
- on, sits there at circa 70Mbit, no<br />&gt; problem.<br />&gt; &gt;&gt;<b=
-r />&gt; &gt;&gt; If I started another download on another box, say 5 flows=
-, classified as<br />&gt; Best Effort, what rates would you expect the Bulk=
- &amp; Best effort tins to flow at?<br />&gt; &gt;<br />&gt; &gt; Approxima=
-tely speaking, Cake should give the Best Effort traffic priority<br />&gt; =
-over Bulk, until the latter is squashed down to its tin's capacity. So you =
-may<br />&gt; see 5-10Mbps of Bulk and 65-70Mbps of Best Effort, depending =
-on some short-term<br />&gt; effects.<br />&gt; &gt;<br />&gt; &gt; This as=
-sumes that the Diffserv marking actually reaches Cake, of course.<br />&gt;=
- <br />&gt; Thanks Jonathan. I can assure you diffserv markings are reachin=
-g cake both egress<br />&gt; &amp; ingress due to my pet =E2=80=98act_ctinf=
-o/connmark -savedscp=E2=80=99 project. <br />&gt; Amongst other monitoring =
-methods a simple 'watch -t tc -s qdisc show dev $1=E2=80=99<br />&gt; albei=
-t with a slightly modified cake module &amp; tc to report per tin traffic a=
-s a<br />&gt; percentage of total &amp; per tin % of threshold is used.<br =
-/>&gt; <br />&gt; eg:<br />&gt; Bulk Best Effort Video Voice<br />&gt; thre=
-sh 4812Kbit 77Mbit 38500Kbit 19250Kbit<br />&gt; target 5.0ms 5.0ms 5.0ms 5=
-.0ms<br />&gt; interval 100.0ms 100.0ms 100.0ms 100.0ms<br />&gt; pk_delay =
-961us 167us 311us 164us<br />&gt; av_delay 453us 78us 141us 75us<br />&gt; =
-sp_delay 51us 12us 17us 9us<br />&gt; backlog 9084b 0b 0b 0b<br />&gt; pkts=
- 60618617 2006708 460725 11129<br />&gt; bytes 91414263264 2453185010 63638=
-5583 5205008<br />&gt; traffic% 89 0 0 0<br />&gt; traftin% 1435 0 0 0<br /=
->&gt; way_inds 2703134 8957 169 111<br />&gt; way_miss 922 6192 104 525<br =
-/>&gt; way_cols 0 0 0 0<br />&gt; drops 8442 230 37 0<br />&gt; marks 5 0 0=
- 0<br />&gt; ack_drop 0 0 0 0<br />&gt; sp_flows 2 3 1 3<br />&gt; bk_flows=
- 1 0 0 0<br />&gt; un_flows 0 0 0 0<br />&gt; max_len 66616 12112 9084 3360=
-<br />&gt; quantum 300 1514 1174 587<br />&gt; <br />&gt; Your expectation =
-is that Best Effort would exert downward pressure on Bulk traffic<br />&gt;=
- reducing bulk traffic to about bulk threshold level which is my expectatio=
-n also. <br />&gt; Tin priority then host (fairness), then flow.<br />&gt; =
-<br />&gt; As you may have guessed, that=E2=80=99s not quite what I=E2=80=
-=99m seeing but as<br />&gt; I=E2=80=99ve managed to see the issue when usi=
-ng =E2=80=98flowblind=E2=80=99 am now much<br />&gt; less inclined to point=
- the finger at host fairness &amp; friends. I remain confused<br />&gt; why=
- =E2=80=98bulk=E2=80=99 is exceeding its allocation though in what should b=
-e<br />&gt; pressure from best effort but it ends up going all over the pla=
-ce and being a bit<br />&gt; unstable. Odd.<br />&gt; <br />&gt; BTW: The =
-=E2=80=98onedrive=E2=80=99 client box is actually running linux.<br />&gt; =
-<br />&gt; </p>=0A</div></font>
-------=_20200425165626000000_56464--
+Content-Type: text/plain;
+	charset=utf-8
 
 
---===============4196778712023097748==
+
+> On 25 Apr 2020, at 21:56, David P. Reed <dpreed@deepplum.com> wrote:
+>=20
+> Question: what's the "lag under load" experienced when these two loads =
+are filling the capacity of the bottleneck router (the DSL link)?
+> I'm wondering whether your cake setup is deliberately building up a =
+big queue within the router for any of the 10 bulk/best efforts flows.
+
+=
+https://www.thinkbroadband.com/broadband/monitoring/quality/share/3dec809e=
+cef5cd52f574b6be5da9af28326845d6-25-04-2020
+
+I don=E2=80=99t reckon it=E2=80=99s bad for the past 24 hours, one peak =
+at 50ms.  Avg latency increase by about 6ms during load.
+
+
+
+--Apple-Mail=_3331A43E-E022-492A-8763-5F688CAF47DF
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEASyssijGxT6XdZEjs6I4m53iM0oFAl6krDUACgkQs6I4m53i
+M0pkOw//S2TanbVmDpNAMI/ceaUDUTUsVs2kxjxW6uExqYMD/xryxuih0WKyjLE6
+XxNEdDSp35k/U/pY/efRue/qzEPsvHMLnmirDu2gaN8Cz7z/atDSk6lLy24ZNpfM
+gvEcNaj1uctc4WjzF5vLZlx3yOHJznKz552bqKIWN/uPx5MpCkCpIwOal3Ttn5aO
+xYOz7d5hVDPIqqGGCU1thbAzMmbFKh1pE7h9thpuAQp5GWazIzfF8KtkHQkStwqP
+IymO/LbtPRF/L8qAaGVc2/bxrGM2VQDA/y/TVxr/nD5zx8JbUydirauXfskBqwEb
+TfmVOb+MGo8ppj4A8aaH/OS+Jo5N58XaE2DNdn/dQAboSe9AsPwJ3FR6KOzPgG+y
+rMH+jeRmvPZmnNv4V9ZkO8yhPVJYgCAg2UyU0AvSDpEbFDLC2WFW0qSHxBhCtyg+
+9joGTs4LMVcs4yg6sPOsEWWKKTuGy/xwa38y3nJqO51u5Cns8o0M3mZ16oR9YyMx
+P+FtGQ4C7xQSp2CDG7eP3qpHAH8v+qVhLrNXle1qbJWIHv9MIa+A6bfd5rC6EZfx
+3Anrjbn2YDmmG+mE04sPQNUkfsStgXiIhmZv9Wu007zoLXKHaNG36Q1omSEmLX0M
+6VAMNQlx4WbvP5WMf48HZWcRanilMkjrJowWSEFvX6zKsbofhB0=
+=wbS4
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_3331A43E-E022-492A-8763-5F688CAF47DF--
+
+--===============8489899521861003710==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -209,5 +182,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============4196778712023097748==--
-
+--===============8489899521861003710==--
