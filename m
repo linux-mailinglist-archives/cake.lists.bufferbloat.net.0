@@ -2,70 +2,105 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 00BC31B952B
-	for <lists+cake@lfdr.de>; Mon, 27 Apr 2020 04:46:15 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 07FCA1BA2F3
+	for <lists+cake@lfdr.de>; Mon, 27 Apr 2020 13:52:45 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id A86F63CB44;
-	Sun, 26 Apr 2020 22:46:10 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 7732A3CB40;
+	Mon, 27 Apr 2020 07:52:43 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1587955570;
-	bh=3ESFNyGarDrzj+xOf/0yMZaOzYXvv5xd9iSz8QbO/E4=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1587988363;
+	bh=Sd4SIDkb9GKSt0K+RNsrcWLOHvRFmHMyUNEeP1nEYuU=;
+	h=From:To:Date:References:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=ZSFY4yfbzschvX0STIBKfOB3d9D9erCK9ZK7AVVn82UdHBiil1I/YqCQcZA5kKAMd
-	 NPOnKKumKXpr5zUwE9GA8K9F1ds17HMLeLH3ivlLi+9Mz4uue2be9Q5t+Z5kWJZxhf
-	 OebuH1Mw0U4CkrcO3PfVW9/xy4qk1/VIObuOgdNsNc/xBNn26cqRDE8KH8+kl/HLRO
-	 g56a6d3idN6x8X5lUUp16wZzxA/vkQZ4lc6OGZzC+aRW48xrHfBsFRoR6Cs3RG7soS
-	 feymGilTe8UYTbIQ/wPXaF01W4xG1DTTTM1xLNsfPNBV5CMc+0TJ3VetrMya8h5Zbw
-	 P70hqQzHH/4Vg==
+	b=CaylPh5YQcRzVd27bt57Tv5iNyzowZKd/MMY7EzLsfapbsVN/+cbnVBVgvfXKY02r
+	 /zRUtG8csDmyb2nfy+aGWQfkpZHC06KnA/mBuH+W9xzsBYp42EQ+1rEPhDuNME/w/b
+	 G11GeeNUHpN/pUyK856T8CPaD2Fj2Vz2vP6Jlq0tU3OxQJ08wP9afK2zkX/CcRI2TA
+	 q8iSCyRkZiOm4APdXNqKOCD3ECcejTHTGMZqamB1p6RNuM8RkYGhgvss/jV+jx8Bz4
+	 eHyWGJtUm+gdP6qQxBM6+k81WMuiyLkjsiR5WWDAts5r0hFnVLSgkk96FUQojqp7Bs
+	 vr+AqX408yx8g==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-il1-x130.google.com (mail-il1-x130.google.com
- [IPv6:2607:f8b0:4864:20::130])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from EUR04-DB3-obe.outbound.protection.outlook.com
+ (mail-eopbgr60057.outbound.protection.outlook.com [40.107.6.57])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 499EE3B2A4;
- Sun, 26 Apr 2020 22:46:09 -0400 (EDT)
-Received: by mail-il1-x130.google.com with SMTP id x2so15317771ilp.13;
- Sun, 26 Apr 2020 19:46:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc:content-transfer-encoding;
- bh=L2dwFt+hxkQg/gWg5bg+kdRl22FQlptjTpXD2pMVrDs=;
- b=Kj3yYtsoI4z8Zzr+GaCwbemN6I+DeJJjocAVhE3pHbMtRj92WQdOEr9bmEdEVNmEQu
- eTCPLfZ1UJ6taXMxGA4512cHwEhFFdvrGiE8eYOruFDZuF+rLs2xpTTsmQJ4e1eSedgq
- ETG/sk/SuTlO8staN35aXQJntl4UgGYKknozLzRZSoUbmp6fLvNZTNdF6aL/hz6sAN5F
- OyJb4RyeljlNzc2fS2yaYYV2cqPsSnxrezhKuNmtV46aBH3H8nWTbSCcvQBhkZnHMRKP
- QcIDhYmxB4mboH0Cw80QHYEUhx3rNcSuIb+eSecB+E/LSsh1dhGarZoYm+OaZ2zJr6do
- 6xMQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc:content-transfer-encoding;
- bh=L2dwFt+hxkQg/gWg5bg+kdRl22FQlptjTpXD2pMVrDs=;
- b=K0ENqAjf1GxA3XUF3l/Fw++PGG42pHDR5nVDB/zWOgv/CCf/+jOGg4Lht62Az1b5Br
- X1OEn/1+a+ksTbTzdGT4KUQ0eHhpIhpZadIMTV35RJoqkrN4pU3nUfbRTCoSTMj/aByy
- NjWr7Wgt+ofONJh+9tn6CMsBEu7FOpyXqPaswvTgy2zM+90gd1WB78H/B9fXDNA+y6nf
- ZFo7AhxUwlaoLBbO+LujEJgYpemiaEtFFRCHwDEh4C+wRrK6ObkbZvv9w2YELeXipBJs
- nHUPtHw4nw4wiKs80r6bMH0tSbD4MVFujH0Fa8Nm4CN9j5dsQt3jcC1dNHsp1MHjaXFx
- iuXg==
-X-Gm-Message-State: AGi0PuYqED1Fi78VfD6AnEzt9fTDsLqsgv1kwyIgWMAZxElaPHjYfsfK
- ZbiFkUOgRmYrPSLgAVTWyX6ajdUFeYe8LTsRsxw=
-X-Google-Smtp-Source: APiQypJ6B+YJTN2A4LNXBAh8bdhZv9iNKkAZjw727NaZ239dvkBvLnWMPmzCIqOHmQ/XI9Deh1+zTViH3mq8iyFErjo=
-X-Received: by 2002:a92:4014:: with SMTP id n20mr18961702ila.249.1587955568815; 
- Sun, 26 Apr 2020 19:46:08 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 359D53B29D
+ for <cake@lists.bufferbloat.net>; Mon, 27 Apr 2020 07:52:41 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=JbaZPuKujlV2amQ/s9V42tWBIhoNA0CmVZ+tA+NwnW7mVAk01X0RdK2nla+MTtatnztzNFvIKeXZLbwuXzMB4HCeE5xbJo1o2oPNIKw/COEzUgEiNEm3DrtOHIm3cR18W4gtvc539/kXmlzxFRpsJ+wugnI8kPNaGp2Wv1ZuH1p7jsz/eCiF4Ef6hfUjd4OrR23OuYNoKrSuNLMN1x+ECSDsS5Su/sRFmIJSZNid2pGRfk9JG5D7DzwpbtkLSWqoJ6vGVUv6/FcP424MSu6+IN8gF7lwLwM1m4cJhiC/3vpNTiW0IueuUfEYQg65ZyVkJrMn8QgnTokoM2oIIUPfgg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5nRELUhUTDXFb6MUn38xssU78YI358gSSHY3EEih4A0=;
+ b=fuTk0/4CHuN1a/aSOCm1zZiUdfwNGBvqvg5J4wcPI6TunC1eorXiXEZ7BskcGMEd3rloxdgxfJ+n7RT3ucOq5lPmn/qfioNoBoy8xTQwFbh58n8ZsP9pCmkWjhnvtQJdwK4DiAg7BLCWMNEsCClltgn+1lXcrOh71LlF3RexKFjbKEedUKCkSW5UcXI7CifExavctx+MaSnJXgqegjk8Gjl9QDkwzO/RWzPkhecrq1J3Gzbxybl+pbioGxADjw2JUHmjlvfQ0U+uYdeAtz+i9AfjuFYrA6GqJKhkqrVNIhFL9yB5FdoJ5LEMBNwyh3BlcylIM2VKQltJ+vLgmN4M4Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=darbyshire-bryant.me.uk; dmarc=pass action=none
+ header.from=darbyshire-bryant.me.uk; dkim=pass
+ header.d=darbyshire-bryant.me.uk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=darbyshire-bryant.me.uk; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5nRELUhUTDXFb6MUn38xssU78YI358gSSHY3EEih4A0=;
+ b=WX+CFnRVHIha7AHkcx8UtT/Y21t+MOghs1fKhjlPmBMCGty7HnbyS/tOjXEhQBdpJXq+NkxXjj/CBPsGpua2g3ENuC+eOljdWZAFCLw2RuPL6cwocouhEuGETookTvT27ufws0zui4tWdYy8IxiA6QazIlte3wwJhqqp1pEozIU=
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com (2603:10a6:803:59::12)
+ by VI1PR03MB4254.eurprd03.prod.outlook.com (2603:10a6:803:56::27)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2937.22; Mon, 27 Apr
+ 2020 11:52:39 +0000
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::982d:7d6a:5f6f:74a2]) by VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::982d:7d6a:5f6f:74a2%4]) with mapi id 15.20.2937.020; Mon, 27 Apr 2020
+ 11:52:39 +0000
+From: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
+To: "David P. Reed" <dpreed@deepplum.com>
+Thread-Topic: [Cake] Cake tin behaviour - discuss....
+Thread-Index: AQHWGvGmvsYI2khSOkWkfQsfjOsk4aiJ9aKAgABWX4CAAAYTAIAACdCAgAESb4CAAXB7AA==
+Date: Mon, 27 Apr 2020 11:52:38 +0000
+Message-ID: <D2008410-83FC-42D4-993B-612B23CC54EF@darbyshire-bryant.me.uk>
+References: <62228545-5DE2-4600-A9BB-52D891FF5AD4@darbyshire-bryant.me.uk>
+ <4D896254-FFB2-4CEB-B596-A6D2E510243C@gmail.com>
+ <32DE972A-3359-462A-A12C-77714B2563F6@darbyshire-bryant.me.uk>
+ <1587848186.866926178@apps.rackspace.com>
+ <0AA356B0-AC91-4F4E-94A6-184C3E090FCA@darbyshire-bryant.me.uk>
+ <1587909227.334329276@apps.rackspace.com>
+In-Reply-To: <1587909227.334329276@apps.rackspace.com>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-mailer: Apple Mail (2.3608.80.23.2.2)
+authentication-results: spf=none (sender IP is )
+ smtp.mailfrom=kevin@darbyshire-bryant.me.uk; 
+x-originating-ip: [2a02:c7f:1243:8e00::dc83]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: afe4220c-a115-440f-d72e-08d7eaa17c40
+x-ms-traffictypediagnostic: VI1PR03MB4254:
+x-microsoft-antispam-prvs: <VI1PR03MB425477E4895DF983AD0691F3A5AF0@VI1PR03MB4254.eurprd03.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:9508;
+x-forefront-prvs: 0386B406AA
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:VI1PR03MB4575.eurprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(366004)(39830400003)(396003)(136003)(346002)(376002)(66556008)(86362001)(64756008)(66446008)(66476007)(8676002)(66946007)(2616005)(91956017)(76116006)(33656002)(66616009)(6512007)(316002)(54906003)(4326008)(6916009)(53546011)(6506007)(81156014)(99936003)(5660300002)(71200400001)(508600001)(186003)(6486002)(2906002)(8936002)(36756003)(66574012);
+ DIR:OUT; SFP:1101; 
+received-spf: None (protection.outlook.com: darbyshire-bryant.me.uk does not
+ designate permitted sender hosts)
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: rZNiXhh6+H7MsaxSMZXCf/mXIx3csp7RkmePMah+mys0lvFUUpEjc856w7kwPEkS/Rv3UYSUbloq7qXMWt75+UOr1kCIWQkcN83mOGWuXPgpVnFsKCcowS7vEwH07AKlo+jKaI3Kzq4tXSiQagYiH1jeuBIowlzGuAc1MFl5tg3HdyDRF7sMsXq5PudNQR9rSuqU/GIixLQrEQtLp0YEtliklREn0H3rABRrzZY6QukAyTIlgWLroi9U4COQOSTYwwxEGriMxpnpl4E2JwCXGZWvSZXzWXmgfa6TH2o0w0KsbKdaOGXVv6PqOQzUVe4gVBUSz+Ple/nbTeQCQTVJHZ0DOmVXO5avnjU7IbGZjfzqWPMiQZe5AwTyIFfC4vdD3QMyz5kISxvID8418qqrdbKzNmSFFFX14lOWwQlSnzHFmr+Wx/lf3yc8j5EsrkkE
+x-ms-exchange-antispam-messagedata: IXeEMLdaiIt6+gj3NH79xb3o17n8DEL2+lglLB9iA6MoBeSuvJ6gBvREB21QSG++2mP9w1MErhsI61Yvt6ILyurxw3YvDT5MImxIwY5yn3ydTXbe9fRLn9fFlYmsue2vAGLeruG5m37EO08EFbSgR+jwnBVhm8sctPenUEaXyKVyP/0T5MAtCbrvlEJYLpHX6N19Kibzhk+xEPHWJelCMdAZadKQqi5M1x02A+0a2J+IVnacjjMhx3z2CToCLikrfPH4GB8Fy0HpQv/KVkOXyEUjPLsb3eOQYIJGUQCfZWXrcCD+eD1xQ4fgfmVJ3I4hCKjIkQNWVTFB3+Nd9gRlF73u26gOHo8toqmw6jwJQeQ4UjnbQ4lKn9cd3Hpiz0X2m4fDgen325wuiH7/k5jikt6E7rTd8aaTvDRIquHKYRotsHO1ulKAOIBKUGDun7/4sfaeRQHZkNTYTBCosi5um2V9st5zQFNhVdGJs2Z59p/BgC0H4ZhmI4HXiQ1mcgqK6R+RWE2fyZZQuc7gr0rXA+frDPr+jpMasdGg2uIVVlWuklA+O8ggP+DER0TahXqS6NUNpMnqbGVb+yX45LZs+tATW9mMpkqHtnqbaKNuhjrFFxuJ55mZnZKop8Q/lB+8Tpv39VCTj1aUeCvibY5zeQiJ4TB7q0lcSoPpESNf4X7sWjHp4hDrFk1HFnBlA51seyhLlZEaed0Rl/Ut8hFLnC8tfZn80viF6HkXRB5d7hiAydvCsKkALo1Wsg9nmfvLVFthU5TO4t4q4UZYIjLPN9KZRp7ys5Ju6SLZ4scSL/FTWL03HGHoLj/ocSKZiQOqhtrVTavCRfuG7n840XP7WQ==
+x-ms-exchange-transport-forked: True
 MIME-Version: 1.0
-References: <CALQXh-P1JGWHXQYnRd68woqj-C8CLxaxeD5=4xjYLYiLubkSeQ@mail.gmail.com>
- <1586011622.632930657@apps.rackspace.com>
- <CAA93jw7CDCVfY0pspLbSaSqf2_0s_23oXsGfEy1x_MHQKEkUNQ@mail.gmail.com>
- <CALQXh-Ot+ZE8M9num31K173pWF5SqDMFizjgUcP13ZCw06KhXw@mail.gmail.com>
-In-Reply-To: <CALQXh-Ot+ZE8M9num31K173pWF5SqDMFizjgUcP13ZCw06KhXw@mail.gmail.com>
-From: Dave Taht <dave.taht@gmail.com>
-Date: Sun, 26 Apr 2020 19:45:57 -0700
-Message-ID: <CAA93jw4WfYCVrG9uGA7BTQr2kKrKXBYJ9xfWM4VRicUDiuqaCw@mail.gmail.com>
-To: Aaron Wood <woody77@gmail.com>
-Subject: Re: [Cake] [Bloat]  New board that looks interesting
+X-OriginatorOrg: darbyshire-bryant.me.uk
+X-MS-Exchange-CrossTenant-Network-Message-Id: afe4220c-a115-440f-d72e-08d7eaa17c40
+X-MS-Exchange-CrossTenant-originalarrivaltime: 27 Apr 2020 11:52:38.9813 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9151708b-c553-406f-8e56-694f435154a4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 1pxn/DYlIBL8koUe8a/olKUu9OJzVfBJkLB8EpgPnHSE6LkKKEFMl4FdlYEMoUuzIJxDoRn2qcRW/Q/eeM0Brbq6br/f00aWSgA3io2BpuM=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR03MB4254
+Subject: Re: [Cake] Cake tin behaviour - discuss....
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -77,61 +112,125 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Cake List <cake@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============0120385630063239717=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-YW55b25lIGdvdCBhcm91bmQgdG8gaGFja2luZyBvbiB0aGlzIGJvYXJkIHlldD8KCk9uIFNhdCwg
-QXByIDQsIDIwMjAgYXQgOToyNyBBTSBBYXJvbiBXb29kIDx3b29keTc3QGdtYWlsLmNvbT4gd3Jv
-dGU6Cj4KPiBUaGUgY29tcGFyaXNvbiBvZiBjaGlwc2V0IHBlcmZvcm1hbmNlIGxpbmsgKHRvIE9w
-ZW1XUlQgZm9ydW1zKSB0aGF0IHdlbnQgb3V0IGhhZCB0aGlzIGNoaXAsIHRoZSBKNDEwNSBhcyB0
-aGUgZmFzdGVzdC4gIEFibGUgdG8gZG8gYSBnaWdhYml0IHdpdGggY2FrZSAobmVhcmx5IGFibGUg
-dG8gZG8gaXQgaW4gYm90aCBkaXJlY3Rpb25zKS4KPgo+IEkgdGhpbmsgdGhpcyBoYXMgcmVwbGFj
-ZWQgdGhlIGFwdTIgYXMgdGhlIGJvYXJkIEnigJltIGdvaW5nIHdpdGggYXMgbXkgZWRnZSByb3V0
-ZXIuCj4KPiBPbiBTYXQsIEFwciA0LCAyMDIwIGF0IDk6MTAgQU0gRGF2ZSBUYWh0IDxkYXZlLnRh
-aHRAZ21haWwuY29tPiB3cm90ZToKPj4KPj4gSGlzdG9yaWNhbGx5IEkndmUgZm91bmQgdGhlICJD
-ZWxlcm9uIiBjaGlwcyByYXRoZXIgd2VhaywgYnV0IGl0J3MganVzdAo+PiBhIGJyYW5kLiBJIGhh
-dmVuJ3QgdGhlIGZvZ2dpZXN0IGlkZWEgaG93IHdlbGwgdGhpcyB2YXJpYW50IHdpbGwKPj4gcGVy
-Zm9ybS4KPj4KPj4gVGhlIGludGVsIGV0aGVybmV0IGNoaXBzIGFyZSBiZXN0IG9mIGJyZWVkIGlu
-IGxpbnV4LCBob3dldmVyLiBJdCdzCj4+IGJlZW4gbXkgaG9wZSB0aGF0IHRoZSAyMTEgdmFyaWFu
-dCB3aXRoIHRoZSB0aW1lZCBuZXR3b3JraW5nIHN1cHBvcnQKPj4gd291bGQgc2hvdyB1cCBpbiB0
-aGUgZmllbGQgKHNjaF9ldHgpIHNvIHdlIGNvdWxkIGZpZGRsZSB3aXRoIHRoYXQsCj4+ICh0aGUg
-YXB1MnMgYXJlbid0IHVzaW5nIHRoYXQgdmVyc2lvbikgYnV0IEkgY2Fubm90IGZvciB0aGUgbGlm
-ZSBvZiBtZQo+PiByZW1lbWJlciB0aGUgcmlnaHQga2V5d29yZHMgdG8gbG9vayBpdCB1cCBhdCB0
-aGUgbW9tZW50LiB0aGlzIGZlYXR1cmUKPj4gbGV0cyB5b3UgcHJvZ3JhbSB3aGVuIGEgcGFja2V0
-IGVtZXJnZXMgZnJvbSB0aGUgZHJpdmVyIGFuZCBpcyBzb3J0IG9mCj4+IGEgd2hvbGUgbmV3IGJh
-bGxnYW1lIHdoZW4gaXQgY29tZXMgdG8gc2NoZWR1bGluZyAtIHRoZXJlIGhhc24ndCBiZWVuCj4+
-IGFuIGFxbSBkZXNpZ25lZCBmb3IgaXQsIGFuZCB5b3UgY2FuIGRvIGZxIGJ5IHBsYXlpbmcgdHJp
-Y2tzIHdpdGggdGhlCj4+IHNlbnQgdGltZXN0YW1wLgo+Pgo+PiBBbGwgdGhlIG90aGVyIGZlYXR1
-cmVzIGxvb2sgcmF0aGVyIG5pY2Ugb24gdGhpcyBib2FyZC4KPj4KPj4gT24gU2F0LCBBcHIgNCwg
-MjAyMCBhdCA3OjQ3IEFNIERhdmlkIFAuIFJlZWQgPGRwcmVlZEBkZWVwcGx1bS5jb20+IHdyb3Rl
-Ogo+PiA+Cj4+ID4gVGhhbmtzISBJIG9yZGVyZWQgb25lIGp1c3Qgbm93LiBJbiBteSBleHBlcmll
-bmNlLCB0aGlzIGNvbXBhbnkgZG9lcyByYXRoZXIgbmVhdCBzdHVmZi4gVGhlaXIgWE1PUyBiYXNl
-ZCBtaWNyb3Bob25lIGFycmF5IChSZVNwZWFrZXIpIGlzIHJlYWxseSB1c2VmdWwuIFdoYXQncyB0
-aGUgc3RhdGUgb2YgcGxheSBpbiBMaW51eC9PcGVuV1JUIGZvciBJbnRlbCA5NTYwIGNhcGFiaWxp
-dGllcyByZWdhcmRpbmcgQVFNPwo+PiA+Cj4+ID4gT24gU2F0dXJkYXksIEFwcmlsIDQsIDIwMjAg
-MTI6MTJhbSwgIkFhcm9uIFdvb2QiIDx3b29keTc3QGdtYWlsLmNvbT4gc2FpZDoKPj4gPgo+PiA+
-ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4gPiA+
-IENha2UgbWFpbGluZyBsaXN0Cj4+ID4gPiBDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+PiA+
-ID4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo+PiA+ID4gaHR0
-cHM6Ly93d3cuc2VlZWRzdHVkaW8uY29tL09EWVNTRVktWDg2SjQxMDU4MDAtcC00NDQ1Lmh0bWwK
-Pj4gPiA+Cj4+ID4gPiBxdWFkLWNvcmUgQ2VsZXJvbiBKNDEwNSAxLjUtMi41IEdIeiB4NjQKPj4g
-PiA+IDhHQiBSYW0KPj4gPiA+IDJ4IGkyMTF0IGludGVsIGV0aGVybmV0IGNvbnRyb2xsZXJzCj4+
-ID4gPiBpbnRlbCA5NTYwIDgwMi4xMWFjICh3YXZlMikgd2lmaS9ibHVldG9vdGggY2hpcHNldAo+
-PiA+ID4gaW50ZWwgYnVpbHQtaW4gZ3JhcGhpY3MKPj4gPiA+IG9uYm9hcmQgQVJNIENvcnRleC1N
-MCBhbmQgUlBpICYgQXJkdWlubyBoZWFkZXJzCj4+ID4gPiBtLjIgYW5kIFBDSWUgYWRhcHRlcnMK
-Pj4gPiA+IDwkMjAwCj4+ID4gPgo+PiA+Cj4+ID4KPj4gPiBfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwo+PiA+IEJsb2F0IG1haWxpbmcgbGlzdAo+PiA+IEJs
-b2F0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+PiA+IGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQu
-bmV0L2xpc3RpbmZvL2Jsb2F0Cj4+Cj4+Cj4+Cj4+IC0tCj4+IE1ha2UgTXVzaWMsIE5vdCBXYXIK
-Pj4KPj4gRGF2ZSBUw6RodAo+PiBDVE8sIFRla0xpYnJlLCBMTEMKPj4gaHR0cDovL3d3dy50ZWts
-aWJyZS5jb20KPj4gVGVsOiAxLTgzMS00MzUtMDcyOQo+Cj4gLS0KPiAtIFNlbnQgZnJvbSBteSBp
-UGhvbmUuCgoKCi0tIApNYWtlIE11c2ljLCBOb3QgV2FyCgpEYXZlIFTDpGh0CkNUTywgVGVrTGli
-cmUsIExMQwpodHRwOi8vd3d3LnRla2xpYnJlLmNvbQpUZWw6IDEtODMxLTQzNS0wNzI5Cl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBs
-aXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQu
-bmV0L2xpc3RpbmZvL2Nha2UK
+--===============0120385630063239717==
+Content-Language: en-US
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_5791979A-B25A-42B8-AE55-E08E3A39F02F";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
+
+--Apple-Mail=_5791979A-B25A-42B8-AE55-E08E3A39F02F
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+
+
+> On 26 Apr 2020, at 14:53, David P. Reed <dpreed@deepplum.com> wrote:
+>=20
+> Very interesting. However, I'm curious about what is being "ping'ed" =
+from outside.
+>=20
+> I would bet that the ping comes in on your router interface and is =
+reflected immediately back. Which would mean that it might not at all be =
+going through the Cake layer. That depends on the details of your setup, =
+which you didn't share.
+
+The address being pinged from the external =E2=80=98ping box=E2=80=99 is =
+that of the globally routable IPv6 WAN interface on my APU2 router.  The =
+ping packet is going through 2 instances of cake, one on ingress =
+(ifb4eth0), one on egress (eth0).
+
+DSCP is applied to the packets by tc filter action act_ctinfo JUST =
+before cake gets to see the packets.  I know DSCP is affecting cake tin =
+selection because I see cake=E2=80=99s tin byte/packet counters adjust =
+accordingly.  icmp/icmpv6 traffic is marked as BE by default AND also =
+explicitly by some ip=E2=80=99n=E2=80=99tables rules that set it so.
+
+> As you probably know, Cake works by packet shaping in the box where it =
+runs, in the Linux stack. If the ping responder is on the ISP side of =
+Cake, it will not be measuring lag-under-load *inside* cake.
+
+I think I answered that above, however just for good measure, I=E2=80=99ve=
+ set up another =E2=80=98ping latency=E2=80=99 test to a box that is =
+definitely on my LAN side, so it=E2=80=99ll go: ingress (cake) eth0 =
+(wan) -> egress eth1 (lan) -> switches -> device under test -> ingress =
+eth1 (lan) -> egress (cake) eth0 (wan)
+
+Note that the DSCP applied by cake on egress is ignored by the ISP.  =
+Similarly, it=E2=80=99s a very rare thing to see a non 0 DSCP come in =
+from them.  I=E2=80=99m using DSCP =E2=80=98internally=E2=80=99 purely =
+to provide CAKE with some traffic identification and hence clue as to =
+how to shape it.
+
+>=20
+> End-to-end lag-under-load on multiple paths sharing a bottleneck is =
+the problem Cake was invented to solve. (Jonathan - you agree?) Yes, it =
+will move that congestion "inside" itself, pulling it out of the =
+bottleneck itself. There it drops and ECN's "as if" the bottleneck were =
+working correctly, rather than being "bufferbloated".
+>=20
+> So it would be interesting to learn more about the topology of your =
+test to interpret this ping.  A more interesting ping would be along the =
+fujl path that the other flows are taking. Your ISP can't provide that.
+
+My question was trying to determine what cake was doing:
+
+bandwidth / per host fairness / tin weighting or
+bandwidth / tin weighting / per host fairness
+
+I was expecting the latter and Jonathan has confirmed my expectation to =
+be the correct one.  The results I saw under some circumstance appeared =
+more toward the former, which boggled the mind.
+
+
+Cheers,
+
+Kevin D-B
+
+gpg: 012C ACB2 28C6 C53E 9775  9123 B3A2 389B 9DE2 334A
+
+
+--Apple-Mail=_5791979A-B25A-42B8-AE55-E08E3A39F02F
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEASyssijGxT6XdZEjs6I4m53iM0oFAl6mx4YACgkQs6I4m53i
+M0qMUQ/5AXhi0B/M7Ux8MwYhmyqtxWWU3+pxNFF4p6dxlj0f4mJvRZ4Y50VtHgQ+
+dgJ2bktXBbzgmQTepkDv0ShyhM9a9pvmXJtfOQhr0p872k0c7MspzvAY1A+Uvf6x
+FqlzYNZQsih9vrQMFJ601DiIk+Csgoj7hYK2rYoixHvqHLkiwj7//Yvaxgo6XZz+
+KgRTW+qZi3clCMWZQAxpk/h/JKgUfa2LKpApzzP1eZ6CYbx6bjh80kd1O6F+Hal9
++uA3tJgw92l6dWSpbn5NMmmTbQ08nfL7YDMSj3Wjs8qw3tKQoHnSWdmwWm82IVqZ
+xM/hdPDUYU+MEt5Wo1zRTmvsZ1LjNjiwV8JFHXXJqQ++A8qJGHNjslVgZA3NsaRv
+kbLFw3t0BrdcLKKBfJiJ4gC+4VBHhCEZliNSiF4lIe24G8QEQBdeWubGm8NMZmAA
+GtcHQtxFSB2JvUwDIlmdnfaeqxrj72gYY9jvb3+pcNkfX92WelvkbsiD2tEHwLhW
+USPATCBbwjI28YKQGSaZ53ndjYUuTxLPwMKrL1Q6xN/DKMkAAEdVFomJnZmMfJTQ
+Nq4+KnmFN82mcob7LKkf4tHQkai4Jzl6ZBETYOp/X9a//T+LnKqsHCVdOB4hVB1r
+Q9nZRFkPFPKI6Fx0HDMEMJzU3B6GQyhPCyW0CvZHQEf3PXQONac=
+=ANvh
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_5791979A-B25A-42B8-AE55-E08E3A39F02F--
+
+--===============0120385630063239717==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============0120385630063239717==--
