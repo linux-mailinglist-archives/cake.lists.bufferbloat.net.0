@@ -2,63 +2,73 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 598621C7998
-	for <lists+cake@lfdr.de>; Wed,  6 May 2020 20:43:33 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6091A1C79CF
+	for <lists+cake@lfdr.de>; Wed,  6 May 2020 21:01:52 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id B9BB33CB41;
-	Wed,  6 May 2020 14:43:31 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 2C3813CB41;
+	Wed,  6 May 2020 15:01:51 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1588790611;
-	bh=DNaNIq4FN8aJx/j8LYrc/nhsbk+ZoVIXcDOoKGv5b48=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:Cc:From;
-	b=oxlwI5m4IS8p2em7tO1OhIVlrdTitQulECoYhjigijKSrgObWfm0EBscujudAWPzq
-	 oWFukglrupFjkNRuETqA4CSadRWcaQywNpt+hBCfzbBoAI1xPx3ZW/D8g/fHmka6dz
-	 w1Q6tVCjGFvGww39G61N0iKWs0e542XrJ5qSjxcrZt8+4YrNt7B7akQLon15rIvn14
-	 QKOrTcNxS1NN65wiunh0c56QhYFKiqixXPQnnRSSjyDoWjjk41JJQDKk9XD/ZyWAHc
-	 qAabYuDU4UQmIlj3FHqzVTbQ30hpMWchLvQPTk56Msfzo7RKXfsRzcX4GDR3ELwgNn
-	 7vePMuh/HL91w==
+	d=lists.bufferbloat.net; s=201610; t=1588791711;
+	bh=59jUKgoekEhTrJ5Orucr6P+xX48hAON+J1YPPtzClRo=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=BeKzTts4ViRrP+zSjaUuJj1+cK+zRpObRX9bxztAjy6EK0dM327qEzURj+dk5BGfh
+	 Xvf47j8+85/xcg35FpDOdCcvSTGhJUTJqUBzuYpKJGDDCr0+VHJdeqI6xYqUayMm12
+	 cqGNujxMw0/o4IiAowx3LE4vH41uZk68dh2Qv6ptEyyxRHR8zo5WcIIkhKwc4RFirZ
+	 rEtNCmH+K2Lg7suMS6u/p+/UqF9zonBJhpN+5DHJajmJEnQeXuEa+fjntFlo8tVbMF
+	 H1U6G5uEYiKzu9j0dY+XNALrESB2+nMYyWnZz16urnNRUO8wSuqDrAyC9JjJjsxuN2
+	 nTs/uQrZdDXEw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-vs1-xe2c.google.com (mail-vs1-xe2c.google.com
- [IPv6:2607:f8b0:4864:20::e2c])
+Received: from mail-lj1-x232.google.com (mail-lj1-x232.google.com
+ [IPv6:2a00:1450:4864:20::232])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id C8F8C3B29D
- for <cake@lists.bufferbloat.net>; Wed,  6 May 2020 14:43:29 -0400 (EDT)
-Received: by mail-vs1-xe2c.google.com with SMTP id m24so1689744vsq.10
- for <cake@lists.bufferbloat.net>; Wed, 06 May 2020 11:43:29 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 2E5EC3B29D
+ for <cake@lists.bufferbloat.net>; Wed,  6 May 2020 15:01:49 -0400 (EDT)
+Received: by mail-lj1-x232.google.com with SMTP id a21so3538455ljj.11
+ for <cake@lists.bufferbloat.net>; Wed, 06 May 2020 12:01:49 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to:cc;
- bh=hKKp+MHwwopmK2O8Nexkn3qV7V62+UUkLTBG6cKtq4M=;
- b=Wjff1MpUasoBb0iOzts4qkONGPzHZWAyBAgOuU1g454pzjB/4XXAIe7LlNCmyv97NS
- kRub0P4rNMsszUziYfMWg/eKFge7FdHwdKmftHa/PgWXiZ7nXFYsIpAW3Rxj5fiBYsRl
- fi2xURSBUSxFOXn8dgTf6/+/539OZxybTL8c54cYCl2clx2gOcP/2KzjGNZVMG9S7r6u
- E3wih3HFq7rTZLz13oFr89kPY9kZuyCHYbZ3r8RQtZNc7imvgYW9EE3Uskr59Wo3b0Gb
- vYv4V5C9k65kPQKQJHXyt+uEb3trtAcDdXBvMhN7Z0Dwa73KeZg4sCE5kbjGJCVUnM61
- 8Vkw==
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=m396YbKZ0aNyaXw0OzP0br7ZhcenbkzM580nznSRs5M=;
+ b=WkLvPpFZk88zFEcBAJJBBWFfGPd5e00EzJpsXhpZSPHk3n4xcBs6NUuzKhc6rOm1ka
+ TZu/V/wH6kIlT5LNFxDB8SymyHNot5qBAST6rvL5Ckc+aQ6utkKmW87r+uu2WrJggAG7
+ 8e+4KPGu0Rq8ZCUZhAOrDd/ZBmDTsNdwmlI6/uj3KuCEc3vL0YINAROXAq4aY74M0pg8
+ MPvYwTxMXaTC+NRZP8EVp4rFYjHP/FIPn6kC4ZSyeS1RBoZDXX+Fa2T7d5a45LE05n0r
+ DmKIcZLVwHedcw4h4RVzqc4s05WQsF1A6C4DnG5I3TFZal0blDi5GM49m6MBjlRQAohN
+ Hpag==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to:cc;
- bh=hKKp+MHwwopmK2O8Nexkn3qV7V62+UUkLTBG6cKtq4M=;
- b=OT6FAkzjJisaDqHLz92g0MiPkvlZQVS24wG2mkDQwukhNVzechEkTdSeJg96L9IC2o
- o8uPsChNoVY2trdVyt+D5Ar0YYrKu3YrhOwZxzCYJCHjRD/mE/UM+3x6f0rfvVRAiOhE
- eJ7dYIaaAvry4WyqdZN7d2MTtMugdZLHjhpthQ2o/G1RtHrj6aMQKMbL1tymbmrBSbaP
- T2ALtBCoFCUjWcn7j/Y3hMW6+kTpTlb8J7m2dM6gLCIWHSfVbQk+cAsB1emWbRDGwjTn
- lje086lxVC6rjUEcbAMiTMjAsa2pKMgR1eUev5XRfwgRiZrv5eYt1zcxLpXnD4rcQaF0
- a9zA==
-X-Gm-Message-State: AGi0PubED5ZmmyLScKVW0uOjQXviHxQkhW6+VP1t4W2HF4M67O/QvuKw
- QFrRFHVjKW9PH4sbrLlIy36ADZZ8LBsmFnD1evmRbRzCQvGtX09P
-X-Google-Smtp-Source: APiQypIOQuecYvJ7htIc6Cdnepld8BxivgIbqtvrAEtr3p4xkPvLZLZjFcpKB8Sahu5N12+dE8KSXhHh2yVr/pZt2NA=
-X-Received: by 2002:a05:6102:7c5:: with SMTP id
- y5mr7487236vsg.108.1588790609135; 
- Wed, 06 May 2020 11:43:29 -0700 (PDT)
-MIME-Version: 1.0
-From: Avakash bhat <avakash261@gmail.com>
-Date: Thu, 7 May 2020 00:13:00 +0530
-Message-ID: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
-To: cake@lists.bufferbloat.net
-Subject: [Cake] Query on ACK
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=m396YbKZ0aNyaXw0OzP0br7ZhcenbkzM580nznSRs5M=;
+ b=lWLHp14oxT1RoxqV55Hlr+xCIVzqtKln91lg4p/KMYSMdTVWrBB51fxzcioc50ey7u
+ 6TaXj4n6Ax/z66TwSTtkuOPezVl90GgfV5BEuJJg9R4pMTJLV446OnuOP5ClITUWce02
+ h8XNQ/IvREmM1Ey+OAUwLMRXrEKK3YDD8lSfsbEnWQh18twT00AOzklqmW7tCqZV26Hi
+ MJp3otXIHxHDM5sPLNb28sPJx0xGbWK5scY7Ayj6itwJ8Srl1Ugsu5Fxv6g3kR5j++iM
+ kX0KdpCezC7S2MDfbdQKXib6NCPRK7XhjBryTSvZSHR5BJrVMa1VlCymiAVGLAZAyHBT
+ Jk9Q==
+X-Gm-Message-State: AGi0PuYnBxG4f7NAEHbe/wJ93xzoEsTmXPxNIXy89aK6jKHYPrxnrrM1
+ tHMCfJuEPVOwnvZsqcibJXRCVyyx
+X-Google-Smtp-Source: APiQypKlvl5/I4sGQboU6f68Ye7gkrKmur257Ubhe6NbPoSjId1CzTqJPhGJ5lV7f+ltsWPoEeNLqg==
+X-Received: by 2002:a2e:700a:: with SMTP id l10mr5682797ljc.88.1588791707988; 
+ Wed, 06 May 2020 12:01:47 -0700 (PDT)
+Received: from jonathartonsmbp.lan (83-245-235-192-nat-p.elisa-mobile.fi.
+ [83.245.235.192])
+ by smtp.gmail.com with ESMTPSA id 4sm1828791ljf.79.2020.05.06.12.01.46
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Wed, 06 May 2020 12:01:47 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
+From: Jonathan Morton <chromatix99@gmail.com>
+In-Reply-To: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
+Date: Wed, 6 May 2020 22:01:45 +0300
+Message-Id: <C24C4CCB-C30D-452A-9386-5AA533F11CEE@gmail.com>
+References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
+To: Avakash bhat <avakash261@gmail.com>
+X-Mailer: Apple Mail (2.3445.9.1)
+Subject: Re: [Cake] Query on ACK
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -70,59 +80,39 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
- Shrinidhi Varna <shrinidhivarna.171co145@nitk.edu.in>,
- Deepak K <deepakkavoor99@gmail.com>, Vybhav Pai <vybhavpai1999.vp@gmail.com>
-Content-Type: multipart/mixed; boundary="===============6224923664603287795=="
+Cc: cake@lists.bufferbloat.net, "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
+ Vybhav Pai <vybhavpai1999.vp@gmail.com>, Deepak K <deepakkavoor99@gmail.com>,
+ Shrinidhi Varna <shrinidhivarna.171co145@nitk.edu.in>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============6224923664603287795==
-Content-Type: multipart/alternative; boundary="000000000000e1517205a4ff2310"
-
---000000000000e1517205a4ff2310
-Content-Type: text/plain; charset="UTF-8"
-
-Hi all,
-
-We are trying to implement the ACK filtering module of CAKE in ns-3
-(Network Simulator).
-
-We had a question on the working of ack filtering.
-If an incoming ack which can replace an eligible ack in the queue is about
-to be enqueued, do we replace the ack in the queue with the incoming ack
-or do we enqueue the ack to the tail of the queue and remove the eligible
-ack from the queue?
-
-We would appreciate any help in resolving this query.
-
-Thanks,
-Avakash Bhat
-
---000000000000e1517205a4ff2310
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div>Hi all,<br></div><div>=C2=A0<div>We are trying to imp=
-lement the ACK filtering module of CAKE in ns-3 (Network Simulator).</div><=
-div><br></div>We had a question on the working of ack filtering. <br>If an =
-incoming ack which can replace an eligible ack in the queue is about to be =
-enqueued, do we replace the ack in the queue with the incoming ack <br>or d=
-o we enqueue the ack to the tail of the queue and remove the eligible ack f=
-rom the queue?</div><div><br><div>We would appreciate any help in resolving=
- this query.=C2=A0</div><div><br></div><div>Thanks,<br></div><div>Avakash B=
-hat</div></div></div>
-
---000000000000e1517205a4ff2310--
-
---===============6224923664603287795==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============6224923664603287795==--
+PiBPbiA2IE1heSwgMjAyMCwgYXQgOTo0MyBwbSwgQXZha2FzaCBiaGF0IDxhdmFrYXNoMjYxQGdt
+YWlsLmNvbT4gd3JvdGU6Cj4gCj4gV2UgYXJlIHRyeWluZyB0byBpbXBsZW1lbnQgdGhlIEFDSyBm
+aWx0ZXJpbmcgbW9kdWxlIG9mIENBS0UgaW4gbnMtMyAoTmV0d29yayBTaW11bGF0b3IpLgoKQWgg
+eWVzLiAgU29ycnkgSSBkaWRuJ3QgcmVzcG9uZCB0byB0aGUgaW50cm9kdWN0aW9uIGVhcmxpZXIg
+LSB3ZSB3ZXJlIHJpZ2h0IGluIHRoZSBtaWRkbGUgb2YgcHJlcGFyaW5nIGZvciBhbiBJRVRGIHZp
+cnR1YWwgbWVldGluZy4gIFRoZSBkZWJyaXMgaXMgc3RpbGwgZmFsbGluZyBmcm9tIG9yYml04oCm
+Cgo+IFdlIGhhZCBhIHF1ZXN0aW9uIG9uIHRoZSB3b3JraW5nIG9mIGFjayBmaWx0ZXJpbmcuIAo+
+IElmIGFuIGluY29taW5nIGFjayB3aGljaCBjYW4gcmVwbGFjZSBhbiBlbGlnaWJsZSBhY2sgaW4g
+dGhlIHF1ZXVlIGlzIGFib3V0IHRvIGJlIGVucXVldWVkLCBkbyB3ZSByZXBsYWNlIHRoZSBhY2sg
+aW4gdGhlIHF1ZXVlIHdpdGggdGhlIGluY29taW5nIGFjayAKPiBvciBkbyB3ZSBlbnF1ZXVlIHRo
+ZSBhY2sgdG8gdGhlIHRhaWwgb2YgdGhlIHF1ZXVlIGFuZCByZW1vdmUgdGhlIGVsaWdpYmxlIGFj
+ayBmcm9tIHRoZSBxdWV1ZT8KClRoYXQgc291bmRzIGxpa2UgYW4gaW1wbGVtZW50YXRpb24gZGV0
+YWlsLiAgQnV0IHdoYXQgd2UgZG8gaW4gQ2FrZSBpcyB0byBzaW1wbHkgZW5xdWV1ZSBhbGwgdGhl
+IHBhY2tldHMsIGFuZCBkZWFsIHdpdGggZXZlcnl0aGluZyBjb21wbGljYXRlZCBvbiBkZXF1ZXVl
+LgoKQXQgdGhhdCBwb2ludCwgd2UgY2hlY2sgd2hldGhlciB0aGUgdHdvIHBhY2tldHMgYXQgdGhl
+IGhlYWQgb2YgdGhlIHF1ZXVlIGFyZSBhY2tzIGZvciB0aGUgc2FtZSBmbG93LCBhbmQgaWYgc28s
+IHdlIGZ1cnRoZXIgY2hlY2sgd2hldGhlciB0aGUgaW5mb3JtYXRpb24gaW4gdGhlIGZpcnN0IHBh
+Y2tldCBpcyByZWR1bmRhbnQgZ2l2ZW4gdGhlIHByZXNlbmNlIG9mIHRoZSBzZWNvbmQgcGFja2V0
+LiAgSWYgdGhlcmUgaXMgaW5mb3JtYXRpb24gaW4gdGhlIGZpcnN0IHBhY2tldCB0aGF0IGlzIG5v
+dCBhbHNvIHByb3ZpZGVkIGJ5IHRoZSBzZWNvbmQgcGFja2V0LCB0aGUgZmlyc3QgcGFja2V0IGlz
+IGRlbGl2ZXJlZC4gIE90aGVyd2lzZSB0aGUgZmlyc3QgcGFja2V0IGlzIGRyb3BwZWQsIGFuZCB0
+aGUgc2Vjb25kIHBhY2tldCBtb3ZlcyB0byB0aGUgaGVhZCBvZiB0aGUgcXVldWUuICBUaGlzIHBy
+b2Nlc3MgbWF5IHJlcGVhdCBzZXZlcmFsIHRpbWVzIGlmIHRoZXJlIGFyZSBzZXZlcmFsIGNvbnNl
+Y3V0aXZlLCByZWR1bmRhbnQgYWNrcyBpbiB0aGUgcXVldWUuCgpUaGUgaW1wb3J0YW50IHBhcnQg
+aXMgdGhlIHNldCBvZiBydWxlcyBkZXRlcm1pbmluZyB3aGV0aGVyIHRoZSBhY2sgaXMgcmVkdW5k
+YW50LgoKIC0gSm9uYXRoYW4gTW9ydG9uCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0
+Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
