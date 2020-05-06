@@ -2,69 +2,71 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8CD2B1C7516
-	for <lists+cake@lfdr.de>; Wed,  6 May 2020 17:39:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 83E591C7557
+	for <lists+cake@lfdr.de>; Wed,  6 May 2020 17:51:30 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id B085E3CB46;
-	Wed,  6 May 2020 11:39:04 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 318B73CB4C;
+	Wed,  6 May 2020 11:51:25 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1588779544;
-	bh=h15tEnMK1BDHJtrj+r8pz+LUAqY1nDdrRVvICGeUQcc=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1588780285;
+	bh=udzj5Y/DWO0cplGREQHFgYEARJUxzaOgHeaJ4q4fuWA=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=kT5yhdsCHHhIuwiJXmToA51vmBMzV9hAeZwXTy+HiSoR+VCqBy17xQ5RuDvJh+UTC
-	 0sMW46oohVrz8hGl9Xiwp3b6pUahl34wmKAWRjWfJADGqe9eR3ScgSuJetkUdmU1ar
-	 juxTSswPitP74nd2coXZWFHI2TwmwsBBXBUCv8mM/jqxYV/WOtF5tSAGHuDRkMY5yR
-	 rW9bDhPatlT5JqRs7ymMVnlqGr70b2pqPCDnNksXTusoxrPjVgOiPaHjZhQfWAvdS9
-	 kejbOlzRIO6w/QSkBzjDkJJuA5zlbXVBQHN8JQSgzb8nbrovTSKLrwfYcMCIi1UIPu
-	 RwicZ5T7V2NtA==
+	b=eUBfmOUF6G1H9rsrOywo/pA0bD4Xj+hem7VcbzIIMJvWdvPf6hEZe/02EIGeg6by7
+	 Y/hT658FsMKb2Im4NcnHDGHC0Nc9IRcnk391P1KMB9w7b7jgFjMenDZiNC2Fv2aMlp
+	 /VA5wHTZgvoAoG6u0TpivNceiyrFrNUHS4I4I3ZVmfyyrDdEAJ0GN0Fjg3UU916XQm
+	 Vw++q4qTaRa9Giw++ROLlMq5ghNwHeO5PdYDYiCtUeO2Z1gt6NFyXtIPYioPnEj+4c
+	 QVc/+Kq3fozE1EOsgJCogYnmOMcXwRztjpiKYCeYFh62Ogb+ab+Td3Tg0yUP110WRz
+	 buUE095Xrs4NQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp87.iad3a.emailsrvr.com (smtp87.iad3a.emailsrvr.com
- [173.203.187.87])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mail-il1-x142.google.com (mail-il1-x142.google.com
+ [IPv6:2607:f8b0:4864:20::142])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 7E2BD3CB37
- for <cake@lists.bufferbloat.net>; Wed,  6 May 2020 11:39:03 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
- s=20190322-9u7zjiwi; t=1588779543;
- bh=BRq2HR+e5w/gz/qtuugExrgaJiMMsYlmIwEuNh2Ndk8=;
- h=Date:Subject:From:To:From;
- b=NpSQM+uH7MMQvx1UL17G/XePDtfXOgTv563FSOcg8Fu1YmvYDUBjpV61qSMQkBaq9
- 0+6dPKHbmuTxyqGtVwSKQvmrwfVOzcy4oaHfQA72zPIIHIQ2O3lMe+QMbIqlaLL+I+
- xmrw9VLMHaUSPSWNoU5qo4WJAWIWRwmic9aw1cM0=
-Received: from app35.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp11.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 25B4252E4;
- Wed,  6 May 2020 11:39:03 -0400 (EDT)
-X-Sender-Id: dpreed@deepplum.com
-Received: from app35.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140]) by 0.0.0.0:25 (trex/5.7.12);
- Wed, 06 May 2020 11:39:03 -0400
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app35.wa-webapps.iad3a (Postfix) with ESMTP id 10911A104E;
- Wed,  6 May 2020 11:39:03 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Wed, 6 May 2020 11:39:03 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Wed, 6 May 2020 11:39:03 -0400 (EDT)
-From: "David P. Reed" <dpreed@deepplum.com>
-To: "Sebastian Moeller" <moeller0@gmx.de>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 4CAE93B29D;
+ Wed,  6 May 2020 11:51:24 -0400 (EDT)
+Received: by mail-il1-x142.google.com with SMTP id m5so862879ilj.10;
+ Wed, 06 May 2020 08:51:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=EjmszvxnVZlVuMJT0zNeLpwYK4bcIjdc1O8zTNTxSbQ=;
+ b=rrUVsVOC/tUzVSWv8nme1Kpc4/RQnXONv2ylj9Mw+5sbq7UECDwwjBoKe9kuj30Prr
+ iA0ncRkbY+0pSEFqNw44XTIWilUxP0zr3exylhH2qW5WjkTbeDXYUW9vQpf870QfFWBh
+ JKn4DP50hXAFwXyaR6SjvEpbut96/SNG6Dhg7YRD/kfsSWCKSyXj4uS5XaxXQCTGM8MV
+ N4DrviNLGhF5oV0C4/iO7dkUdS4kuAtX4Two8qetjnkHSzEU/cTLiNZ7sMh3PJ1e8jpm
+ 2Wz41eEfU9svd5L4n+4Aa8pdbm8Xn3K/7SLfGcdqKk810ykvY+2FMPZj2skEJlYZndof
+ 2J8Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=EjmszvxnVZlVuMJT0zNeLpwYK4bcIjdc1O8zTNTxSbQ=;
+ b=qtNCkb/kkCRQ9A+vyUWHmWgjUQ6dKiEB+MnzAi0LeP+i1u6NgUV/bY586MU1UaZS8W
+ eHTrlzDdlHqwTAilhur5/IcnJwP8WuRajud+Xx0Z7PCcedL+zqb1/RQVViV2TN09s9Yp
+ tHzDJ5Hgj9Hrro7JrQwWvGg+mtmhZCaj7mb6hPwzS1D+CsRUWnGVllivgA6qJPXfHsix
+ wMf7UMvUi+quSmN/nIJhFGC4S6okwR2/hBBhTKpapRopewHO9JgzSkNqP6qtEhyZ0jKE
+ atqyFSQ1ZCnbUHEmaKz/NXQBODfeeRuQ7jeYTMZYKes1q5y+qFwpSYBimWf/4f7IZjvf
+ PG7A==
+X-Gm-Message-State: AGi0PubYdhrlr0ts3zEu/o2Ltehb5z5/dFD5PZQ8Iev+7L58KtpC1hb3
+ HRGSMTeKMfN58d+PgIbMiSBvbmhasWEN21Az3wo=
+X-Google-Smtp-Source: APiQypLzp7mrNdTPNQ3E+ECtDJd1++oRlz7IBmdl2tlrNG20VpbOG0zrFsFe6vKm+E3/03OooQ2IT4dV1b7wBqVTKMU=
+X-Received: by 2002:a92:dc0d:: with SMTP id t13mr9705994iln.287.1588780283737; 
+ Wed, 06 May 2020 08:51:23 -0700 (PDT)
 MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <D61EB903-E580-4885-A064-6B6D5F325BBC@gmx.de>
-References: <1588518416.66682155@apps.rackspace.com> 
- <CADN=VJnLagUAWtcRFO7jNL3oGA+vUQ4Z=2tkbYAsm0hyMGqnPQ@mail.gmail.com> 
+References: <1588518416.66682155@apps.rackspace.com>
+ <CADN=VJnLagUAWtcRFO7jNL3oGA+vUQ4Z=2tkbYAsm0hyMGqnPQ@mail.gmail.com>
  <D61EB903-E580-4885-A064-6B6D5F325BBC@gmx.de>
-Message-ID: <1588779543.065923089@apps.rackspace.com>
-X-Mailer: webmail/17.3.10-RC
-X-Classification-ID: e635d89c-0d60-4873-9ecd-0327076ce7f9-1-1
-Subject: [Cake] Slightly OT Re: [Make-wifi-fast] [Bloat] dslreports is no
-	longer free
+ <1588779543.065923089@apps.rackspace.com>
+In-Reply-To: <1588779543.065923089@apps.rackspace.com>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Wed, 6 May 2020 08:51:12 -0700
+Message-ID: <CAA93jw7=EKzfZYHQ_rqbhb_ALUXDBHEKb=DF2kDed+Lvs3HsPA@mail.gmail.com>
+To: "David P. Reed" <dpreed@deepplum.com>
+Subject: Re: [Cake] Slightly OT Re: [Make-wifi-fast] [Bloat] dslreports is
+ no longer free
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -79,120 +81,59 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
 Cc: Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
  Jannie Hanekom <jannie@hanekom.net>, Cake List <cake@lists.bufferbloat.net>,
  Sergey Fedorov <sfedorov@netflix.com>, bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============4418836668191067785=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============4418836668191067785==
-Content-Type: multipart/alternative;boundary="----=_20200506113903000000_50998"
-
-------=_20200506113903000000_50998
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-=0AWhile the jury is still out for me on the "best" speed test to recommend=
- to my friends, family, and even enemies, I think the progression has been =
-good.=0A =0AOriginally, I used to recommend the web-embedded Java test call=
-ed Netalyzer from ICSI. That did extensive tests, and included tests that a=
-re important to me like detecting DNS spoofing, various middlebox mucking w=
-ith packets, ... as well as measuring lag under load in a simple way. But t=
-hen I had to teach each person I recommended it to what everything meant. T=
-hat was a BIG burden on me.=0A =0AThen I switched to dslreports.com, becaus=
-e of several factors - it highlighted lag under load as a bufferbloat grade=
- that made sense.=0A =0ANow, I have to say that fast.com is likely to becom=
-e my new recommendation. However, I have two issues with it. The biggest on=
-e is that lag-under-load is obscured in the interface, as is the asymmetry =
-of upload vs. download.=0A =0AThe problem for me is that I usually get aske=
-d to recommend a test under circumstances where someone isn't looking for "=
-bragging rights" but is experiencing a problem of disrupted service quality=
-. The NUMBER ONE problem they usually have is the lag-under-load problem in=
- some form. But all they know is what "download speed" they bought.=0A =0AM=
-any, many people are using videoconferencing now, not just web and TV watch=
-ing. And that is hypersensitive to lag-under-load (also on WiFi due to airt=
-ime scheduling).=0AAnd no one seems to be aware that their quality of exper=
-ience is not about speed, but about instability of lag-under-load. So it's =
-a new idea.=0A =0AYeah, I do once in a while want to know if my service is =
-delivering the top speed advertised - just as I once in a while measure the=
- time of my car in the quarter mile on dragstrip :-)=0A =0ABut mostly I wan=
-t to know what's making my *applications* so slow. And it's almost never th=
-e case that they need a nitro-burning funny car level of speed. Instead, th=
-ey need either: elimination of lag under load, or eliminating all the crap =
-running in tabs on the browser (like animated JavaScript attention-seeking =
-ads filling memory with garbage and causing the JS garbage collector to run=
- constantly).=0A =0ASo I would change fast.com, if I could, to emphasize th=
-e *problems* (as netalyzer did) and not the speed.
-------=_20200506113903000000_50998
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<font face=3D"arial" size=3D"3"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 12pt; overflow-wrap: break-word;">While the jury is stil=
-l out for me on the "best" speed test to recommend to my friends, family, a=
-nd even enemies, I think the progression has been good.</p>=0A<p style=3D"m=
-argin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: break=
--word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; fon=
-t-size: 12pt; overflow-wrap: break-word;">Originally, I used to recommend t=
-he web-embedded Java test called Netalyzer from ICSI. That did extensive te=
-sts, and included tests that are important to me like detecting DNS spoofin=
-g, various middlebox mucking with packets, ... as well as measuring lag und=
-er load in a simple way. But then I had to teach each person I recommended =
-it to what everything meant. That was a BIG burden on me.</p>=0A<p style=3D=
-"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: bre=
-ak-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; f=
-ont-size: 12pt; overflow-wrap: break-word;">Then I switched to dslreports.c=
-om, because of several factors - it highlighted lag under load as a bufferb=
-loat grade that made sense.</p>=0A<p style=3D"margin:0;padding:0;font-famil=
-y: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p styl=
-e=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap:=
- break-word;">Now, I have to say that fast.com is likely to become my new r=
-ecommendation. However, I have two issues with it. The biggest one is that =
-lag-under-load is obscured in the interface, as is the asymmetry of upload =
-vs. download.</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font=
--size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;=
-padding:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">=
-The problem for me is that I usually get asked to recommend a test under ci=
-rcumstances where someone isn't looking for "bragging rights" but is experi=
-encing a problem of disrupted service quality. The NUMBER ONE problem they =
-usually have is the lag-under-load problem in some form. But all they know =
-is what "download speed" they bought.</p>=0A<p style=3D"margin:0;padding:0;=
-font-family: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=
-=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; over=
-flow-wrap: break-word;">Many, many people are using videoconferencing now, =
-not just web and TV watching. And that is hypersensitive to lag-under-load =
-(also on WiFi due to airtime scheduling).</p>=0A<p style=3D"margin:0;paddin=
-g:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">And no=
- one seems to be aware that their quality of experience is not about speed,=
- but about instability of lag-under-load. So it's a new idea.</p>=0A<p styl=
-e=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap:=
- break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: aria=
-l; font-size: 12pt; overflow-wrap: break-word;">Yeah, I do once in a while =
-want to know if my service is delivering the top speed advertised - just as=
- I once in a while measure the time of my car in the quarter mile on dragst=
-rip :-)</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size:=
- 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;paddin=
-g:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">But mo=
-stly I want to know what's making my *applications* so slow. And it's almos=
-t never the case that they need a nitro-burning funny car level of speed. I=
-nstead, they need either: elimination of lag under load, or eliminating all=
- the crap running in tabs on the browser (like animated JavaScript attentio=
-n-seeking ads filling memory with garbage and causing the JS garbage collec=
-tor to run constantly).</p>=0A<p style=3D"margin:0;padding:0;font-family: a=
-rial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D=
-"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: bre=
-ak-word;">So I would change fast.com, if I could, to emphasize the *problem=
-s* (as netalyzer did) and not the speed.</p></font>
-------=_20200506113903000000_50998--
-
-
---===============4418836668191067785==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============4418836668191067785==--
-
+T24gV2VkLCBNYXkgNiwgMjAyMCBhdCA4OjM5IEFNIERhdmlkIFAuIFJlZWQgPGRwcmVlZEBkZWVw
+cGx1bS5jb20+IHdyb3RlOgo+Cj4gV2hpbGUgdGhlIGp1cnkgaXMgc3RpbGwgb3V0IGZvciBtZSBv
+biB0aGUgImJlc3QiIHNwZWVkIHRlc3QgdG8gcmVjb21tZW5kIHRvIG15IGZyaWVuZHMsIGZhbWls
+eSwgYW5kIGV2ZW4gZW5lbWllcywgSSB0aGluayB0aGUgcHJvZ3Jlc3Npb24gaGFzIGJlZW4gZ29v
+ZC4KPgo+Cj4KPiBPcmlnaW5hbGx5LCBJIHVzZWQgdG8gcmVjb21tZW5kIHRoZSB3ZWItZW1iZWRk
+ZWQgSmF2YSB0ZXN0IGNhbGxlZCBOZXRhbHl6ZXIgZnJvbSBJQ1NJLiBUaGF0IGRpZCBleHRlbnNp
+dmUgdGVzdHMsIGFuZCBpbmNsdWRlZCB0ZXN0cyB0aGF0IGFyZSBpbXBvcnRhbnQgdG8gbWUgbGlr
+ZSBkZXRlY3RpbmcgRE5TIHNwb29maW5nLCB2YXJpb3VzIG1pZGRsZWJveCBtdWNraW5nIHdpdGgg
+cGFja2V0cywgLi4uIGFzIHdlbGwgYXMgbWVhc3VyaW5nIGxhZyB1bmRlciBsb2FkIGluIGEgc2lt
+cGxlIHdheS4gQnV0IHRoZW4gSSBoYWQgdG8gdGVhY2ggZWFjaCBwZXJzb24gSSByZWNvbW1lbmRl
+ZCBpdCB0byB3aGF0IGV2ZXJ5dGhpbmcgbWVhbnQuIFRoYXQgd2FzIGEgQklHIGJ1cmRlbiBvbiBt
+ZS4KPgo+Cj4KPiBUaGVuIEkgc3dpdGNoZWQgdG8gZHNscmVwb3J0cy5jb20sIGJlY2F1c2Ugb2Yg
+c2V2ZXJhbCBmYWN0b3JzIC0gaXQgaGlnaGxpZ2h0ZWQgbGFnIHVuZGVyIGxvYWQgYXMgYSBidWZm
+ZXJibG9hdCBncmFkZSB0aGF0IG1hZGUgc2Vuc2UuCj4KPgo+Cj4gTm93LCBJIGhhdmUgdG8gc2F5
+IHRoYXQgZmFzdC5jb20gaXMgbGlrZWx5IHRvIGJlY29tZSBteSBuZXcgcmVjb21tZW5kYXRpb24u
+IEhvd2V2ZXIsIEkgaGF2ZSB0d28gaXNzdWVzIHdpdGggaXQuIFRoZSBiaWdnZXN0IG9uZSBpcyB0
+aGF0IGxhZy11bmRlci1sb2FkIGlzIG9ic2N1cmVkIGluIHRoZSBpbnRlcmZhY2UsIGFzIGlzIHRo
+ZSBhc3ltbWV0cnkgb2YgdXBsb2FkIHZzLiBkb3dubG9hZC4KPgo+Cj4KPiBUaGUgcHJvYmxlbSBm
+b3IgbWUgaXMgdGhhdCBJIHVzdWFsbHkgZ2V0IGFza2VkIHRvIHJlY29tbWVuZCBhIHRlc3QgdW5k
+ZXIgY2lyY3Vtc3RhbmNlcyB3aGVyZSBzb21lb25lIGlzbid0IGxvb2tpbmcgZm9yICJicmFnZ2lu
+ZyByaWdodHMiIGJ1dCBpcyBleHBlcmllbmNpbmcgYSBwcm9ibGVtIG9mIGRpc3J1cHRlZCBzZXJ2
+aWNlIHF1YWxpdHkuIFRoZSBOVU1CRVIgT05FIHByb2JsZW0gdGhleSB1c3VhbGx5IGhhdmUgaXMg
+dGhlIGxhZy11bmRlci1sb2FkIHByb2JsZW0gaW4gc29tZSBmb3JtLiBCdXQgYWxsIHRoZXkga25v
+dyBpcyB3aGF0ICJkb3dubG9hZCBzcGVlZCIgdGhleSBib3VnaHQuCj4KPgo+Cj4gTWFueSwgbWFu
+eSBwZW9wbGUgYXJlIHVzaW5nIHZpZGVvY29uZmVyZW5jaW5nIG5vdywgbm90IGp1c3Qgd2ViIGFu
+ZCBUViB3YXRjaGluZy4gQW5kIHRoYXQgaXMgaHlwZXJzZW5zaXRpdmUgdG8gbGFnLXVuZGVyLWxv
+YWQgKGFsc28gb24gV2lGaSBkdWUgdG8gYWlydGltZSBzY2hlZHVsaW5nKS4KPgo+IEFuZCBubyBv
+bmUgc2VlbXMgdG8gYmUgYXdhcmUgdGhhdCB0aGVpciBxdWFsaXR5IG9mIGV4cGVyaWVuY2UgaXMg
+bm90IGFib3V0IHNwZWVkLCBidXQgYWJvdXQgaW5zdGFiaWxpdHkgb2YgbGFnLXVuZGVyLWxvYWQu
+IFNvIGl0J3MgYSBuZXcgaWRlYS4KPgo+Cj4KPiBZZWFoLCBJIGRvIG9uY2UgaW4gYSB3aGlsZSB3
+YW50IHRvIGtub3cgaWYgbXkgc2VydmljZSBpcyBkZWxpdmVyaW5nIHRoZSB0b3Agc3BlZWQgYWR2
+ZXJ0aXNlZCAtIGp1c3QgYXMgSSBvbmNlIGluIGEgd2hpbGUgbWVhc3VyZSB0aGUgdGltZSBvZiBt
+eSBjYXIgaW4gdGhlIHF1YXJ0ZXIgbWlsZSBvbiBkcmFnc3RyaXAgOi0pCj4KPgo+Cj4gQnV0IG1v
+c3RseSBJIHdhbnQgdG8ga25vdyB3aGF0J3MgbWFraW5nIG15ICphcHBsaWNhdGlvbnMqIHNvIHNs
+b3cuIEFuZCBpdCdzIGFsbW9zdCBuZXZlciB0aGUgY2FzZSB0aGF0IHRoZXkgbmVlZCBhIG5pdHJv
+LWJ1cm5pbmcgZnVubnkgY2FyIGxldmVsIG9mIHNwZWVkLiBJbnN0ZWFkLCB0aGV5IG5lZWQgZWl0
+aGVyOiBlbGltaW5hdGlvbiBvZiBsYWcgdW5kZXIgbG9hZCwgb3IgZWxpbWluYXRpbmcgYWxsIHRo
+ZSBjcmFwIHJ1bm5pbmcgaW4gdGFicyBvbiB0aGUgYnJvd3NlciAobGlrZSBhbmltYXRlZCBKYXZh
+U2NyaXB0IGF0dGVudGlvbi1zZWVraW5nIGFkcyBmaWxsaW5nIG1lbW9yeSB3aXRoIGdhcmJhZ2Ug
+YW5kIGNhdXNpbmcgdGhlIEpTIGdhcmJhZ2UgY29sbGVjdG9yIHRvIHJ1biBjb25zdGFudGx5KS4K
+CgpBbiBhbmFsb2d5IEknZCBiZWVuIG1ha2luZyB0byBteXNlbGYgYW5kIHdhcyBob3BpbmcgdG8g
+dXNlIHNvbWV3aGVyZQpyZWxldmFudCB0byB0aGUgbDRzIGRlYmF0ZSwgd2FzCmphbWVzIGRlYW4g
+cG9pc2luZyBoaXMgZHJhZ3N0ZXIgYXQgdGhlIHRvcCBvZiB3aW5kaW5nIGRpcnQgbW91bnRhaW4K
+cm9hZCwgd2l0aCBoaXMgYmVzdCBnaXJsLCBJc2Fkb3JhIER1bmNhbiwKc2NhcmYgZmxvd2luZyBv
+dXQsIGJ5IGhpcyBzaWRlLgoKd2hhdCBjb3VsZCBnbyB3cm9uZz8KCj4KPgo+Cj4gU28gSSB3b3Vs
+ZCBjaGFuZ2UgZmFzdC5jb20sIGlmIEkgY291bGQsIHRvIGVtcGhhc2l6ZSB0aGUgKnByb2JsZW1z
+KiAoYXMgbmV0YWx5emVyIGRpZCkgYW5kIG5vdCB0aGUgc3BlZWQuCgoKLS0gCk1ha2UgTXVzaWMs
+IE5vdCBXYXIKCkRhdmUgVMOkaHQKQ1RPLCBUZWtMaWJyZSwgTExDCmh0dHA6Ly93d3cudGVrbGli
+cmUuY29tClRlbDogMS04MzEtNDM1LTA3MjkKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9h
+dC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
