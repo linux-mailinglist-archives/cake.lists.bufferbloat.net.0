@@ -2,75 +2,69 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4BA7C1C6B4E
-	for <lists+cake@lfdr.de>; Wed,  6 May 2020 10:19:12 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8CD2B1C7516
+	for <lists+cake@lfdr.de>; Wed,  6 May 2020 17:39:10 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id D526E3CB40;
-	Wed,  6 May 2020 04:19:10 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id B085E3CB46;
+	Wed,  6 May 2020 11:39:04 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1588753150;
-	bh=OiO/YHzpi0pi3rsjj/YJlgTq/yuFOxHAU1SeT9o6EVk=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1588779544;
+	bh=h15tEnMK1BDHJtrj+r8pz+LUAqY1nDdrRVvICGeUQcc=;
+	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=fTeJxy2AA3y89PypDbOThYv0Qo19KiSNnZ/6cCLeRhijxXkr9l+EN/PlUjZd3Wnr3
-	 N9194QK+R3fMGYgOweQ/6AM6m/2Ux0DpvkMxEZNUyHGwmjvJJKH8edDBR7jhJAMYlS
-	 qVO2WhKmk3mVWA+NNyvdNVMRe8E9yTsdVstYmYh/jd/GWHdz7zPZoFiVsdt1ZqlW02
-	 NHDo6SFgfOFJ/zPXN23C68tZZ9e7YKaz8QkH04barGs6AZqWYOSSQlXkQD1qdsV50T
-	 29SLEZ8HHoIoTo0zqBFL+/XLcpoWjnS0l0gri0oBHA86C2bg0VYHAcKEtG6/N4U8NN
-	 2r41JJm+uAt7Q==
+	b=kT5yhdsCHHhIuwiJXmToA51vmBMzV9hAeZwXTy+HiSoR+VCqBy17xQ5RuDvJh+UTC
+	 0sMW46oohVrz8hGl9Xiwp3b6pUahl34wmKAWRjWfJADGqe9eR3ScgSuJetkUdmU1ar
+	 juxTSswPitP74nd2coXZWFHI2TwmwsBBXBUCv8mM/jqxYV/WOtF5tSAGHuDRkMY5yR
+	 rW9bDhPatlT5JqRs7ymMVnlqGr70b2pqPCDnNksXTusoxrPjVgOiPaHjZhQfWAvdS9
+	 kejbOlzRIO6w/QSkBzjDkJJuA5zlbXVBQHN8JQSgzb8nbrovTSKLrwfYcMCIi1UIPu
+	 RwicZ5T7V2NtA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from smtp87.iad3a.emailsrvr.com (smtp87.iad3a.emailsrvr.com
+ [173.203.187.87])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id C17843B2A4;
- Wed,  6 May 2020 04:19:09 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1588753145;
- bh=erOvnItGqaypEO2p84nOIUB8AzzyGuY6siWcRENctl4=;
- h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
- b=REHTjdUZpnbvGW0RxW7SZLSjZVaFOiynAbeiYeWS6RdGHiMj0Ag1pPxc3ymFvy3w9
- HuQduc+56jnMGVr7vIsxCzX7kPY6YnwaolGrdf7jFjKRdb8xveDMHREbO1Tkdxr8dL
- MPdADjM21fNZTtbPN9fdpvBt5sKtmeOViC287Wms=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [10.11.12.16] ([134.76.241.253]) by mail.gmx.com (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MWzk3-1jd0bI2wht-00XPHn; Wed, 06
- May 2020 10:19:05 +0200
-Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.14\))
-From: Sebastian Moeller <moeller0@gmx.de>
-In-Reply-To: <CADN=VJnLagUAWtcRFO7jNL3oGA+vUQ4Z=2tkbYAsm0hyMGqnPQ@mail.gmail.com>
-Date: Wed, 6 May 2020 10:19:05 +0200
-Message-Id: <D61EB903-E580-4885-A064-6B6D5F325BBC@gmx.de>
-References: <1588518416.66682155@apps.rackspace.com>
- <CADN=VJnLagUAWtcRFO7jNL3oGA+vUQ4Z=2tkbYAsm0hyMGqnPQ@mail.gmail.com>
-To: Sergey Fedorov <sfedorov@netflix.com>
-X-Mailer: Apple Mail (2.3445.104.14)
-X-Provags-ID: V03:K1:CtjBCKCrFBnD6Q/MjoTylVSBtVbbfw2EGk2vLV98k2mrlSMOw/U
- iutC5duHQ72AUWex7Eo90/ipg5ffmV8Kr3a39r2HHCMhAKeRUmc4TKGEyNdGJVApg0rkohz
- 5cDAOotAlCKpWDN7PxJmY4sDA+pFJlqAIYrOPfzRGQRyZ4CPgSnteME6moH4kU5hyqs04lV
- +K/BoA3AQQ9mG8KBuXzVQ==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:2LnlYC+gsSs=:FrEkZlTn8ZznIT34k6vp6k
- szAQZjpd3XnUsTg6DxoQEDa6v8XdkQgcYYnYMdCwPlGvCDv7EoUutACCZEShDRs22mKSd0yri
- t09XQLhvvV3Q70fjFh8w8XrolkWxHHl1aWrM2zif6zdIi9vv4GWhRIFjr1eEKEV9GPPDOXTZz
- jUlNOVgU7rryZyDuLvuZK+9yj+qG+qgdipPDREBUe5rQmQdx4bXjR3G0U4LQcF/zF2eKUoHvz
- WH4qXFmFA15pxvNs4u4+5jXJd1NmHvXcMMy0fr0ExkaZ1AyqBxxDPkUT2IUIKh+DkgcJbvevN
- a5fbAZY1OPu6UOBfyCwenKiVi0C53aq9qmNhYMtZ3v/EJqZYydzIyIlXtsLp4M0u3NldRWCkl
- 0G0tjVgYu9A7UlVM8PbAyGZglFJ8bEeub7wLTznCybucJ04utReeBo2L800f9aYeFCF+eoBQX
- MSx38h/nHyhJjRFdrPUmLkfB2NND+ffpQUbM5J+wgrnxYnurGtB4B70Ks+ifa9e9KmaHpagNF
- 4KDfdmkXrwgQDPlocXtU3cL/ErqMMpmAsqg+fDDiLMaTl6+nj6YQ2Y911KuBXpSb1NXodpkxu
- Xgbi+rtNq5BZD3qLFU/mZ6114MtkzE1kDnWpqeKK866QadfEUNP12LTLhyUwjgq+XRIScVbnc
- 4rQw9VyQHLw3EoGjx2gpqNFaHbhUV6IVlRLXb2lG4sf3ghb3cXyTVNJon1JTHJJ5aMtMiGngq
- 8Aokkffp+jJzXKBOrnJfAdIqkvXbIXlG2s6qV/AJ4FFm9/cvi5A9RYgH6YkXkT5gIXvmCKhIu
- u1xmtaiblXc5TkdPIbt/kzgfSb5+wpmntq7N83ZqwGwAlxTeaKJgm3lzDcEWpctd0tI+3QJjH
- kQwAJVRu+bKcy5trzNtlvJCtkx7fHaJ7qEFeS5k1n2IytJ5dN4dI0KoWNPLWAynfRRlh4/Pmp
- v5t+KnAZV9yyTnQYuIPXp0kna2dex4fc3hq8P5mwtH+znWNP2U6n6Remg2mq3GVgAoiegUB/K
- Mfiiw3fW3r1hjqmHnXn9ZcL6SlUghf/hy9IA0Y5Ttgqx9NbAIGK1dj8A4tI16n2H0197dDQm6
- 8Cy4HuEluk8R18ZEL+G2uv9pvBAcXFIMvEVrTZlv0h1TQ00o3R/BkLo1Q55mOs5kdF63uQv/Z
- Wa/EPfpie0oY5UcDjOA6dDCvx6WtBnKdstoql368IP6pyVJCu9k/zuG2v6RmNb7M4Yng6DT1H
- q9cVSnOmed3w/sBEM
-Subject: Re: [Cake] [Make-wifi-fast] [Bloat] dslreports is no longer free
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 7E2BD3CB37
+ for <cake@lists.bufferbloat.net>; Wed,  6 May 2020 11:39:03 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
+ s=20190322-9u7zjiwi; t=1588779543;
+ bh=BRq2HR+e5w/gz/qtuugExrgaJiMMsYlmIwEuNh2Ndk8=;
+ h=Date:Subject:From:To:From;
+ b=NpSQM+uH7MMQvx1UL17G/XePDtfXOgTv563FSOcg8Fu1YmvYDUBjpV61qSMQkBaq9
+ 0+6dPKHbmuTxyqGtVwSKQvmrwfVOzcy4oaHfQA72zPIIHIQ2O3lMe+QMbIqlaLL+I+
+ xmrw9VLMHaUSPSWNoU5qo4WJAWIWRwmic9aw1cM0=
+Received: from app35.wa-webapps.iad3a (relay-webapps.rsapps.net
+ [172.27.255.140])
+ by smtp11.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 25B4252E4;
+ Wed,  6 May 2020 11:39:03 -0400 (EDT)
+X-Sender-Id: dpreed@deepplum.com
+Received: from app35.wa-webapps.iad3a (relay-webapps.rsapps.net
+ [172.27.255.140]) by 0.0.0.0:25 (trex/5.7.12);
+ Wed, 06 May 2020 11:39:03 -0400
+Received: from deepplum.com (localhost.localdomain [127.0.0.1])
+ by app35.wa-webapps.iad3a (Postfix) with ESMTP id 10911A104E;
+ Wed,  6 May 2020 11:39:03 -0400 (EDT)
+Received: by apps.rackspace.com
+ (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
+ with HTTP; Wed, 6 May 2020 11:39:03 -0400 (EDT)
+X-Auth-ID: dpreed@deepplum.com
+Date: Wed, 6 May 2020 11:39:03 -0400 (EDT)
+From: "David P. Reed" <dpreed@deepplum.com>
+To: "Sebastian Moeller" <moeller0@gmx.de>
+MIME-Version: 1.0
+Importance: Normal
+X-Priority: 3 (Normal)
+X-Type: html
+In-Reply-To: <D61EB903-E580-4885-A064-6B6D5F325BBC@gmx.de>
+References: <1588518416.66682155@apps.rackspace.com> 
+ <CADN=VJnLagUAWtcRFO7jNL3oGA+vUQ4Z=2tkbYAsm0hyMGqnPQ@mail.gmail.com> 
+ <D61EB903-E580-4885-A064-6B6D5F325BBC@gmx.de>
+Message-ID: <1588779543.065923089@apps.rackspace.com>
+X-Mailer: webmail/17.3.10-RC
+X-Classification-ID: e635d89c-0d60-4873-9ecd-0327076ce7f9-1-1
+Subject: [Cake] Slightly OT Re: [Make-wifi-fast] [Bloat] dslreports is no
+	longer free
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -82,280 +76,123 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Jannie Hanekom <jannie@hanekom.net>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ Jannie Hanekom <jannie@hanekom.net>, Cake List <cake@lists.bufferbloat.net>,
+ Sergey Fedorov <sfedorov@netflix.com>, bloat <bloat@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============4418836668191067785=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SGkgU2VyZ2V5LAoKCj4gT24gTWF5IDQsIDIwMjAsIGF0IDE5OjA0LCBTZXJnZXkgRmVkb3JvdiA8
-c2ZlZG9yb3ZAbmV0ZmxpeC5jb20+IHdyb3RlOgo+IAo+IFNlcmdleSAtIEkgd2Fzbid0IGFzc3Vt
-aW5nIGFueXRoaW5nIGFib3V0IGZhc3QuY29tLiBUaGUgZG9jdW1lbnQgeW91IHNoYXJlZCB3YXNu
-J3QgY2xlYXIgYWJvdXQgdGhlIG1ldGhvZG9sb2d5J3MgZGV0YWlscyBoZXJlLiBPdGhlcnMgc2Fk
-bHksIGhhdmUgYWN0dWFsbHkgdXNlZCBJQ01QIHBpbmdzIGluIHRoZSB3YXkgSSBkZXNjcmliZWQu
-IEkgd2FzIG1ha2luZyBhIGdlbmVyaWMgY29tbWVudCBvZiBjb25jZXJuLgo+IAo+IFRoYXQgc2Fp
-ZCwgaXQgc291bmRzIGxpa2Ugd2hhdCB5b3UgYXJlIGRvaW5nIGlzIHJlYWxseSBoZWxwZnVsIChl
-c3AuIGdpdmVuIHRoYXQgeW91ciBtZWFzdXJlIGlzIGFpbWVkIGF0IGVuZCB1c2VyIGV4cGVyaWVu
-dGlhbCBxdWFsaXRpZXMpLgo+IERhdmlkIC0gbXkgYXBvbG9naWVzLCBJIGluY29ycmVjdGx5IGlu
-dGVycHJldGVkIHlvdXIgc3RhdGVtZW50IGFzIGJlaW5nIHNhaWQgaW4gY29udGV4dCBvZiBmYXN0
-LmNvbSBtZWFzdXJlbWVudHMuIFRoZSBibG9nIHBvc3QgbGlua2VkIGluZGVlZCBkb2Vzbid0IHBy
-b3ZpZGUgdGhlIGxhdGVuY3kgbWVhc3VyZW1lbnQgZGV0YWlscyAtIHdhcyB3cml0dGVuIGJlZm9y
-ZSB3ZSBhZGRlZCB0aGUgZXh0cmEgbWV0cmljcy4gV2UnbGwgc2VlIGlmIHdlIGNhbiBwdWJsaXNo
-IGFuIHVwZGF0ZS4gCj4gCj4gMSkgYSBjbGVhciBkZWZpbml0aW9uIG9mIGxhZyB1bmRlciBsb2Fk
-IHRoYXQgaXMgZnJvbSBlbmQtdG8tZW5kIGluIGxhdGVuY3ksIGFuZCBpbnZvbHZlcywgaWRlYWxs
-eSwgaW5kZXBlbmRlbnQgdHJhZmZpYyBmcm9tIG11bHRpcGxlIHNvdXJjZXMgdGhyb3VnaCB0aGUg
-Ym90dGxlbmVjay4KPiBDdXJpb3VzIGlmIGJ5IG11bHRpcGxlIHNvdXJjZXMgeW91IG1lYW4gbXVs
-dGlwbGUgY2xpZW50cyAoZGV2aWNlcykgb3IgbXVsdGlwbGUgY29ubmVjdGlvbnMgc2VuZGluZyBk
-YXRhPyAKCglOb3QgdHJ5aW5nIHRvIHNwZWFrIGZvciBEYXZpZCBvYnZpb3VzbHksIGJ1dCB0aGUg
-ZHNscmVwb3J0cyBzcGVlZHRlc3QsIHdoZW4gdXNpbmcgbXVsdGlwbGUgc3RyZWFtcyBtb3N0bHkg
-cmVjcnVpdGVkIHN0cmVhbXMgZm9yIGRpZmZlcmVudCBzZXJ2ZXIgbG9jYXRpb25zIGFuZCByZXBv
-cnRlZCB0aGVzZSBsb2NhdGlvbnMgaW4gc29tZSBvZiB0aGUgZGV0YWlsZWQgcmVwb3J0IHBhcnRz
-LiBGb3Igbm9ybWFsIHVzZSB0aGF0IGxldmVsIG9mIGRldGFpbCBpcyBvdmVya2lsbCwgYnV0IGZv
-ciBwcm9ibGVtYXRpYyBjYXNlcyB0aGF0IHdhcyByZWFsbHkgZWx1Y2lkYXRpbmcgKHRoZSByZXBv
-cnRlZCB0aGUgcmV0cmFuc21pdCBjb3VudCBmb3IgdXAgdG8gNSBzZXJ2ZXIgc2l0ZXMpOgoKCgoK
-U2VydmVyCQkJCQkJCQlOZXR0CVNwZWVkIEF2ZwlSVFQgLyBKaXR0ZXIgQXZnCVJlLXhtaXQgQXZn
-CUN3bmQKU2luZ2Fwb3JlIChzb2Z0bGF5ZXIpCQkJCWQxCTcuMyBNYi9zCQkJMjAwLjXCsTdtcwkJ
-MC4xJQkJMTU0CkhvdXN0b24sIFVTQSAoc29mdGxheWVyKQkJCWQzCTMuMDcgTWIvcwkJMTU3LjbC
-sTMuNm1zCQkwLjQlCQkxMjUKRGFsbGFzLCBVU0EgKHNvZnRsYXllcikJCQkJZDMJMi42NSBNYi9z
-CQkxNTAuMcKxMy4zbXMJCTAuNiUJCTEzMQpTYW4gSm9zZSwgVVNBIChzb2Z0bGF5ZXIpCQkJZDMJ
-Mi43NyBNYi9zCQkxODUuNsKxNW1zCQkwLjUlCQkxMjYKTmFzaHZpbGxlLCBUTiwgVVNBIChUd2lu
-bGFrZXMgY29vcCkJZDMJMi4zNCBNYi9zCQkxMjcuNsKxNG1zCQkwLjYlCQk3NgoKClJ1biBMb2c6
-CjAuMDBzIHNldHRpbmcgZG93bmxvYWQgZmlsZSBzaXplIHRvIDQwbWIgbWF4IGZvciBTYWZhcmkK
-MC4wMHMgU3RhcnQgdGVzdGluZyBEU0wKMDAuNDNzIFNlcnZlcnMgYXZhaWxhYmxlOiAxMAowMC40
-NnMgcGluZ2luZyAxMCBsb2NhdGlvbnMKMDEuNjZzIGdlbyBsb2NhdGlvbiBmYWlsZWQKMDUuNDdz
-IDE5bXMgQW1zdGVyZGFtLCBOZXRoZXJsYW5kcywgRVUKMDUuNDdzIDYzbXMgTmFzaHZpbGxlLCBU
-TiwgVVNBCjA1LjQ3cyA3Mm1zIERhbGxhcywgVVNBCjA1LjQ3cyA3NW1zIEhvdXN0b24sIFVTQQow
-NS40N3MgODltcyBTYW4gSm9zZSwgVVNBCjA1LjQ3cyA5Nm1zIFNpbmdhcG9yZQowNS40N3MgY291
-bGQgbm90IHJlYWNoIFNpbHZlciBTcHJpbmcsIE1ELCBVU0EgaHR0cHM6Ly90NzAuZHNscmVwb3J0
-cy5jb20KMDUuNDdzIGNvdWxkIG5vdCByZWFjaCBOZXdjYXN0bGUsIERlbGF3YXJlLCBVU0EgaHR0
-cHM6Ly90NjguZHNscmVwb3J0cy5jb20KMDUuNDdzIGNvdWxkIG5vdCByZWFjaCBXZXN0bGFuZCwg
-TWljaGlnYW4sIFVTQSBodHRwczovL3Q2Ny5kc2xyZXBvcnRzLmNvbQowNS40N3MgY291bGQgbm90
-IHJlYWNoIEJlYXZlcnRvbiwgT3JlZ29uLCBVU0EgaHR0cHM6Ly90NjkuZHNscmVwb3J0cy5jb20K
-MDUuNDhzIDUgc2Vjb25kcyBtZWFzdXJpbmcgaWRsZSBidWZmZXIgYmxvYXQKMTAuOTZzIFRyaWFs
-IGRvd25sb2FkIG5vcm1hbAoxMC45OXMgVXNpbmcgR0VUIGZvciB1cGxvYWQgdGVzdGluZwoxMC45
-OXMgcHJlZmVyZW5jZSBodHRwcyBzZXQgdG8gMQoxMC45OXMgcHJlZmVyZW5jZSBmaXhyaWRzIHNl
-dCB0byAxCjEwLjk5cyBwcmVmZXJlbmNlIHN0cmVhbXNEb3duIHNldCB0byAxNgoxMC45OXMgcHJl
-ZmVyZW5jZSBkbm1ldGhvZCBzZXQgdG8gd2Vic29ja2V0CjEwLjk5cyBwcmVmZXJlbmNlIHVwbWV0
-aG9kIHNldCB0byB3ZWJzb2NrZXQKMTAuOTlzIHByZWZlcmVuY2UgdXBkdXJhdGlvbiBzZXQgdG8g
-MzAKMTAuOTlzIHByZWZlcmVuY2Ugc3RyZWFtc1VwIHNldCB0byAxNgoxMC45OXMgcHJlZmVyZW5j
-ZSBkbmR1cmF0aW9uIHNldCB0byAzMAoxMC45OXMgcHJlZmVyZW5jZSBibG9hdGhmIHNldCB0byAx
-CjEwLjk5cyBwcmVmZXJlbmNlIHJpZHMgc2V0IHRvIFtvYmplY3QgT2JqZWN0XQoxMC45OXMgcHJl
-ZmVyZW5jZSBjb21wcmVzcyBzZXQgdG8gMQoxOS4xMXMgIHN0cmVhbTAgNC43MSBtZWdhYml0IEFt
-c3RlcmRhbSwgTmV0aGVybGFuZHMsIEVVCjE5LjExcyAgc3RyZWFtMSAyLjc0IG1lZ2FiaXQgRGFs
-bGFzLCBVU0EKMTkuMTFzICBzdHJlYW0yIDQuNjggbWVnYWJpdCBTaW5nYXBvcmUKMTkuMTFzICBz
-dHJlYW0zIDIuMjMgbWVnYWJpdCBEYWxsYXMsIFVTQQoxOS4xMXMgIHN0cmVhbTQgMy4zMSBtZWdh
-Yml0IEhvdXN0b24sIFVTQQoxOS4xMXMgIHN0cmVhbTUgMy4xOSBtZWdhYml0IEhvdXN0b24sIFVT
-QQoxOS4xMXMgIHN0cmVhbTYgMi44MyBtZWdhYml0IEFtc3RlcmRhbSwgTmV0aGVybGFuZHMsIEVV
-CjE5LjExcyAgc3RyZWFtNyAxLjEzIG1lZ2FiaXQgRGFsbGFzLCBVU0EKMTkuMTFzICBzdHJlYW04
-IDIuMTUgbWVnYWJpdCBBbXN0ZXJkYW0sIE5ldGhlcmxhbmRzLCBFVQoxOS4xMXMgIHN0cmVhbTkg
-Mi4zNSBtZWdhYml0IFNhbiBKb3NlLCBVU0EKMTkuMTFzICBzdHJlYW0xMCAxLjQ2IG1lZ2FiaXQg
-TmFzaHZpbGxlLCBUTiwgVVNBCjE5LjExcyAgc3RyZWFtMTEgMS40MiBtZWdhYml0IE5hc2h2aWxs
-ZSwgVE4sIFVTQQoxOS4xMXMgIHN0cmVhbTEyIDIuOTIgbWVnYWJpdCBOYXNodmlsbGUsIFROLCBV
-U0EKMTkuMTFzICBzdHJlYW0xMyAyLjE5IG1lZ2FiaXQgSG91c3RvbiwgVVNBCjE5LjExcyAgc3Ry
-ZWFtMTQgMi4xNiBtZWdhYml0IFNhbiBKb3NlLCBVU0EKMTkuMTFzICBzdHJlYW0xNSAxLjIgbWVn
-YWJpdCBTYW4gSm9zZSwgVVNBCjQxLjI2cyBFbmQgb2YgZG93bmxvYWQgdGVzdGluZy4gU3RhcnRp
-bmcgdXBsb2FkIGluIDIgc2Vjb25kcwo0My4yN3MgQ2FwcGluZyB1cGxvYWQgc3RyZWFtcyB0byA2
-IGJlY2F1c2Ugb2YgZG93bmxvYWQgcmVzdWx0CjQzLjI3cyBzdGFydGluZyB3ZWJzb2NrZXQgdXBs
-b2FkIHdpdGggMTYgc3RyZWFtcwo0My4yN3MgbWluaW11bSB1cGxvYWQgc3BlZWQgb2YgMC4zIHBl
-ciBzdHJlYW0KNDMuNDhzIHNlbnQgZmlyc3QgcGFja2V0IHRvIHQ1Ni5kc2xyZXBvcnRzLmNvbQo0
-NC4wOHMgc2VudCBmaXJzdCBwYWNrZXQgdG8gdDU5LmRzbHJlcG9ydHMuY29tCjQ0LjQ4cyBzZW50
-IGZpcnN0IHBhY2tldCB0byB0NTkuZHNscmVwb3J0cy5jb20KNDQuNDhzIHNlbnQgZmlyc3QgcGFj
-a2V0IHRvIHQ1Ny5kc2xyZXBvcnRzLmNvbQo0NC42OHMgc2VudCBmaXJzdCBwYWNrZXQgdG8gdDU2
-LmRzbHJlcG9ydHMuY29tCjQ0Ljc4cyBzZW50IGZpcnN0IHBhY2tldCB0byB0NTguZHNscmVwb3J0
-cy5jb20KNDQuNzlzIGdvdCBmaXJzdCByZXBseSBmcm9tIHQ1Ni5kc2xyZXBvcnRzLmNvbSAyMjE1
-ODAKNDQuOThzIHNlbnQgZmlyc3QgcGFja2V0IHRvIHQ1OC5kc2xyZXBvcnRzLmNvbQo0NS4wOHMg
-c2VudCBmaXJzdCBwYWNrZXQgdG8gdDU2LmRzbHJlcG9ydHMuY29tCjQ1LjE0cyBnb3QgZmlyc3Qg
-cmVwbHkgZnJvbSB0NTkuZHNscmVwb3J0cy5jb20gMjIxNTgwCjQ1LjI4cyBzZW50IGZpcnN0IHBh
-Y2tldCB0byB0NTkuZHNscmVwb3J0cy5jb20KNDUuNTNzIGdvdCBmaXJzdCByZXBseSBmcm9tIHQ1
-OS5kc2xyZXBvcnRzLmNvbSAxNTUxMDYKNDUuNTVzIGdvdCBmaXJzdCByZXBseSBmcm9tIHQ1Ny5k
-c2xyZXBvcnRzLmNvbSA3MDE2Nwo0NS43OHMgZ290IGZpcnN0IHJlcGx5IGZyb20gdDU4LmRzbHJl
-cG9ydHMuY29tIDIxMDUwMQo0NS44NXMgZ290IGZpcnN0IHJlcGx5IGZyb20gdDU2LmRzbHJlcG9y
-dHMuY29tIDE2MjQ5Mgo0NS44OHMgc2VudCBmaXJzdCBwYWNrZXQgdG8gdDYwLmRzbHJlcG9ydHMu
-Y29tCjQ1Ljg4cyBzZW50IGZpcnN0IHBhY2tldCB0byB0NzEuZHNscmVwb3J0cy5jb20KNDYuMDBz
-IGdvdCBmaXJzdCByZXBseSBmcm9tIHQ1OC5kc2xyZXBvcnRzLmNvbSA0NDMxNgo0Ni4wOHMgc2Vu
-dCBmaXJzdCBwYWNrZXQgdG8gdDcxLmRzbHJlcG9ydHMuY29tCjQ2LjI2cyBnb3QgZmlyc3QgcmVw
-bHkgZnJvbSB0NTYuZHNscmVwb3J0cy5jb20gMTc3MjY0CjQ2LjI4cyBzZW50IGZpcnN0IHBhY2tl
-dCB0byB0NzEuZHNscmVwb3J0cy5jb20KNDYuNDFzIGdvdCBmaXJzdCByZXBseSBmcm9tIHQ1OS5k
-c2xyZXBvcnRzLmNvbSAyMjE1ODAKNDYuNThzIHNlbnQgZmlyc3QgcGFja2V0IHRvIHQ1OC5kc2xy
-ZXBvcnRzLmNvbQo0Ni44OHMgc2VudCBmaXJzdCBwYWNrZXQgdG8gdDYwLmRzbHJlcG9ydHMuY29t
-CjQ2Ljg5cyBnb3QgZmlyc3QgcmVwbHkgZnJvbSB0NjAuZHNscmVwb3J0cy5jb20gOTk3MTEKNDcu
-MDhzIHNlbnQgZmlyc3QgcGFja2V0IHRvIHQ2MC5kc2xyZXBvcnRzLmNvbQo0Ny42MXMgZ290IGZp
-cnN0IHJlcGx5IGZyb20gdDU4LmRzbHJlcG9ydHMuY29tIDIyMTU4MAo0Ny45M3MgZ290IGZpcnN0
-IHJlcGx5IGZyb20gdDYwLmRzbHJlcG9ydHMuY29tIDE1ODc5OQo0OC4wOXMgZ290IGZpcnN0IHJl
-cGx5IGZyb20gdDYwLmRzbHJlcG9ydHMuY29tIDEwNzA5Nwo2Mi44N3MgUmVjb3JkaW5nIHVwbG9h
-ZCAgMjEuNDUKNjIuODdzIFRpbWVyIGRyb3BzOiBmcmFtZXM9MCB0b3RhbCBtcz0wCjYyLjg3cyBF
-TkQgVEVTVAo2NC44OHMgVG90YWwgbWVnYWJ5dGVzIGNvbnN1bWVkOiAxOTguOCAoZG93bjoxNTUg
-dXA6NDMuOCkKCgpOb3Qgc3VyZSBob3cgdHJ1c3Qtd29ydGh5IHRoZXNlIG51bWJlcnMgd2VyZSwg
-YnV0IGhpZ2ggcmV0cmFuc21pdCBjb3VudHMgY29ycmVsYXRlZCB3aXRoIHJlbGF0aXZlIGxvdyBt
-ZWFzdXJlZCBnb29kcHV0Li4uIAoKSSByZWFsaXplIHRoYXQgdGhpcyBsZXZlbCBvZiBkZXRhaWwg
-aXMgZXhwbGljaXRseSBvdXQgb2Ygc2NvcGUgZm9yIGZhc3QuY29tLCBidXQgaWYgeW91IGNvbGxl
-Y3Qgc2ltaWxhciBkYXRhLCBleHBvc2luZyBpdCBmb3IgaW50ZXJlc3RlZCBwYXJ0aWVzIGZvbGxv
-d2luZyBhIGNoYWluIG9mIGxpbmtzIHdvdWxkIGJlIHN3ZWxsLiBJIGFtIHRoaW5raW5nIGFsb25n
-IHRoZSBsaW5lcyBvZiAgRG91Z2xlcyBBZGFtcycgIkl0IHdhcyBvbiBkaXNwbGF5IGluIHRoZSBi
-b3R0b20gb2YgYSBsb2NrZWQgZmlsaW5nIGNhYmluZXQgc3R1Y2sgaW4gYSBkaXN1c2VkIGxhdmF0
-b3J5IHdpdGggYSBzaWduIG9uIHRoZSBkb29yIHNheWluZyDigJhCZXdhcmUgb2YgdGhlIExlb3Bh
-cmQuIiBoZXJlIDspCgpCZXN0IFJlZ2FyZHMKCVNlYmFzdGlhbgoKCgo+IAo+IFNFUkdFWSBGRURP
-Uk9WCj4gRGlyZWN0b3Igb2YgRW5naW5lZXJpbmcKPiBzZmVkb3JvdkBuZXRmbGl4LmNvbQo+IDEy
-MSBBbGJyaWdodCBXYXkgIHwgIExvcyBHYXRvcywgQ0EgOTUwMzIKPiAKPiAKPiAKPiAKPiBPbiBT
-dW4sIE1heSAzLCAyMDIwIGF0IDg6MDcgQU0gRGF2aWQgUC4gUmVlZCA8ZHByZWVkQGRlZXBwbHVt
-LmNvbT4gd3JvdGU6Cj4gVGhhbmtzIFNlYmFzdGlhbi4gSSBkbyBhZ3JlZSB0aGF0IGluIG1hbnkg
-Y2FzZXMsIHJlZmxlY3RpbmcgdGhlIElDTVAgb2ZmIHRoZSBlbnRyeSBkZXZpY2UgdGhhdCBoYXMg
-dGhlIGV4dGVybmFsIElQIGFkZHJlc3MgZm9yIHRoZSBOQVQgZ2V0cyBtb3N0IG9mIHRoZSBSVFQg
-bWVhc3VyZSwgYW5kIGlmIHRoZXJlJ3Mgbm8gcXVldWVpbmcgYnVpbHQgdXAgaW4gdGhlIE5BVCBk
-ZXZpY2UsIHRoYXQncyBhIHJlYXNvbmFibGUgbWVhc3VyZS4gQnV0Li4uCj4gCj4gSG93ZXZlciwg
-aWYgdGhlIHJvdXRlciBoYXMgInRha2VuIHVwIHRoZSBxdWV1ZWluZyBkZWxheSIgYnkgcmF0ZSBs
-aW1pdGluZyBpdHMgdXBsaW5rIHRyYWZmaWMgdG8gc2xpZ2h0bHkgbGVzcyB0aGFuIHRoZSBjYXBh
-Y2l0eSAoYXMgd2l0aCBDYWtlIGFuZCBvdGhlciBUQyBzaGFwaW5nIHRoYXQgaXNuJ3QgYXMgZ29v
-ZCBhcyBjYWtlKSwgdGhlbiB0aGVyZSBpcyBhIHF1ZXVlIGluIHRoZSBUQyBsYXllciBpdHNlbGYu
-IFRoaXMgaXMgd2hhdCBjb25jZXJucyBtZSBhcyBhIGRpc3RvcnRpb24gaW4gdGhlIG1lYXN1cmVt
-ZW50IHRoYXQgY2FuIGZvb2wgb25lIGludG8gdGhpbmtpbmcgdGhlIFRDIHNoYXBlciBpcyBkb2lu
-ZyBhIGdvb2Qgam9iLCB3aGVuIGluIGZhY3QsIGxhZyB1bmRlciBsb2FkIG1heSBiZSBxdWl0ZSBo
-aWdoIGZyb20gaW5zaWRlIHRoZSByb3V0ZWQgZG9tYWluICh0aGUgaG9tZSkuCj4gCj4gQXMgeW91
-IHBvaW50IG91dCB0aGlzIHVubWVhc3VyZWQgcXVldWVpbmcgZGVsYXkgY2FuIGFsc28gYmUgYSBw
-cm9ibGVtIHdpdGggV2lGaSBpbnNpZGUgdGhlIGhvbWUuIEJ1dCBpdCBpc24ndCBsaW1pdGVkIHRv
-IHRoYXQuCj4gCj4gQSBiYWRseSBzZXQgdXAgc2hhcGluZy9jb25nZXN0aW9uIG1hbmFnZW1lbnQg
-c3Vic3lzdGVtIGluc2lkZSB0aGUgTkFUIGNhbiBsb29rICJ2ZXJ5IGdvb2QiIGluIGl0cyBlY2hv
-IG9mIElDTVAgcGFja2V0cywgYnV0IGJlIHRlcnJpYmxlIGluIHJlc3BvbnNlIHRpbWUgdG8gdHJp
-dmlhbCBIVFRQIHJlcXVlc3RzIGZyb20gaW5zaWRlLCBvciBlcXVhbGx5IHRlcnJpYmxlIGluIHR3
-aXRjaCBnYW1lcyBhbmQgdmlkZW8gY29uZmVyZW5jaW5nLgo+IAo+IFNvLCBmb3IgZXhhbXBsZSwg
-Zm9yIHR1bmluZyBzZXR0aW5ncyB3aXRoICJDYWtlIiBpdCBpcyB1c2VsZXNzLgo+IAo+IFRvIGJl
-IGZhaXIsIHVzdWFsbHkgdGhlIEFjY2VzcyBQcm92aWRlciBoYXMgbm8gY29udHJvbCBvZiB3aGF0
-IGlzIGRvbmUgYWZ0ZXIgdGhlIGNhYmxlIGlzIHRlcm1pbmF0ZWQgYXQgdGhlIGhvbWUsIHNvIGFz
-IGEgd2F5IHRvIGRlY2lkZSBpZiB0aGUgcHJvdmlkZXIgaXMgYmFkbHkgZW5naW5lZXJpbmcgaXRz
-IHNpZGUsIGEgcGluZyBmcm9tIGEgc2VydmVyIGlzIGEgcmVhc29uYWJsZSBxdWFsaXR5IG1lYXN1
-cmUgb2YgdGhlIHByb3ZpZGVyLiAKPiAKPiBCdXQgbm90IGEgZ29vZCBtZWFzdXJlIG9mIHRoZSB1
-c2VyIGV4cGVyaWVuY2UsIGFuZCBpZiB0aGUgcHJvdmlkZXIgcHJvdmlkZXMgdGhlIE5BVCBib3gs
-IGV2ZW4gaWYgaXQgaGFzIGEgZ29vZCBzaGFwZXIgaW4gaXQsIGxpa2UgQ2FrZSBvciBmcV9jb2Rl
-bCwgaXQgd2lsbCBqdXN0IGNvbmZ1c2UgdGhlIHVzZXIgYW5kIGNyZWF0ZSB0aGUgb3Bwb3J0dW5p
-dHkgZm9yIGEgImZpbmdlciBwb2ludGluZyIgYXJndW1lbnQgd2hlcmUgbmVpdGhlciBzaWRlIHVu
-ZGVyc3RhbmRzIHdoYXQgaXMgZ29pbmcgb24uCj4gCj4gVGhpcyBpcyB3aHkgd2UgbmVlZCAKPiAK
-PiAxKSBhIGNsZWFyIGRlZmluaXRpb24gb2YgbGFnIHVuZGVyIGxvYWQgdGhhdCBpcyBmcm9tIGVu
-ZC10by1lbmQgaW4gbGF0ZW5jeSwgYW5kIGludm9sdmVzLCBpZGVhbGx5LCBpbmRlcGVuZGVudCB0
-cmFmZmljIGZyb20gbXVsdGlwbGUgc291cmNlcyB0aHJvdWdoIHRoZSBib3R0bGVuZWNrLgo+IAo+
-IDIpIGlkZWFsbHksIGEgYmV0dGVyIHdheSB0byBsb2NhbGl6ZSB3aGVyZSB0aGUgcXVldWVzIGFy
-ZSBidWlsZGluZyB1cCBhbmQgcHJlc2VudCB0aGF0IHRvIHVzZXJzIGFuZCBhY2Nlc3MgcHJvdmlk
-ZXJzLiAgVGhlIGZsZW50IGdyYXBocyBhcmUgbm90IGludGVycHJldGFibGUgYnkgbW9zdCBub24t
-ZXhwZXJ0cy4gV2hhdCB3ZSBuZWVkIGlzIGEgc2ltcGxlIHZpc3VhbGl6YXRpb24gb2YgYSBza2V0
-Y2gtbWFwIG9mIHRoZSBwYXRoIChsaWtlIHRyYWNlcm91dGUgbWlnaHQgcHJvdmlkZSkgd2l0aCBx
-dWV1ZWluZyBkZWxheSBtZWFzdXJlcyAgc2hvd24gYXQga2V5IHBvaW50cyB0aGF0IHRoZSB1c2Vy
-IGNhbiB1bmRlcnN0YW5kLgo+IE9uIFNhdHVyZGF5LCBNYXkgMiwgMjAyMCA0OjE5cG0sICJTZWJh
-c3RpYW4gTW9lbGxlciIgPG1vZWxsZXIwQGdteC5kZT4gc2FpZDoKPiAKPj4gSGkgRGF2aWQsCj4+
-IAo+PiBpbiBwcmluY2lwbGUgSSBhZ3JlZSwgYSBOQVRlZCBJUHY0IElDTVAgcHJvYmUgd2lsbCBi
-ZSBhdCBiZXN0IHJlZmxlY3RlZCBhdCB0aGUgTkFUCj4+IHJvdXRlciAoQ1BFKSAoc29tZSBjb21t
-ZXJjaWFsIGhvbWUgZ2F0ZXdheXMgZG8gbm90IHJlc3BvbmQgdG8gSUNNUCBlY2hvIHJlcXVlc3Rz
-Cj4+IGluIHRoZSBuYW1lIG9mIHNlY3VyaXR5IHRoZWF0cmUpLiBTbyBpdCBpcyBwcmV0dHkgaGFy
-ZCB0byBtZWFzdXJlIHRoZSBmdWxsIGVuZCB0bwo+PiBlbmQgcGF0aCBpbiB0aGF0IGNvbmZpZ3Vy
-YXRpb24uIEkgYmVsaWV2ZSB0aGF0IElQdjYgc2hvdWxkIG1ha2UgdGhhdAo+PiBlYXNpZXIvc2lt
-cGxlciBpbiB0aGF0IE5BVCBob3BlZnVsbHkgd2lsbCBiZSBvdXQgb2YgdGhlIHBhdGggKGJ1dCBs
-ZXQncyBzZWUgd2hhdAo+PiBpbmdlbnVpdHkgSVNQcyB3aWxsIGNvbWUgdXAgd2l0aCkuCj4+IFRo
-ZW4gYWdhaW4sIHRyYWRpdGlvbmFsbHkgdGhlIHJlbGV2YW50IGJvdHRsZW5lY2tzIG9mdGVuIGFy
-ZSBhKSB0aGUgaW50ZXJuZXQKPj4gYWNjZXNzIGxpbmsgaXRzZWxmIGFuZCB0aGVyZSB0aGUgQ1BF
-IGlzIGluIGEgcmVhc29uYWJsZSBwb3NpdGlvbiBhcyBhIHJlZmxlY3RvciBvbgo+PiB0aGUgb3Ro
-ZXIgc2lkZSBvZiB0aGUgYm90dGxlbmVjayBhcyBzZWVuIGZyb20gYW4gaW50ZXJuZXQgc2VydmVy
-LCBiKSB0aGUgaG9tZQo+PiBuZXR3b3JrIGJldHdlZW4gQ1BFIGFuZCBlbmQtaG9zdCwgb2Z0ZW4g
-d2l0aCB2YXJpYWJsZSByYXRlIHdpZmksIGhlcmUgSSBhZ3JlZQo+PiByZWZsZWN0aW5nIGVjaG9z
-IGF0IHRoZSBDUEUgaGlkZXMgcGFydCBvZiB0aGUgaXNzdWUuCj4+IAo+PiAKPj4gCj4+PiBPbiBN
-YXkgMiwgMjAyMCwgYXQgMTk6MzgsIERhdmlkIFAuIFJlZWQgPGRwcmVlZEBkZWVwcGx1bS5jb20+
-IHdyb3RlOgo+Pj4gCj4+PiBJIGFtIHN0aWxsIGEgYml0IHdvcnJpZWQgYWJvdXQgcHJvcGVybHkg
-ZGVmaW5pbmcgImxhdGVuY3kgdW5kZXIgbG9hZCIgZm9yIGEKPj4gTkFUIHJvdXRlZCBzaXR1YXRp
-b24uIElmIHRoZSB0ZXN0IGlzIGJhc2VkIG9uIElDTVAgUGluZyBwYWNrZXRzICpmcm9tIHRoZSBz
-ZXJ2ZXIqLAo+PiBpdCB3aWxsIE5PVCBiZSBtZWFzdXJpbmcgdGhlIGZ1bGwgcGF0aCBsYXRlbmN5
-LCBhbmQgaWYgdGhlIHBvdGVudGlhbCBjb25nZXN0aW9uCj4+IGlzIGluIHRoZSB1cGxpbmsgcGF0
-aCBmcm9tIHRoZSBhY2Nlc3MgcHJvdmlkZXIncyByZXNpZGVudGlhbCBib3ggdG8gdGhlIGFjY2Vz
-cwo+PiBwcm92aWRlcidzIHJvdXRlci9zd2l0Y2gsIGl0IHdpbGwgTk9UIG1lYXN1cmUgY29uZ2Vz
-dGlvbiBjYXVzZWQgYnkgYnVmZmVyYmxvYXQKPj4gcmVsaWFibHkgb24gZWl0aGVyIHNpZGUsIHNp
-bmNlIHRoZSBidWZmZXJibG9hdCB3aWxsIGJlIG91dHNpZGUgdGhlIElDTVAgUGluZwo+PiBwYXRo
-Lgo+PiAKPj4gUHV6emxlZCwgYXMgaSBiZWxpZXZlIGl0IGlzIGdvaW5nIHRvIGJlIHRoZSByZXNp
-ZGVudGlhbCBib3ggdGhhdCB3aWxsIHJlc3BvbmQKPj4gaGVyZSwgb3Igd2lsbCBpdCBiZSB0aGUg
-QUZUUnMgZm9yIENHLU5BVCB0aGF0IHJlZmxlY3QgdGhlIElDTVAgZWNobyByZXF1ZXN0cz8KPj4g
-Cj4+PiAKPj4+IEkgcmVhbGl6ZSB0aGF0IGEgYnJvd3NlciBiYXNlZCBzcGVlZCB0ZXN0IGhhcyB0
-byBiZSBiYXNpY2FsbHkgcnVuIGZyb20gdGhlCj4+ICJzZXJ2ZXIiIGVuZCwgYmVjYXVzZSBicm93
-c2VycyBhcmUgbm90IHRoYXQgZ29vZCBhdCB0aW1lIG1lYXN1cmVtZW50IG9uIGEgcGFja2V0Cj4+
-IGJhc2lzLiBIb3dldmVyLCB0aGVyZSBhcmUgd2F5cyB0byBzb2x2ZSB0aGlzIGFuZCBhdm9pZCB0
-aGUgSUNNUCBQaW5nIGlzc3VlLCB3aXRoIGEKPj4gY29vcGVyYXRpdmUgc2VydmVyLgo+Pj4gCj4+
-PiBJIG9uY2UgYnVpbHQgYSB0ZXN0IHRoYXQgZml4ZWQgdGhpcyBpc3N1ZSByZWFzb25hYmx5IHdl
-bGwuIEl0IGNhcmVmdWxseQo+PiBjcmVhdGVkIGEgVENQIGJhc2VkIFJUVCBtZWFzdXJlbWVudCBj
-aGFubmVsIChvdmVyIEhUVFApIHRoYXQgbWFkZSB0aGUgZWNobyBoYXZlIHRvCj4+IHRyYXZlcnNl
-IHRoZSB3aG9sZSBlbmQtdG8tZW5kIHBhdGgsIHdoaWNoIGlzIHRoZSBiZXN0IGFuZCBvbmx5IHdh
-eSB0byBhY2N1cmF0ZWx5Cj4+IGRlZmluZSBsYWcgdW5kZXIgbG9hZCBmcm9tIHRoZSB1c2VyJ3Mg
-cGVyc3BlY3RpdmUuIFRoZSBjbGllbnQgZW5kIG9mIGFuIHVubG9hZGVkCj4+IFRDUCBjb25uZWN0
-aW9uIGNhbiBkZXBlbmQgb24gVENQIChwcm9wZXJseSBwcmVwYXJlZCBieSBnZXR0aW5nIGl0IHBh
-c3Qgc2xvd3N0YXJ0KQo+PiB0byBnZW5lcmF0ZSBhIHNpbmdsZSBwYWNrZXQgcmVzcG9uc2UuCj4+
-PiAKPj4+IFRoaXMgIlRDUCBwaW5nIiBpcyB0aHVzIGNvbXBhdGlibGUgd2l0aCBnZXR0aW5nIHRo
-ZSBlbmQtdG8tZW5kIG1lYXN1cmVtZW50IG9uCj4+IHRoZSBzZXJ2ZXIgZW5kIG9mIGEgdHJ1ZSBS
-VFQuCj4+PiAKPj4+IEl0J3MgbGlrZSB0Y3AtdHJhY2Vyb3V0ZSB0b29sLCBpbiB0aGF0IGl0IHRy
-aWNrcyBhbnlvbmUgaW4gdGhlIG1pZGRsZSBib3hlcwo+PiBpbnRvIHRoaW5raW5nIHRoaXMgaXMg
-YSByZWFsLCBzZXJpb3VzIHBhY2tldCwgbm90IGFuIG9wdGlvbmFsIGxvdyBwcmlvcml0eQo+PiBw
-YWNrZXQuCj4+PiAKPj4+IFRoZSBzYW1lIGlzc3VlIGNvbWVzIHVwIHdpdGggbm9uLWJyb3dzZXIt
-YmFzZWQgdGVjaG5pcXVlcyBmb3IgbWVhc3VyaW5nIHRydWUKPj4gbGFnLXVuZGVyLWxvYWQuCj4+
-PiAKPj4+IE5vdyBhcyB3ZSBtb3ZlIEhUVFAgdG8gUVVJQywgdGhpcyBhY3R1YWxseSBnZXRzIGVh
-c2llciB0byBkby4KPj4+IAo+Pj4gT25lIG90aGVyIG9wcG9ydHVuaXR5IEkgaGF2ZW4ndCBleHBs
-b3JlZCwgYnV0IHdoaWNoIGlzIHByZWduYW50IHdpdGgKPj4gcG90ZW50aWFsIGlzIHRoZSB1c2Ug
-b2YgV2ViUlRDLCB3aGljaCBydW5zIG92ZXIgVURQIGludGVybmFsbHkuIFNpbmNlIEphdmFTY3Jp
-cHQKPj4gaGFzIGRpcmVjdCBhY2Nlc3MgdG8gY3JlYXRlIFdlYlJUQyBjb25uZWN0aW9ucyAobXVs
-dGlwbGUgb25lcyksIHRoaXMgbWFrZXMKPj4gZGV0YWlsZWQgdGVzdGluZyBpbiB0aGUgYnJvd3Nl
-ciBxdWl0ZSByZWFzb25hYmxlLgo+Pj4gCj4+PiBBbmQgdGhlIHRpbWUgbWVhc3VyZW1lbnRzIGNh
-biByZXNvbHZlIHdlbGwgYmVsb3cgMTAwIG1pY3Jvc2Vjb25kcywgaWYgdGhlIEpTCj4+IGlzIGJh
-c2VkIG9uIG1vZGVybiBKSVQgY29tcGlsYXRpb24gKENocm9tZSwgRmlyZWZveCwgRWRnZSBhbGwg
-Y29tcGlsZSB0byBtYWNoaW5lCj4+IGNvZGUgc3BlZWQgaWYgdGhlIGNvZGUgaXMgcmVzdHJpY3Rl
-ZCBhbmQgaW4gYSBsb29wKS4gVGhlbiBhZ2FpbiwgdGhlcmUgaXMgV2ViCj4+IEFzc2VtYmx5IGlm
-IHlvdSB3YW50IHRvIHdyaXRlIEMgY29kZSB0aGF0IHJ1bnMgaW4gdGhlIGJyb3dlciBmYXN0LiBX
-ZWJBc3NlbWJseSBpcwo+PiBhIGxvdyBsZXZlbCBsYW5ndWFnZSB0aGF0IGNvbXBpbGVzIHRvIG1h
-Y2hpbmUgY29kZSBpbiB0aGUgYnJvd3NlciBleGVjdXRpb24sIGFuZAo+PiBzdGlsbCBoYXMgYWNj
-ZXNzIHRvIGFsbCB0aGUgYnJvd3NlciBuZXR3b3JraW5nIGZhY2lsaXRpZXMuCj4+IAo+PiBNbW1o
-LCBhY2NvcmRpbmcgdG8gaHR0cHM6Ly9naXRodWIuY29tL3czYy9oci10aW1lL2lzc3Vlcy81NiBk
-dWUgdG8gc3BlY3RyZQo+PiBzaWRlLWNoYW5uZWwgdnVsbmVyYWJpbGl0aWVzIG1hbnkgYnJvd3Nl
-cnMgc2VlbWVkIHRvIGhhdmUgbG93ZXJlZCB0aGUgdGltZXIKPj4gcmVzb2x1dGlvbiwgYnV0IGV2
-ZW4gdGhlIH4xbXMgcmVzb2x1dGlvbiBzaG91bGQgYmUgZmluZSBmb3IgdHlwaWNhbCBSVFRzLgo+
-PiAKPj4gQmVzdCBSZWdhcmRzCj4+IFNlYmFzdGlhbgo+PiAKPj4gUC5TLjogSSBhc3N1bWUgdGhh
-dCBJIHNpbXBseSBkbyBub3Qgc2VlL3VuZGVyc3RhbmQgdGhlIGZ1bGwgc2NvcGUgb2YgdGhlIGlz
-c3VlIGF0Cj4+IGhhbmQgeWV0Lgo+PiAKPj4gCj4+PiAKPj4+IE9uIFNhdHVyZGF5LCBNYXkgMiwg
-MjAyMCAxMjo1MnBtLCAiRGF2ZSBUYWh0IiA8ZGF2ZS50YWh0QGdtYWlsLmNvbT4KPj4gc2FpZDoK
-Pj4+IAo+Pj4+IE9uIFNhdCwgTWF5IDIsIDIwMjAgYXQgOTozNyBBTSBCZW5qYW1pbiBDcm9uY2Ug
-PGJjcm9uY2VAZ21haWwuY29tPgo+PiB3cm90ZToKPj4+Pj4gCj4+Pj4+PiBGYXN0LmNvbSByZXBv
-cnRzIG15IHVubG9hZGVkIGxhdGVuY3kgYXMgNG1zLCBteSBsb2FkZWQgbGF0ZW5jeQo+PiBhcyB+
-N21zCj4+Pj4gCj4+Pj4gSSBndWVzcyBvbmUgb2YgbXkgcXVlc3Rpb25zIGlzIHRoYXQgd2l0aCBh
-IHN3aXRjaCB0byBCQlIgbmV0ZmxpeCBpcwo+Pj4+IGdvaW5nIHRvIGRvIHByZXR0eSB3ZWxsLiBJ
-ZiBmYXN0LmNvbSBpcyB1c2luZyBiYnIsIHdlbGwuLi4gdGhhdAo+Pj4+IGV4Y2x1ZGVzIG11Y2gg
-b2YgdGhlIGN1cnJlbnQgc2lkZSBvZiB0aGUgaW50ZXJuZXQuCj4+Pj4gCj4+Pj4+IEZvciBkb3du
-bG9hZCwgSSBzaG93IDZtcyB1bmxvYWRlZCBhbmQgNi03IGxvYWRlZC4gQnV0IGZvciB1cGxvYWQK
-Pj4gdGhlIGxvYWRlZAo+Pj4+IHNob3dzIGFzIDctOCBhbmQgSSBzZWUgaXQgYmxpcCB1cHdhcmRz
-IG9mIDEybXMuIEJ1dCBJIGFtIG5vIGxvbmdlciB1c2luZwo+PiBhbnkKPj4+PiB0cmFmZmljIHNo
-YXBpbmcuIEFueSBhbnRpLWJ1ZmZlcmJsb2F0IGlzIGZyb20gbXkgSVNQLiBBIGdyYXBoIG9mIHRo
-ZQo+PiBibG9hdCB3b3VsZAo+Pj4+IGJlIG5pY2UuCj4+Pj4gCj4+Pj4gVGhlIHRlc3RzIGRvIG5l
-ZWQgdG8gbGFzdCBhIGZhaXJseSBsb25nIHRpbWUuCj4+Pj4gCj4+Pj4+IE9uIFNhdCwgTWF5IDIs
-IDIwMjAgYXQgOTo1MSBBTSBKYW5uaWUgSGFuZWtvbQo+PiA8amFubmllQGhhbmVrb20ubmV0Pgo+
-Pj4+IHdyb3RlOgo+Pj4+Pj4gCj4+Pj4+PiBNaWNoYWVsIFJpY2hhcmRzb24gPG1jckBzYW5kZWxt
-YW4uY2E+Ogo+Pj4+Pj4+IERvZXMgaXQgZmluZC91c2UgbXkgbmVhcmVzdCBOZXRmbGl4IGNhY2hl
-Pwo+Pj4+Pj4gCj4+Pj4+PiBUaGFua2Z1bGx5LCBpdCBhcHBlYXJzIHNvLiBUaGUgRFNMUmVwb3J0
-cyBibG9hdCB0ZXN0IHdhcwo+PiBpbnRlcmVzdGluZywKPj4+PiBidXQKPj4+Pj4+IHRoZSBqaXR0
-ZXIgb24gdGhlIH4yNDBtcyBiYXNlIGxhdGVuY3kgZnJvbSBTb3V0aCBBZnJpY2EgKGFuZAo+PiBv
-dGhlciBwYXJ0cwo+Pj4+IG9mCj4+Pj4+PiB0aGUgd29ybGQpIHdhcyBzaWduaWZpY2FudCBlbm91
-Z2ggdGhhdCB0aGUgZmlndXJlcyByZXR1cm5lZAo+PiB3ZXJlIG9mdGVuCj4+Pj4+PiB1bnJlbGlh
-YmxlIGFuZCBsYXJnZWx5IHVudXNhYmxlIC0gYXQgbGVhc3QgaW4gbXkgZXhwZXJpZW5jZS4KPj4+
-Pj4+IAo+Pj4+Pj4gRmFzdC5jb20gcmVwb3J0cyBteSB1bmxvYWRlZCBsYXRlbmN5IGFzIDRtcywg
-bXkgbG9hZGVkIGxhdGVuY3kKPj4gYXMgfjdtcwo+Pj4+IGFuZAo+Pj4+Pj4gbWVudGlvbnMgc2Vy
-dmVycyBsb2NhdGVkIGluIGxvY2FsIGNpdGllcy4gSSBmaW5hbGx5IGhhdmUgYSB0ZXN0Cj4+IEkg
-Y2FuCj4+Pj4gc2hhcmUKPj4+Pj4+IHdpdGggbG9jYWwgbm9uLXRlY2huaWNhbCBwZW9wbGUhCj4+
-Pj4+PiAKPj4+Pj4+IChBZ3JlZWQsIHVwbG9hZCB0ZXN0IHdvdWxkIGJlIG5pY2UsIGJ1dCB0aGlz
-IGlzIGEgaHVnZSBzdGVwCj4+IGZvcndhcmQgZnJvbQo+Pj4+Pj4gd2hhdCBJIGhhZCBhY2Nlc3Mg
-dG8gYmVmb3JlLikKPj4+Pj4+IAo+Pj4+Pj4gSmFubmllIEhhbmVrb20KPj4+Pj4+IAo+Pj4+Pj4g
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4+IENh
-a2UgbWFpbGluZyBsaXN0Cj4+Pj4+PiBDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+Pj4+Pj4g
-aHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo+Pj4+PiAKPj4+Pj4g
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+Pj4gQ2Fr
-ZSBtYWlsaW5nIGxpc3QKPj4+Pj4gQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKPj4+Pj4gaHR0
-cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo+Pj4+IAo+Pj4+IAo+Pj4+
-IAo+Pj4+IC0tCj4+Pj4gTWFrZSBNdXNpYywgTm90IFdhcgo+Pj4+IAo+Pj4+IERhdmUgVMOkaHQK
-Pj4+PiBDVE8sIFRla0xpYnJlLCBMTEMKPj4+PiBodHRwOi8vd3d3LnRla2xpYnJlLmNvbQo+Pj4+
-IFRlbDogMS04MzEtNDM1LTA3MjkKPj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwo+Pj4+IENha2UgbWFpbGluZyBsaXN0Cj4+Pj4gQ2FrZUBsaXN0cy5i
-dWZmZXJibG9hdC5uZXQKPj4+PiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5m
-by9jYWtlCj4+Pj4gCj4+PiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwo+Pj4gQ2FrZSBtYWlsaW5nIGxpc3QKPj4+IENha2VAbGlzdHMuYnVmZmVyYmxvYXQu
-bmV0Cj4+PiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCj4+IAo+
-PiAKPiAKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNh
-a2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMu
-YnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+--===============4418836668191067785==
+Content-Type: multipart/alternative;boundary="----=_20200506113903000000_50998"
+
+------=_20200506113903000000_50998
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+=0AWhile the jury is still out for me on the "best" speed test to recommend=
+ to my friends, family, and even enemies, I think the progression has been =
+good.=0A =0AOriginally, I used to recommend the web-embedded Java test call=
+ed Netalyzer from ICSI. That did extensive tests, and included tests that a=
+re important to me like detecting DNS spoofing, various middlebox mucking w=
+ith packets, ... as well as measuring lag under load in a simple way. But t=
+hen I had to teach each person I recommended it to what everything meant. T=
+hat was a BIG burden on me.=0A =0AThen I switched to dslreports.com, becaus=
+e of several factors - it highlighted lag under load as a bufferbloat grade=
+ that made sense.=0A =0ANow, I have to say that fast.com is likely to becom=
+e my new recommendation. However, I have two issues with it. The biggest on=
+e is that lag-under-load is obscured in the interface, as is the asymmetry =
+of upload vs. download.=0A =0AThe problem for me is that I usually get aske=
+d to recommend a test under circumstances where someone isn't looking for "=
+bragging rights" but is experiencing a problem of disrupted service quality=
+. The NUMBER ONE problem they usually have is the lag-under-load problem in=
+ some form. But all they know is what "download speed" they bought.=0A =0AM=
+any, many people are using videoconferencing now, not just web and TV watch=
+ing. And that is hypersensitive to lag-under-load (also on WiFi due to airt=
+ime scheduling).=0AAnd no one seems to be aware that their quality of exper=
+ience is not about speed, but about instability of lag-under-load. So it's =
+a new idea.=0A =0AYeah, I do once in a while want to know if my service is =
+delivering the top speed advertised - just as I once in a while measure the=
+ time of my car in the quarter mile on dragstrip :-)=0A =0ABut mostly I wan=
+t to know what's making my *applications* so slow. And it's almost never th=
+e case that they need a nitro-burning funny car level of speed. Instead, th=
+ey need either: elimination of lag under load, or eliminating all the crap =
+running in tabs on the browser (like animated JavaScript attention-seeking =
+ads filling memory with garbage and causing the JS garbage collector to run=
+ constantly).=0A =0ASo I would change fast.com, if I could, to emphasize th=
+e *problems* (as netalyzer did) and not the speed.
+------=_20200506113903000000_50998
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<font face=3D"arial" size=3D"3"><p style=3D"margin:0;padding:0;font-family:=
+ arial; font-size: 12pt; overflow-wrap: break-word;">While the jury is stil=
+l out for me on the "best" speed test to recommend to my friends, family, a=
+nd even enemies, I think the progression has been good.</p>=0A<p style=3D"m=
+argin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: break=
+-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; fon=
+t-size: 12pt; overflow-wrap: break-word;">Originally, I used to recommend t=
+he web-embedded Java test called Netalyzer from ICSI. That did extensive te=
+sts, and included tests that are important to me like detecting DNS spoofin=
+g, various middlebox mucking with packets, ... as well as measuring lag und=
+er load in a simple way. But then I had to teach each person I recommended =
+it to what everything meant. That was a BIG burden on me.</p>=0A<p style=3D=
+"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: bre=
+ak-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; f=
+ont-size: 12pt; overflow-wrap: break-word;">Then I switched to dslreports.c=
+om, because of several factors - it highlighted lag under load as a bufferb=
+loat grade that made sense.</p>=0A<p style=3D"margin:0;padding:0;font-famil=
+y: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p styl=
+e=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap:=
+ break-word;">Now, I have to say that fast.com is likely to become my new r=
+ecommendation. However, I have two issues with it. The biggest one is that =
+lag-under-load is obscured in the interface, as is the asymmetry of upload =
+vs. download.</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font=
+-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;=
+padding:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">=
+The problem for me is that I usually get asked to recommend a test under ci=
+rcumstances where someone isn't looking for "bragging rights" but is experi=
+encing a problem of disrupted service quality. The NUMBER ONE problem they =
+usually have is the lag-under-load problem in some form. But all they know =
+is what "download speed" they bought.</p>=0A<p style=3D"margin:0;padding:0;=
+font-family: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=
+=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; over=
+flow-wrap: break-word;">Many, many people are using videoconferencing now, =
+not just web and TV watching. And that is hypersensitive to lag-under-load =
+(also on WiFi due to airtime scheduling).</p>=0A<p style=3D"margin:0;paddin=
+g:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">And no=
+ one seems to be aware that their quality of experience is not about speed,=
+ but about instability of lag-under-load. So it's a new idea.</p>=0A<p styl=
+e=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap:=
+ break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: aria=
+l; font-size: 12pt; overflow-wrap: break-word;">Yeah, I do once in a while =
+want to know if my service is delivering the top speed advertised - just as=
+ I once in a while measure the time of my car in the quarter mile on dragst=
+rip :-)</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size:=
+ 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;paddin=
+g:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">But mo=
+stly I want to know what's making my *applications* so slow. And it's almos=
+t never the case that they need a nitro-burning funny car level of speed. I=
+nstead, they need either: elimination of lag under load, or eliminating all=
+ the crap running in tabs on the browser (like animated JavaScript attentio=
+n-seeking ads filling memory with garbage and causing the JS garbage collec=
+tor to run constantly).</p>=0A<p style=3D"margin:0;padding:0;font-family: a=
+rial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D=
+"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: bre=
+ak-word;">So I would change fast.com, if I could, to emphasize the *problem=
+s* (as netalyzer did) and not the speed.</p></font>
+------=_20200506113903000000_50998--
+
+
+--===============4418836668191067785==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============4418836668191067785==--
+
