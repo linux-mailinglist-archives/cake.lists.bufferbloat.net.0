@@ -2,74 +2,76 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BE7DB1C82F0
-	for <lists+cake@lfdr.de>; Thu,  7 May 2020 08:59:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 61CBE1C8333
+	for <lists+cake@lfdr.de>; Thu,  7 May 2020 09:07:10 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 8F8983CB41;
-	Thu,  7 May 2020 02:59:55 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 373CD3CB41;
+	Thu,  7 May 2020 03:07:09 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1588834795;
-	bh=AC+eVcvIoQAR/nowQPaB0PEOhqicnaN/f1cpEnDD5Fg=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1588835229;
+	bh=D/HaREefeVHa7lnH8pO5LUzGWoCAzXzgwmRZSrp2mx8=;
+	h=Date:In-Reply-To:References:To:From:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=nDmSUBWXo72Ws6K2Jb5th8I60WHtaSrx4eMMm5dUmgZ8DPazFABCW+nieu58z88tw
-	 EKs6ATZ0ZrZB2Q/G6zhxUFfriXzzLkZn1JwNARKMftdefwDosD3yG3lx4CbJdttHtD
-	 DSqsgv6afovz7g1BVvCKv6mmxwGab45/ax4k3e7q0FUTqHh+NTkmW3Yl2p2ScMrvd/
-	 hzGiGOBSCOhPrk9I4xIiADrp3LSGErboqZopbRriZi2sl6w1ChwnHHGncYcHWG/mnT
-	 HTnPBm34oPx9eMKbNnf/6xzGtWsWMJ/h5tO7SlCxTI2v5hB3GUUap64s/Uc+mb8wnh
-	 abBoxRvVQbHGw==
+	b=evCGaeCBt0VEwDCFikyNmqlymGPU1/cik3v6gfEmnR1b3ojPYuBAI2H7r+C2xEDKF
+	 B2F+B1Z9EA0vy5x2/AWzsOLBLGmXYKMkNBvg/BnM0ua5SIarLpYdQpxe6/uo6BoGHv
+	 dyTqxUVS9hSobHxeuyhKGbq6K/4RoPRW4Qpj+dz5WtJszAnib6kXQNN4cAt7f2/M6J
+	 4znD2w3UFk1KTZaqF86CljV/BR8lmetOf4JfC+dEwpYJC+Yc9mM/MbgZBy79UFxmia
+	 IGKooIVOTJOgloSfqNT8BRhEXpiCE3nRW2PyvjGNjwN/e12dWXcU72rrNvOowrMnU5
+	 FiEqJBlLLBHQQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lj1-x22e.google.com (mail-lj1-x22e.google.com
- [IPv6:2a00:1450:4864:20::22e])
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.18])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 0B0B23B29D
- for <cake@lists.bufferbloat.net>; Thu,  7 May 2020 02:59:54 -0400 (EDT)
-Received: by mail-lj1-x22e.google.com with SMTP id u15so5113857ljd.3
- for <cake@lists.bufferbloat.net>; Wed, 06 May 2020 23:59:53 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=lj4rnQoW3rZbq8EDSJNMJsmipyZkr4CR6fe8VvvhNxg=;
- b=nJA5tNd4ZpT2/sngk9zIeg1K19bgfJrrUxGtCOavaM0BzgLbXyWvMgU2oKkHNJznaL
- XhISnP18E1CKXYwh995JSl42j+1+Wu0oIbsaIwFUPQNXm8i+SVfEaJ5UuUL14r0u7Geo
- gUMFMFYyCzgviEq0RPpRyYImoiV06Lx2sOG1jn8o0HV9BqwALDx+bMNmCFhF838zRl4T
- dvqrr+SfOqfk3syM9QJkw0W9gXXhJ6fAGiFx2AUUepJQd+at0Pp3wZdGGvMtpaTq9/ux
- GXfpMIZwSDboB7HGfz6AfYvy+g7cAdeR0t/U2hA/eaLOPr3MzjrYAnC/M28upyyBScMU
- G3Uw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=lj4rnQoW3rZbq8EDSJNMJsmipyZkr4CR6fe8VvvhNxg=;
- b=fVyaVN5QWOT0pjuIcQ5yQYYve2YplCSZydS1RYFD9jtnZ3NhyWydW8sokN95ONlEfo
- 2dXNVaYq22fyiKc988ggXxNaCBf5gPfh/tsKlUWffnauTOJaGHn3ARIRvfbaBrOaS7IN
- tjWZugWU25sw0JbjhFv4UtPHooVaSJartZ3bGPBJLWCf6YnLteM0ni7Oazh+o1HVje2/
- BvE6ikq2sB1+hfm3VELHrhVVHEclfgSVIAno8erthUSBjvVBBPFGcZDdHikTzK1F5lxj
- 5mNYzumcTCFOAMXC2qhCumbJwf1nO5eR2R3sxiHgV8sohlIToLKQ4es9YGP5oFY5sAHF
- N8pw==
-X-Gm-Message-State: AGi0PuZijmqw1xhmK6Yvj/lCBxj3oJJtSbjBRUYKN4/oYl0caw2IHWcJ
- h+DtzST2E2LFHAFjH3cfiCg=
-X-Google-Smtp-Source: APiQypJhbb3c1vkazDsFAODVwOzoDaBR15fPe29P8uZNtPp+XC+nYrPNU3yOypQAn4Wh+ZZvyAu80Q==
-X-Received: by 2002:a2e:8590:: with SMTP id b16mr7755279lji.45.1588834792877; 
- Wed, 06 May 2020 23:59:52 -0700 (PDT)
-Received: from jonathartonsmbp.lan (83-245-235-192-nat-p.elisa-mobile.fi.
- [83.245.235.192])
- by smtp.gmail.com with ESMTPSA id g1sm3111399lfb.85.2020.05.06.23.59.51
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Wed, 06 May 2020 23:59:51 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.1\))
-From: Jonathan Morton <chromatix99@gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 462223B29D
+ for <cake@lists.bufferbloat.net>; Thu,  7 May 2020 03:07:07 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1588835223;
+ bh=0ybPJUh89oEsG3FkJFf7y0//42tPOlLzkytHoI4VO2w=;
+ h=X-UI-Sender-Class:Date:In-Reply-To:References:Subject:To:CC:From;
+ b=hIapLta035a6lzumUUG4FvO6Sh5XYha1rzjBXhjSoTnKo++0YSUPJ41BqSYbWhLco
+ UYmixz82gxIDlVxilE80Z+nqBwVpdEHobhypZYd+t/07/baphyU7HAikubYb+5goQA
+ O0q93+Z2qcqLI050bgG5Nkim5PMZ9Tji4F8vf3OY=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.1.159] ([77.3.18.222]) by mail.gmx.com (mrgmx005
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MDQiS-1jOJA91QeM-00AXw4; Thu, 07
+ May 2020 09:07:03 +0200
+Date: Thu, 07 May 2020 09:07:01 +0200
+User-Agent: K-9 Mail for Android
 In-Reply-To: <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com>
-Date: Thu, 7 May 2020 09:59:49 +0300
-Message-Id: <8258F6F9-0754-49C7-BEEE-92AE7A944B1A@gmail.com>
 References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
  <C24C4CCB-C30D-452A-9386-5AA533F11CEE@gmail.com> <87wo5okhbo.fsf@toke.dk>
  <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com>
-To: Avakash bhat <avakash261@gmail.com>
-X-Mailer: Apple Mail (2.3445.9.1)
+MIME-Version: 1.0
+To: cake@lists.bufferbloat.net, Avakash bhat <avakash261@gmail.com>,
+ =?ISO-8859-1?Q?Toke_H=F8iland-J=F8rgensen?= <toke@redhat.com>
+From: Sebastian Moeller <moeller0@gmx.de>
+Message-ID: <A85845BB-010A-4F39-99F4-C6206F7FEA65@gmx.de>
+X-Provags-ID: V03:K1:Wj0AiV3e5d72YblUoEFi+K6xmedPUAbbpynSFHecTsORrh0fZnP
+ 3YCzkUfAkleBG7FbZcLxN3cr2A2WPGcIc90HN9CLDh+6JfvYodUlFxW5coKROjPECzrqdCd
+ u17LeE/X6A+uE8ZncX9Zj1nndfROSFoza8wZeYM3sOzx01JnmjtN3GWE0UK0BPWA2QExLiN
+ DouK3ztM3eEDexz5Soisg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:0f3YTGGzN2c=:yzW9E7KuBhrD4rRZQuVxaJ
+ +ZUS5K7AXh8Nay9SelXtZVSGchnqYb6klyZ6nfR4QInPqeLLVsoR+nLNm1/y73hkF0duPqVYn
+ vrPaGtoQOAYUYC6mMnX30Z4lGRXDiVA22Df84abjdEwYV0RqQ/qtjrmI0E0DI9eAtL1Fps6dB
+ TgaLdW7A7I/VxOH1vc1lfgPzha3rKg6+xBr2/dbtWQVnEN+V4BnOupuFckuSGDRJn1I3jKw4G
+ 4qiwB+moqQ3X/R4UY9uTU/FGBuEaN4Afdynyif9ZnOzr347q6KcuGiGSworqYTd0rAAjIwEsN
+ yIrre+18OLbz0flX4UakvDCNjnreQRUVLa98erc6MApYEWmdu+q9eFabwSl1ktrlX2Zd7eJfO
+ bqTcQlPMdPE8VrkAOAgq5LWlQp2+dndKOrm+BJfdDoHNnqcPhnWsafM8q1BnzMcKG1q8YF942
+ fPIKJ4JmbpJZHAWP6yEl61D8X9Q7t/D0JXwX87hqAZLj/XyOuiYTgxxA6VntEr+zMC/UUrug8
+ h76Xg+wEnvnU8nduXMg3Ojg/vn/Af6cwFuhEGpJNZwpPGqYrWFnU3DIOpVEu1wSd5I6C99I6f
+ JdPUHuePFzbj3xniDWFAOF/Um6Yqp8ZyPrgTWOHhohYONZfF/zLiFke2ekwm0BO43d45isS4m
+ /CnlMhxaM5AIRZECGSLgDK25VY1ruh/5nR51QN7UeEjtdvWhH/7YEilG4QRjrcOT0GPX02+QI
+ /t8QEX3/+DbB7J0nNgHqFRMFSC6CYGvsqZRVuSeu3fAaAogbu0UkV2KjZQVIR4ZmUhtsZL2Vo
+ QpfYxo4PRPhRKqJDUZdwnhTmhI+tmVfjW2FSzg6+OKD6+2SoQ8Z/tZeUcLlWXD1j6BP+VS9Ad
+ k1RNoo2mPUwaE98mb5miqLxPS5rx44hBu39GM5uGtqLE+gTqugOzE2vrBu0bTE2viVr+jkv0o
+ O4RmOmHgMJL4jfV6NXLAPq6jLc4F8Bo2xKgYiRYOVhAwlleUpl9xbfT2pGtHBxaFjiwbRNcx7
+ MKhUeo7+/VJ+kwx0dg4Dlne3F4pTcfhzihSyviSaGewDKAd8ndZA11j6b9lN965H/6Yl6Vzl3
+ CUpZAG/5L/vCnhA2HxxhZEdAEEWhcBrfKGMPeOZY1+DlxZNLWaPZrtUFj5DeI0MexOzLzd3Ox
+ sX7TNvKvexFqlr2BLidfSeD52v+ia2liutNszo6sSQPXLXHnZARCl/0Fr+bmayac2dLoiuRbS
+ AZl3BIaRLGYNtGfA7
 Subject: Re: [Cake] Query on ACK
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -82,30 +84,73 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Vybhav Pai <vybhavpai1999.vp@gmail.com>,
+Cc: "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
  Shrinidhi Varna <shrinidhivarna.171co145@nitk.edu.in>,
- cake@lists.bufferbloat.net, "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
- Deepak K <deepakkavoor99@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ Deepak K <deepakkavoor99@gmail.com>, Vybhav Pai <vybhavpai1999.vp@gmail.com>
+Content-Type: multipart/mixed; boundary="===============0059885484985075133=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-PiBPbiA3IE1heSwgMjAyMCwgYXQgOTo0NCBhbSwgQXZha2FzaCBiaGF0IDxhdmFrYXNoMjYxQGdt
-YWlsLmNvbT4gd3JvdGU6Cj4gCj4gVGhhbmtzIGZvciB0aGUgcXVpY2sgcmVzcG9uc2UuIEkgYWxz
-byBoYWQgYSBmb2xsb3d1cCBxdWVzdGlvbi4gCj4gCj4gSWYgdGhlIGFjayBmaWx0ZXIgYWRkcyB0
-aGUgbmV3IGFjayB0byB0aGUgdGFpbCBvZiB0aGUgcXVldWUgYWZ0ZXIgcmVtb3ZpbmcgYW4gYWNr
-IGZyb20gdGhlIHF1ZXVlLCB3b24ndCBpdCBiZSBzdGFydmluZyB0aGUgYWNrPyAKPiBUaGUgcmVw
-bGFjZWQgYWNrIHdhcyBtdWNoIGFoZWFkIGluIHRoZSBxdWV1ZSB0aGFuIHRoZSBhY2sgd2UgcmVw
-bGFjZWQgYXQgdGhlIHRhaWwgcmlnaHQ/CgpObywgaWYgeW91IGFyZSBkb2luZyB0aGlzIG9uIGVu
-cXVldWUsIHRoZW4geW91IGFyZSBjb21wYXJpbmcgdGhlIG5ldyBhY2sgd2l0aCBhbiBhY2sgaW1t
-ZWRpYXRlbHkgcHJlY2VkaW5nIGl0IGluIHRoZSBzYW1lIHF1ZXVlLCB3aGljaCB3aWxsIGFsc28g
-YmUgYXQgdGhlIHRhaWwuICBBbmQgaWYgeW91IGFyZSBkb2luZyBpdCBvbiBkZXF1ZXVlIHRoZW4g
-Ym90aCBwYWNrZXRzIHdlcmUgZW5xdWV1ZWQgc29tZSB0aW1lIGFnbywgYW5kIGJvdGggYXJlIGFs
-cmVhZHkgZHVlIGZvciBkZWxpdmVyeSB2ZXJ5IHNvb24uCgpJbiBnZW5lcmFsLCB0aGUgc2Vjb25k
-IHBhY2tldCBpcyBkZWxpdmVyZWQgc29vbmVyLCBpbiBwbGFjZSBvZiB0aGUgZmlyc3Qgb25lIHRo
-YXQgd2FzIHJlbW92ZWQuICBUaGlzIG1lYW5zIGl0IHJlZHVjZXMgZmVlZGJhY2sgbGF0ZW5jeSB0
-byB0aGUgKGZvcndhcmQgcGF0aCkgc2VuZGVyLgoKIC0gSm9uYXRoYW4gTW9ydG9uCgpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlz
-dApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5l
-dC9saXN0aW5mby9jYWtlCg==
+--===============0059885484985075133==
+Content-Type: multipart/alternative; boundary="----HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS"
+Content-Transfer-Encoding: 7bit
+
+------HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+I think that you will remove all redundant Backs in one go considerably adv=
+ancing the new ACK in the queue=2E And more importantly, in most relevant m=
+odes cake will apply one queue per flow stochastically, so almost all packe=
+t's in a reverse ACK flow will be ACK with identical 5-tupel=2E=2E=2E=2E
+
+On 7 May 2020 08:44:59 CEST, Avakash bhat <avakash261@gmail=2Ecom> wrote:
+>Thanks for the quick response=2E I also had a followup question=2E
+>
+>If the ack filter adds the new ack to the tail of the queue after
+>removing
+>an ack from the queue, won't it be starving the ack?
+>The replaced ack was much ahead in the queue than the ack we replaced
+>at
+>the tail right?
+>
+>Thanks,
+>Avakash Bhat
+
+--=20
+Sent from my Android device with K-9 Mail=2E Please excuse my brevity=2E
+------HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS
+Content-Type: text/html;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body>I think that you will remove all redundant Backs i=
+n one go considerably advancing the new ACK in the queue=2E And more import=
+antly, in most relevant modes cake will apply one queue per flow stochastic=
+ally, so almost all packet's in a reverse ACK flow will be ACK with identic=
+al 5-tupel=2E=2E=2E=2E<br><br><div class=3D"gmail_quote">On 7 May 2020 08:4=
+4:59 CEST, Avakash bhat &lt;avakash261@gmail=2Ecom&gt; wrote:<blockquote cl=
+ass=3D"gmail_quote" style=3D"margin: 0pt 0pt 0pt 0=2E8ex; border-left: 1px =
+solid rgb(204, 204, 204); padding-left: 1ex;">
+<div dir=3D"ltr"><br>Thanks for the quick response=2E I also had a followu=
+p question=2E&nbsp;<div><br><div>If the ack filter adds the new ack to the =
+tail of the queue after removing an ack from the queue, won't it be starvin=
+g the ack?&nbsp;</div><div>The replaced ack was much ahead in the queue tha=
+n the ack we replaced at the tail right?</div><div><br></div><div>Thanks,</=
+div><div>Avakash Bhat</div></div></div>
+</blockquote></div><br>-- <br>Sent from my Android device with K-9 Mail=2E=
+ Please excuse my brevity=2E</body></html>
+------HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS--
+
+--===============0059885484985075133==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============0059885484985075133==--
