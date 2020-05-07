@@ -2,77 +2,97 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 61CBE1C8333
-	for <lists+cake@lfdr.de>; Thu,  7 May 2020 09:07:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1A7D01C8409
+	for <lists+cake@lfdr.de>; Thu,  7 May 2020 09:58:07 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 373CD3CB41;
-	Thu,  7 May 2020 03:07:09 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id F01733CB41;
+	Thu,  7 May 2020 03:58:05 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1588835229;
-	bh=D/HaREefeVHa7lnH8pO5LUzGWoCAzXzgwmRZSrp2mx8=;
-	h=Date:In-Reply-To:References:To:From:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=evCGaeCBt0VEwDCFikyNmqlymGPU1/cik3v6gfEmnR1b3ojPYuBAI2H7r+C2xEDKF
-	 B2F+B1Z9EA0vy5x2/AWzsOLBLGmXYKMkNBvg/BnM0ua5SIarLpYdQpxe6/uo6BoGHv
-	 dyTqxUVS9hSobHxeuyhKGbq6K/4RoPRW4Qpj+dz5WtJszAnib6kXQNN4cAt7f2/M6J
-	 4znD2w3UFk1KTZaqF86CljV/BR8lmetOf4JfC+dEwpYJC+Yc9mM/MbgZBy79UFxmia
-	 IGKooIVOTJOgloSfqNT8BRhEXpiCE3nRW2PyvjGNjwN/e12dWXcU72rrNvOowrMnU5
-	 FiEqJBlLLBHQQ==
+	d=lists.bufferbloat.net; s=201610; t=1588838285;
+	bh=8sV6o9zny4mqdPVCDq4iO+7KCDknecQAESQufB9iYpU=;
+	h=From:To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:
+	 List-Post:List-Help:List-Subscribe:From;
+	b=AwB1+g4dU53iI4xlN4IsH+PmSW7ZtGf1fCblGHxDr2dsZF741YkwBm5AbjNUOLqpo
+	 K4s9qKzVp07t0DjkRHzSTfHso89twRxcAp+eZ8N+wfBVHzcNMVJGXugIkFQVFGeRBG
+	 CpfRa3mQ529EQwQ+dd0WvCVXIS1zkYsabY7+/cpBtX0sd1A3I8Sf1jcxfmJLaIThLS
+	 j9OUy1Bre3IQrQkpiDdc/Qr2ge79wwSjtrCI612qlMpuwYNR3L4QtlhRWQeA2FEYxQ
+	 86E1FSM6lKd5WZvbZCOEhGu4yqYcEk7EXz2uSr2jSxti58XvLQdpbxF2jLAYS3Eqqx
+	 mugcjoFJpsPOA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.18])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from EUR01-DB5-obe.outbound.protection.outlook.com
+ (mail-eopbgr150040.outbound.protection.outlook.com [40.107.15.40])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 462223B29D
- for <cake@lists.bufferbloat.net>; Thu,  7 May 2020 03:07:07 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1588835223;
- bh=0ybPJUh89oEsG3FkJFf7y0//42tPOlLzkytHoI4VO2w=;
- h=X-UI-Sender-Class:Date:In-Reply-To:References:Subject:To:CC:From;
- b=hIapLta035a6lzumUUG4FvO6Sh5XYha1rzjBXhjSoTnKo++0YSUPJ41BqSYbWhLco
- UYmixz82gxIDlVxilE80Z+nqBwVpdEHobhypZYd+t/07/baphyU7HAikubYb+5goQA
- O0q93+Z2qcqLI050bgG5Nkim5PMZ9Tji4F8vf3OY=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from [192.168.1.159] ([77.3.18.222]) by mail.gmx.com (mrgmx005
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MDQiS-1jOJA91QeM-00AXw4; Thu, 07
- May 2020 09:07:03 +0200
-Date: Thu, 07 May 2020 09:07:01 +0200
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com>
-References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
- <C24C4CCB-C30D-452A-9386-5AA533F11CEE@gmail.com> <87wo5okhbo.fsf@toke.dk>
- <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 29C153B29D
+ for <cake@lists.bufferbloat.net>; Thu,  7 May 2020 03:58:04 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=hGDbGNJpUKNKghPTjhlSp0Nrjm4tCuaskCtBjKJY2rB4hrQEBSGZmgId6OejUl1OI+yOJ3UI+Y55Rotj105LFhu778beZjpYCPjsbhCq3zOCgoxaIfp2DTyFU17QfBND1STo3rXpd4pKqR1oPQjeowyS6NY5ew5t7fDWEfjqFAzs5wQOOWBd9EiGXiIjEQl4baA9bEYD60gVbGsOpmYip6re3eIuiLHa/kawzcy33ARpguOGMqXjlQwj6gGOau9k3sfQw7jz2sT/XsDpttraayE+yY6hcG5g50ZjFIqn+QKNrOSPgMKNnb8TlZ2gnGnHMCaZUcDbaPIJyuEKBLL7sA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vv6TAHFwUoeh3mYrpkSpU87frZ+wetPyz5GJiW9jrxk=;
+ b=XmtleVk7HP7OGg4vxnSX7E6MAUirPV4zsiwH6OjMgY0i3j43SBBYVhmg/7971QSRfj0k6Y468cTilRnB5V+zI7mlUxQWbCPJa5+qGEQ8QlTe9/7RUbHyd8/9JSGlLZJ8HqPeb7TUZwf6rKxRHL8Rol/9f+t10Vx8reIwwWtcGL5OSCw5aZdZNnnq2qHMkYw03SZd5foMpd0XGz22RCV5hq7XLZ6zIrWickeE/D53flmyzX9hUg93U3w3Ty7GNJBMbFPCOR3p6bYQzAalBrg5UiYdT5+sBZMKsuRqs1bGMN6vXOVtck7LYTzzyU+4yPETJ7Lj5QNo/Xq+bxztBldjjg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=darbyshire-bryant.me.uk; dmarc=pass action=none
+ header.from=darbyshire-bryant.me.uk; dkim=pass
+ header.d=darbyshire-bryant.me.uk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=darbyshire-bryant.me.uk; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=vv6TAHFwUoeh3mYrpkSpU87frZ+wetPyz5GJiW9jrxk=;
+ b=CpR4PHLym+Sew1kUwj2ivXZuwyekKSLx5AFtlFrFFcEIfStTmdTKQhxohU0tRXSqZEhfCMnC85ZvMV35hoFGj6JhoLVK001vcsTHDVWDJDzKWdxwqNhVsrJmOxrHqHEZuhx25w1MbqfYM5TJIdrm6hta+PMaOtKWeV+06+/qqNs=
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com (2603:10a6:803:59::12)
+ by VI1PR03MB3949.eurprd03.prod.outlook.com (2603:10a6:803:71::25)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.2979.26; Thu, 7 May
+ 2020 07:58:01 +0000
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::982d:7d6a:5f6f:74a2]) by VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::982d:7d6a:5f6f:74a2%4]) with mapi id 15.20.2958.033; Thu, 7 May 2020
+ 07:58:01 +0000
+From: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
+To: Cake List <cake@lists.bufferbloat.net>
+Thread-Topic: Latency target curiosity
+Thread-Index: AQHWJEU7sq64Q1yK5UiIgHZOmOytvw==
+Date: Thu, 7 May 2020 07:58:01 +0000
+Message-ID: <E8AAEA5E-98A9-48A7-86F3-BE4621B4074B@darbyshire-bryant.me.uk>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-mailer: Apple Mail (2.3608.80.23.2.2)
+authentication-results: lists.bufferbloat.net; dkim=none (message not signed)
+ header.d=none; lists.bufferbloat.net;
+ dmarc=none action=none
+ header.from=darbyshire-bryant.me.uk;
+x-originating-ip: [2a02:c7f:1243:8e00::dc83]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 8f01fcef-faec-4a83-dad6-08d7f25c5db0
+x-ms-traffictypediagnostic: VI1PR03MB3949:
+x-microsoft-antispam-prvs: <VI1PR03MB39490B06CE8F01533DCDA0FBA5A50@VI1PR03MB3949.eurprd03.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:1107;
+x-forefront-prvs: 03965EFC76
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: PJW41pZ7fSX36omfqHFgKfHwKxDkCiiDtTBdcBrB3Wx1B0z1nCGWjrsVkmukih90DaR0Qy0Mibq6rqLvICUPIqpc4Hwc0OIa8w2sg4GmR4PVFKFQ+O3ag/BYwOW+6K33H7oMkw1WnHeBp/0x6ggADWeuVZOMQ0k0NWzPpie+u9kjKilz7IzpSrITrCtPiCURtkT6QdRsvt69xGLXLvrJMCKVTmKzMQqLOUUnLxIpd9Q+yHre9pBhEy2Ypah8mVs6gPKKemXvRvw2kTnEl+86C/jglXlnJwTppKp0oV8IoP/AbjCviSTnVGUp7A1+wNun68pREWO13CBq51+hhXjs2Ng6LlP94wO5Kr2zCCX2IAyXlVft5NQdcwQ3oHzq5+jI40UDWnW42vZTIZnVRFRWN+JwWnzC+g4IgDfZBOGszO7RaT+ZyLNvTI9avpGCqdAAXco1Z/pWUZ5wHDHvumE5m60wrwzglsd4zynqGagN6w5hKXrANXC5E1Zts3h0HBRSkhMPbur5QFufzM4Bp/JIZA==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:VI1PR03MB4575.eurprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(346002)(376002)(39830400003)(366004)(396003)(136003)(33430700001)(7116003)(66556008)(45080400002)(6916009)(6512007)(33440700001)(2906002)(33656002)(186003)(83290400001)(83310400001)(83300400001)(83320400001)(71200400001)(4744005)(83280400001)(2616005)(99936003)(6506007)(508600001)(91956017)(8936002)(76116006)(8676002)(66616009)(66446008)(64756008)(66946007)(86362001)(66476007)(6486002)(5660300002)(3480700007)(36756003)(316002);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: b7UZgNFJeSfhYkZx4bYKWDHevwWwPoGd9mmy4bfAKjk/OEk2B+s8vh1ff+B2BMofXXLpMTboqjyW519Yeha08YdZNn+dnJmGyv/jsLooz0oUKtoYJoqFH6vXRZb3r30o1/GalwI8vi1tP/q9aLYluarYqGEasGWvNXC6Zkej1Sqf81R8pWoBzdd63bdc9NEcWoha1qVI47GOke3TrnsZVOTKVp8w5a12khCeFwUXD1mzZ+aJF3khgLhJcWKBIWfEbhe3ogwFDuaFev4lDKtFmJXoMqpLBg6vJJVGuPamg4RMNOgT7qQbWS6qVhR2OE8xsg0Puhi4aPVnEo/Nl8WF9JHTGfDD3AmUuzjMOP1aeslEvmf3krc3aDr8NSX/XH+E4Vom89m+fwuuM7ahVgGC49lVZ/S8pJDUqeJgSLObLzCF8ReaTRnzQ/dsfmlvCLLiP/yIvDkeywmCvJh84lyp8VvTiq+QUR0SC98p4umg6ixwSsghv5JJ8V5eQwvej2ls83bo0f6kjVmGuiV4aJyKcrJ4geGKz5TD5xc4B2oHYg0xcPbpU2DKJoJ0T1J4GABWORBy4aXIv2x3PKHAS55ffAiLynFo9R6UztS4hTgt6yT4adTzGqcag1Jxk3wLs4cVvxZuJvrdU/q318OzZSg9fmuWUBo6RhTr+2DZmNXjVkv5C5nwTNpFo3frVGuZoVfsBkV/vHXM4WJZmIG4lXG+pOw8PNPSlYxPL6Me0mZuM33XgEks3usZib77RZ7zKQNT8Y03KdwCr+/+V+MTV2HwcSG3NY8+WIy86rN0zH66w7Vkgf2yMP9bNsMx6FCxLdVcSHVYwWknVUXrp44luBu9NQ==
+x-ms-exchange-transport-forked: True
 MIME-Version: 1.0
-To: cake@lists.bufferbloat.net, Avakash bhat <avakash261@gmail.com>,
- =?ISO-8859-1?Q?Toke_H=F8iland-J=F8rgensen?= <toke@redhat.com>
-From: Sebastian Moeller <moeller0@gmx.de>
-Message-ID: <A85845BB-010A-4F39-99F4-C6206F7FEA65@gmx.de>
-X-Provags-ID: V03:K1:Wj0AiV3e5d72YblUoEFi+K6xmedPUAbbpynSFHecTsORrh0fZnP
- 3YCzkUfAkleBG7FbZcLxN3cr2A2WPGcIc90HN9CLDh+6JfvYodUlFxW5coKROjPECzrqdCd
- u17LeE/X6A+uE8ZncX9Zj1nndfROSFoza8wZeYM3sOzx01JnmjtN3GWE0UK0BPWA2QExLiN
- DouK3ztM3eEDexz5Soisg==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:0f3YTGGzN2c=:yzW9E7KuBhrD4rRZQuVxaJ
- +ZUS5K7AXh8Nay9SelXtZVSGchnqYb6klyZ6nfR4QInPqeLLVsoR+nLNm1/y73hkF0duPqVYn
- vrPaGtoQOAYUYC6mMnX30Z4lGRXDiVA22Df84abjdEwYV0RqQ/qtjrmI0E0DI9eAtL1Fps6dB
- TgaLdW7A7I/VxOH1vc1lfgPzha3rKg6+xBr2/dbtWQVnEN+V4BnOupuFckuSGDRJn1I3jKw4G
- 4qiwB+moqQ3X/R4UY9uTU/FGBuEaN4Afdynyif9ZnOzr347q6KcuGiGSworqYTd0rAAjIwEsN
- yIrre+18OLbz0flX4UakvDCNjnreQRUVLa98erc6MApYEWmdu+q9eFabwSl1ktrlX2Zd7eJfO
- bqTcQlPMdPE8VrkAOAgq5LWlQp2+dndKOrm+BJfdDoHNnqcPhnWsafM8q1BnzMcKG1q8YF942
- fPIKJ4JmbpJZHAWP6yEl61D8X9Q7t/D0JXwX87hqAZLj/XyOuiYTgxxA6VntEr+zMC/UUrug8
- h76Xg+wEnvnU8nduXMg3Ojg/vn/Af6cwFuhEGpJNZwpPGqYrWFnU3DIOpVEu1wSd5I6C99I6f
- JdPUHuePFzbj3xniDWFAOF/Um6Yqp8ZyPrgTWOHhohYONZfF/zLiFke2ekwm0BO43d45isS4m
- /CnlMhxaM5AIRZECGSLgDK25VY1ruh/5nR51QN7UeEjtdvWhH/7YEilG4QRjrcOT0GPX02+QI
- /t8QEX3/+DbB7J0nNgHqFRMFSC6CYGvsqZRVuSeu3fAaAogbu0UkV2KjZQVIR4ZmUhtsZL2Vo
- QpfYxo4PRPhRKqJDUZdwnhTmhI+tmVfjW2FSzg6+OKD6+2SoQ8Z/tZeUcLlWXD1j6BP+VS9Ad
- k1RNoo2mPUwaE98mb5miqLxPS5rx44hBu39GM5uGtqLE+gTqugOzE2vrBu0bTE2viVr+jkv0o
- O4RmOmHgMJL4jfV6NXLAPq6jLc4F8Bo2xKgYiRYOVhAwlleUpl9xbfT2pGtHBxaFjiwbRNcx7
- MKhUeo7+/VJ+kwx0dg4Dlne3F4pTcfhzihSyviSaGewDKAd8ndZA11j6b9lN965H/6Yl6Vzl3
- CUpZAG/5L/vCnhA2HxxhZEdAEEWhcBrfKGMPeOZY1+DlxZNLWaPZrtUFj5DeI0MexOzLzd3Ox
- sX7TNvKvexFqlr2BLidfSeD52v+ia2liutNszo6sSQPXLXHnZARCl/0Fr+bmayac2dLoiuRbS
- AZl3BIaRLGYNtGfA7
-Subject: Re: [Cake] Query on ACK
+X-OriginatorOrg: darbyshire-bryant.me.uk
+X-MS-Exchange-CrossTenant-Network-Message-Id: 8f01fcef-faec-4a83-dad6-08d7f25c5db0
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 May 2020 07:58:01.8599 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9151708b-c553-406f-8e56-694f435154a4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: oEx+HfBWDeODJYRnX3JeDP/tUkeTx4wmT6VZREOoq63LAaWKrzO82rr2J5H6wQAe7r0HKw8KcNwx5NXQgbl9xxouHhhXHnoVjIOVWRyUAYE=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR03MB3949
+Subject: [Cake] Latency target curiosity
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -84,66 +104,77 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
- Shrinidhi Varna <shrinidhivarna.171co145@nitk.edu.in>,
- Deepak K <deepakkavoor99@gmail.com>, Vybhav Pai <vybhavpai1999.vp@gmail.com>
-Content-Type: multipart/mixed; boundary="===============0059885484985075133=="
+Content-Type: multipart/mixed; boundary="===============5178875218971247025=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============0059885484985075133==
-Content-Type: multipart/alternative; boundary="----HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS"
-Content-Transfer-Encoding: 7bit
+--===============5178875218971247025==
+Content-Language: en-US
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_BB413CAD-01EE-4BF6-8D86-AFDB67EC3C8D";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
 
-------HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS
+--Apple-Mail=_BB413CAD-01EE-4BF6-8D86-AFDB67EC3C8D
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+	charset=utf-8
 
-I think that you will remove all redundant Backs in one go considerably adv=
-ancing the new ACK in the queue=2E And more importantly, in most relevant m=
-odes cake will apply one queue per flow stochastically, so almost all packe=
-t's in a reverse ACK flow will be ACK with identical 5-tupel=2E=2E=2E=2E
+Hi All,
 
-On 7 May 2020 08:44:59 CEST, Avakash bhat <avakash261@gmail=2Ecom> wrote:
->Thanks for the quick response=2E I also had a followup question=2E
->
->If the ack filter adds the new ack to the tail of the queue after
->removing
->an ack from the queue, won't it be starving the ack?
->The replaced ack was much ahead in the queue than the ack we replaced
->at
->the tail right?
->
->Thanks,
->Avakash Bhat
+As some of you are aware, I=E2=80=99ve been working on =E2=80=99near =
+live=E2=80=99 graphing of Cake=E2=80=99s stats under Openwrt, basically =
+taking the output of =E2=80=99tc -s -j qdisc foo=E2=80=99 and putting in =
+relevant graphs.
 
---=20
-Sent from my Android device with K-9 Mail=2E Please excuse my brevity=2E
-------HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS
-Content-Type: text/html;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+A curiosity has arisen:  I use diffserv4 mode on a 20Mbit egress link.  =
+Bulk tin has =E2=80=98capacity=E2=80=99 threshold of 1.2Mbit and because =
+it=E2=80=99s a slow =E2=80=99tin', the default target & interval values =
+get overridden to 14.6ms and 109.6ms respectively.  The 3 other tins are =
+5ms & 100ms defaults.
 
-<html><head></head><body>I think that you will remove all redundant Backs i=
-n one go considerably advancing the new ACK in the queue=2E And more import=
-antly, in most relevant modes cake will apply one queue per flow stochastic=
-ally, so almost all packet's in a reverse ACK flow will be ACK with identic=
-al 5-tupel=2E=2E=2E=2E<br><br><div class=3D"gmail_quote">On 7 May 2020 08:4=
-4:59 CEST, Avakash bhat &lt;avakash261@gmail=2Ecom&gt; wrote:<blockquote cl=
-ass=3D"gmail_quote" style=3D"margin: 0pt 0pt 0pt 0=2E8ex; border-left: 1px =
-solid rgb(204, 204, 204); padding-left: 1ex;">
-<div dir=3D"ltr"><br>Thanks for the quick response=2E I also had a followu=
-p question=2E&nbsp;<div><br><div>If the ack filter adds the new ack to the =
-tail of the queue after removing an ack from the queue, won't it be starvin=
-g the ack?&nbsp;</div><div>The replaced ack was much ahead in the queue tha=
-n the ack we replaced at the tail right?</div><div><br></div><div>Thanks,</=
-div><div>Avakash Bhat</div></div></div>
-</blockquote></div><br>-- <br>Sent from my Android device with K-9 Mail=2E=
- Please excuse my brevity=2E</body></html>
-------HUSUBPRUZ6YHZ7W3D7D2O0QTLT6RMS--
+I have a backup job that bulk uploads 5 simultaneous flows to Onedrive.  =
+The sparse_delay, average_delay & peak_delay figures settle on 32, 38 & =
+43 ms respectively with around 9 drops per second on that tin.
 
---===============0059885484985075133==
+I=E2=80=99m curious as to why the reported delays are over double the =
+target latency?
+
+Cheers,
+
+Kevin D-B
+
+gpg: 012C ACB2 28C6 C53E 9775  9123 B3A2 389B 9DE2 334A
+
+
+--Apple-Mail=_BB413CAD-01EE-4BF6-8D86-AFDB67EC3C8D
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEASyssijGxT6XdZEjs6I4m53iM0oFAl6zv4gACgkQs6I4m53i
+M0qtkg/+LJ1iG8Zv6uDOdtJq/j8HHDObV/tM6chwDKbXgpFhful+GVHBl1pBKbVd
+EgePpfTX8pDdB1TinmSbM8kqJLi9oc/Fn1u5loSTNlVOFHV4kCRkfvoiksqRhW/W
+osV5vJ+HyzTJ758pRCDjw3Ov8BEdNuy7tL+sVZzaxAvpvlDHnLeQo0IqwPUaxeP0
+M+9XUqF7EENqwDdBQgYqpGklUMAFkFfJHOM9V8gGHiUnE53+kuFG0cJQ9MHTa+79
+UCtg7HVxrrYnCcgLF5hVdGjayBm3unEQ5YMW0mnE0Q3yTSG5vyr1BuZSn8xx1lFB
+qqS62bcpOJdKGhEHbXJ4WpCn3uvt6C8izIQ+BYTxucZnXDWa3HbD6WbRz1ULSuGw
+Nk2nY5uRxZW9Lsb5708LmbN1hP6E25EJY0Y4Z/sYH18khHEWe4f35LMx3r3cS4Uj
+oOHp5rwNWp8ITKQUzJp8ViH92PpL3hBx2T7AbaQuwJxs1AKnqWJCajbOZ61b01Xy
+uWPlmscmKkFpwd0qSP09D/gXQV5jkPjsaUKLVPOF4bJUb/ja+yRIyF+tUz69n4pT
+UIuNvw1aSLHTQZiqVoo0R7d+SwzXC5MCRW2VWLB/pW9HwLy+GxpsTscQfmV7uVs6
+49RJjVJl/KURca3kFty3yxg8BaCubbMwa+Uynu1gRMMDxZM8Hao=
+=moG1
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_BB413CAD-01EE-4BF6-8D86-AFDB67EC3C8D--
+
+--===============5178875218971247025==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -153,4 +184,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============0059885484985075133==--
+--===============5178875218971247025==--
