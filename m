@@ -2,65 +2,37 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 83DF91CB632
-	for <lists+cake@lfdr.de>; Fri,  8 May 2020 19:44:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7C2FF1D9427
+	for <lists+cake@lfdr.de>; Tue, 19 May 2020 12:17:14 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 53CF83CB39;
-	Fri,  8 May 2020 13:44:00 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id C72853CB38;
+	Tue, 19 May 2020 06:17:12 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1588959840;
-	bh=s+/nU0QVTX70vt45uoYFBd4Sf0s32RF+Kd9o24pfSIE=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 From;
-	b=e+GJ1rjr+LRQuquIZq+1zUvsV1+8abX3XpJ8ZuoEd4rIXhhJkh1QhN7JEkct7PxUr
-	 8OIRhlJUryuarsCdjwplkodXCdDE39qLPxe0TJMmnIBzML6EVJ4TPtghGwFXLSBLvc
-	 H1d+jR2RIycGyzpOsu1s4vXLtpWqfZrfoW1x7Y1hnqrs5w6rXNnNcjcYd+LCEzwrJR
-	 T5MZWmrbL2cgBa1U184/E1/I52MHBEYUC6twueEq/4J3TUvuRyn7K7h1jdvdT8ejQr
-	 js83cJH44BUe9kI3kA5ixojPVWcuJ1mJmd2J2R5Ry9+kHE3FBuvtGKtNs1IdzNG11o
-	 xEsVY7ngWikNA==
+	d=lists.bufferbloat.net; s=201610; t=1589883432;
+	bh=8A3djhIpvkcd+B1tbob8vgF3fvWs5uIfDjQq4MBr8L4=;
+	h=From:To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:
+	 List-Post:List-Help:List-Subscribe:Cc:From;
+	b=c/+/xejT1TZZkT3gx1TBz0awI25WdShYmozjixNGVDYDsPncjnEKnFqmDZTQIjy4Y
+	 RA41+2LdBnGnHk6fGxzf2Cz9LRViKtt2tQ+hh/sCs/YC5HVav+sRbHHvS1e5As5ehN
+	 74pWet4zMHmLG3lAvhJSI+rG9cw8BJTTA2O0a+GKkfJhtSPj8P/tH2bhTIKPLaPGxv
+	 v02tw/AsA8BSLB1jGOIQfrYeGqZLlG/sxQUFHroU0pAK4ThN7aRL1k1n0LeiogFyHv
+	 0VIty9Erm3ncnv/o1KUK1VIqmyMCWqto1VrlltLdeYuJdjp9JZoxd9g4dSEw7XDBmv
+	 X9k/BElQIQm3w==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp89.iad3a.emailsrvr.com (smtp89.iad3a.emailsrvr.com
- [173.203.187.89])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from s2.neomailbox.net (s2.neomailbox.net [5.148.176.60])
+ (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 44CC43B29E
- for <cake@lists.bufferbloat.net>; Fri,  8 May 2020 13:43:59 -0400 (EDT)
-Received: from app4.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp4.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 090345460
- for <cake@lists.bufferbloat.net>; Fri,  8 May 2020 13:43:59 -0400 (EDT)
-X-Sender-Id: dpreed@deepplum.com
-Received: from app4.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140]) by 0.0.0.0:25 (trex/5.7.12);
- Fri, 08 May 2020 13:43:59 -0400
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app4.wa-webapps.iad3a (Postfix) with ESMTP id E883CE007B
- for <cake@lists.bufferbloat.net>; Fri,  8 May 2020 13:43:58 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Fri, 8 May 2020 13:43:58 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Fri, 8 May 2020 13:43:58 -0400 (EDT)
-From: "David P. Reed" <dpreed@deepplum.com>
-To: "Cake List" <cake@lists.bufferbloat.net>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id EA8B93B29D
+ for <cake@lists.bufferbloat.net>; Tue, 19 May 2020 05:15:51 -0400 (EDT)
+From: Antonio Quartulli <a@unstable.cc>
+To: davem@davemloft.net
+Date: Tue, 19 May 2020 11:13:33 +0200
+Message-Id: <20200519091333.20923-1-a@unstable.cc>
 MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <CAA93jw6xZRcUerJ8JuxjtjW2_C+wyAUKRtqDojPj6hLdg1w0Dg@mail.gmail.com>
-References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com> 
- <C24C4CCB-C30D-452A-9386-5AA533F11CEE@gmail.com> 
- <87wo5okhbo.fsf@toke.dk> 
- <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com> 
- <A85845BB-010A-4F39-99F4-C6206F7FEA65@gmx.de> 
- <CAC8NkTBRWrhAQneAf6ZacTzWLYyM5TqX6jmD4-fafAD=7iPgfQ@mail.gmail.com> 
- <CAA93jw6xZRcUerJ8JuxjtjW2_C+wyAUKRtqDojPj6hLdg1w0Dg@mail.gmail.com>
-Message-ID: <1588959838.949523142@apps.rackspace.com>
-X-Mailer: webmail/17.3.10-RC
-X-Classification-ID: 302c0a0b-7e6f-4870-a72b-adcde29f15ff-1-1
-Subject: [Cake] Curious regarding Cake sensitivity to hardware queue depth
+X-Mailman-Approved-At: Tue, 19 May 2020 06:17:11 -0400
+Subject: [Cake] [PATCH] net/sch_generic.h: use sizeof_member() and get rid
+	of unused variable
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -72,141 +44,109 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============9097028891638281946=="
+Cc: Jiri Pirko <jiri@resnulli.us>, netdev@vger.kernel.org,
+ Antonio Quartulli <a@unstable.cc>, Jamal Hadi Salim <jhs@mojatatu.com>,
+ cake@lists.bufferbloat.net, Cong Wang <xiyou.wangcong@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============9097028891638281946==
-Content-Type: multipart/alternative;boundary="----=_20200508134358000000_60338"
-
-------=_20200508134358000000_60338
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-=0AThe following question occurred to me. It's empirical, not theoretical (=
-though the theory might be interesting, it's not clear that creating a theo=
-retical model that matches real hardware is realistic.=0A =0AI'm a big fan =
-of Cake, and recommend it to everyone that can deploy it on the router clos=
-est to the bottleneck link. But given its complexity (and interactions with=
- the complex control loops in end-to-end TCP, including things like minimum=
- cwnd and the number of TCP sessions that are concurrent, etc), it's hard f=
-or me to guess the answer to certain issues that may come up in practice le=
-ss commonly.=0A =0AHere's an example. What if there is a FIFO queue that ca=
-n build up queueing delay to a certain extent between Cake and the bottlene=
-ck. In a badly setup DOCSIS 2 system, this can happen due to other traffic =
-into the DOCSIS head-end. Cake's basic assumption that by setting the max b=
-itrate on the uplink to slightly less than the claimed "up to" capacity is =
-not fully realistic in such situations - the queue can build up in the path=
- to the head-end.=0A =0AThe same can happen in a WiFi situation on the airl=
-ink to the AP from the STA, if you were to run Cake with a setting for band=
-width that is set much lower than the achievable shared airlink bitrate. An=
-d on the AP side, the path to STA's is often forced to go through a FIFO ei=
-ther in the hardware or in the proprietary driver that can get pretty large=
- (though adding 20 msec. might not be problematic in most user-interaction =
-cases).=0A =0ABut it would be interesting to assess whether inserting a FIF=
-O delay between Cake and the actual NIC that could be cranked up in delay c=
-auses surprising results.=0A =0AA "surprise" would be that either throughpu=
-t or lag-under-load wih various traffic mixes (bulk traffic, in particular)=
- would do something other than the simple thing of staying with the same th=
-roughput and adding the FIFO delay into the lag under load.=0A =0AAnyone do=
-ne such an exploration?=0A =0AOne of the reasons I wonder is because I wond=
-ered whether just using Cake to moderate the flows from an AP to STAs in an=
- access point would be good, even if the hardware doesn't allow one to shor=
-ten the queue it builds up inside. Obviously doing a "distributed Cake" amo=
-ng all the STAs trying to send to an AP would be not necessarily good, beca=
-use the STAs can't cooperate efficiently because they have to go through th=
-e AP and get the packets reflected, encountering all kinds of delay at a sc=
-ale that would make it hard to coordinate the flow towards the AP. (that's =
-why 802.11ax is based on AP polling rather than LBT arbitration, but even i=
-n 802.11ax, the polling doesn't provide any information to the STA's that t=
-hey could use to manage their flows.).=0A =0APS: Make WiFi fast really need=
-s to address 802.11ax (WiFi6), which I suspect will be *worse* than WiFi in=
- its congestion interactions with TCP and QUIC on UDP. Sad if a "premium" u=
-pgrade becomes a downgrade because of congestion mismanagement. Polling hel=
-ps increase usable airtime, but it doesn't help TCP and QUIC moderate their=
- contributions to creating bufferbloated connections.
-------=_20200508134358000000_60338
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<font face=3D"arial" size=3D"3"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 12pt; overflow-wrap: break-word;">The following question=
- occurred to me. It's empirical, not theoretical (though the theory might b=
-e interesting, it's not clear that creating a theoretical model that matche=
-s real hardware is realistic.</p>=0A<p style=3D"margin:0;padding:0;font-fam=
-ily: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p st=
-yle=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wra=
-p: break-word;">I'm a big fan of Cake, and recommend it to everyone that ca=
-n deploy it on the router closest to the bottleneck link. But given its com=
-plexity (and interactions with the complex control loops in end-to-end TCP,=
- including things like minimum cwnd and the number of TCP sessions that are=
- concurrent, etc), it's hard for me to guess the answer to certain issues t=
-hat may come up in practice less commonly.</p>=0A<p style=3D"margin:0;paddi=
-ng:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp=
-;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 12pt;=
- overflow-wrap: break-word;">Here's an example. What if there is a FIFO que=
-ue that can build up queueing delay to a certain extent between Cake and th=
-e bottleneck. In a badly setup DOCSIS 2 system, this can happen due to othe=
-r traffic into the DOCSIS head-end. Cake's basic assumption that by setting=
- the max bitrate on the uplink to slightly less than the claimed "up to" ca=
-pacity is not fully realistic in such situations - the queue can build up i=
-n the path to the head-end.</p>=0A<p style=3D"margin:0;padding:0;font-famil=
-y: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p styl=
-e=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap:=
- break-word;">The same can happen in a WiFi situation on the airlink to the=
- AP from the STA, if you were to run Cake with a setting for bandwidth that=
- is set much lower than the achievable shared airlink bitrate. And on the A=
-P side, the path to STA's is often forced to go through a FIFO either in th=
-e hardware or in the proprietary driver that can get pretty large (though a=
-dding 20 msec. might not be problematic in most user-interaction cases).</p=
->=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; ove=
-rflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-f=
-amily: arial; font-size: 12pt; overflow-wrap: break-word;">But it would be =
-interesting to assess whether inserting a FIFO delay between Cake and the a=
-ctual NIC that could be cranked up in delay causes surprising results.</p>=
-=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; over=
-flow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-fa=
-mily: arial; font-size: 12pt; overflow-wrap: break-word;">A "surprise" woul=
-d be that either throughput or lag-under-load wih various traffic mixes (bu=
-lk traffic, in particular) would do something other than the simple thing o=
-f staying with the same throughput and adding the FIFO delay into the lag u=
-nder load.</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-si=
-ze: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;pad=
-ding:0;font-family: arial; font-size: 12pt; overflow-wrap: break-word;">Any=
-one done such an exploration?</p>=0A<p style=3D"margin:0;padding:0;font-fam=
-ily: arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p st=
-yle=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wra=
-p: break-word;">One of the reasons I wonder is because I wondered whether j=
-ust using Cake to moderate the flows from an AP to STAs in an access point =
-would be good, even if the hardware doesn't allow one to shorten the queue =
-it builds up inside. Obviously doing a "distributed Cake" among all the STA=
-s trying to send to an AP would be not necessarily good, because the STAs c=
-an't cooperate efficiently because they have to go through the AP and get t=
-he packets reflected, encountering all kinds of delay at a scale that would=
- make it hard to coordinate the flow towards the AP. (that's why 802.11ax i=
-s based on AP polling rather than LBT arbitration, but even in 802.11ax, th=
-e polling doesn't provide any information to the STA's that they could use =
-to manage their flows.).</p>=0A<p style=3D"margin:0;padding:0;font-family: =
-arial; font-size: 12pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=
-=3D"margin:0;padding:0;font-family: arial; font-size: 12pt; overflow-wrap: =
-break-word;">PS: Make WiFi fast really needs to address 802.11ax (WiFi6), w=
-hich I suspect will be *worse* than WiFi in its congestion interactions wit=
-h TCP and QUIC on UDP. Sad if a "premium" upgrade becomes a downgrade becau=
-se of congestion mismanagement. Polling helps increase usable airtime, but =
-it doesn't help TCP and QUIC moderate their contributions to creating buffe=
-rbloated connections.</p></font>
-------=_20200508134358000000_60338--
-
-
---===============9097028891638281946==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============9097028891638281946==--
-
+Q29tcGlsaW5nIHdpdGggLVd1bnVzZWQgdHJpZ2dlcnMgdGhlIGZvbGxvd2luZyB3YXJuaW5nOgoK
+Li9pbmNsdWRlL25ldC9zY2hfZ2VuZXJpYy5oOiBJbiBmdW5jdGlvbiDigJhxZGlzY19jYl9wcml2
+YXRlX3ZhbGlkYXRl4oCZOgouL2luY2x1ZGUvbmV0L3NjaF9nZW5lcmljLmg6NDY0OjIzOiB3YXJu
+aW5nOiB1bnVzZWQgdmFyaWFibGUg4oCYcWNi4oCZIFstV3VudXNlZC12YXJpYWJsZV0KICA0NjQg
+fCAgc3RydWN0IHFkaXNjX3NrYl9jYiAqcWNiOwogICAgICB8ICAgICAgICAgICAgICAgICAgICAg
+ICBefn4KCmFzIHRoZSBxY2IgdmFyaWFibGUgaXMgb25seSB1c2VkIHRvIGNvbXB1dGUgdGhlIHNp
+emVvZiBvbmUgb2YgaXRzIG1lbWJlcnMuCgpHZXQgcmlkIG9mIHRoZSB3YXJuaW5nIGJ5IHVzaW5n
+IHRoZSBwcm92aWRlZCBzaXplb2ZfbWVtYmVyKCkgbWFjcm8KYW5kIGF2b2lkIGhhdmluZyBhIHZh
+cmlhYmxlIGF0IGFsbC4KCkF0IHRoZSBzYW1lIHRpbWUgdXNlIHNpemVvZl9tZW1iZXIoKSBhbHNv
+IGZvciBjb21wdXRpbmcgdGhlIHNpemVvZgpza2ItPmNiLCB0aHVzIGF2b2lkaW5nIOKAmHFkaXNj
+X2NiX3ByaXZhdGVfdmFsaWRhdGXigJkgdG8gaGF2ZSBhbiBza2IKYXJndW1lbnQgYXQgYWxsLgoK
+Q2M6IFRva2UgSMO4aWxhbmQtSsO4cmdlbnNlbiA8dG9rZUB0b2tlLmRrPgpDYzogSmFtYWwgSGFk
+aSBTYWxpbSA8amhzQG1vamF0YXR1LmNvbT4KQ2M6IENvbmcgV2FuZyA8eGl5b3Uud2FuZ2NvbmdA
+Z21haWwuY29tPgpDYzogSmlyaSBQaXJrbyA8amlyaUByZXNudWxsaS51cz4KQ2M6IFN0ZXBoZW4g
+SGVtbWluZ2VyIDxzdGVwaGVuQG5ldHdvcmtwbHVtYmVyLm9yZz4KU2lnbmVkLW9mZi1ieTogQW50
+b25pbyBRdWFydHVsbGkgPGFAdW5zdGFibGUuY2M+CgotLS0KCkFmZmVjdGVkIGNvZGUgaGFzIGJl
+ZW4gY29tcGlsZS10ZXN0ZWQgb24geDg2XzY0CgogaW5jbHVkZS9uZXQvY29kZWxfcWRpc2MuaCB8
+IDIgKy0KIGluY2x1ZGUvbmV0L3BpZS5oICAgICAgICAgfCAyICstCiBpbmNsdWRlL25ldC9zY2hf
+Z2VuZXJpYy5oIHwgOSArKysrLS0tLS0KIG5ldC9zY2hlZC9zY2hfY2FrZS5jICAgICAgfCAyICst
+CiBuZXQvc2NoZWQvc2NoX2Nob2tlLmMgICAgIHwgMiArLQogbmV0L3NjaGVkL3NjaF9mcS5jICAg
+ICAgICB8IDIgKy0KIG5ldC9zY2hlZC9zY2hfbmV0ZW0uYyAgICAgfCAyICstCiBuZXQvc2NoZWQv
+c2NoX3NmYi5jICAgICAgIHwgMiArLQogOCBmaWxlcyBjaGFuZ2VkLCAxMSBpbnNlcnRpb25zKCsp
+LCAxMiBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9pbmNsdWRlL25ldC9jb2RlbF9xZGlzYy5o
+IGIvaW5jbHVkZS9uZXQvY29kZWxfcWRpc2MuaAppbmRleCAwOTg2MzBmODNhNTUuLmM1OWQxN2Rl
+NGVmMyAxMDA2NDQKLS0tIGEvaW5jbHVkZS9uZXQvY29kZWxfcWRpc2MuaAorKysgYi9pbmNsdWRl
+L25ldC9jb2RlbF9xZGlzYy5oCkBAIC01Nyw3ICs1Nyw3IEBAIHN0cnVjdCBjb2RlbF9za2JfY2Ig
+ewogCiBzdGF0aWMgc3RydWN0IGNvZGVsX3NrYl9jYiAqZ2V0X2NvZGVsX2NiKGNvbnN0IHN0cnVj
+dCBza19idWZmICpza2IpCiB7Ci0JcWRpc2NfY2JfcHJpdmF0ZV92YWxpZGF0ZShza2IsIHNpemVv
+ZihzdHJ1Y3QgY29kZWxfc2tiX2NiKSk7CisJcWRpc2NfY2JfcHJpdmF0ZV92YWxpZGF0ZShzaXpl
+b2Yoc3RydWN0IGNvZGVsX3NrYl9jYikpOwogCXJldHVybiAoc3RydWN0IGNvZGVsX3NrYl9jYiAq
+KXFkaXNjX3NrYl9jYihza2IpLT5kYXRhOwogfQogCmRpZmYgLS1naXQgYS9pbmNsdWRlL25ldC9w
+aWUuaCBiL2luY2x1ZGUvbmV0L3BpZS5oCmluZGV4IDNmZTIzNjFlMDNiNC4uYzE1ZmUzMDMyYWQw
+IDEwMDY0NAotLS0gYS9pbmNsdWRlL25ldC9waWUuaAorKysgYi9pbmNsdWRlL25ldC9waWUuaApA
+QCAtMTA5LDcgKzEwOSw3IEBAIHN0YXRpYyBpbmxpbmUgdm9pZCBwaWVfdmFyc19pbml0KHN0cnVj
+dCBwaWVfdmFycyAqdmFycykKIAogc3RhdGljIGlubGluZSBzdHJ1Y3QgcGllX3NrYl9jYiAqZ2V0
+X3BpZV9jYihjb25zdCBzdHJ1Y3Qgc2tfYnVmZiAqc2tiKQogewotCXFkaXNjX2NiX3ByaXZhdGVf
+dmFsaWRhdGUoc2tiLCBzaXplb2Yoc3RydWN0IHBpZV9za2JfY2IpKTsKKwlxZGlzY19jYl9wcml2
+YXRlX3ZhbGlkYXRlKHNpemVvZihzdHJ1Y3QgcGllX3NrYl9jYikpOwogCXJldHVybiAoc3RydWN0
+IHBpZV9za2JfY2IgKilxZGlzY19za2JfY2Ioc2tiKS0+ZGF0YTsKIH0KIApkaWZmIC0tZ2l0IGEv
+aW5jbHVkZS9uZXQvc2NoX2dlbmVyaWMuaCBiL2luY2x1ZGUvbmV0L3NjaF9nZW5lcmljLmgKaW5k
+ZXggYzUxMGIwM2I5NzUxLi44ZTFmN2EwZDc1NzIgMTAwNjQ0Ci0tLSBhL2luY2x1ZGUvbmV0L3Nj
+aF9nZW5lcmljLmgKKysrIGIvaW5jbHVkZS9uZXQvc2NoX2dlbmVyaWMuaApAQCAtNDU5LDEyICs0
+NTksMTEgQEAgc3RhdGljIGlubGluZSBib29sIGxvY2tkZXBfdGNmX3Byb3RvX2lzX2xvY2tlZChz
+dHJ1Y3QgdGNmX3Byb3RvICp0cCkKICNkZWZpbmUgdGNmX3Byb3RvX2RlcmVmZXJlbmNlKHAsIHRw
+KQkJCQkJXAogCXJjdV9kZXJlZmVyZW5jZV9wcm90ZWN0ZWQocCwgbG9ja2RlcF90Y2ZfcHJvdG9f
+aXNfbG9ja2VkKHRwKSkKIAotc3RhdGljIGlubGluZSB2b2lkIHFkaXNjX2NiX3ByaXZhdGVfdmFs
+aWRhdGUoY29uc3Qgc3RydWN0IHNrX2J1ZmYgKnNrYiwgaW50IHN6KQorc3RhdGljIGlubGluZSB2
+b2lkIHFkaXNjX2NiX3ByaXZhdGVfdmFsaWRhdGUoaW50IHN6KQogewotCXN0cnVjdCBxZGlzY19z
+a2JfY2IgKnFjYjsKLQotCUJVSUxEX0JVR19PTihzaXplb2Yoc2tiLT5jYikgPCBvZmZzZXRvZihz
+dHJ1Y3QgcWRpc2Nfc2tiX2NiLCBkYXRhKSArIHN6KTsKLQlCVUlMRF9CVUdfT04oc2l6ZW9mKHFj
+Yi0+ZGF0YSkgPCBzeik7CisJQlVJTERfQlVHX09OKHNpemVvZl9maWVsZChzdHJ1Y3Qgc2tfYnVm
+ZiwgY2IpIDwKKwkJICAgICBvZmZzZXRvZihzdHJ1Y3QgcWRpc2Nfc2tiX2NiLCBkYXRhKSArIHN6
+KTsKKwlCVUlMRF9CVUdfT04oc2l6ZW9mX2ZpZWxkKHN0cnVjdCBxZGlzY19za2JfY2IsIGRhdGEp
+IDwgc3opOwogfQogCiBzdGF0aWMgaW5saW5lIGludCBxZGlzY19xbGVuX2NwdShjb25zdCBzdHJ1
+Y3QgUWRpc2MgKnEpCmRpZmYgLS1naXQgYS9uZXQvc2NoZWQvc2NoX2Nha2UuYyBiL25ldC9zY2hl
+ZC9zY2hfY2FrZS5jCmluZGV4IDE0OTZlODdjZDA3Yi4uMjgwMDU1MWI3NDY1IDEwMDY0NAotLS0g
+YS9uZXQvc2NoZWQvc2NoX2Nha2UuYworKysgYi9uZXQvc2NoZWQvc2NoX2Nha2UuYwpAQCAtMjgx
+LDcgKzI4MSw3IEBAIHN0YXRpYyB1NjQgdXNfdG9fbnModTY0IHVzKQogCiBzdGF0aWMgc3RydWN0
+IGNvYmFsdF9za2JfY2IgKmdldF9jb2JhbHRfY2IoY29uc3Qgc3RydWN0IHNrX2J1ZmYgKnNrYikK
+IHsKLQlxZGlzY19jYl9wcml2YXRlX3ZhbGlkYXRlKHNrYiwgc2l6ZW9mKHN0cnVjdCBjb2JhbHRf
+c2tiX2NiKSk7CisJcWRpc2NfY2JfcHJpdmF0ZV92YWxpZGF0ZShzaXplb2Yoc3RydWN0IGNvYmFs
+dF9za2JfY2IpKTsKIAlyZXR1cm4gKHN0cnVjdCBjb2JhbHRfc2tiX2NiICopcWRpc2Nfc2tiX2Ni
+KHNrYiktPmRhdGE7CiB9CiAKZGlmZiAtLWdpdCBhL25ldC9zY2hlZC9zY2hfY2hva2UuYyBiL25l
+dC9zY2hlZC9zY2hfY2hva2UuYwppbmRleCBiZDYxOGIwMGQzMTkuLjZiYWRkMzI0ZGY0MyAxMDA2
+NDQKLS0tIGEvbmV0L3NjaGVkL3NjaF9jaG9rZS5jCisrKyBiL25ldC9zY2hlZC9zY2hfY2hva2Uu
+YwpAQCAtMTM3LDcgKzEzNyw3IEBAIHN0cnVjdCBjaG9rZV9za2JfY2IgewogCiBzdGF0aWMgaW5s
+aW5lIHN0cnVjdCBjaG9rZV9za2JfY2IgKmNob2tlX3NrYl9jYihjb25zdCBzdHJ1Y3Qgc2tfYnVm
+ZiAqc2tiKQogewotCXFkaXNjX2NiX3ByaXZhdGVfdmFsaWRhdGUoc2tiLCBzaXplb2Yoc3RydWN0
+IGNob2tlX3NrYl9jYikpOworCXFkaXNjX2NiX3ByaXZhdGVfdmFsaWRhdGUoc2l6ZW9mKHN0cnVj
+dCBjaG9rZV9za2JfY2IpKTsKIAlyZXR1cm4gKHN0cnVjdCBjaG9rZV9za2JfY2IgKilxZGlzY19z
+a2JfY2Ioc2tiKS0+ZGF0YTsKIH0KIApkaWZmIC0tZ2l0IGEvbmV0L3NjaGVkL3NjaF9mcS5jIGIv
+bmV0L3NjaGVkL3NjaF9mcS5jCmluZGV4IDhmMDZhODA4YzU5YS4uMGMyNDk3NTA5YTNkIDEwMDY0
+NAotLS0gYS9uZXQvc2NoZWQvc2NoX2ZxLmMKKysrIGIvbmV0L3NjaGVkL3NjaF9mcS5jCkBAIC01
+Niw3ICs1Niw3IEBAIHN0cnVjdCBmcV9za2JfY2IgewogCiBzdGF0aWMgaW5saW5lIHN0cnVjdCBm
+cV9za2JfY2IgKmZxX3NrYl9jYihzdHJ1Y3Qgc2tfYnVmZiAqc2tiKQogewotCXFkaXNjX2NiX3By
+aXZhdGVfdmFsaWRhdGUoc2tiLCBzaXplb2Yoc3RydWN0IGZxX3NrYl9jYikpOworCXFkaXNjX2Ni
+X3ByaXZhdGVfdmFsaWRhdGUoc2l6ZW9mKHN0cnVjdCBmcV9za2JfY2IpKTsKIAlyZXR1cm4gKHN0
+cnVjdCBmcV9za2JfY2IgKilxZGlzY19za2JfY2Ioc2tiKS0+ZGF0YTsKIH0KIApkaWZmIC0tZ2l0
+IGEvbmV0L3NjaGVkL3NjaF9uZXRlbS5jIGIvbmV0L3NjaGVkL3NjaF9uZXRlbS5jCmluZGV4IDg0
+ZjgyNzcxY2RmNS4uMmI5MzBkOTI4YzVjIDEwMDY0NAotLS0gYS9uZXQvc2NoZWQvc2NoX25ldGVt
+LmMKKysrIGIvbmV0L3NjaGVkL3NjaF9uZXRlbS5jCkBAIC0xNjEsNyArMTYxLDcgQEAgc3RydWN0
+IG5ldGVtX3NrYl9jYiB7CiBzdGF0aWMgaW5saW5lIHN0cnVjdCBuZXRlbV9za2JfY2IgKm5ldGVt
+X3NrYl9jYihzdHJ1Y3Qgc2tfYnVmZiAqc2tiKQogewogCS8qIHdlIGFzc3VtZSB3ZSBjYW4gdXNl
+IHNrYiBuZXh0L3ByZXYvdHN0YW1wIGFzIHN0b3JhZ2UgZm9yIHJiX25vZGUgKi8KLQlxZGlzY19j
+Yl9wcml2YXRlX3ZhbGlkYXRlKHNrYiwgc2l6ZW9mKHN0cnVjdCBuZXRlbV9za2JfY2IpKTsKKwlx
+ZGlzY19jYl9wcml2YXRlX3ZhbGlkYXRlKHNpemVvZihzdHJ1Y3QgbmV0ZW1fc2tiX2NiKSk7CiAJ
+cmV0dXJuIChzdHJ1Y3QgbmV0ZW1fc2tiX2NiICopcWRpc2Nfc2tiX2NiKHNrYiktPmRhdGE7CiB9
+CiAKZGlmZiAtLWdpdCBhL25ldC9zY2hlZC9zY2hfc2ZiLmMgYi9uZXQvc2NoZWQvc2NoX3NmYi5j
+CmluZGV4IDQwNzRjNTBhYzNkNy4uZmZhZjE0NWE3YjA1IDEwMDY0NAotLS0gYS9uZXQvc2NoZWQv
+c2NoX3NmYi5jCisrKyBiL25ldC9zY2hlZC9zY2hfc2ZiLmMKQEAgLTkxLDcgKzkxLDcgQEAgc3Ry
+dWN0IHNmYl9za2JfY2IgewogCiBzdGF0aWMgaW5saW5lIHN0cnVjdCBzZmJfc2tiX2NiICpzZmJf
+c2tiX2NiKGNvbnN0IHN0cnVjdCBza19idWZmICpza2IpCiB7Ci0JcWRpc2NfY2JfcHJpdmF0ZV92
+YWxpZGF0ZShza2IsIHNpemVvZihzdHJ1Y3Qgc2ZiX3NrYl9jYikpOworCXFkaXNjX2NiX3ByaXZh
+dGVfdmFsaWRhdGUoc2l6ZW9mKHN0cnVjdCBzZmJfc2tiX2NiKSk7CiAJcmV0dXJuIChzdHJ1Y3Qg
+c2ZiX3NrYl9jYiAqKXFkaXNjX3NrYl9jYihza2IpLT5kYXRhOwogfQogCi0tIAoyLjI2LjIKCl9f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGlu
+ZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxv
+YXQubmV0L2xpc3RpbmZvL2Nha2UK
