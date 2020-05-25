@@ -2,59 +2,69 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 8219A1E065B
-	for <lists+cake@lfdr.de>; Mon, 25 May 2020 07:18:13 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id A10FB1E0AEC
+	for <lists+cake@lfdr.de>; Mon, 25 May 2020 11:43:05 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id C6BE23CB39;
-	Mon, 25 May 2020 01:18:11 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 76A6A3CB39;
+	Mon, 25 May 2020 05:43:03 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1590383891;
-	bh=KXI1059z6Z/3rz4e7ucrLQSlAYAxYuNGLtrTMJGncns=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1590399783;
+	bh=DAFHG6x4Vn/nFwoI9mF50ocPtgNh5hkzVml3Pzb0IAU=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=fntdHA5LGobDle8H0wKcyFaw/u8+1lO8/VA5Zs/DWtmI4i08k/pkfj6JyJCb3HohH
-	 /B0ON2xwxOPftZx+vL8ciVAI0rF6RHLKmJ6dQ+7tKgMYiOtGis2Gu9LxpgLFGqMpbe
-	 h3WV2J/8S4bolJUSzlejdXyHmDZM7OpbmWgJGTVoPmK0yoz0DKMBQfkuwbKk6xSZlN
-	 KJYwl8c7lkQo7x2x1FmmBpHcvLpzPBmPiIPDvIbAHG13vuGDOeFJ57alMHF+gElldf
-	 gMVvSNm1ckLbTo2emyCIjYv9cs7LFBKUT9Y5WFFQep6uOnaSAoPxVQ3jySUF3rHFmj
-	 Rrd8KvvgARLhw==
+	b=CXzvWhhKRPaJqxvMERQkQBmiG6EvIx2pNpKGNR+OEtH0qo23KCSzBrTc40ZfzHcvU
+	 U+4DAqNP5MVySe5sQN617vMuKFgmktpldVOv56UmqNusIBnY2WzbvSY+FmVl06CAs/
+	 3T78/fps1Kt9ztNaMj4qLlKUy1LwK60zogaENm/wTLNdrX8epEVyGFSuDRdPPdL/Kt
+	 0h9t6/U9rok6oDY/uJTykDuMVB0i9BZoGLjC+OknzF6xOWDG6LTLeS2vW2X+90sXmi
+	 Vr0wkvvFJ/qX9K2YKWN1GisGx84nKQpEuZFTU6o6twjSfLBFPG5Ef3JeQPojjlWwqJ
+	 riR+XtkIOJ9mQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ua1-x935.google.com (mail-ua1-x935.google.com
- [IPv6:2607:f8b0:4864:20::935])
+Received: from mail-lj1-x234.google.com (mail-lj1-x234.google.com
+ [IPv6:2a00:1450:4864:20::234])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 94DB73B29D
- for <cake@lists.bufferbloat.net>; Mon, 25 May 2020 01:18:10 -0400 (EDT)
-Received: by mail-ua1-x935.google.com with SMTP id 36so5723390uaf.9
- for <cake@lists.bufferbloat.net>; Sun, 24 May 2020 22:18:10 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 977E73B29D
+ for <cake@lists.bufferbloat.net>; Mon, 25 May 2020 05:43:02 -0400 (EDT)
+Received: by mail-lj1-x234.google.com with SMTP id c11so17895962ljn.2
+ for <cake@lists.bufferbloat.net>; Mon, 25 May 2020 02:43:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=WqhblJUeYNqkEJvHhc49SOJHnOdQA9KcXFKb5DYt+JA=;
- b=BSrE2fki0qKdQt52CGRcVknO09xb6E1tLO3TWGSRSXXe9npGVX94yjRskIAiUnN70e
- wINlAh2rmF9++87Qz80VGZyWkFEeOI0CypEqa79Z2HBgMUqiYO3zbUkt9Fus8auM/RnL
- bTZu1TS6tqrZloT5cr+mmGUSVmMdhACyojMH+eGoHAqBEytskCudyGTjmSHiqI3xY2ZE
- lKtQ50UnyyEL78rktda12WgmcZttfrReqN442uRFLfXzTQZok5EqRJZ+NzrTCElFzyWS
- 1pvLajN1eD/joUObNtZ++ge134DZffF6+P1tQVCWezzvR76NgzC0ztXroJl3gtdjL11x
- hyyQ==
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=5Bg/55HY6b5xt3DAP/QXmPviwuecdB1Xirdc8qw79JQ=;
+ b=Pk0azXJWzlwcejy328MP5waen+AOKdeqZmk3os5xaCg1WxMAsPtQv73vS87EtQekSP
+ GaY2MhIuEqUExt+5Rzhti/23F2aNEjTlL09Al9wRedc1kyZxfpe6ZiU53FnM4v1+9iDq
+ 3gmRNaY/rrPSq2tA9r0Vep/DU/kNkPIoXqSK9Wbuzcw2p00d7fntkfFD0zecca1U9a2w
+ cgNwOU1wD4UbMiKl0HpV75M+uNlKQNvJn5rClXUJqlLmJLJJsL4ZhYzndFUi2uGukEOf
+ Ni+sj1whxWyKP0T608DfSCPu2thinekR7FynuyRBB5y47wZogTS2FaGTNf5yZUA2kcKE
+ HfTQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=WqhblJUeYNqkEJvHhc49SOJHnOdQA9KcXFKb5DYt+JA=;
- b=ejeRoG8MvBWoS6eA7pQs3uep371zVmj518p6QhKtjHBYksLNWSfJGqGYQ9G/bfCMfp
- kOTEgv9xbINtTBAflB7mNm2N/C7cDOk2Ex0n5c+fcniU4S7SsTvW/253Vpx7gev1xjoZ
- A0P8e6qxNQ1pb987VRo0mIoKvMN+4diVCOoX5wJk9vwJJvZogzNbvmJx8u6Dnmh+0xSJ
- XFgRpVAdnpDMLgxm1D/B20BJMhQDjIISDZTnYn5K/VT3uZtZVerTbtWVaBR4lmGICwSB
- M3BionxM2jI8Dw+NlrG6YLUv6iVKd/IUKcGBAGALlba/xy0g8LcWNx6GRd8jTlLJBGAP
- X8dA==
-X-Gm-Message-State: AOAM532GKWopbB6ARc8YUgE7esLX1ggHPMfQJBqmJ+YeiWn10lQC/qFR
- 5ta3fcgEClZsMuxyBQ/8txnzGzSe8nZlyPC82ESTpbU2
-X-Google-Smtp-Source: ABdhPJyfyU3fXhqCz/Yw+MTQzOjJULfBrJxYeDVbSSEF2fG9ksO1GDmMsKvK8xBIu8wyhsSkHpyk2JlYaOssirXrnrw=
-X-Received: by 2002:ab0:36ba:: with SMTP id v26mr4124543uat.49.1590383889770; 
- Sun, 24 May 2020 22:18:09 -0700 (PDT)
-MIME-Version: 1.0
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=5Bg/55HY6b5xt3DAP/QXmPviwuecdB1Xirdc8qw79JQ=;
+ b=Rfkba1ZWj0PpoHOlznrZUYVt2AY+mrJKXIwOM90q7cm4SM+QRnA5xC44PZm7I/8s5K
+ jstRtk/1nZuNGcyZvILHgQrMg4RDb1FZBWLb2FjYWN5+TVGPcK3SMhf0ydo7NEaPtFoF
+ Gu3JlF0loZ8GRm2+nc+4inyVTGmnhixzop4U9yQ53WCTHJwwJPUFHyTTIQ+CgiFnvrLK
+ qP/df1OygUe3afPYLQnnSqprSDWpyBiOGwZmFQQ+bXfoJabvi5Y5f+iFPR61zRca6dT2
+ tcdoL0QONWb83oDa1qpyDDDKIPQqdfGlKvCdy9kbr283YSY9RKSklsQSRqJlze9K2YUJ
+ j3Tw==
+X-Gm-Message-State: AOAM5304tG3JHhHbN3qZIk8vBAPW3z2FOROExNoMN3WfHZJiOAzTGCK/
+ YsyPKLozT22im/0pmifxa0w=
+X-Google-Smtp-Source: ABdhPJy1X2PKF+PK4vRhCbsDcN6EXrUI9N+URIt9oOOKmIdckL/pZS8Ugyudsx8N8aWvv7UrSr6iwA==
+X-Received: by 2002:a2e:574e:: with SMTP id r14mr11891866ljd.411.1590399781257; 
+ Mon, 25 May 2020 02:43:01 -0700 (PDT)
+Received: from jonathartonsmbp.lan (83-245-237-52-nat-p.elisa-mobile.fi.
+ [83.245.237.52])
+ by smtp.gmail.com with ESMTPSA id c22sm4713566lfm.25.2020.05.25.02.42.59
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 25 May 2020 02:43:00 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.5\))
+From: Jonathan Morton <chromatix99@gmail.com>
+In-Reply-To: <CAC8NkTCQQ=8Zy-YiYKP=8VLRzmrMH8g1ya1o=6iZAgY2vvbxAw@mail.gmail.com>
+Date: Mon, 25 May 2020 12:42:58 +0300
+Message-Id: <48938727-0CFF-4B72-B82B-49E0535E9B82@gmail.com>
 References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
  <C24C4CCB-C30D-452A-9386-5AA533F11CEE@gmail.com> <87wo5okhbo.fsf@toke.dk>
  <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com>
@@ -65,11 +75,9 @@ References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
  <CAA93jw5OP3EfedB5zDPZNYdQaH+LkhUiwaLzMDbyvnTpxZdqSw@mail.gmail.com>
  <7FCC9B1F-7F4B-43E8-B557-88B2A845C28B@gmail.com>
  <CAA93jw6qnP0r8LcUxykUtbwMuv0WcoCvtseLC4rLdbhpwnOU-Q@mail.gmail.com>
-In-Reply-To: <CAA93jw6qnP0r8LcUxykUtbwMuv0WcoCvtseLC4rLdbhpwnOU-Q@mail.gmail.com>
-From: Avakash bhat <avakash261@gmail.com>
-Date: Mon, 25 May 2020 10:47:53 +0530
-Message-ID: <CAC8NkTCQQ=8Zy-YiYKP=8VLRzmrMH8g1ya1o=6iZAgY2vvbxAw@mail.gmail.com>
-To: Cake List <cake@lists.bufferbloat.net>
+ <CAC8NkTCQQ=8Zy-YiYKP=8VLRzmrMH8g1ya1o=6iZAgY2vvbxAw@mail.gmail.com>
+To: Avakash bhat <avakash261@gmail.com>
+X-Mailer: Apple Mail (2.3445.9.5)
 Subject: Re: [Cake] Query on ACK
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -84,172 +92,63 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Vybhav Pai <vybhavpai1999.vp@gmail.com>,
  Shrinidhi Varna <shrinidhivarna.171co145@nitk.edu.in>,
+ Cake List <cake@lists.bufferbloat.net>,
  "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
  Deepak K <deepakkavoor99@gmail.com>
-Content-Type: multipart/mixed; boundary="===============6026581840540602569=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============6026581840540602569==
-Content-Type: multipart/alternative; boundary="000000000000ce6f1305a6721a1b"
-
---000000000000ce6f1305a6721a1b
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi all,
-We had another query we would like to resolve. We wanted to verify the
-working of ack filter in ns-3,
-so we decided to replicate the Fig 6 graph in the CAKE paper(
-https://ieeexplore.ieee.org/document/8475045).
-While trying to build the topology we realized that we do not know the
-number of packets or bytes sent from
-the source to the destination for each of the TCP connections ( We are
-assuming it is a point to point connection with 4 TCP flows).
-
-Could we get a bit more details about how the experiment was conducted?
-
-Also is this the best way to verify the correctness of our implementation?
-
-Thanks,
-Avakash Bhat
-
-On Fri, May 8, 2020 at 9:11 PM Dave Taht <dave.taht@gmail.com> wrote:
-
-> acks at the time you have reached a point of dropping them
-> significantly have filled the pipe, also.
->
-> What I saw here was that the first flow to really get going, and
-> really get dropped, dominated over the others,
-> because I thought it was consistently ending up in the priority queue.
->
-> http://blog.cerowrt.org/post/ack_filtering/
->
-> Look, all I'm proposing is this idea be tried and tested. Cynically...
-> since there's a new model coming out as
-> the result of this work, it immediately turns into something a good
-> paper can hing on.
->
-> On Fri, May 8, 2020 at 8:20 AM Jonathan Morton <chromatix99@gmail.com>
-> wrote:
-> >
-> > >> The ACK filter runs on enqueue, so if a queue has only ACKs in it, i=
-t
-> > >> will never accumulate anything in the first place...
-> > >
-> > > but the side effect is that on dequeue, it flips it into the fast
-> > > queue drr rotation, not the slow, so it can't accumulate
-> > > as many acks before delivering the one it has left.
-> > >
-> > > Or so I thought, way back when....
-> >
-> > The ack filter converts a stream of acks that might be treated as a bul=
-k
-> flow into a sparse flow, which is delivered promptly.  This is a good
-> thing; an ack should not be held back solely to see whether another one
-> will arrive.
-> >
-> > I think of it as an optimisation to reduce delay of the information in
-> the ack stream, not solely as a way to reduce the bandwidth consumed by t=
-he
-> ack stream; the latter is a happy side effect.
-> >
-> >  - Jonathan Morton
->
->
->
-> --
-> Make Music, Not War
->
-> Dave T=C3=A4ht
-> CTO, TekLibre, LLC
-> http://www.teklibre.com
-> Tel: 1-831-435-0729
->
-
---000000000000ce6f1305a6721a1b
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">Hi all,<div>We had another query we would like to resolve.=
- We wanted to verify the working of ack filter in ns-3,=C2=A0</div><div>so =
-we decided to replicate the Fig 6 graph in the CAKE paper(<a href=3D"https:=
-//ieeexplore.ieee.org/document/8475045">https://ieeexplore.ieee.org/documen=
-t/8475045</a>).=C2=A0</div><div>While trying to build the topology we reali=
-zed that we do not know the number of packets or bytes sent from=C2=A0</div=
-><div>the source to the destination for each of the TCP connections ( We ar=
-e assuming it is a point to point connection with 4 TCP flows).=C2=A0</div>=
-<div><br></div><div>Could we get a bit more details about how the experimen=
-t was conducted?</div><div><br></div><div>Also is this the best way to veri=
-fy the correctness of our implementation?</div><div><br></div><div>Thanks,<=
-/div><div>Avakash Bhat</div></div><br><div class=3D"gmail_quote"><div dir=
-=3D"ltr" class=3D"gmail_attr">On Fri, May 8, 2020 at 9:11 PM Dave Taht &lt;=
-<a href=3D"mailto:dave.taht@gmail.com">dave.taht@gmail.com</a>&gt; wrote:<b=
-r></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex=
-;border-left:1px solid rgb(204,204,204);padding-left:1ex">acks at the time =
-you have reached a point of dropping them<br>
-significantly have filled the pipe, also.<br>
-<br>
-What I saw here was that the first flow to really get going, and<br>
-really get dropped, dominated over the others,<br>
-because I thought it was consistently ending up in the priority queue.<br>
-<br>
-<a href=3D"http://blog.cerowrt.org/post/ack_filtering/" rel=3D"noreferrer" =
-target=3D"_blank">http://blog.cerowrt.org/post/ack_filtering/</a><br>
-<br>
-Look, all I&#39;m proposing is this idea be tried and tested. Cynically...<=
-br>
-since there&#39;s a new model coming out as<br>
-the result of this work, it immediately turns into something a good<br>
-paper can hing on.<br>
-<br>
-On Fri, May 8, 2020 at 8:20 AM Jonathan Morton &lt;<a href=3D"mailto:chroma=
-tix99@gmail.com" target=3D"_blank">chromatix99@gmail.com</a>&gt; wrote:<br>
-&gt;<br>
-&gt; &gt;&gt; The ACK filter runs on enqueue, so if a queue has only ACKs i=
-n it, it<br>
-&gt; &gt;&gt; will never accumulate anything in the first place...<br>
-&gt; &gt;<br>
-&gt; &gt; but the side effect is that on dequeue, it flips it into the fast=
-<br>
-&gt; &gt; queue drr rotation, not the slow, so it can&#39;t accumulate<br>
-&gt; &gt; as many acks before delivering the one it has left.<br>
-&gt; &gt;<br>
-&gt; &gt; Or so I thought, way back when....<br>
-&gt;<br>
-&gt; The ack filter converts a stream of acks that might be treated as a bu=
-lk flow into a sparse flow, which is delivered promptly.=C2=A0 This is a go=
-od thing; an ack should not be held back solely to see whether another one =
-will arrive.<br>
-&gt;<br>
-&gt; I think of it as an optimisation to reduce delay of the information in=
- the ack stream, not solely as a way to reduce the bandwidth consumed by th=
-e ack stream; the latter is a happy side effect.<br>
-&gt;<br>
-&gt;=C2=A0 - Jonathan Morton<br>
-<br>
-<br>
-<br>
--- <br>
-Make Music, Not War<br>
-<br>
-Dave T=C3=A4ht<br>
-CTO, TekLibre, LLC<br>
-<a href=3D"http://www.teklibre.com" rel=3D"noreferrer" target=3D"_blank">ht=
-tp://www.teklibre.com</a><br>
-Tel: 1-831-435-0729<br>
-</blockquote></div>
-
---000000000000ce6f1305a6721a1b--
-
---===============6026581840540602569==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============6026581840540602569==--
+PiBPbiAyNSBNYXksIDIwMjAsIGF0IDg6MTcgYW0sIEF2YWthc2ggYmhhdCA8YXZha2FzaDI2MUBn
+bWFpbC5jb20+IHdyb3RlOgo+IAo+IFdlIGhhZCBhbm90aGVyIHF1ZXJ5IHdlIHdvdWxkIGxpa2Ug
+dG8gcmVzb2x2ZS4gV2Ugd2FudGVkIHRvIHZlcmlmeSB0aGUgd29ya2luZyBvZiBhY2sgZmlsdGVy
+IGluIG5zLTMsIAo+IHNvIHdlIGRlY2lkZWQgdG8gcmVwbGljYXRlIHRoZSBGaWcgNiBncmFwaCBp
+biB0aGUgQ0FLRSBwYXBlcihodHRwczovL2llZWV4cGxvcmUuaWVlZS5vcmcvZG9jdW1lbnQvODQ3
+NTA0NSkuIAo+IFdoaWxlIHRyeWluZyB0byBidWlsZCB0aGUgdG9wb2xvZ3kgd2UgcmVhbGl6ZWQg
+dGhhdCB3ZSBkbyBub3Qga25vdyB0aGUgbnVtYmVyIG9mIHBhY2tldHMgb3IgYnl0ZXMgc2VudCBm
+cm9tIAo+IHRoZSBzb3VyY2UgdG8gdGhlIGRlc3RpbmF0aW9uIGZvciBlYWNoIG9mIHRoZSBUQ1Ag
+Y29ubmVjdGlvbnMgKCBXZSBhcmUgYXNzdW1pbmcgaXQgaXMgYSBwb2ludCB0byBwb2ludCBjb25u
+ZWN0aW9uIHdpdGggNCBUQ1AgZmxvd3MpLiAKPiAKPiBDb3VsZCB3ZSBnZXQgYSBiaXQgbW9yZSBk
+ZXRhaWxzIGFib3V0IGhvdyB0aGUgZXhwZXJpbWVudCB3YXMgY29uZHVjdGVkPwoKSSBiZWxpZXZl
+IHRoaXMgd2FzIGNvbmR1Y3RlZCB1c2luZyB0aGUgUlJVTCB0ZXN0IGluIEZsZW50LiAgVGhpcyBv
+cGVucyBmb3VyIHNhdHVyYXRpbmcgVENQIGZsb3dzIGluIGVhY2ggZGlyZWN0aW9uLCBhbmQgYWxz
+byBzZW5kcyBhIHNtYWxsIGFtb3VudCBvZiBsYXRlbmN5IG1lYXN1cmluZyB0cmFmZmljLiAgT24g
+dGhpcyBvY2Nhc2lvbiBJIGRvbid0IHRoaW5rIHdlIGFkZGVkIGFueSBzaW11bGF0ZWQgcGF0aCBk
+ZWxheXMsIGFuZCBvbmx5IGltcG9zZWQgdGhlIHF1b3RlZCBhc3ltbWV0cmljIGJhbmR3aWR0aCBs
+aW1pdHMgKDMwTWJwcyBkb3duLCAxTWJwcyB1cCkuCgo+IEFsc28gaXMgdGhpcyB0aGUgYmVzdCB3
+YXkgdG8gdmVyaWZ5IHRoZSBjb3JyZWN0bmVzcyBvZiBvdXIgaW1wbGVtZW50YXRpb24/CgpPYnZp
+b3VzbHkgd2l0aCBsaW1pdGVkIHNwYWNlIGluIG91ciBwYXBlciwgd2UgY291bGQgb25seSBpbmNs
+dWRlIGEgc21hbGwgc2VsZWN0aW9uIG9mIHRlc3QgcmVzdWx0cy4gIE1hbnkgb3RoZXIgdGVzdHMg
+d2VyZSBydW4gaW4gcHJhY3RpY2UsIGFuZCB3ZSBoYXZlIGV4cGFuZGVkIG91ciB0ZXN0IHJlcGVy
+dG9pcmUgc2luY2UuCgpJbiBwYXJ0aWN1bGFyLCB3ZSBub3cgcm91dGluZWx5IHJ1biB0ZXN0cyB3
+aXRoIGEgc2ltdWxhdGVkIHR5cGljYWwgSW50ZXJuZXQgcGF0aCBkZWxheSBpbnNlcnRlZCwgZWcu
+IDIwbXMsIDgwbXMsIDE2MG1zIGJhc2VsaW5lIFJUVHMgdG8gcmVwcmVzZW50IHJlYWNoaW5nIGEg
+bG9jYWwtaXNoIENETiwgYWNyb3NzIHRoZSBBdGxhbnRpYywgYW5kIGZyb20gRXVyb3BlIHRvIHRo
+ZSBVUyBXZXN0IENvYXN0LiAgWW91IHdpbGwgYWxzbyB3YW50IHRvIGluY2x1ZGUgbXVsdGlwbGUg
+dHJhZmZpYyBtaXhlcyBpbiB0aGUgYW5hbHlzaXMsIGluIHBhcnRpY3VsYXIgZGlmZmVyZW50IGNv
+bmdlc3Rpb24gY29udHJvbCBhbGdvcml0aG1zIChhdCBsZWFzdCBSZW5vIGFuZCBDVUJJQyksIGFu
+ZCBydW5uaW5nIHdpdGggRUNOIGJvdGggZW5hYmxlZCBhbmQgZGlzYWJsZWQgYXQgdGhlIGVuZHBv
+aW50cy4KCkEgdXNlZnVsIHRvcnR1cmUgdGVzdCB3ZSB1c2VkIHdhcyB0byBzZW5kIG1hbnkgYnVs
+ayBmbG93cyB1cCB0aGUgbmFycm93IHNpZGUgb2YgdGhlIGxpbmsgYW5kIGEgc2luZ2xlIGJ1bGsg
+ZmxvdyBkb3duIHRoZSB3aWRlIHNpZGUuICBGb3IgZXhhbXBsZSwgNTA6MSBmbG93IGNvdW50cyB3
+aXRoIDE6MTAsIDE6MjAgYW5kIDE6MzAgYmFuZHdpZHRoIGFzeW1tZXRyaWVzLiAgVGhlIGFja3Mg
+b2YgdGhlIHNpbmdsZSBmbG93IHRoZW4gaGF2ZSB0byBjb21wZXRlIHdpdGggdGhlIGhlYXZ5IGxv
+YWQgb2YgdGhlIG1hbnkgZmxvd3MsIGFuZCB0aGUgdG90YWwgZ29vZHB1dCBvZiB0aGF0IHNpbmds
+ZSBmbG93IGlzIGFuIGltcG9ydGFudCBtZXRyaWMsIGFsb25nIHdpdGggYm90aCB0aGUgdG90YWwg
+Z29vZHB1dCBhbmQgdGhlIEphaW4ncyBmYWlybmVzcyBvZiB0aGUgdXBsb2FkIHRyYWZmaWMuICBU
+aGlzIHNob3VsZCBzaG93IGEgcGFydGljdWxhcmx5IHN0cm9uZyBlZmZlY3Qgb2YgdGhlIGFjayBm
+aWx0ZXIsIGFzIG90aGVyd2lzZSBpbmRpdmlkdWFsIGFja3MgaGF2ZSB0byBiZSBkcm9wcGVkIGJ5
+IHRoZSBBUU0sIHdoaWNoIENvZGVsIGlzIG5vdCB2ZXJ5IGdvb2QgYXQgYWRhcHRpbmcgdG8gcXVp
+Y2tseS4KCkluIGV2YWx1YXRpbmcgdGhlIGFib3ZlLCB5b3Ugd2lsbCB3YW50IHRvIGJlIHZpZ2ls
+YW50IG5vdCBvbmx5IGZvciBvYnNlcnZlZCBncm9zcyBwZXJmb3JtYW5jZSwgYnV0IGFsc28gdGhl
+IGV4dGVudCB0byB3aGljaCB0aGUgYWNrIGZpbHRlciBwcmVzZXJ2ZXMgb3IgbG9zZXMgaW5mb3Jt
+YXRpb24gZnJvbSB0aGUgYWNrIHN0cmVhbS4gIFRoaXMgaXMgcGFydGljdWxhcmx5IHRydWUgaW4g
+dGhlIHJ1bnMgd2l0aG91dCBFQ04sIGluIHdoaWNoIGNvbmdlc3Rpb24gc2lnbmFscyBjYW4gb25s
+eSBiZSBhcHBsaWVkIHRocm91Z2ggcGFja2V0IGxvc3MsIGFuZCB0aGUgZmVlZGJhY2sgb2YgdGhh
+dCBzaWduYWwgaXMgdGhyb3VnaCBkdXAtYWNrcyBhbmQgU0FDSy4gIEkgdGhpbmsgeW91IHdpbGwg
+ZmluZCB0aGF0IHRoZSAiYWdncmVzc2l2ZSIgc2V0dGluZyBsb3NlcyBzb21lIGluZm9ybWF0aW9u
+LCBhbmQgaXRzIHBlcmZvcm1hbmNlIHN1ZmZlcnMgYWNjb3JkaW5nbHkgaW4gc29tZSBjYXNlcy4K
+CiAtIEpvbmF0aGFuIE1vcnRvbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQK
+aHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
