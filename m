@@ -2,59 +2,70 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 938ED1F88CE
-	for <lists+cake@lfdr.de>; Sun, 14 Jun 2020 14:44:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 371AA1F895B
+	for <lists+cake@lfdr.de>; Sun, 14 Jun 2020 16:43:14 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 0595F3CB48;
-	Sun, 14 Jun 2020 08:44:06 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id C36483CB38;
+	Sun, 14 Jun 2020 10:43:12 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1592138646;
-	bh=tYoD+ld/nUEjRh+etl1KF3i/jol1XPhNTGRd9UZw0Ew=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1592145792;
+	bh=GPTmdzoJe8Q+Jjl0m6fyqE+tS3M2UUMKh+XdLjNIrH4=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=E3E+R5I9DuUMvTu7dg8SF/TEUcWzTbPMjjs8EY7AduPxU7Is4wLtrVQYQvBHPjz8L
-	 sHPwbuZ6z61fJxQbiJJnzvHqXsYaP2i4WabeNGy5en66djsr4/L3fM9Z9yFEgM7/Zk
-	 NPE3ByFo1OIVT6qFWVHDs5Mu6kCT1xObmZZMCs+fzDIqw06U1fGcFL/FJtaq5X1Bu1
-	 fq8aSM0ladhkTwJM7IXC0YExgz4A1STPP8ZjNBESfY5FP+N2nLarm82eSrdgfT7tFl
-	 spH8DZ0vXGpPM+VkvtpeIuRkumDKf2tuhWPuN/Ks+hhgTAJI6T6NRbsklQymK7a+mv
-	 AIlivR43DetTg==
+	b=MD+2geoLQJy88cuufnd8aHYxC1JwUuAThN4d/ZWLzx+k36DuwWp98C+PwANuv0nKc
+	 SlooqXzo7tmFZqXi5bvHnUVKu3aqGYps9rTglwLHhqnfHwAYiRN4PF79isM3ThZ2zn
+	 meBnSJBt4ZSHd27IO5ROirhCZkPUWwAafxIT9yJkCRgcFdtudla0K6HBnOxFGZWnXl
+	 aq7sx+YUc1Ioog7xuwfi63ZCl8M4prT3/FHHzoE8akDyKrC4WLOQvZrYFx2WY3uIib
+	 C3vG7vI7htawHBGDxrMPQ4CR+3j41aW2pK3Jf3YDq4QzSBq2dhucwL3ehwkLWCDKdJ
+	 oEtWH1ZTSpSWQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-vs1-xe2c.google.com (mail-vs1-xe2c.google.com
- [IPv6:2607:f8b0:4864:20::e2c])
+Received: from mail-lj1-x22d.google.com (mail-lj1-x22d.google.com
+ [IPv6:2a00:1450:4864:20::22d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 6E14C3B29E
- for <cake@lists.bufferbloat.net>; Sun, 14 Jun 2020 08:44:04 -0400 (EDT)
-Received: by mail-vs1-xe2c.google.com with SMTP id c1so7802274vsc.11
- for <cake@lists.bufferbloat.net>; Sun, 14 Jun 2020 05:44:04 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id CE35D3B29E
+ for <cake@lists.bufferbloat.net>; Sun, 14 Jun 2020 10:43:11 -0400 (EDT)
+Received: by mail-lj1-x22d.google.com with SMTP id n24so16083993lji.10
+ for <cake@lists.bufferbloat.net>; Sun, 14 Jun 2020 07:43:11 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=PJyx97D4mfcFpYgOJV7aZaBvrbgVgni1k1qAItqepe0=;
- b=OXTPb6oDyoBnnjTlWe7jIm8TCxgb3T9lD41Q39gbIJak6PHy59FGd+OuJrbjmmeEco
- QYg/s52CTay+PFsDEYFNx5dNCr8eX4r0JSMeRpCkYY9gPwXli52QltytdLFS5OgyZYNA
- haQaQGXBfVZKW7Ar6Xmt+DE+pQgDCYaJvuEfmkldKRyopM16vL7vXL0SCBi9pBS8AU7G
- EkLB8zIEjGlaM/v7Urlx3Fwud1wPm7bZVh4kJedkZf4kNwnZkDW0a6xuK4tzbqqzQpVl
- /vO5kpzrta5bDwhbp5kre7Zetx5FG5GYIZYEFr1EKjiGQ3WFrqofmk64h3huc6jPPW+M
- oozw==
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=S6sQYQKbwl6D2do4GJGoM0FGNKQArZvIOxSM7tmUl5I=;
+ b=F38UtU5UzQXtWY0bh2LmWPr0v/hghPGwzVJAWCSpkMlDLEUZXKVX8BcM48iEmzfm7b
+ NJ5hoWUp0qRfqynO21yYl6fferZ7KnPP/BzgQFwhfJ/oZ0sblBKIu1js+ubrt7YkfJuU
+ 6hyRXZOyylNSHoJb0qoXiMccS8Pg/BO47iKc9WnSvmLTDOIRILPJPxHqqj7e5ZChgPhM
+ tm1HGgXoMD8DoD3CxH621hTESj6b73lHwk51llM4+RiDzZt3sA/8tsjjd5uaXFjiYayN
+ S7XFE4lP+xi7WRot2s6GVzOQEiK26D+qP+T3bTz189WdXHNSgnnD6kXFWoTNqiU6U9FE
+ SyRw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=PJyx97D4mfcFpYgOJV7aZaBvrbgVgni1k1qAItqepe0=;
- b=GvAlpz2+8bPRwJPquHGHEK2YwJUstGuswGpNMhQs3Vl5H7bOS/DriS6snrtQQOrISz
- RjqMHxsngQcWjrcs7J76zUICw+QztrOFjMTV7raA0VkALGekObxPmibtWZiCNmrMUo5F
- sLuYvsmrY/myptOEHKXQyBZWypPvSxEg2ghq1/+hUXoKzpgZHxEclwoNeqWIRwk/Ttbi
- FdeHhRtktG0RxNcN3eKs0PRACeh3BSGVlIBW7cd7D63zT+c0S0wLXFoAB4LKhnB6EScC
- BzHXa21A7IvbWDDl/29H1AHn+ozbMP0mAu3ZYemkvMFTbKGqul/GlvT2EYF3NEEqqwOH
- r7JA==
-X-Gm-Message-State: AOAM532zIVLraD0AIqiqhiTzXJkWoDkzt5KeWEc0yodyYXQnkpHHJo0U
- SQkuTf9YEnIvayv/4mHMc08Hee0IhpKxGDSYGJE=
-X-Google-Smtp-Source: ABdhPJzKagIX7oVllS4+9NBQfHUdtU/jos6GbZF4RxKzjs865XU21tCPDPyPNx2mtqUbQiTJw4tPBLoyYOtULuQGJjU=
-X-Received: by 2002:a67:e00f:: with SMTP id c15mr17043294vsl.214.1592138643914; 
- Sun, 14 Jun 2020 05:44:03 -0700 (PDT)
-MIME-Version: 1.0
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=S6sQYQKbwl6D2do4GJGoM0FGNKQArZvIOxSM7tmUl5I=;
+ b=tEEhK93MKZdKo73CUYYuYqlMXvjMHo81eteniyneVi5lSxTXpmgdBCjmom7AgUubE9
+ G1XBSWuuH+fzryhzV+RRMVbXw8+6GNh7YNEPSKBCFt678l8SfIJGV5DWI70YuBFYk4qP
+ 2sdouPFaNzY71CaO0hG+iQy9Fn1EwKdKHdh6hLEnYeQtmhRQAhLTSGDMg1lQ1fLpzTF8
+ EAfNz+JHr7MHiYglrYH8CMR9BPfE7D5mvCYz4tLYEFuLhyF50ppCsc505Eof7zC9JsRY
+ eXX0jQ5l11NCvMWzH57P8amKCVmB0q5Mf0vjp/tEyhnxWtLEM6DSp9PDJmQHVOi0bksL
+ Ly0g==
+X-Gm-Message-State: AOAM530lsVqklRC/0SG+UTF99IH2NaG45ed+n4gQf17ut0Nuxk1UdOYs
+ iM5aIh7cniFutKk9fvlXP38=
+X-Google-Smtp-Source: ABdhPJwmJfKVV6bV/qzVHJm7TKouGFks2LXz6Tr6xkIvYZfSoQz9FSya+oWn7AezBge69OSJozhbbg==
+X-Received: by 2002:a05:651c:299:: with SMTP id
+ b25mr11917662ljo.13.1592145790772; 
+ Sun, 14 Jun 2020 07:43:10 -0700 (PDT)
+Received: from jonathartonsmbp.lan (83-245-237-14-nat-p.elisa-mobile.fi.
+ [83.245.237.14])
+ by smtp.gmail.com with ESMTPSA id 11sm3304036lju.118.2020.06.14.07.43.09
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Sun, 14 Jun 2020 07:43:10 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.5\))
+From: Jonathan Morton <chromatix99@gmail.com>
+In-Reply-To: <CAC8NkTCrNr8De8eT90UogVE+6ZzHgxQz1K3SXFrs1JVCTahdQQ@mail.gmail.com>
+Date: Sun, 14 Jun 2020 17:43:08 +0300
+Message-Id: <1F6D30F9-A697-4588-9AB7-2A3757924900@gmail.com>
 References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
  <C24C4CCB-C30D-452A-9386-5AA533F11CEE@gmail.com> <87wo5okhbo.fsf@toke.dk>
  <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com>
@@ -67,11 +78,9 @@ References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
  <CAA93jw6qnP0r8LcUxykUtbwMuv0WcoCvtseLC4rLdbhpwnOU-Q@mail.gmail.com>
  <CAC8NkTCQQ=8Zy-YiYKP=8VLRzmrMH8g1ya1o=6iZAgY2vvbxAw@mail.gmail.com>
  <48938727-0CFF-4B72-B82B-49E0535E9B82@gmail.com> <87y2pgi5ue.fsf@toke.dk>
-In-Reply-To: <87y2pgi5ue.fsf@toke.dk>
-From: Avakash bhat <avakash261@gmail.com>
-Date: Sun, 14 Jun 2020 18:13:53 +0530
-Message-ID: <CAC8NkTCrNr8De8eT90UogVE+6ZzHgxQz1K3SXFrs1JVCTahdQQ@mail.gmail.com>
-To: =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
+ <CAC8NkTCrNr8De8eT90UogVE+6ZzHgxQz1K3SXFrs1JVCTahdQQ@mail.gmail.com>
+To: Avakash bhat <avakash261@gmail.com>
+X-Mailer: Apple Mail (2.3445.9.5)
 Subject: Re: [Cake] Query on ACK
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -89,136 +98,29 @@ Cc: Vybhav Pai <vybhavpai1999.vp@gmail.com>,
  Cake List <cake@lists.bufferbloat.net>,
  "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
  Deepak K <deepakkavoor99@gmail.com>
-Content-Type: multipart/mixed; boundary="===============8962621275809753939=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8962621275809753939==
-Content-Type: multipart/alternative; boundary="0000000000004dc6b505a80aaa19"
-
---0000000000004dc6b505a80aaa19
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi all,
-
-I wanted another clarification on the results obtained by the Ack filtering
-experiment( Fig 6) .
-Was the experiment conducted with only ack filtering enabled?
-Or was set associative hash and the other modules of Cake enabled along
-with Ack filtering while running this experiment ?
-
-Thanks,
-Avakash Bhat
-
-On Mon, May 25, 2020, 5:28 PM Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat=
-.com>
-wrote:
-
-> Jonathan Morton <chromatix99@gmail.com> writes:
->
-> >> On 25 May, 2020, at 8:17 am, Avakash bhat <avakash261@gmail.com> wrote=
-:
-> >>
-> >> We had another query we would like to resolve. We wanted to verify the
-> working of ack filter in ns-3,
-> >> so we decided to replicate the Fig 6 graph in the CAKE paper(
-> https://ieeexplore.ieee.org/document/8475045).
-> >> While trying to build the topology we realized that we do not know the
-> number of packets or bytes sent from
-> >> the source to the destination for each of the TCP connections ( We are
-> assuming it is a point to point connection with 4 TCP flows).
-> >>
-> >> Could we get a bit more details about how the experiment was conducted=
-?
-> >
-> > I believe this was conducted using the RRUL test in Flent.  This opens
-> > four saturating TCP flows in each direction, and also sends a small
-> > amount of latency measuring traffic.  On this occasion I don't think
-> > we added any simulated path delays, and only imposed the quoted
-> > asymmetric bandwidth limits (30Mbps down, 1Mbps up).
->
-> See https://www.cs.kau.se/tohojo/cake/ - the link to the data files near
-> the bottom of that page also contains the Flent batch file and setup
-> scripts used to run the whole thing.
->
-> (And there's no explicit "number of bytes sent", but rather the flows
-> are capacity-seeking flows running for a limited *time*).
->
-> -Toke
->
->
-
---0000000000004dc6b505a80aaa19
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"auto">Hi all,<div dir=3D"auto"><br><div dir=3D"auto">I wanted a=
-nother clarification on the results obtained by the Ack filtering experimen=
-t( Fig 6) .=C2=A0</div><div dir=3D"auto">Was the experiment conducted with =
-only ack filtering enabled?=C2=A0</div><div dir=3D"auto">Or was set associa=
-tive hash and the other modules of Cake enabled along with Ack filtering wh=
-ile running this experiment ?</div><div dir=3D"auto"><br></div><div dir=3D"=
-auto">Thanks,</div><div dir=3D"auto">Avakash Bhat</div></div></div><br><div=
- class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, May 25=
-, 2020, 5:28 PM Toke H=C3=B8iland-J=C3=B8rgensen &lt;<a href=3D"mailto:toke=
-@redhat.com" target=3D"_blank" rel=3D"noreferrer">toke@redhat.com</a>&gt; w=
-rote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0 0 0 .8ex=
-;border-left:1px #ccc solid;padding-left:1ex">Jonathan Morton &lt;<a href=
-=3D"mailto:chromatix99@gmail.com" rel=3D"noreferrer noreferrer" target=3D"_=
-blank">chromatix99@gmail.com</a>&gt; writes:<br>
-<br>
-&gt;&gt; On 25 May, 2020, at 8:17 am, Avakash bhat &lt;<a href=3D"mailto:av=
-akash261@gmail.com" rel=3D"noreferrer noreferrer" target=3D"_blank">avakash=
-261@gmail.com</a>&gt; wrote:<br>
-&gt;&gt; <br>
-&gt;&gt; We had another query we would like to resolve. We wanted to verify=
- the working of ack filter in ns-3, <br>
-&gt;&gt; so we decided to replicate the Fig 6 graph in the CAKE paper(<a hr=
-ef=3D"https://ieeexplore.ieee.org/document/8475045" rel=3D"noreferrer noref=
-errer noreferrer" target=3D"_blank">https://ieeexplore.ieee.org/document/84=
-75045</a>). <br>
-&gt;&gt; While trying to build the topology we realized that we do not know=
- the number of packets or bytes sent from <br>
-&gt;&gt; the source to the destination for each of the TCP connections ( We=
- are assuming it is a point to point connection with 4 TCP flows). <br>
-&gt;&gt; <br>
-&gt;&gt; Could we get a bit more details about how the experiment was condu=
-cted?<br>
-&gt;<br>
-&gt; I believe this was conducted using the RRUL test in Flent.=C2=A0 This =
-opens<br>
-&gt; four saturating TCP flows in each direction, and also sends a small<br=
->
-&gt; amount of latency measuring traffic.=C2=A0 On this occasion I don&#39;=
-t think<br>
-&gt; we added any simulated path delays, and only imposed the quoted<br>
-&gt; asymmetric bandwidth limits (30Mbps down, 1Mbps up).<br>
-<br>
-See <a href=3D"https://www.cs.kau.se/tohojo/cake/" rel=3D"noreferrer norefe=
-rrer noreferrer" target=3D"_blank">https://www.cs.kau.se/tohojo/cake/</a> -=
- the link to the data files near<br>
-the bottom of that page also contains the Flent batch file and setup<br>
-scripts used to run the whole thing.<br>
-<br>
-(And there&#39;s no explicit &quot;number of bytes sent&quot;, but rather t=
-he flows<br>
-are capacity-seeking flows running for a limited *time*).<br>
-<br>
--Toke<br>
-<br>
-</blockquote></div>
-
---0000000000004dc6b505a80aaa19--
-
---===============8962621275809753939==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8962621275809753939==--
+PiBPbiAxNCBKdW4sIDIwMjAsIGF0IDM6NDMgcG0sIEF2YWthc2ggYmhhdCA8YXZha2FzaDI2MUBn
+bWFpbC5jb20+IHdyb3RlOgo+IAo+IEkgd2FudGVkIGFub3RoZXIgY2xhcmlmaWNhdGlvbiBvbiB0
+aGUgcmVzdWx0cyBvYnRhaW5lZCBieSB0aGUgQWNrIGZpbHRlcmluZyBleHBlcmltZW50KCBGaWcg
+NikgLiAKPiBXYXMgdGhlIGV4cGVyaW1lbnQgY29uZHVjdGVkIHdpdGggb25seSBhY2sgZmlsdGVy
+aW5nIGVuYWJsZWQ/IAo+IE9yIHdhcyBzZXQgYXNzb2NpYXRpdmUgaGFzaCBhbmQgdGhlIG90aGVy
+IG1vZHVsZXMgb2YgQ2FrZSBlbmFibGVkIGFsb25nIHdpdGggQWNrIGZpbHRlcmluZyB3aGlsZSBy
+dW5uaW5nIHRoaXMgZXhwZXJpbWVudCA/CgpUaGUgdGVzdCB3YXMgcnVuIG9uIGEgY29tcGxldGUg
+aW1wbGVtZW50YXRpb24gb2YgQ2FrZSwgc2V0IHVwIGluIHRoZSBub3JtYWwgd2F5LiAgSSB0aGlu
+ayB3ZSBrZXB0IHRoZSBjb25maWd1cmF0aW9uIHNpbXBsZSBmb3IgdGhpcyB0ZXN0LCBzbyBldmVy
+eXRoaW5nIGF0IGRlZmF1bHRzIGV4Y2VwdCBmb3IgY2hvb3NpbmcgdGhlIHNoYXBlZCBiYW5kd2lk
+dGggaW4gZWFjaCBkaXJlY3Rpb24uCgpUaGUgYWNrLWZpbHRlciByZWxpZXMgb24gaGF2aW5nIGZh
+aXJseSBnb29kIGZsb3cgaXNvbGF0aW9uLCBzbyB0aGF0IGNvbnNlY3V0aXZlIHBhY2tldHMgaW4g
+dGhlIGFwcHJvcHJpYXRlIHF1ZXVlIGJlbG9uZyB0byB0aGUgc2FtZSBhY2sgc3RyZWFtLiAgU28g
+YXQgbWluaW11bSBpdCBpcyBhcHByb3ByaWF0ZSB0byBoYXZlIHRoZSBzZXQtYXNzb2NpYXRpdmUg
+ZmxvdyBoYXNoIGVuYWJsZWQuCgpUaGUgaG9zdC1mYWlybmVzcyBhbmQgRGlmZnNlcnYgZmVhdHVy
+ZXMgd2VyZSBwcm9iYWJseSBlbmFibGVkLCBidXQgZGlkIG5vdCBoYXZlIHJlbGV2YW50IGVmZmVj
+dHMgaW4gdGhpcyBjYXNlLCBzaW5jZSBvbmx5IG9uZSBwYWlyIG9mIGhvc3RzIGFuZCB0aGUgQmVz
+dCBFZmZvcnQgRFNDUCB3ZXJlIHVzZWQgaW4gdGhlIHRyYWZmaWMuCgogLSBKb25hdGhhbiBNb3J0
+b24KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBt
+YWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZm
+ZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
