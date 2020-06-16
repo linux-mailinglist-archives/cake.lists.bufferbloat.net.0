@@ -2,70 +2,60 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 371AA1F895B
-	for <lists+cake@lfdr.de>; Sun, 14 Jun 2020 16:43:14 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0BA8C1FA825
+	for <lists+cake@lfdr.de>; Tue, 16 Jun 2020 07:22:59 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id C36483CB38;
-	Sun, 14 Jun 2020 10:43:12 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 79AC73CB38;
+	Tue, 16 Jun 2020 01:22:57 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1592145792;
-	bh=GPTmdzoJe8Q+Jjl0m6fyqE+tS3M2UUMKh+XdLjNIrH4=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1592284977;
+	bh=aWX+TWV1PE/cxn5aykajLCTNqHu6f1RO1OJSZZ+clAQ=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=MD+2geoLQJy88cuufnd8aHYxC1JwUuAThN4d/ZWLzx+k36DuwWp98C+PwANuv0nKc
-	 SlooqXzo7tmFZqXi5bvHnUVKu3aqGYps9rTglwLHhqnfHwAYiRN4PF79isM3ThZ2zn
-	 meBnSJBt4ZSHd27IO5ROirhCZkPUWwAafxIT9yJkCRgcFdtudla0K6HBnOxFGZWnXl
-	 aq7sx+YUc1Ioog7xuwfi63ZCl8M4prT3/FHHzoE8akDyKrC4WLOQvZrYFx2WY3uIib
-	 C3vG7vI7htawHBGDxrMPQ4CR+3j41aW2pK3Jf3YDq4QzSBq2dhucwL3ehwkLWCDKdJ
-	 oEtWH1ZTSpSWQ==
+	b=fvr1wefF1Sp5KwSAfRXw/M0hGhMxv83Orv+5xdPWirim9vWu9qwD2Yk+YyTpbyT1U
+	 ZyDTlhUmva+pepjgUdAToXaQmHRN7ieolJUGwXhEsNmQnJoK0c2sonlEnF5ehT1eRk
+	 Csm/lIjmZ07d8/lrYhhk2FzfsrVQ2M1aTiIQCbnAh3YaVANemITEs9Ckl6WzRP2cl7
+	 kFZvmuigsltW2+2VLepPLxVQSaxSjwCEDoP3l/M03JmZrjRX4/MAJbmqr/5E8Hsb46
+	 GAfGIFMWDwxFDYcwQ+XAeGINo3ivnBmB/NRG1BEReotMiClRCaYkNnzZPG3KKXJCQq
+	 9xyTFhUjZUmTA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lj1-x22d.google.com (mail-lj1-x22d.google.com
- [IPv6:2a00:1450:4864:20::22d])
+Received: from mail-il1-x12d.google.com (mail-il1-x12d.google.com
+ [IPv6:2607:f8b0:4864:20::12d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id CE35D3B29E
- for <cake@lists.bufferbloat.net>; Sun, 14 Jun 2020 10:43:11 -0400 (EDT)
-Received: by mail-lj1-x22d.google.com with SMTP id n24so16083993lji.10
- for <cake@lists.bufferbloat.net>; Sun, 14 Jun 2020 07:43:11 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 38AA33B29D
+ for <cake@lists.bufferbloat.net>; Tue, 16 Jun 2020 01:22:56 -0400 (EDT)
+Received: by mail-il1-x12d.google.com with SMTP id h3so17619927ilh.13
+ for <cake@lists.bufferbloat.net>; Mon, 15 Jun 2020 22:22:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=S6sQYQKbwl6D2do4GJGoM0FGNKQArZvIOxSM7tmUl5I=;
- b=F38UtU5UzQXtWY0bh2LmWPr0v/hghPGwzVJAWCSpkMlDLEUZXKVX8BcM48iEmzfm7b
- NJ5hoWUp0qRfqynO21yYl6fferZ7KnPP/BzgQFwhfJ/oZ0sblBKIu1js+ubrt7YkfJuU
- 6hyRXZOyylNSHoJb0qoXiMccS8Pg/BO47iKc9WnSvmLTDOIRILPJPxHqqj7e5ZChgPhM
- tm1HGgXoMD8DoD3CxH621hTESj6b73lHwk51llM4+RiDzZt3sA/8tsjjd5uaXFjiYayN
- S7XFE4lP+xi7WRot2s6GVzOQEiK26D+qP+T3bTz189WdXHNSgnnD6kXFWoTNqiU6U9FE
- SyRw==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=gIFmAkRrjbUblKCjl3wp3+q7jjCNhJClX0Qay9vUaAc=;
+ b=RTVZUUvmITkxaTmelosJjG6LafnVBjAGwkdOeoN5x3sHck9XtdQeGo0f7E7GZgHKIG
+ 9uVP+0Shp0P6pHuCSaRdbhtNc0Tyyf0QtqaRo2SB0TmxWNnsxBcd60bJZ29lHo/25tZg
+ sxRmZJQa9gtxX3dbpq0nJxhm2f6jCWOkxQZ+YKdxITm8VajV6T7viJ24NkUrLWUBGkOI
+ 4WAKPVqXXEqmMMM6jgSHfF/gPtTzbOf1kW0XSeyRDZMH+1k0grC5cXSLCiiyQSgcRYza
+ pAi4GUkgzh0Q7jFfZn1JtSJaBYFQ/Mww5PeggvQrLp86Qs/bYS/ROXtLUnYIw88DqCtU
+ m6Hw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=S6sQYQKbwl6D2do4GJGoM0FGNKQArZvIOxSM7tmUl5I=;
- b=tEEhK93MKZdKo73CUYYuYqlMXvjMHo81eteniyneVi5lSxTXpmgdBCjmom7AgUubE9
- G1XBSWuuH+fzryhzV+RRMVbXw8+6GNh7YNEPSKBCFt678l8SfIJGV5DWI70YuBFYk4qP
- 2sdouPFaNzY71CaO0hG+iQy9Fn1EwKdKHdh6hLEnYeQtmhRQAhLTSGDMg1lQ1fLpzTF8
- EAfNz+JHr7MHiYglrYH8CMR9BPfE7D5mvCYz4tLYEFuLhyF50ppCsc505Eof7zC9JsRY
- eXX0jQ5l11NCvMWzH57P8amKCVmB0q5Mf0vjp/tEyhnxWtLEM6DSp9PDJmQHVOi0bksL
- Ly0g==
-X-Gm-Message-State: AOAM530lsVqklRC/0SG+UTF99IH2NaG45ed+n4gQf17ut0Nuxk1UdOYs
- iM5aIh7cniFutKk9fvlXP38=
-X-Google-Smtp-Source: ABdhPJwmJfKVV6bV/qzVHJm7TKouGFks2LXz6Tr6xkIvYZfSoQz9FSya+oWn7AezBge69OSJozhbbg==
-X-Received: by 2002:a05:651c:299:: with SMTP id
- b25mr11917662ljo.13.1592145790772; 
- Sun, 14 Jun 2020 07:43:10 -0700 (PDT)
-Received: from jonathartonsmbp.lan (83-245-237-14-nat-p.elisa-mobile.fi.
- [83.245.237.14])
- by smtp.gmail.com with ESMTPSA id 11sm3304036lju.118.2020.06.14.07.43.09
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Sun, 14 Jun 2020 07:43:10 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.5\))
-From: Jonathan Morton <chromatix99@gmail.com>
-In-Reply-To: <CAC8NkTCrNr8De8eT90UogVE+6ZzHgxQz1K3SXFrs1JVCTahdQQ@mail.gmail.com>
-Date: Sun, 14 Jun 2020 17:43:08 +0300
-Message-Id: <1F6D30F9-A697-4588-9AB7-2A3757924900@gmail.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=gIFmAkRrjbUblKCjl3wp3+q7jjCNhJClX0Qay9vUaAc=;
+ b=IQQ0n+QH98cugZOnwUfm+1L9ppoz47PQR6REOhsP9pO73aZb/CFZmZCQ+Jif2lmdVn
+ xSyUA6FDTqsynWTfOqsMpkHivgh/z/N0/YMMUXNhUeAh9UVJQaXSmr6Rfn2hqhiOIHy8
+ eWgHNuAxm4r0OMlyR7VSs1WuOML6utgs5asvrBYRPut/1VrJaZ+xKhb23CLRUuvN63lc
+ IuME/Rr3DdkpoNsSXKr49nHOnN1KMCclHUZEvT4RfEDikVMyTLyC8JbnX8/2QR19D2Cf
+ iW3P9iUSoRUBduZkpz1n9BxCYSxkB1IeEqMyseuF+20jV5UT3ZkAjjSOsBLqW8ZC8kgd
+ M2Gg==
+X-Gm-Message-State: AOAM532I3XOgb4XUOMY6YYEcOgOeuO4mjnasIt3dShXw5IbOE/3h17j7
+ HAv4GjjyKtvW3CtgBa8BN4huhjSwbzaw1BdFd28=
+X-Google-Smtp-Source: ABdhPJwayoCuLmsiXidQ7bdQUIg2RWsJx5jjwV+Ydz5esV6P2iVN2rs+lagU5RxRyhv9pwKyWVKyFQMgEbfkn/phGwQ=
+X-Received: by 2002:a05:6e02:e53:: with SMTP id
+ l19mr1344768ilk.96.1592284975538; 
+ Mon, 15 Jun 2020 22:22:55 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
  <C24C4CCB-C30D-452A-9386-5AA533F11CEE@gmail.com> <87wo5okhbo.fsf@toke.dk>
  <CAC8NkTCYBokx0NedyuOKjhZqUMHXAc5tZtObTpdyjkvE4U_zUw@mail.gmail.com>
@@ -79,8 +69,12 @@ References: <CAC8NkTBHv6_6u21bRu2BcEAW2X1Sio-JWvCYwQgLR2q-6eBgOA@mail.gmail.com>
  <CAC8NkTCQQ=8Zy-YiYKP=8VLRzmrMH8g1ya1o=6iZAgY2vvbxAw@mail.gmail.com>
  <48938727-0CFF-4B72-B82B-49E0535E9B82@gmail.com> <87y2pgi5ue.fsf@toke.dk>
  <CAC8NkTCrNr8De8eT90UogVE+6ZzHgxQz1K3SXFrs1JVCTahdQQ@mail.gmail.com>
-To: Avakash bhat <avakash261@gmail.com>
-X-Mailer: Apple Mail (2.3445.9.5)
+ <1F6D30F9-A697-4588-9AB7-2A3757924900@gmail.com>
+In-Reply-To: <1F6D30F9-A697-4588-9AB7-2A3757924900@gmail.com>
+From: Avakash bhat <avakash261@gmail.com>
+Date: Tue, 16 Jun 2020 10:52:39 +0530
+Message-ID: <CAC8NkTCf0B2QKb9TEZXk2P171CGb2faKZ3BHg2UJONpROxjY8Q@mail.gmail.com>
+To: Jonathan Morton <chromatix99@gmail.com>
 Subject: Re: [Cake] Query on ACK
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -98,29 +92,109 @@ Cc: Vybhav Pai <vybhavpai1999.vp@gmail.com>,
  Cake List <cake@lists.bufferbloat.net>,
  "Mohit P. Tahiliani" <tahiliani@nitk.edu.in>,
  Deepak K <deepakkavoor99@gmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2411240333230825614=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-PiBPbiAxNCBKdW4sIDIwMjAsIGF0IDM6NDMgcG0sIEF2YWthc2ggYmhhdCA8YXZha2FzaDI2MUBn
-bWFpbC5jb20+IHdyb3RlOgo+IAo+IEkgd2FudGVkIGFub3RoZXIgY2xhcmlmaWNhdGlvbiBvbiB0
-aGUgcmVzdWx0cyBvYnRhaW5lZCBieSB0aGUgQWNrIGZpbHRlcmluZyBleHBlcmltZW50KCBGaWcg
-NikgLiAKPiBXYXMgdGhlIGV4cGVyaW1lbnQgY29uZHVjdGVkIHdpdGggb25seSBhY2sgZmlsdGVy
-aW5nIGVuYWJsZWQ/IAo+IE9yIHdhcyBzZXQgYXNzb2NpYXRpdmUgaGFzaCBhbmQgdGhlIG90aGVy
-IG1vZHVsZXMgb2YgQ2FrZSBlbmFibGVkIGFsb25nIHdpdGggQWNrIGZpbHRlcmluZyB3aGlsZSBy
-dW5uaW5nIHRoaXMgZXhwZXJpbWVudCA/CgpUaGUgdGVzdCB3YXMgcnVuIG9uIGEgY29tcGxldGUg
-aW1wbGVtZW50YXRpb24gb2YgQ2FrZSwgc2V0IHVwIGluIHRoZSBub3JtYWwgd2F5LiAgSSB0aGlu
-ayB3ZSBrZXB0IHRoZSBjb25maWd1cmF0aW9uIHNpbXBsZSBmb3IgdGhpcyB0ZXN0LCBzbyBldmVy
-eXRoaW5nIGF0IGRlZmF1bHRzIGV4Y2VwdCBmb3IgY2hvb3NpbmcgdGhlIHNoYXBlZCBiYW5kd2lk
-dGggaW4gZWFjaCBkaXJlY3Rpb24uCgpUaGUgYWNrLWZpbHRlciByZWxpZXMgb24gaGF2aW5nIGZh
-aXJseSBnb29kIGZsb3cgaXNvbGF0aW9uLCBzbyB0aGF0IGNvbnNlY3V0aXZlIHBhY2tldHMgaW4g
-dGhlIGFwcHJvcHJpYXRlIHF1ZXVlIGJlbG9uZyB0byB0aGUgc2FtZSBhY2sgc3RyZWFtLiAgU28g
-YXQgbWluaW11bSBpdCBpcyBhcHByb3ByaWF0ZSB0byBoYXZlIHRoZSBzZXQtYXNzb2NpYXRpdmUg
-ZmxvdyBoYXNoIGVuYWJsZWQuCgpUaGUgaG9zdC1mYWlybmVzcyBhbmQgRGlmZnNlcnYgZmVhdHVy
-ZXMgd2VyZSBwcm9iYWJseSBlbmFibGVkLCBidXQgZGlkIG5vdCBoYXZlIHJlbGV2YW50IGVmZmVj
-dHMgaW4gdGhpcyBjYXNlLCBzaW5jZSBvbmx5IG9uZSBwYWlyIG9mIGhvc3RzIGFuZCB0aGUgQmVz
-dCBFZmZvcnQgRFNDUCB3ZXJlIHVzZWQgaW4gdGhlIHRyYWZmaWMuCgogLSBKb25hdGhhbiBNb3J0
-b24KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBt
-YWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZm
-ZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+--===============2411240333230825614==
+Content-Type: multipart/alternative; boundary="0000000000005926d905a82cbcc0"
+
+--0000000000005926d905a82cbcc0
+Content-Type: text/plain; charset="UTF-8"
+
+Hi all,
+
+Thank you for the clarification. We will try implementing a similar test.
+
+Thanks to the Cake community's continued support we were able to
+successfully merge the set-associative flow hash module into ns-3 (
+https://gitlab.com/nsnam/ns-3-dev/-/merge_requests/209).
+
+Hopefully, we are able to achieve a similar result with the ack filter
+module and we will continue to work to do so.
+
+Thanks,
+Avakash Bhat
+
+On Sun, Jun 14, 2020 at 8:13 PM Jonathan Morton <chromatix99@gmail.com>
+wrote:
+
+> > On 14 Jun, 2020, at 3:43 pm, Avakash bhat <avakash261@gmail.com> wrote:
+> >
+> > I wanted another clarification on the results obtained by the Ack
+> filtering experiment( Fig 6) .
+> > Was the experiment conducted with only ack filtering enabled?
+> > Or was set associative hash and the other modules of Cake enabled along
+> with Ack filtering while running this experiment ?
+>
+> The test was run on a complete implementation of Cake, set up in the
+> normal way.  I think we kept the configuration simple for this test, so
+> everything at defaults except for choosing the shaped bandwidth in each
+> direction.
+>
+> The ack-filter relies on having fairly good flow isolation, so that
+> consecutive packets in the appropriate queue belong to the same ack
+> stream.  So at minimum it is appropriate to have the set-associative flow
+> hash enabled.
+>
+> The host-fairness and Diffserv features were probably enabled, but did not
+> have relevant effects in this case, since only one pair of hosts and the
+> Best Effort DSCP were used in the traffic.
+>
+>  - Jonathan Morton
+
+--0000000000005926d905a82cbcc0
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Hi all,<div><br><div>Thank you=C2=A0for the clarification.=
+ We will try implementing a similar test.</div><div><br></div><div>Thanks t=
+o the Cake community&#39;s continued support we were able to successfully m=
+erge the set-associative flow hash module into ns-3 (<a href=3D"https://git=
+lab.com/nsnam/ns-3-dev/-/merge_requests/209">https://gitlab.com/nsnam/ns-3-=
+dev/-/merge_requests/209</a>).</div><div><br></div><div>Hopefully, we are a=
+ble to achieve a similar result with the ack filter module and we will cont=
+inue to work to do so.=C2=A0</div><div><br></div><div>Thanks,</div><div>Ava=
+kash Bhat</div></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" =
+class=3D"gmail_attr">On Sun, Jun 14, 2020 at 8:13 PM Jonathan Morton &lt;<a=
+ href=3D"mailto:chromatix99@gmail.com">chromatix99@gmail.com</a>&gt; wrote:=
+<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8=
+ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">&gt; On 14 Jun,=
+ 2020, at 3:43 pm, Avakash bhat &lt;<a href=3D"mailto:avakash261@gmail.com"=
+ target=3D"_blank">avakash261@gmail.com</a>&gt; wrote:<br>
+&gt; <br>
+&gt; I wanted another clarification on the results obtained by the Ack filt=
+ering experiment( Fig 6) . <br>
+&gt; Was the experiment conducted with only ack filtering enabled? <br>
+&gt; Or was set associative hash and the other modules of Cake enabled alon=
+g with Ack filtering while running this experiment ?<br>
+<br>
+The test was run on a complete implementation of Cake, set up in the normal=
+ way.=C2=A0 I think we kept the configuration simple for this test, so ever=
+ything at defaults except for choosing the shaped bandwidth in each directi=
+on.<br>
+<br>
+The ack-filter relies on having fairly good flow isolation, so that consecu=
+tive packets in the appropriate queue belong to the same ack stream.=C2=A0 =
+So at minimum it is appropriate to have the set-associative flow hash enabl=
+ed.<br>
+<br>
+The host-fairness and Diffserv features were probably enabled, but did not =
+have relevant effects in this case, since only one pair of hosts and the Be=
+st Effort DSCP were used in the traffic.<br>
+<br>
+=C2=A0- Jonathan Morton</blockquote></div>
+
+--0000000000005926d905a82cbcc0--
+
+--===============2411240333230825614==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============2411240333230825614==--
