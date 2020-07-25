@@ -2,73 +2,101 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 759E422D42E
-	for <lists+cake@lfdr.de>; Sat, 25 Jul 2020 05:13:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 123E322D698
+	for <lists+cake@lfdr.de>; Sat, 25 Jul 2020 12:13:01 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1243C3CB38;
-	Fri, 24 Jul 2020 23:13:26 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 9CE893CB38;
+	Sat, 25 Jul 2020 06:12:59 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1595646806;
-	bh=WSfbuQaVED/+LBW1ojBpqwtsLoNpc+1vyR0SPO+ebg4=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1595671979;
+	bh=24SQqr8SmGb3gDZk5/4ZZt8RKmDr7smGU+ud68KzEZ4=;
+	h=From:To:Date:References:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=PwNDEe25Qltpw8G/tpNSfKTXOAkrMeNsUOy6NGw/8B/pu+niNMyJsJwxtkmp1OOin
-	 xvEbP5AjHGfbG1ws7YSTcGMXcFtbu+kBTVgrennRnBCpFSDe3KgqdaIbtvMGQ1BJa2
-	 11hENao7ySuv2968F8aD4lRb1M8g9myT22fFuO9iNqzYHMkX5lXeE5kBL8LF/0tV4C
-	 Kw9a4N9nx0uLranLlI1Yoj/zSAz9Hj03nBZ4/1V2ICBDTxUh2ibeBaitVDLaaT93SF
-	 SWhi8i6I+Wb3XYeRFLCiQhhug4Ni/ETG3E/I7o8J4E7PgsVFtRPxcoN1Z/5pFeNZPw
-	 klRHsjGt5fjrg==
+	 From;
+	b=eLGI0emrhNPMms26D6OqG9GK3mHePLDMmWrywYST99GO1aZyJML5Z8NUcAv1gcyyp
+	 Vo/2WUTZy0NBX/dWrWSJUvIgx7tPk015UAnpBs9zhq2T1ZZwDiiwlURqdNEj4dCW/x
+	 cwwLJiZF3kxyiz42lZp/rM1Kkl7tmKZ8WJHdFvhn3WX/bbQ+vAM0tbce7CZEJcpP6n
+	 7g9xEFwXaUPIzLhGTRhxsZ5VMM+I8bVKW9iv8rvgoaSMSD07tVEVr08+AxeIA3c768
+	 Af2UVICpWcyM+TlGxkkkqK7sMuqjO+3uCqpoZ/jVQ791d9uT709N8lWtPLYMJ9XI6Y
+	 +2Gk0zlqqvWKQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x136.google.com (mail-lf1-x136.google.com
- [IPv6:2a00:1450:4864:20::136])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from EUR04-HE1-obe.outbound.protection.outlook.com
+ (mail-eopbgr70052.outbound.protection.outlook.com [40.107.7.52])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 648333B2A4
- for <cake@lists.bufferbloat.net>; Fri, 24 Jul 2020 23:13:24 -0400 (EDT)
-Received: by mail-lf1-x136.google.com with SMTP id i19so6208581lfj.8
- for <cake@lists.bufferbloat.net>; Fri, 24 Jul 2020 20:13:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=P0S+MHfHsdWgRbgC4sQpK2OM7vIJ9TACin2tcklMQNY=;
- b=tuQk1jKXIMFDAUtnfMCqPQFcCy4mOYJnWngFSFGRxaz52cKfCVf1DDA+oa0k13ylU4
- ylcNxitPP7lUTpzNhGldziXEmJC3eZCF5FuM7L2loWz+Cvrs397G9JxET/KrcolYKj5A
- RC1RnLgsJ3qMfQvgjzfgi/s5TDaMaecP7eLb7gSKUk2QOD2tbNpdmhFJoxif1HNPX59t
- MUAtlfxOd3PC3tBmhxljthzqFSBfIqXw7I2R2xF9eDlWC7kULBP0FTZkcnewLd5iHv3Q
- mzFESaaSjNtcpBPxakQJY++A+BPuZ/P/T1TcUDoxKHYSdR0zQkSKFksD6qiFaQBmwtQ3
- PILg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=P0S+MHfHsdWgRbgC4sQpK2OM7vIJ9TACin2tcklMQNY=;
- b=cvMsshcT8zF/LTIzY5DHLsbuM7Qc8DR5me+13Fs3PtpA6xyhk0843DjCtRRmK+wrOh
- 3qji2y70+r3pDPodl8vP3Hb0lNyu+xUUsRS26diN99/X3Mf+pmj77PJj4W/y/T1Inb2k
- cokThjBQnAehZL+baAWcrdQIZZwrTwXtszpyiQmCYdS3ArH/vpF0yf63UCK32kLq5jpA
- euPsikDS+pb7fkNLGWCHjjDNEypSVtReBzJmVjnfoemzfxYvNAoghEdjTfrsAiKUgLWs
- cgep+T6XJw+bvIE3haTvfVDV8qJrEZ2vAbZit474EcQF+cBIVrGB67A279vZ3bylmyXy
- 7VVA==
-X-Gm-Message-State: AOAM530CSc5Iiv9pw2aroKSE3nsqKVS5yEaH8SkZKiBFiePe68GVn6ou
- SLvrZzyHpd2+98PCfgdSBrY=
-X-Google-Smtp-Source: ABdhPJxuyOsaODkYZEY/vlodANcQiE1hMzvlxz1U/F6DOpImC5PyS54D6GvahmgRZ4QKZIsO2S8nmw==
-X-Received: by 2002:a05:6512:6d6:: with SMTP id
- u22mr6372638lff.13.1595646802514; 
- Fri, 24 Jul 2020 20:13:22 -0700 (PDT)
-Received: from jonathartonsmbp.lan (83-245-252-162-nat-p.elisa-mobile.fi.
- [83.245.252.162])
- by smtp.gmail.com with ESMTPSA id m6sm663344ljc.134.2020.07.24.20.13.21
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 24 Jul 2020 20:13:21 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.6\))
-From: Jonathan Morton <chromatix99@gmail.com>
-In-Reply-To: <d5f74f85-7d72-40f9-a965-8335163d8cec@www.fastmail.com>
-Date: Sat, 25 Jul 2020 06:13:20 +0300
-Message-Id: <1904547A-DC0A-497F-AB7C-624733E2F60A@gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id DCB0A3B2A4
+ for <cake@lists.bufferbloat.net>; Sat, 25 Jul 2020 06:12:57 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
+ b=dMDS7JCN4CciTu+AaCBYCCxnzCciG3qHt8LQInxTVS4zRNEkx9Ihfzn4OXOZrXoZK0mj7ERS0h9bXe7kSKmAutHhG2XWAMBMc2lquFFkLUNz4GgcWGboOUxTdsULrdHtKPezsHCu7xolU8RJxXQtQO/sZqQ3bjvQJAML2aOczuq7351PxZYC1Szkxpx8YqkzW7FzmeExXc+Ki01v9fkvWHQkZ0bYeSORjCcUSqeGhA1aQsrIXHtrSVNbIs3KBrri+5rSwfvlA9khw0sseeJTckvJdKocWNLmlguYveOt6TL73PxPApSZem1bxgopdUh/yKnNfV0A83fgjAKJT6B/fQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
+ s=arcselector9901;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3PORTg/Fy1e0IApz3ba1QQFqrmqDxnH31WE7SvRrHu4=;
+ b=ZALPU69c2Omc/3d7U4f/SavdNkQ9nCH3PENZzT8VlRGSiRIMw43mb4dRLeuGAV1tGn7bOwjEVZGUc8WZqo9+8R0ZQqYmvd+xDLyqwQM0Wrw2ihp264vtYHqmB5F08gX0w82gdD+ZiXq0RNx66Jftw+aNk5vKsot0/soU5QqoYXpeY4gInXVNJocCfEQiZd+sfzholaOrmv5U/Vzu3Gl57KqmUZ9mKzkDD67SYLBKNQmz6/C9/hChqsQb/sWMeuNIsSH5Xs+l0LoWZf42hbxGTyb7y0SDllbVtnURtZG37QAVaMuM4y8H9sPXZDRH4RDMw5klWA+1USMs6dR/l8clXA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=darbyshire-bryant.me.uk; dmarc=pass action=none
+ header.from=darbyshire-bryant.me.uk; dkim=pass
+ header.d=darbyshire-bryant.me.uk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=darbyshire-bryant.me.uk; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=3PORTg/Fy1e0IApz3ba1QQFqrmqDxnH31WE7SvRrHu4=;
+ b=sRPddLuvARuMY6OKJ2srv3cKZ/LGG0m7lEMWUmzJKelg0aadldtiGsicDF0nt0jsAz3X6NcCbEw2P+swkkkOOE6HlSsxCvjynuSlZsAvyhmlKpcpbh+Il9eEd0eK/tqPMecEDsF6tW1MnfJ7JzBXucn8c4JDHD8VkjTUYDj68k0=
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com (2603:10a6:803:59::12)
+ by VE1PR03MB5312.eurprd03.prod.outlook.com (2603:10a6:802:a2::21)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.3216.22; Sat, 25 Jul
+ 2020 10:12:55 +0000
+Received: from VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::dcff:4b45:98e6:d823]) by VI1PR03MB4575.eurprd03.prod.outlook.com
+ ([fe80::dcff:4b45:98e6:d823%3]) with mapi id 15.20.3216.026; Sat, 25 Jul 2020
+ 10:12:55 +0000
+From: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
+To: Cake List <cake@lists.bufferbloat.net>
+Thread-Topic: [Cake] diffserv3 vs diffserv4
+Thread-Index: AQHWYdMP82xlrjF1cECorjGMH4SWNqkW/9mAgAEU0YA=
+Date: Sat, 25 Jul 2020 10:12:54 +0000
+Message-ID: <0CCA78BD-201C-4668-A013-24A3F6F4EC87@darbyshire-bryant.me.uk>
 References: <d5f74f85-7d72-40f9-a965-8335163d8cec@www.fastmail.com>
-To: Justin Kilpatrick <justin@althea.net>
-X-Mailer: Apple Mail (2.3445.9.6)
+ <CFB4036D-8EEA-44B2-A909-6FD8B495267A@darbyshire-bryant.me.uk>
+In-Reply-To: <CFB4036D-8EEA-44B2-A909-6FD8B495267A@darbyshire-bryant.me.uk>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: yes
+X-MS-TNEF-Correlator: 
+x-mailer: Apple Mail (2.3608.120.23.2.1)
+authentication-results: lists.bufferbloat.net; dkim=none (message not signed)
+ header.d=none; lists.bufferbloat.net;
+ dmarc=none action=none
+ header.from=darbyshire-bryant.me.uk;
+x-originating-ip: [2a02:c7f:1227:c00::dc83]
+x-ms-publictraffictype: Email
+x-ms-office365-filtering-correlation-id: 87253345-e025-4c64-bfb2-08d830834c3c
+x-ms-traffictypediagnostic: VE1PR03MB5312:
+x-microsoft-antispam-prvs: <VE1PR03MB5312BE962B1563A2C941A1BFA5740@VE1PR03MB5312.eurprd03.prod.outlook.com>
+x-ms-oob-tlc-oobclassifiers: OLM:3968;
+x-ms-exchange-senderadcheck: 1
+x-microsoft-antispam: BCL:0;
+x-microsoft-antispam-message-info: GSEgcW06eR7a+WykRe6Csw4ehS9M+o+vE3/E8khsQqX6eiKdgvq333040TdZoKXvTqu49H3uDmM5VP306c1Rw5LHKe7R3vi0UxsHfdIt7Jdz95mlEcUaYR4xPkUxmGO5CD/rDBFfqiflw3n/Blv9XQ8p2zLph2be02px5Zo6zuDCvYsdjWhZHgGWveSp9FKLZwgjXQ7pgcfjHZM06gXr6DVAE6IDd/AoAeb8PijmVsY185uObIeGOexRgiXchJvKjhzlFvaUskX6FLxMTODYNTeAZgVt4MNVPCvow/bzHCNCpJH7ZxezwjStuVKaDh/bnXItBTXmQ/qtzQfxrKqWtw==
+x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
+ IPV:NLI; SFV:NSPM; H:VI1PR03MB4575.eurprd03.prod.outlook.com; PTR:; CAT:NONE;
+ SFTY:;
+ SFS:(376002)(136003)(346002)(39830400003)(366004)(396003)(6506007)(2616005)(53546011)(5660300002)(6512007)(86362001)(6486002)(36756003)(33656002)(8676002)(316002)(4744005)(186003)(71200400001)(2906002)(508600001)(6916009)(66946007)(66616009)(66476007)(66446008)(64756008)(76116006)(66556008)(91956017)(99936003)(8936002);
+ DIR:OUT; SFP:1101; 
+x-ms-exchange-antispam-messagedata: Ro2rgQGzMuDTJyb4napWi9hgwpVQEfeX7QqcUXIst6IR/xO0r+eJPCK5E/8Bzd2DIhq63Wk8fObZFY+pDq0bY91iCjjHfkr1cLi4VvxGaErvPD4yTxaFYuMt7fxSsTJGvAnhuuAAxaYhpJn2V7Y16BYD3Tk1c77Fou+UR2PM8AKPzAxXDO9/ddvD9ORUSS87sRwiBNxTsNvHDeV/Q4LfsT7lGzESjcpxomPjz0iboT67BaYQ6mRsXCv95NMbi9XbepUQoP9txkq42l1ZDUfLosudF9vPPBY9wMYHTAYpwH/fGzDYTdLA0CGhC4jlUEVpYg1h9IODLlZz7g7v/CYilg+j4Z12EXagH9siXnmDyAQQJKCAj8DtNWp9Hk1jHDwm0jC22SIN2V8YLRJIn1AM6MeGJs+WZRnBd9VpXPhgzcqcpAJ5Z8M68j0JYj6NlmiccJZPav5PQgIzV60tX/R3eX3H5S0KGZVEeyaTadiLADP095xFFSYR8tY7B1hh+6/w7sAcDteYMOS3h760BVeprg==
+x-ms-exchange-transport-forked: True
+MIME-Version: 1.0
+X-OriginatorOrg: darbyshire-bryant.me.uk
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI1PR03MB4575.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 87253345-e025-4c64-bfb2-08d830834c3c
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Jul 2020 10:12:54.9454 (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 9151708b-c553-406f-8e56-694f435154a4
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: d8gGrbHRN12H3nlnkY/XvCn+I7Ss/rfispHkC/2WR/RD0JxsEpk4KuHA4/b3MdTVCEwfznW68PvlR1eY1KQwxwvXhNz1QJfJ9wGHG0bBsVs=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR03MB5312
 Subject: Re: [Cake] diffserv3 vs diffserv4
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -81,67 +109,83 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: cake@lists.bufferbloat.net
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2964396454448448321=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-PiBPbiAyNCBKdWwsIDIwMjAsIGF0IDY6NTYgcG0sIEp1c3RpbiBLaWxwYXRyaWNrIDxqdXN0aW5A
-YWx0aGVhLm5ldD4gd3JvdGU6Cj4gCj4gInNxbS1zY3JpcHRzIHVzZWQgMyB0aWVycyBvZiBwcmlv
-cml0eSBwcmV0dHkgc3VjY2Vzc2Z1bGx5IGFzIGRvZXMgZnJlZS5mci4gLSBkZS1wcmlvcml0aXph
-dGlvbiBzZWVtcyBhIGdvb2QgaWRlYSwgcHJpb3JpdGl6YXRpb24gbm90IHNvIG11Y2guIgo+IAo+
-IFRoaXMgaXMgdGhlIGJlc3QgY29tbWVudCBvbiB3aHkgZGlmZnNlcnYzIGlzIHRoZSBkZWZhdWx0
-IHRoYXQgSSBjb3VsZCBmaW5kIG9uIGJ1ZmZlcmJsb2F0Lm5ldC4gSSdtIGludGVyZXN0ZWQgaW4g
-aGVhcmluZyBhYm91dCB3aGF0IGRhdGEgKGFuZWNkb3RlcyB3ZWxjb21lKSBsZWFkIHRvIHRoaXMg
-Y29uY2x1c2lvbi4KCkluIENha2UsIERpZmZzZXJ2NCBtYXBzIGNvbmNlcHR1YWxseSAoYnV0IG5v
-dCBpbiBkZXRhaWwpIHRvIHRoZSBmb3VyIHByaW9yaXR5IGJ1Y2tldHMgaW4gV2lmaSAtIEJLLCBC
-RSwgVkksIFZPLiAgSW4gRGlmZnNlcnYzIHRoZSBWSSBidWNrZXQgaXMgZHJvcHBlZCwgYmVjYXVz
-ZSBDYWtlJ3MgZmxvdyBpc29sYXRpb24gd2l0aGluIEJFIGlzIGFscmVhZHkgZ29vZCBlbm91Z2gg
-dG8gZ2l2ZSBkZWNlbnQgdmlkZW8gc3RyZWFtaW5nIHBlcmZvcm1hbmNlLiAgVGhlIEJLIGFuZCBW
-TyBidWNrZXRzIGFyZSBzdGlsbCB1c2VmdWwgdG8gZGVhbCB3aXRoIGNlcnRhaW4gc3BlY2lmaWMg
-cHJvYmxlbXM7IEJLIGlzIHRoZSBwbGFjZSB0byBwdXQgInN3YXJtIiBwcm90b2NvbHMgd2hpY2gg
-aW50ZW5kIHRvIGJlIHNjYXZlbmdlcnMgYnV0IHdoaWNoIGZsb3ctaXNvbGF0aW9uIHRlbmRzIHRv
-IHByaW9yaXRpc2UsIGFuZCBWTyBpcyBmb3IgbGF0ZW5jeS1zZW5zaXRpdmUgcHJvdG9jb2xzIHdo
-aWNoIHRoZSB1c2VyIHdhbnRzIHRvIHNwZWNpZmljYWxseSBwcm90ZWN0IGZyb20gcmFuZG9tIHRy
-YWZmaWMgZmx1Y3R1YXRpb25zLgoKVGhpbmtpbmcgbW9yZSBicm9hZGx5LCBJIGJlbGlldmUgRGlm
-ZnNlcnYgd291bGQgaGF2ZSBiZWVuIGZhciBtb3JlIHN1Y2Nlc3NmdWwgaWYgaXQgaGFkIHJlcGxh
-Y2VkIFByZWNlZGVuY2UvVE9TIHdpdGggYSBzaW1wbGUgdHdvLWJpdCwgZm91ci13YXkgc2V0IG9m
-IFBIQnM6CgowMDogSGlnaCBUaHJvdWdocHV0IC0gZXF1aXZhbGVudCB0byB0cmFkaXRpb25hbCBC
-ZXN0IEVmZm9ydCBzZXJ2aWNlLgoKMDE6IEhpZ2ggUmVsaWFiaWxpdHkgLSAiRXZlcnkgUGFja2V0
-J3MgU2FjcmVkIi4KCjEwOiBMb3cgQ29zdCAtIGEgc2NhdmVuZ2luZyBzZXJ2aWNlIGZvciBhbHRy
-dWlzdGljIGFwcGxpY2F0aW9ucy4KCjExOiBMb3cgTGF0ZW5jeSAtIGZvciB0aGUgbWFueSBwcm90
-b2NvbHMgdGhhdCBhcmUgc2Vuc2l0aXZlIHRvIGRlbGF5cyBtb3JlIHRoYW4gdGhyb3VnaHB1dC4K
-Ckl0IG1heSBhbHNvIGhhdmUgYmVlbiByZWFzb25hYmxlIHRvIGluY2x1ZGUgYSBjb3VwbGUgb2Yg
-ZXh0cmEgYml0cyBmb3IgdXNlcyBpbnRlcm5hbCB0byBhbiBBUywgb24gdGhlIHVuZGVyc3RhbmRp
-bmcgdGhhdCB0aGUgYmFzaWMgdHdvIGJpdHMgd291bGQgYmUgcHJlc2VydmVkIGVuZC10by1lbmQg
-YXMgYW4gaW5kaWNhdGlvbiBvZiBhcHBsaWNhdGlvbiBpbnRlbnQuCgpPZiB0aGUgYWJvdmUgZm91
-ciBjbGFzc2VzLCBEaWZmc2VydjMgcHJvdmlkZXMgdGhyZWUgLSBvbWl0dGluZyBvbmx5IHRoZSBI
-aWdoIFJlbGlhYmlsaXR5IGNsYXNzLiAgQnV0IHRoYXQgaXMgYSBjbGFzcyBtb3N0IHVzZWZ1bCB3
-aXRoaW4gYSBkYXRhY2VudHJlLCB3aGVyZSBpdCBpcyBhY3R1YWxseSBwcmFjdGljYWwgdG8gaW1w
-bGVtZW50IGEgbG9zc2xlc3MgYmFja3BsYW5lIHdpdGggYmFja3ByZXNzdXJlIHNpZ25hbHMgaW5z
-dGVhZCBvZiBsb3NzLgoKV2hhdCB3ZSAqYWN0dWFsbHkqIGhhdmUgaXMgYSBzaXgtYml0IGZpZWxk
-IHdpdGggaWxsLWRlZmluZWQgc2VtYW50aWNzLCB0aGF0IGlzIG5laXRoZXIgcHJlc2VydmVkIG5v
-ciByZXNwZWN0ZWQgZW5kLXRvLWVuZCwgaXMgY29uc2VxdWVudGx5IGlnbm9yZWQgYnkgbW9zdCBh
-cHBsaWNhdGlvbnMsIGFuZCBjb25zdW1lcyBhbGwgdGhlIHNwYWNlIGluIHRoZSBmb3JtZXIgVE9T
-IGJ5dGUgdGhhdCBpcyBub3Qgc3BlY2lmaWNhbGx5IHNldCBhc2lkZSBmb3IgRUNOIChhIGZpZWxk
-IHdoaWNoIGNvdWxkIHByb2ZpdGFibHkgaGF2ZSBiZWVuIGxhcmdlcikuICBJdCBpcyBhIHNlcmlv
-dXMgcHJvYmxlbS4KCkltcGxlbWVudGF0aW9ucyBvZiBQSEJzIHN0aWxsIHRlbmQgdG8gdGhpbmsg
-aW4gdGVybXMgb2YgYmFuZHdpZHRoIHJlc2VydmF0aW9uIChhIEJlbGwtaGVhZCBwYXJhZGlnbSkg
-YW5kL29yIHN0cmljdCBwcmlvcml0eSAobGlrZSB0aGUgUHJlY2VkZW5jZSBzeXN0ZW0gd2hpY2gg
-d2FzIGxpZnRlZCBkaXJlY3RseSBmcm9tIHRlbGVncmFwaHkgcHJhY3RpY2UpLiAgQm90aCBhcHBy
-b2FjaGVzIGFyZSBpbmVmZmljaWVudCwgYW5kIGdvIGFsb25nIHdpdGggdGhlIG1pc2NvbmNlcHRp
-b24gdGhhdCBpZiB3ZSBjYW4gbWVyZWx5IGNhdGVnb3Jpc2UgdHJhZmZpYyBvbiB0aGUgZmx5IGlu
-dG8gYSBsYXJnZSBlbm91Z2ggbnVtYmVyIG9mIHBpZ2VvbmhvbGVzLCBzb21lIG1hZ2ljYWwgbWV0
-aG9kIG9mIGRlYWxpbmcgd2l0aCB0aGUgcGlnZW9uaG9sZXMgd2lsbCBtYWtlIGl0c2VsZiBvYnZp
-b3VzLiAgSG93ZXZlciwgYm90aCB0aGUgZWFzeSwgdW5pdmVyc2FsIG1ldGhvZCBvZiBjYXRlZ29y
-aXNhdGlvbiBhbmQgdGhlIG1hZ2ljYWwgZGVsaXZlcnkgc3RyYXRlZ3kgaGF2ZSBmYWlsZWQgdG8g
-bWF0ZXJpYWxpc2UuICBJdCByYXRoZXIgc3VnZ2VzdHMgdGhhdCB0aGV5J3JlIGRvaW5nIGl0IHdy
-b25nLgoKU28gdGhhdCBpcyB3aHkgRGlmZnNlcnYzIGlzIHRoZSBkZWZhdWx0IGluIENha2UuICBJ
-dCBvZmZlcnMgZXhwbGljaXQgImxvdyBjb3N0IiBhbmQgImxvdyBsYXRlbmN5IiBzZXJ2aWNlIGZv
-ciBzdWl0YWJseSBtYXJrZWQgdHJhZmZpYywgYW5kIGZvciBldmVyeXRoaW5nIGVsc2UgdGhlIEJl
-c3QgRWZmb3J0IHNlcnZpY2UgdXNlcyBmbG93IGFuZCBob3N0IGlzb2xhdGlvbiBzdHJhdGVnaWVz
-IHRvIG1haW50YWluIGdvb2QgYmVoYXZpb3VyLiAgSXQgdXN1YWxseSB3b3JrcyB3ZWxsLgoKIC0g
-Sm9uYXRoYW4gTW9ydG9uCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRw
-czovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============2964396454448448321==
+Content-Language: en-US
+Content-Type: multipart/signed;
+	boundary="Apple-Mail=_C5D6D0A1-006F-4ABC-927C-7BF7F074B09A";
+	protocol="application/pgp-signature";
+	micalg=pgp-sha256
+
+--Apple-Mail=_C5D6D0A1-006F-4ABC-927C-7BF7F074B09A
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=us-ascii
+
+
+
+> On 24 Jul 2020, at 18:42, Kevin Darbyshire-Bryant =
+<kevin@darbyshire-bryant.me.uk> wrote:
+>=20
+>=20
+> The move from diffserv4 to diffserv5 WAS about de-prioritization.
+
+It was also about minimum bandwidth allocations:
+
+LE: 1/64th
+BK: 1/16th
+BE: 1/1
+VI: 1/2
+VO: 1/4
+
+So worst case, best effort should get 11/64ths in the extreme case of =
+all other tins in use.
+
+Cheers,
+
+Kevin D-B
+
+gpg: 012C ACB2 28C6 C53E 9775  9123 B3A2 389B 9DE2 334A
+
+
+--Apple-Mail=_C5D6D0A1-006F-4ABC-927C-7BF7F074B09A
+Content-Transfer-Encoding: 7bit
+Content-Disposition: attachment;
+	filename=signature.asc
+Content-Type: application/pgp-signature;
+	name=signature.asc
+Content-Description: Message signed with OpenPGP
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEASyssijGxT6XdZEjs6I4m53iM0oFAl8cBaUACgkQs6I4m53i
+M0r+KBAAk54GdzZr4e03pob1Uq/YHIk33qXACBvdZa0LDQCouPYhLZBppI4l79GG
+J0Ytcfqh/GyxBUvhfBZAUSw6EzYrG+ufs2LN2MDMmuoBsdmtw1772tIsRAc7WieD
+8ht604pSKrAnG4ZG4mVcrZYlz4nJNWfT5V/dyHOLgWAx3kVmBaEN+ecla4OX0sxZ
+DUrc9u3J4QzXuTx7kJIrefduEndD1QEYCQ/o8llYy8KuKtlP3qHrpF/033XGpNeu
+Va+uG0SyaVnAM8RBmoXhs4U0H1leMXoXgRvF8ygKo7m8odszpHckEX7XKkb2HDR6
+8h1jOpr00vF4cvg8YP5G27jMGDjLHDyWwyD2+e/noQUr4SvN1DsvlvMk/oe6s7U6
+kfi8a7RtcmKGR5kQBfymZ5io7yLT3mUmW1CTqRO8Yr4r9Sae/hP7GM9pGV9ETCQj
+7SzfGYN+mn8DdWnK6wnD36OBdm+aJPqkZc6TAzx3yzgNIbA8fy2lYrKJ/yJBVM87
+CWOW+0US6azxXK13BHXEdvEY6l1gI6zqhSNlZXy4s5WZ282hSxYQHjt+PVeQSPMp
+mK6k5PjHt0WIbCXYGM/jEILF2/A5JbLLrMNwGfNOfsF+HP/gbJ5qlw5lt8fe6dXD
+u8i0depkuXZsjORw92pNrVKIipHUPReIFEdoIjJd0vZ+GHYPmFg=
+=UCUk
+-----END PGP SIGNATURE-----
+
+--Apple-Mail=_C5D6D0A1-006F-4ABC-927C-7BF7F074B09A--
+
+--===============2964396454448448321==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============2964396454448448321==--
