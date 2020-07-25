@@ -2,62 +2,75 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1FD3822D8D8
-	for <lists+cake@lfdr.de>; Sat, 25 Jul 2020 19:05:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id DB0B622D8DA
+	for <lists+cake@lfdr.de>; Sat, 25 Jul 2020 19:18:53 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id A04883CB38;
-	Sat, 25 Jul 2020 13:05:25 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id B0FF13CB38;
+	Sat, 25 Jul 2020 13:18:52 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1595696725;
-	bh=6r4z5pm1XgPrP7Fl43s/PhP7b+R+dJS66h2CSJCWTMo=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1595697532;
+	bh=uZHZZaq8EN2svdf5kT9csv5jq4caek1lG3DGQm3Fr+I=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=XUuHj2DCRPTx6eyrzSd4Ac7RfhaHaFFvcZnjB0IxCY5zFuWH9+uBS58jk6j0/zcr+
-	 IQA7PTFOiZDIxK7vaVzInMBR0UNdIezfTm4ScrTQzJdD/M4cwTIE5gXi6li6SP0VJu
-	 6gYFoDe98qoWK25+rRyQgm6u8exkft/H1MnrqyLVhhkKoiXDREExyKd9d3t/BJvpBi
-	 UIU8CT/2Fvaj+LZ6q/OV2r62lrfwXywGkReg1MvOdg8mRM27QJsK+JCg7fa75y1u6I
-	 W7v/DRBUvq/eEZ2a+rMu0AzgeF0Pds8vYTQ1ABYdHmnT29SEPl5OfUtaRFOiE+1qPH
-	 2c2JmBIlIVk/g==
+	b=GFy3oaoBYXuW8nXibYYda5LrgD71LlneroF4x7NVEXhVjXWUNrmFwc6l632Thh1m2
+	 p4WUM4g3uaP9zMVnhrlqcfrdu9TvWgcpYIqH6gqB92bLiXcaDnG6OV9NpEv9qzqAS0
+	 TibiCW0Ns8YU6NejSdTCFeZSBZvXxOJ3wgvx//QJ7JgCtL0YyK6ipiPCZjnZDukaTa
+	 SCh1RrOaB7J64gZphaCKc1bkUpNmaZ0eOWfgxcev/sJB8gksbRPGTe5Xx/Rd2KgVEo
+	 W0WC03W5LktjqqrOxUOaqPcwuEn4i/CwAj0qby39eizP5/5dh9aDE+vg6/Bk+0RyGE
+	 u5q+x9eezJRgQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp94.iad3a.emailsrvr.com (smtp94.iad3a.emailsrvr.com
- [173.203.187.94])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 678DF3B29E
- for <cake@lists.bufferbloat.net>; Sat, 25 Jul 2020 13:05:24 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=g001.emailsrvr.com;
- s=20190322-9u7zjiwi; t=1595696724;
- bh=YJ7JxinWHI+hurC0FVDYbxs9OUKzvA8xTFbeWZ+8/4Q=;
- h=Date:Subject:From:To:From;
- b=p4wm5QWcNJU+82lB3LMkWXeYT/pwJXjyKga1gcgNsTyZsHcNC2+pdRJgoRgs0B9nh
- Rr8ttOnMNoDIIBxckZtOWzaqPB0+JJ3cxSpk8b5y/TZ8By6EW3c+HObln1v9h22NIt
- uz/BslQ3lypcqii1YFNpZql/gG7Xcb0Ffosl3MHk=
-Received: from app46.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp20.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id ECA1321009;
- Sat, 25 Jul 2020 13:05:23 -0400 (EDT)
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app46.wa-webapps.iad3a (Postfix) with ESMTP id D74D4C0051;
- Sat, 25 Jul 2020 13:05:23 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Sat, 25 Jul 2020 13:05:23 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Sat, 25 Jul 2020 13:05:23 -0400 (EDT)
-From: "David P. Reed" <dpreed@deepplum.com>
-To: "Jonathan Morton" <chromatix99@gmail.com>
-MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <1904547A-DC0A-497F-AB7C-624733E2F60A@gmail.com>
-References: <d5f74f85-7d72-40f9-a965-8335163d8cec@www.fastmail.com> 
- <1904547A-DC0A-497F-AB7C-624733E2F60A@gmail.com>
-Message-ID: <1595696723.8777837@apps.rackspace.com>
-X-Mailer: webmail/17.3.12-RC
-X-Classification-ID: 9b15e07b-259f-418f-94c7-0f5adfa43e8d-1-1
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 4F7853B29E
+ for <cake@lists.bufferbloat.net>; Sat, 25 Jul 2020 13:18:51 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1595697529;
+ bh=xSHc8dDnLeYJkEw7ycfw8IJ+SSFvcUriHHsg97tYALA=;
+ h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
+ b=jB33zTHjsIjx7aafNputPZ44xDEoIj1eaCK+QwoMuk751cj2K1YDpZ67tUDH+Vedg
+ ORLSEM2KOGDEDDaHz7wHndRQ4taQCiuyND287pF89UL2sr2Hjyvuox5Hj2siMT4ED/
+ zPoU9/EdNYFI2akd3vf4lA0vg2cJjL3RiSe2CFOI=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.42.229] ([77.6.52.50]) by mail.gmx.com (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MXGvG-1kIXkl12Uw-00Ygxg; Sat, 25
+ Jul 2020 19:18:49 +0200
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.15\))
+From: Sebastian Moeller <moeller0@gmx.de>
+In-Reply-To: <0CCA78BD-201C-4668-A013-24A3F6F4EC87@darbyshire-bryant.me.uk>
+Date: Sat, 25 Jul 2020 19:18:48 +0200
+Message-Id: <4E86E73D-2ACE-4952-8A2A-B8DAAD4CD262@gmx.de>
+References: <d5f74f85-7d72-40f9-a965-8335163d8cec@www.fastmail.com>
+ <CFB4036D-8EEA-44B2-A909-6FD8B495267A@darbyshire-bryant.me.uk>
+ <0CCA78BD-201C-4668-A013-24A3F6F4EC87@darbyshire-bryant.me.uk>
+To: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>
+X-Mailer: Apple Mail (2.3445.104.15)
+X-Provags-ID: V03:K1:X1HVBjebDBMyUh86TjVgBf7KCa8sU/SyDqvB1gbFpqkm57NIouu
+ G1Llqs5F7DoiRkXIVngU4sfc3vAoiU137eHRpHY0Zmyc6liXx5Me/Hs4/mhlf3MWXtm5lOx
+ HqjmfCxYJ9GjvAVSu/Vw4EQGgx+VuatTyRd5I9V1UTJBuYLfQU2RpNiNwK2+Ds70cFkbt65
+ 2GqOMTPos5kXpF0u+whqg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:FkZ/qo6IYk0=:qQzKVZddGiXX8yfOy0ni4f
+ 3E1VSGkr2UGwRPGhgEv0c43DN2fjd0k0S4MOMBWYG1p0gbTXytUV1RpL9a0YCabdNzNKWccW3
+ VsJJxaY3+7BJoObNZgdGMya5OlRd3HmxqW2IJxQr/b/zVVNDepNba6rSybLMHaVBhESAXbor0
+ Ae0dAYquigY1JTG5K3fqN8ff9eE3V5IoDoYYAD63QLUa6f8noMfg92I1lQNqTw5abPiR+FYza
+ 7gNygrgi5nfGV3BBBnYC6uRbXe4m//xcvTKrf4eU2nAtvO5XzeT4WXO4zSgF84sFO6f1NIJoy
+ a2GMZHyxZT9Vd5aTTB/d2grCKKBLUUyS9nNgrRemEtv5V7IxRcHDvOyTkyPItY90gH2kL6oQN
+ uJT0kaunwz7uWNvAedSQzIAW973Nl6rcGxIIv0BrbDfj1WBOG92U5AvXBNTLTa0KZdquypkV8
+ a2RCGEscLSs+L1ctOyrgLWRGaTTx10Hp5BcfVyMJw4FOWIrUfjQhGBC3xuR0qfCp4mzj+skGg
+ bRrdXA0LT+VqhURhN+VSH/NRwyUm4cMGobYoevd/13K4JmG6Y7Ox7UtPBOjy1su/d1AqZNAUA
+ sThrZqrXCEKrB+/ar78o03QxHLw8pBmbg9cpy3xZBdcvn/Pv3rH6eLYmPm+hbYJcULOA5LRvO
+ Se+4uJ3wvq4SrAMzNXQrD/QZ9O7YRRyL1IWTKUuKwhjXoccix53ygGu10t0wPSvXswQ1vfQUC
+ Wbl+aQ+Lnm/3V/uGX3Mc7hkKjPb+61jjRgRsqZ/LJ3WJEliknGgI2x655QAiC0H6JQeBqEvK/
+ ICkz5Q/wfoKXtYK8o1AdOodK/0fC16Q+d6rIgfcsQ+S3EVyS+4Ocfp8wDWyyfj3Jr8seIj+Qx
+ TI3mUwLQThFPLQbEdaOOv0vdY24UJF7ydKE2qYIQ6BBdQlfajrKJsRgznJI5UsCKpIj1tKu6h
+ 8LoSuVFQ4GxRAvUsYA64PVx0EuJjPTgGSM78rmjKo1KxwqfeVHy/9nyNQYm9gTlypTu+MxsWR
+ tCFfhdOgp3DRiJRUaMQ0q7SScl6s6acugPiVPFPGBPv4kV9U4xRw4LqtOUNnHOQiR5ulI8kvB
+ 94AJUbiKVmk1jnr1cPKvVs+TeX9mzSgwSNqpLTftG2Gd7EkmzV0uOIztOslR9D0VTrL1SUpVQ
+ T+LGdH6b1oeXZN1J5jkN0JJVD/By2laW3kiG6c5mf4JeNgH+MLGJ2sc2yiwC0bYuHcL2lDPfs
+ nz4qeuWO+Lh4ZbiqY
 Subject: Re: [Cake] diffserv3 vs diffserv4
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -70,200 +83,43 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: cake@lists.bufferbloat.net
-Content-Type: multipart/mixed; boundary="===============8570076836654709090=="
+Cc: Cake List <cake@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8570076836654709090==
-Content-Type: multipart/alternative;boundary="----=_20200725130523000000_23993"
-
-------=_20200725130523000000_23993
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-=0A+1000%=0A =0AI believe the problem with diffserv arose at conception, be=
-cause it violated the core idea of IETF's operation:=0A =0A"rough consensus=
- and working code"=0A =0AIt was clear very, very early( to everyone but tho=
-se working on it!) that no working approximate implementation ever existed,=
- nor could it!=0A =0AHad someone proposed a single better-efforts category,=
- whose implementation would be Autonomous System by Autonomous System defin=
-ed by a scheme roughly equivalent to "Paris Metro Pricing", it would have a=
-fforded experience at scale. (In Paris Metro Pricing, there are two knds of=
- cars on each train, First Class and Second Class. If you pay for first cla=
-ss, you get to go into the first class cars. Cars change from second to fir=
-st class iff the seats in first class are tending to be full. Trains run mo=
-re often when there are lines waiting for second class cars. The analogy wi=
-th router decisions is should be clear, except since trains can't run more =
-often, congestion is signaled by drop or marking, which means that second c=
-lass packets would be dropped or marked unless there were no first class pa=
-ckets.)=0A =0ABut instead the designers ignored implementation entirely, an=
-d invented "wish-based" classes.=0A =0AThis also violated an end-to-end arg=
-ument - you should only put "in the network" functions that can be complete=
-ly *implemented* "within the network".=0AAnd the TOS/QOS idea isn't meaning=
-ful to routers.=0A =0AOn Friday, July 24, 2020 11:13pm, "Jonathan Morton" <=
-chromatix99@gmail.com> said:=0A=0A=0A=0A> > On 24 Jul, 2020, at 6:56 pm, Ju=
-stin Kilpatrick <justin@althea.net>=0A> wrote:=0A> >=0A> > "sqm-scripts use=
-d 3 tiers of priority pretty successfully as does free.fr. -=0A> de-priorit=
-ization seems a good idea, prioritization not so much."=0A> >=0A> > This is=
- the best comment on why diffserv3 is the default that I could find on=0A> =
-bufferbloat.net. I'm interested in hearing about what data (anecdotes welco=
-me)=0A> lead to this conclusion.=0A> =0A> In Cake, Diffserv4 maps conceptua=
-lly (but not in detail) to the four priority=0A> buckets in Wifi - BK, BE, =
-VI, VO. In Diffserv3 the VI bucket is dropped, because=0A> Cake's flow isol=
-ation within BE is already good enough to give decent video=0A> streaming p=
-erformance. The BK and VO buckets are still useful to deal with=0A> certain=
- specific problems; BK is the place to put "swarm" protocols which intend=
-=0A> to be scavengers but which flow-isolation tends to prioritise, and VO =
-is for=0A> latency-sensitive protocols which the user wants to specifically=
- protect from=0A> random traffic fluctuations.=0A> =0A> Thinking more broad=
-ly, I believe Diffserv would have been far more successful if=0A> it had re=
-placed Precedence/TOS with a simple two-bit, four-way set of PHBs:=0A> =0A>=
- 00: High Throughput - equivalent to traditional Best Effort service.=0A> =
-=0A> 01: High Reliability - "Every Packet's Sacred".=0A> =0A> 10: Low Cost =
-- a scavenging service for altruistic applications.=0A> =0A> 11: Low Latenc=
-y - for the many protocols that are sensitive to delays more than=0A> throu=
-ghput.=0A> =0A> It may also have been reasonable to include a couple of ext=
-ra bits for uses=0A> internal to an AS, on the understanding that the basic=
- two bits would be preserved=0A> end-to-end as an indication of application=
- intent.=0A> =0A> Of the above four classes, Diffserv3 provides three - omi=
-tting only the High=0A> Reliability class. But that is a class most useful =
-within a datacentre, where it=0A> is actually practical to implement a loss=
-less backplane with backpressure signals=0A> instead of loss.=0A> =0A> What=
- we *actually* have is a six-bit field with ill-defined semantics, that is=
-=0A> neither preserved nor respected end-to-end, is consequently ignored by=
- most=0A> applications, and consumes all the space in the former TOS byte t=
-hat is not=0A> specifically set aside for ECN (a field which could profitab=
-ly have been larger). =0A> It is a serious problem.=0A> =0A> Implementation=
-s of PHBs still tend to think in terms of bandwidth reservation (a=0A> Bell=
--head paradigm) and/or strict priority (like the Precedence system which wa=
-s=0A> lifted directly from telegraphy practice). Both approaches are ineffi=
-cient, and=0A> go along with the misconception that if we can merely catego=
-rise traffic on the=0A> fly into a large enough number of pigeonholes, some=
- magical method of dealing with=0A> the pigeonholes will make itself obviou=
-s. However, both the easy, universal=0A> method of categorisation and the m=
-agical delivery strategy have failed to=0A> materialise. It rather suggests=
- that they're doing it wrong.=0A> =0A> So that is why Diffserv3 is the defa=
-ult in Cake. It offers explicit "low cost"=0A> and "low latency" service fo=
-r suitably marked traffic, and for everything else the=0A> Best Effort serv=
-ice uses flow and host isolation strategies to maintain good=0A> behaviour.=
- It usually works well.=0A> =0A> - Jonathan Morton=0A> =0A> _______________=
-________________________________=0A> Cake mailing list=0A> Cake@lists.buffe=
-rbloat.net=0A> https://lists.bufferbloat.net/listinfo/cake=0A> 
-------=_20200725130523000000_23993
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 10pt; overflow-wrap: break-word;">+1000%</p>=0A<p style=
-=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: =
-break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial=
-; font-size: 10pt; overflow-wrap: break-word;">I believe the problem with d=
-iffserv arose at conception, because it violated the core idea of IETF's op=
-eration:</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size=
-: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;paddi=
-ng:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">"roug=
-h consensus and working code"</p>=0A<p style=3D"margin:0;padding:0;font-fam=
-ily: arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p st=
-yle=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wra=
-p: break-word;">It was clear very, very early( to everyone but those workin=
-g on it!) that no working approximate implementation ever existed, nor coul=
-d it!</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 1=
-0pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:=
-0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">Had some=
-one proposed a single better-efforts category, whose implementation would b=
-e Autonomous System by Autonomous System defined by a scheme roughly equiva=
-lent to "Paris Metro Pricing", it would have afforded experience at scale. =
-(In Paris Metro Pricing, there are two knds of cars on each train, First Cl=
-ass and Second Class. If you pay for first class, you get to go into the fi=
-rst class cars. Cars change from second to first class iff the seats in fir=
-st class are tending to be full. Trains run more often when there are lines=
- waiting for second class cars. The analogy with router decisions is should=
- be clear, except since trains can't run more often, congestion is signaled=
- by drop or marking, which means that second class packets would be dropped=
- or marked unless there were no first class packets.)</p>=0A<p style=3D"mar=
-gin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-w=
-ord;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-=
-size: 10pt; overflow-wrap: break-word;">But instead the designers ignored i=
-mplementation entirely, and invented "wish-based" classes.</p>=0A<p style=
-=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: =
-break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial=
-; font-size: 10pt; overflow-wrap: break-word;">This also violated an end-to=
--end argument - you should only put "in the network" functions that can be =
-completely *implemented* "within the network".</p>=0A<p style=3D"margin:0;p=
-adding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">A=
-nd the TOS/QOS idea isn't meaningful to routers.</p>=0A<p style=3D"margin:0=
-;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;"=
->&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size:=
- 10pt; overflow-wrap: break-word;">On Friday, July 24, 2020 11:13pm, "Jonat=
-han Morton" &lt;chromatix99@gmail.com&gt; said:<br /><br /></p>=0A<div id=
-=3D"SafeStyles1595696061">=0A<p style=3D"margin:0;padding:0;font-family: ar=
-ial; font-size: 10pt; overflow-wrap: break-word;">&gt; &gt; On 24 Jul, 2020=
-, at 6:56 pm, Justin Kilpatrick &lt;justin@althea.net&gt;<br />&gt; wrote:<=
-br />&gt; &gt;<br />&gt; &gt; "sqm-scripts used 3 tiers of priority pretty =
-successfully as does free.fr. -<br />&gt; de-prioritization seems a good id=
-ea, prioritization not so much."<br />&gt; &gt;<br />&gt; &gt; This is the =
-best comment on why diffserv3 is the default that I could find on<br />&gt;=
- bufferbloat.net. I'm interested in hearing about what data (anecdotes welc=
-ome)<br />&gt; lead to this conclusion.<br />&gt; <br />&gt; In Cake, Diffs=
-erv4 maps conceptually (but not in detail) to the four priority<br />&gt; b=
-uckets in Wifi - BK, BE, VI, VO. In Diffserv3 the VI bucket is dropped, bec=
-ause<br />&gt; Cake's flow isolation within BE is already good enough to gi=
-ve decent video<br />&gt; streaming performance. The BK and VO buckets are =
-still useful to deal with<br />&gt; certain specific problems; BK is the pl=
-ace to put "swarm" protocols which intend<br />&gt; to be scavengers but wh=
-ich flow-isolation tends to prioritise, and VO is for<br />&gt; latency-sen=
-sitive protocols which the user wants to specifically protect from<br />&gt=
-; random traffic fluctuations.<br />&gt; <br />&gt; Thinking more broadly, =
-I believe Diffserv would have been far more successful if<br />&gt; it had =
-replaced Precedence/TOS with a simple two-bit, four-way set of PHBs:<br />&=
-gt; <br />&gt; 00: High Throughput - equivalent to traditional Best Effort =
-service.<br />&gt; <br />&gt; 01: High Reliability - "Every Packet's Sacred=
-".<br />&gt; <br />&gt; 10: Low Cost - a scavenging service for altruistic =
-applications.<br />&gt; <br />&gt; 11: Low Latency - for the many protocols=
- that are sensitive to delays more than<br />&gt; throughput.<br />&gt; <br=
- />&gt; It may also have been reasonable to include a couple of extra bits =
-for uses<br />&gt; internal to an AS, on the understanding that the basic t=
-wo bits would be preserved<br />&gt; end-to-end as an indication of applica=
-tion intent.<br />&gt; <br />&gt; Of the above four classes, Diffserv3 prov=
-ides three - omitting only the High<br />&gt; Reliability class. But that i=
-s a class most useful within a datacentre, where it<br />&gt; is actually p=
-ractical to implement a lossless backplane with backpressure signals<br />&=
-gt; instead of loss.<br />&gt; <br />&gt; What we *actually* have is a six-=
-bit field with ill-defined semantics, that is<br />&gt; neither preserved n=
-or respected end-to-end, is consequently ignored by most<br />&gt; applicat=
-ions, and consumes all the space in the former TOS byte that is not<br />&g=
-t; specifically set aside for ECN (a field which could profitably have been=
- larger). <br />&gt; It is a serious problem.<br />&gt; <br />&gt; Implemen=
-tations of PHBs still tend to think in terms of bandwidth reservation (a<br=
- />&gt; Bell-head paradigm) and/or strict priority (like the Precedence sys=
-tem which was<br />&gt; lifted directly from telegraphy practice). Both app=
-roaches are inefficient, and<br />&gt; go along with the misconception that=
- if we can merely categorise traffic on the<br />&gt; fly into a large enou=
-gh number of pigeonholes, some magical method of dealing with<br />&gt; the=
- pigeonholes will make itself obvious. However, both the easy, universal<br=
- />&gt; method of categorisation and the magical delivery strategy have fai=
-led to<br />&gt; materialise. It rather suggests that they're doing it wron=
-g.<br />&gt; <br />&gt; So that is why Diffserv3 is the default in Cake. It=
- offers explicit "low cost"<br />&gt; and "low latency" service for suitabl=
-y marked traffic, and for everything else the<br />&gt; Best Effort service=
- uses flow and host isolation strategies to maintain good<br />&gt; behavio=
-ur. It usually works well.<br />&gt; <br />&gt; - Jonathan Morton<br />&gt;=
- <br />&gt; _______________________________________________<br />&gt; Cake =
-mailing list<br />&gt; Cake@lists.bufferbloat.net<br />&gt; https://lists.b=
-ufferbloat.net/listinfo/cake<br />&gt; </p>=0A</div></font>
-------=_20200725130523000000_23993--
-
-
---===============8570076836654709090==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8570076836654709090==--
-
+SGkgS2V2aW4sCgoKPiBPbiBKdWwgMjUsIDIwMjAsIGF0IDEyOjEyLCBLZXZpbiBEYXJieXNoaXJl
+LUJyeWFudCA8a2V2aW5AZGFyYnlzaGlyZS1icnlhbnQubWUudWs+IHdyb3RlOgo+IAo+IAo+IAo+
+PiBPbiAyNCBKdWwgMjAyMCwgYXQgMTg6NDIsIEtldmluIERhcmJ5c2hpcmUtQnJ5YW50IDxrZXZp
+bkBkYXJieXNoaXJlLWJyeWFudC5tZS51az4gd3JvdGU6Cj4+IAo+PiAKPj4gVGhlIG1vdmUgZnJv
+bSBkaWZmc2VydjQgdG8gZGlmZnNlcnY1IFdBUyBhYm91dCBkZS1wcmlvcml0aXphdGlvbi4KPiAK
+PiBJdCB3YXMgYWxzbyBhYm91dCBtaW5pbXVtIGJhbmR3aWR0aCBhbGxvY2F0aW9uczoKPiAKPiBM
+RTogMS82NHRoCgpUaGF0IGlzIDYgYmluYXJ5IG9yZGVycyBvZiBtYWduaXR1ZGUsIG9uIGEgc2xv
+dyBsaW5rLCBMRSBpcyBlZmZlY3RpdmVseSBzdGFydmVkIGFuZCB0aGVyZSB3aWxsIGJlIG5vIHJl
+YWwgZm9yd2FyZCBwcm9ncmVzcy4gRm9yIHJlYWwgc2NhdmVuZ2VyIHNlcnZpY2VzIHRoaXMgbWln
+aHQgd2VsbCBiZSBhIHNhbmUgcG9saWN5LCBidXQgdGhpcyByZXF1aXJlcyB0aGUgdmVyeSBzZWxl
+Y3RpdmUgd2l0aCBhc3NpZ25pbmcgZmxvd3MgdG8gdGhpcyB0aW4gOykKCj4gQks6IDEvMTZ0aAo+
+IEJFOiAxLzEKPiBWSTogMS8yCj4gVk86IDEvNAoKU28gSSBzZWUgMS82NCArIDEvMTYgKyAxLzEg
+KyAxLzIgKyAxLzQgPSAxLjgyODEyNSB3aGljaCBzZWVtcyBleGNlc3NpdmUgZm9yIGFjdHVhbGx5
+IGd1YXJhbnRlZWQgbWluaW11bXMuIEkgd2FzIHVuZGVyIHRoZSBuYWl2ZT8gaW1wcmVzc2lvbiB0
+aGUgbWluaW1hIHNob3VsZCBhZGQgdXAgdG8gPD0gMSwgbm8/CgoKPiAKPiBTbyB3b3JzdCBjYXNl
+LCBiZXN0IGVmZm9ydCBzaG91bGQgZ2V0IDExLzY0dGhzIGluIHRoZSBleHRyZW1lIGNhc2Ugb2Yg
+YWxsIG90aGVyIHRpbnMgaW4gdXNlLgoKCVRoaXMgc2VlbXMgb25seSB0cnVlLCBpZiBvbiBvdmVy
+bG9hZCB0aGUgbG93ZXN0IHByaW9yaXRpZXJzIHRpZXJzIGdldCB0aGVpciBhbGxvdG1lbnQgZmly
+c3QsIG5vPwoKSSBhbSBjb25mdXNlZC4uLiBidXQgSSBhbSBhbHNvIGNvbmZ1c2VkIGJ5IGNha2Un
+cyBvdXRwdXQ6CiIKCiAgICAgICAgICAgICAgICAgICBCdWxrICBCZXN0IEVmZm9ydCAgICAgICAg
+Vm9pY2UKICB0aHJlc2ggICAgICAgMzA2MktiaXQgICAgICAgNDlNYml0ICAgIDEyMjUwS2JpdCIK
+CmFzIGZhciBhcyBJIGNhbiB0ZWxsLCBCdWxrJ3MgMzA2MktiaXQgbXVzdCBiZSB0aGUgbWluaW11
+bSwgd2hpbGUgQkUgYW5kIFZvaWNlIGdpdmUgdGhlaXIgbWF4aW1hLi4uIFRoYXQsIG9yIEkgYW0g
+bWlzc2luZyBzb21ldGhpbmcgaW1wb3J0YW50Li4uCihJIHdvbmRlciB3aGV0aGVyIGl0IHdvdWxk
+IG5vdCBiZSBjbGVhcmVyIHRvIGdpdmUgYm90aCBtaW4gYW5kIG1heCBmb3IgZWFjaCB0aW4sIHRo
+ZW4gYWdhaW4gSSBwcm9iYWJseSBtaXNzaW5nIGFsbCB0aGUgZGV5YWlscyBvZiB0aGUgYWN0dWFs
+IGltcGxlbWVudGF0aW9uLi4uKQoKQmVzdCBSZWdhcmRzCglTZWJhc3RpYW4KCj4gCj4gQ2hlZXJz
+LAo+IAo+IEtldmluIEQtQgo+IAo+IGdwZzogMDEyQyBBQ0IyIDI4QzYgQzUzRSA5Nzc1ICA5MTIz
+IEIzQTIgMzg5QiA5REUyIDMzNEEKPiAKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwo+IENha2UgbWFpbGluZyBsaXN0Cj4gQ2FrZUBsaXN0cy5idWZmZXJi
+bG9hdC5uZXQKPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCgpf
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxp
+bmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJs
+b2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
