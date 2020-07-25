@@ -2,58 +2,79 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4E09B22D997
-	for <lists+cake@lfdr.de>; Sat, 25 Jul 2020 21:35:23 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8978222D9C6
+	for <lists+cake@lfdr.de>; Sat, 25 Jul 2020 22:04:48 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 3614F3CB38;
-	Sat, 25 Jul 2020 15:35:22 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 6BF503CB38;
+	Sat, 25 Jul 2020 16:04:47 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1595705722;
-	bh=w3dQrIP2aZrj/PX/JbDrwY0CKZqQdbSLybWgucic58E=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1595707487;
+	bh=Jw2L3gwliEM7yropDJKYzAKzcm6rZ1hGSgjPM4AYvFg=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=HaZsATy7KonV5BvpkO5sLFYMQez377TRUxFwNaDMhXt+7bZYDoKucBI2JiVGC1HVf
-	 9GWsAw07Jo+5uKlESGg5RPdb09DONtuZoa8pbp1NjVsY6qpjqd4oEWHc5r5oZ/PPL6
-	 OjyLNkS+vioNztFZERaHUDb5bV3AuMFTmkRzvkCrs0rBTj0acKrhhviJlFv2Lh6FIp
-	 cOvN3IJc/UYF62s/0UNnTCaU9w09FRerJe8IBihyF+OqdTNip7cvM9YJct1X9fJLXV
-	 3j+JBM3fV1x9xBi83Pv3ibAP6xmoWDipREJ0DUiZDpdGBRkD9jm5+7R12/HM0nwRRv
-	 BwCyyCrIncdjA==
+	b=TSufZJOAoJOPIICjfHrfwt+a9yyM8eCloYkjG9BQ1RnmMcyzCFWHi1z5D5bzQY9On
+	 q2Y6MLojvWFxDvXoTBey4P+dXZUUBDnlYAhuUW28ps2G0+/X9NDGYu8F1T2PQPCuXZ
+	 AANs2qOT1wVaN22ff1K+tYxcNF9eHJf76/US3eqWXeh7RF3vmjDKqk8HbEpuZopLOq
+	 qOe/l174XY3HHW+rGW0Z9d/YQTX3fdHtJa98vG/W9LzWqOkD7d+06YRnOLb0oxGlkK
+	 0co+NtvhShLs5Y53OiGKb7Y6N3fPXJEmYR1cz8LskyI4VBMidX/2rfDt7CpK4RBXQJ
+	 jjAQRVH8kfKSg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp73.iad3a.emailsrvr.com (smtp73.iad3a.emailsrvr.com
- [173.203.187.73])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 94DBF3B29E
- for <cake@lists.bufferbloat.net>; Sat, 25 Jul 2020 15:35:20 -0400 (EDT)
-Received: from app50.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp2.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 2F06743AF;
- Sat, 25 Jul 2020 15:35:20 -0400 (EDT)
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app50.wa-webapps.iad3a (Postfix) with ESMTP id 17B78618B2;
- Sat, 25 Jul 2020 15:35:20 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Sat, 25 Jul 2020 15:35:20 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Sat, 25 Jul 2020 15:35:20 -0400 (EDT)
-From: "David P. Reed" <dpreed@deepplum.com>
-To: "Kevin Darbyshire-Bryant" <kevin@darbyshire-bryant.me.uk>
-MIME-Version: 1.0
-Importance: Normal
+ by lists.bufferbloat.net (Postfix) with ESMTPS id BAEA93B29E
+ for <cake@lists.bufferbloat.net>; Sat, 25 Jul 2020 16:04:45 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1595707481;
+ bh=whp0CG/kDYz/GOWQyBhNfRwyOagvXektSUkMhTe1wwc=;
+ h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
+ b=bc6zKsMtxRjeh8+ftHmdd13SlTgwF2Eul06lcInpKBwnCWcBU4M63KJgOjX3VnzA0
+ jVlhCT40WiGcDIv9lKJftBfEplYQZJ8N4z4sRqgaL1po9DkoLK9Ws6hghF7Qry6kht
+ ZX19ApOGR/uWyQExl2A/nARK/dt9DOahx6psnyf0=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.42.229] ([77.6.52.50]) by mail.gmx.com (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MHoRK-1k3IZ5144s-00Eygl; Sat, 25
+ Jul 2020 22:04:41 +0200
+Mime-Version: 1.0 (Mac OS X Mail 12.4 \(3445.104.15\))
+From: Sebastian Moeller <moeller0@gmx.de>
 X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <94003145-2031-454F-8F76-38C153DDFA08@darbyshire-bryant.me.uk>
-References: <d5f74f85-7d72-40f9-a965-8335163d8cec@www.fastmail.com> 
- <CFB4036D-8EEA-44B2-A909-6FD8B495267A@darbyshire-bryant.me.uk> 
- <0CCA78BD-201C-4668-A013-24A3F6F4EC87@darbyshire-bryant.me.uk> 
- <1595699283.358416190@apps.rackspace.com> 
+In-Reply-To: <1595705720.093911757@apps.rackspace.com>
+Date: Sat, 25 Jul 2020 22:04:40 +0200
+Message-Id: <1E226B08-B076-4FD5-8DDB-73903F9B86F8@gmx.de>
+References: <d5f74f85-7d72-40f9-a965-8335163d8cec@www.fastmail.com>
+ <CFB4036D-8EEA-44B2-A909-6FD8B495267A@darbyshire-bryant.me.uk>
+ <0CCA78BD-201C-4668-A013-24A3F6F4EC87@darbyshire-bryant.me.uk>
+ <1595699283.358416190@apps.rackspace.com>
  <94003145-2031-454F-8F76-38C153DDFA08@darbyshire-bryant.me.uk>
-Message-ID: <1595705720.093911757@apps.rackspace.com>
-X-Mailer: webmail/17.3.12-RC
-X-Classification-ID: 20ca5964-a504-4af8-abd7-88bb4d3474ea-1-1
+ <1595705720.093911757@apps.rackspace.com>
+To: "David P. Reed" <dpreed@deepplum.com>
+X-Mailer: Apple Mail (2.3445.104.15)
+X-Provags-ID: V03:K1:AX2I866xUOKjiA54GL9znWFo0IsZeCKpX0Cl8jQu6pYqFgIweHZ
+ +MKc/RboHrrCS8DtC+eJR3TaooQJCBPYecB7ub1xoKQePDtj6Mcy+SMVJTmo+jNyV+eIV4H
+ 3ikvy4s68m1IpsIBn5zUS52utkHqG9jwdRj4tgfu3ARX4l4NiACYoZuyfAmoJuXqig2uJHQ
+ bzaG1jZ+W05Wh2tz6pkjg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:CNO/tpFeGao=:wHxe+/ZziskVfnJGWFjFmn
+ and2UKw1OtoTwpCKvMZ2Wmg2v21rEdst45qOXnNxr4S04W8s9Ns+QDKMjZRsWNgFeGrdmVaqb
+ alzyEHD2x/SDIV7G7ZSdid467v+CNh8lDYe8jBvLuA7ZbUqOAeV7bcfEkFXMAjYVrZJ/y/o7a
+ TUslsrsZbkM1nlAbJQafc8+IZ9O/qZJowVO6wsQWFXYUgkB0C0OvZ94dxiXEYo8BD99OjGZLl
+ 2LBldW3OIcfvJ6qWOhHlbeidGWW0EG/zf9BsHzqcxiwRFDCG13ONqq3vR7DOPsMf3pfJ1ekwg
+ YiFopYk6IhdQ6440UVPn5sB2JAXUibXy1M3det89BGXlpviarJvmYz5Le8K8Ii+z7sPzpts1I
+ pF6+5dYXeL8FjO6PicGzObode6EZew9c/kDzt5lYDDu4ntgYrkE6U5zx+/DT1cmoPVF1Me36e
+ /FQlPBbtknkoY4NgHBl+rzaKZPQ03G1FJ3b7UoxfzAXU+o3xJyoesU+7M7hdmC41CnmZ/wEVC
+ RtGiG2rEJnC5qpJNEMcTPrG5V6RkToPkS/CZctyRunzyoN1FojiHKsm+pQHrLKseZ5mlZtukT
+ ylz+vfOjZ2bGhsygY3SoX3Dn+rLdzEPcOSNsU2EWDOO+Zd5ygAsIPHW4hQ1eIChf3dH9hXjC5
+ M+lCcbnHUoPB3ufKyuWP/TCjgRsfMNwLKRVFqPbPogV+2VfnFYwEFMGEG8/0gWYknbeoAN34d
+ TaMx1Lq+WJM2V2rbkgdCh5nOzaPz18XpfI9WnwVF5xvOD3qxZRLgbrT+Ws7oZEnFeDPtV7qrp
+ g7Bcd9tiZF+OCyFvuG0DuyzPqrM7EsQMSs3Ji1JnAPliT8Ej3jG7hvRyJtoQsOijv/sDrIOcL
+ 5NpX0OrF/ckYplVwK+YkIj3M5jYFrIp+dg6TD2abFXKdLlYrSVyLxzCguCz4du46rut6vLuvX
+ GlhE8NDJB5pd0v8RQHtogm5/Wkf30jGc4dQqxYlUoLq//UpGEXJiOxkOIi+/IbPCT151pBHH4
+ SVET5oTMSFh+bk/X9Vdsvqg7qFhrxwb+Ffz1hhOgtyE0/RWWZkRHkD51+kdWlLn8c2zuhQNII
+ YMF4AF+0tCxMMY2qWddJz4hUycSdu9HFNmK1lkRmvpO/Xxe+ljY0+0LgUazpYUVXJTchyizbC
+ LgyhVaq23uRzk20Y3p13RGge4CJWOWQ/jCgR/dbMNpNi9wmZMhuqnWXc6mgK07v2+E+i5Um6S
+ TN4jub+sNEIFjUVZo
 Subject: Re: [Cake] diffserv3 vs diffserv4
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -66,197 +87,131 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============2909486723216799602=="
+Cc: Kevin Darbyshire-Bryant <kevin@darbyshire-bryant.me.uk>,
+ Cake List <cake@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============2909486723216799602==
-Content-Type: multipart/alternative;boundary="----=_20200725153520000000_83376"
-
-------=_20200725153520000000_83376
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-=0AI want to apologize for any implication that you, Mr. Darbyshire-Bryant,=
- were a "bellhead". AFAIK, you were quoting a staement from the designers o=
-f diffserv4, who apparently still believe in bandwidth division as a metric=
-.=0A =0ABut I understand it might be painful to hear my critique of the dif=
-fserv design process.=0A =0AJust be aware that it's my problem, not yours. =
-I don't mean to offend you. I do, however, feel like the folks who did "des=
-ign" diffserv (and continue to promote it) completely miss the whole point =
-of why the Internet is architected the way it is. And since they haven't ma=
-naged to respond to a clue-by-4 yet, I'm tired of just pointing out that th=
-e idea doesn't actually achieve any benefits, because no one (literally no =
-one) has evern done a consistent assignment of end-to-end meaning to the va=
-rious diffserv labels after decades of failed testing.=0A =0ASince this is =
-a group discussion, and not just a response to you, my comment was aimed at=
- the general group (which is not dedicated to bellhead thinking, thank good=
-ness).=0A =0AAnd to be clear, AQM (cake, being an example) is not about ban=
-dwidth allocation. It does focus on latency/queueing-delay, for the most pa=
-rt.=0A =0AHence my concern that diffserv's fundamental misunderstanding of =
-the responsibility of router queue management might contaminate a very, ver=
-y important project.=0A =0A =0AOn Saturday, July 25, 2020 1:54pm, "Kevin Da=
-rbyshire-Bryant" <kevin@darbyshire-bryant.me.uk> said:=0A=0A=0A=0A> I didn=
-=E2=80=99t sign up for this abuse. Bellhead eh? Well f**k off!=0A> =0A> I=
-=E2=80=99ve had enough - bye.=0A> =0A> > On 25 Jul 2020, at 18:48, David P.=
- Reed <dpreed@deepplum.com> wrote:=0A> >=0A> > This idea (dividing the link=
- rate capacity, since "bandwidth" is an incorrect=0A> term not to be promul=
-gated), is absurd, but typical of "bellhead" thinking.=0A> >=0A> > Per pack=
-et latency is the key control variable, even for TCP. That's because=0A> ca=
-pacity/rate is not controllable by routers, but by routing in a general Int=
-ernet=0A> situation.=0A> >=0A> > Latency is controlled by queuing delay in =
-a packet network, not bitrate. And=0A> in mixed traffic, which after all is=
- why traffic is classified in the first place,=0A> by its characteristics a=
-nd response to increased latency end-to-end, is the core=0A> "control" for =
-the internetwork as a whole.=0A> >=0A> > So, by promoting thinking about "b=
-andwidth" a whole sequence of=0A> misformulations of network management is =
-embedded into the thinking of those=0A> designing queue management algorith=
-ms.=0A> >=0A> > And make no mistake, queue management is the ONLY knob othe=
-r than sending=0A> different packets on different routes that one has for r=
-outers.=0A> >=0A> > I don't know who proposed this fractional division, but=
- it is clearly a=0A> bellhead-influenced thinker who thinks all protocols a=
-re CBR flows like in the old=0A> phone system.=0A> >=0A> > But almost no fl=
-ows in the internet are CBR flows! File transfers are not,=0A> streaming TV=
- is not, web ttraffic is not, game traffic is not. Only=0A> non-statistical=
-ly multiplexed real-time telephony and *some* video conferencing is=0A> CBR=
-.=0A> >=0A> > Yet this bizarre idea of dividing "bandwidth" among all categ=
-ories of flows=0A> pops up. Probably from employees of phone companies or p=
-hone equipment suppliers.=0A> Or folks who went to Uni and were trained in =
-"communications" by former phone=0A> engineers.=0A> >=0A> > Latency, latenc=
-y, latency. Queue delay, queue delay, queue delay. Not link=0A> speed! Chan=
-ge your brains.=0A> >=0A> > It's hard fo fight this bellhead crowd (or the =
-bellheadedness in your own=0A> thinking) but think about packets and queues=
- instead.=0A> >=0A> > My good friend Len Kleinrock didn't invent "Bandwidth=
- Theory"! He invented=0A> Queueing Theory. For a reason.=0A> >=0A> > On Sat=
-urday, July 25, 2020 6:12am, "Kevin Darbyshire-Bryant"=0A> <kevin@darbyshir=
-e-bryant.me.uk> said:=0A> >=0A> > > _______________________________________=
-________=0A> > > Cake mailing list=0A> > > Cake@lists.bufferbloat.net=0A> >=
- > https://lists.bufferbloat.net/listinfo/cake=0A> > >=0A> > >=0A> > > > On=
- 24 Jul 2020, at 18:42, Kevin Darbyshire-Bryant=0A> > > <kevin@darbyshire-b=
-ryant.me.uk> wrote:=0A> > > >=0A> > > >=0A> > > > The move from diffserv4 t=
-o diffserv5 WAS about de-prioritization.=0A> > >=0A> > > It was also about =
-minimum bandwidth allocations:=0A> > >=0A> > > LE: 1/64th=0A> > > BK: 1/16t=
-h=0A> > > BE: 1/1=0A> > > VI: 1/2=0A> > > VO: 1/4=0A> > >=0A> > > So worst =
-case, best effort should get 11/64ths in the extreme case of=0A> all other=
-=0A> > > tins in use.=0A> > >=0A> > > Cheers,=0A> > >=0A> > > Kevin D-B=0A>=
- > >=0A> > > gpg: 012C ACB2 28C6 C53E 9775 9123 B3A2 389B 9DE2 334A=0A> > >=
-=0A> > >=0A> =0A> =0A> Cheers,=0A> =0A> Kevin D-B=0A> =0A> gpg: 012C ACB2 2=
-8C6 C53E 9775 9123 B3A2 389B 9DE2 334A=0A> =0A> 
-------=_20200725153520000000_83376
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 10pt; overflow-wrap: break-word;">I want to apologize fo=
-r any implication that you, Mr. Darbyshire-Bryant, were a "bellhead". AFAIK=
-, you were quoting a staement from the designers of diffserv4, who apparent=
-ly still believe in bandwidth division as a metric.</p>=0A<p style=3D"margi=
-n:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-wor=
-d;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-si=
-ze: 10pt; overflow-wrap: break-word;">But I understand it might be painful =
-to hear my critique of the diffserv design process.</p>=0A<p style=3D"margi=
-n:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-wor=
-d;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-si=
-ze: 10pt; overflow-wrap: break-word;">Just be aware that it's my problem, n=
-ot yours. I don't mean to offend you. I do, however, feel like the folks wh=
-o did "design" diffserv (and continue to promote it) completely miss the wh=
-ole point of why the Internet is architected the way it is. And since they =
-haven't managed to respond to a clue-by-4 yet, I'm tired of just pointing o=
-ut that the idea doesn't actually achieve any benefits, because no one (lit=
-erally no one) has evern done a consistent assignment of end-to-end meaning=
- to the various diffserv labels after decades of failed testing.</p>=0A<p s=
-tyle=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wr=
-ap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: a=
-rial; font-size: 10pt; overflow-wrap: break-word;">Since this is a group di=
-scussion, and not just a response to you, my comment was aimed at the gener=
-al group (which is not dedicated to bellhead thinking, thank goodness).</p>=
-=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; over=
-flow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-fa=
-mily: arial; font-size: 10pt; overflow-wrap: break-word;">And to be clear, =
-AQM (cake, being an example) is not about bandwidth allocation. It does foc=
-us on latency/queueing-delay, for the most part.</p>=0A<p style=3D"margin:0=
-;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;"=
->&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size:=
- 10pt; overflow-wrap: break-word;">Hence my concern that diffserv's fundame=
-ntal misunderstanding of the responsibility of router queue management migh=
-t contaminate a very, very important project.</p>=0A<p style=3D"margin:0;pa=
-dding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">&n=
-bsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10=
-pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0=
-;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">On Saturd=
-ay, July 25, 2020 1:54pm, "Kevin Darbyshire-Bryant" &lt;kevin@darbyshire-br=
-yant.me.uk&gt; said:<br /><br /></p>=0A<div id=3D"SafeStyles1595704947">=0A=
-<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflo=
-w-wrap: break-word;">&gt; I didn=E2=80=99t sign up for this abuse. Bellhead=
- eh? Well f**k off!<br />&gt; <br />&gt; I=E2=80=99ve had enough - bye.<br =
-/>&gt; <br />&gt; &gt; On 25 Jul 2020, at 18:48, David P. Reed &lt;dpreed@d=
-eepplum.com&gt; wrote:<br />&gt; &gt;<br />&gt; &gt; This idea (dividing th=
-e link rate capacity, since "bandwidth" is an incorrect<br />&gt; term not =
-to be promulgated), is absurd, but typical of "bellhead" thinking.<br />&gt=
-; &gt;<br />&gt; &gt; Per packet latency is the key control variable, even =
-for TCP. That's because<br />&gt; capacity/rate is not controllable by rout=
-ers, but by routing in a general Internet<br />&gt; situation.<br />&gt; &g=
-t;<br />&gt; &gt; Latency is controlled by queuing delay in a packet networ=
-k, not bitrate. And<br />&gt; in mixed traffic, which after all is why traf=
-fic is classified in the first place,<br />&gt; by its characteristics and =
-response to increased latency end-to-end, is the core<br />&gt; "control" f=
-or the internetwork as a whole.<br />&gt; &gt;<br />&gt; &gt; So, by promot=
-ing thinking about "bandwidth" a whole sequence of<br />&gt; misformulation=
-s of network management is embedded into the thinking of those<br />&gt; de=
-signing queue management algorithms.<br />&gt; &gt;<br />&gt; &gt; And make=
- no mistake, queue management is the ONLY knob other than sending<br />&gt;=
- different packets on different routes that one has for routers.<br />&gt; =
-&gt;<br />&gt; &gt; I don't know who proposed this fractional division, but=
- it is clearly a<br />&gt; bellhead-influenced thinker who thinks all proto=
-cols are CBR flows like in the old<br />&gt; phone system.<br />&gt; &gt;<b=
-r />&gt; &gt; But almost no flows in the internet are CBR flows! File trans=
-fers are not,<br />&gt; streaming TV is not, web ttraffic is not, game traf=
-fic is not. Only<br />&gt; non-statistically multiplexed real-time telephon=
-y and *some* video conferencing is<br />&gt; CBR.<br />&gt; &gt;<br />&gt; =
-&gt; Yet this bizarre idea of dividing "bandwidth" among all categories of =
-flows<br />&gt; pops up. Probably from employees of phone companies or phon=
-e equipment suppliers.<br />&gt; Or folks who went to Uni and were trained =
-in "communications" by former phone<br />&gt; engineers.<br />&gt; &gt;<br =
-/>&gt; &gt; Latency, latency, latency. Queue delay, queue delay, queue dela=
-y. Not link<br />&gt; speed! Change your brains.<br />&gt; &gt;<br />&gt; &=
-gt; It's hard fo fight this bellhead crowd (or the bellheadedness in your o=
-wn<br />&gt; thinking) but think about packets and queues instead.<br />&gt=
-; &gt;<br />&gt; &gt; My good friend Len Kleinrock didn't invent "Bandwidth=
- Theory"! He invented<br />&gt; Queueing Theory. For a reason.<br />&gt; &g=
-t;<br />&gt; &gt; On Saturday, July 25, 2020 6:12am, "Kevin Darbyshire-Brya=
-nt"<br />&gt; &lt;kevin@darbyshire-bryant.me.uk&gt; said:<br />&gt; &gt;<br=
- />&gt; &gt; &gt; _______________________________________________<br />&gt;=
- &gt; &gt; Cake mailing list<br />&gt; &gt; &gt; Cake@lists.bufferbloat.net=
-<br />&gt; &gt; &gt; https://lists.bufferbloat.net/listinfo/cake<br />&gt; =
-&gt; &gt;<br />&gt; &gt; &gt;<br />&gt; &gt; &gt; &gt; On 24 Jul 2020, at 1=
-8:42, Kevin Darbyshire-Bryant<br />&gt; &gt; &gt; &lt;kevin@darbyshire-brya=
-nt.me.uk&gt; wrote:<br />&gt; &gt; &gt; &gt;<br />&gt; &gt; &gt; &gt;<br />=
-&gt; &gt; &gt; &gt; The move from diffserv4 to diffserv5 WAS about de-prior=
-itization.<br />&gt; &gt; &gt;<br />&gt; &gt; &gt; It was also about minimu=
-m bandwidth allocations:<br />&gt; &gt; &gt;<br />&gt; &gt; &gt; LE: 1/64th=
-<br />&gt; &gt; &gt; BK: 1/16th<br />&gt; &gt; &gt; BE: 1/1<br />&gt; &gt; =
-&gt; VI: 1/2<br />&gt; &gt; &gt; VO: 1/4<br />&gt; &gt; &gt;<br />&gt; &gt;=
- &gt; So worst case, best effort should get 11/64ths in the extreme case of=
-<br />&gt; all other<br />&gt; &gt; &gt; tins in use.<br />&gt; &gt; &gt;<b=
-r />&gt; &gt; &gt; Cheers,<br />&gt; &gt; &gt;<br />&gt; &gt; &gt; Kevin D-=
-B<br />&gt; &gt; &gt;<br />&gt; &gt; &gt; gpg: 012C ACB2 28C6 C53E 9775 912=
-3 B3A2 389B 9DE2 334A<br />&gt; &gt; &gt;<br />&gt; &gt; &gt;<br />&gt; <br=
- />&gt; <br />&gt; Cheers,<br />&gt; <br />&gt; Kevin D-B<br />&gt; <br />&=
-gt; gpg: 012C ACB2 28C6 C53E 9775 9123 B3A2 389B 9DE2 334A<br />&gt; <br />=
-&gt; </p>=0A</div></font>
-------=_20200725153520000000_83376--
-
-
---===============2909486723216799602==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============2909486723216799602==--
-
+SGkgRGF2aWQsCgpJIGJlbGlldmUgdGhhdCBmb2xrcyBoZXJlLCBjZXJ0YWlubHkgS2V2aW4sIGhh
+dmUgYWNjZXB0ZWQgdGhlIGRvbWFpbiBzcGVjaWZpY2l0eSBvZiBkaWZmc2VydiBhbmQgd2UgYXJl
+IG1haW5seSBkaXNjdXNzaW9uLCBob3cgbWFueSB0aWVycyBvZiBkaWZmZXJlbnRpYWwgbGF0ZW5j
+eSB0b2xlcmFuY2Ugd2UgZGVzaXJlIDspLiBJdCBnb2VzIHdpdGhvdXQgc2F5aW5nIHRoYXQgdGhp
+cyBpcyBhbGwgd2l0aGluIHRoZSAiaG9tZSBkb21haW4iLCBhbmQgdGhlIGdvYWwgaXMgaG93IGxp
+dHRsZS9mZXcgcHJpb3JpdHkgZ2FtZXMgd2UgbmVlZCB0byBwbGF5IGZvciBkZWNlbnQgcGVyZm9y
+bWFuY2UgdW5kZXIgbG9hZC4gU3VyZSwgZW5kMmVuZCBzaWduYWxpbmcgd291bGQgYmUgZGVzaXJh
+YmxlLCBidXQgYXMgeW91IHBvaW50IG91dCBkb2VzIG5vdCBleGlzdCBpbiBkaWZmc2VydmUgdG9k
+YXkgYW5kIGlzIGFsc28gbm90IHZlcnkgbGlrZWx5IHRvIGFwcGVhciBhbnl0aW1lIHNvb24sIGJ1
+dCBpbiBvbmUncyBob21lIGl0IGlzIHN0aWxsIHJlbGF0aXZlbHkgZWFzeSB0byBpZGVudGlmeSBh
+IGZldyBzcGVjaWFsIGNhc2VzLCBsaWtlIGJpdC10b3JyZW50IChkb24ndCBnZXQgaW4gdGhlIHdh
+eSBvZiAicmVhbCIgdHJhZmZpYykgb3IgVm9JUCAocXVpdGUgbGF0ZW5jeSBhbmQgZXNwZWNpYWxs
+eSBqaXR0ZXIgYXZlcnNlLCBidXQgYWxzbyB0eXBpY2FsbHkgb2YgbW9kZXN0IHJhdGUpIHRoYXQg
+Y291bGQvc2hvdWxkIGJlIHRha2VuIGNhcmUgb2YuIAoJQXMgZmFyIGFzIEkgY2FuIHRlbGwgdGhh
+dCBpcyBhbGwgdGhlIGNha2Uvc3FtJ3MgZGlmZnNlcnZlIG1vZGVzIHRyeSB0byBhY2NvbXBsaXNo
+LiBEU0NQcyBhcmUgc2ltcGx5IHVzZWQsIGFzIHRoZXJlIGV4aXN0cyBtYWNoaW5lcnkgZm9yIHJv
+dXRlcnMvZW5kLWhvc3RzIE9TIHRvIHNlbGVjdGl2ZWx5IHNldC9yZS1zZXQgdGhlbSBhbmQgYWxs
+IElQIHBhY2tldHMgd2lsbCBjYXJyeSB0aGVtLiAKCVJlZ2FyZGluZyB0aGUgQmVsbC1oYWVkZWRu
+ZXNzLCBzdXJlIEkgbWlnaHQgcXVhbGlmeSBmb3IgdGhhdCBtb25pa2VyL2FidXNlKiwgYnV0IHRo
+ZSByZWxldmFudCBmYWN0b3IsIElNSE8sIGlzIG5vdCBzbyBtdWNoIHRoZSBleGFjdCByYXRlIGN1
+dC1vZmZzIG9mIHRoZSBkaWZmZXJlbnQgcHJpb3JpdHkgdGllcnMsIGJ1dCB0aGUgc2ltcGxlIHJl
+YWxpemF0aW9uIHRoYXQgbG93IGxhdGVuY3kgdmlhIHByaW9yaXRpemF0aW9uIHJlcXVpcmVzIHJl
+bGF0aXZlbHkgbG93IHJhdGVzLCBvdGhlcndpc2UgInByaW9yaXR5IiB0cmFmZmljIHdpbGwgc2Vs
+ZiBjb25nZXN0LCBzbyB0aGVzZSB0aHJlc2hvbGRzIHNlcnZlIHRvIGVzdGFibGlzaCBhICJjb3N0
+IiBmb3IgdXNpbmcgZWFjaCBwcmlvcml0eSB0aWVyLiAKCkJlc3QgUmVnYXJkcwoJU2ViYXN0aWFu
+CgoqKSBCeSB2aXJ0dWUgb2YgaW50ZWxsZWN0dWFsIGxhemluZXNzLCBpdCBpcyBzaW1wbHkgb2Z0
+ZW4gZWFzaWVyIGZvciBtZSB0byB0aGluayBpbiByYXRlIHNoYXJlcyB0aGFuIHRoZSBhbHRlcm5h
+dGl2ZXMuIEJ1dCBoZXksIEkgZG8gdGhpcyBhcyBhIGhvYmJ5LCBzbyBJIGN1dCBteXNlbGYgYSBs
+b3Qgb2Ygc2xhY2sgaGVyZSA7KSBCdXQgSSB0YWtlIG5vIG9mZmVuc2UgaW4gYmVpbmcgbGFiZWxl
+ZCB0aGF0LgoKCj4gT24gSnVsIDI1LCAyMDIwLCBhdCAyMTozNSwgRGF2aWQgUC4gUmVlZCA8ZHBy
+ZWVkQGRlZXBwbHVtLmNvbT4gd3JvdGU6Cj4gCj4gSSB3YW50IHRvIGFwb2xvZ2l6ZSBmb3IgYW55
+IGltcGxpY2F0aW9uIHRoYXQgeW91LCBNci4gRGFyYnlzaGlyZS1CcnlhbnQsIHdlcmUgYSAiYmVs
+bGhlYWQiLiBBRkFJSywgeW91IHdlcmUgcXVvdGluZyBhIHN0YWVtZW50IGZyb20gdGhlIGRlc2ln
+bmVycyBvZiBkaWZmc2VydjQsIHdobyBhcHBhcmVudGx5IHN0aWxsIGJlbGlldmUgaW4gYmFuZHdp
+ZHRoIGRpdmlzaW9uIGFzIGEgbWV0cmljLgo+ICAKPiBCdXQgSSB1bmRlcnN0YW5kIGl0IG1pZ2h0
+IGJlIHBhaW5mdWwgdG8gaGVhciBteSBjcml0aXF1ZSBvZiB0aGUgZGlmZnNlcnYgZGVzaWduIHBy
+b2Nlc3MuCj4gIAo+IEp1c3QgYmUgYXdhcmUgdGhhdCBpdCdzIG15IHByb2JsZW0sIG5vdCB5b3Vy
+cy4gSSBkb24ndCBtZWFuIHRvIG9mZmVuZCB5b3UuIEkgZG8sIGhvd2V2ZXIsIGZlZWwgbGlrZSB0
+aGUgZm9sa3Mgd2hvIGRpZCAiZGVzaWduIiBkaWZmc2VydiAoYW5kIGNvbnRpbnVlIHRvIHByb21v
+dGUgaXQpIGNvbXBsZXRlbHkgbWlzcyB0aGUgd2hvbGUgcG9pbnQgb2Ygd2h5IHRoZSBJbnRlcm5l
+dCBpcyBhcmNoaXRlY3RlZCB0aGUgd2F5IGl0IGlzLiBBbmQgc2luY2UgdGhleSBoYXZlbid0IG1h
+bmFnZWQgdG8gcmVzcG9uZCB0byBhIGNsdWUtYnktNCB5ZXQsIEknbSB0aXJlZCBvZiBqdXN0IHBv
+aW50aW5nIG91dCB0aGF0IHRoZSBpZGVhIGRvZXNuJ3QgYWN0dWFsbHkgYWNoaWV2ZSBhbnkgYmVu
+ZWZpdHMsIGJlY2F1c2Ugbm8gb25lIChsaXRlcmFsbHkgbm8gb25lKSBoYXMgZXZlcm4gZG9uZSBh
+IGNvbnNpc3RlbnQgYXNzaWdubWVudCBvZiBlbmQtdG8tZW5kIG1lYW5pbmcgdG8gdGhlIHZhcmlv
+dXMgZGlmZnNlcnYgbGFiZWxzIGFmdGVyIGRlY2FkZXMgb2YgZmFpbGVkIHRlc3RpbmcuCj4gIAo+
+IFNpbmNlIHRoaXMgaXMgYSBncm91cCBkaXNjdXNzaW9uLCBhbmQgbm90IGp1c3QgYSByZXNwb25z
+ZSB0byB5b3UsIG15IGNvbW1lbnQgd2FzIGFpbWVkIGF0IHRoZSBnZW5lcmFsIGdyb3VwICh3aGlj
+aCBpcyBub3QgZGVkaWNhdGVkIHRvIGJlbGxoZWFkIHRoaW5raW5nLCB0aGFuayBnb29kbmVzcyku
+Cj4gIAo+IEFuZCB0byBiZSBjbGVhciwgQVFNIChjYWtlLCBiZWluZyBhbiBleGFtcGxlKSBpcyBu
+b3QgYWJvdXQgYmFuZHdpZHRoIGFsbG9jYXRpb24uIEl0IGRvZXMgZm9jdXMgb24gbGF0ZW5jeS9x
+dWV1ZWluZy1kZWxheSwgZm9yIHRoZSBtb3N0IHBhcnQuCj4gIAo+IEhlbmNlIG15IGNvbmNlcm4g
+dGhhdCBkaWZmc2VydidzIGZ1bmRhbWVudGFsIG1pc3VuZGVyc3RhbmRpbmcgb2YgdGhlIHJlc3Bv
+bnNpYmlsaXR5IG9mIHJvdXRlciBxdWV1ZSBtYW5hZ2VtZW50IG1pZ2h0IGNvbnRhbWluYXRlIGEg
+dmVyeSwgdmVyeSBpbXBvcnRhbnQgcHJvamVjdC4KPiAgCj4gIAo+IE9uIFNhdHVyZGF5LCBKdWx5
+IDI1LCAyMDIwIDE6NTRwbSwgIktldmluIERhcmJ5c2hpcmUtQnJ5YW50IiA8a2V2aW5AZGFyYnlz
+aGlyZS1icnlhbnQubWUudWs+IHNhaWQ6Cj4gCj4gPiBJIGRpZG7igJl0IHNpZ24gdXAgZm9yIHRo
+aXMgYWJ1c2UuIEJlbGxoZWFkIGVoPyBXZWxsIGYqKmsgb2ZmIQo+ID4gCj4gPiBJ4oCZdmUgaGFk
+IGVub3VnaCAtIGJ5ZS4KPiA+IAo+ID4gPiBPbiAyNSBKdWwgMjAyMCwgYXQgMTg6NDgsIERhdmlk
+IFAuIFJlZWQgPGRwcmVlZEBkZWVwcGx1bS5jb20+IHdyb3RlOgo+ID4gPgo+ID4gPiBUaGlzIGlk
+ZWEgKGRpdmlkaW5nIHRoZSBsaW5rIHJhdGUgY2FwYWNpdHksIHNpbmNlICJiYW5kd2lkdGgiIGlz
+IGFuIGluY29ycmVjdAo+ID4gdGVybSBub3QgdG8gYmUgcHJvbXVsZ2F0ZWQpLCBpcyBhYnN1cmQs
+IGJ1dCB0eXBpY2FsIG9mICJiZWxsaGVhZCIgdGhpbmtpbmcuCj4gPiA+Cj4gPiA+IFBlciBwYWNr
+ZXQgbGF0ZW5jeSBpcyB0aGUga2V5IGNvbnRyb2wgdmFyaWFibGUsIGV2ZW4gZm9yIFRDUC4gVGhh
+dCdzIGJlY2F1c2UKPiA+IGNhcGFjaXR5L3JhdGUgaXMgbm90IGNvbnRyb2xsYWJsZSBieSByb3V0
+ZXJzLCBidXQgYnkgcm91dGluZyBpbiBhIGdlbmVyYWwgSW50ZXJuZXQKPiA+IHNpdHVhdGlvbi4K
+PiA+ID4KPiA+ID4gTGF0ZW5jeSBpcyBjb250cm9sbGVkIGJ5IHF1ZXVpbmcgZGVsYXkgaW4gYSBw
+YWNrZXQgbmV0d29yaywgbm90IGJpdHJhdGUuIEFuZAo+ID4gaW4gbWl4ZWQgdHJhZmZpYywgd2hp
+Y2ggYWZ0ZXIgYWxsIGlzIHdoeSB0cmFmZmljIGlzIGNsYXNzaWZpZWQgaW4gdGhlIGZpcnN0IHBs
+YWNlLAo+ID4gYnkgaXRzIGNoYXJhY3RlcmlzdGljcyBhbmQgcmVzcG9uc2UgdG8gaW5jcmVhc2Vk
+IGxhdGVuY3kgZW5kLXRvLWVuZCwgaXMgdGhlIGNvcmUKPiA+ICJjb250cm9sIiBmb3IgdGhlIGlu
+dGVybmV0d29yayBhcyBhIHdob2xlLgo+ID4gPgo+ID4gPiBTbywgYnkgcHJvbW90aW5nIHRoaW5r
+aW5nIGFib3V0ICJiYW5kd2lkdGgiIGEgd2hvbGUgc2VxdWVuY2Ugb2YKPiA+IG1pc2Zvcm11bGF0
+aW9ucyBvZiBuZXR3b3JrIG1hbmFnZW1lbnQgaXMgZW1iZWRkZWQgaW50byB0aGUgdGhpbmtpbmcg
+b2YgdGhvc2UKPiA+IGRlc2lnbmluZyBxdWV1ZSBtYW5hZ2VtZW50IGFsZ29yaXRobXMuCj4gPiA+
+Cj4gPiA+IEFuZCBtYWtlIG5vIG1pc3Rha2UsIHF1ZXVlIG1hbmFnZW1lbnQgaXMgdGhlIE9OTFkg
+a25vYiBvdGhlciB0aGFuIHNlbmRpbmcKPiA+IGRpZmZlcmVudCBwYWNrZXRzIG9uIGRpZmZlcmVu
+dCByb3V0ZXMgdGhhdCBvbmUgaGFzIGZvciByb3V0ZXJzLgo+ID4gPgo+ID4gPiBJIGRvbid0IGtu
+b3cgd2hvIHByb3Bvc2VkIHRoaXMgZnJhY3Rpb25hbCBkaXZpc2lvbiwgYnV0IGl0IGlzIGNsZWFy
+bHkgYQo+ID4gYmVsbGhlYWQtaW5mbHVlbmNlZCB0aGlua2VyIHdobyB0aGlua3MgYWxsIHByb3Rv
+Y29scyBhcmUgQ0JSIGZsb3dzIGxpa2UgaW4gdGhlIG9sZAo+ID4gcGhvbmUgc3lzdGVtLgo+ID4g
+Pgo+ID4gPiBCdXQgYWxtb3N0IG5vIGZsb3dzIGluIHRoZSBpbnRlcm5ldCBhcmUgQ0JSIGZsb3dz
+ISBGaWxlIHRyYW5zZmVycyBhcmUgbm90LAo+ID4gc3RyZWFtaW5nIFRWIGlzIG5vdCwgd2ViIHR0
+cmFmZmljIGlzIG5vdCwgZ2FtZSB0cmFmZmljIGlzIG5vdC4gT25seQo+ID4gbm9uLXN0YXRpc3Rp
+Y2FsbHkgbXVsdGlwbGV4ZWQgcmVhbC10aW1lIHRlbGVwaG9ueSBhbmQgKnNvbWUqIHZpZGVvIGNv
+bmZlcmVuY2luZyBpcwo+ID4gQ0JSLgo+ID4gPgo+ID4gPiBZZXQgdGhpcyBiaXphcnJlIGlkZWEg
+b2YgZGl2aWRpbmcgImJhbmR3aWR0aCIgYW1vbmcgYWxsIGNhdGVnb3JpZXMgb2YgZmxvd3MKPiA+
+IHBvcHMgdXAuIFByb2JhYmx5IGZyb20gZW1wbG95ZWVzIG9mIHBob25lIGNvbXBhbmllcyBvciBw
+aG9uZSBlcXVpcG1lbnQgc3VwcGxpZXJzLgo+ID4gT3IgZm9sa3Mgd2hvIHdlbnQgdG8gVW5pIGFu
+ZCB3ZXJlIHRyYWluZWQgaW4gImNvbW11bmljYXRpb25zIiBieSBmb3JtZXIgcGhvbmUKPiA+IGVu
+Z2luZWVycy4KPiA+ID4KPiA+ID4gTGF0ZW5jeSwgbGF0ZW5jeSwgbGF0ZW5jeS4gUXVldWUgZGVs
+YXksIHF1ZXVlIGRlbGF5LCBxdWV1ZSBkZWxheS4gTm90IGxpbmsKPiA+IHNwZWVkISBDaGFuZ2Ug
+eW91ciBicmFpbnMuCj4gPiA+Cj4gPiA+IEl0J3MgaGFyZCBmbyBmaWdodCB0aGlzIGJlbGxoZWFk
+IGNyb3dkIChvciB0aGUgYmVsbGhlYWRlZG5lc3MgaW4geW91ciBvd24KPiA+IHRoaW5raW5nKSBi
+dXQgdGhpbmsgYWJvdXQgcGFja2V0cyBhbmQgcXVldWVzIGluc3RlYWQuCj4gPiA+Cj4gPiA+IE15
+IGdvb2QgZnJpZW5kIExlbiBLbGVpbnJvY2sgZGlkbid0IGludmVudCAiQmFuZHdpZHRoIFRoZW9y
+eSIhIEhlIGludmVudGVkCj4gPiBRdWV1ZWluZyBUaGVvcnkuIEZvciBhIHJlYXNvbi4KPiA+ID4K
+PiA+ID4gT24gU2F0dXJkYXksIEp1bHkgMjUsIDIwMjAgNjoxMmFtLCAiS2V2aW4gRGFyYnlzaGly
+ZS1CcnlhbnQiCj4gPiA8a2V2aW5AZGFyYnlzaGlyZS1icnlhbnQubWUudWs+IHNhaWQ6Cj4gPiA+
+Cj4gPiA+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+PiA+ID4gPiBDYWtlIG1haWxpbmcgbGlzdAo+ID4gPiA+IENha2VAbGlzdHMuYnVmZmVyYmxvYXQu
+bmV0Cj4gPiA+ID4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo+
+ID4gPiA+Cj4gPiA+ID4KPiA+ID4gPiA+IE9uIDI0IEp1bCAyMDIwLCBhdCAxODo0MiwgS2V2aW4g
+RGFyYnlzaGlyZS1CcnlhbnQKPiA+ID4gPiA8a2V2aW5AZGFyYnlzaGlyZS1icnlhbnQubWUudWs+
+IHdyb3RlOgo+ID4gPiA+ID4KPiA+ID4gPiA+Cj4gPiA+ID4gPiBUaGUgbW92ZSBmcm9tIGRpZmZz
+ZXJ2NCB0byBkaWZmc2VydjUgV0FTIGFib3V0IGRlLXByaW9yaXRpemF0aW9uLgo+ID4gPiA+Cj4g
+PiA+ID4gSXQgd2FzIGFsc28gYWJvdXQgbWluaW11bSBiYW5kd2lkdGggYWxsb2NhdGlvbnM6Cj4g
+PiA+ID4KPiA+ID4gPiBMRTogMS82NHRoCj4gPiA+ID4gQks6IDEvMTZ0aAo+ID4gPiA+IEJFOiAx
+LzEKPiA+ID4gPiBWSTogMS8yCj4gPiA+ID4gVk86IDEvNAo+ID4gPiA+Cj4gPiA+ID4gU28gd29y
+c3QgY2FzZSwgYmVzdCBlZmZvcnQgc2hvdWxkIGdldCAxMS82NHRocyBpbiB0aGUgZXh0cmVtZSBj
+YXNlIG9mCj4gPiBhbGwgb3RoZXIKPiA+ID4gPiB0aW5zIGluIHVzZS4KPiA+ID4gPgo+ID4gPiA+
+IENoZWVycywKPiA+ID4gPgo+ID4gPiA+IEtldmluIEQtQgo+ID4gPiA+Cj4gPiA+ID4gZ3BnOiAw
+MTJDIEFDQjIgMjhDNiBDNTNFIDk3NzUgOTEyMyBCM0EyIDM4OUIgOURFMiAzMzRBCj4gPiA+ID4K
+PiA+ID4gPgo+ID4gCj4gPiAKPiA+IENoZWVycywKPiA+IAo+ID4gS2V2aW4gRC1CCj4gPiAKPiA+
+IGdwZzogMDEyQyBBQ0IyIDI4QzYgQzUzRSA5Nzc1IDkxMjMgQjNBMiAzODlCIDlERTIgMzM0QQo+
+ID4gCj4gPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+Cj4gQ2FrZSBtYWlsaW5nIGxpc3QKPiBDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+IGh0dHBz
+Oi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UKCl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlz
+dHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZv
+L2Nha2UK
