@@ -2,62 +2,73 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 33BFE22FB90
-	for <lists+cake@lfdr.de>; Mon, 27 Jul 2020 23:41:30 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8929122FC71
+	for <lists+cake@lfdr.de>; Tue, 28 Jul 2020 00:46:24 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id AD0573CB38;
-	Mon, 27 Jul 2020 17:41:28 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 740C43CB38;
+	Mon, 27 Jul 2020 18:46:23 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1595886088;
-	bh=d7c8aI12mLvfCjl8u+FnkF4WY+QJ1uhc1Ixmcj+Vzgw=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=DsdoAg24CxA+HrbINpn5GEGFZWqUVhP3BbW3XbU1+om8vJxoWdfdqBtIFrRTycCYF
-	 UktIiglQY1ZX8Lw09MPEhDpToTaK4pqrnqMAxaxOIU7Glvx8wFFhD5Ia18RRoEN0gc
-	 MiEiqNMYxKdk+TICk7imtj+IaZsroSZZmxZ87qCnnbSzlMwrda/MXf/raeq8IKrxcd
-	 lyXO9/r8BHXVT1O13OguDZJgLQD8Os/kmmw7kqcGlDH/VXm8YFDGi3DIjEQ18rdiqc
-	 KBhKuyFUEwocU27SfBuu5H8HgCPm1/tMtUhtHLzs2d90pVz9uGmEMwx6/SiBTLSr3u
-	 dB7wHULv9+g/g==
+	d=lists.bufferbloat.net; s=201610; t=1595889983;
+	bh=kWz4/HTNp4o3lYQ/umR6evbs5jiufunquTAoVrXVU/8=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=Frbu4fz27VI1n4UdUnsDY/7tgTB51+UPbaVCjWhzr38j5ApyerwKRYE6EaVNyYsrr
+	 +PbTHiP6UAHgMCYQshSFq5ssEGDHYwe6A2p1vfYTCMuu8Wf3Sf6GFvdlmgUUIWEPpb
+	 /5WBvXMtVaPm+pzhG6EfIDPRxo8JbwB59aoVtvMbH+WzylndxFGUBoWXr+KbG0c8VH
+	 wYr/uEl/rertEPL02glP51+/QSpPK2bwAf10oyggOfQbXdTxVxmXXCIY6HZz1yvk/B
+	 eHgxCFLmWEeiWf9/s46/9iKb8slfVq9kWCqjthOQKxY0gwV7v1anKVMda0/hX+TAQl
+	 U6JltDIbpYZiQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-qt1-x841.google.com (mail-qt1-x841.google.com
- [IPv6:2607:f8b0:4864:20::841])
+Received: from mail-lj1-x235.google.com (mail-lj1-x235.google.com
+ [IPv6:2a00:1450:4864:20::235])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 7B1DD3B2A4
- for <cake@lists.bufferbloat.net>; Mon, 27 Jul 2020 17:41:26 -0400 (EDT)
-Received: by mail-qt1-x841.google.com with SMTP id b25so13441841qto.2
- for <cake@lists.bufferbloat.net>; Mon, 27 Jul 2020 14:41:26 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 9C21A3B2A4
+ for <cake@lists.bufferbloat.net>; Mon, 27 Jul 2020 18:46:22 -0400 (EDT)
+Received: by mail-lj1-x235.google.com with SMTP id h19so19015915ljg.13
+ for <cake@lists.bufferbloat.net>; Mon, 27 Jul 2020 15:46:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to;
- bh=oSV6RLjZwp747W/g7Jq6CJIj6HKD3OWt18INZrJIbr8=;
- b=oAB26KOpdAumsSv4mJ792d11FB4AXnNbA36QL6vKGWrwmBtCwkDAwSlbULGBJ5bR7l
- 9kt3lg8Yv9UMXguMaRzrmhSb3lnrN+fJq89H2BlweODMvWNwwbNi0MczVUjqBaRStwPO
- 3Qan8FnsFrztY3TiLdgyNSzkPzCIkDz0fSkJdtdAtk2XMmceZjLzzp2R+/IVi3PMRzdn
- BKKH7VgOEMD0P/vwNRwoR0/Sbw2GDlXe7QpFwRwn6snZ2CzPfYqpqhXSaO6EtY+v88N0
- sALAQOyfzE7CaUKtEL8xf5udnzww0E9+6m1xHFpdUrc8+q5krBazk/KRp7qF+9rsyqsl
- mezw==
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=BY8kTuIsINj1AHRCDsVULphepw9ErUikeFex/wTlYvs=;
+ b=aYOIjpWGciPA1KIxbmG4bkJjG7n0X8VzFo+LTI7wv2lIONn4Tlczo66BP+apUnQds4
+ BBSn2WVjoy3biepmfrrKczsEG8mN9mGJmeATDT62gQncJgjcVueFc6piFBCTFJVElF9O
+ 02croSlngZlekm2RXLePjaSeFZ/d5RAOF4YE2Lo08oiqWMTs3MKkY1bU4IdrS9sI88PK
+ cDKADSi7ceJN7S9X5OS75QRJyRIfBeYfPPCIcX+Hqmdjd1GhW57oMP4uGv+Z8s9YcxhH
+ K9ht1fhOo6eLsq4DWJa1ne0Dyg0uhMsqBjenJZljrHMujx+t7gFH37xByrpoNEwerf3n
+ fIqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
- bh=oSV6RLjZwp747W/g7Jq6CJIj6HKD3OWt18INZrJIbr8=;
- b=PKaIr/y/2Wjuidc7/OsrTaQInTPWztcYwqkQCJiAt75mGZJs5XW+Y9lOLjdNWbHL0m
- rvIIcq62tOWmQlGQ2zCyjP1fRd8TcCcRM2WcrJwsVeYCYh02GWO6MnqVuxgJJA+BPo7Q
- nDpCjHv/1UJTFuAwcMhK/zbO2Q/I5TPNFXKuoW4Y/FEjJABiJMoqUmj6H9TOG5MiTwjo
- wUFMOM1ZOiOlxGab+tn1Dd3GVNCdLlvWetGcnsnymNlhn5jjame2IRpFbfXq3mtqoLNw
- GQ0xjg0WxU4EQFkB9mok0NObdCQxvUooJV2e5ryhnI3R9ZKbkMgBbfVKbHFa8Naarqv0
- heWw==
-X-Gm-Message-State: AOAM530Vo3bneMRx3dzBEFrrTRkUD+d3JFelTL68YI6OCBY+TZMG+3HW
- pPARjuc87rmtX3yt+9+TsPa7mH+GdSDaro6hQG1VhA==
-X-Google-Smtp-Source: ABdhPJy+NQSAHJWePeE8clx8RqxERmbNy2hsFS+fqMJpfv9hQcjXFp1s4T1hkPg2DD5h5OsQv6YBsTit+C9ptbBB+y0=
-X-Received: by 2002:aed:3689:: with SMTP id f9mr9328100qtb.238.1595886085883; 
- Mon, 27 Jul 2020 14:41:25 -0700 (PDT)
-MIME-Version: 1.0
-From: Jim Geo <dim.geo@gmail.com>
-Date: Tue, 28 Jul 2020 00:41:14 +0300
-Message-ID: <CAD9MmSc54e2NaVnqAVSw8Nk2MbdFr0OFXtT4RC2TUKuDcg0_PA@mail.gmail.com>
-To: cake@lists.bufferbloat.net
-Subject: [Cake] Cake, low speed ADSL & fwmark
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=BY8kTuIsINj1AHRCDsVULphepw9ErUikeFex/wTlYvs=;
+ b=nnsbZXq0Dx26820Z7sMSgVT5nfAoCcd+qb5gT/v4uVeqYPIcvG+7THs0uuzzhJ5vNG
+ f0gEGxfDjCtFO/vPwa1t/B7r7TMOf+u7NzdnHqm3c68MDFvKPkjJrQXp+v6DNBx51fUa
+ g9tvuLkHdkIvy0rIOlkIHYilCeeF9agPrSDoHx/KWjMyxsDdS24JfmQbA/uulBwaDUx7
+ gtLUKKVKmxt+a+0M943c7/3MwACWLAeZuR78JEFJ6TWiRKOgjIOlWyeEax+drhxLE8qJ
+ 3V+8fyIUccnnCjlF5JX1I+GVKY8dfonq9wZPzYHBV/Xboj3qsPDR79IZ0TB5aCf5U6hW
+ fXYQ==
+X-Gm-Message-State: AOAM532Ld/amxTu9eYi9N0jUvfY/IDpB3qH2MJK34HwAnLvVNie6uo+t
+ 2tPJ5G9NNe9NswjWDzDW6kw=
+X-Google-Smtp-Source: ABdhPJw521Z4yrCa6Dt/Pzm0/ASBJA/xdf/2km+HULt1zXFtx6ZES0V/qRU7wjnXJ5SMywATifGrnw==
+X-Received: by 2002:a2e:92d0:: with SMTP id k16mr11433638ljh.48.1595889981525; 
+ Mon, 27 Jul 2020 15:46:21 -0700 (PDT)
+Received: from jonathartonsmbp.lan (83-245-252-162-nat-p.elisa-mobile.fi.
+ [83.245.252.162])
+ by smtp.gmail.com with ESMTPSA id b11sm3328944lfb.42.2020.07.27.15.46.20
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 27 Jul 2020 15:46:20 -0700 (PDT)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.6\))
+From: Jonathan Morton <chromatix99@gmail.com>
+In-Reply-To: <CAD9MmSc54e2NaVnqAVSw8Nk2MbdFr0OFXtT4RC2TUKuDcg0_PA@mail.gmail.com>
+Date: Tue, 28 Jul 2020 01:46:03 +0300
+Message-Id: <6B18F76E-A466-42A7-ACF7-52D5E6CD3572@gmail.com>
+References: <CAD9MmSc54e2NaVnqAVSw8Nk2MbdFr0OFXtT4RC2TUKuDcg0_PA@mail.gmail.com>
+To: Jim Geo <dim.geo@gmail.com>
+X-Mailer: Apple Mail (2.3445.9.6)
+Subject: Re: [Cake] Cake, low speed ADSL & fwmark
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -69,78 +80,44 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1046302013054100247=="
+Cc: cake@lists.bufferbloat.net
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============1046302013054100247==
-Content-Type: multipart/alternative; boundary="0000000000004049b505ab732f15"
-
---0000000000004049b505ab732f15
-Content-Type: text/plain; charset="UTF-8"
-
-Hello,
-
-Thank you for all the efforts you have done to make internet usable.
-
-I currently use htb & fq_codel in my low speed ADSL 6Mbps downlink/1 Mbps
-uplink. I use fwmark to control both uplink and downlink with good results
-in terms of bandwidth allocation. Streaming video is chopping bulk traffic
-successfully.
-
-Is setting up cake worth the effort at such low speeds? Would it reduce
-latency?
-
-Regarding fwmark can you please elaborate more on the calculations
-performed? Man page is not that helpful.
-
-My understanding is this:
-
-I use 1,2,3,4 as marks of traffic.
-If I set the mask to 0xffffff[..] the marks will remain unchanged. Then
-right shifting will occur for the unset bits, so they will land on tins
-1,1,3,1
-
-Can you please correct me? If logical and performed between mask and mark
-value?
-
-Thanks,
-Jim
-
---0000000000004049b505ab732f15
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"auto">Hello,<div dir=3D"auto"><br></div><div dir=3D"auto">Thank=
- you for all the efforts you have done to make internet usable.</div><div d=
-ir=3D"auto"><br></div><div dir=3D"auto">I currently use htb &amp; fq_codel =
-in my low speed ADSL 6Mbps downlink/1 Mbps uplink. I use fwmark to control =
-both uplink and downlink with good results in terms of bandwidth allocation=
-. Streaming video is chopping bulk traffic successfully.</div><div dir=3D"a=
-uto"><br></div><div dir=3D"auto">Is setting up cake worth the effort at suc=
-h low speeds? Would it reduce latency?</div><div dir=3D"auto"><br></div><di=
-v dir=3D"auto">Regarding fwmark can you please elaborate more on the calcul=
-ations performed? Man page is not that helpful.</div><div dir=3D"auto"><br>=
-</div><div dir=3D"auto">My understanding is this:</div><div dir=3D"auto"><b=
-r></div><div dir=3D"auto">I use 1,2,3,4 as marks of traffic.</div><div dir=
-=3D"auto">If I set the mask to 0xffffff[..] the marks will remain unchanged=
-. Then right shifting will occur for the unset bits, so they will land on t=
-ins</div><div dir=3D"auto">1,1,3,1</div><div dir=3D"auto"><br></div><div di=
-r=3D"auto">Can you please correct me? If logical and performed between mask=
- and mark value?</div><div dir=3D"auto"><br></div><div dir=3D"auto">Thanks,=
-</div><div dir=3D"auto">Jim</div><div dir=3D"auto"><br></div><div dir=3D"au=
-to"><br></div></div>
-
---0000000000004049b505ab732f15--
-
---===============1046302013054100247==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============1046302013054100247==--
+PiBPbiAyOCBKdWwsIDIwMjAsIGF0IDEyOjQxIGFtLCBKaW0gR2VvIDxkaW0uZ2VvQGdtYWlsLmNv
+bT4gd3JvdGU6Cj4gCj4gVGhhbmsgeW91IGZvciBhbGwgdGhlIGVmZm9ydHMgeW91IGhhdmUgZG9u
+ZSB0byBtYWtlIGludGVybmV0IHVzYWJsZS4KPiAKPiBJIGN1cnJlbnRseSB1c2UgaHRiICYgZnFf
+Y29kZWwgaW4gbXkgbG93IHNwZWVkIEFEU0wgNk1icHMgZG93bmxpbmsvMSBNYnBzIHVwbGluay4g
+SSB1c2UgZndtYXJrIHRvIGNvbnRyb2wgYm90aCB1cGxpbmsgYW5kIGRvd25saW5rIHdpdGggZ29v
+ZCByZXN1bHRzIGluIHRlcm1zIG9mIGJhbmR3aWR0aCBhbGxvY2F0aW9uLiBTdHJlYW1pbmcgdmlk
+ZW8gaXMgY2hvcHBpbmcgYnVsayB0cmFmZmljIHN1Y2Nlc3NmdWxseS4KPiAKPiBJcyBzZXR0aW5n
+IHVwIGNha2Ugd29ydGggdGhlIGVmZm9ydCBhdCBzdWNoIGxvdyBzcGVlZHM/IFdvdWxkIGl0IHJl
+ZHVjZSBsYXRlbmN5PwoKQ2FrZSBoYXMgYSBiZXR0ZXItcXVhbGl0eSBzaGFwZXIgdGhhbiBIVEIg
+ZG9lcywgYW5kIGEgbW9yZSBzb3BoaXN0aWNhdGVkIGZsb3ctaXNvbGF0aW9uIHNjaGVtZSB0aGFu
+IGZxX2NvZGVsIGRvZXMuICBUaGVzZSB0ZW5kIHRvIG1hdHRlciBtb3JlIGF0IGxvdyBzcGVlZHMs
+IG5vdCBsZXNzLiAgSXQncyBhbHNvIGdlbmVyYWxseSBlYXNpZXIgdG8gc2V0IHVwIHRoYW4gYSBj
+b21wb3VuZCBxZGlzYyBzY2hlbWUuCgo+IFJlZ2FyZGluZyBmd21hcmsgY2FuIHlvdSBwbGVhc2Ug
+ZWxhYm9yYXRlIG1vcmUgb24gdGhlIGNhbGN1bGF0aW9ucyBwZXJmb3JtZWQ/IE1hbiBwYWdlIGlz
+IG5vdCB0aGF0IGhlbHBmdWwuCj4gCj4gTXkgdW5kZXJzdGFuZGluZyBpcyB0aGlzOgo+IAo+IEkg
+dXNlIDEsMiwzLDQgYXMgbWFya3Mgb2YgdHJhZmZpYy4KPiBJZiBJIHNldCB0aGUgbWFzayB0byAw
+eGZmZmZmZlsuLl0gdGhlIG1hcmtzIHdpbGwgcmVtYWluIHVuY2hhbmdlZC4gVGhlbiByaWdodCBz
+aGlmdGluZyB3aWxsIG9jY3VyIGZvciB0aGUgdW5zZXQgYml0cywgc28gdGhleSB3aWxsIGxhbmQg
+b24gdGlucwo+IDEsMSwzLDEKPiAKPiBDYW4geW91IHBsZWFzZSBjb3JyZWN0IG1lPyBJZiBsb2dp
+Y2FsIGFuZCBwZXJmb3JtZWQgYmV0d2VlbiBtYXNrIGFuZCBtYXJrIHZhbHVlPwoKU2luY2UgdGhl
+cmUncyBvbmx5IGEgZmV3ICJ0aW5zIiBhdCBhIHRpbWUgdXNlZCBpbiBDYWtlLCBhbmQgdGhlIGZ3
+bWFyayBpcyBhIGRpcmVjdCBtYXBwaW5nIGludG8gdGhvc2UgdGlucywgYSBuYXJyb3cgbWFzayBp
+cyBwcm9iYWJseSBzYWZlciB0byB1c2UgdGhhbiBhIHdpZGUgb25lLiAgVGhlIHJlYXNvbiBmb3Ig
+dGhlIG1hc2sgaXMgc28geW91IGNhbiBlbmNvZGUgc2V2ZXJhbCB2YWx1ZXMgaW50byBkaWZmZXJl
+bnQgcGFydHMgb2YgdGhlIG1hcmsgdmFsdWUuICBUaGUgc2hpZnQgaXMgc2ltcGx5IHRvIG1vdmUg
+dGhlIGZpZWxkIGNvdmVyZWQgYnkgdGhlIG1hc2sgdG8gdGhlIGxvdyBlbmQgb2YgdGhlIHdvcmQs
+IHNvIHRoYXQgaXQgaXMgdXNlZnVsIHRvIENha2UuCgpGb3IgeW91ciB1c2UgY2FzZSwgYSBtYXNr
+IG9mIDB4RiB3aWxsIGJlIGNvbXBsZXRlbHkgc3VmZmljaWVudC4gIEl0IHdvdWxkIGFsbG93IHlv
+dSB0byBzcGVjaWZ5IG1hcmsgdmFsdWVzIG9mIDEtMTUsIHRvIG1hcCBkaXJlY3RseSBpbiB0aGUg
+Zmlyc3QgMTUgdGlucyB1c2VkIGJ5IENha2UsIG9yIGEgbWFyayB2YWx1ZSBvZiAwIHRvIGZhbGwg
+YmFjayB0byBDYWtlJ3MgZGVmYXVsdCBEaWZmc2VydiBoYW5kbGluZy4gIE5vbmUgb2YgQ2FrZSdz
+IHRpbiBzZXR1cHMgdXNlIG1vcmUgdGhhbiA4IHRpbnMsIGFuZCBtb3N0IHVzZSBmZXdlci4KCiAt
+IEpvbmF0aGFuIE1vcnRvbgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0
+cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
