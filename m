@@ -2,49 +2,71 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B054F2A6348
-	for <lists+cake@lfdr.de>; Wed,  4 Nov 2020 12:27:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 33FBC2DEC1C
+	for <lists+cake@lfdr.de>; Sat, 19 Dec 2020 00:49:02 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 4732D3CB38;
-	Wed,  4 Nov 2020 06:27:57 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 84B383CB38;
+	Fri, 18 Dec 2020 18:49:00 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1604489277;
-	bh=T3CTsKVKuqFGCCt8kjd5r3S+7heMGTvSO6l7Q2QzQ9o=;
-	h=To:In-Reply-To:References:Date:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
-	 From;
-	b=mLkRgX9tTTOR5034gazDY1747WxOuSre1WRMUMYbbXG2oDkzNkDrqUcMhXudFUVt1
-	 0TDz0JZXcQb3LtI1EDY1lfXKj9Nfj/V56G/+nqF/FDT1WWwvB+C4TAzEIacXaBwvwP
-	 v2/kiru+SCR08wuxkhGvCFfQfXURjZ8wZP9WqFsNGG9Y7I2qEKYqrUVdAJkau5hXyE
-	 5/Zfmt2ji48TO5Ef7Xmu3ZuuCGzLflphZWkTQEaWwcdlVMHmrrw/notNFvTM1kl2oA
-	 mWWY6bgRdo//gSLTwaKVWIPeq20F3+ho84Jd2PkBlItjtqrqoRb9MvvhIyWg4uyLXz
-	 z/ZNJyv7L//Iw==
+	d=lists.bufferbloat.net; s=201610; t=1608335340;
+	bh=Fi00b11vh11YXOgc0reXN1ios+24z90/39j07hAFkXg=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=VPXXhtL1UZsZdxZqoWxZMRsC/+FVD7BqHoAYL5i1z9VlxrSGreJ3sP+vWcioRMhsx
+	 TyDPWjIZ4rYIKUI3Xw6BT8uK1pqDOsJlJyYH1r7fGTrK2+xjzwp98pjjD+N+9gVRIN
+	 99PsQ25OkZX7erkJC3OrEotM5PfrSqP2Jvp8znQCwkeY5Xc1rn3r8PNFlimxVNTXJn
+	 m+ESgbeY6q0vgA+1gcchJ3hjfrCdbEbmAVec8VQpZxDD743biR13U15ADONWBdyBRy
+	 hS6OMQync3RU6Vu4/QEB/LA298Gay3exAQ7uDw14XNRRCV/heXJ/0TxA3czZhvaJHP
+	 OWJuWVABfFeuQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
- (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-ej1-x634.google.com (mail-ej1-x634.google.com
+ [IPv6:2a00:1450:4864:20::634])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 82A473B2A4
- for <cake@lists.bufferbloat.net>; Wed,  4 Nov 2020 06:27:55 -0500 (EST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
- t=1604489274; bh=D6O4BG6BZHXD3Z/QLUyEfOGfJ3rd1qUPoqRvpV409io=;
- h=From:To:Subject:In-Reply-To:References:Date:From;
- b=mjFZFmMHLogzCIuNlwJKluYBg2FM4DaQ7S0UwMnSXa+xsLbLqMtON4BWUOBBRDh5m
- kHpa0oMhdTJcWFzMPbKVEO/ncrY18ey5GOhWHb9FP37cOd28J2CxvqhwXznqJ3/p5L
- M/ZcWVPnFzR7Fg/K2Rv7ufa9JOytiSXf1XEj3ujlSBhIczbyHFkNrlZsf3iF0Jkr7c
- jF7eCpfFKaaRYqy6X18SX52GDnwTbyq163D5ojOnvxUkr+IxalQnL6reAqYPGfkXRW
- SOFleGXprc9zhtuR5qjZRkifxTsckdEiTkqDdzrTGhSQiVg8eTft/5kYZxfeEk9HK3
- /C2PsZP/YVCRA==
-To: Dean Scarff <dos@scarff.id.au>, cake@lists.bufferbloat.net
-In-Reply-To: <6737e53394e4608f26677644d062bb23@scarff.id.au>
-References: <202fa41a446859d714728d90e890d1d2@scarff.id.au>
- <87d00wkk9f.fsf@toke.dk> <e68ac9a6a490fcefb10383342d9c981a@scarff.id.au>
- <87k0v2k8m0.fsf@toke.dk> <6737e53394e4608f26677644d062bb23@scarff.id.au>
-Date: Wed, 04 Nov 2020 12:27:53 +0100
-X-Clacks-Overhead: GNU Terry Pratchett
-Message-ID: <87tuu5uzt2.fsf@toke.dk>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 39C893B29E;
+ Fri, 18 Dec 2020 18:48:59 -0500 (EST)
+Received: by mail-ej1-x634.google.com with SMTP id ce23so5608135ejb.8;
+ Fri, 18 Dec 2020 15:48:59 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=VfdbQRhV+bjtFMOvPnD9oTdudDGoSEU2+d8Fq2jQktE=;
+ b=XCf/KIAR1aaaKTPcYOvQbeCDG6TRYbWAoYLVFrlxz65BOvF6Vo/LIk5PiZEkT9B8kP
+ YKZWvi/HIgOmaGw3pwv1KX0d7v1VGXSqJw6BHeYxOrFShOJF84hDRGwDFU0ppLPWBFxS
+ aMSwFNBweYaKHhdLfagWVfW1a2biU1Fh5W7OYbv5Q9jFv0K8BeWknmNp/+bZrL+JarYT
+ MfZ9jKhlW9BXOM2hSsS70/+bG73UHw96ZfhWlhLBkvDC1P4JWUm3qgncQVkacYEWx92a
+ zp3Ow/3sbAtLrooilC2z7AhmHC9ED+/zAM/iiYuQ8V+C9DR2QZPDXKQq33vsOrNRJY7y
+ mJlg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=VfdbQRhV+bjtFMOvPnD9oTdudDGoSEU2+d8Fq2jQktE=;
+ b=aysXsxNdFfPcv4DbbWRaGQt+u57rmIz/o3KQ2tlPfEjJoxPXwGUFT+VeK+8rHftHy3
+ 0yhHg2Mbqrm+0pkZLRjwHVQphMxoQ+HvXbi0PqfB+rVNWT2tq35AnuOyLMYm8v2lYpy7
+ 5HwGfFUYQJRiPYfTKT+far/wnabzBVq54oJPA9WgqtMUxVZTmezKhA7e5qodNpqewxd3
+ UXGaQ5oz1gZu/wrTjyUpIAEaYTdL5bkBp76mfbDco0pFi71/aZAvskSAU/oDbo2dr1Tj
+ aH0KdCUTPxuNTp3WMBxVRuS2+C42dIMtpvBBB5oL85zPPzn7TygcqrZ5Qy7ixHZ/ZVcF
+ wRkg==
+X-Gm-Message-State: AOAM533zfN9JHNSG6KoaUFV+tihXQ3xfCMtklj9p9DDWChN71ZbUqOyf
+ ynkye4zFUnf2z5U1dneVLwch4Idad1FzlJwy+ro=
+X-Google-Smtp-Source: ABdhPJyYZh2cjUOU/DPaQ3hq2+3FH2ebr3NfsZh9TXs375hdTucdJmc/AWM2YCyL3n9pjY1gcMyZPi32X9RT8uUFgQg=
+X-Received: by 2002:a17:906:1393:: with SMTP id
+ f19mr6214406ejc.431.1608335338034; 
+ Fri, 18 Dec 2020 15:48:58 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [Cake] NLA_F_NESTED is missing
+References: <CALQXh-P1JGWHXQYnRd68woqj-C8CLxaxeD5=4xjYLYiLubkSeQ@mail.gmail.com>
+ <1586011622.632930657@apps.rackspace.com>
+ <CAA93jw7CDCVfY0pspLbSaSqf2_0s_23oXsGfEy1x_MHQKEkUNQ@mail.gmail.com>
+ <CALQXh-Ot+ZE8M9num31K173pWF5SqDMFizjgUcP13ZCw06KhXw@mail.gmail.com>
+ <CAA93jw4WfYCVrG9uGA7BTQr2kKrKXBYJ9xfWM4VRicUDiuqaCw@mail.gmail.com>
+In-Reply-To: <CAA93jw4WfYCVrG9uGA7BTQr2kKrKXBYJ9xfWM4VRicUDiuqaCw@mail.gmail.com>
+From: Aaron Wood <woody77@gmail.com>
+Date: Fri, 18 Dec 2020 15:48:46 -0800
+Message-ID: <CALQXh-MS2hXALFDdFhD=c=7mSp9b4t0GQJANgFgLfkPgBocVmw@mail.gmail.com>
+To: Dave Taht <dave.taht@gmail.com>
+Subject: Re: [Cake] [Bloat]  New board that looks interesting
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -56,73 +78,363 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= via Cake
- <cake@lists.bufferbloat.net>
-Reply-To: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Cake List <cake@lists.bufferbloat.net>,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============7038445078560991578=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-RGVhbiBTY2FyZmYgPGRvc0BzY2FyZmYuaWQuYXU+IHdyaXRlczoKCj4gIE9uIFR1ZSwgMDMgTm92
-IDIwMjAgMTI6MDA6NTUgKzAxMDAsIFRva2UgSMODwrhpbGFuZC1Kw4PCuHJnZW5zZW4gd3JvdGU6
-Cj4+IERlYW4gU2NhcmZmIDxkb3NAc2NhcmZmLmlkLmF1PiB3cml0ZXM6Cj4+Cj4+PiAgT24gTW9u
-LCAwMiBOb3YgMjAyMCAxMzozNzowMCArMDEwMCwgVG9rZSB3cm90ZToKPj4+PiBEZWFuIFNjYXJm
-ZiA8ZG9zQHNjYXJmZi5pZC5hdT4gd3JpdGVzOgo+Pj4+Cj4+Pj4+ICBIaSwKPj4+Pj4KPj4+Pj4g
-IEkndmUgYmVlbiBoYXBwaWx5IHJ1bm5pbmcgdGhlIG91dC1vZi10cmVlIHNjaF9jYWtlIG9uIG15
-IAo+Pj4+PiBSYXNwYmVycnkKPj4+Pj4gUGkKPj4+Pj4gIHNpbmNlIDIwMTUuICBIb3dldmVyLCBJ
-IHJlY2VudGx5IHVwZ3JhZGVkIG15IGtlcm5lbCAodG8gNS40LjcyIAo+Pj4+PiBmcm9tCj4+Pj4+
-ICBSYXNwYmlhbidzIHJhc3BiZXJyeXBpLWtlcm5lbCAxLjIwMjAxMDIyLTEpLCB3aGljaCBjb21l
-cyB3aXRoIHRoZQo+Pj4+PiAgc2NoX2Nha2UgaW4gbWFpbmxpbmUuICBOb3csIHdoZW4gcnVubmlu
-ZzoKPj4+Pj4KPj4+Pj4gICAgc3VkbyAvc2Jpbi90YyBxZGlzYyBhZGQgZGV2IHBwcDAgcm9vdCBj
-YWtlCj4+Pj4+Cj4+Pj4+ICBJIGdldCB0aGUgZXJyb3I6Cj4+Pj4+Cj4+Pj4+ICAgIEVycm9yOiBO
-TEFfRl9ORVNURUQgaXMgbWlzc2luZy4KPj4+Pj4KPj4+Pj4gIEkgZ2V0IHRoaXMgZXJyb3Igd2l0
-aCB0aGUgc2NoX2Nha2UgaW4gbWFpbmxpbmUsIGFuZCBhbHNvIHdpdGgKPj4+Pj4gc2NoX2Nha2UK
-Pj4+Pj4gIGJ1aWx0IG91dC1vZi10cmVlLiAgSSBhbHNvIGdldCB0aGUgZXJyb3Igd2l0aCBib3Ro
-IERlYmlhbidzCj4+Pj4+IGlwcm91dGUyCj4+Pj4+ICA1LjkuMC0xIChidWlsdCBteXNlbGYgdmlh
-IGRlYmlhbi9ydWxlcykgYW5kICJ0YyIgZnJvbSBkdGFodCdzCj4+Pj4+IHRjLWFkdgo+Pj4+PiAg
-cmVwby4KPj4+Pj4KPj4+Pj4gIEFueSBpZGVhcyBvbiB3aGF0IHRoaXMgZXJyb3IgbWVhbnMgYW5k
-IGhvdyB0byBmaXggaXQ/Cj4+Pj4KPj4+PiBJIGp1c3QgdHJpZWQgYnVpbGRpbmcgYSA1LjQuNzIg
-a2VybmVsIGFuZCBjb3VsZG4ndCByZXByb2R1Y2UgdGhpcywgCj4+Pj4gc28KPj4+PiBpdAo+Pj4+
-IHNlZW1zIGl0J3MgYSBmYXVsdCB3aXRoIHRoZSByYXNwYmVycnkgcGkga2VybmVsOyBJIGd1ZXNz
-IG9wZW5pbmcgYQo+Pj4+IGJ1Zwo+Pj4+IGFnYWluc3QgdGhhdCB3b3VsZCBiZSB0aGUgd2F5IHRv
-IGdvPwo+Pj4+Cj4+Pj4gQXMgZm9yIHdoYXQncyBhY3R1YWxseSBjYXVzaW5nIHRoaXMsIEkgY291
-bGRuJ3QgZmluZCBhbnl0aGluZyAKPj4+PiBvYnZpb3VzCj4+Pj4gdGhhdCB0b3VjaGVzIHRoaXMg
-Y29kZSBpbiB0aGUgcWRpc2MgbGF5ZXI7IGJ1dCBJIHN1cHBvc2UgaXQgaGFzCj4+Pj4gc29tZXRo
-aW5nIHRvIGRvIHdpdGggdGhlIGNvcmUgcWRpc2MgbmV0bGluayBwYXJzaW5nIGNvZGU/Cj4+Pj4K
-Pj4+PiAtVG9rZQo+Pj4KPj4+ICBUaGFua3MgZm9yIHRoZSBkYXRhIHBvaW50Lgo+Pj4KPj4+ICBG
-b3IgdGhlIHJlY29yZCwgdGhlIHJlbGV2YW50IGtlcm5lbCBzb3VyY2UgaXM6Cj4+PiAgCj4+PiBo
-dHRwczovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGludXgva2VybmVsL2dpdC9zdGFibGUvbGlu
-dXguZ2l0L3RyZWUvaW5jbHVkZS9uZXQvbmV0bGluay5oP2g9djUuNC43MiNuMTE0Mwo+Pj4gIGFu
-ZCB0aGUgUGkgYnJhbmNoOgo+Pj4gIAo+Pj4gaHR0cHM6Ly9naXRodWIuY29tL3Jhc3BiZXJyeXBp
-L2xpbnV4L2Jsb2IvcmFzcGJlcnJ5cGkta2VybmVsXzEuMjAyMDEwMjItMS9pbmNsdWRlL25ldC9u
-ZXRsaW5rLmgjTDExNDMKPj4+Cj4+PiAgSXQgc2VlbXMgdmVyeSB1bmxpa2VseSB0aGF0IHRoZSBQ
-aSBmb2xrcyBhcmUgcGF0Y2hpbmcgdGhlIG5ldGxpbmsKPj4+ICBzdHVmZiwgc28gSSBkb24ndCB0
-aGluayBJJ2xsIGdldCBtdWNoIHRyYWN0aW9uIHRoZXJlIHVubGVzcyBJIGNhbiAKPj4+IGNhbGwK
-Pj4+ICBvdXQgc29tZXRoaW5nIHNwZWNpZmljYWxseSB3cm9uZyB3aXRoIHRoZWlyIHBhdGNoc2V0
-Lgo+Pgo+PiBXZWxsLCBzb21ldGhpbmcgb2RkIGlzIGNlcnRhaW5seSBnb2luZyBvbi4gVGhlIGVy
-cm9yIG1lc3NhZ2UgeW91J3JlCj4+IHF1b3RpbmcgY29tZXMgZm9ybSBhIHBhcnQgb2YgdGhlIG5l
-dGxpbmsgcGFyc2luZyBjb2RlIChpbiB0aGUga2VybmVsKQo+PiB0aGF0IHNob3VsZG4ndCBldmVu
-IGJlIGhpdCBieSB0aGUgcWRpc2MgYWRkaXRpb246IE5MQV9GX05FU1RFRCAKPj4gcGFyc2luZwo+
-PiBpcyBvbmx5IGVuYWJsZWQgaW4gJ3N0cmljdCcgdmFsaWRhdGlvbiBtb2RlLCB3aGljaCBpcyBu
-b3QgdXNlZCBmb3IKPj4gcWRpc2NzLgo+Pgo+PiBTbyBJREssIG1heWJlIGEgY29tcGlsZXIgaXNz
-dWUgb3IgYSBiaXQgdGhhdCBnZXRzIHNldCB3cm9uZyAKPj4gc29tZXdoZXJlPwo+PiBCaXNlY3Rp
-bmcgdGhlIGtlcm5lbCBtYXkgYmUgdGhlIG9ubHkgb3B0aW9uIGhlcmUsIEkgZG9uJ3QgdGhpbmsg
-Cj4+IHlvdSdyZQo+PiBnb2luZyB0byBmaW5kIGFueXRoaW5nIGluIHVzZXJzcGFjZS4uLgo+Cj4g
-IFllYWgsIEkgY2FtZSB0byB0aGUgc2FtZSBjb25jbHVzaW9uLiAgSSB2ZXJpZmllZCB0aGUgdXNl
-cnNwYWNlIHdhcyBzYW5lIAo+ICB2aWEgZ2RiIChzZWUgZWFybGllciBwb3N0KSwgYW5kIEkgYWxz
-byByZWFkIHRocm91Z2ggdGhlIHNjaF9hcGkuYyBhbmQgCj4gIG5sYXR0ci5jIGtlcm5lbCBjb2Rl
-IGFuZCBpdCBzdXJlIGxvb2tzIGltcG9zc2libGUgZm9yIHRoZSBzdHJpY3QgCj4gIHZhbGlkYXRp
-b24gdG8gYmUgZ2V0dGluZyBoaXQuCj4KPiAgU2FmZSB0byBzYXkgdGhpcyB3YXMgcmFuZG9tIGNv
-cnJ1cHRpb246IEkgZG93bmdyYWRlZCB0aGUga2VybmVsLCB0aGluZ3MgCj4gIHdvcmtlZCBhcyBl
-eHBlY3RlZCwgdGhlbiBJIHVwZ3JhZGVkIGJhY2sgdG8gdGhlIDUuNC43MiBhbmQgaXQgd29ya2Vk
-IAo+ICB0b28hICBJbnRlcmVzdGluZ2x5LCB0aGUgcHJvYmxlbSBwZXJzaXN0ZWQgYWNyb3NzIHJl
-Ym9vdHMgKHNvIGl0IHdhc24ndCAKPiAganVzdCBSQU0gY29ycnVwdGlvbiksIGFuZCBhbGwgdGhl
-IGtlcm5lbCBmaWxlcyBhbHNvIG1hdGNoZWQgdGhlaXIgImRwa2ciIAo+ICBNRDVzIChzbyBpdCB3
-YXNuJ3QgbGlrZSB0aGUgYmluYXJpZXMgd2VyZSBvYnZpb3VzbHkgY29ycnVwdCBvbiBkaXNrKS4g
-IAo+ICBJJ3ZlIHJlcGxhY2VkIHRoZSBQaSdzIG1pY3JvU0QgY2FyZCBqdXN0IHRvIGJlIHNhZmUs
-IHRob3VnaC4uLiBrZXJuZWwgCj4gIGNvcnJ1cHRpb24gaXMgc2NhcnkuCgpVZ2gsIEhlaXNlbmJ1
-Z3MgYXJlIHRoZSB3b3JzdCEgR3JlYXQgdG8gaGVhciB5b3UgbWFuYWdlZCB0byByZXNvbHZlIGl0
-LAp0aG91Z2ggOikKCi1Ub2tlCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0
-dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+--===============7038445078560991578==
+Content-Type: multipart/alternative; boundary="00000000000080dbf505b6c5c05e"
+
+--00000000000080dbf505b6c5c05e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+I have, finally.  It's been running for a week or so, now.
+
+OpenWRT was an _adventure_.  The board is UEFI, not standard bios.  And
+while it will merrily boot OpenWRT's non-uefi images off of USB, it won't
+boot the non-UEFI setup from the internal storage (I'm using the eMMC).  So
+_that_ was fun (and I made some dumb mistakes that were especially fun to
+correct.
+
+But it's running OpenWRT 19.07 (and a UEFI bootloader before grub that's
+from ToT OpenWRT).
+
+Anyway, I have cake running, 950Mbps ingress and 35Mbps egress (modem is
+provisioned at 1.3G ingress, and a bit over 35Mbps egress).  fq_codel was
+defaulted, in multi-queue mode.  While I'm using cake on ingress, my local
+link hasn't been hitting the limiter very often:
+
+                Tin 0
+  thresh        950Mbit
+  target          1.5ms
+  interval       30.0ms
+  pk_delay         22us
+  av_delay          9us
+  sp_delay          2us
+  backlog            0b
+  pkts        243608193
+  bytes    250748364896
+  way_inds     13167720
+  way_miss      1245030
+  way_cols            0
+  drops            1075
+  marks             101
+  ack_drop            0
+  sp_flows            0
+  bk_flows            1
+  un_flows            0
+  max_len         69876
+  quantum          1514
+
+Given that most of the hosts that I interact with are only about 10-15ms
+away, I'm probably going to change the interval target to better match that=
+.
+
+Interestingly, while it has a pair of multiqueue NICs (i211s), the igbe
+driver isn't configuring them for RSS.  Both output queues are being used,
+but not the ingress queues:
+
+wan interface:
+     tx_queue_0_packets: 56635989
+     tx_queue_1_packets: 39777210
+     rx_queue_0_packets: 243646072
+     rx_queue_1_packets: 0
+
+lan interface:
+     tx_queue_0_packets: 85047897
+     tx_queue_1_packets: 162004500
+     rx_queue_0_packets: 111174855
+     rx_queue_1_packets: 0
+
+Since I have housemates that don't appreciate me messing with the network
+during their meetings, I haven't gotten around to poking more deeply at
+that (or at experimenting with running cake on two ingress queues).
+
+That being said, I bench-tested this before I put it into operation and was
+able to see 940Mbps of iperf goodput through cake and NAT...  Took all of a
+core, though (and that core was still cold and therefore potentially able
+to boost to 2.5GHz).  I haven't determined how long it will take to
+thermally throttle, and if bandwidth suffers as a result.
+
+Pretty happy with it so far, though.
+
+On Sun, Apr 26, 2020 at 7:46 PM Dave Taht <dave.taht@gmail.com> wrote:
+
+> anyone got around to hacking on this board yet?
+>
+> On Sat, Apr 4, 2020 at 9:27 AM Aaron Wood <woody77@gmail.com> wrote:
+> >
+> > The comparison of chipset performance link (to OpemWRT forums) that wen=
+t
+> out had this chip, the J4105 as the fastest.  Able to do a gigabit with
+> cake (nearly able to do it in both directions).
+> >
+> > I think this has replaced the apu2 as the board I=E2=80=99m going with =
+as my
+> edge router.
+> >
+> > On Sat, Apr 4, 2020 at 9:10 AM Dave Taht <dave.taht@gmail.com> wrote:
+> >>
+> >> Historically I've found the "Celeron" chips rather weak, but it's just
+> >> a brand. I haven't the foggiest idea how well this variant will
+> >> perform.
+> >>
+> >> The intel ethernet chips are best of breed in linux, however. It's
+> >> been my hope that the 211 variant with the timed networking support
+> >> would show up in the field (sch_etx) so we could fiddle with that,
+> >> (the apu2s aren't using that version) but I cannot for the life of me
+> >> remember the right keywords to look it up at the moment. this feature
+> >> lets you program when a packet emerges from the driver and is sort of
+> >> a whole new ballgame when it comes to scheduling - there hasn't been
+> >> an aqm designed for it, and you can do fq by playing tricks with the
+> >> sent timestamp.
+> >>
+> >> All the other features look rather nice on this board.
+> >>
+> >> On Sat, Apr 4, 2020 at 7:47 AM David P. Reed <dpreed@deepplum.com>
+> wrote:
+> >> >
+> >> > Thanks! I ordered one just now. In my experience, this company does
+> rather neat stuff. Their XMOS based microphone array (ReSpeaker) is reall=
+y
+> useful. What's the state of play in Linux/OpenWRT for Intel 9560
+> capabilities regarding AQM?
+> >> >
+> >> > On Saturday, April 4, 2020 12:12am, "Aaron Wood" <woody77@gmail.com>
+> said:
+> >> >
+> >> > > _______________________________________________
+> >> > > Cake mailing list
+> >> > > Cake@lists.bufferbloat.net
+> >> > > https://lists.bufferbloat.net/listinfo/cake
+> >> > > https://www.seeedstudio.com/ODYSSEY-X86J4105800-p-4445.html
+> >> > >
+> >> > > quad-core Celeron J4105 1.5-2.5 GHz x64
+> >> > > 8GB Ram
+> >> > > 2x i211t intel ethernet controllers
+> >> > > intel 9560 802.11ac (wave2) wifi/bluetooth chipset
+> >> > > intel built-in graphics
+> >> > > onboard ARM Cortex-M0 and RPi & Arduino headers
+> >> > > m.2 and PCIe adapters
+> >> > > <$200
+> >> > >
+> >> >
+> >> >
+> >> > _______________________________________________
+> >> > Bloat mailing list
+> >> > Bloat@lists.bufferbloat.net
+> >> > https://lists.bufferbloat.net/listinfo/bloat
+> >>
+> >>
+> >>
+> >> --
+> >> Make Music, Not War
+> >>
+> >> Dave T=C3=A4ht
+> >> CTO, TekLibre, LLC
+> >> http://www.teklibre.com
+> >> Tel: 1-831-435-0729
+> >
+> > --
+> > - Sent from my iPhone.
+>
+>
+>
+> --
+> Make Music, Not War
+>
+> Dave T=C3=A4ht
+> CTO, TekLibre, LLC
+> http://www.teklibre.com
+> Tel: 1-831-435-0729
+>
+
+--00000000000080dbf505b6c5c05e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr">I have,=
+ finally.=C2=A0 It&#39;s been running for a week or so, now.<div><br></div>=
+<div>OpenWRT was an _adventure_.=C2=A0 The board is UEFI, not standard bios=
+.=C2=A0 And while it will merrily boot OpenWRT&#39;s=C2=A0non-uefi images o=
+ff of USB, it won&#39;t boot the non-UEFI setup from the internal storage (=
+I&#39;m using the eMMC).=C2=A0 So _that_ was fun (and I made some dumb mist=
+akes that were especially fun to correct.</div><div><br></div><div>But it&#=
+39;s running OpenWRT 19.07 (and a UEFI bootloader before grub that&#39;s fr=
+om ToT OpenWRT).</div><div><br></div><div>Anyway, I have cake running, 950M=
+bps ingress and 35Mbps egress (modem is provisioned at 1.3G ingress, and a =
+bit over 35Mbps egress). =C2=A0fq_codel was defaulted, in multi-queue mode.=
+=C2=A0 While I&#39;m using cake on ingress, my local link hasn&#39;t been h=
+itting the limiter very often:</div><div><br></div><div><div>=C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 Tin 0</div><div>=C2=A0 thresh =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0950Mbit</div><div>=C2=A0 target =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A01.5ms</div><div>=C2=A0 interval =C2=A0 =C2=A0 =C2=A0 30.0m=
+s</div><div>=C2=A0 pk_delay =C2=A0 =C2=A0 =C2=A0 =C2=A0 22us</div><div>=C2=
+=A0 av_delay =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A09us</div><div>=C2=A0 sp_dela=
+y =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A02us</div><div>=C2=A0 backlog =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00b</div><div>=C2=A0 pkts =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0243608193</div><div>=C2=A0 bytes =C2=A0 =C2=A0250748364896</div><=
+div>=C2=A0 way_inds =C2=A0 =C2=A0 13167720</div><div>=C2=A0 way_miss =C2=A0=
+ =C2=A0 =C2=A01245030</div><div>=C2=A0 way_cols =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A00</div><div>=C2=A0 drops =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A01075</div><div>=C2=A0 marks =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ 101</div><div>=C2=A0 ack_drop =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00</=
+div><div>=C2=A0 sp_flows =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00</div><d=
+iv>=C2=A0 bk_flows =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A01</div><div>=C2=
+=A0 un_flows =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00</div><div>=C2=A0 ma=
+x_len =C2=A0 =C2=A0 =C2=A0 =C2=A0 69876</div><div>=C2=A0 quantum =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A01514</div></div><div><br></div><div>Given that most=
+ of the hosts that I interact with are only about 10-15ms away, I&#39;m pro=
+bably going to change the interval target to better match that.</div><div><=
+br></div><div>Interestingly, while it has a pair of multiqueue NICs (i211s)=
+, the igbe driver isn&#39;t configuring them for RSS.=C2=A0 Both output que=
+ues are being used, but not the ingress queues:</div><div><br></div><div>wa=
+n interface:</div><div><div>=C2=A0 =C2=A0 =C2=A0tx_queue_0_packets: 5663598=
+9</div><div>=C2=A0 =C2=A0 =C2=A0tx_queue_1_packets: 39777210</div><div>=C2=
+=A0 =C2=A0 =C2=A0rx_queue_0_packets: 243646072</div><div>=C2=A0 =C2=A0 =C2=
+=A0rx_queue_1_packets: 0</div></div><div><br></div><div>lan interface:</div=
+><div><div>=C2=A0 =C2=A0 =C2=A0tx_queue_0_packets: 85047897</div><div>=C2=
+=A0 =C2=A0 =C2=A0tx_queue_1_packets: 162004500</div><div>=C2=A0 =C2=A0 =C2=
+=A0rx_queue_0_packets: 111174855</div><div>=C2=A0 =C2=A0 =C2=A0rx_queue_1_p=
+ackets: 0</div></div><div><br></div><div>Since I have housemates that don&#=
+39;t appreciate me messing with the network during their meetings, I haven&=
+#39;t gotten around to poking more deeply at that (or at experimenting with=
+ running cake on two ingress queues).</div><div><br></div><div>That being s=
+aid, I bench-tested this before I put it into operation and was able to see=
+ 940Mbps of iperf goodput through cake and NAT...=C2=A0 Took all of a core,=
+ though (and that core was still cold and therefore potentially able to boo=
+st to 2.5GHz).=C2=A0 I haven&#39;t determined how long it will take to ther=
+mally throttle, and if bandwidth suffers as a result.</div><div><br></div><=
+div>Pretty happy with it so far, though.</div></div></div></div></div><br><=
+div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Sun, Apr=
+ 26, 2020 at 7:46 PM Dave Taht &lt;<a href=3D"mailto:dave.taht@gmail.com">d=
+ave.taht@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote=
+" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-style=
+:solid;border-left-color:rgb(204,204,204);padding-left:1ex">anyone got arou=
+nd to hacking on this board yet?<br>
+<br>
+On Sat, Apr 4, 2020 at 9:27 AM Aaron Wood &lt;<a href=3D"mailto:woody77@gma=
+il.com" target=3D"_blank">woody77@gmail.com</a>&gt; wrote:<br>
+&gt;<br>
+&gt; The comparison of chipset performance link (to OpemWRT forums) that we=
+nt out had this chip, the J4105 as the fastest.=C2=A0 Able to do a gigabit =
+with cake (nearly able to do it in both directions).<br>
+&gt;<br>
+&gt; I think this has replaced the apu2 as the board I=E2=80=99m going with=
+ as my edge router.<br>
+&gt;<br>
+&gt; On Sat, Apr 4, 2020 at 9:10 AM Dave Taht &lt;<a href=3D"mailto:dave.ta=
+ht@gmail.com" target=3D"_blank">dave.taht@gmail.com</a>&gt; wrote:<br>
+&gt;&gt;<br>
+&gt;&gt; Historically I&#39;ve found the &quot;Celeron&quot; chips rather w=
+eak, but it&#39;s just<br>
+&gt;&gt; a brand. I haven&#39;t the foggiest idea how well this variant wil=
+l<br>
+&gt;&gt; perform.<br>
+&gt;&gt;<br>
+&gt;&gt; The intel ethernet chips are best of breed in linux, however. It&#=
+39;s<br>
+&gt;&gt; been my hope that the 211 variant with the timed networking suppor=
+t<br>
+&gt;&gt; would show up in the field (sch_etx) so we could fiddle with that,=
+<br>
+&gt;&gt; (the apu2s aren&#39;t using that version) but I cannot for the lif=
+e of me<br>
+&gt;&gt; remember the right keywords to look it up at the moment. this feat=
+ure<br>
+&gt;&gt; lets you program when a packet emerges from the driver and is sort=
+ of<br>
+&gt;&gt; a whole new ballgame when it comes to scheduling - there hasn&#39;=
+t been<br>
+&gt;&gt; an aqm designed for it, and you can do fq by playing tricks with t=
+he<br>
+&gt;&gt; sent timestamp.<br>
+&gt;&gt;<br>
+&gt;&gt; All the other features look rather nice on this board.<br>
+&gt;&gt;<br>
+&gt;&gt; On Sat, Apr 4, 2020 at 7:47 AM David P. Reed &lt;<a href=3D"mailto=
+:dpreed@deepplum.com" target=3D"_blank">dpreed@deepplum.com</a>&gt; wrote:<=
+br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; Thanks! I ordered one just now. In my experience, this compan=
+y does rather neat stuff. Their XMOS based microphone array (ReSpeaker) is =
+really useful. What&#39;s the state of play in Linux/OpenWRT for Intel 9560=
+ capabilities regarding AQM?<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; On Saturday, April 4, 2020 12:12am, &quot;Aaron Wood&quot; &l=
+t;<a href=3D"mailto:woody77@gmail.com" target=3D"_blank">woody77@gmail.com<=
+/a>&gt; said:<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; &gt; _______________________________________________<br>
+&gt;&gt; &gt; &gt; Cake mailing list<br>
+&gt;&gt; &gt; &gt; <a href=3D"mailto:Cake@lists.bufferbloat.net" target=3D"=
+_blank">Cake@lists.bufferbloat.net</a><br>
+&gt;&gt; &gt; &gt; <a href=3D"https://lists.bufferbloat.net/listinfo/cake" =
+rel=3D"noreferrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo=
+/cake</a><br>
+&gt;&gt; &gt; &gt; <a href=3D"https://www.seeedstudio.com/ODYSSEY-X86J41058=
+00-p-4445.html" rel=3D"noreferrer" target=3D"_blank">https://www.seeedstudi=
+o.com/ODYSSEY-X86J4105800-p-4445.html</a><br>
+&gt;&gt; &gt; &gt;<br>
+&gt;&gt; &gt; &gt; quad-core Celeron J4105 1.5-2.5 GHz x64<br>
+&gt;&gt; &gt; &gt; 8GB Ram<br>
+&gt;&gt; &gt; &gt; 2x i211t intel ethernet controllers<br>
+&gt;&gt; &gt; &gt; intel 9560 802.11ac (wave2) wifi/bluetooth chipset<br>
+&gt;&gt; &gt; &gt; intel built-in graphics<br>
+&gt;&gt; &gt; &gt; onboard ARM Cortex-M0 and RPi &amp; Arduino headers<br>
+&gt;&gt; &gt; &gt; m.2 and PCIe adapters<br>
+&gt;&gt; &gt; &gt; &lt;$200<br>
+&gt;&gt; &gt; &gt;<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; _______________________________________________<br>
+&gt;&gt; &gt; Bloat mailing list<br>
+&gt;&gt; &gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"_bla=
+nk">Bloat@lists.bufferbloat.net</a><br>
+&gt;&gt; &gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" rel=
+=3D"noreferrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/bl=
+oat</a><br>
+&gt;&gt;<br>
+&gt;&gt;<br>
+&gt;&gt;<br>
+&gt;&gt; --<br>
+&gt;&gt; Make Music, Not War<br>
+&gt;&gt;<br>
+&gt;&gt; Dave T=C3=A4ht<br>
+&gt;&gt; CTO, TekLibre, LLC<br>
+&gt;&gt; <a href=3D"http://www.teklibre.com" rel=3D"noreferrer" target=3D"_=
+blank">http://www.teklibre.com</a><br>
+&gt;&gt; Tel: 1-831-435-0729<br>
+&gt;<br>
+&gt; --<br>
+&gt; - Sent from my iPhone.<br>
+<br>
+<br>
+<br>
+-- <br>
+Make Music, Not War<br>
+<br>
+Dave T=C3=A4ht<br>
+CTO, TekLibre, LLC<br>
+<a href=3D"http://www.teklibre.com" rel=3D"noreferrer" target=3D"_blank">ht=
+tp://www.teklibre.com</a><br>
+Tel: 1-831-435-0729<br>
+</blockquote></div>
+
+--00000000000080dbf505b6c5c05e--
+
+--===============7038445078560991578==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============7038445078560991578==--
