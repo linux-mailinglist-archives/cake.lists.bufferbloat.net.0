@@ -2,68 +2,80 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B883C31FB90
-	for <lists+cake@lfdr.de>; Fri, 19 Feb 2021 16:02:35 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id BB6FA31FF33
+	for <lists+cake@lfdr.de>; Fri, 19 Feb 2021 20:04:55 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id E9C2F3CB38;
-	Fri, 19 Feb 2021 10:02:30 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 5F5CF3CB38;
+	Fri, 19 Feb 2021 14:04:54 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1613746950;
-	bh=LUNej/zlOHS3qqzoaoVGNK9Y5o9NMtQQ28AoCkz2Eqg=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1613761494;
+	bh=Ienkmdw42Yz4/o4xXryb5JT00m+5TGrEUaPcW73BpRg=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=cVmz8iOCnnotpYFJ682csbCrbtEdD/CeR3A3D8L5TOM++ofiqr9BSu0dW+UOOTE6r
-	 7/Lbpc6+H+RgTBFLY2R/Je/kqgvEUwTUCC6eCbEUlVM+GCPxJyTzW/BC3ewr/PoNQ3
-	 7ir0O/TiJpWEyRZq2UPtxAZEHqvtHGvZtgeXm9+xoMgc4YskPh/adOugGeK0HtimCF
-	 6piQ+Ro3lrtT6ySc16HUMtwCrcRbdePvOPIPW4Nh33QOJ/qVpjgdGcyw4gN05TnRg7
-	 KnR6dL+BGjT/WeMuFaxbCWT2UFnE1pqQQKtOuvp518wNgBLlfNt8DzDIkL5P784Rx2
-	 z1ogLEd505oTQ==
+	b=j92OtcCzOy4gLAjd9a3ZlMK+UDTIo9/nTMitFhUiF75Q+CRM7YZCfGr1CYMZkn8S/
+	 /+V0VVIkaV7BTCmfblskudosCbzFmpZayYoX1cn03AOXZuXbKDMkBheZEWoj4UbM1o
+	 g/ZIjU4hQxwMWSNOCDnruXjG0MHhQxtc7xyxO9ieXmbDOF9sGri5AIWkRkhEr6I9FV
+	 gPJir7wWQH/8cHXZPqC/WGRUPzxOHp+wa2QeEDiDVj+7ZG5i5DJVRJuZjKM9BlzHc+
+	 pc56r5aTSGMqXGzGxu6i7LuJo7Mehle4aGfYQw7GwqKJiaalvh/iUkPPDBDpGNnvgz
+	 oakBM7zLq8z5w==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lj1-x22a.google.com (mail-lj1-x22a.google.com
- [IPv6:2a00:1450:4864:20::22a])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mail268c50.megamailservers.eu (mail1467c50.megamailservers.eu
+ [91.136.14.67])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 77FF83B2A4
- for <cake@lists.bufferbloat.net>; Fri, 19 Feb 2021 10:02:29 -0500 (EST)
-Received: by mail-lj1-x22a.google.com with SMTP id e17so22058121ljl.8
- for <cake@lists.bufferbloat.net>; Fri, 19 Feb 2021 07:02:29 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=O0hjxI/qlY/jc0m054S5NZpTJbUQ7uO+tFOjpXvKSSc=;
- b=k72tkp/DuZwgAu2uWeFhiJMzmQLpkcNu4kLi6JLJQbTf9M3E/CP8/90HNvcn3giR18
- 3kSZr8jeZ6JIpHu7hljsF0n1vIyKUqQG5lRIoQYwH1TPU5tvSasdK7tIgy/r+yraS7iH
- 5/JfUgqAhZ7uFtMLCvk6cCI7buWRVFWASXzAXAPRyalnKeEa9RNkYqcbbWyeiMxm6mxn
- uDtExIRfaZE8H62BBmaRGgZ0DF9GdQSbNAvq8xZjAfYs/ICQN4XO+OqybHnf+laLmr/q
- b6QPNXvkK6QScAwYrVy8DzYF6QeBOIM63mZOPqDo3aEuZqGP9ZYrICDnAUrPsYywtnSB
- vJBg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=O0hjxI/qlY/jc0m054S5NZpTJbUQ7uO+tFOjpXvKSSc=;
- b=tJDqWjstMSoolczAmMHbFqhGsYprfdgyx2DfCzQSWuJKilrnaS7DteTU5rWToTGRQf
- wup5TJgUjaUv9Jo+Gumf7WM1e7uthDViOZlgUmlWSfMJzsCoY1DGyPJWwdmDc2fX2/FA
- MHGrdPYDpgspXw+BQWUFJORdAdWs0S+rm9ycD2Fay7kWMD8+KwHKwpd11hOGIb9mhwDw
- PSSz995EwGPq+jaARHlPg7oU8ZSi+uNjz8a6J8l7sS4Dyp/kKJvtjI0Ty0Li4Q+B5P1u
- kclcXuC1gwtR3CFYzbGJBCUqjJZtBleWbAYhByMoE+Q1Y3ogq8GhHd6LP7oXtEVjv1IH
- Xl3Q==
-X-Gm-Message-State: AOAM532PFpzRHxffN/5xm3Sa6wHjK7o8JDmOr44ZZWKHionZwvWFnfsm
- F2JHPMq/fpgCfKECLvnmbpCo5wqM9g9spgEpg4rA0Dk6zHs=
-X-Google-Smtp-Source: ABdhPJzwKNfgJ6uqoam0PT7Lngu9qzj1xTzgSTREygC/+YVFEB4Jw5qouI5dI4zDLEMs7rzvjg1AiWzJyifeJ/7V40A=
-X-Received: by 2002:ac2:42d3:: with SMTP id n19mr6099958lfl.447.1613746948015; 
- Fri, 19 Feb 2021 07:02:28 -0800 (PST)
-MIME-Version: 1.0
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 1964D3B2A4
+ for <cake@lists.bufferbloat.net>; Fri, 19 Feb 2021 14:04:52 -0500 (EST)
+X-Authenticated-User: sagermail@sager.me.uk
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=megamailservers.eu;
+ s=maildub; t=1613761487;
+ bh=uZzM6FpjLNXpI8bP+c2ovYf826abkbaOBtKhhQ942Mc=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=V45w1Eev+wCKzm+aH3siYdvUEKS3otvoXjITcIVlIwzTZSX9fyUtAAcuOz5bFv+ZA
+ q+O9YehzvtDZDNwtCjkMsYI65KiFYq4zBK8U0YHCB7DZFROLh2pogt5FEPdtS5JO8m
+ QKq8qWaaSQmOgmAhCZH6LfvnDf4//a7wUpCqepVg=
+Feedback-ID: john@sager.me.u
+Received: from mainserver.wc (97.83.2.81.in-addr.arpa [81.2.83.97])
+ (authenticated bits=0)
+ by mail268c50.megamailservers.eu (8.14.9/8.13.1) with ESMTP id 11JJ4iur025703
+ (version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NO);
+ Fri, 19 Feb 2021 19:04:47 +0000
+Received: from
+ 1.4.7.2.4.7.8.0.a.e.2.c.c.0.5.d.0.0.0.0.3.e.b.c.0.b.8.0.1.0.0.2.ip6.arpa
+ ([2001:8b0:cbe3:0:d50c:c2ea:874:2741])
+ by mainserver.wc with esmtp (Exim 4.93)
+ (envelope-from <john@sager.me.uk>)
+ id 1lDB51-000gwX-Pt; Fri, 19 Feb 2021 19:04:43 +0000
+To: Peter Lepeska <bizzbyster@gmail.com>
 References: <CANmPAYHxP9mdmPMsvR=bi=TSNi9+0HbZGz0r89zOLbe3dAyk-Q@mail.gmail.com>
  <87mtw1kx9c.fsf@toke.dk>
  <CANmPAYHFrtbLhGZ1yXNzsaGGf8gP09ap_vUCMX9ggbSRUcpRFg@mail.gmail.com>
  <87im6pkweq.fsf@toke.dk> <9a889d98-0fae-d1af-6dea-c534f0df854a@sager.me.uk>
-In-Reply-To: <9a889d98-0fae-d1af-6dea-c534f0df854a@sager.me.uk>
-From: Peter Lepeska <bizzbyster@gmail.com>
-Date: Fri, 19 Feb 2021 10:02:16 -0500
-Message-ID: <CANmPAYF7SEwWUOpj7S3riHufHDm2QtqSjWq8F-+rGJnRk=3xZw@mail.gmail.com>
-To: john@sager.me.uk
+ <CANmPAYF7SEwWUOpj7S3riHufHDm2QtqSjWq8F-+rGJnRk=3xZw@mail.gmail.com>
+From: John Sager <john@sager.me.uk>
+Message-ID: <faa1600e-d040-2741-9335-fdf17e32f11b@sager.me.uk>
+Date: Fri, 19 Feb 2021 19:04:43 +0000
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.10.0
+MIME-Version: 1.0
+In-Reply-To: <CANmPAYF7SEwWUOpj7S3riHufHDm2QtqSjWq8F-+rGJnRk=3xZw@mail.gmail.com>
+Content-Language: en-GB
+X-CTCH-RefID: str=0001.0A742F19.60300BCF.0041:SCFSTAT79219218, ss=1, re=-4.000,
+ recu=0.000, reip=0.000, cl=1, cld=1, fgs=0
+X-CTCH-VOD: Unknown
+X-CTCH-Spam: Unknown
+X-CTCH-Score: -4.000
+X-CTCH-Rules: 
+X-CTCH-Flags: 0
+X-CTCH-ScoreCust: 0.000
+X-CSC: 0
+X-CHA: v=2.3 cv=c//Vvi1l c=1 sm=1 tr=0 a=dws6IJh5fU+Ftmrx3Eq8JA==:117
+ a=dws6IJh5fU+Ftmrx3Eq8JA==:17 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=qa6Q16uM49sA:10 a=GQ3UrkdYAAAA:8 a=pGLkceISAAAA:8 a=kurRqvosAAAA:8
+ a=V4N9VBXgGjcEZrKLXHEA:9 a=QEXdDO2ut3YA:10 a=UrkXBYOGhgNlFfmH13Sb:22
+ a=kbxRQ_lfPIoQnHsAj2-A:22
+X-Origin-Country: GB
 Subject: Re: [Cake] Enforcing video quality question
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -77,151 +89,59 @@ List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: cake@lists.bufferbloat.net
-Content-Type: multipart/mixed; boundary="===============0388774544890012506=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============0388774544890012506==
-Content-Type: multipart/alternative; boundary="000000000000980d5d05bbb1bd8d"
-
---000000000000980d5d05bbb1bd8d
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi John
-
-Does this result in the ability to set per internal host max ingress
-bandwidth? If so, any chance you can share a snippet of a script? I will be
-trying to reproduce your setup.
-
-Thank you!
-
-Peter
-
-On Fri, Feb 19, 2021 at 7:16 AM John Sager <john@sager.me.uk> wrote:
-
-> That's basically what I do. I set marks on outgoing traffic in the mangle
-> table which are copied to connmark before egress. Then on ingress the
-> connmark is restored to the packet and punted to ifb0 using 'action
-> connmark
-> action mirred egress redirect dev $IFB' as an ingress filter on the
-> incoming
-> interface (ppp0 in my case). Then I have HTB classes on ifb0 which set
-> rate
-> limits for different traffic classes indicated by the marks. I have only =
-6
-> traffic classes (I bundle all video into one class), but as marks are 32
-> bits wide there is lots of scope for classes for individual IP addresses.
->
-> John
->
-> On 18/02/2021 19:28, Toke H=C3=B8iland-J=C3=B8rgensen via Cake wrote:
-> > Peter Lepeska <bizzbyster@gmail.com> writes:
-> >
-> >> A user on the OpenWrt forum suggested hashlimit rules supported by
-> >> iptables. How does that idea sound to you?
-> >
-> > That will result in a cliff-edge policer (i.e., as soon as a device goe=
-s
-> > over its limits it will see every packet get dropped). This doesn't
-> > interact too well with the burstiness of TCP, so you'll likely get
-> > erratic behaviour of the traffic if you do that. Doing the same thing
-> > with HTB means the router will queue+shape each class (and with FQ-CoDe=
-l
-> > on the leaves, you'll get a nice AQM behaviour as well), so that will b=
-e
-> > smoother and less prone to bloat :)
-> >
-> > -Toke
-> > _______________________________________________
-> > Cake mailing list
-> > Cake@lists.bufferbloat.net
-> > https://lists.bufferbloat.net/listinfo/cake
-> >
-> _______________________________________________
-> Cake mailing list
-> Cake@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/cake
->
-
---000000000000980d5d05bbb1bd8d
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">Hi John<div><br></div><div>Does this=C2=A0result in the ab=
-ility to set per internal host max ingress bandwidth? If so, any chance you=
- can share a snippet of a script? I will be trying to reproduce your setup.=
-</div><div><br></div><div>Thank you!</div><div><br></div><div>Peter</div></=
-div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On=
- Fri, Feb 19, 2021 at 7:16 AM John Sager &lt;<a href=3D"mailto:john@sager.m=
-e.uk">john@sager.me.uk</a>&gt; wrote:<br></div><blockquote class=3D"gmail_q=
-uote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,2=
-04);padding-left:1ex">That&#39;s basically what I do. I set marks on outgoi=
-ng traffic in the mangle <br>
-table which are copied to connmark before egress. Then on ingress the <br>
-connmark is restored to the packet and punted to ifb0 using &#39;action con=
-nmark <br>
-action mirred egress redirect dev $IFB&#39; as an ingress filter on the inc=
-oming <br>
-interface (ppp0 in my case). Then I have HTB classes on ifb0 which set rate=
- <br>
-limits for different traffic classes indicated by the marks. I have only 6 =
-<br>
-traffic classes (I bundle all video into one class), but as marks are 32 <b=
-r>
-bits wide there is lots of scope for classes for individual IP addresses.<b=
-r>
-<br>
-John<br>
-<br>
-On 18/02/2021 19:28, Toke H=C3=B8iland-J=C3=B8rgensen via Cake wrote:<br>
-&gt; Peter Lepeska &lt;<a href=3D"mailto:bizzbyster@gmail.com" target=3D"_b=
-lank">bizzbyster@gmail.com</a>&gt; writes:<br>
-&gt; <br>
-&gt;&gt; A user on the OpenWrt forum suggested hashlimit rules supported by=
-<br>
-&gt;&gt; iptables. How does that idea sound to you?<br>
-&gt; <br>
-&gt; That will result in a cliff-edge policer (i.e., as soon as a device go=
-es<br>
-&gt; over its limits it will see every packet get dropped). This doesn&#39;=
-t<br>
-&gt; interact too well with the burstiness of TCP, so you&#39;ll likely get=
-<br>
-&gt; erratic behaviour of the traffic if you do that. Doing the same thing<=
-br>
-&gt; with HTB means the router will queue+shape each class (and with FQ-CoD=
-el<br>
-&gt; on the leaves, you&#39;ll get a nice AQM behaviour as well), so that w=
-ill be<br>
-&gt; smoother and less prone to bloat :)<br>
-&gt; <br>
-&gt; -Toke<br>
-&gt; _______________________________________________<br>
-&gt; Cake mailing list<br>
-&gt; <a href=3D"mailto:Cake@lists.bufferbloat.net" target=3D"_blank">Cake@l=
-ists.bufferbloat.net</a><br>
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/cake" rel=3D"norefer=
-rer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/cake</a><br>
-&gt; <br>
-_______________________________________________<br>
-Cake mailing list<br>
-<a href=3D"mailto:Cake@lists.bufferbloat.net" target=3D"_blank">Cake@lists.=
-bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/cake" rel=3D"noreferrer" =
-target=3D"_blank">https://lists.bufferbloat.net/listinfo/cake</a><br>
-</blockquote></div>
-
---000000000000980d5d05bbb1bd8d--
-
---===============0388774544890012506==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============0388774544890012506==--
+WWVzLiBUaGUgbWFya3MgYXJlIHNldCBvbiBlZ3Jlc3Mgc28geW91IGNhbiBzZWxlY3Qgb24gaW5z
+aWRlIElQIGFkZHJlc3MsIApwb3J0LCBwcm90b2NvbCAtIGluIGZhY3QgbWFueSBjaGFyYWN0ZXJp
+c3RpY3MgdGhhdCBpcHRhYmxlcyBydWxlcyBjYW4gdGVzdCAKZm9yLiBJJ2xsIHB1dCB0b2dldGhl
+ciBhIHRveSBpcHRhYmxlcyBydWxlcyBmaWxlIGFuZCBhIHRveSBzY3JpcHQgd2l0aCB0aGUgCm5l
+Y2Vzc2FyeSB0YyBjb21tYW5kcy4gSXQnbGwgdGFrZSBtZSBhIGZldyBkYXlzIHRob3VnaCBhcyBJ
+J20gYnVzeSB3aXRoIApvdGhlciBzdHVmZiBjdXJyZW50bHkuCgpQUyBkb2VzIHRoZSBjYWtlIGxp
+c3QgYWxsb3cgYXR0YWNobWVudHM/IEl0IHdpbGwgYmUgYSBzbWFsbCB6aXAgZmlsZS4KCkpvaG4K
+Ck9uIDE5LzAyLzIwMjEgMTU6MDIsIFBldGVyIExlcGVza2Egd3JvdGU6Cj4gSGkgSm9obgo+IAo+
+IERvZXMgdGhpc8KgcmVzdWx0IGluIHRoZSBhYmlsaXR5IHRvIHNldCBwZXIgaW50ZXJuYWwgaG9z
+dCBtYXggaW5ncmVzcyAKPiBiYW5kd2lkdGg/IElmIHNvLCBhbnkgY2hhbmNlIHlvdSBjYW4gc2hh
+cmUgYSBzbmlwcGV0IG9mIGEgc2NyaXB0PyBJIHdpbGwgYmUgCj4gdHJ5aW5nIHRvIHJlcHJvZHVj
+ZSB5b3VyIHNldHVwLgo+IAo+IFRoYW5rIHlvdSEKPiAKPiBQZXRlcgo+IAo+IE9uIEZyaSwgRmVi
+IDE5LCAyMDIxIGF0IDc6MTYgQU0gSm9obiBTYWdlciA8am9obkBzYWdlci5tZS51ayAKPiA8bWFp
+bHRvOmpvaG5Ac2FnZXIubWUudWs+PiB3cm90ZToKPiAKPiAgICAgVGhhdCdzIGJhc2ljYWxseSB3
+aGF0IEkgZG8uIEkgc2V0IG1hcmtzIG9uIG91dGdvaW5nIHRyYWZmaWMgaW4gdGhlIG1hbmdsZQo+
+ICAgICB0YWJsZSB3aGljaCBhcmUgY29waWVkIHRvIGNvbm5tYXJrIGJlZm9yZSBlZ3Jlc3MuIFRo
+ZW4gb24gaW5ncmVzcyB0aGUKPiAgICAgY29ubm1hcmsgaXMgcmVzdG9yZWQgdG8gdGhlIHBhY2tl
+dCBhbmQgcHVudGVkIHRvIGlmYjAgdXNpbmcgJ2FjdGlvbgo+ICAgICBjb25ubWFyawo+ICAgICBh
+Y3Rpb24gbWlycmVkIGVncmVzcyByZWRpcmVjdCBkZXYgJElGQicgYXMgYW4gaW5ncmVzcyBmaWx0
+ZXIgb24gdGhlCj4gICAgIGluY29taW5nCj4gICAgIGludGVyZmFjZSAocHBwMCBpbiBteSBjYXNl
+KS4gVGhlbiBJIGhhdmUgSFRCIGNsYXNzZXMgb24gaWZiMCB3aGljaCBzZXQgcmF0ZQo+ICAgICBs
+aW1pdHMgZm9yIGRpZmZlcmVudCB0cmFmZmljIGNsYXNzZXMgaW5kaWNhdGVkIGJ5IHRoZSBtYXJr
+cy4gSSBoYXZlIG9ubHkgNgo+ICAgICB0cmFmZmljIGNsYXNzZXMgKEkgYnVuZGxlIGFsbCB2aWRl
+byBpbnRvIG9uZSBjbGFzcyksIGJ1dCBhcyBtYXJrcyBhcmUgMzIKPiAgICAgYml0cyB3aWRlIHRo
+ZXJlIGlzIGxvdHMgb2Ygc2NvcGUgZm9yIGNsYXNzZXMgZm9yIGluZGl2aWR1YWwgSVAgYWRkcmVz
+c2VzLgo+IAo+ICAgICBKb2huCj4gCj4gICAgIE9uIDE4LzAyLzIwMjEgMTk6MjgsIFRva2UgSMO4
+aWxhbmQtSsO4cmdlbnNlbiB2aWEgQ2FrZSB3cm90ZToKPiAgICAgID4gUGV0ZXIgTGVwZXNrYSA8
+Yml6emJ5c3RlckBnbWFpbC5jb20gPG1haWx0bzpiaXp6YnlzdGVyQGdtYWlsLmNvbT4+Cj4gICAg
+IHdyaXRlczoKPiAgICAgID4KPiAgICAgID4+IEEgdXNlciBvbiB0aGUgT3BlbldydCBmb3J1bSBz
+dWdnZXN0ZWQgaGFzaGxpbWl0IHJ1bGVzIHN1cHBvcnRlZCBieQo+ICAgICAgPj4gaXB0YWJsZXMu
+IEhvdyBkb2VzIHRoYXQgaWRlYSBzb3VuZCB0byB5b3U/Cj4gICAgICA+Cj4gICAgICA+IFRoYXQg
+d2lsbCByZXN1bHQgaW4gYSBjbGlmZi1lZGdlIHBvbGljZXIgKGkuZS4sIGFzIHNvb24gYXMgYSBk
+ZXZpY2UgZ29lcwo+ICAgICAgPiBvdmVyIGl0cyBsaW1pdHMgaXQgd2lsbCBzZWUgZXZlcnkgcGFj
+a2V0IGdldCBkcm9wcGVkKS4gVGhpcyBkb2Vzbid0Cj4gICAgICA+IGludGVyYWN0IHRvbyB3ZWxs
+IHdpdGggdGhlIGJ1cnN0aW5lc3Mgb2YgVENQLCBzbyB5b3UnbGwgbGlrZWx5IGdldAo+ICAgICAg
+PiBlcnJhdGljIGJlaGF2aW91ciBvZiB0aGUgdHJhZmZpYyBpZiB5b3UgZG8gdGhhdC4gRG9pbmcg
+dGhlIHNhbWUgdGhpbmcKPiAgICAgID4gd2l0aCBIVEIgbWVhbnMgdGhlIHJvdXRlciB3aWxsIHF1
+ZXVlK3NoYXBlIGVhY2ggY2xhc3MgKGFuZCB3aXRoIEZRLUNvRGVsCj4gICAgICA+IG9uIHRoZSBs
+ZWF2ZXMsIHlvdSdsbCBnZXQgYSBuaWNlIEFRTSBiZWhhdmlvdXIgYXMgd2VsbCksIHNvIHRoYXQg
+d2lsbCBiZQo+ICAgICAgPiBzbW9vdGhlciBhbmQgbGVzcyBwcm9uZSB0byBibG9hdCA6KQo+ICAg
+ICAgPgo+ICAgICAgPiAtVG9rZQo+ICAgICAgPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwo+ICAgICAgPiBDYWtlIG1haWxpbmcgbGlzdAo+ICAgICAgPiBD
+YWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldCA8bWFpbHRvOkNha2VAbGlzdHMuYnVmZmVyYmxvYXQu
+bmV0Pgo+ICAgICAgPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtl
+Cj4gICAgICA+Cj4gICAgIF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fCj4gICAgIENha2UgbWFpbGluZyBsaXN0Cj4gICAgIENha2VAbGlzdHMuYnVmZmVyYmxv
+YXQubmV0IDxtYWlsdG86Q2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQ+Cj4gICAgIGh0dHBzOi8v
+bGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UKPiAKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0
+cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8v
+Y2FrZQo=
