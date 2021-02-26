@@ -2,82 +2,65 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id AB9A832692B
-	for <lists+cake@lfdr.de>; Fri, 26 Feb 2021 22:09:07 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A789F32692C
+	for <lists+cake@lfdr.de>; Fri, 26 Feb 2021 22:09:08 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 161DA3CB50;
+	by lists.bufferbloat.net (Postfix) with ESMTP id 330683CB54;
 	Fri, 26 Feb 2021 16:09:06 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1614373746;
-	bh=lGsXg/KSKwDCqfR+Ws9TO6N+1zszbmsL4j1RKLv3Wrw=;
-	h=From:To:Date:References:In-Reply-To:Subject:List-Id:
+	bh=XiFSFQqhweAZEOpTniTTwerP6DuquXLVqSAbIpzyFH8=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 From;
-	b=fkTMbQiaoJ9Vm1byIfi6/e9li4CotsO7+4E57wp8Mv5vrn9q7jldNplPWtGpQJyYE
-	 n1QjcIrkbkxgkALq0Hx0HSY74+hp2LRV9maXcog1WQarFT1mswP46PGln1upoVSGjs
-	 PPk2/upCvqeluZVM/WJFMgk/rspTIE2oDP3LDGrEAxNoiGmc2MP7F7yWTq0JS+VuVI
-	 J5xXQnU7IKSyiLwq+U6B5CmjgOQRbRzAEEUuVv2eFXMSbXwbF7rLZbvGsolockHz3N
-	 aJSRNQ4N1Cy4l3bDFPH0XGsZplq1hne7jUqW2MA+lkyVgTrHWG0TwzpXdaKs/1Hkz6
-	 qwDa6oDQIR00Q==
+	 Cc:From;
+	b=RppDb0wGOX1L7lDm58FXE6Qlv/trSvxPEE1Xz3YMw5EGJ1W6FLyE7aGDGOidRbEPb
+	 V8Ior5Ife5Bd51xS+0VHLmvNJBW4KOelv66nuu5Rd+eQ1dVFZG1E5B/XAtIHPFsccp
+	 cgsyBkIG3TiW1/43xA2Wg+8AbJGxOz1279Fvy5dmiWvSF5G4EpsPkcb5T+0w5wHDeQ
+	 XeBdIiIC0XJpWZ8s8zWEbmTIHIhRuK+tyo82umO3oIi9tOq1EXg5+gDBd+m0NJrcbQ
+	 v7KAnImosI07YB8//ME7FOB8HtC8k53Esh0XojmBXOvj8LlmFix612tc2XVIK77EFd
+	 vfhpx9b/0eK5w==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from tn-mailgw-01.telenor.no (tn-mailgw-01.telenor.no [153.110.76.4])
- (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from iramx2.ira.uni-karlsruhe.de (iramx2.ira.uni-karlsruhe.de
+ [IPv6:2a00:1398:2::10:81])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 14E583B29E;
- Fri, 26 Feb 2021 10:08:18 -0500 (EST)
-IronPort-SDR: MjuxreY1KE8M0u1W34WESY3YJutQsXgqG35+dlZP/DuYc7d05yMEkOuDkmNaeyEzTqr8I4pVnb
- j63sG0jPeL2Iquk5alTVQDn9gUxozHS+SGroat4ebw+75wp74K9nd8/3v3mpc0lfW/jScq6Ok9
- rgsjXPqTdJtR8BeZwPJjPTTcaRzbiXWXyitvSAiSTOguzFGEFWuaf5NQ1ulFbnA7bjZpAhI/6O
- Xn+EOgs/lyfyqTDS90qwN8PuBUJNUryqJpq++VoT/n8+TSlJfOfprGq3A4HKC/CWpuZa5UdNrP
- 324=
-X-IronPort-AV: E=Sophos;i="5.81,208,1610409600"; d="scan'208,217";a="77452139"
-Received: from tns-sko-24-207.corp.telenor.no ([10.179.59.75])
- by tn-mailgw-01.corp.telenor.no with ESMTP; 26 Feb 2021 15:08:18 +0000
-Received: from TNS-SKO-24-202.corp.telenor.no (10.179.59.70) by
- TNS-SKO-24-207.corp.telenor.no (10.179.59.75) with Microsoft SMTP Server
- (TLS) id 15.0.1497.2; Fri, 26 Feb 2021 16:08:17 +0100
-Received: from outlook.telenor.no (10.179.127.62) by
- TNS-SKO-24-202.corp.telenor.no (10.179.59.70) with Microsoft SMTP Server
- (TLS) id 15.0.1497.2 via Frontend Transport; Fri, 26 Feb 2021 16:08:17 +0100
-Received: from pwpvn2209ex001.nxvp.net (10.149.139.134) by
- pwpvn2209ex004.nxvp.net (10.149.139.137) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2044.4; Fri, 26 Feb 2021 16:08:17 +0100
-Received: from pwpvn2209ex001.nxvp.net ([10.149.139.134]) by
- pwpvn2209ex001.nxvp.net ([10.149.139.134]) with mapi id 15.01.2044.004; Fri,
- 26 Feb 2021 16:08:17 +0100
-From: Taraldsen Erik <erik.taraldsen@telenor.no>
-To: Nils Andreas Svee <me@lochnair.net>, Dave Taht <dave.taht@gmail.com>,
- bloat <bloat@lists.bufferbloat.net>, Make-Wifi-fast
- <make-wifi-fast@lists.bufferbloat.net>,
- =?iso-8859-1?Q?Toke_H=F8iland-J=F8rgensen_via_Cake?=
- <cake@lists.bufferbloat.net>
-Thread-Topic: [Cake] [Bloat] Fwd: [Galene] Dave on bufferbloat and jitter at
- 8pm CET Tuesday 23
-Thread-Index: AQHXDFE2jqcMWA1bAEeWaCTV5rRoXw==
-Date: Fri, 26 Feb 2021 15:08:16 +0000
-Message-ID: <91226f2f9a2e4110aee2c20866b75f48@telenor.no>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 3CC783B29E;
+ Fri, 26 Feb 2021 11:59:25 -0500 (EST)
+Received: from [2a00:1398:2:4006:f46f:aa70:3331:cc14]
+ (helo=i72vorta.tm.kit.edu)
+ by iramx2.ira.uni-karlsruhe.de with esmtpsa port 25 
+ iface 2a00:1398:2::10:8 id 1lFgSX-0000yw-T8; Fri, 26 Feb 2021 17:59:21 +0100
+Received: from [IPv6:::1] (localhost [127.0.0.1])
+ by i72vorta.tm.kit.edu (Postfix) with ESMTPS id 7E383420299;
+ Fri, 26 Feb 2021 17:59:21 +0100 (CET)
+To: Nils Andreas Svee <me@lochnair.net>, =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hy?=
+ =?UTF-8?Q?gensen?= <toke@toke.dk>, Dave Taht <dave.taht@gmail.com>
 References: <874ki24ref.wl-jch@irif.fr>
  <CAA93jw5GdseVR+mUwYKg53ToRdKrU-v-ZLHaKnbDZ1Y65DLBDg@mail.gmail.com>
  <1e41ddf7-cd08-4fec-b31a-3021f8111dc6@www.fastmail.com>
- <2f30c201fce345658df9f2a5090745cf@telenor.no>
- <480413c4-e9a1-4b78-8ef6-3d8658836874@www.fastmail.com>
- <f5c96a7d5360417bbf8d71ee603eacdd@telenor.no>
- <9b17aa66-d02d-e262-88a3-2f36c1755667@lochnair.net>
- <53f6b6b3f5b043feb841c9c33fd1f480@telenor.no>,
- <26ed70a5-6638-3298-3c8a-467b2561dbbf@lochnair.net>
-In-Reply-To: <26ed70a5-6638-3298-3c8a-467b2561dbbf@lochnair.net>
-Accept-Language: nb-NO, en-US
-Content-Language: nb-NO
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.149.139.228]
-x-tm-snts-smtp: A8B71DA3DD33832833F5CFFABB5B978BD59DC69C9BB132B6CD47A83576F7F5C52000:8
+ <CAA93jw4-wspLUfL_ZJW1BN0uWaEqZGMOVnD3Z1jgrKOJ_r8xLw@mail.gmail.com>
+ <87im6h4u2p.fsf@toke.dk>
+ <a43b8d79-8d32-4048-a47e-df92eae622fa@www.fastmail.com>
+ <369A70AB-3ADF-4211-8A09-E9FB77CEE59D@toke.dk>
+ <90a13934-4ec7-4872-bbf8-c6c0f6304ce3@www.fastmail.com>
+ <87wnuw1luc.fsf@toke.dk> <86692246-90d3-4b5b-bcb3-5a67a29d67f7@lochnair.net>
+ <87mtvryrsi.fsf@toke.dk> <7513975f-9fba-f036-2037-f901e6c29af1@lochnair.net>
+From: "Bless, Roland (TM)" <roland.bless@kit.edu>
+Organization: Institute of Telematics, Karlsruhe Institute of Technology (KIT)
+Message-ID: <539a80fd-46d5-c373-a379-0c7b127714a2@kit.edu>
+Date: Fri, 26 Feb 2021 17:59:21 +0100
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Firefox/78.0 Thunderbird/78.7.1
 MIME-Version: 1.0
+In-Reply-To: <7513975f-9fba-f036-2037-f901e6c29af1@lochnair.net>
+Content-Language: en-US
+X-ATIS-AV: ClamAV (iramx2.ira.uni-karlsruhe.de)
+X-ATIS-Checksum: v3zoCAcc32ckk
+X-ATIS-Timestamp: iramx2.ira.uni-karlsruhe.de  esmtpsa 1614358761.949523115
 X-Mailman-Approved-At: Fri, 26 Feb 2021 16:09:04 -0500
-Subject: [Cake] [Bloat] Fwd: [Galene] Dave on bufferbloat and jitter at 8pm
- CET Tuesday 23
+Subject: Re: [Cake] [Bloat] Fwd: [Galene] Dave on bufferbloat and jitter at
+ 8pm CET Tuesday 23
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -89,134 +72,41 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============0914488369618627075=="
+Cc: =?UTF-8?Q?Toke_H=c3=b8iland-J=c3=b8rgensen_via_Cake?=
+ <cake@lists.bufferbloat.net>,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============0914488369618627075==
-Content-Language: nb-NO
-Content-Type: multipart/alternative;
-	boundary="_000_91226f2f9a2e4110aee2c20866b75f48telenorno_"
-
---_000_91226f2f9a2e4110aee2c20866b75f48telenorno_
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-
-Fra: Nils Andreas Svee <me@lochnair.net>
-
-
-I wanted to try and lock it to 1800Mhz, but there's no option for that expo=
-sed in the GUI that I can find.
-
-
-Generally few devices allow for that.  I do know the Zyxel devices we use a=
-llow for that in the engineering version we have for lab purposes.  I'm not=
- sure what is available in the commercial version.  I do know however that =
-we completely lock down the local interfaces of the Telenor branded version=
- of the Zyxel device.
-
-
-I had not, I didn't scan higher ports. It *is* open though, so I was able t=
-o connect to it. It only yells at me if I try to run any of the few AT comm=
-ands I know (except at), not sure if that's because of the datalock code. I=
-f that's what I'm missing, how does one go about getting a hold of one of t=
-hose? When I looked it up I only found some sites I have concern about the =
-legitimacy of.
-The datalock algorithm has been broken and is available through some of tho=
-se sketchy sites.  After that Huawei updated their algorithm.  I do believe=
- it follows device, not sw.  So if your B818 was produced before the change=
- you can use those sites.  Spin up a VM or something to try them out.
-
-The proper procedure it to contact Huawei and get them to give you the code=
-. I believe it is intended only for trusted partners, but you can give it a=
- shot to try and reach out to them.
-
-
-
--Erik
-
---_000_91226f2f9a2e4110aee2c20866b75f48telenorno_
-Content-Type: text/html; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-
-<html>
-<head>
-<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
-1">
-<style type=3D"text/css" style=3D"display:none;"><!-- P {margin-top:0;margi=
-n-bottom:0;} --></style>
-</head>
-<body dir=3D"ltr">
-<div id=3D"divtagdefaultwrapper" style=3D"font-size: 12pt; color: rgb(0, 0,=
- 0); font-family: Calibri, Helvetica, sans-serif, &quot;EmojiFont&quot;, &q=
-uot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, NotoColorEmoji, &q=
-uot;Segoe UI Symbol&quot;, &quot;Android Emoji&quot;, EmojiSymbols;" dir=3D=
-"ltr">
-<font style=3D"font-size:11pt" face=3D"Calibri, sans-serif" color=3D"#00000=
-0"><b>Fra:</b> Nils Andreas Svee &lt;me@lochnair.net&gt;</font><br>
-<div style=3D"color: rgb(0, 0, 0);">
-<div><br>
-</div>
-<blockquote>
-<p>I wanted to try and lock it to 1800Mhz, but there's no option for that e=
-xposed in the GUI that I can find.</p>
-</blockquote>
-<div>
-<p><br>
-</p>
-<p>Generally few devices allow for that.&nbsp; I do know the Zyxel devices =
-we use allow for that in the engineering version we have for lab purposes.&=
-nbsp; I'm not sure what is available in the commercial version.&nbsp; I do =
-know however that we completely lock down the local
- interfaces of the Telenor branded version of the Zyxel device.</p>
-<p><br>
-</p>
-</div>
-<div><br>
-</div>
-<blockquote>
-<div>I had not, I didn't scan higher ports. It *is* open though, so I was a=
-ble to connect to it. It only yells at me if I try to run any of the few AT=
- commands I know (except
-<i>at)</i>, not sure if that's because of the datalock code. If that's what=
- I'm missing, how does one go about getting a hold of one of those? When I =
-looked it up I only found some sites I have concern about the legitimacy of=
-.<br>
-</div>
-</blockquote>
-<div>The datalock algorithm has been broken and is available through some o=
-f those sketchy sites.&nbsp; After that Huawei updated their algorithm.&nbs=
-p; I do believe it follows device, not sw.&nbsp; So if your B818 was produc=
-ed before the change you can use those sites.&nbsp;
- Spin up a VM or something to try them out.</div>
-<div><br>
-</div>
-<div>The proper procedure it to contact Huawei and get them to give you the=
- code. I believe it is intended only for trusted partners, but you can give=
- it a shot to try and reach out to them.</div>
-<div><br>
-</div>
-<div><br>
-</div>
-<div><br>
-</div>
-<div>-Erik<br>
-</div>
-</div>
-</div>
-</body>
-</html>
-
---_000_91226f2f9a2e4110aee2c20866b75f48telenorno_--
-
---===============0914488369618627075==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============0914488369618627075==--
+SGksCgpPbiAyNi4wMi4yMSBhdCAxNjoyNyBOaWxzIEFuZHJlYXMgU3ZlZSB3cm90ZToKPiBPbiAy
+LzI2LzIxIDEyOjQ3IFBNLCBUb2tlIEjDuGlsYW5kLUrDuHJnZW5zZW4gd3JvdGU6Cj4gCj4+IFll
+YWgsIHRoZXJlIHdvdWxkIGhhdmUgdG8gYmUgc29tZSBraW5kIG9mIHByb2JpbmcgdG8gZGlzY292
+ZXIgd2hlbiB0aGUKPj4gYmFuZHdpZHRoIGdvZXMgdXAgKG1heWJlIHNvbWV0aGluZyBsaWtlIHdo
+YXQgQkJSIGRvZXM/KS4gV29ya2luZyBvdXQgdGhlCj4+IGRldGFpbHMgb2YgdGhpcyBpcyBzdGls
+bCBpbiB0aGUgZnV0dXJlLCB0aGlzIGlzIGFsbCBqdXN0IGxvb3NlIHBsYW5zCj4+IHRoYXQgSSds
+bCB0cnkgdG8gZ2V0IGJhY2sgdG8gb25jZSB3ZSBoYXZlIHRoZSBtZWFzdXJlbWVudCB0b29sIHdv
+cmtpbmcKPj4gcmVhc29uYWJseSB3ZWxsLiBJbnB1dCBhbmQgZXhwZXJpbWVudHMgd2VsY29tZSwg
+b2YgY291cnNlIQo+IAo+IEkndmUga2VwdCB0byBtYWludGFpbmluZyBDQUtFIGJpbmFyaWVzIGZv
+ciB0aGUgRWRnZVJvdXRlcnMsIHNvIEkgaGF2ZSBhIAo+IGxvdCB0byByZWFkIHVwIG9uIGlmIEkn
+bSBnb25uYSB0YWtlIGEgc3RhYiBhdCB0aGlzLCBzaG91bGQgYmUgZnVuIHRob3VnaCA6KQo+IAo+
+IEknbGwgaGF2ZSBhIGxvb2sgYXQgaG93IEJCUiBkb2VzIGl0LCBhbmQgc2VlIGlmIEkgY2FuJ3Qg
+ZmlndXJlIG91dCBob3cgCj4gdGhhdCB3b3JrcyBhdCBsZWFzdC4KQkJSIGluY3JlYXNlcyBpdHMg
+c2VuZGluZyByYXRlIGFuZCBsb29rcyB3aGV0aGVyIHRoZSBkZWxpdmVyeSByYXRlCmluY3JlYXNl
+cy4gSXQgYXNzdW1lcyB0aGF0IHRoZSBib3R0bGVuZWNrIGxpbWl0IGhhc24ndCBiZWVuIHJlYWNo
+ZWQKaW4gY2FzZSB0aGUgZGVsaXZlcnkgcmF0ZSBzdGlsbCBpbmNyZWFzZXMuIFRoaXMgaXMgY2Vy
+dGFpbmx5IHRydWUgd2hlbgppdCBpcyB0aGUgb25seSBmbG93IGF0IHRoZSBib3R0bGVuZWNrLCBi
+dXQgbm90IHRydWUgd2hlbiBtdWx0aXBsZQpmbG93cyBhcmUgcHJlc2VudCAodGhlIHByb2Jpbmcg
+ZmxvdyBtYXkgc2ltcGx5IHN0ZWFsIG90aGVyIGZsb3dzJwpzaGFyZXMgYWRuIHRodXMgZ2V0IGEg
+aGlnaGVyIGRlbGl2ZXJ5IHJhdGUgbmV2ZXJ0aGVsZXNzKS4KQkJSdjIgYXQgbGVhc3QgY2hlY2tz
+IGZvciBwYWNrZXQgbG9zcyBhbmQgRUNOCnNpZ25hbHMgYW5kIGRldGVjdHMgd2hlbiBpdCBoaXRz
+IGEgaGFyZCBsaW1pdC4gT25lIGNvdWxkIHRyeSB0bwpkZXRlY3QgYSBjb3JyZWxhdGVkIGluY3Jl
+YXNlIGluIFJUVCB3aGVuIHByb2JpbmcgZm9yIG1vcmUgYmFuZHdpZHRoCmFuZCB0aGVuIHN0b3As
+IGJlY2F1c2UgaXQgc2VlbXMgdGhhdCB0aGUgcXVldWUgaXMgZmlsbGVkIGJ5IHRoZQppbmNyZWFz
+ZWQgcHJvYmluZyByYXRlLiBIb3dldmVyLCBnZXR0aW5nIHRoYXQgcmVsaWFibHkgZGV0ZWN0ZWQg
+b3V0IG9mCnRoZSBSVFQgbWVhc3VyZW1lbnQgbm9pc2UgaXMgc29tZXRpbWVzIGRpZmZpY3VsdC4K
+ClJlZ2FyZHMsCiAgUm9sYW5kCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0
+dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
