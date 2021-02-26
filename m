@@ -2,78 +2,55 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D5F4C32620E
-	for <lists+cake@lfdr.de>; Fri, 26 Feb 2021 12:40:04 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id F268132621E
+	for <lists+cake@lfdr.de>; Fri, 26 Feb 2021 12:47:34 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id B05593CB4B;
-	Fri, 26 Feb 2021 06:40:02 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 516CE3CB49;
+	Fri, 26 Feb 2021 06:47:28 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1614339602;
-	bh=h1TtS0WO+fvzhaQZzdZRFEm6GV6IkyCt9B9aXJqgrig=;
-	h=From:To:Date:References:In-Reply-To:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	d=lists.bufferbloat.net; s=201610; t=1614340048;
+	bh=nwED5r69yUaP76dNh7aOsxl3Cot7K724v3g94IAxS9g=;
+	h=To:In-Reply-To:References:Date:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=ncqxANydUsK3jBrUC+ZGS1LJD0LGpTgM4nJivuWiiQhQ2M1Zg0Lo3XSgMTUxzR69b
-	 8OA9JS0AofkA3CSGCMq3HT6Jy5o44QuoJKERrA9+zak1UmW1VDW1lZiszhCXBW1cRO
-	 7RfvyBPXUbnGkZ3wCjGyC92ecoGdf86JarU7MJz7Oo1307T3EbMighlhxBZl1wV47E
-	 NFE/z2x2a0pcXC7PoTdCtsm/p30XkTCvMO5aLVQ4r6h1pYzRsF/0pWdaNcRorgC8Z9
-	 v4efjVRqOXxZDvUA1DqSrrQ7FaovR1nkcEhfLECZP6pkNxBnEp/MaR9MsaCvaTO7pc
-	 6FpTeD81m5TFg==
+	b=OJ6uqrTrtSBL8Q/5KqSovh5QcYPOUYlkIxq1ildjYoyxm1+Ya++yFCoE7kvLexvaW
+	 optVdINELHN2sJeVGy8/ojCDVcYVY9Y+u/kUH8Gol2Rr6WI5dfPqB21e+4+DJnivDH
+	 yNT2PhFFFpvB1oIwLGVHcfm+Jt0pItNBIHUVTOLyWYjMwh3dvA6HIYeZR80x0X7x/+
+	 MaOCanFAOMwj6r80Ker8eyka0qDjSKsr6gzFRzZ4EADlg8RCi1Cd/liPon3fdLDZOy
+	 I0aclEybEIVik1zLdHejbGMmMPR0jR47KupokSkSt2SUPk6s/SY0H6jJDZHU6SkADU
+	 J3I5KJPIegIBg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from tn-mailgw-03.telenor.no (tn-mailgw-03.telenor.no [153.110.76.6])
- (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 99AF03B2A4;
- Fri, 26 Feb 2021 02:26:47 -0500 (EST)
-IronPort-SDR: dKic19yXA3NOEDPLTCbHX6W5fQ8nEAimrjNwgk0jy2HRUdJNW7y/CQUPXg76L1XVqBshXRxghA
- XdUjForCHNgKsH101Re9tD9XPEmh95OXTcU707PEaV14Q1kBGfh/Xoa/cKmaSMxy8ExWC2vjrw
- apYoR3NGzVHDumasmqRrseh3vzJOXPRDiIk4MOVuRRQW/5BBMQA1o5gtU2shhAdxuvKz9HAD3P
- KkdhHQreWGZly+6bTfGf66T/wwTS5yuOZ44xBJaker8djlrJwiHApK4JefpDbDlnCeygkP2guq
- QW8=
-X-IronPort-AV: E=Sophos;i="5.81,207,1610409600"; d="scan'208,217";a="74766020"
-Received: from tns-sko-24-204.corp.telenor.no ([10.179.59.72])
- by tn-mailgw-03.corp.telenor.no with ESMTP; 26 Feb 2021 07:26:46 +0000
-Received: from TNS-SKO-24-203.corp.telenor.no (10.179.59.71) by
- TNS-SKO-24-204.corp.telenor.no (10.179.59.72) with Microsoft SMTP Server
- (TLS) id 15.0.1497.2; Fri, 26 Feb 2021 08:26:46 +0100
-Received: from outlook.telenor.no (10.179.127.58) by
- TNS-SKO-24-203.corp.telenor.no (10.179.59.71) with Microsoft SMTP Server
- (TLS) id 15.0.1497.2 via Frontend Transport; Fri, 26 Feb 2021 08:26:46 +0100
-Received: from pwpvn2209ex001.nxvp.net (10.149.139.134) by
- pwpvn2209ex001.nxvp.net (10.149.139.134) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2044.4; Fri, 26 Feb 2021 08:26:45 +0100
-Received: from pwpvn2209ex001.nxvp.net ([10.149.139.134]) by
- pwpvn2209ex001.nxvp.net ([10.149.139.134]) with mapi id 15.01.2044.004; Fri,
- 26 Feb 2021 08:26:45 +0100
-From: Taraldsen Erik <erik.taraldsen@telenor.no>
-To: Nils Andreas Svee <me@lochnair.net>, Dave Taht <dave.taht@gmail.com>,
- bloat <bloat@lists.bufferbloat.net>, Make-Wifi-fast
- <make-wifi-fast@lists.bufferbloat.net>,
- =?iso-8859-1?Q?Toke_H=F8iland-J=F8rgensen_via_Cake?=
- <cake@lists.bufferbloat.net>
-Thread-Topic: SV: [Cake] [Bloat] Fwd: [Galene] Dave on bufferbloat and jitter
- at 8pm CET Tuesday 23
-Thread-Index: AQHXC9UXIABXylHT90yGNinCbWzHeapqAX4h
-Date: Fri, 26 Feb 2021 07:26:45 +0000
-Message-ID: <53f6b6b3f5b043feb841c9c33fd1f480@telenor.no>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id BC0CA3B29E;
+ Fri, 26 Feb 2021 06:47:26 -0500 (EST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
+ t=1614340045; bh=Qo86fr7vgqHMhscvCVu8bkHABaN568NlWRnDndQA8q8=;
+ h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+ b=UCmxhvYjOU+N6LOEW2ICQhipzsnNfZY+V5axBS7s7QaW0c2gfDnFnj6A2kJaGkn3Z
+ VXvoi3SVev+DwjqKEcyr3rh6lsMSBPESfW4sfmbLWrUCysvRXkzHIN+fC6aCeKpdwl
+ HboYkwHFBKMgYOxuDqYkEhP0Ak//XaUAslSiAr/hn8j1efTUhXRHT18MbJtdxGTya5
+ CrT2tLgoa2SHaxiL7NR6MP/IHW9fR4/piNvwz83reNR2Gn64xBLV3v1eKE4arzXc2i
+ SNJYN+/D9qNF8hwdqI7M4PTEl1RzR3BA1guy8BoA9qRW3Zqyek+W2sKrx7x1GGLG2j
+ Y29ac14v4M3mA==
+To: Nils Andreas Svee <me@lochnair.net>, Dave Taht <dave.taht@gmail.com>
+In-Reply-To: <86692246-90d3-4b5b-bcb3-5a67a29d67f7@lochnair.net>
 References: <874ki24ref.wl-jch@irif.fr>
  <CAA93jw5GdseVR+mUwYKg53ToRdKrU-v-ZLHaKnbDZ1Y65DLBDg@mail.gmail.com>
  <1e41ddf7-cd08-4fec-b31a-3021f8111dc6@www.fastmail.com>
- <2f30c201fce345658df9f2a5090745cf@telenor.no>
- <480413c4-e9a1-4b78-8ef6-3d8658836874@www.fastmail.com>
- <f5c96a7d5360417bbf8d71ee603eacdd@telenor.no>,
- <9b17aa66-d02d-e262-88a3-2f36c1755667@lochnair.net>
-In-Reply-To: <9b17aa66-d02d-e262-88a3-2f36c1755667@lochnair.net>
-Accept-Language: nb-NO, en-US
-Content-Language: nb-NO
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.149.139.228]
-x-tm-snts-smtp: 3C6115413062B7EB3D512FFA85B311B800087580A0A82A8354DB0D711A8E76282000:8
+ <CAA93jw4-wspLUfL_ZJW1BN0uWaEqZGMOVnD3Z1jgrKOJ_r8xLw@mail.gmail.com>
+ <87im6h4u2p.fsf@toke.dk>
+ <a43b8d79-8d32-4048-a47e-df92eae622fa@www.fastmail.com>
+ <369A70AB-3ADF-4211-8A09-E9FB77CEE59D@toke.dk>
+ <90a13934-4ec7-4872-bbf8-c6c0f6304ce3@www.fastmail.com>
+ <87wnuw1luc.fsf@toke.dk>
+ <86692246-90d3-4b5b-bcb3-5a67a29d67f7@lochnair.net>
+Date: Fri, 26 Feb 2021 12:47:25 +0100
+X-Clacks-Overhead: GNU Terry Pratchett
+Message-ID: <87mtvryrsi.fsf@toke.dk>
 MIME-Version: 1.0
-X-Mailman-Approved-At: Fri, 26 Feb 2021 06:40:02 -0500
 Subject: Re: [Cake] [Bloat] Fwd: [Galene] Dave on bufferbloat and jitter at
  8pm CET Tuesday 23
 X-BeenThere: cake@lists.bufferbloat.net
@@ -87,196 +64,50 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3023186661795868975=="
+From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= via Cake
+ <cake@lists.bufferbloat.net>
+Reply-To: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
+Cc: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= via Cake
+ <cake@lists.bufferbloat.net>,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ Simon Sundberg <Simon.Sundberg@kau.se>,
+ cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============3023186661795868975==
-Content-Language: nb-NO
-Content-Type: multipart/alternative;
-	boundary="_000_53f6b6b3f5b043feb841c9c33fd1f480telenorno_"
-
---_000_53f6b6b3f5b043feb841c9c33fd1f480telenorno_
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-
-Fra: Nils Andreas Svee <me@lochnair.net>
-
-I am indeed running them on Ethernet. I don't actually use the B818 for any=
-thing else than as a LTE modem, so I wouldn't know, if I could get the thin=
-g to bridge I would. Or replace it with something else entirely that I can =
-control, but that doesn't seem to be an option on FWA. That said the Zyxel =
-looks like a better option since I assume it acts like a bridge by default.
-The Zyxel device indeed acts as a bridge, or at least as close approximatio=
-n as we can get it.  The PDP addressing protocol in mobile networks requres=
- the address termination to happen where the SIM card resides.  So the devi=
-ce does some trickery with brctl, routing and iptables to simulate a bridge=
- setup.
-
-
-I dumped the raw signal stats the web interface grabs in an XML file togeth=
-er with the Flent tests. Also did some upload only tests tonight at differe=
-nt speeds (no VPN in play this time).
-rsrp is good and rsrq is great at your location.  However you have ended up=
- on the 800MHz band.  That is intended for coverage, not capacity.  It uses=
- only 10MHz bandwitdh and is shared with a lot more customers.  You probabl=
-y should be able to get an 1800MHz frequency which has 20MHz and is shared =
-among fewer customers.
-
-Most likely yes. That's been my observation as well, that it generally acts=
- up the worst when somethings using the upstream. Not entirely sure what I =
-can do about that, seeing as I had to shape at 5Mbit to get rid of the wors=
-t spikes (but not all).
-
-This is tricky.  You don't have a static set of resources.  You request res=
-ources "as needed".  The "as needed" amongst other things reads the buffer =
-back pressure.  So if you shape to far down the LTE device will not request=
- enough resources.  Shape to high and there will not be enough resources av=
-ailable to share.  And available resources vary with number of subscribers =
-on that cell, weather, the subscribers usage and interference from other ce=
-ll towers.  To get a proper solution to this I don't see a way around getti=
-ng the chipset manufacturers on board.
-
-
-
-On that point, I would've liked to collect signal stats over time, but the =
-B818 seems to insist on chucking me out after being idle for a few minutes,=
- better known as scraping the stats with cURL
-
-
-Have you tried to use the telnet service port (20249) on the B818?  Not all=
- variants have that open but you could give it a shot.  You also may need t=
-o acquire an datalock code for the "at^datalock=3D" command.
-
-telnet LAN_IP 20249
-
-
-
-This is getting LTE/5G spesific.  Not sure if it belongs on the list.  Let =
-us know if we are generating noise.
-
-
--Erik
-
---_000_53f6b6b3f5b043feb841c9c33fd1f480telenorno_
-Content-Type: text/html; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-
-<html>
-<head>
-<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
-1">
-<style type=3D"text/css" style=3D"display:none;"><!-- P {margin-top:0;margi=
-n-bottom:0;} --></style>
-</head>
-<body dir=3D"ltr">
-<div id=3D"divtagdefaultwrapper" style=3D"font-size: 12pt; color: rgb(0, 0,=
- 0); font-family: Calibri, Helvetica, sans-serif, &quot;EmojiFont&quot;, &q=
-uot;Apple Color Emoji&quot;, &quot;Segoe UI Emoji&quot;, NotoColorEmoji, &q=
-uot;Segoe UI Symbol&quot;, &quot;Android Emoji&quot;, EmojiSymbols;" dir=3D=
-"ltr">
-<font style=3D"font-size:11pt" face=3D"Calibri, sans-serif" color=3D"#00000=
-0"><b>Fra:</b> Nils Andreas Svee &lt;me@lochnair.net&gt;</font><br>
-<div style=3D"color: rgb(0, 0, 0);">
-<div id=3D"divRplyFwdMsg" dir=3D"ltr"><font style=3D"font-size:11pt" face=
-=3D"Calibri, sans-serif" color=3D"#000000"><br>
-</font></div>
-<blockquote>
-<div dir=3D"ltr">I am indeed running them on Ethernet. I don't actually use=
- the B818 for anything else than as a LTE modem, so I wouldn't know, if I c=
-ould get the thing to bridge I would. Or replace it with something else ent=
-irely that I can control, but that
- doesn't seem to be an option on FWA. That said the Zyxel looks like a bett=
-er option since I assume it acts like a bridge by default.<br>
-</div>
-</blockquote>
-<div>The Zyxel device indeed acts as a bridge, or at least as close approxi=
-mation as we can get it.&nbsp; The PDP addressing protocol in mobile networ=
-ks requres the address termination to happen where the SIM card resides.&nb=
-sp; So the device does some trickery with
- brctl, routing and iptables to simulate a bridge setup.</div>
-<div><br>
-</div>
-<div><br>
-</div>
-<blockquote>
-<div>I dumped the raw signal stats the web interface grabs in an XML file t=
-ogether with the Flent tests. Also did some upload only tests tonight at di=
-fferent speeds (no VPN in play this time).</div>
-</blockquote>
-<div>rsrp is good and rsrq is great at your location.&nbsp; However you hav=
-e ended up on the 800MHz band.&nbsp; That is intended for coverage, not cap=
-acity.&nbsp; It uses only 10MHz bandwitdh and is shared with a lot more cus=
-tomers.&nbsp; You probably should be able to get an
- 1800MHz frequency which has 20MHz and is shared among fewer customers.<br>
-</div>
-<div><br>
-</div>
-<div>
-<blockquote>Most likely yes. That's been my observation as well, that it ge=
-nerally acts up the worst when somethings using the upstream. Not entirely =
-sure what I can do about that, seeing as I had to shape at 5Mbit to get rid=
- of the worst spikes (but not all).
-</blockquote>
-<p>This is tricky.&nbsp; You don't have a static set of resources.&nbsp; Yo=
-u request resources &quot;as needed&quot;.&nbsp; The &quot;as needed&quot; =
-amongst other things reads the buffer back pressure.&nbsp; So if you shape =
-to far down the LTE device will not request enough resources.&nbsp; Shape t=
-o
- high and there will not be enough resources available to share.&nbsp; And =
-available resources vary with number of subscribers on that cell, weather, =
-the subscribers usage and interference from other cell towers.&nbsp; To get=
- a proper solution to this I don't see a way
- around getting the chipset manufacturers on board.</p>
-<p><br>
-</p>
-<br>
-<blockquote>
-<p>On that point, I would've liked to collect signal stats over time, but t=
-he B818 seems to insist on chucking me out after being idle for a few minut=
-es, better known as scraping the stats with cURL</p>
-</blockquote>
-<p><br>
-</p>
-</div>
-<div>Have you tried to use the telnet service port (20249) on the B818?&nbs=
-p; Not all variants have that open but you could give it a shot.&nbsp; You =
-also may need to acquire an datalock code for the &quot;<span>at^datalock=
-=3D&quot; command. &nbsp;</span><br>
-</div>
-<div><br>
-</div>
-<div>telnet LAN_IP 20249<br>
-</div>
-<div><br>
-</div>
-<div><br>
-</div>
-<div><br>
-</div>
-<div>This is getting LTE/5G spesific.&nbsp; Not sure if it belongs on the l=
-ist.&nbsp; Let us know if we are generating noise.</div>
-<div><br>
-</div>
-<div><br>
-</div>
-<div>-Erik<br>
-</div>
-</div>
-</div>
-</body>
-</html>
-
---_000_53f6b6b3f5b043feb841c9c33fd1f480telenorno_--
-
---===============3023186661795868975==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============3023186661795868975==--
+TmlscyBBbmRyZWFzIFN2ZWUgPG1lQGxvY2huYWlyLm5ldD4gd3JpdGVzOgoKPiBPbiAyLzI1LzIx
+IDExOjMwIEFNLCBUb2tlIEjDuGlsYW5kLUrDuHJnZW5zZW4gd3JvdGU6Cj4KPj4gQWgsIHdpcmVn
+dWFyZCBkb2Vzbid0IGhhdmUgWERQIHN1cHBvcnQsIHNvIHRoYXQncyBsaWtlbHkgbm90IGdvaW5n
+IHRvCj4+IHdvcms7IGFuZCBpZiB5b3UgcnVuIGl0IG9uIHRoZSBwaHlzaWNhbCBpbnRlcmZhY2Us
+IGV2ZW4gaWYgeW91IGRpZG4ndAo+PiBnZXQgZHJpdmVyIGVycm9ycywgdGhlIHRvb2wgd291bGQg
+anVzdCBzZWUgdGhlIGVuY3J5cHRlZCBwYWNrZXRzIHdoaWNoCj4+IGlzIG5vdCB0ZXJyaWJseSBo
+ZWxwZnVsIChpdCBwYXJzZXMgVENQIHRpbWVzdGFtcHMgdG8gbWF0Y2gKPj4gaW5jb21pbmcvb3V0
+Z29pbmcgcGFja2V0cyBhbmQgY29tcHV0ZSB0aGUgUlRUKS4KPgo+IEkgZmlndXJlZCB0aGF0IG1p
+Z2h0IGJlIHRoZSBjYXNlLiBZZXMgSSB3b3VsZCd2ZSBkaXNhYmxlZCB0aGUgVlBOIGlmIEkgCj4g
+ZGlkbid0IGdldCBkcml2ZXIgZXJyb3JzLgo+IEkgY2hhbmdlZCB0aGUgbmV0d29yayBpbnRlcmZh
+Y2UgdG8gdXNlIGFuIGVtdWxhdGVkIEludGVsIEUxMDAwIHRvbmlnaHQsIAo+IGFuZCBpZiBJIGJ5
+cGFzcyB0aGUgVlBOIGl0IHdvcmtzIGFzIGl0IHNob3VsZC4KClJpZ2h0LCBhd2Vzb21lIQoKPj4g
+SSBndWVzcyB3ZSBzaG91bGQgYmUgbW9yZSBmbGV4aWJsZSBhYm91dCB3aGljaCBob29rcyB3ZSBz
+dXBwb3J0LCBzbyBpdAo+PiBjYW4gYWxzbyBiZSB1c2VkIG9uIGRldmljZXMgd2l0aCBubyBYRFAg
+c3VwcG9ydC4gQWRkaW5nIGluIFNpbW9uLCB3aG8gaXMKPj4gd3JpdGluZyB0aGUgY29kZTsgSSB0
+aGluayBoZSBpcyBmb2N1c2VkIG9uIGdldHRpbmcgYSBjb3VwbGUgb2Ygb3RoZXIKPj4gZmVhdHVy
+ZXMgZG9uZSBmaXJzdCwgYnV0IHRoaXMgY291bGQgZ28gb24gdGhlIFRPRE8gbGlzdCA6KQo+Cj4g
+SXQncyBub3QgbGlrZSBJJ20gaW4gYSBodXJyeSwgYW5kIEknZCBwcm9iYWJseSBuZWVkIHNvbWUg
+dGltZSB0byBmaWd1cmUgCj4gb3V0IGhvdyB0byB0d2VhayB0aGUgQ0FLRSBwYXJhbWV0ZXJzIGNv
+cnJlY3RseSB3aXRoIHRoaXMgYW55d2F5IDspCj4KPiBTcGVha2luZyBvZiwgaXNuJ3Qgb25lIG9m
+IHRoZSBjaGFsbGVuZ2VzIHdpdGggc29sdXRpb25zIGxpa2UgdGhlc2UgdGhhdCAKPiBpdCdzIGhh
+cmQgdG8gdGVsbCB3aGVuIGNvbmRpdGlvbnMgaGF2ZSBpbXByb3ZlZCBhbmQgYWxsb3cgZm9yIG1v
+cmUgCj4gdGhyb3VnaHB1dD8gQXQgbGVhc3QgdGhhdCdzIHdoYXQgSSByZW1lbWJlciBiZWluZyB0
+aGUgaXNzdWUgd2hlbiBJIAo+IHRlc3RlZCBDQUtFJ3MgYXV0b3JhdGUtaW5ncmVzcyBiYWNrIGlu
+IHRoZSBkYXkuCgpZZWFoLCB0aGVyZSB3b3VsZCBoYXZlIHRvIGJlIHNvbWUga2luZCBvZiBwcm9i
+aW5nIHRvIGRpc2NvdmVyIHdoZW4gdGhlCmJhbmR3aWR0aCBnb2VzIHVwIChtYXliZSBzb21ldGhp
+bmcgbGlrZSB3aGF0IEJCUiBkb2VzPykuIFdvcmtpbmcgb3V0IHRoZQpkZXRhaWxzIG9mIHRoaXMg
+aXMgc3RpbGwgaW4gdGhlIGZ1dHVyZSwgdGhpcyBpcyBhbGwganVzdCBsb29zZSBwbGFucwp0aGF0
+IEknbGwgdHJ5IHRvIGdldCBiYWNrIHRvIG9uY2Ugd2UgaGF2ZSB0aGUgbWVhc3VyZW1lbnQgdG9v
+bCB3b3JraW5nCnJlYXNvbmFibHkgd2VsbC4gSW5wdXQgYW5kIGV4cGVyaW1lbnRzIHdlbGNvbWUs
+IG9mIGNvdXJzZSEKCi1Ub2tlCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0
+dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
