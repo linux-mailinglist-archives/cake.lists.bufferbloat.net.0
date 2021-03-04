@@ -2,74 +2,64 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B4D2E32B9FC
-	for <lists+cake@lfdr.de>; Wed,  3 Mar 2021 19:44:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id CCC0832CA3A
+	for <lists+cake@lfdr.de>; Thu,  4 Mar 2021 02:54:46 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id B86963CB42;
-	Wed,  3 Mar 2021 13:44:31 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 77D253CB38;
+	Wed,  3 Mar 2021 20:54:45 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1614797071;
-	bh=YSiABX8IuxUs+r2787jZmhxPMYdvPcpwb6eWsHO90cs=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=lXqezH0To+rmCM2GOqdErncoprAqoo7mdRYwh6ZhyjfDMc2wlTwHgGlmZdKnY5op+
-	 NUCSiE6Qh8ePiFqAj+n58ypHfPFFjVJIMH1Ci9Ifb+TevtgW1qUwfDD3CjRV9haDDQ
-	 cwuL/GKnY+HVq8uWwqXxwc0x90bIp60+NOW/A6LbSAa8fhymBGR9AsYUXkEpq/32Ok
-	 y+sQiHcfXkMTIPPRmpLteq3+IClcaO3jr30Ys4tLb5my+HxP6L5kqt8ejdbKtNFXu0
-	 KXvduMgWvaarVPZWqgqR1C93TbpHi+UqE1jBKafyodAWh/4bO8pm3nwyzSqgy+rbkz
-	 i0al4+wtuznMg==
-X-Original-To: cake@lists.bufferbloat.net
-Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-pf1-x42d.google.com (mail-pf1-x42d.google.com
- [IPv6:2607:f8b0:4864:20::42d])
+	d=lists.bufferbloat.net; s=201610; t=1614822885;
+	bh=h/iR9FvJqd91yfQzAcGSSN6dySyzrnjHL3dULXrUKBY=;
+	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
+	 List-Post:List-Help:List-Subscribe:From;
+	b=O7PiSy7TOsFn2Y0ZAhyknDxjwknVhDKscXJ/tlcjbcXb9VmgqWdRB4w94LLNximwJ
+	 KwflMRRdoEt4mT5r9vyqvvkcNg0o2nWW4tLX1/MckoRujLBTyfeBLlHXhOkpF20vpP
+	 Fa9y+lLVTcgbxCtQkOq8A4q48SQDToatVX7qnYmYbi7yRrC6veHEnDf90S6OeMlKs5
+	 eawrg5XvGDwhd32B5+0x+L47ADg50CtlPrwgJpYG8ktSapPIPbhcqDCz/jjd59FbKg
+	 psPF629Jxw3OimOKPKEiRNmKGG7NKMjtoA7/EOu6nWOfBHe91S1ImimhLtuL12qiqN
+	 IjqlI4NT1/y6g==
+X-Original-To: Cake@lists.bufferbloat.net
+Delivered-To: Cake@lists.bufferbloat.net
+Received: from mail-lf1-x12c.google.com (mail-lf1-x12c.google.com
+ [IPv6:2a00:1450:4864:20::12c])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 416AB3CB35
- for <cake@lists.bufferbloat.net>; Wed,  3 Mar 2021 13:44:30 -0500 (EST)
-Received: by mail-pf1-x42d.google.com with SMTP id o188so10234409pfg.2
- for <cake@lists.bufferbloat.net>; Wed, 03 Mar 2021 10:44:30 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 202CD3B2A4
+ for <Cake@lists.bufferbloat.net>; Wed,  3 Mar 2021 20:54:44 -0500 (EST)
+Received: by mail-lf1-x12c.google.com with SMTP id k9so20560679lfo.12
+ for <Cake@lists.bufferbloat.net>; Wed, 03 Mar 2021 17:54:43 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=networkplumber-org.20150623.gappssmtp.com; s=20150623;
- h=date:from:to:cc:subject:message-id:in-reply-to:references
- :mime-version:content-transfer-encoding;
- bh=WKRkMIuB5sK6ZKeC4liNF43FY+kVL7qbwRc+ecIImrs=;
- b=ERoabWVPUlIX691E2Myyj+olwNwKsehDeytcG2qy12cNK2BY657Fgz2yEBoV1AUO6k
- 0I2AZUrgaroPLmr7A/9nxWQwCsWx/hvB1UcKiwDdyevymiMe5KPFaYwXguvTDI+av44W
- vcYuVj6bCs8sshiJBLunddXj5K9IodStIxjfQ64qWvELVF3Hn1oZmSeknmyMpNM9Ybxc
- /2LLr7XpTHHaH98KgcUMpdWpn0o7vpC0kLFee7AOFFJ5qG9HMT2a9sNf0JChmxj9WVoh
- /8mDVkGIMWVrMn/DR8P5r/Cdk/wfXxcnpAxEEbQo2B9yHlCKrsbEZK5p6tzzvAnY9pdO
- YOWg==
+ d=lostcreek-tech.20150623.gappssmtp.com; s=20150623;
+ h=mime-version:from:date:message-id:subject:to;
+ bh=NpKyHVmBCX2IW/CHvvN81KYsgc1+PF4kqB51XFhMXys=;
+ b=olZNqJce7VZUo09VRSXFKaUTyOnxDuUtTEUpzUoJdVKr8dlbqf2GFTfsn2sjpKkLZc
+ 4BwzvxjEkUPqCAbLpS9tog8iKoJO5JT2LmXljrTreS1ny+ARVAvGr92J4Vql6KCUxVx/
+ 7lQ/j8Kq5IMPcStI01AVV1+SjP2yf63YA4vnZzZHOoSfxj+VbdsO2Lk5fFhL2Hg9Juu4
+ 6C0xqNI1WyfKFWJM8QjJ8BJxjIm6HQRrxt61/VikNZ3mvgdIFB4KKPFUxmhvkIbkuKoZ
+ IbSwMiPF3i+W/ABlxzMm460B6vjcpsEV9xJ9787wXbF+hMpYGCWmtqq4IWUWpRcisXen
+ cM8A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:date:from:to:cc:subject:message-id:in-reply-to
- :references:mime-version:content-transfer-encoding;
- bh=WKRkMIuB5sK6ZKeC4liNF43FY+kVL7qbwRc+ecIImrs=;
- b=Xgvajt6trFpyiutcQE8DV0LYKBpRH1I/Btvfnvr52KISiPoOcnAWSoiVWKaTU19imr
- Ol3WzMfPuf5r3WS4BWrjxzgykO94bE7CUKkVfWNiOhmQdutU9qExiutOANoZaDgZNo5e
- XJNCgJVDoo+7iBFDYNm3Jry8XhsaFqJSoemqq34sf12389o+7NMHuHbubTnhhkHfHVF/
- CXDtyCms6uAg6RZbhWigdb+fKPuvqzZ7RPXkQSrqTd7AhyBQunP03OU+akBD4hU5jc1D
- /q0aC6wk+/xNsxT7BsSJ16MAcjom9vMO5PNkvCFBHOKwu+4AfIERwDYfUznUfxh9syUj
- D0rQ==
-X-Gm-Message-State: AOAM532TnneWFGbNN7HhqhTemnSEywT8+EUfnPe6l46tzychaKyJU4fZ
- pMlpwamUSisFqDDfHue2Azl/TQ==
-X-Google-Smtp-Source: ABdhPJyz1QE/w/bMzByVlBJmAqpgDZT8s75RxUVtPdovDq11zjHmBfdilHjP9fem9OXsS5zkmkWCBg==
-X-Received: by 2002:a63:fa02:: with SMTP id y2mr276641pgh.412.1614797069472;
- Wed, 03 Mar 2021 10:44:29 -0800 (PST)
-Received: from hermes.local (76-14-218-44.or.wavecable.com. [76.14.218.44])
- by smtp.gmail.com with ESMTPSA id x2sm24972240pfi.220.2021.03.03.10.44.28
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 03 Mar 2021 10:44:29 -0800 (PST)
-Date: Wed, 3 Mar 2021 10:44:20 -0800
-From: Stephen Hemminger <stephen@networkplumber.org>
-To: Dave Taht <dave.taht@gmail.com>
-Message-ID: <20210303104421.35aeb4e4@hermes.local>
-In-Reply-To: <CAA93jw5==m8ARhZX2KxFjTwAmaFOa9ugrFtyONBfgnN38J_JRw@mail.gmail.com>
-References: <CAA93jw67X7u5pS0a-ERpWvpenwmgvWvQ3KV9e2Pzj75iuOLPgQ@mail.gmail.com>
- <87a6rkf9jv.fsf@toke.dk>
- <CAA93jw5==m8ARhZX2KxFjTwAmaFOa9ugrFtyONBfgnN38J_JRw@mail.gmail.com>
+ h=x-gm-message-state:mime-version:from:date:message-id:subject:to;
+ bh=NpKyHVmBCX2IW/CHvvN81KYsgc1+PF4kqB51XFhMXys=;
+ b=YpZjkmOD7NCGvx+MssT3rWcazqwhJPa+0b4gq1HhXh7cpgnl1GiYpiJoU+j9Mc1MmS
+ k+sCBKvrVAFqSgBJXVhGe0+R1DeU80zkLSunFlACNNpVlD4P2FN/2mbp4i19UKk32WEk
+ BrwJTbQaznKlhc7G03ai+3rq/FX05TEzhdHqz6mB7VwQR6msKR2cHuX8S9vVIf22L+UA
+ +XNnFl8+Id4zhE9kFugQgkYW1ojbRquEnnhNBLftNPDo9JsZsx3G6oeG7RAxd1f7BQuz
+ wUXTYOUnNZgU5Nx+iivWXxp45iG3pbEcw76yjj/frqHOOC8nY2JFcxYGMFGEHyMiLPoM
+ y+xw==
+X-Gm-Message-State: AOAM532rv22ESpxZTpxFfhHGcY0zVnNyuTFH09oqoDHGvRlSWTR1YJMF
+ NWZdHMywtNJPcGtt4Kzhu+82Iacs8DmYzcE6Fwu+bZalsss=
+X-Google-Smtp-Source: ABdhPJwPJ2gKqqmJUA1HQgTfPUYJDYHVM7qP3wL/LgKcV/nWica/b3E4bKKNBsOy5yvt8Ouxs292bimteu44YAX4wxQ=
+X-Received: by 2002:a05:6512:34c3:: with SMTP id
+ w3mr802246lfr.437.1614822882560; 
+ Wed, 03 Mar 2021 17:54:42 -0800 (PST)
 MIME-Version: 1.0
-Subject: Re: [Cake] [Cerowrt-devel] merlin gains cake support
+From: Thomas Croghan <tcroghan@lostcreek.tech>
+Date: Wed, 3 Mar 2021 18:54:30 -0700
+Message-ID: <CADmwGqvtAg9p_+RHN2bGms=8XLNU698irJ_VVoXjYpZ2v7=Vyw@mail.gmail.com>
+To: Cake@lists.bufferbloat.net
+Subject: [Cake] ISP Implementation
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -81,27 +71,94 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>,
- cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============3797445717366903371=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-T24gV2VkLCAzIE1hciAyMDIxIDA5OjEyOjM2IC0wODAwCkRhdmUgVGFodCA8ZGF2ZS50YWh0QGdt
-YWlsLmNvbT4gd3JvdGU6Cgo+IGl0IHdhcyB0aGUgZmFjdCB0aGVyZSBpcyBhIGNha2UgcG9ydCBh
-dCBhbGwgdGhhdCB3YXMgc28gZXhjaXRpbmcsIGFuZAo+IHRoYXQgc29tZSBicm9hZGNvbSBBUElz
-IGV4aXN0ZWQsIGV2ZW4gbW9yZSBzby4KPiAKPiBPbiBXZWQsIE1hciAzLCAyMDIxIGF0IDk6MDkg
-QU0gVG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2VuIDx0b2tlQHRva2UuZGs+IHdyb3RlOgo+ID4KPiA+
-IERhdmUgVGFodCA8ZGF2ZS50YWh0QGdtYWlsLmNvbT4gd3JpdGVzOgo+ID4gIAo+ID4gPiBodHRw
-czovL2dpdGh1Yi5jb20vZHRhaHQvdGMtYWR2L2lzc3Vlcy8yNwo+ID4gPgo+ID4gPiBJIGRvbid0
-IGhhdmUgYW55IG9mIHRoZSBoYXJkd2FyZSBzdXBwb3J0ZWQgYnkgdGhpcyBmaXJtd2FyZSBseWlu
-Zwo+ID4gPiBhcm91bmQgaGFuZHkuLi4gY2FuIGFueW9uZSB0ZXN0PyAgCj4gPgo+ID4gSSBiZWxp
-ZXZlIHRoZSBvcmlnaW5hbCByZXBvcnRlZCBhbHJlYWR5IHRlc3RlZCBhbmQgY29uZmlybWVkIHRo
-ZSBmaXgsCj4gPiBhY3R1YWxseS4gSSBoYXZlIGEgcGF0Y2ggcGVuZGluZyBmb3IgdXBzdHJlYW0g
-aXByb3V0ZTIgd2hpY2ggc2hvdWxkIHNob3cKPiA+IHVwIG9uIG5ldGRldiBhcyBzb29uIGFzIHZn
-ZXIgdW5jbG9ncy4uLgo+ID4KPiA+IC1Ub2tlICAKPiAKPiAKPiAKCkkgaGF2ZSBiZWVuIHVzaW5n
-IHRoaXMgaHR0cHM6Ly9naXRodWIuY29tL3R0Z2FwZXJzL2Nha2Vxb3MtbWVybGluCmZvciA1IGRh
-eXMgc28gZmFyLgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-XwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xp
-c3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============3797445717366903371==
+Content-Type: multipart/alternative; boundary="0000000000004a600f05bcac409a"
+
+--0000000000004a600f05bcac409a
+Content-Type: text/plain; charset="UTF-8"
+
+So, a beta of Mikrotik's RouterOS was released some time ago which finally
+has Cake built into it.
+
+In testing everything seems to be working, I just am coming up with some
+questions that I haven't been able to answer.
+
+Should there be any special considerations when Cake is being used in a
+setting where it's by far the most significant limiting factor to a
+connection? For example: <internet> --10 Gbps Fiber -- <ISP Router> --10
+Gbps Fiber -- [ISP Switch] -- 1 Gbps Fiber -- <500 Mbps Customer>
+In this situation very frequently the "<ISP Router>" could be running Cake
+and do the bandwidth limiting of the customer down to 1/2 (or even less) of
+the physical connectivity. A lot of the conversations here revolve around
+Cake being set up just below the Bandwidth limits of the ISP, but that's
+not really going to be the case in a lot of the ISP world.
+
+Another question would be based on the above:
+
+How well does Cake do with stacking instances? In some cases our above
+example could look more like this: <Internet> -- [Some sort of limitation
+to 100 Mbps] -- <ISP Router> -- 1 Gbps connection- <25 Mbps Customer X 10>
+
+In this situation, would it be helpful to Cake to have a "Parent Queue"
+that limits the total throughput of all customer traffic to 99-100 Mbps
+then "Child Queues" that respectively limit customers to their 25 Mbps? Or
+would it be better to just setup each customer Queue at their limit and let
+Cake handle the times when the oversubscription has reared it's ugly head?
+
+
+To be honest I have a few more questions, but I don't think many people
+want to read pages and pages of my ignorance. If my question isn't too
+stupid, I would love to ask a few others.
+
+--0000000000004a600f05bcac409a
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"auto"><div dir=3D"ltr"><div dir=3D"ltr">So, a beta of Mikrotik&=
+#39;s RouterOS was released some time ago which finally has Cake built into=
+ it.=C2=A0</div><div dir=3D"ltr"><br></div><div dir=3D"ltr">In testing ever=
+ything seems to be working, I just am coming up with some questions that I =
+haven&#39;t been able to answer.=C2=A0</div><div dir=3D"ltr"><br></div><div=
+ dir=3D"ltr">Should there be any special considerations when Cake is being =
+used in a setting where it&#39;s by far the most significant limiting facto=
+r to a connection? For example: &lt;internet&gt; --10 Gbps Fiber -- &lt;ISP=
+ Router&gt; --10 Gbps Fiber -- [ISP Switch] -- 1 Gbps Fiber -- &lt;500 Mbps=
+ Customer&gt;</div><div dir=3D"ltr">In this situation very frequently the &=
+quot;&lt;ISP Router&gt;&quot; could be running Cake and do the bandwidth li=
+miting of the customer down to 1/2 (or even less) of the physical connectiv=
+ity. A lot of the conversations here revolve around Cake being set up just =
+below the Bandwidth limits of the ISP, but that&#39;s not really going to b=
+e the case in a lot of the ISP world.</div><div dir=3D"ltr"><br></div><div =
+dir=3D"ltr">Another question would be based on the above:</div><div dir=3D"=
+ltr"><br></div><div dir=3D"ltr">How well does Cake do with stacking instanc=
+es? In some cases our above example could look more like this: &lt;Internet=
+&gt; -- [Some sort of limitation to 100 Mbps] -- &lt;ISP Router&gt; -- 1 Gb=
+ps connection- &lt;25 Mbps Customer X 10&gt;=C2=A0</div><div dir=3D"ltr"><b=
+r></div><div dir=3D"ltr">In this situation, would it be helpful to Cake to =
+have a &quot;Parent Queue&quot; that limits the total throughput of all cus=
+tomer traffic to 99-100 Mbps then &quot;Child Queues&quot; that respectivel=
+y limit customers to their 25 Mbps? Or would it be better to just setup eac=
+h customer Queue at their limit and let Cake handle the times when the over=
+subscription has reared it&#39;s ugly head?</div><div dir=3D"ltr"><br></div=
+><div dir=3D"ltr"><br></div><div dir=3D"ltr">To be honest I have a few more=
+ questions, but I don&#39;t think many people want to read pages and pages =
+of my ignorance. If my question isn&#39;t too stupid, I would love to ask a=
+ few others.=C2=A0</div></div></div>
+
+--0000000000004a600f05bcac409a--
+
+--===============3797445717366903371==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============3797445717366903371==--
