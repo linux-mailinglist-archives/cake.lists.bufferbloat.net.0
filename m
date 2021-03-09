@@ -2,68 +2,73 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 566EB33300E
-	for <lists+cake@lfdr.de>; Tue,  9 Mar 2021 21:39:11 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id A92B33330D6
+	for <lists+cake@lfdr.de>; Tue,  9 Mar 2021 22:24:24 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 81C213CB43;
-	Tue,  9 Mar 2021 15:39:05 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 387393CB40;
+	Tue,  9 Mar 2021 16:24:23 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1615322345;
-	bh=5dnltYJHaz8Xs8quYLviqtYy6a5nn9DuwwFmintrdgY=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=eaOZ1INcHN+P8wSsB2HOn0tx/2Etw66c2cgfuvzxfJsWu0xT24LBWtRyh/WUBs4xe
-	 MzTFanuN+BRyzauQ8YU7ak1uPL705cWAoIDH71ecJtdenPxmMLyy4GDOP3nehmBfaq
-	 hOqLuTuzHLeLI71qoggLdVpVh8/OyNNfhflgUyh8wTQqRvhugGPnL23ricRYMaZYqZ
-	 1+Z/ypLMCpy7isuEtu/ZTrbwZVCqnQth79SEXQVZY75VDVo+b+MJDvgudr0DKSmc85
-	 4K3O9TAJAsDcIKXFBGSSha0V4xDmp3r3plvVuh/59qkH06HkJiORL0X/HeK9dfMM0E
-	 9SE2J1I4uEpSg==
+	d=lists.bufferbloat.net; s=201610; t=1615325063;
+	bh=LhLf6a5dGJIylZn40E6wMxf9AYUhqcUSm2bq8jjZHRI=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=YNP43YB1HlrO3fq7vIUVhKVzvj4hWyzPMKE1MkG1nTI+nRyVLa00SVlzLCtGTStGP
+	 rRRHA0kRiTPdX3aCHHv9Na3Yj7EZcxuceCJVjXB3PKmYPq7iPKdeNnhB8xtx4rWaG+
+	 xpJ7kEkvyl6FHEutMq5vDo3D+HADcnwzabpAlypYbrXjkFcDdIhpSy1fWESd4X+c60
+	 uIQG7HNGNV8ZDDnQu++nVsRm3ysvR0+67kw3/2M8idKXdfVsLOBd0PufK+GdJWX1AG
+	 VV3A0JvlWPxItM3ZVQYAYlymF0xrqVnzgJ5pk4glM+i9OLxxgEjelAlHvs1fl61CvI
+	 GD07oIMBbUiag==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-io1-xd2f.google.com (mail-io1-xd2f.google.com
- [IPv6:2607:f8b0:4864:20::d2f])
+Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com
+ [IPv6:2a00:1450:4864:20::131])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 5F4A33B2A4;
- Tue,  9 Mar 2021 15:39:04 -0500 (EST)
-Received: by mail-io1-xd2f.google.com with SMTP id p16so15466355ioj.4;
- Tue, 09 Mar 2021 12:39:04 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id B5F5F3CB35;
+ Tue,  9 Mar 2021 16:24:21 -0500 (EST)
+Received: by mail-lf1-x131.google.com with SMTP id f1so29759449lfu.3;
+ Tue, 09 Mar 2021 13:24:21 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=GVAGeWg6XsRjUaRJD61DYxUa7s824hSAmjpfgaj/9dg=;
- b=E5NCOTzH75dBEP5FnH7HLaSJ69WoPAKgC7eFljQTd6qce0UmLMQtwccYFDXaPjhL6J
- NZz2zXNm8VpfFmXq6csSYYRVxACr5Voz+vmm9S3k9qimpbLz+ecr2JMm/jR/TrZtGk9O
- 3UT2bRdZHc/Eeww9QZpBs71NcQyzyxoGGZPHpFdMVVt1T8b582IzQZB7W41AdWJFW0eD
- FjlINeEKaV9n9/vGqZrg6p5lkdnXjpOEmLWqSDQyJsNhRlAYdNdKpHGTu9qnenQWfXwv
- 7uoQHGHvDQP4IGUPZrWBKIM7dVQiZbyb0yN/7+gDM3nZIsXO9TUYcKpIH2eww5Ykx0TX
- 91eQ==
+ h=mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=WQbQtZ2uBxiQFWqgsW4wSkgfF9hosKxIVfd0W9vcPx4=;
+ b=b6RoA4OzCTzYz9Fudu58H3LsM3pGDODoXGTQgqrUizA7OBLrpiRljV6C6ZAl/D2SW+
+ H4F8GnhVEvtaRDCjuuoa4WVd0UyTgS8Qwl0gVSxTDQpLigb11E87DrK7XQMfrh/X7yjm
+ S93eGmWj274dql8Iaym+b8sNq+hO7sqghPZCaaFXV1zhbabyTV2PFcvBngaYiOTttnMQ
+ 340yzkh5T7e0vnZAEO5MxpP+Z9Z4cNoH1Q/6Mk6vk3dk5jmKTkmDmAOr+WZDvYgY5Udb
+ L2iiGEjq8TVgyyQxzzRYSuyGIIvJ7h25epJ8XVIBlr59SSoJBDcUsImxp+p/YtcxHogu
+ ZY+A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=GVAGeWg6XsRjUaRJD61DYxUa7s824hSAmjpfgaj/9dg=;
- b=jx7oPq2BGQ44alkZvTac0qtO2MnIaXFW0jVPqtbflRxtcxFIjpnk9qH5LVPKEKuoRm
- ymzTRQQkODcx5eQF+ipNtmFudxCLAQbh+i/X1hljFveWuBZfHLuqTd9c9TN6KbLVMPW3
- Gfl1lfa9wonU/u7R1h9lwgN11H+WsbjkRgK+GB/pbwbP7q9Q1wOC175ghEjY35rSur7S
- 4QdpNCeI3kkpS8dnpCtrX1ruzalaKjH38W7ZafDP9SiR4ZOk5TCCwyGdlgF9lpraks34
- N9OrAgxIPwhfNBG2md0a1vIB7rn8FMzpknP9P7SA2l5pVWGflCIzAZqE49fgeBmJ2BlP
- +eVg==
-X-Gm-Message-State: AOAM530RUNXsg3RZXoDHHcif5GIXyfp9hPXVojbHBFOArV0qbgcxykwL
- xm+yJvurz0vQCntmm2W4tB5gPTj85HCDLUI2bWdgCy+AQUAqVQ==
-X-Google-Smtp-Source: ABdhPJyGlYh5zRl4PHBiTyM9sxULbZ8rABs8KkyGkXLeGM86EdqFp/f8fg3UVfn6EUTRK1bHQM7rx/PCxPbr6NOnCAs=
-X-Received: by 2002:a5d:9641:: with SMTP id d1mr23884878ios.123.1615322343562; 
- Tue, 09 Mar 2021 12:39:03 -0800 (PST)
-MIME-Version: 1.0
-From: Dave Taht <dave.taht@gmail.com>
-Date: Tue, 9 Mar 2021 12:38:52 -0800
-Message-ID: <CAA93jw7wDiE4R+y2JV85wAZqcDpFtSetx47bmFQcr-8XAtCSpg@mail.gmail.com>
-To: ECN-Sane <ecn-sane@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>, 
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>, 
- cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>, 
- Cake List <cake@lists.bufferbloat.net>, tsvwg IETF list <tsvwg@ietf.org>
-Subject: [Cake] how to ecn again on osx and ios!!!
+ h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
+ :content-transfer-encoding:message-id:references:to;
+ bh=WQbQtZ2uBxiQFWqgsW4wSkgfF9hosKxIVfd0W9vcPx4=;
+ b=GWnPidvIP7DtXmCUP8tQLNld+QSG7802+X9flvTyhrxlx0FFrLuIL2VhqDRWi8sUOo
+ U42Yvc1ugdpzg5y8y8RxsIq/G0sYfaWnjBNRbaL0dal5SMFd5LrCPymr9OtKSb7l/uMY
+ RxAwpCoU9X1EHiuDv9lxxuaTspramrUW44hxNIhNPN1N2On1fxGET/Dibuy5khn/OjD1
+ x5gdkHfXrMXE98Qn9u4Fdwp1cCepRZ8DZXLObl4f/gW1jT2gC3H4azhB1RTEGRqmmZoS
+ doFvjDK2PXrvgns4P22jYR3VkudkxQ9OiTPs5nZxucJA1iPxM1p8oD4lPy+FQKLtj8XL
+ ihrg==
+X-Gm-Message-State: AOAM5323G7IeJ+0z8rsulkpDAq3cWDuVR60BQC2bdjvFbjXGD2fvI/JN
+ HjMJwXTdpsG0aUlk7RZjKro=
+X-Google-Smtp-Source: ABdhPJzvsR3w1hK2yX3mRHiN74AjGYdOn3EKZVBFERublBuh+6dUqLDZOnOGgt2NzFo4HAjYiAon1Q==
+X-Received: by 2002:a19:ad4a:: with SMTP id s10mr18086712lfd.370.1615325060631; 
+ Tue, 09 Mar 2021 13:24:20 -0800 (PST)
+Received: from jonathartonsmbp.lan (176-93-29-60.bb.dnainternet.fi.
+ [176.93.29.60])
+ by smtp.gmail.com with ESMTPSA id w24sm646032ljh.19.2021.03.09.13.24.19
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 09 Mar 2021 13:24:20 -0800 (PST)
+Mime-Version: 1.0 (Mac OS X Mail 11.5 \(3445.9.7\))
+From: Jonathan Morton <chromatix99@gmail.com>
+In-Reply-To: <CAA93jw7wDiE4R+y2JV85wAZqcDpFtSetx47bmFQcr-8XAtCSpg@mail.gmail.com>
+Date: Tue, 9 Mar 2021 23:24:18 +0200
+Message-Id: <B147DD19-3507-407A-8E41-500F242B510C@gmail.com>
+References: <CAA93jw7wDiE4R+y2JV85wAZqcDpFtSetx47bmFQcr-8XAtCSpg@mail.gmail.com>
+To: Dave Taht <dave.taht@gmail.com>
+X-Mailer: Apple Mail (2.3445.9.7)
+Subject: Re: [Cake] [Bloat] how to ecn again on osx and ios!!!
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -75,30 +80,21 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
+Cc: tsvwg IETF list <tsvwg@ietf.org>,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ Cake List <cake@lists.bufferbloat.net>,
+ ECN-Sane <ecn-sane@lists.bufferbloat.net>,
+ cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-VGhlIGFkZGl0aW9uYWwgc3lzY3RsIHJlcXVpcmVkIHRvIHJlLWVuYWJsZSBlY24gbmVnb3RpYXRp
-b24gYWx3YXlzIGlzCgpzdWRvIHN5c2N0bCAtdyBuZXQuaW5ldC50Y3AuZGlzYWJsZV90Y3BfaGV1
-cmlzdGljcz0xCgpTZWUgYWxzbzoKaHR0cHM6Ly9naXRodWIuY29tL2FwcGxlLW9wZW5zb3VyY2Uv
-eG51L2Jsb2IvbWFzdGVyL2JzZC9uZXRpbmV0L3RjcF9jYWNoZS5jI0wxNjQKCkl0IGRpc2FibGVz
-IG1wdGNwIGFuZCB0Zm8sIHdoaWNoIGZvciBwdXJwb3NlcyBvZiBldmVuIGJhc2ljIHdvcmxkd2lk
-ZQp0ZXN0aW5nIG9mIHRoZSBzdXJ2aXZhbCBvZiB0aGUgZWN0KDApIGFuZCBlY3QoMSkgY29kZXBv
-aW50cywgZG9uJ3QKcmVhbGx5IG1hdHRlci4gSSBhbSBkZWxpcmlvdXMgd2l0aCBqb3kgdG8gYmUg
-YWJsZSB0byB0ZXN0IHRoaXMgc3R1ZmYKYWdhaW4gZnJvbSBkZXZpY2VzIG1vcmUgcGVvcGxlIGhh
-dmUsIGFuZCBJIGhvcGUgeSdhbGwgdHVybiBpdCBvbiBmb3IgYQp3aGlsZSwgb24gZXRoZXJuZXQv
-d2lmaSBhbmQgbHRlLCBnZXQgYSBidW5jaCBvZiBjYXB0dXJlcyBhbmQgc2VlIHdoYXQKaGFwcGVu
-cyBpbiBkYXkgdG8gZGF5IHVzZS4gSSB3b3VsZCBzbyBsb3ZlIHBhY2tldCBjYXB0dXJlcyBmcm9t
-IG1hbnkKbWFueSB2YW50YWdlIHBvaW50cyBhZ2FpbnN0IHRoZSB3b3JsZHdpZGUgZmxlbnQgdGVz
-dGluZyBuZXR3b3JrLgoKVGhvc2Ugb2YgeW91IHRoYXQgaGF2ZSByb290IGFjY2VzcyBvbiB5b3Vy
-IGlwaG9uZXMgY2FuIGFsc28gdGVzdCBlY24KaW4gdGhpcyB3YXkuCgpBIGh1Z2UgdGhhbmtzIHRv
-IENocmlzdG9waCBQYWFzY2ggb3ZlciBhdCBhcHBsZSBmb3IgcG9pbnRpbmcgdGhpcyBvdXQuCgot
-LSAKIkZvciBhIHN1Y2Nlc3NmdWwgdGVjaG5vbG9neSwgcmVhbGl0eSBtdXN0IHRha2UgcHJlY2Vk
-ZW5jZSBvdmVyIHB1YmxpYwpyZWxhdGlvbnMsIGZvciBNb3RoZXIgTmF0dXJlIGNhbm5vdCBiZSBm
-b29sZWQiIC0gUmljaGFyZCBGZXlubWFuCgpkYXZlQHRhaHQubmV0IDxEYXZlIFTDpGh0PiBDVE8s
-IFRla0xpYnJlLCBMTEMgVGVsOiAxLTgzMS00MzUtMDcyOQpfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1
-ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtl
-Cg==
+PiBPbiA5IE1hciwgMjAyMSwgYXQgMTA6MzggcG0sIERhdmUgVGFodCA8ZGF2ZS50YWh0QGdtYWls
+LmNvbT4gd3JvdGU6Cj4gCj4gc3VkbyBzeXNjdGwgLXcgbmV0LmluZXQudGNwLmRpc2FibGVfdGNw
+X2hldXJpc3RpY3M9MQoKTm93IHRoYXQgbWlnaHQgd2VsbCBiZSB0aGUgbWlzc2luZyBsaW5rLiAg
+SSB0aGluayB3ZSBtaXNzZWQgaXQgYmVmb3JlIHNpbmNlIGl0IGRvZXNuJ3QgaGF2ZSAiZWNuIiBp
+biBpdHMgbmFtZS4KCiAtIEpvbmF0aGFuIE1vcnRvbgpfX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZl
+cmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
