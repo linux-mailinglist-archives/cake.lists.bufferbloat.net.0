@@ -2,69 +2,67 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5BEC3332F2E
-	for <lists+cake@lfdr.de>; Tue,  9 Mar 2021 20:41:44 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0B48B332FC7
+	for <lists+cake@lfdr.de>; Tue,  9 Mar 2021 21:20:40 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id B54E13CB40;
-	Tue,  9 Mar 2021 14:41:42 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id E489B3CB40;
+	Tue,  9 Mar 2021 15:20:38 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1615318902;
-	bh=97pAmxgTcUWDezkCg78DOGqgr6jexDAU8CoKZg+nNXY=;
-	h=From:To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=UcSORqzwvSqpT9UWykrfB5RqaoNQHqVf4SRDBpZOcOIFxTRKf4c+bI0xbLmMDKqr8
-	 PiL5Oij6OMMAX1mjrANcXKf5xOPySYct6CSZxD7RRQPcG/OmYqsOML3VdYrDaeAaf5
-	 t42E6ynAknZsvtZRypWjYQDR4V3eZVU9VqyteyOgFZ+2zDNpOAEh0+HjHMR1N/udhI
-	 MVoojqfo+NQE80QSnWTXaPsp9w4j2npNOQTgBkuA5DLg8l7AZLBOactfL9O+93t45v
-	 PFrZUIxfAAYhUgNIlhbhn9dZppc8A1xdIIf6820p7X/Dq6OBio0ldFfXiPlqxT5pjc
-	 RHZQMg1Mu4XzA==
+	d=lists.bufferbloat.net; s=201610; t=1615321238;
+	bh=l0SEWZ7+njBdR0IRu76K/dvjBtFhvm2YQbf+z/8E3qI=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=QME7220WsPfCuTH3qgO3pNSqDNhnm8Kwzs8/7DB22g37U0lL4UDyur34EOG2LAqOj
+	 LNbUWZmeHM7ImVL1L8oPPOh/x+M5vZAic5vixovC5oBuSaUxFe9dgsyIjhFa7tuasU
+	 RyfcDyn+P9pA0YPyXLYahygWvUUJHS7em0/3V7Hx6jjU8lnxdP25QyOLgej1KDvaM/
+	 aFnIhKq1g6n+J0r1XVpSMUjWsJm0uTPpGWvKCz26tolVJxRDbt9KPP0/C3fxRZjlnr
+	 yUZMZ/M/BRTEbdkTF4WEGj1GAf+lgzTR/Eqxks0VmckUDBuND8l8wyNvgZ1REedN05
+	 WHPzb2MgwOC1g==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from tn-mailgw-04.telenor.no (tn-mailgw-04.telenor.no [153.110.76.7])
- (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-io1-xd2b.google.com (mail-io1-xd2b.google.com
+ [IPv6:2607:f8b0:4864:20::d2b])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id E612A3B29D
- for <cake@lists.bufferbloat.net>; Tue,  9 Mar 2021 02:35:40 -0500 (EST)
-IronPort-SDR: yn+KATwSSEJfyX8IU35ZDq3vQh4MDKeIhNnqEuC9Yj6XYZCjJwkCDEr/jyDU2UxpLTtrl3Icvz
- f80b1NfJQDXCFaaYPxAbgJIkhuulNvCx8QNvdUMpQfDK/uZWaV93nvw5IqhxKbtmbnz+TpxAhQ
- gzcoFpoUVDG4j7RCYyadikHMSGPj2nOMjeSiyM30fJqyqvcF18JPKcUX5DpL8XhZdRZbsFBdoS
- PxMQd+imdG/PaVUo0BPvXsBQRNSklY2bZBAqhr0k5v9hK//wa+/6xw/1wHhLYdbsfE3iIzbU1Y
- Efc=
-X-IronPort-AV: E=Sophos;i="5.81,234,1610409600"; d="scan'208,217";a="88878852"
-Received: from tns-sko-24-208.corp.telenor.no ([10.179.59.76])
- by tn-mailgw-04.corp.telenor.no with ESMTP; 09 Mar 2021 07:35:39 +0000
-Received: from TNS-SKO-24-211.corp.telenor.no (10.179.59.79) by
- TNS-SKO-24-208.corp.telenor.no (10.179.59.76) with Microsoft SMTP Server
- (TLS) id 15.0.1497.2; Tue, 9 Mar 2021 08:35:39 +0100
-Received: from TNS-SKO-24-202.corp.telenor.no (10.179.59.70) by
- TNS-SKO-24-211.corp.telenor.no (10.179.59.79) with Microsoft SMTP Server
- (TLS) id 15.0.1497.2; Tue, 9 Mar 2021 08:35:39 +0100
-Received: from outlook.telenor.no (10.179.127.59) by
- TNS-SKO-24-202.corp.telenor.no (10.179.59.70) with Microsoft SMTP Server
- (TLS) id 15.0.1497.2 via Frontend Transport; Tue, 9 Mar 2021 08:35:39 +0100
-Received: from pwpvn2209ex001.nxvp.net (10.149.139.134) by
- pwpvn2209ex001.nxvp.net (10.149.139.134) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2176.2; Tue, 9 Mar 2021 08:35:38 +0100
-Received: from pwpvn2209ex001.nxvp.net ([10.149.139.134]) by
- pwpvn2209ex001.nxvp.net ([10.149.139.134]) with mapi id 15.01.2176.009; Tue,
- 9 Mar 2021 08:35:38 +0100
-From: Taraldsen Erik <erik.taraldsen@telenor.no>
-To: =?iso-8859-1?Q?Toke_H=F8iland-J=F8rgensen_via_Cake?=
- <cake@lists.bufferbloat.net>
-Thread-Topic: STEAM tcp algo from CDN?
-Thread-Index: AQHXFLaqJ/kn9wf41U6CiTMRpB5IxQ==
-Date: Tue, 9 Mar 2021 07:35:38 +0000
-Message-ID: <5407860ac65c4059838e7952ae162f9d@telenor.no>
-Accept-Language: nb-NO, en-US
-Content-Language: nb-NO
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.149.139.228]
-x-tm-snts-smtp: C3E482843FE22EF67379ED0CEC45D0072635A104DB2B9F1FBB3258758DE4C7E62000:8
+ by lists.bufferbloat.net (Postfix) with ESMTPS id E136B3B2A4
+ for <cake@lists.bufferbloat.net>; Tue,  9 Mar 2021 15:20:37 -0500 (EST)
+Received: by mail-io1-xd2b.google.com with SMTP id n132so15406859iod.0
+ for <cake@lists.bufferbloat.net>; Tue, 09 Mar 2021 12:20:37 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=/lZZs2NmfFvwK1J7kGqie3p7qaGKWeICX8GGk6bZN4o=;
+ b=I4ezvoCeeVbys2Z5YOh0VVS4Bdw81AmG70iSGy1+H/u2R3XwnVOz7+Y0KElIG+RtWo
+ kKFa3hwbvDLSczkey6tTn/Jlg8E7157SRpC7dvy0xkiNkscETKG/iCeV1C3qIO6FKSqc
+ ZqE3rrqjE9+uekyV3YZU5SH4zHyGbTXbrVoD/gHN2dJ9n0SeBKl0uqicheuYY70N1mIW
+ dfVzRfFHVoUXWnBRWqugGs3hKA32d7I0IRs4NpvKJA/Z0UxgBwuLrvrqvgD3hNNMrPNv
+ HXgEJD11wcRwymG3CnfOymhbMzcWdG3Hkh23pFfnWz0QJOUc7nFatI7PDRPy39iBqAFY
+ 6giQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=/lZZs2NmfFvwK1J7kGqie3p7qaGKWeICX8GGk6bZN4o=;
+ b=ghp+JgUSSvx3a/8TF/0q5RoSf584xrRnied3cF++H6A50VOw+JJbo7voy1gldRKtRx
+ Qyh87IqnlOhbnHFrdLCpWzCtMKdWwAOMudvO7q3y30FAHE1Cw23ipu4mOoBkldsJp4Q6
+ QieWY47QewvoWuVwCRvTHyAKlgtrTR6vPn+OLHcG3zcHCRjx9f/WWNEA2TeWUfDfPnB7
+ gV4XYA/LRMDHIGKvs8CRgh/yIrNgBO+oLaGRCqO0/Mw0CHKesRr1MXj/WZktk3RiHngC
+ fYVjrs7HEWLPxUiXBOC9WmljfLcjmSDlGN7Ydk2t0sMSNomPAt/KrftgwcSyaLeCZNfT
+ bv8g==
+X-Gm-Message-State: AOAM532rc3FQ06ompGVmT/cThjjfzB/lqFcWrIYzQOfF/yJ/0GHnUtBh
+ 1ts9KrXj8XXx4haybEZrtlahsGLI0jMQWtGiyaav+fHESLs=
+X-Google-Smtp-Source: ABdhPJw+tTRnSJrvKizXRpj7/e0tJAIRmeXLlK6wiF6INRuUAPS2YDM+mgklAWFkelNUcyRtqULgID7ed6GsEeo7Nis=
+X-Received: by 2002:a5d:9599:: with SMTP id a25mr15078437ioo.25.1615321237412; 
+ Tue, 09 Mar 2021 12:20:37 -0800 (PST)
 MIME-Version: 1.0
-X-Mailman-Approved-At: Tue, 09 Mar 2021 14:41:41 -0500
-Subject: [Cake] STEAM tcp algo from CDN?
+References: <5407860ac65c4059838e7952ae162f9d@telenor.no>
+In-Reply-To: <5407860ac65c4059838e7952ae162f9d@telenor.no>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Tue, 9 Mar 2021 12:20:26 -0800
+Message-ID: <CAA93jw6Z1af9T=qf5kjwnhu+_4V6JnKXrUciXAuL1sEpkBCWWg@mail.gmail.com>
+To: Taraldsen Erik <erik.taraldsen@telenor.no>
+Subject: Re: [Cake] STEAM tcp algo from CDN?
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -76,58 +74,24 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============7820634079922093851=="
+Cc: =?UTF-8?Q?Toke_H=C3=B8iland=2DJ=C3=B8rgensen_via_Cake?=
+ <cake@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============7820634079922093851==
-Content-Language: nb-NO
-Content-Type: multipart/alternative;
-	boundary="_000_5407860ac65c4059838e7952ae162f9dtelenorno_"
-
---_000_5407860ac65c4059838e7952ae162f9dtelenorno_
-Content-Type: text/plain; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-
-Does anybody here know what tcp algo STEAM uses for download of games?
-
-
--Erik
-
---_000_5407860ac65c4059838e7952ae162f9dtelenorno_
-Content-Type: text/html; charset="iso-8859-1"
-Content-Transfer-Encoding: quoted-printable
-
-<html>
-<head>
-<meta http-equiv=3D"Content-Type" content=3D"text/html; charset=3Diso-8859-=
-1">
-<style type=3D"text/css" style=3D"display:none;"><!-- P {margin-top:0;margi=
-n-bottom:0;} --></style>
-</head>
-<body dir=3D"ltr">
-<div id=3D"divtagdefaultwrapper" style=3D"font-size:12pt;color:#000000;font=
--family:Calibri,Helvetica,sans-serif;" dir=3D"ltr">
-<p>Does anybody here know what tcp algo STEAM uses for download of games?&n=
-bsp;&nbsp;</p>
-<p><br>
-</p>
-<p>-Erik<br>
-</p>
-</div>
-</body>
-</html>
-
---_000_5407860ac65c4059838e7952ae162f9dtelenorno_--
-
---===============7820634079922093851==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============7820634079922093851==--
+MTAtMjAgZmxvd3MsIGN1YmljLCBsYXN0IEkgbG9va2VkLiBJdCdzIHVnbHkuCgpCZWdnZWQgdGhl
+bS4uLiBpbiBwZXJzb24uLi4gaW4gb3JlZ29uLi4uIHRvIHN0b3AuCgpPbiBUdWUsIE1hciA5LCAy
+MDIxIGF0IDExOjQxIEFNIFRhcmFsZHNlbiBFcmlrCjxlcmlrLnRhcmFsZHNlbkB0ZWxlbm9yLm5v
+PiB3cm90ZToKPgo+IERvZXMgYW55Ym9keSBoZXJlIGtub3cgd2hhdCB0Y3AgYWxnbyBTVEVBTSB1
+c2VzIGZvciBkb3dubG9hZCBvZiBnYW1lcz8KPgo+Cj4gLUVyaWsKPgo+IF9fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gQ2FrZSBtYWlsaW5nIGxpc3QKPiBD
+YWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+IGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0
+L2xpc3RpbmZvL2Nha2UKCgoKLS0gCiJGb3IgYSBzdWNjZXNzZnVsIHRlY2hub2xvZ3ksIHJlYWxp
+dHkgbXVzdCB0YWtlIHByZWNlZGVuY2Ugb3ZlciBwdWJsaWMKcmVsYXRpb25zLCBmb3IgTW90aGVy
+IE5hdHVyZSBjYW5ub3QgYmUgZm9vbGVkIiAtIFJpY2hhcmQgRmV5bm1hbgoKZGF2ZUB0YWh0Lm5l
+dCA8RGF2ZSBUw6RodD4gQ1RPLCBUZWtMaWJyZSwgTExDIFRlbDogMS04MzEtNDM1LTA3MjkKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5n
+IGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9h
+dC5uZXQvbGlzdGluZm8vY2FrZQo=
