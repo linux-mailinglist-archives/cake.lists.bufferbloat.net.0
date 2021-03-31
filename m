@@ -2,47 +2,69 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 76C2A34F677
-	for <lists+cake@lfdr.de>; Wed, 31 Mar 2021 04:04:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 34CA434F7C0
+	for <lists+cake@lfdr.de>; Wed, 31 Mar 2021 06:15:20 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 7DFE63CB5D;
-	Tue, 30 Mar 2021 22:04:55 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 6191D3CB5B;
+	Wed, 31 Mar 2021 00:15:18 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1617156295;
-	bh=/o8vKoPGE0CZ89TqKjcQsTaNMgIvJxcsd4tulo9+tgE=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1617164118;
+	bh=43f0zVgSHGjl8n0jCULwG2bdGYzBZ/mHPh7rYXcxILE=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=nl7jD08ipDUr8y5pA07tHl4f/JYTkuE+no6GVhyCQ9i9vydhwME1o3JAtlGxF4NSc
-	 rVMLnf9w7dvrJkuXqODo8564jKJwEsmegMWN0qIE47t7qqExi4RznvPb71CJeNBtbu
-	 kxvPOKwlbCWj8XtpNFynGufC54ymAHw83EnDPzuRRv6xTmO8V7mr2qO+1bZ+q9IFTc
-	 2sGOOY82E/GNoSvqE0ssPAWnY2Wf9pnSuIexuhV6ORdsGCZQhhyX5Va1ckDPzP74Im
-	 qoBK9pl4w+LuVrqSWZ42G2qf0tOYHgscat4Q7FvLaLEzowLUL9vbb/dT1Wps6kGCOe
-	 nozOHnE1bqPcA==
+	b=PTSNUL/YQJBuZCiQVavr1eFAf037flrkSHCK0ugZB2Ch0/Sez3CgBDbhYtCNELbvu
+	 gUzKExpo3ciWpBMqgMQGqulWmisni2ubm9UOs4wBI1z8fMQNHIP5VvXHPff4QHZQ6d
+	 AZL2gPKE66gFZ4+vVkBg6QLCYg1o6z+xoS2KDDqM25u+B9worsUOG/uEUOI9PViRWF
+	 Aw/DHGXP+XT5k26bjqQZEQlY5iLxRYL19POQvcMV5vCRrskDWVWA+iFA5M40mbw1ND
+	 Gx5PZstO2IRsBv0QAJFgTmH/ePM8l+JGIviHb6/ciBNaJbrsR4LZ9cgtHvzx2d2eBl
+	 uFZmlWLyHmHCg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail.lang.hm (unknown [66.167.227.145])
- (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-il1-x12b.google.com (mail-il1-x12b.google.com
+ [IPv6:2607:f8b0:4864:20::12b])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 806063B29D;
- Tue, 30 Mar 2021 22:04:53 -0400 (EDT)
-Received: from dlang-laptop (unknown [10.2.0.162])
- by mail.lang.hm (Postfix) with ESMTP id 255EFF1A2E;
- Tue, 30 Mar 2021 19:04:52 -0700 (PDT)
-Date: Tue, 30 Mar 2021 19:04:52 -0700 (PDT)
-From: David Lang <david@lang.hm>
-X-X-Sender: dlang@dlang-laptop
-To: "David P. Reed" <dpreed@deepplum.com>
-In-Reply-To: <1617153830.6256867@apps.rackspace.com>
-Message-ID: <nycvar.QRO.7.76.6.2103301859470.13312@qynat-yncgbc>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 253973B29D;
+ Wed, 31 Mar 2021 00:15:16 -0400 (EDT)
+Received: by mail-il1-x12b.google.com with SMTP id t6so16042251ilp.11;
+ Tue, 30 Mar 2021 21:15:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=V1iHbSP8vxgWR1jQqlphC7eEkp0GWgPx1q+yuh38pNc=;
+ b=sqMUPX6S0zc03VG4Ay+DhSnc/1zBXN7tmL7ngO74k8dunTjuHUgjU7EFcxFjBarz2n
+ jy0neSFi1ket2DwU0lQVt7KOO4W/rAlr0dPMnjCtypg2k1B2jL6RpKyQUvzOlPHKJk+K
+ YnemCxp7hlBR34qUSg8SLh5j1m2eASPNxQpiy/vEBpcWsyF9egWYOQBeSGOUuB9nf8Pi
+ 8tewxwavIc1+qi08Pr4NWJfmAH/otGsi1nI9KRFwJ/Q1P2Rm48fFEzYwfolFfYan4q+u
+ eHRpI7gdaplbXMicmH9VqU52RRH9pJN90tIy8meMUYggXLSSnsWw/tyww/YCGBdIpmq3
+ 20wg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=V1iHbSP8vxgWR1jQqlphC7eEkp0GWgPx1q+yuh38pNc=;
+ b=HdvtyC4UnCrDIsr8Ds5zHnQGc5Gv626GdxgdDocRMeagRoLBMVB8d9hFwCB3F9QS4i
+ lxU/BOTmPV8aGlYqsbYalGYopE8LGuQIgQnGEr73gULZ7pCtiBMG4ISqycvEyDIAMe08
+ caK70Delq4uaq3AdMoXl229ijSXVwy2rhZcjqSkBq8m0d7mcDO5yO6W1X7zzwqdDjVOO
+ O0/Vg9TsCUu4YVFhMLkHE8BfWQrk++eNLXE0SVF2lV/bQx1Gl5P+9O7u+ZDTp9XKZMJw
+ JwQjCZo9yD7pIvoX0lYWwRLihG5ZUTlFpthQjO1T+9v9+NEapguxiyLUy1apNFqVbsXp
+ JOyg==
+X-Gm-Message-State: AOAM531QHvkOJOuD5FgjBGdwyGP9bO5YdAg4gSktpZHCD4XD/qQsXXKe
+ sKvg3DO3VTMEvS5ybl2mLfBitmMUkueI+uNHSeA=
+X-Google-Smtp-Source: ABdhPJzDX/hpZdlmaKU3qyGq9p6rAZ/AU1377m62qVL20PkO75Otq0IR1l88Y7u4xemnopV+OexNkanvn6COqBU6NRo=
+X-Received: by 2002:a92:6b0e:: with SMTP id g14mr1217262ilc.246.1617164115385; 
+ Tue, 30 Mar 2021 21:15:15 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAA93jw5+_vW3b85ZOxpOn5_LoiPgxuj4XzH3=gkq8qYM2xunSA@mail.gmail.com>
  <1617049691.187521510@apps.rackspace.com> <YGKEbCGX57z9+PdA@mit.edu>
  <1617153830.6256867@apps.rackspace.com>
-User-Agent: Alpine 2.21.1 (DEB 209 2017-03-23)
-MIME-Version: 1.0
-Content-Type: multipart/mixed; BOUNDARY="===============8020392847907646789=="
-Subject: Re: [Cake] [Make-wifi-fast] [Cerowrt-devel] wireguard almost takes
- a bullet
+In-Reply-To: <1617153830.6256867@apps.rackspace.com>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Tue, 30 Mar 2021 21:15:04 -0700
+Message-ID: <CAA93jw64Lm-7LjDqefYYx9NcZkGbmoP23RY-evnSOyZEOV-tNA@mail.gmail.com>
+To: "David P. Reed" <dpreed@deepplum.com>
+Subject: Re: [Cake] [Cerowrt-devel] wireguard almost takes a bullet
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -54,177 +76,204 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>,
+Cc: Theodore Ts'o <tytso@mit.edu>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Theodore Ts'o <tytso@mit.edu>,
+ Cake List <cake@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---===============8020392847907646789==
-Content-Type: text/plain; format=flowed; charset=US-ASCII
-
-the 'control' that the various companies gain over parts of the kernel is less a 
-matter of the company having control and more a matter of them hiring/sponsoring 
-a developer who has the control. If the person leaves that company for another 
-one, any control moves with that developer.
-
-and while most of the developers do work for a reltively small group of 
-companies, the list of developers does shift over time nd people can 'break in' 
-by submitting patches.
-
-I'm not thrilled by the Linux Foundation, it was created to be a way to pay 
-Linus without him working for a specific company (avoiding even the appearance 
-of bias) but it's morphed to present at least the appearance of special access.
-
-David Lang
-
-On Tue, 30 Mar 2021, David P. Reed wrote:
-
-> Date: Tue, 30 Mar 2021 21:23:50 -0400 (EDT)
-> From: David P. Reed <dpreed@deepplum.com>
-> To: Theodore Ts'o <tytso@mit.edu>
-> Cc: Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
->     Cake List <cake@lists.bufferbloat.net>,
->     cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
->     bloat <bloat@lists.bufferbloat.net>
-> Subject: Re: [Make-wifi-fast] [Cerowrt-devel] wireguard almost takes a bullet
-> 
->
-> Theodore -
-> 
-> I appreciate you showing the LF executive salary numbers are not quite as high as I noted. My numbers may have been inflated, but I've definitely seen a $900,000 package for at least one executive reported in the press (an executive who was transferred in from a F100 company which is close to the LF).
-> 
-> On the other hand, they are pretty damn high salaries for a non-profit. Are they appropriate? Depends. There are no stockholders and no profits, just a pretty substantial net worth.
-> 
-> Regarding the organizaton of "Linux, Inc." as  a hierachical control structure - I'll just point out that hierarchical control of the development of Linux suggests that it is not at all a "community project" (if it ever was). It's a product development organization with multiple levels of management.
-> 
-> Yet the developers are employees of a small number of major corporations. In this sense, it is like a "joint venture" among those companies.
-> 
-> To the extent that those companies gain (partial) control of the Linux kernel, as appears to be the case, I think Linux misrepresents itself as a "community project", and in particular, the actual users of the software may have little say in the direction development takes going forwards.
-> 
-> There's little safeguard, for example, against "senior management" biases in support of certain vendors, if other vendors are excluded from effective participation by one of many techniques. In other words, there's no way it can be a level playing field for innovation.
-> 
-> In that sense, the Linux kernel community has reached a point very much like Microsoft Windows development reached in 1990 or so. I note that date because at that point, Microsoft was challenged with a variety of anti-trust actions based on the fact that it used its Windows monopoly status to put competitors in the application space, and competitors producing innovative operating systems out of business (GO Computer Corporation being one example of many).
-> 
-> This troubles me. It may not trouble the developers who are in the Linux community and paid by the cartel of companies that control its direction.
-> 
-> I have no complaint about the technical competence of individual developers - the quality is pretty high, at least as good as those who worked on Windows and macOS. But it's becoming clear that their is a narrowing of control of an OS that has a lot of influence in a few hands. That those few hands don't work for one company doesn't eliminate its tendency to become a cartel. (one that is not transparent at all about functioning as such - preferring to give the impression that the kernel is developed by part-time voluntary "contributions").
-> 
-> The contrast with other open source communities is quite sharp now. There is little eleemosynary intent that can be detected any more. I think that is too bad, but things change.
-> 
-> This is just the personal opinion of someone who has been developing systems for 50+ years now. I'm kind of disappointed, but my opinion does not really matter much.
-> 
-> David
-> 
-> 
-> 
-> 
-> On Monday, March 29, 2021 9:52pm, "Theodore Ts'o" <tytso@mit.edu> said:
->
->
->
->> On Mon, Mar 29, 2021 at 04:28:11PM -0400, David P. Reed wrote:
->> >
->> >
->> > What tends to shape Linux and FreeBSD, etc. are the money sources
->> > that flow into the communities. Of course Linux is quite
->> > independently wealthy now. The senior executives of the Linux
->> > Foundation are paid nearly a million dollars a year, each. Which
->> > just indicates that major corporations are seriously interested in
->> > controlling the evolution of Linux (not the Gnu part, the part that
->> > has Linus Torvalds at its center).
->> 
->> First of all, I don't believe your salary numbers are correct.
->> 
->> https://nonprofitlight.com/ca/san-francisco/linux-foundation
->> 
->> Secondly, the "senior executives" of the Linux Foundation don't have
->> any control over "the evolution of Linux". The exception to that are
->> the "Fellows" (e.g., Linus Torvalds, Greg K-H, etc.) and I can assure
->> you that they don't take orders from Jim Zemlin, the executive
->> director, or any one else at the Linux Foundation.
->> 
->> The senior developers of Linux do tend to work for the big
->> corporations, but culturally, we do try to keep our "corporate hats"
->> and our "community" hats quite separate, and identify when we our
->> company hats on. Many senior developers have transitioned between
->> multiple companies, and over time, it's been understood that their
->> primarily allegiance is to Linux, and not to the company. In fact,
->> the primary job of maintainers is to say "no" to companies when they
->> try to push crap code into the kernel. And that's because it's the
->> maintainer's responsibility to clean up the mess if they say yes to
->> code that's Just Not Ready, since they have a long-term responsbility
->> towards their subsystem, unlike engineers or contractors that only
->> have a short-term goal to get the code upstream.
->> 
->> This is where having a hierarchial ownership model IMHO works better
->> than a "core team" model where there can be a diffusion of
->> responsibility, where anyone with a commit bit can commit anywhere in
->> the OS. In contrast, David Miller "owns" the networking area, and so
->> someone who might be, say, the ext4 or xfs maintainer does not have
->> the right (read: Linus will reject a pull request from me if I try to
->> change code in the networking stack with out DaveM's signoff) to
->> change code outside of their subsystem.
->> 
->> So you're right that Linus probably doesn't know or care about
->> bufferbloat. He's delegated pretty much all networking issues to
->> David Miller as the networking czar, and within networking, David
->> Miller has his submaintainers with different specialities. This does
->> get complicated when there are changes which cross subsystems. For
->> example, before Wireguard could land in the kernel, there were changes
->> needed in both the crypto and networking layers, and Jason had to
->> negotiate with multiple senior developers in those subsystems, and the
->> code was subject to quite a lot of review before it could land. (It
->> took months, and we didn't try to rush things before a major
->> release....)
->> 
->> > I just spent 9 months trying to get a very tiny fix to the Linux
->> > kernel into the mainline kernel. I actually gave up, because it
->> > seemed utterly pointless, even though it was clearly a design error
->> > that I was fixing, and I was trying to meet all the constraints on
->> > patches. No one was fighting me, no one said it was wrong.
->> 
->> It sounds like the real problem is no one was paying attention to you.
->> There is a *huge* number of changes going into the Linux kernel, and
->> so the the challenge is getting review bandwidth by the relevant
->> maintainers. Blindly posting to the linux-kernel mailing list will
->> generally not get you very far.
->> 
->> The Linux development process is not really optimized for "drive by
->> patching". Knowng where (and to whom) a patch needs to be reviewed is
->> not necessarily easy for a novice, and while there are tools such as
->> ./scripts/get_maintainer.pl that try to make it a bit easier, I can
->> see how someone who Just Wants To Get A Single Patch accepted, can see
->> it as "bureaucracy".
->> 
->> Cheers,
->> 
->> - Ted
->>
---===============8020392847907646789==
-Content-Type: text/plain; CHARSET=utf-8
-Content-Transfer-Encoding: BASE64
-Content-ID: <nycvar.QRO.7.76.6.2103301859471.13312@qynat-yncgbc>
-Content-Description: 
-Content-Disposition: INLINE
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KTWFrZS13aWZp
-LWZhc3QgbWFpbGluZyBsaXN0Ck1ha2Utd2lmaS1mYXN0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApo
-dHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9tYWtlLXdpZmktZmFzdA==
-
---===============8020392847907646789==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8020392847907646789==--
+RGF2aWQsIEknbSBzdXJlIGlmIHlvdSB3b3VsZCBwb3N0IHlvdXIgcGF0Y2ggZm9yIHJldmlldyBv
+bgpjZXJvd3J0LWRldmVsIHNvbWVvbmUgaGVyZSB3b3VsZCByZXZpZXcgYW5kIGhlbHAgc3BvbnNv
+ciBpdCB0bwp3aGVyZXZlciBpdCBiZWxvbmdzIGluIHRoZSBrZXJuZWwuIE9uZSB0aGluZyBJIHJl
+YWxseSBsaWtlZCBhYm91dAp3aGF0IHdlIGRpZCB3aXRoIGNlcm93cnQgYW5kIGNha2UgaXMgdG8g
+aGVscCBhIHNldCBvZiBuZXcgZGV2ZWxvcGVycwpncm93IHRvIHdoZXJlIHRoZXkgY291bGQgZ3Jv
+dyBpbiBza2lsbCBhbmQgcG93ZXIgYW5kIGluZmx1ZW5jZSBpbnRvCnRoZSBtYWlubGluZSBrZXJu
+ZWwgaXRzZWxmLiBMaW51eCBuZWVkcyB0byBrZWVwIGRvaW5nCnRoYXQgYXMgd2UgZ3JvdyBvbGRl
+ciBhbmQgY3J1bmNoaWVyLgoKQXNpZGU6IFdoaWxlIEknbSBubyBsb25nZXIgaGVhdmlseSBpbnZv
+bHZlZCBpbiB0aGUgaXB2NCBleHRlbnNpb25zCnByb2plY3QgaXQgaGFzIGJlZW4ga2luZCBvZiBm
+dW4gdG8gZGVsdmUgdGhyb3VnaCB0aGUgaGlzdG9yeSBvZiBpcHY0CmFsb25nIHdpdGggdGhlIHBh
+dGNoc2V0IGFuZCBmaXggMzArIHlyIG9sZCBidWdzKApodHRwczovL2x3bi5uZXQvQXJ0aWNsZXMv
+ODQ5OTcwLyApCgpUaGlzIGlzIGFuIGF3ZnVsbHkgd2lkZSBkaXN0cmlidXRpb24gbGlzdCwgYnV0
+IGhleSwgSSBlbmpveSB3YXRlcgpjb29sZXIgY29udm9zIGFzIG11Y2ggYXMKYW55Ym9keS4gVGVk
+LCBpdCdzIG5pY2UgdG8gc2VlIHlvdSBoZXJlLgoKQSBiaXQgbW9yZSBiZWxvdy4KCgpPbiBUdWUs
+IE1hciAzMCwgMjAyMSBhdCA2OjIzIFBNIERhdmlkIFAuIFJlZWQgPGRwcmVlZEBkZWVwcGx1bS5j
+b20+IHdyb3RlOgo+Cj4gVGhlb2RvcmUgLQo+Cj4KPgo+IEkgYXBwcmVjaWF0ZSB5b3Ugc2hvd2lu
+ZyB0aGUgTEYgZXhlY3V0aXZlIHNhbGFyeSBudW1iZXJzIGFyZSBub3QgcXVpdGUgYXMgaGlnaCBh
+cyBJIG5vdGVkLiBNeSBudW1iZXJzIG1heSBoYXZlIGJlZW4gaW5mbGF0ZWQsIGJ1dCBJJ3ZlIGRl
+ZmluaXRlbHkgc2VlbiBhICQ5MDAsMDAwIHBhY2thZ2UgZm9yIGF0IGxlYXN0IG9uZSBleGVjdXRp
+dmUgcmVwb3J0ZWQgaW4gdGhlIHByZXNzIChhbiBleGVjdXRpdmUgd2hvIHdhcyB0cmFuc2ZlcnJl
+ZCBpbiBmcm9tIGEgRjEwMCBjb21wYW55IHdoaWNoIGlzIGNsb3NlIHRvIHRoZSBMRikuCgpJIGhh
+dmUgZ2VuZXJhbGx5IGhvcGVkIHRoYXQgTEYgb3Igc29tZSBvdGhlciBvcmcgb2YgdGhhdCBjYWxp
+YmVyIHdvdWxkCnN0ZXAgdXAgdG8KaGVscCBjbGVhbiB1cCB0aGUgbWVzcyB0aGF0IGlzIHdpZmks
+IHRoZSBmaXJzdCBvciBzZWNvbmQgbW9zdCBjb21tb24Kd2lyZWxlc3MgdGVjaAp0aGUgd29ybGQg
+dXNlcy4gQ2FuJ3QgZG8gaXQgYXQgYW55IHNjYWxlIHdpdGhvdXQgbWFqb3Igc3VwcG9ydCBhbmQg
+SSd2ZSBhbG1vc3QKZ2l2ZW4gdXAgdHJ5aW5nLgoKUGVyaW9kaWNhbGx5IEkgcnVuIGZvciBMRidz
+IFRBQiBpbiB0aGUgaG9wZSB0aGF0IGVtYmVkZGVkIGxpbnV4IGluIGdlbmVyYWwgd291bGQKZ2Fp
+biBtb3JlIHZpc2liaWxpdHkgaW4gdGhlcmUuCgo+Cj4KPiBPbiB0aGUgb3RoZXIgaGFuZCwgdGhl
+eSBhcmUgcHJldHR5IGRhbW4gaGlnaCBzYWxhcmllcyBmb3IgYSBub24tcHJvZml0LiBBcmUgdGhl
+eSBhcHByb3ByaWF0ZT8gRGVwZW5kcy4gVGhlcmUgYXJlIG5vIHN0b2NraG9sZGVycyBhbmQgbm8g
+cHJvZml0cywganVzdCBhIHByZXR0eSBzdWJzdGFudGlhbCBuZXQgd29ydGguCj4KPgo+Cj4gUmVn
+YXJkaW5nIHRoZSBvcmdhbml6YXRvbiBvZiAiTGludXgsIEluYy4iIGFzICBhIGhpZXJhY2hpY2Fs
+IGNvbnRyb2wgc3RydWN0dXJlIC0gSSdsbCBqdXN0IHBvaW50IG91dCB0aGF0IGhpZXJhcmNoaWNh
+bCBjb250cm9sIG9mIHRoZSBkZXZlbG9wbWVudCBvZiBMaW51eCBzdWdnZXN0cyB0aGF0IGl0IGlz
+IG5vdCBhdCBhbGwgYSAiY29tbXVuaXR5IHByb2plY3QiIChpZiBpdCBldmVyIHdhcykuIEl0J3Mg
+YSBwcm9kdWN0IGRldmVsb3BtZW50IG9yZ2FuaXphdGlvbiB3aXRoIG11bHRpcGxlIGxldmVscyBv
+ZiBtYW5hZ2VtZW50Lgo+CgpJIHJlbWVtYmVyIElDQU5OIGFuZCBpdHMgcHJvbWlzZSBvZiBhIGRl
+bW9jcmF0aWMgaW50ZXJuZXQuCgo+Cj4KPiBZZXQgdGhlIGRldmVsb3BlcnMgYXJlIGVtcGxveWVl
+cyBvZiBhIHNtYWxsIG51bWJlciBvZiBtYWpvciBjb3Jwb3JhdGlvbnMuIEluIHRoaXMgc2Vuc2Us
+IGl0IGlzIGxpa2UgYSAiam9pbnQgdmVudHVyZSIgYW1vbmcgdGhvc2UgY29tcGFuaWVzLgo+Cj4K
+Pgo+IFRvIHRoZSBleHRlbnQgdGhhdCB0aG9zZSBjb21wYW5pZXMgZ2FpbiAocGFydGlhbCkgY29u
+dHJvbCBvZiB0aGUgTGludXgga2VybmVsLCBhcyBhcHBlYXJzIHRvIGJlIHRoZSBjYXNlLCBJIHRo
+aW5rIExpbnV4IG1pc3JlcHJlc2VudHMgaXRzZWxmIGFzIGEgImNvbW11bml0eSBwcm9qZWN0Iiwg
+YW5kIGluIHBhcnRpY3VsYXIsIHRoZSBhY3R1YWwgdXNlcnMgb2YgdGhlIHNvZnR3YXJlIG1heSBo
+YXZlIGxpdHRsZSBzYXkgaW4gdGhlIGRpcmVjdGlvbiBkZXZlbG9wbWVudCB0YWtlcyBnb2luZyBm
+b3J3YXJkcy4KCkxpbnV4IHNlZW1zIG1vc3RseSBkcml2ZW4gYnkgdGhlIGRhdGEgY2VudGVyIG5v
+d2FkYXlzLgoKSSB3b3VsZCBvZiBjb3Vyc2UgbGlrZSB0byBzZWUgbW9yZSBsaW51eCB1c2UgaW4g
+bGFwdG9wcyBhbmQgdGhlCmFuZHJvaWQgbWVzc2VzIG1hbmFnZWQuCgpBcyBvbmUgZXhhbXBsZSBv
+ZiB0aGUgZW1iZWRkZWQgZWNvc3lzdGVtIGhhdmluZyBnb25lIHNvdXRoLAphbGwgdGhlIHNlY3Vy
+aXR5IGNhbWVyYXMgd2l0aCBubyBsaW51eCBzb3VyY2VzIGF2YWlsYWJsZSBwaG9uaW5nIGhvbWUg
+dG8gY2hpbmEuCgo+Cj4KPiBUaGVyZSdzIGxpdHRsZSBzYWZlZ3VhcmQsIGZvciBleGFtcGxlLCBh
+Z2FpbnN0ICJzZW5pb3IgbWFuYWdlbWVudCIgYmlhc2VzIGluIHN1cHBvcnQgb2YgY2VydGFpbiB2
+ZW5kb3JzLCBpZiBvdGhlciB2ZW5kb3JzIGFyZSBleGNsdWRlZCBmcm9tIGVmZmVjdGl2ZSBwYXJ0
+aWNpcGF0aW9uIGJ5IG9uZSBvZiBtYW55IHRlY2huaXF1ZXMuIEluIG90aGVyIHdvcmRzLCB0aGVy
+ZSdzIG5vIHdheSBpdCBjYW4gYmUgYSBsZXZlbCBwbGF5aW5nIGZpZWxkIGZvciBpbm5vdmF0aW9u
+LgoKSSBzdGlsbCB0aGluayB0aGF0IGdvb2QgY29kZSBtYWtlcyBpdCBpbnRvIGxpbnV4IGJldHRl
+ciB0aGFuIGFueSBvdGhlcgpwcm9jZXNzIHdlIGhhdmUgaGFkLiBFbHNld2hlcmUsIHdlbGwsIEkg
+ZGVzcGFpci4KCj4KPgo+IEluIHRoYXQgc2Vuc2UsIHRoZSBMaW51eCBrZXJuZWwgY29tbXVuaXR5
+IGhhcyByZWFjaGVkIGEgcG9pbnQgdmVyeSBtdWNoIGxpa2UgTWljcm9zb2Z0IFdpbmRvd3MgZGV2
+ZWxvcG1lbnQgcmVhY2hlZCBpbiAxOTkwIG9yIHNvLiBJIG5vdGUgdGhhdCBkYXRlIGJlY2F1c2Ug
+YXQgdGhhdCBwb2ludCwgTWljcm9zb2Z0IHdhcyBjaGFsbGVuZ2VkIHdpdGggYSB2YXJpZXR5IG9m
+IGFudGktdHJ1c3QgYWN0aW9ucyBiYXNlZCBvbiB0aGUgZmFjdCB0aGF0IGl0IHVzZWQgaXRzIFdp
+bmRvd3MgbW9ub3BvbHkgc3RhdHVzIHRvIHB1dCBjb21wZXRpdG9ycyBpbiB0aGUgYXBwbGljYXRp
+b24gc3BhY2UsIGFuZCBjb21wZXRpdG9ycyBwcm9kdWNpbmcgaW5ub3ZhdGl2ZSBvcGVyYXRpbmcg
+c3lzdGVtcyBvdXQgb2YgYnVzaW5lc3MgKEdPIENvbXB1dGVyIENvcnBvcmF0aW9uIGJlaW5nIG9u
+ZSBleGFtcGxlIG9mIG1hbnkpLgoKSSBkaXN0cnVzdCBhIG1vbm9jdWx0dXJlIGluIGdlbmVyYWws
+IGFuZCBJIGRvIHdpc2ggdGhhdCB3ZSBoYWQKcHJvY2Vzc29ycyB3aXRoIGJldHRlcgpsZXZlbHMg
+b2YgcHJpdmlsZWdlIHBlciBvdXIgYXR0ZW1wdHMgaW4gdGhlIDkwcyB0byBtYWtlIHZpYWJsZQpt
+aWNyb2tlcm5lbHMuIEkga2VlcApob3BpbmcgYSBncnVtcHkgYmlsbGlvbmFpcmUgdGlyZWQgb2Yg
+c3BlY3RyZSBtaWdodCBmaW5kIGRldmVsb3BtZW50IG9mCm1pbGwgY29tcHV0aW5ncwphcmNoaXRl
+Y3R1cmUsIGJlY2F1c2UgaXQncyBoYXJkIHRvIHRydXN0IGFueSBtb2Rlcm4gY29tcHV0aW5nCmVu
+dmlyb25tZW50IHRvZGF5LCBhbmQKY2VydGFpbmx5IG5vdCB0aGUgbmV0d29yay4KClJlY2VudGx5
+IG15IG5ldyBsYXB0b3AgYXNrZWQgaWYgSSB3YW50ZWQgdG8gaW5zdGFsbCBzaXJpLCB3aGlsZSBJ
+IHdhcwoxMCBtaWxlcyBvdXQgYXQKc2VhLCBhbmQgb2ZmIHRoZSBpbnRlcm5ldCBlbnRpcmVseS4K
+Cj4KPgo+Cj4gVGhpcyB0cm91YmxlcyBtZS4gSXQgbWF5IG5vdCB0cm91YmxlIHRoZSBkZXZlbG9w
+ZXJzIHdobyBhcmUgaW4gdGhlIExpbnV4IGNvbW11bml0eSBhbmQgcGFpZCBieSB0aGUgY2FydGVs
+IG9mIGNvbXBhbmllcyB0aGF0IGNvbnRyb2wgaXRzIGRpcmVjdGlvbi4KPgo+Cj4KPiBJIGhhdmUg
+bm8gY29tcGxhaW50IGFib3V0IHRoZSB0ZWNobmljYWwgY29tcGV0ZW5jZSBvZiBpbmRpdmlkdWFs
+IGRldmVsb3BlcnMgLSB0aGUgcXVhbGl0eSBpcyBwcmV0dHkgaGlnaCwgYXQgbGVhc3QgYXMgZ29v
+ZCBhcyB0aG9zZSB3aG8gd29ya2VkIG9uIFdpbmRvd3MgYW5kIG1hY09TLiBCdXQgaXQncyBiZWNv
+bWluZyBjbGVhciB0aGF0IHRoZWlyIGlzIGEgbmFycm93aW5nIG9mIGNvbnRyb2wgb2YgYW4gT1Mg
+dGhhdCBoYXMgYSBsb3Qgb2YgaW5mbHVlbmNlIGluIGEgZmV3IGhhbmRzLiBUaGF0IHRob3NlIGZl
+dyBoYW5kcyBkb24ndCB3b3JrIGZvciBvbmUgY29tcGFueSBkb2Vzbid0IGVsaW1pbmF0ZSBpdHMg
+dGVuZGVuY3kgdG8gYmVjb21lIGEgY2FydGVsLiAob25lIHRoYXQgaXMgbm90IHRyYW5zcGFyZW50
+IGF0IGFsbCBhYm91dCBmdW5jdGlvbmluZyBhcyBzdWNoIC0gcHJlZmVycmluZyB0byBnaXZlIHRo
+ZSBpbXByZXNzaW9uIHRoYXQgdGhlIGtlcm5lbCBpcyBkZXZlbG9wZWQgYnkgcGFydC10aW1lIHZv
+bHVudGFyeSAiY29udHJpYnV0aW9ucyIpLgo+CgpJdCdzIGhhcmQgdG8gc2VlIG11Y2ggZnVydGhl
+ciBpbnRvIHRoZSBmdXR1cmUuIEkgZG8gaG9wZSB0aGF0IG1vcmUKY29tcHV0aW5nIGVuZHMgdXAg
+b24gb3VyCm93biBtYWNoaW5lcyBhbmQgbm90IHRoZSBjbG91ZC4gSXQncyB3aHkgSSBnb3Qgc28g
+ZXhjaXRlZCBhYm91dApnYWxlbmUub3JnIC0gSSByZWFsbGx5IGhhdGVkIHRoaXMKcGFzdCB5ZWFy
+IHRoYXQgc2VuZGluZyBhIHZpZGVvY29uZmVyZW5jZSBmcm9tIHVwc3RhaXJzIHRvIGRvd25zdGFp
+cnMKaGFkIHRvIG1ha2UgYSBSL1QgdG8gdGhlIGNsb3VkLiBTaW1pbGFybHksIGRpY3RhdGlvbiwg
+c2hvdWxkIGhhbmRsZWQKbG9jYWxseS4KCnRoaXMgdGhlIGtpbmQgb2YgYWlkaW5nIHRoZSBkaXNh
+YmxlZCB0aGluZyB0aGF0IEknZCBsaWtlIGFuCmluc3RpdHV0aW9uIHRvIGJlIGZ1bmRpbmcgYW5k
+IEkgZG9uJ3QgdGhpbmsgYW4gTEYgaXMgZ29pbmcgdG8gaGVscApoZXJlLCBldmVuIGFzIG11Y2gg
+YXMgdGhlIGxhdHRlciBtaWdodCBiZSBnb29kIGZvciBsaW51eC4gSSdtCmZydXN0cmF0ZWQsCmJl
+aW5nIHBhcnRpYWxseSBibGluZCwgaG93IGhhcmQgaXQgaXMgdG8gdXNlIHZvaWNlIHByb21wdHMg
+YW5kIHNwZWVjaAp0byB0ZXh0IGluIGxpbnV4LApidXQgSSdsbCBiZSBkYW1uZWQgaWYgSSdsbCBn
+aXZlIG15IGVhcmx5IHJhbnRzIHRvIHNpcmkuIGVzcGVhayBmb3IKZW1hY3MgaXMgdGhlIGJlc3Qg
+SSBoYWQKYW5kIEkgaGF2ZW4ndCBoYWQgaXQgd29yayByaWdodCBpbiB5ZWFycy4KCgo+Cj4KPiBU
+aGUgY29udHJhc3Qgd2l0aCBvdGhlciBvcGVuIHNvdXJjZSBjb21tdW5pdGllcyBpcyBxdWl0ZSBz
+aGFycCBub3cuIFRoZXJlIGlzIGxpdHRsZSBlbGVlbW9zeW5hcnkgaW50ZW50IHRoYXQgY2FuIGJl
+IGRldGVjdGVkIGFueSBtb3JlLiBJIHRoaW5rIHRoYXQgaXMgdG9vIGJhZCwgYnV0IHRoaW5ncyBj
+aGFuZ2UuCgoKdGh4IGZvciB0aGUgbmV3IHdvcmQuCgo+Cj4KPgo+IFRoaXMgaXMganVzdCB0aGUg
+cGVyc29uYWwgb3BpbmlvbiBvZiBzb21lb25lIHdobyBoYXMgYmVlbiBkZXZlbG9waW5nIHN5c3Rl
+bXMgZm9yIDUwKyB5ZWFycyBub3cuIEknbSBraW5kIG9mIGRpc2FwcG9pbnRlZCwgYnV0IG15IG9w
+aW5pb24gZG9lcyBub3QgcmVhbGx5IG1hdHRlciBtdWNoLgoKSXQgaGVscHMgdG8gdGlsdCBhdCBh
+IHdpbmRtaWxsIG9uY2UgaW4gYSB3aGlsZS4gOikKCj4KPgo+Cj4gRGF2aWQKPgo+Cj4KPgo+Cj4K
+Pgo+Cj4KPiBPbiBNb25kYXksIE1hcmNoIDI5LCAyMDIxIDk6NTJwbSwgIlRoZW9kb3JlIFRzJ28i
+IDx0eXRzb0BtaXQuZWR1PiBzYWlkOgo+Cj4gPiBPbiBNb24sIE1hciAyOSwgMjAyMSBhdCAwNDoy
+ODoxMVBNIC0wNDAwLCBEYXZpZCBQLiBSZWVkIHdyb3RlOgo+ID4gPgo+ID4gPgo+ID4gPiBXaGF0
+IHRlbmRzIHRvIHNoYXBlIExpbnV4IGFuZCBGcmVlQlNELCBldGMuIGFyZSB0aGUgbW9uZXkgc291
+cmNlcwo+ID4gPiB0aGF0IGZsb3cgaW50byB0aGUgY29tbXVuaXRpZXMuIE9mIGNvdXJzZSBMaW51
+eCBpcyBxdWl0ZQo+ID4gPiBpbmRlcGVuZGVudGx5IHdlYWx0aHkgbm93LiBUaGUgc2VuaW9yIGV4
+ZWN1dGl2ZXMgb2YgdGhlIExpbnV4Cj4gPiA+IEZvdW5kYXRpb24gYXJlIHBhaWQgbmVhcmx5IGEg
+bWlsbGlvbiBkb2xsYXJzIGEgeWVhciwgZWFjaC4gV2hpY2gKPiA+ID4ganVzdCBpbmRpY2F0ZXMg
+dGhhdCBtYWpvciBjb3Jwb3JhdGlvbnMgYXJlIHNlcmlvdXNseSBpbnRlcmVzdGVkIGluCj4gPiA+
+IGNvbnRyb2xsaW5nIHRoZSBldm9sdXRpb24gb2YgTGludXggKG5vdCB0aGUgR251IHBhcnQsIHRo
+ZSBwYXJ0IHRoYXQKPiA+ID4gaGFzIExpbnVzIFRvcnZhbGRzIGF0IGl0cyBjZW50ZXIpLgo+ID4K
+PiA+IEZpcnN0IG9mIGFsbCwgSSBkb24ndCBiZWxpZXZlIHlvdXIgc2FsYXJ5IG51bWJlcnMgYXJl
+IGNvcnJlY3QuCj4gPgo+ID4gaHR0cHM6Ly9ub25wcm9maXRsaWdodC5jb20vY2Evc2FuLWZyYW5j
+aXNjby9saW51eC1mb3VuZGF0aW9uCj4gPgo+ID4gU2Vjb25kbHksIHRoZSAic2VuaW9yIGV4ZWN1
+dGl2ZXMiIG9mIHRoZSBMaW51eCBGb3VuZGF0aW9uIGRvbid0IGhhdmUKPiA+IGFueSBjb250cm9s
+IG92ZXIgInRoZSBldm9sdXRpb24gb2YgTGludXgiLiBUaGUgZXhjZXB0aW9uIHRvIHRoYXQgYXJl
+Cj4gPiB0aGUgIkZlbGxvd3MiIChlLmcuLCBMaW51cyBUb3J2YWxkcywgR3JlZyBLLUgsIGV0Yy4p
+IGFuZCBJIGNhbiBhc3N1cmUKPiA+IHlvdSB0aGF0IHRoZXkgZG9uJ3QgdGFrZSBvcmRlcnMgZnJv
+bSBKaW0gWmVtbGluLCB0aGUgZXhlY3V0aXZlCj4gPiBkaXJlY3Rvciwgb3IgYW55IG9uZSBlbHNl
+IGF0IHRoZSBMaW51eCBGb3VuZGF0aW9uLgo+ID4KPiA+IFRoZSBzZW5pb3IgZGV2ZWxvcGVycyBv
+ZiBMaW51eCBkbyB0ZW5kIHRvIHdvcmsgZm9yIHRoZSBiaWcKPiA+IGNvcnBvcmF0aW9ucywgYnV0
+IGN1bHR1cmFsbHksIHdlIGRvIHRyeSB0byBrZWVwIG91ciAiY29ycG9yYXRlIGhhdHMiCj4gPiBh
+bmQgb3VyICJjb21tdW5pdHkiIGhhdHMgcXVpdGUgc2VwYXJhdGUsIGFuZCBpZGVudGlmeSB3aGVu
+IHdlIG91cgo+ID4gY29tcGFueSBoYXRzIG9uLiBNYW55IHNlbmlvciBkZXZlbG9wZXJzIGhhdmUg
+dHJhbnNpdGlvbmVkIGJldHdlZW4KPiA+IG11bHRpcGxlIGNvbXBhbmllcywgYW5kIG92ZXIgdGlt
+ZSwgaXQncyBiZWVuIHVuZGVyc3Rvb2QgdGhhdCB0aGVpcgo+ID4gcHJpbWFyaWx5IGFsbGVnaWFu
+Y2UgaXMgdG8gTGludXgsIGFuZCBub3QgdG8gdGhlIGNvbXBhbnkuIEluIGZhY3QsCj4gPiB0aGUg
+cHJpbWFyeSBqb2Igb2YgbWFpbnRhaW5lcnMgaXMgdG8gc2F5ICJubyIgdG8gY29tcGFuaWVzIHdo
+ZW4gdGhleQo+ID4gdHJ5IHRvIHB1c2ggY3JhcCBjb2RlIGludG8gdGhlIGtlcm5lbC4gQW5kIHRo
+YXQncyBiZWNhdXNlIGl0J3MgdGhlCj4gPiBtYWludGFpbmVyJ3MgcmVzcG9uc2liaWxpdHkgdG8g
+Y2xlYW4gdXAgdGhlIG1lc3MgaWYgdGhleSBzYXkgeWVzIHRvCj4gPiBjb2RlIHRoYXQncyBKdXN0
+IE5vdCBSZWFkeSwgc2luY2UgdGhleSBoYXZlIGEgbG9uZy10ZXJtIHJlc3BvbnNiaWxpdHkKPiA+
+IHRvd2FyZHMgdGhlaXIgc3Vic3lzdGVtLCB1bmxpa2UgZW5naW5lZXJzIG9yIGNvbnRyYWN0b3Jz
+IHRoYXQgb25seQo+ID4gaGF2ZSBhIHNob3J0LXRlcm0gZ29hbCB0byBnZXQgdGhlIGNvZGUgdXBz
+dHJlYW0uCj4gPgo+ID4gVGhpcyBpcyB3aGVyZSBoYXZpbmcgYSBoaWVyYXJjaGlhbCBvd25lcnNo
+aXAgbW9kZWwgSU1ITyB3b3JrcyBiZXR0ZXIKPiA+IHRoYW4gYSAiY29yZSB0ZWFtIiBtb2RlbCB3
+aGVyZSB0aGVyZSBjYW4gYmUgYSBkaWZmdXNpb24gb2YKPiA+IHJlc3BvbnNpYmlsaXR5LCB3aGVy
+ZSBhbnlvbmUgd2l0aCBhIGNvbW1pdCBiaXQgY2FuIGNvbW1pdCBhbnl3aGVyZSBpbgo+ID4gdGhl
+IE9TLiBJbiBjb250cmFzdCwgRGF2aWQgTWlsbGVyICJvd25zIiB0aGUgbmV0d29ya2luZyBhcmVh
+LCBhbmQgc28KPiA+IHNvbWVvbmUgd2hvIG1pZ2h0IGJlLCBzYXksIHRoZSBleHQ0IG9yIHhmcyBt
+YWludGFpbmVyIGRvZXMgbm90IGhhdmUKPiA+IHRoZSByaWdodCAocmVhZDogTGludXMgd2lsbCBy
+ZWplY3QgYSBwdWxsIHJlcXVlc3QgZnJvbSBtZSBpZiBJIHRyeSB0bwo+ID4gY2hhbmdlIGNvZGUg
+aW4gdGhlIG5ldHdvcmtpbmcgc3RhY2sgd2l0aCBvdXQgRGF2ZU0ncyBzaWdub2ZmKSB0bwo+ID4g
+Y2hhbmdlIGNvZGUgb3V0c2lkZSBvZiB0aGVpciBzdWJzeXN0ZW0uCj4gPgo+ID4gU28geW91J3Jl
+IHJpZ2h0IHRoYXQgTGludXMgcHJvYmFibHkgZG9lc24ndCBrbm93IG9yIGNhcmUgYWJvdXQKPiA+
+IGJ1ZmZlcmJsb2F0LiBIZSdzIGRlbGVnYXRlZCBwcmV0dHkgbXVjaCBhbGwgbmV0d29ya2luZyBp
+c3N1ZXMgdG8KPiA+IERhdmlkIE1pbGxlciBhcyB0aGUgbmV0d29ya2luZyBjemFyLCBhbmQgd2l0
+aGluIG5ldHdvcmtpbmcsIERhdmlkCj4gPiBNaWxsZXIgaGFzIGhpcyBzdWJtYWludGFpbmVycyB3
+aXRoIGRpZmZlcmVudCBzcGVjaWFsaXRpZXMuIFRoaXMgZG9lcwo+ID4gZ2V0IGNvbXBsaWNhdGVk
+IHdoZW4gdGhlcmUgYXJlIGNoYW5nZXMgd2hpY2ggY3Jvc3Mgc3Vic3lzdGVtcy4gRm9yCj4gPiBl
+eGFtcGxlLCBiZWZvcmUgV2lyZWd1YXJkIGNvdWxkIGxhbmQgaW4gdGhlIGtlcm5lbCwgdGhlcmUg
+d2VyZSBjaGFuZ2VzCj4gPiBuZWVkZWQgaW4gYm90aCB0aGUgY3J5cHRvIGFuZCBuZXR3b3JraW5n
+IGxheWVycywgYW5kIEphc29uIGhhZCB0bwo+ID4gbmVnb3RpYXRlIHdpdGggbXVsdGlwbGUgc2Vu
+aW9yIGRldmVsb3BlcnMgaW4gdGhvc2Ugc3Vic3lzdGVtcywgYW5kIHRoZQo+ID4gY29kZSB3YXMg
+c3ViamVjdCB0byBxdWl0ZSBhIGxvdCBvZiByZXZpZXcgYmVmb3JlIGl0IGNvdWxkIGxhbmQuIChJ
+dAo+ID4gdG9vayBtb250aHMsIGFuZCB3ZSBkaWRuJ3QgdHJ5IHRvIHJ1c2ggdGhpbmdzIGJlZm9y
+ZSBhIG1ham9yCj4gPiByZWxlYXNlLi4uLikKPiA+Cj4gPiA+IEkganVzdCBzcGVudCA5IG1vbnRo
+cyB0cnlpbmcgdG8gZ2V0IGEgdmVyeSB0aW55IGZpeCB0byB0aGUgTGludXgKPiA+ID4ga2VybmVs
+IGludG8gdGhlIG1haW5saW5lIGtlcm5lbC4gSSBhY3R1YWxseSBnYXZlIHVwLCBiZWNhdXNlIGl0
+Cj4gPiA+IHNlZW1lZCB1dHRlcmx5IHBvaW50bGVzcywgZXZlbiB0aG91Z2ggaXQgd2FzIGNsZWFy
+bHkgYSBkZXNpZ24gZXJyb3IKPiA+ID4gdGhhdCBJIHdhcyBmaXhpbmcsIGFuZCBJIHdhcyB0cnlp
+bmcgdG8gbWVldCBhbGwgdGhlIGNvbnN0cmFpbnRzIG9uCj4gPiA+IHBhdGNoZXMuIE5vIG9uZSB3
+YXMgZmlnaHRpbmcgbWUsIG5vIG9uZSBzYWlkIGl0IHdhcyB3cm9uZy4KPiA+Cj4gPiBJdCBzb3Vu
+ZHMgbGlrZSB0aGUgcmVhbCBwcm9ibGVtIGlzIG5vIG9uZSB3YXMgcGF5aW5nIGF0dGVudGlvbiB0
+byB5b3UuCj4gPiBUaGVyZSBpcyBhICpodWdlKiBudW1iZXIgb2YgY2hhbmdlcyBnb2luZyBpbnRv
+IHRoZSBMaW51eCBrZXJuZWwsIGFuZAo+ID4gc28gdGhlIHRoZSBjaGFsbGVuZ2UgaXMgZ2V0dGlu
+ZyByZXZpZXcgYmFuZHdpZHRoIGJ5IHRoZSByZWxldmFudAo+ID4gbWFpbnRhaW5lcnMuIEJsaW5k
+bHkgcG9zdGluZyB0byB0aGUgbGludXgta2VybmVsIG1haWxpbmcgbGlzdCB3aWxsCj4gPiBnZW5l
+cmFsbHkgbm90IGdldCB5b3UgdmVyeSBmYXIuCj4gPgo+ID4gVGhlIExpbnV4IGRldmVsb3BtZW50
+IHByb2Nlc3MgaXMgbm90IHJlYWxseSBvcHRpbWl6ZWQgZm9yICJkcml2ZSBieQo+ID4gcGF0Y2hp
+bmciLiBLbm93bmcgd2hlcmUgKGFuZCB0byB3aG9tKSBhIHBhdGNoIG5lZWRzIHRvIGJlIHJldmll
+d2VkIGlzCj4gPiBub3QgbmVjZXNzYXJpbHkgZWFzeSBmb3IgYSBub3ZpY2UsIGFuZCB3aGlsZSB0
+aGVyZSBhcmUgdG9vbHMgc3VjaCBhcwo+ID4gLi9zY3JpcHRzL2dldF9tYWludGFpbmVyLnBsIHRo
+YXQgdHJ5IHRvIG1ha2UgaXQgYSBiaXQgZWFzaWVyLCBJIGNhbgo+ID4gc2VlIGhvdyBzb21lb25l
+IHdobyBKdXN0IFdhbnRzIFRvIEdldCBBIFNpbmdsZSBQYXRjaCBhY2NlcHRlZCwgY2FuIHNlZQo+
+ID4gaXQgYXMgImJ1cmVhdWNyYWN5Ii4KPiA+Cj4gPiBDaGVlcnMsCj4gPgo+ID4gLSBUZWQKPiA+
+CgoKCi0tCiJGb3IgYSBzdWNjZXNzZnVsIHRlY2hub2xvZ3ksIHJlYWxpdHkgbXVzdCB0YWtlIHBy
+ZWNlZGVuY2Ugb3ZlciBwdWJsaWMKcmVsYXRpb25zLCBmb3IgTW90aGVyIE5hdHVyZSBjYW5ub3Qg
+YmUgZm9vbGVkIiAtIFJpY2hhcmQgRmV5bm1hbgoKZGF2ZUB0YWh0Lm5ldCA8RGF2ZSBUw6RodD4g
+Q1RPLCBUZWtMaWJyZSwgTExDIFRlbDogMS04MzEtNDM1LTA3MjkKX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0
+cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8v
+Y2FrZQo=
