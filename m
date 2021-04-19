@@ -2,54 +2,44 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A923C364CE3
-	for <lists+cake@lfdr.de>; Mon, 19 Apr 2021 23:10:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 97F16364D3D
+	for <lists+cake@lfdr.de>; Mon, 19 Apr 2021 23:43:06 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 0827A3CB46;
-	Mon, 19 Apr 2021 17:10:49 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id A31A83CB49;
+	Mon, 19 Apr 2021 17:43:01 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1618866649;
-	bh=O6ykRJtMQubf6FIqsRdt6TricdNgSdaw7CEMr9IOL6Q=;
-	h=From:To:In-Reply-To:References:Date:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1618868581;
+	bh=LQ+xSGbi8MGFVEZh35H3RDoJLtCheGXeGayTNo8xyTA=;
+	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=Mn+KpPRxIJhYNodlV0C0t2KPT+T78CgL+yxhtGfsrSwbsoubr1dNPQgvGzkHcRGYW
-	 D6t0YbKqY32um5K4+zcDiChC8QqbjJCMYddj+/8vwgkRqavsEom9qFAFBHTHzmpG/v
-	 2qUO3SkvcNrEHJQ2PL4AqDZ+GyIJnkw8H4/iLT58uo5QB3uQTBSEW0ee9N+zp0lXvN
-	 fvXA/pqejfcgUXY46v98crPGx9lYEroKEmkDc9kmKGPoHhRNA7mt9FNsttMd3IWvFA
-	 /aO9lp+AK+MfkTNWExKfdVNBmFImv6H4m7HolSTiYiqJ8ateM82fS2GUONvDLwaysS
-	 aHs8E5cj8bP2g==
+	b=gpPnn2/gArevwBl9lqOLN5pX8Gb4MzQ5HTnJdjEHiqKMHslQlmm8LSq7LcB6ypf6w
+	 i2cObRMOaRnwwvul16ZLXJ37rduoYp4U4lNzYI4tqi9LvHOCcXwSr7BZ1doTt83KCP
+	 JS5vqFADVUkbzas30KAUbec/t8pgMggn1BNjGbBFGu2YxZ3J9KvpetCJWXSFSOfu3Y
+	 Edr1U+qGfywWFBajoP7ovsllyef40gPFMS1A5hL4v+dvS8Y6QoXCVQOW/4ps6CNs36
+	 SRXPDLNWmgLSxh90KKwBu80iyNA+moiuv/q/YKWvIYnLke+gUJwgScS6RuoZLYbcRo
+	 pTtiCU9KfX3bg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from tuna.sandelman.ca (tuna.sandelman.ca [209.87.249.19])
+Received: from mail.lang.hm (unknown [66.167.227.145])
  (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 8D5BC3B2A4;
- Mon, 19 Apr 2021 17:10:47 -0400 (EDT)
-Received: from localhost (localhost [127.0.0.1])
- by tuna.sandelman.ca (Postfix) with ESMTP id 6C4843907D;
- Mon, 19 Apr 2021 17:18:22 -0400 (EDT)
-Received: from tuna.sandelman.ca ([127.0.0.1])
- by localhost (localhost [127.0.0.1]) (amavisd-new, port 10024)
- with LMTP id 4560ywOYkuO0; Mon, 19 Apr 2021 17:18:18 -0400 (EDT)
-Received: from sandelman.ca (obiwan.sandelman.ca [209.87.249.21])
- by tuna.sandelman.ca (Postfix) with ESMTP id 80E1538FEF;
- Mon, 19 Apr 2021 17:18:18 -0400 (EDT)
-Received: from localhost (localhost [IPv6:::1])
- by sandelman.ca (Postfix) with ESMTP id BAF0C4F3;
- Mon, 19 Apr 2021 17:10:42 -0400 (EDT)
-From: Michael Richardson <mcr@sandelman.ca>
-To: David Lang <david@lang.hm>
-In-Reply-To: <nycvar.QRO.7.76.6.2104191057361.18176@qynat-yncgbc>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id EBA723B2A4;
+ Mon, 19 Apr 2021 17:42:59 -0400 (EDT)
+Received: from dlang-laptop (unknown [10.2.0.162])
+ by mail.lang.hm (Postfix) with ESMTP id 8D6E0F4521;
+ Mon, 19 Apr 2021 14:42:58 -0700 (PDT)
+Date: Mon, 19 Apr 2021 14:42:58 -0700 (PDT)
+From: David Lang <david@lang.hm>
+X-X-Sender: dlang@dlang-laptop
+To: Michael Richardson <mcr@sandelman.ca>
+In-Reply-To: <10241.1618866642@localhost>
+Message-ID: <nycvar.QRO.7.76.6.2104191439590.18176@qynat-yncgbc>
 References: <CAA93jw5FEe90Dw3_tGubna=_Urzbq6dYMMrifGV7bMuhL2nXKg@mail.gmail.com>
  <nycvar.QRO.7.76.6.2104191057361.18176@qynat-yncgbc>
-X-Mailer: MH-E 8.6+git; nmh 1.7+dev; GNU Emacs 26.1
-X-Face: $\n1pF)h^`}$H>Hk{L"x@)JS7<%Az}5RyS@k9X%29-lHB$Ti.V>2bi.~ehC0;
- <'$9xN5Ub#
- z!G,p`nR&p7Fz@^UXIn156S8.~^@MJ*mMsD7=QFeq%AL4m<nPbLgmtKK-5dC@#:k
+ <10241.1618866642@localhost>
+User-Agent: Alpine 2.21.1 (DEB 209 2017-03-23)
 MIME-Version: 1.0
-Date: Mon, 19 Apr 2021 17:10:42 -0400
-Message-ID: <10241.1618866642@localhost>
 Subject: Re: [Cake] [Bloat] starlink testing
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -63,52 +53,28 @@ List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============6173998259930936818=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============6173998259930936818==
-Content-Type: multipart/signed; boundary="=-=-=";
-	micalg=pgp-sha512; protocol="application/pgp-signature"
-
---=-=-=
-Content-Type: text/plain
-
-
-David Lang <david@lang.hm> wrote:
-    > are you able to sniff between the router and the dish? I'm curious how much
-    > of the smarts is in the dish vs the router. My hope is that the router is
-    > just a conventional router with the satellite network smarts in the dish.
-
-No.
-See the teardowns, such as: https://www.youtube.com/watch?v=QudtSo5tpLk
-It's a huge synthetic antenna.  It's openwrt though.
-
-
---=-=-=
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAEBCgAdFiEEbsyLEzg/qUTA43uogItw+93Q3WUFAmB98dIACgkQgItw+93Q
-3WWqDwf/YqpTA1YrajbbK+gzamPRluqyCa9rQyQNlMksa1MlGvo+T60MvQZUZQC3
-Wr4JPXKL8Hmj0IeeJsz6lo19QRmnJf19eFWJDboEovAIQZmOAxBaWOwmZJvii6rQ
-OOpko2QCkuq/UF0fLzAc9OT94kEJVfc4/riLQo8mi7+iSkCYa+EaFzvuR5Gy+dG/
-qMn7YN7demaEARpKJNzpwjl+AZ4JwsWCXa2Us3hK1ydcJgQmZJyYDJ+L0b5jkpoO
-7RL75OCYENFp1QI4La6+slMfwZ61ckjcdm9rakd6eglAXdNKEW99ksDZIqf0JkOp
-nAQbGoZJsWBdZ+ZtC90AdU3erp81sA==
-=E0ud
------END PGP SIGNATURE-----
---=-=-=--
-
---===============6173998259930936818==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============6173998259930936818==--
+SSd2ZSB3YXRjaGVkIHRob3NlLCBhbmQgaXQncyBQb0UgY29tbXVuaWNhdGlvbiB0byB0aGUgZGlz
+aCwgYW5kIHRoZXJlIGlzIGEgCnByb2Nlc3NvciBvbiB0aGUgZGlzaCB3aXRoIGEgc2VyaWFsIGNv
+bnNvbGUuCgpJIGhhdmVuJ3Qgc2VlbiBhbnkgZm9sbG93LXVwcyB3aGVyZSBhbnlvbmUgaGFzIGdv
+dHRlbiBhIGxvZ2luIHRvIHRoZSBkaXNoIG9yIGhhcyAKc25pZmZlZCB0aGUgdHJhZmZpYyBiZXR3
+ZWVuIHRoZSBkaXNoIGFuZCB0aGUgcm91dGVyLgoKSSBoYXZlbid0IHNlZW4gYW55dGhpbmcgdGhh
+dCB3b3VsZCBzaG93IHRoYXQgdGhlIHJvdXRlciBoYXMgKG9yIGRvZXNuJ3QgaGF2ZSkgCmFueSBh
+d2FyZW5lc3Mgb2YgdGhlIHNhdGVsbGl0ZSBuZXR3b3JrLgoKVGhhdCdzIHdoeSBJIHdhcyBhc2tp
+bmcgYWJvdXQgc25pZmZpbmcgYmV0d2VlbiB0aGUgZGV2aWNlcyB0byBzZWUgd2hhdCdzIApoYXBw
+ZW5pbmcgdGhlcmUuCgpEYXZpZCBMYW5nCgpPbiBNb24sIDE5IEFwciAyMDIxLCBNaWNoYWVsIFJp
+Y2hhcmRzb24gd3JvdGU6Cgo+IERhdmlkIExhbmcgPGRhdmlkQGxhbmcuaG0+IHdyb3RlOgo+ICAg
+ID4gYXJlIHlvdSBhYmxlIHRvIHNuaWZmIGJldHdlZW4gdGhlIHJvdXRlciBhbmQgdGhlIGRpc2g/
+IEknbSBjdXJpb3VzIGhvdyBtdWNoCj4gICAgPiBvZiB0aGUgc21hcnRzIGlzIGluIHRoZSBkaXNo
+IHZzIHRoZSByb3V0ZXIuIE15IGhvcGUgaXMgdGhhdCB0aGUgcm91dGVyIGlzCj4gICAgPiBqdXN0
+IGEgY29udmVudGlvbmFsIHJvdXRlciB3aXRoIHRoZSBzYXRlbGxpdGUgbmV0d29yayBzbWFydHMg
+aW4gdGhlIGRpc2guCj4KPiBOby4KPiBTZWUgdGhlIHRlYXJkb3ducywgc3VjaCBhczogaHR0cHM6
+Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RdWR0U281dHBMawo+IEl0J3MgYSBodWdlIHN5bnRo
+ZXRpYyBhbnRlbm5hLiAgSXQncyBvcGVud3J0IHRob3VnaC4KPgo+Cl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlz
+dHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZv
+L2Nha2UK
