@@ -2,44 +2,59 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 97F16364D3D
-	for <lists+cake@lfdr.de>; Mon, 19 Apr 2021 23:43:06 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 831C6365AE1
+	for <lists+cake@lfdr.de>; Tue, 20 Apr 2021 16:10:12 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id A31A83CB49;
-	Mon, 19 Apr 2021 17:43:01 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 2ACD23CB4D;
+	Tue, 20 Apr 2021 10:10:05 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1618868581;
-	bh=LQ+xSGbi8MGFVEZh35H3RDoJLtCheGXeGayTNo8xyTA=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1618927805;
+	bh=oNYWw5zaxlV7d2UI+Z+5zVTRS2dFPWU1lf03c4gJ998=;
+	h=From:To:In-Reply-To:References:Date:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=gpPnn2/gArevwBl9lqOLN5pX8Gb4MzQ5HTnJdjEHiqKMHslQlmm8LSq7LcB6ypf6w
-	 i2cObRMOaRnwwvul16ZLXJ37rduoYp4U4lNzYI4tqi9LvHOCcXwSr7BZ1doTt83KCP
-	 JS5vqFADVUkbzas30KAUbec/t8pgMggn1BNjGbBFGu2YxZ3J9KvpetCJWXSFSOfu3Y
-	 Edr1U+qGfywWFBajoP7ovsllyef40gPFMS1A5hL4v+dvS8Y6QoXCVQOW/4ps6CNs36
-	 SRXPDLNWmgLSxh90KKwBu80iyNA+moiuv/q/YKWvIYnLke+gUJwgScS6RuoZLYbcRo
-	 pTtiCU9KfX3bg==
+	 From;
+	b=bkPRfVymZ82zfVnUgFnCN8TNaWOocWKy7j9L+VeplUKtmdCFZXDpLnyXKjhvbl5dy
+	 EiPdYTI1QDT/Yakk0xU0YUZCagN+CSdHzMxBejKCmObW4vITCrpTu6KflRY34vobmF
+	 OdXoBSSfLAxqmbg1GYMpnpR/3pOql+Vm4svUqCsMeS4LzuKT3NZdN1t/V8s0KdsqGX
+	 qXBpjEnmzQCwwq/tM9WA0cqw2ReIasgJ9HxqRg/nsKg1pfmG2sMy/qBXA8qsFHlA9Y
+	 HH7dcsg+B8MFvM/cmhohs1RUv4UkzzMCRj8WPeFhdpW8y3/fbR4D06gj5Nl+4FRuxh
+	 A403yCfFDlkhA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail.lang.hm (unknown [66.167.227.145])
+Received: from tuna.sandelman.ca (tuna.sandelman.ca
+ [IPv6:2607:f0b0:f:3:216:3eff:fe7c:d1f3])
  (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id EBA723B2A4;
- Mon, 19 Apr 2021 17:42:59 -0400 (EDT)
-Received: from dlang-laptop (unknown [10.2.0.162])
- by mail.lang.hm (Postfix) with ESMTP id 8D6E0F4521;
- Mon, 19 Apr 2021 14:42:58 -0700 (PDT)
-Date: Mon, 19 Apr 2021 14:42:58 -0700 (PDT)
-From: David Lang <david@lang.hm>
-X-X-Sender: dlang@dlang-laptop
-To: Michael Richardson <mcr@sandelman.ca>
-In-Reply-To: <10241.1618866642@localhost>
-Message-ID: <nycvar.QRO.7.76.6.2104191439590.18176@qynat-yncgbc>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id C51863B29D;
+ Tue, 20 Apr 2021 10:10:03 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+ by tuna.sandelman.ca (Postfix) with ESMTP id 100CC390DB;
+ Tue, 20 Apr 2021 10:17:41 -0400 (EDT)
+Received: from tuna.sandelman.ca ([127.0.0.1])
+ by localhost (localhost [127.0.0.1]) (amavisd-new, port 10024)
+ with LMTP id 8HZevtAIife9; Tue, 20 Apr 2021 10:17:37 -0400 (EDT)
+Received: from sandelman.ca (obiwan.sandelman.ca [IPv6:2607:f0b0:f:2::247])
+ by tuna.sandelman.ca (Postfix) with ESMTP id 57364390DA;
+ Tue, 20 Apr 2021 10:17:37 -0400 (EDT)
+Received: from localhost (localhost [IPv6:::1])
+ by sandelman.ca (Postfix) with ESMTP id 09170AC;
+ Tue, 20 Apr 2021 10:09:59 -0400 (EDT)
+From: Michael Richardson <mcr@sandelman.ca>
+To: David Lang <david@lang.hm>, Dave Taht <dave.taht@gmail.com>,
+ Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
+In-Reply-To: <nycvar.QRO.7.76.6.2104191439590.18176@qynat-yncgbc>
 References: <CAA93jw5FEe90Dw3_tGubna=_Urzbq6dYMMrifGV7bMuhL2nXKg@mail.gmail.com>
  <nycvar.QRO.7.76.6.2104191057361.18176@qynat-yncgbc>
  <10241.1618866642@localhost>
-User-Agent: Alpine 2.21.1 (DEB 209 2017-03-23)
+ <nycvar.QRO.7.76.6.2104191439590.18176@qynat-yncgbc>
+X-Mailer: MH-E 8.6+git; nmh 1.7+dev; GNU Emacs 26.1
+X-Face: $\n1pF)h^`}$H>Hk{L"x@)JS7<%Az}5RyS@k9X%29-lHB$Ti.V>2bi.~ehC0;
+ <'$9xN5Ub#
+ z!G,p`nR&p7Fz@^UXIn156S8.~^@MJ*mMsD7=QFeq%AL4m<nPbLgmtKK-5dC@#:k
 MIME-Version: 1.0
+Content-ID: <21912.1618927798.1@localhost>
+Date: Tue, 20 Apr 2021 10:09:58 -0400
+Message-ID: <21914.1618927798@localhost>
 Subject: Re: [Cake] [Bloat] starlink testing
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -52,29 +67,29 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
-Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SSd2ZSB3YXRjaGVkIHRob3NlLCBhbmQgaXQncyBQb0UgY29tbXVuaWNhdGlvbiB0byB0aGUgZGlz
-aCwgYW5kIHRoZXJlIGlzIGEgCnByb2Nlc3NvciBvbiB0aGUgZGlzaCB3aXRoIGEgc2VyaWFsIGNv
-bnNvbGUuCgpJIGhhdmVuJ3Qgc2VlbiBhbnkgZm9sbG93LXVwcyB3aGVyZSBhbnlvbmUgaGFzIGdv
-dHRlbiBhIGxvZ2luIHRvIHRoZSBkaXNoIG9yIGhhcyAKc25pZmZlZCB0aGUgdHJhZmZpYyBiZXR3
-ZWVuIHRoZSBkaXNoIGFuZCB0aGUgcm91dGVyLgoKSSBoYXZlbid0IHNlZW4gYW55dGhpbmcgdGhh
-dCB3b3VsZCBzaG93IHRoYXQgdGhlIHJvdXRlciBoYXMgKG9yIGRvZXNuJ3QgaGF2ZSkgCmFueSBh
-d2FyZW5lc3Mgb2YgdGhlIHNhdGVsbGl0ZSBuZXR3b3JrLgoKVGhhdCdzIHdoeSBJIHdhcyBhc2tp
-bmcgYWJvdXQgc25pZmZpbmcgYmV0d2VlbiB0aGUgZGV2aWNlcyB0byBzZWUgd2hhdCdzIApoYXBw
-ZW5pbmcgdGhlcmUuCgpEYXZpZCBMYW5nCgpPbiBNb24sIDE5IEFwciAyMDIxLCBNaWNoYWVsIFJp
-Y2hhcmRzb24gd3JvdGU6Cgo+IERhdmlkIExhbmcgPGRhdmlkQGxhbmcuaG0+IHdyb3RlOgo+ICAg
-ID4gYXJlIHlvdSBhYmxlIHRvIHNuaWZmIGJldHdlZW4gdGhlIHJvdXRlciBhbmQgdGhlIGRpc2g/
-IEknbSBjdXJpb3VzIGhvdyBtdWNoCj4gICAgPiBvZiB0aGUgc21hcnRzIGlzIGluIHRoZSBkaXNo
-IHZzIHRoZSByb3V0ZXIuIE15IGhvcGUgaXMgdGhhdCB0aGUgcm91dGVyIGlzCj4gICAgPiBqdXN0
-IGEgY29udmVudGlvbmFsIHJvdXRlciB3aXRoIHRoZSBzYXRlbGxpdGUgbmV0d29yayBzbWFydHMg
-aW4gdGhlIGRpc2guCj4KPiBOby4KPiBTZWUgdGhlIHRlYXJkb3ducywgc3VjaCBhczogaHR0cHM6
-Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj1RdWR0U281dHBMawo+IEl0J3MgYSBodWdlIHN5bnRo
-ZXRpYyBhbnRlbm5hLiAgSXQncyBvcGVud3J0IHRob3VnaC4KPgo+Cl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlz
-dHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZv
-L2Nha2UK
+RGF2aWQgTGFuZyA8ZGF2aWRAbGFuZy5obT4gd3JvdGU6CiAgICA+IEkgaGF2ZW4ndCBzZWVuIGFu
+eSBmb2xsb3ctdXBzIHdoZXJlIGFueW9uZSBoYXMgZ290dGVuIGEgbG9naW4gdG8gdGhlIGRpc2gg
+b3IKICAgID4gaGFzIHNuaWZmZWQgdGhlIHRyYWZmaWMgYmV0d2VlbiB0aGUgZGlzaCBhbmQgdGhl
+IHJvdXRlci4KClRydWUsIEkgaGF2ZW4ndCBoZWFyZCwgYnV0IEkgaGF2ZW4ndCBiZWVuIGxvb2tp
+bmcuCgogICAgPiBJIGhhdmVuJ3Qgc2VlbiBhbnl0aGluZyB0aGF0IHdvdWxkIHNob3cgdGhhdCB0
+aGUgcm91dGVyIGhhcyAob3IgZG9lc24ndCBoYXZlKQogICAgPiBhbnkgYXdhcmVuZXNzIG9mIHRo
+ZSBzYXRlbGxpdGUgbmV0d29yay4KCldpdGggbXVsdGktaHVuZHJlZCBhbnRlbm5hIHRvIGJlIHN0
+ZWVyZWQsIGFuZCBhbiBBTUQ2NCBDUFUgb24gYm9hcmQsIEkgY2FuJ3QKaW1hZ2luZSB0aGF0IHRo
+YXQgQ1BVIGlzbid0IGRvaW5nIHNvbWUgc2lnbmlmaWNhbnQgYW1vdW50IG9mIERTUC4KSWYgdGhl
+eSBoYWQgb2ZmYm9hcmRlZCBhbGwgdGhlIGFuYWxvZyBwYXJ0cyB0byBhbm90aGVyIERTUCBvciBk
+aXNjcmV0ZSBsb2dpYywKdGhlbiBwcm9iYWJseSB0aGV5IHdvdWxkbid0IG5lZWQgYSA2NC1iaXQg
+Q1BVIG9uYm9hcmQ6IHRoZXkgY291bGQgaGF2ZSB1c2VkCnNvbWV0aGluZyBzbG93ZXIvY2hlYXBl
+ci4gIFdlbGwsIG1heWJlIHRoZXJlIGlzIGZ1dHVyZSBwcm9vZmluZyBpbnZvbHZlZC4KCkknbSB2
+ZXJ5IGRpc2FwcG9pbnRlZCB0aGF0ICJTb21ldGhpbmcgc2ltcGxlciB0aGFuIElQdjYiIHR1cm5l
+ZCBvdXQgdG8gYmUgIkNHTiIuCgotLQpdICAgICAgICAgICAgICAgTmV2ZXIgdGVsbCBtZSB0aGUg
+b2RkcyEgICAgICAgICAgICAgICAgIHwgaXB2NiBtZXNoIG5ldHdvcmtzIFsKXSAgIE1pY2hhZWwg
+UmljaGFyZHNvbiwgU2FuZGVsbWFuIFNvZnR3YXJlIFdvcmtzICAgICAgICB8ICAgIElvVCBhcmNo
+aXRlY3QgICBbCl0gICAgIG1jckBzYW5kZWxtYW4uY2EgIGh0dHA6Ly93d3cuc2FuZGVsbWFuLmNh
+LyAgICAgICAgfCAgIHJ1Ynkgb24gcmFpbHMgICAgWwoKX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZm
+ZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
