@@ -2,57 +2,68 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 30C3D376F56
-	for <lists+cake@lfdr.de>; Sat,  8 May 2021 06:05:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B7FB437BEFF
+	for <lists+cake@lfdr.de>; Wed, 12 May 2021 15:56:52 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 67FEF3CB39;
-	Sat,  8 May 2021 00:05:02 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 1B8663CB49;
+	Wed, 12 May 2021 09:56:46 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1620446702;
-	bh=DcOUOf2/skLPHw1zavhk2bXpPZnwBbDFka8FEmUY8yE=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1620827806;
+	bh=lw9keBc1J0LDxPNRquMuprXDecqE5MpNEu9t7isBa+A=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=JAYc6FulfwE5U3Uy6IltfVgnsTD8nSaQ9KoMhaqlVfYtfxHERnwedGx5cJK8f6QCq
-	 vJy9ofNVUEv0wwOLqsu2Hn8Eia6LM538ZY+4t6bCQ5nm6hR8k9VnTI9MDiynK+LrsO
-	 j22JXVlig3cOf/dQ5129Jmc+04oKwyp81/FPZuGWK0sOKEmrvZpMjbL3t9VsP13Cnd
-	 wgfxQArJwvudlQ/eAG+VDeOH5MQ3CXtq1wOOG8Sq4/D0LIYfAd9DRqHsU+Nhu+7iA+
-	 +TVkNnTTDICY2WFUlRlHJUE8hwAZv0kUBHSPB/jFV1+pT1NRK/VufG3ERU5IzsufyK
-	 grOungjKQ70sg==
+	 From;
+	b=TvrGJzG2McvjgBFkyxqGbWSIjWyc9bCFxlApuhSLCPs8kuc71JMGv1qRVoeelm8Ry
+	 /9BISoippP/4Ie2ZW4z42YoZ7xmIOy2tF3yz9V9sL1zh63IcWD5UpogHesDBYw3eAL
+	 2Alm9+iiVgi8WVn9plyP0g7ElL2+1p0X0SbRZw3Jk+Z9/2/H/gmYGSfBTXk3fowZaM
+	 7tzUcg3eiQAqrU+fQEiTvVj9o1iuKTAzAqIa0O8IPjcMVeXn43TvcHApm2qDDJNCjR
+	 T9GxaNfAvtRFNSpBluRClC2kTSfg4FZLgA4fOfUr9dfvR4+JrLL08fbf26Ig3o3i9w
+	 fzqgit7oieGmA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp125.iad3a.emailsrvr.com (smtp125.iad3a.emailsrvr.com
- [173.203.187.125])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mail-il1-x134.google.com (mail-il1-x134.google.com
+ [IPv6:2607:f8b0:4864:20::134])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 396DB3B29D
- for <cake@lists.bufferbloat.net>; Sat,  8 May 2021 00:05:01 -0400 (EDT)
-Received: from app59.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp16.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id BB9E1447E;
- Sat,  8 May 2021 00:05:00 -0400 (EDT)
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app59.wa-webapps.iad3a (Postfix) with ESMTP id AA70F60060;
- Sat,  8 May 2021 00:05:00 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Sat, 8 May 2021 00:05:00 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Sat, 8 May 2021 00:05:00 -0400 (EDT)
-From: "David P. Reed" <dpreed@deepplum.com>
-To: "=?utf-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?=" <toke@toke.dk>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 370943B2A4;
+ Wed, 12 May 2021 09:56:44 -0400 (EDT)
+Received: by mail-il1-x134.google.com with SMTP id o9so15091331ilh.6;
+ Wed, 12 May 2021 06:56:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to;
+ bh=jz9Xsha5Lt0vgh0icqu1NbXoQUFNJonKZQZqJmckVW8=;
+ b=KviA+bgGi3C3WGhaj4Y0QBMwbLrYPqUDiMZZNhwx4z9s624A7cpk4mEUE8wuobZoPp
+ cBZfm7XPSB3zt8V+W0w+ChIpVsxiDbPiNsq2MR6M0SbQTokjkPUtj5JQEVFG6vBkIh6n
+ 7Cimdhfx49EyS1nbUCkIpdeL+MJvoPcru2rqfpi5a6RwcCyyPTgk66fMReu1R12xh8ml
+ qZg5H+vL8eZf3XHXcCAGKQ3RzldnIWIX7SGOIyuffJ0V/gye3xpvRY1IA485LgjUPkaQ
+ O2Lb8klEEO7d9/28leq7mecbp5Y+7jr9RVXCB8L1bpZHgzfCvG74J7CEqBFPDQb1SM++
+ eeRA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to;
+ bh=jz9Xsha5Lt0vgh0icqu1NbXoQUFNJonKZQZqJmckVW8=;
+ b=ogtAgZre0t5CF1QXG/UyEHxss3o15qS/Hxxv5RacW+/YXSScKOYGtU7JZDhZBbHbCl
+ S4kgR5lwbnyiJjrBTvb3cBaDqv/3EEapAdg9Gq/BAec2HCkjV9nylZpirtAlepGxSoSp
+ 1XBaNNOHJug2HvxQ3jtjh3gHQOe1znhxTNJoJzUpgalGENvRzY0qtHwo1/KVDDb7Gjca
+ 3OBbRCivRFYwJj0FKrcD/mwTFjN3gLk0HY6NGSU9bSqIsTnN3IUzi/+9H2aNqfTfM7n4
+ 8X3ct++0nTsLVIL+LXMBAuD55AoF+MJ8pqWSQaQLhKjkLVq+cM+OX/cRjgWffWWAvIu+
+ 7Npw==
+X-Gm-Message-State: AOAM5335HUW+HxdisryBqXcDgsqUYGPV7t736JRCAssLOp6h9I5TAG+h
+ aXZMacG6knj5x4HrXukwXQtjJVWpr5YlrNO5+vboO/sSA0M=
+X-Google-Smtp-Source: ABdhPJw8/NOrDeyufeeuv4OqZT9vkCBGDoF0pMETwJfhLLKI8bdQG4xczNVL2y9nCkMki7+Lya9uhQWuu8bQzKlyp0A=
+X-Received: by 2002:a05:6e02:12:: with SMTP id
+ h18mr32420629ilr.246.1620827802572; 
+ Wed, 12 May 2021 06:56:42 -0700 (PDT)
 MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <87tunfv8ef.fsf@toke.dk>
-References: <CAA93jw4pgohtn7HkqjYgrBHayKxoBUpmGU=52YWfaG4FTdyMWQ@mail.gmail.com> 
- <87tunfv8ef.fsf@toke.dk>
-X-Client-IP: 209.6.168.128
-Message-ID: <1620446700.69329642@apps.rackspace.com>
-X-Mailer: webmail/18.2.1-RC
-X-Classification-ID: 8ce7845d-b652-4953-8916-6522684971c7-1-1
-Subject: Re: [Cake] [Flent-users] centos 8 and cake and flent
+References: <CAOqsZBCYhXxXECWn7Nn1APsG=yvi3b88CTrNkTtmZRp4y7r6DA@mail.gmail.com>
+In-Reply-To: <CAOqsZBCYhXxXECWn7Nn1APsG=yvi3b88CTrNkTtmZRp4y7r6DA@mail.gmail.com>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Wed, 12 May 2021 06:56:31 -0700
+Message-ID: <CAA93jw5sMvHpqrrJMpnza80D75m77dDxFA4P6653pwzZkT+fMw@mail.gmail.com>
+To: bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
+ cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>
+Subject: [Cake] Fwd: NANOG Hackathon Alumnus june 12-13
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -64,108 +75,166 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>, flent-users <flent-users@flent.org>
-Content-Type: multipart/mixed; boundary="===============4017127404536653622=="
+Content-Type: multipart/mixed; boundary="===============4906763607146073550=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============4017127404536653622==
-Content-Type: multipart/alternative;boundary="----=_20210508000500000000_57415"
+--===============4906763607146073550==
+Content-Type: multipart/alternative; boundary="0000000000006a1ded05c22261e5"
 
-------=_20210508000500000000_57415
+--0000000000006a1ded05c22261e5
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-=0AFedora definitely has cake in its kernel, and eventually these kernel th=
-ings get into RHEL and Centos.=0A =0AFYI, my router/gateway to the Internet=
- at home is based on Fedora Server Edition (Fedora 33, as I wait a little t=
-o upgrade my router/gateway after a new edition is released, as Fedora 34 w=
-as just put out). I've been running cake in it for years now, and it has gi=
-ven me no trouble. I started with it being added by use of DKMS when cake w=
-asn't in the standard kernel yet. I had a glitch when it made it into the s=
-tandard kernel and DKMS got confused and I had to figure out why the cake c=
-onfig wasn't working.=0A =0ANow Fedora's not quite just an early availabili=
-ty for RHEL, but for kernel functionality it has been. I understand why for=
- Enterprise use, RHEL is conservative about tracking the leading edge.=0A =
-=0AOn Thursday, May 6, 2021 5:50pm, "Toke H=C3=B8iland-J=C3=B8rgensen via C=
-ake" <cake@lists.bufferbloat.net> said:=0A=0A=0A=0A> Dave Taht <dave.taht@g=
-mail.com> writes:=0A> =0A> > Currently centos (and I assume redhat) is at 4=
-.18. Cake went into 4.19=0A> > so I assume the next major=0A> > redhat/cent=
-os releases will have it.=0A> =0A> Note that the RHEL kernel version number=
- is basically a complete=0A> fabrication; it's the version that the kernel =
-was forked from, something=0A> like 30% of all commits are backported for e=
-ach new upstream release,=0A> without changing the RHEL-kernel version numb=
-er.=0A> =0A> Which means that all the Cake out-of-tree kernel version compa=
-tibility=0A> stuff is not going to work, because that works based on the ke=
-rnel=0A> version number...=0A> =0A> > Is there a yum/rpm expert in the hous=
-e? flent does not appear to be=0A> > packaged up for this (?),=0A> =0A> It'=
-s in Fedora: https://src.fedoraproject.org/rpms/flent - should be=0A> fairl=
-y straight-forward to add it to EPEL as well, but thus far no one=0A> has r=
-equested it... :)=0A> =0A> > neither is netperf or irtt. Is there a repo I =
-could use?=0A> =0A> netperf is blocked on licensing:=0A> https://bugzilla.r=
-edhat.com/show_bug.cgi?id=3D1729939=0A> =0A> Since the re-licensing there m=
-ay be a chance, but not sure what the=0A> procedure is when there's not a r=
-elease with the new license.=0A> =0A> As for irtt, that should be pretty st=
-raight-forward to package.=0A> =0A> -Toke=0A> _____________________________=
-__________________=0A> Cake mailing list=0A> Cake@lists.bufferbloat.net=0A>=
- https://lists.bufferbloat.net/listinfo/cake=0A> 
-------=_20210508000500000000_57415
+I would really like to document how to correctly configure AFD, WRED to
+whatever extent is actually possible
+on high end gear like this. Also exploring the l4s classifiers, and
+whatever else bloat related on a switch that
+can be tuned. Anyone up for nanog?
+
+---------- Forwarded message ---------
+From: Valerie Wittkop <vwittkop@nanog.org>
+Date: Wed, May 12, 2021 at 6:23 AM
+Subject: NANOG Hackathon Alumnus
+To: Dave Taht <dave.taht@gmail.com>
+
+
+Hello Dave!
+
+The NANOG 82 Virtual Hackathon
+<https://nanog-dot-yamm-track.appspot.com/Redirect?ukey=3D1iC9yJseDPlEsi3ZB=
+xV_kJjOPzZRszGTgFU8ccgLhuYA-0&key=3DYAMMID-25813685&link=3Dhttps%3A%2F%2Fww=
+w.nanog.org%2Fevents%2Fn82-hackathon%2F>
+will take place June 12-13. Because you=E2=80=99ve participated in the past=
+, I=E2=80=99m
+writing with the hope that you will participate again. We=E2=80=99re lookin=
+g not
+only for coders, but also group leaders and mentors who can help all
+participants.
+
+The central theme of this hackathon is Interacting with APIs, but there is
+no prescribed problem to solve. Instead, all participants are invited to
+tap into their creativity and work on a passion project, or simply learn
+something new. We welcome people of all skill levels, and we have resources
+to help the most inexperienced. Participation is free, and you don=E2=80=99=
+t need
+to register for the NANOG 82 Virtual conference in order to participate.
+
+We have a new and improved registration system where you can register now
+<https://nanog-dot-yamm-track.appspot.com/Redirect?ukey=3D1iC9yJseDPlEsi3ZB=
+xV_kJjOPzZRszGTgFU8ccgLhuYA-0&key=3DYAMMID-25813685&link=3Dhttps%3A%2F%2Fww=
+w.nanog.org%2Fevents%2Fn82-hackathon%2Fregistration%2F>
+for the hackathon. All you need is a NANOG Profile, which you can create as
+part of the registration process if you don=E2=80=99t already have one.
+
+I=E2=80=99m happy to answer any questions you have, and we hope to see you =
+in June!
+
+
+Valerie Wittkop
+Program Director
+vwittkop@nanog.org | +1 734-730-0225 (mobile) | www.nanog.org
+NANOG | 305 E. Eisenhower Pkwy, Suite 100 | Ann Arbor, MI 48108, USA
+ASN 19230
+
+[image: beacon]
+
+
+--=20
+Latest Podcast:
+https://www.linkedin.com/feed/update/urn:li:activity:6791014284936785920/
+
+Dave T=C3=A4ht CTO, TekLibre, LLC
+
+--0000000000006a1ded05c22261e5
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 10pt; overflow-wrap: break-word;">Fedora definitely has =
-cake in its kernel, and eventually these kernel things get into RHEL and Ce=
-ntos.</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 1=
-0pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:=
-0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">FYI, my =
-router/gateway to the Internet at home is based on Fedora Server Edition (F=
-edora 33, as I wait a little to upgrade my router/gateway after a new editi=
-on is released, as Fedora 34 was just put out). I've been running cake in i=
-t for years now, and it has given me no trouble. I started with it being ad=
-ded by use of DKMS when cake wasn't in the standard kernel yet. I had a gli=
-tch when it made it into the standard kernel and DKMS got confused and I ha=
-d to figure out why the cake config wasn't working.</p>=0A<p style=3D"margi=
-n:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-wor=
-d;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-si=
-ze: 10pt; overflow-wrap: break-word;">Now Fedora's not quite just an early =
-availability for RHEL, but for kernel functionality it has been. I understa=
-nd why for Enterprise use, RHEL is conservative about tracking the leading =
-edge.</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 1=
-0pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:=
-0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">On Thurs=
-day, May 6, 2021 5:50pm, "Toke H=C3=B8iland-J=C3=B8rgensen via Cake" &lt;ca=
-ke@lists.bufferbloat.net&gt; said:<br /><br /></p>=0A<div id=3D"SafeStyles1=
-620445358">=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size:=
- 10pt; overflow-wrap: break-word;">&gt; Dave Taht &lt;dave.taht@gmail.com&g=
-t; writes:<br />&gt; <br />&gt; &gt; Currently centos (and I assume redhat)=
- is at 4.18. Cake went into 4.19<br />&gt; &gt; so I assume the next major<=
-br />&gt; &gt; redhat/centos releases will have it.<br />&gt; <br />&gt; No=
-te that the RHEL kernel version number is basically a complete<br />&gt; fa=
-brication; it's the version that the kernel was forked from, something<br /=
->&gt; like 30% of all commits are backported for each new upstream release,=
-<br />&gt; without changing the RHEL-kernel version number.<br />&gt; <br /=
->&gt; Which means that all the Cake out-of-tree kernel version compatibilit=
-y<br />&gt; stuff is not going to work, because that works based on the ker=
-nel<br />&gt; version number...<br />&gt; <br />&gt; &gt; Is there a yum/rp=
-m expert in the house? flent does not appear to be<br />&gt; &gt; packaged =
-up for this (?),<br />&gt; <br />&gt; It's in Fedora: https://src.fedorapro=
-ject.org/rpms/flent - should be<br />&gt; fairly straight-forward to add it=
- to EPEL as well, but thus far no one<br />&gt; has requested it... :)<br /=
->&gt; <br />&gt; &gt; neither is netperf or irtt. Is there a repo I could u=
-se?<br />&gt; <br />&gt; netperf is blocked on licensing:<br />&gt; https:/=
-/bugzilla.redhat.com/show_bug.cgi?id=3D1729939<br />&gt; <br />&gt; Since t=
-he re-licensing there may be a chance, but not sure what the<br />&gt; proc=
-edure is when there's not a release with the new license.<br />&gt; <br />&=
-gt; As for irtt, that should be pretty straight-forward to package.<br />&g=
-t; <br />&gt; -Toke<br />&gt; _____________________________________________=
-__<br />&gt; Cake mailing list<br />&gt; Cake@lists.bufferbloat.net<br />&g=
-t; https://lists.bufferbloat.net/listinfo/cake<br />&gt; </p>=0A</div></fon=
-t>
-------=_20210508000500000000_57415--
+<div dir=3D"ltr"><div>I would really like to document how to correctly conf=
+igure AFD, WRED to whatever extent is actually possible</div><div>on high e=
+nd gear like this. Also exploring the l4s classifiers, and whatever else bl=
+oat related on a switch that</div><div>can be tuned. Anyone up for nanog?<b=
+r></div><div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail=
+_attr">---------- Forwarded message ---------<br>From: <b class=3D"gmail_se=
+ndername" dir=3D"auto">Valerie Wittkop</b> <span dir=3D"auto">&lt;<a href=
+=3D"mailto:vwittkop@nanog.org">vwittkop@nanog.org</a>&gt;</span><br>Date: W=
+ed, May 12, 2021 at 6:23 AM<br>Subject: NANOG Hackathon Alumnus<br>To: Dave=
+ Taht &lt;<a href=3D"mailto:dave.taht@gmail.com">dave.taht@gmail.com</a>&gt=
+;<br></div><br><br><div dir=3D"auto" style=3D"word-wrap:break-word;line-bre=
+ak:after-white-space"><div dir=3D"auto" style=3D"word-wrap:break-word;line-=
+break:after-white-space"><div dir=3D"auto" style=3D"word-wrap:break-word;li=
+ne-break:after-white-space"><div style=3D"line-height:1.38;margin-top:0pt;m=
+argin-bottom:0pt"><span style=3D"font-size:9pt;color:rgb(0,0,0);font-varian=
+t-ligatures:normal;font-variant-east-asian:normal;vertical-align:baseline;w=
+hite-space:pre-wrap"><font face=3D"Montserrat-Regular">Hello Dave!</font></=
+span></div><font face=3D"Montserrat-Regular"><br></font><div style=3D"line-=
+height:1.38;margin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:9pt;=
+color:rgb(0,0,0);font-variant-ligatures:normal;font-variant-east-asian:norm=
+al;vertical-align:baseline;white-space:pre-wrap"><font face=3D"Montserrat-R=
+egular">The </font><a href=3D"https://nanog-dot-yamm-track.appspot.com/Redi=
+rect?ukey=3D1iC9yJseDPlEsi3ZBxV_kJjOPzZRszGTgFU8ccgLhuYA-0&amp;key=3DYAMMID=
+-25813685&amp;link=3Dhttps%3A%2F%2Fwww.nanog.org%2Fevents%2Fn82-hackathon%2=
+F" target=3D"_blank">NANOG 82 Virtual Hackathon</a><font face=3D"Montserrat=
+-Regular"> will take place June 12-13. Because you=E2=80=99ve participated =
+in the past, I=E2=80=99m writing with the hope that you will participate ag=
+ain. We=E2=80=99re looking not only for coders, but also group leaders and =
+mentors who can help all participants.</font></span></div><font face=3D"Mon=
+tserrat-Regular"><br></font><div style=3D"line-height:1.38;margin-top:0pt;m=
+argin-bottom:0pt"><font face=3D"Montserrat-Regular"><span style=3D"font-siz=
+e:9pt;color:rgb(0,0,0);font-variant-ligatures:normal;font-variant-east-asia=
+n:normal;vertical-align:baseline;white-space:pre-wrap">The central theme of=
+ this hackathon is Interacting with APIs, but there is no prescribed proble=
+m to solve. Instead, all participants are invited to tap into their creativ=
+ity and work on a passion project, or simply learn something new. We welcom=
+e people of all skill levels, and we have resources to help the most inexpe=
+rienced. Participation is free, and you don=E2=80=99t need to register for =
+the NANOG 82 Virtual conference in order to participate. </span></font></di=
+v><div style=3D"line-height:1.38;margin-top:0pt;margin-bottom:0pt"><font fa=
+ce=3D"Montserrat-Regular"><span style=3D"font-size:9pt;color:rgb(0,0,0);fon=
+t-variant-ligatures:normal;font-variant-east-asian:normal;vertical-align:ba=
+seline;white-space:pre-wrap"><br></span></font></div><div style=3D"line-hei=
+ght:1.38;margin-top:0pt;margin-bottom:0pt"><div style=3D"line-height:1.38;m=
+argin-top:0pt;margin-bottom:0pt"><font face=3D"Montserrat-Regular"><span st=
+yle=3D"font-size:9pt;font-variant-ligatures:normal;font-variant-east-asian:=
+normal;vertical-align:baseline;white-space:pre-wrap">We have a new and impr=
+oved registration system where you can </span></font><a href=3D"https://nan=
+og-dot-yamm-track.appspot.com/Redirect?ukey=3D1iC9yJseDPlEsi3ZBxV_kJjOPzZRs=
+zGTgFU8ccgLhuYA-0&amp;key=3DYAMMID-25813685&amp;link=3Dhttps%3A%2F%2Fwww.na=
+nog.org%2Fevents%2Fn82-hackathon%2Fregistration%2F" target=3D"_blank">regis=
+ter now</a><font face=3D"Montserrat-Regular"><span style=3D"font-variant-li=
+gatures:normal;font-variant-east-asian:normal;vertical-align:baseline"><spa=
+n style=3D"font-size:9pt;white-space:pre-wrap"> for the hackathon.  All you=
+ need is a NANOG Profile, which you can create as part of the registration =
+process if you don</span><span style=3D"white-space:pre-wrap">=E2=80=99</sp=
+an><span style=3D"font-size:9pt;white-space:pre-wrap">t already have one.</=
+span></span></font></div><font face=3D"Montserrat-Regular"></font></div><fo=
+nt face=3D"Montserrat-Regular"><br></font><div style=3D"line-height:1.38;ma=
+rgin-top:0pt;margin-bottom:0pt"><span style=3D"font-size:9pt;color:rgb(0,0,=
+0);font-variant-ligatures:normal;font-variant-east-asian:normal;vertical-al=
+ign:baseline;white-space:pre-wrap"><font face=3D"Montserrat-Regular">I=E2=
+=80=99m happy to answer any questions you have, and we hope to see you in J=
+une!</font></span></div><div><font face=3D"Montserrat-Regular"><br></font><=
+/div><div id=3D"m_-3559747363797344715AppleMailSignature"><br></div><div id=
+=3D"m_-3559747363797344715AppleMailSignature"><div id=3D"m_-355974736379734=
+4715AppleMailSignature">Valerie Wittkop<br>Program Director<br><a href=3D"m=
+ailto:vwittkop@nanog.org" target=3D"_blank">vwittkop@nanog.org</a>=C2=A0|=
+=C2=A0+1 734-730-0225=C2=A0(mobile) |=C2=A0<a href=3D"http://www.nanog.org"=
+ target=3D"_blank">www.nanog.org</a><br>NANOG | 305 E. Eisenhower=C2=A0Pkwy=
+, Suite 100 | Ann Arbor, MI=C2=A048108, USA<br>ASN 19230</div><div><br></di=
+v></div></div></div></div><img src=3D"https://nanog-dot-yamm-track.appspot.=
+com/FireBase?ukey=3D1iC9yJseDPlEsi3ZBxV_kJjOPzZRszGTgFU8ccgLhuYA-0&amp;key=
+=3DYAMMID-25813685" alt=3D"beacon" style=3D"display:none;display:none!impor=
+tant" width=3D"1" height=3D"1">
+</div><br clear=3D"all"><br>-- <br><div dir=3D"ltr" class=3D"gmail_signatur=
+e" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div>Latest Podcast:=
+ <a href=3D"https://www.linkedin.com/feed/update/urn:li:activity:6791014284=
+936785920/" target=3D"_blank">https://www.linkedin.com/feed/update/urn:li:a=
+ctivity:6791014284936785920/</a><br></div><br>Dave T=C3=A4ht CTO, TekLibre,=
+ LLC <br></div></div></div></div>
 
+--0000000000006a1ded05c22261e5--
 
---===============4017127404536653622==
+--===============4906763607146073550==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -175,5 +244,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============4017127404536653622==--
-
+--===============4906763607146073550==--
