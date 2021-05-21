@@ -2,57 +2,86 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 76F1638CA6B
-	for <lists+cake@lfdr.de>; Fri, 21 May 2021 17:51:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F0C7038D1DA
+	for <lists+cake@lfdr.de>; Sat, 22 May 2021 01:11:08 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 230FB3CB39;
-	Fri, 21 May 2021 11:51:10 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 7EFC43CB39;
+	Fri, 21 May 2021 19:11:07 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1621612270;
-	bh=1pMCsldIWb6Bj6F4vkNoRrFkrY+Cv0Bx6vLitVRKJNc=;
-	h=Date:In-Reply-To:References:To:From:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1621638667;
+	bh=80BTE58W7+WemiFy5xBBwujIP8W/eF6oCdhEHa3khjE=;
+	h=From:To:Date:In-Reply-To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 From;
-	b=KGPvCafVO8d6Lqr0LnXy64wPC8ofPKxMv9x0hs1EDDcGLjNmYuW1L1b3IKJ8q2roe
-	 ZWu68Uyrj0aDmbbx1r04AmbJ+ztNNkiijY+kpIU9aJ5aI4FAlrgIVsdlt0qxoTIuCx
-	 jiU6YL4TCUklpau3xRZ99FbtE8dZCw6JD7l2+nXvfVG66wtVPd8sdWDjhTCX6ZbxVY
-	 uX6p+0VsSjGbTxwDbm3KJXqmEMUGMmrfslssFHdXpQEHsyiSmhifk32TK5Ab03EBeg
-	 CDyg1oN1kC5AUbXBshnMYmVRPBCPaiDLlkZPWBn8SS6fd6DzM7FJG+2yIvNy8pF4nX
-	 X+h2VkwIotAVg==
+	b=pcX5HLJ86zV7mypnRwB6XzrMGxlZ+sQr5jBQBJroEizEzXmUSMOr7d9UP2z3Fg7yI
+	 rayXnZId3n8gCWoqdt0oJCcAuVugNNlSrmUq+4OQTH3GOR+wTuUC1k18ERZNTFDTf2
+	 nmOBadGYvxsNcv3xSzSCzXpAuQcQRiy1xAWiEXNrWdLL5+GKZI0/+6cDB9ByxQbKGA
+	 AKXctdhQOm+RpgnJKT/EdQSfvgyotBDQOhL3BLiW0bLWiRMWSnXRJCrtv1mFRMafkU
+	 lxg/9BYlEVeH4yv4cJqFHQXNnA0UQnjPBEUueJON4FbCbUKxaxos3RixIqI3LzT3xI
+	 8JNYX3FIqtUgg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from relay9-d.mail.gandi.net (relay9-d.mail.gandi.net
- [217.70.183.199])
+Received: from out4-smtp.messagingengine.com (out4-smtp.messagingengine.com
+ [66.111.4.28])
  (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id DEC473CB35
- for <cake@lists.bufferbloat.net>; Fri, 21 May 2021 11:51:08 -0400 (EDT)
-Received: (Authenticated sender: jcsmail@sager.me.uk)
- by relay9-d.mail.gandi.net (Postfix) with ESMTPSA id 5EBF7FF802
- for <cake@lists.bufferbloat.net>; Fri, 21 May 2021 15:51:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sager.me.uk; s=gm1;
- t=1621612267;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=pdyZTefi3uKoGaq/2IM3xm+7ueKSCR6zWSUZits1Iug=;
- b=ESy54XRdH9RLswRBe5rcRx3WzxOAdfe3b6syE0+BppkTXScUoSFs3JMZjISbz4sA+pYlVp
- Av4Mm+btR/gVV9mGKadHVMwlrTR/BhN++XLQwUYAuP4n9XRqrIILMMz1ofBQVhGkcPLZXr
- FwfJwQUqQ8dNNrzFAzWzLJCBRZVavuOxZbdXrTMkOPGjyrhdCSe2Ce7rGzF4cKlbPTYcVv
- isbIZG4J51xJbxsYuzhOFjrrprdSjLqS6Ox6FkgpGNc0kIB3CqYyWF2wsFT9xzzSAsC7WR
- KR/xoMrLrvIt3dWiVImKn9wQ69HeH0rg9crhfMryP/1qvFNEbMgVlO3TvqMaPw==
-Received: from [192.168.240.4] by mainserver.wc with esmtp (Exim 4.93)
- (envelope-from <john@sager.me.uk>) id 1lk7QY-0015PT-ER
- for cake@lists.bufferbloat.net; Fri, 21 May 2021 16:51:06 +0100
-Date: Fri, 21 May 2021 16:51:04 +0100
-User-Agent: K-9 Mail for Android
-In-Reply-To: <91d484ec338c58f622c25285bf4ff8658fde4a03.camel@lochnair.net>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id B77B53CB35
+ for <cake@lists.bufferbloat.net>; Fri, 21 May 2021 19:11:05 -0400 (EDT)
+Received: from compute6.internal (compute6.nyi.internal [10.202.2.46])
+ by mailout.nyi.internal (Postfix) with ESMTP id 9A92E5C00E4;
+ Fri, 21 May 2021 19:11:05 -0400 (EDT)
+Received: from mailfrontend1 ([10.202.2.162])
+ by compute6.internal (MEProxy); Fri, 21 May 2021 19:11:05 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lochnair.net; h=
+ message-id:subject:from:to:date:in-reply-to:references
+ :content-type:mime-version:content-transfer-encoding; s=fm3; bh=
+ MTUVrnVaH7unvRLFpDg+/Tumr2E/ERSP1SOa0+rbdtY=; b=BbV54lnHKLPxgQHh
+ chRPWOVdoDS4C1nk0YShtqgWipZ+8zQAs5+CPvX/1mA5yqYq9kcRZH0iMS47cEnA
+ bJI7appiHI4dJHaOtYNpRrDRo97AHswTwqmFfwrL7J3bJ0cwoojAj9mUFbTtubFp
+ icF4+VEww0NH79dhF3rAq4SXPpm2Z3Cdt7mfwHsC7mMf3D/mOutr88t8W6FvAxTe
+ F3IlFYc+Qgm9/MVA2p0rcJkCJdzOs8Wqx7e51/8drb/5C39tUx0nQcZTDvmz732L
+ cM5/H90dm09heQFn9tNjnBJWI1YXKnZlRz16kxLZR3oK/sw8iOnS6AFy/1CR8Ux6
+ c+AvlA==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+ messagingengine.com; h=content-transfer-encoding:content-type
+ :date:from:in-reply-to:message-id:mime-version:references
+ :subject:to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender
+ :x-sasl-enc; s=fm2; bh=MTUVrnVaH7unvRLFpDg+/Tumr2E/ERSP1SOa0+rbd
+ tY=; b=UlJ070sIlAYs5OftSEWr19ZrDBEw5WvxzNaWQnBZRyJ0aSQa17roM3GSg
+ vV9ssi8Zrms9h2HTaHCtdXz7VGuz7R44hGIOuyLmWKyS+X/AJZ8S5ea8i3yEY7G9
+ zlgrjOHmU35mcDjentfCZWBTAZZLlIKdiLUqYIhL91Ni0ORhqogcNaaMgQGZclBv
+ lqGiY596c/5vnz/LeXAVNh0aTdEmQIwdlUOd0zn2RLypXKYUf7VKZ7qe8NK0ggTt
+ CrQSw8gMe8LpgRZGk2WPTzX1qSiBKyjlNCPQff0sq7fQohu9cOunl073YoaeedvH
+ LA09PFYy6pkntU6r59EGl8qjtYtRQ==
+X-ME-Sender: <xms:CD6oYATyGXW0ctFhN6P1DS4k_3FftqatHzvNcIOyKz2DUv4qtR4f5A>
+ <xme:CD6oYNy_IQfhYsQQNXrB6LripKFBwxym7Png9PhJCjt_iGqEVy7A4wr0aFgHEP17I
+ 9agG7gUKyOnJb1z_g>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeduledrvdejgedgudelucetufdoteggodetrfdotf
+ fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
+ uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
+ cujfgurhepkffuhffvffgjfhgtfggggfesthejredttderjeenucfhrhhomheppfhilhhs
+ ucetnhgurhgvrghsucfuvhgvvgcuoehmvgeslhhotghhnhgrihhrrdhnvghtqeenucggtf
+ frrghtthgvrhhnpefhudetveehgeeigeeggfdtueefleeuffevteelffejgeehleetieet
+ geekudejvdenucffohhmrghinhepghhithhhuhgsrdgtohhmpdgsuhhffhgvrhgslhhorg
+ htrdhnvghtnecukfhppedukeehrddujeehrdehiedrvdehfeenucevlhhushhtvghrufhi
+ iigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpehmvgeslhhotghhnhgrihhrrdhnvg
+ ht
+X-ME-Proxy: <xmx:CD6oYN2w7vnAokP5vmk9DlG7qAMnxdbWWh_yC5u_DQYVSRurxU0cwQ>
+ <xmx:CD6oYEBIJ9Rb7dd-dO6NSFOvQVq_f67UH5Lnj-k-v3Mc8y3L4Du9ig>
+ <xmx:CD6oYJgH5_ari8wuZgSFBvkOViA64mijBASQXRNx-h0NUdRmC0pYbg>
+ <xmx:CT6oYDeSE7CB8fWIT0ATDR0IXMr70kkUvgGdbxBatc-ziS9VmuOesA>
+Received: from [192.168.137.175] (gate.sveet.no [185.175.56.253])
+ by mail.messagingengine.com (Postfix) with ESMTPA;
+ Fri, 21 May 2021 19:11:02 -0400 (EDT)
+Message-ID: <b5d106b60aaa344b3cd71492fdfea92c14d212c3.camel@lochnair.net>
+From: Nils Andreas Svee <me@lochnair.net>
+To: John Sager <john@sager.me.uk>, cake@lists.bufferbloat.net
+Date: Sat, 22 May 2021 01:10:54 +0200
+In-Reply-To: <2BB2622F-69F0-4ED3-9A85-3FF96D618F21@sager.me.uk>
 References: <91d484ec338c58f622c25285bf4ff8658fde4a03.camel@lochnair.net>
+ <2BB2622F-69F0-4ED3-9A85-3FF96D618F21@sager.me.uk>
+User-Agent: Evolution 3.40.1 
 MIME-Version: 1.0
-To: cake@lists.bufferbloat.net
-From: John Sager <john@sager.me.uk>
-Message-ID: <2BB2622F-69F0-4ED3-9A85-3FF96D618F21@sager.me.uk>
 Subject: Re: [Cake] CAKE host isolation modes with NAT - two routers
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -65,112 +94,56 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============3856031180653981180=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============3856031180653981180==
-Content-Type: multipart/alternative; boundary="----7NZCDA9LHC44LRE2S44V7V0QRBNSWA"
-Content-Transfer-Encoding: 7bit
-
-------7NZCDA9LHC44LRE2S44V7V0QRBNSWA
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-I did something similar some years ago in an attempt to divine video server=
-s (eg YouTube) from their TLS certificates in Https connections to mark the=
- connection appropriately=2E The nfqueue stuff worked beautifully, the cert=
- stuff less so, so I abandoned it=2E With the latest TLS version the cert s=
-tuff is no longer visible anyway=2E
-
-There is a Python binding to libnetfilter_queue  which might make it easie=
-r to play quickly=2E
-
-regards,
-John
-
-
-On 20 May 2021 17:07:43 BST, Nils Andreas Svee <me@lochnair=2Enet> wrote:
->Hi folks
->
->Currently my setup looks something like this: LAN <-> EdgeRouter <->
->WireGuard <-> VPS <-> Internet=2E
->
->CAKE for upstream is running on the EdgeRouter and downstream on the
->VPS=2E
->
->The public IPs are all on the VPS per today, so that the host isolation
->can do its job with NAT enabled=2E
->
->Ideally I'd like to route the public IPs to each endpoint and handle
->NAT-ing there, but then I'd obviously lose the ability to do proper
->host isolation=2E
->
->Now, I've been toying with the idea of using an userspace application
->to extract conntrack information, to let the VPS know which host hash
->it should use=2E
->
->I might be way of here, but I'm thinking of using NFQUEUE to mark new
->flows based on information from the EdgeRouter, and let tc filters set
->the host hash based on that mark=2E For performance purposes only send
->unmarked flows to NFQUEUE=2E
->
->I realise this is kinda overkill, but it might we a fun weekend
->project=2E
->
->--=20
->Best Regards,
->Nils
->
->_______________________________________________
->Cake mailing list
->Cake@lists=2Ebufferbloat=2Enet
->https://lists=2Ebufferbloat=2Enet/listinfo/cake
-
---=20
-Sent from the Aether=2E
-------7NZCDA9LHC44LRE2S44V7V0QRBNSWA
-Content-Type: text/html;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-<html><head></head><body>I did something similar some years ago in an attem=
-pt to divine video servers (eg YouTube) from their TLS certificates in Http=
-s connections to mark the connection appropriately=2E The nfqueue stuff wor=
-ked beautifully, the cert stuff less so, so I abandoned it=2E With the late=
-st TLS version the cert stuff is no longer visible anyway=2E<br><br>There i=
-s a Python binding to libnetfilter_queue  which might make it easier to pla=
-y quickly=2E<br><br>regards,<br>John<br><br><br><div class=3D"gmail_quote">=
-On 20 May 2021 17:07:43 BST, Nils Andreas Svee &lt;me@lochnair=2Enet&gt; wr=
-ote:<blockquote class=3D"gmail_quote" style=3D"margin: 0pt 0pt 0pt 0=2E8ex;=
- border-left: 1px solid rgb(204, 204, 204); padding-left: 1ex;">
-<pre class=3D"k9mail">Hi folks<br><br>Currently my setup looks something l=
-ike this: LAN &lt;-&gt; EdgeRouter &lt;-&gt;<br>WireGuard &lt;-&gt; VPS &lt=
-;-&gt; Internet=2E<br><br>CAKE for upstream is running on the EdgeRouter an=
-d downstream on the<br>VPS=2E<br><br>The public IPs are all on the VPS per =
-today, so that the host isolation<br>can do its job with NAT enabled=2E<br>=
-<br>Ideally I'd like to route the public IPs to each endpoint and handle<br=
->NAT-ing there, but then I'd obviously lose the ability to do proper<br>hos=
-t isolation=2E<br><br>Now, I've been toying with the idea of using an users=
-pace application<br>to extract conntrack information, to let the VPS know w=
-hich host hash<br>it should use=2E<br><br>I might be way of here, but I'm t=
-hinking of using NFQUEUE to mark new<br>flows based on information from the=
- EdgeRouter, and let tc filters set<br>the host hash based on that mark=2E =
-For performance purposes only send<br>unmarked flows to NFQUEUE=2E<br><br>I=
- realise this is kinda overkill, but it might we a fun weekend<br>project=
-=2E<br></pre></blockquote></div><br>-- <br>Sent from the Aether=2E</body></=
-html>
-------7NZCDA9LHC44LRE2S44V7V0QRBNSWA--
-
---===============3856031180653981180==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============3856031180653981180==--
+Rm9yIHRoZSB0aW1lIGJlaW5nIHlvdSBfY2FuXyBzdGlsbCBzZWUgd2hhdCBkb21haW4gYSB1c2Vy
+cyBjb25uZWN0aW5nCnRvIG92ZXIgVExTIDEuMyAoYXNzdW1pbmcgRVNOSSBpc24ndCB1c2VkKS4g
+SSB3cm90ZSBhIGlwdGFibGVzIG1vZHVsZQpkb2luZyBqdXN0IHRoYXQgYSBmZXcgeWVhcnMgYWdv
+IFsxXS4gSSBhbHNvIHRveWVkIHdpdGggYSBuZnF1ZXVlCnZlcnNpb24gYSBjb3VwbGUgeWVhcnMg
+YmFjayB3cml0dGVuIGluIEdvIFsyXS4gT2YgY291cnNlLCB3aGVuZXZlciBFU05JCmJlY29tZXMg
+dGhlIG5vcm0gdGhleSdyZSBib3RoIHVzZWxlc3MuCgpPbi10b3BpYzogU28gZmFyIEknbSB0aGlu
+a2luZyBJJ2xsIGhhdmUgdG8gYWRkIG9uZSB0YyBmaWx0ZXIgcGVyIGhvc3QKdG8gZ2V0IHByb3Bl
+ciBpc29sYXRpb24uIE5vdCBzdXJlIGlmIHRoZXJlJ3MgYSBiaWcgZW5vdWdoIHBlcmZvcm1hbmNl
+CmltcGFjdCBieSBhZGRpbmcgYSBmaWx0ZXIgcGVyIGhvc3QgYXQgYm9vdCB0aW1lIHRoYXQgSSBz
+aG91bGQgYWRkIHRoZXNlCmR5bmFtaWNhbGx5IHdoZW4gbmV3IGhvc3RzIHNob3cgdXAuCgpJIGRv
+bid0IGtub3cgdGMgYWxsIHRoYXQgd2VsbCwgYnV0IEkgaW1hZ2luZSB0aGlzJ2xsIGRvIGl0Ogo+
+IHRjIGZpbHRlciBhZGQgZGV2IGV0aDAgcGFyZW50IDE6IGhhbmRsZSA8ZndtYXJrPiBmdyBjbGFz
+c2lkCjxmd21hcms+OjAKClsxXTogaHR0cHM6Ly9naXRodWIuY29tL0xvY2huYWlyL3h0X3Rscwpb
+Ml06IGh0dHBzOi8vZ2l0aHViLmNvbS9Mb2NobmFpci9uZnEtdGxzCgotLSAKQmVzdCBSZWdhcmRz
+LApOaWxzCgpPbiBGcmksIDIwMjEtMDUtMjEgYXQgMTY6NTEgKzAxMDAsIEpvaG4gU2FnZXIgd3Jv
+dGU6Cj4gSSBkaWQgc29tZXRoaW5nIHNpbWlsYXIgc29tZSB5ZWFycyBhZ28gaW4gYW4gYXR0ZW1w
+dCB0byBkaXZpbmUgdmlkZW8KPiBzZXJ2ZXJzIChlZyBZb3VUdWJlKSBmcm9tIHRoZWlyIFRMUyBj
+ZXJ0aWZpY2F0ZXMgaW4gSHR0cHMgY29ubmVjdGlvbnMKPiB0byBtYXJrIHRoZSBjb25uZWN0aW9u
+IGFwcHJvcHJpYXRlbHkuIFRoZSBuZnF1ZXVlIHN0dWZmIHdvcmtlZAo+IGJlYXV0aWZ1bGx5LCB0
+aGUgY2VydCBzdHVmZiBsZXNzIHNvLCBzbyBJIGFiYW5kb25lZCBpdC4gV2l0aCB0aGUgbGF0ZXN0
+Cj4gVExTIHZlcnNpb24gdGhlIGNlcnQgc3R1ZmYgaXMgbm8gbG9uZ2VyIHZpc2libGUgYW55d2F5
+Lgo+IAo+IFRoZXJlIGlzIGEgUHl0aG9uIGJpbmRpbmcgdG8gbGlibmV0ZmlsdGVyX3F1ZXVlIHdo
+aWNoIG1pZ2h0IG1ha2UgaXQKPiBlYXNpZXIgdG8gcGxheSBxdWlja2x5Lgo+IAo+IHJlZ2FyZHMs
+Cj4gSm9obgo+IAo+IAo+IE9uIDIwIE1heSAyMDIxIDE3OjA3OjQzIEJTVCwgTmlscyBBbmRyZWFz
+IFN2ZWUgPG1lQGxvY2huYWlyLm5ldD4gd3JvdGU6Cj4gPiBIaSBmb2xrcwo+ID4gCj4gPiBDdXJy
+ZW50bHkgbXkgc2V0dXAgbG9va3Mgc29tZXRoaW5nIGxpa2UgdGhpczogTEFOIDwtPiBFZGdlUm91
+dGVyIDwtPgo+ID4gV2lyZUd1YXJkIDwtPiBWUFMgPC0+IEludGVybmV0Lgo+ID4gCj4gPiBDQUtF
+IGZvciB1cHN0cmVhbSBpcyBydW5uaW5nIG9uIHRoZSBFZGdlUm91dGVyIGFuZCBkb3duc3RyZWFt
+IG9uIHRoZQo+ID4gVlBTLgo+ID4gCj4gPiBUaGUgcHVibGljIElQcyBhcmUgYWxsIG9uIHRoZSBW
+UFMgcGVyIHRvZGF5LCBzbyB0aGF0IHRoZSBob3N0Cj4gPiBpc29sYXRpb24KPiA+IGNhbiBkbyBp
+dHMgam9iIHdpdGggTkFUIGVuYWJsZWQuCj4gPiAKPiA+IElkZWFsbHkgSSdkIGxpa2UgdG8gcm91
+dGUgdGhlIHB1YmxpYyBJUHMgdG8gZWFjaCBlbmRwb2ludCBhbmQgaGFuZGxlCj4gPiBOQVQtaW5n
+IHRoZXJlLCBidXQgdGhlbiBJJ2Qgb2J2aW91c2x5IGxvc2UgdGhlIGFiaWxpdHkgdG8gZG8gcHJv
+cGVyCj4gPiBob3N0IGlzb2xhdGlvbi4KPiA+IAo+ID4gTm93LCBJJ3ZlIGJlZW4gdG95aW5nIHdp
+dGggdGhlIGlkZWEgb2YgdXNpbmcgYW4gdXNlcnNwYWNlIGFwcGxpY2F0aW9uCj4gPiB0byBleHRy
+YWN0IGNvbm50cmFjayBpbmZvcm1hdGlvbiwgdG8gbGV0IHRoZSBWUFMga25vdyB3aGljaCBob3N0
+IGhhc2gKPiA+IGl0IHNob3VsZCB1c2UuCj4gPiAKPiA+IEkgbWlnaHQgYmUgd2F5IG9mIGhlcmUs
+IGJ1dCBJJ20gdGhpbmtpbmcgb2YgdXNpbmcgTkZRVUVVRSB0byBtYXJrIG5ldwo+ID4gZmxvd3Mg
+YmFzZWQgb24gaW5mb3JtYXRpb24gZnJvbSB0aGUgRWRnZVJvdXRlciwgYW5kIGxldCB0YyBmaWx0
+ZXJzCj4gPiBzZXQKPiA+IHRoZSBob3N0IGhhc2ggYmFzZWQgb24gdGhhdCBtYXJrLiBGb3IgcGVy
+Zm9ybWFuY2UgcHVycG9zZXMgb25seSBzZW5kCj4gPiB1bm1hcmtlZCBmbG93cyB0byBORlFVRVVF
+Lgo+ID4gCj4gPiBJIHJlYWxpc2UgdGhpcyBpcyBraW5kYSBvdmVya2lsbCwgYnV0IGl0IG1pZ2h0
+IHdlIGEgZnVuIHdlZWtlbmQKPiA+IHByb2plY3QuCj4gCj4gX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KPiBDYWtlIG1haWxpbmcgbGlzdAo+IENha2VAbGlz
+dHMuYnVmZmVyYmxvYXQubmV0Cj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGlu
+Zm8vY2FrZQoKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlz
+dHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
