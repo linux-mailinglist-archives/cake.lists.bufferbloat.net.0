@@ -2,71 +2,72 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 51BDC3BE13F
-	for <lists+cake@lfdr.de>; Wed,  7 Jul 2021 04:53:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 99BB33BE8DE
+	for <lists+cake@lfdr.de>; Wed,  7 Jul 2021 15:36:18 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id A2FEC3CB69;
-	Tue,  6 Jul 2021 22:53:36 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id C77183CB64;
+	Wed,  7 Jul 2021 09:36:16 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1625626416;
-	bh=OFAOwGvOeaWAXf0NsGAbg+ok4zlekCNGioAEdjaSk1U=;
-	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1625664976;
+	bh=EGm8AtZUUFskTE03UR/nzxvB1TLrqvcpV3Lg3WHY1cI=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=ewT9sYWE6LXdRHbUCHdKkd9AshXl/IV712deOkVhPfLO8+LwaWufWst2jtfZW8a2M
-	 AcA8SXlV1+JGU6JGdjaFk6J4GdH/bvSxpf2uUQP1+ZuaVroUD7zOUPlmBXvmo1+F0z
-	 GOQae+CSxzmrIB4R/byPNMZ/5NWeEeMsG+cnrTt4VC5tIJXS3lzgVvChHVlUyYDtkV
-	 UTaWMwRluyDA19JZDPEVzFW26DX+O6wTHHB5poESSam3okppd/Pu9VOSUWYD3vuC3s
-	 ZEszKBX4f4otnOOdw3uWaaRus5U3Bm0NPMibYNmH+gbDBePzaSORBnMckWqE0NAcR4
-	 oZkfjl94rpGlw==
+	b=DTHtl1F5ICFB6Lz8n+zo05zPWU967zI03plA52M+JmnLtkbEwZEVh2y2NGre07yry
+	 nuXA7ei5QHVVJ8fSqogmD5G1hgHviHzwhoGanYXwcvk7/DS79HxmWyWfmPHZNP6nCB
+	 cQbjgRS+7yQ/5O6jPbhQ0XDfmc/5l9rcMWH4MfRcAHeTnSr5OcMHRqtL8pOCqMGLbB
+	 U6XlQDBhLPpzsjDRjQwy3YEF2sdleBUHscWxt/z9cd2s1oSEHVdANsiaqkP310NR00
+	 zVHrn0AD1VjyWb4QPCAXseSo7Fx/L28+QIDL/iI4mLOSmDHVzUIZunnznCVzfk8gh3
+	 ncbjCGytmCteg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ej1-x633.google.com (mail-ej1-x633.google.com
- [IPv6:2a00:1450:4864:20::633])
+Received: from dispatch1-us1.ppe-hosted.com (dispatch1-us1.ppe-hosted.com
+ [67.231.154.183])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 163AE3CB46;
- Tue,  6 Jul 2021 22:53:35 -0400 (EDT)
-Received: by mail-ej1-x633.google.com with SMTP id c17so821655ejk.13;
- Tue, 06 Jul 2021 19:53:35 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=I2mzFdAlh0FBIbYxN0n1fRzkkz9Kpz3gd19hjoPuCk0=;
- b=MkiTrLvQa7jjnkOBpDoSwwyXoKrQOGcg5L2PId5zsn3sKIWDcu/NbZoBZE5IdXfVBt
- aarXktgGZyFr81J38EonbcvTe0Hw03NYFaOIaeKt4NqguIE65fbW5yI9yY4+5KZOHmmP
- /thQAJEqCex4cDPeI169v7E3lTilN4E+LY6R9nYuCrrPUkmQ3BSiZC6SuNf+xYV+W4/9
- WIoaKhdsSTGo33AaI/l56YHYveAjJU26mk9bgmOiI8PocZ/4hq4hW7czurpJHVAIAQ4i
- Qi3DgoZniobzl0wo03wEMLbwxb8rxn5br+0003tgSFBh3a4oDDP34SdgaGumvPrb2Qt9
- Dnvw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=I2mzFdAlh0FBIbYxN0n1fRzkkz9Kpz3gd19hjoPuCk0=;
- b=EZ+Sdie/J6UcUA+X+nsUn7lEYOk/CnrzwH2wy/85h6j2oNUEUXUfyvCqCstVfvCUx2
- nS54AuNZthgVXKqdonaW0oS0Pj4pG/stI01JPqrv+3VvueZVgejZmpkIHkOhaG2lU5S9
- wP5IfQ8NDPDeLYuwmyTfNwUqnR/9sKUTDzDy9PTshNj0ZAtEV2rol4RwXl3PxFU9Ee0z
- U+4iWsNGxlPS91GP/zL+OMonP4EeuqyrVI/Q6iR8JYzxvAYz1ylu6NDhu/5U1evg0Oyg
- wGKHKG+78YBzX1UQ3jfYVFWysJeVCsWJpaF7veqV6a+m8obxZ/IuZLJ2TuIrqLR7u8Ox
- ub7A==
-X-Gm-Message-State: AOAM530Ua3j99nXlBzapT6aV8U6kgiN6NXZhfPBw/n3g97rTAW9lx5Dv
- SI8aIx6H8LAF7zorES10+P88dJMed/Lvw+twMEU=
-X-Google-Smtp-Source: ABdhPJxKEm+MP8hg4T9o+VEv/lzZZ7FvlA0E8FQaFLqU6N5ICMmwaMuND35aJhHA2MoNmq9C37TO1QT/vkQJM1tPGCw=
-X-Received: by 2002:a17:906:1704:: with SMTP id
- c4mr22150996eje.182.1625626413957; 
- Tue, 06 Jul 2021 19:53:33 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 390563B29E;
+ Wed,  7 Jul 2021 09:36:15 -0400 (EDT)
+X-Virus-Scanned: Proofpoint Essentials engine
+Received: from mx1-us1.ppe-hosted.com (unknown [10.110.51.26])
+ by mx1-us1.ppe-hosted.com (PPE Hosted ESMTP Server) with ESMTPS id 148011A0071;
+ Wed,  7 Jul 2021 13:36:14 +0000 (UTC)
+Received: from mail3.candelatech.com (mail2.candelatech.com [208.74.158.173])
+ by mx1-us1.ppe-hosted.com (PPE Hosted ESMTP Server) with ESMTP id
+ 338C7940084; Wed,  7 Jul 2021 13:36:13 +0000 (UTC)
+Received: from [192.168.254.6] (unknown [50.34.183.227])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail3.candelatech.com (Postfix) with ESMTPSA id E195713C2B1;
+ Wed,  7 Jul 2021 06:35:58 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail3.candelatech.com E195713C2B1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=candelatech.com;
+ s=default; t=1625664960;
+ bh=/R4agst0G1rHgy5B7j9NDrLvUKkVeU1l43nQqPZ6NMU=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=p/KTte9PG2OGfNgLubNCM8pj+ngNxR6snfwCYMFsIZX567Rh/NW9JOsA8ilwXOt+R
+ rHdKopJnh1Bpcl0IwMpNymaubQSgScsMzP4yCZcL5WveUfASvbzeWPORqUik/EGMvc
+ 0wTaesToNx74rBPG5s23xB2GsddudOap6sV4a/nE=
+To: Bob McMahon <bob.mcmahon@broadcom.com>
+References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
+ <1625188609.32718319@apps.rackspace.com>
+ <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>
+ <CAHb6LvrjgKnfe_jaGgx7_B1VDTkZfTmP0OyTmxL9ojWoxogrsA@mail.gmail.com>
+ <989de0c1-e06c-cda9-ebe6-1f33df8a4c24@candelatech.com>
+ <CAHb6LvqSkcGZBZ+iHY-g0vSunqe1sFHmvoFXGjWSoYvtwHeHaA@mail.gmail.com>
+ <3acebcdb-b422-5a4b-cad2-d50f71de357e@candelatech.com>
+ <CAHb6LvodW0WNeHAfRHLB6NhDT6+maWVnoR14+setpzCWnwiPTQ@mail.gmail.com>
+From: Ben Greear <greearb@candelatech.com>
+Organization: Candela Technologies
+Message-ID: <4dc67b76-81f2-a37a-f58c-1a16d37cd5e5@candelatech.com>
+Date: Wed, 7 Jul 2021 06:34:06 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
+ Thunderbird/78.8.1
 MIME-Version: 1.0
-References: <20210621210048.628befdb@hermes.local>
- <38CC4C4D-AE42-4629-8472-16BCC0DEAFEA@gmx.de>
- <2dbdf457-5652-6b74-7014-3bf79dde6bc9@gmx.com>
- <CALQXh-OwnqcFBhx+uy9_83eHF3Xh3iAsNkDyFN+TOH_KJBTVvg@mail.gmail.com>
- <CAA93jw4B70qXxKyQ9QorPHsMFzoLtkrxJzyAWHHoicTEepJQOw@mail.gmail.com>
-In-Reply-To: <CAA93jw4B70qXxKyQ9QorPHsMFzoLtkrxJzyAWHHoicTEepJQOw@mail.gmail.com>
-From: Aaron Wood <woody77@gmail.com>
-Date: Tue, 6 Jul 2021 19:53:22 -0700
-Message-ID: <CALQXh-PxiLgDRN-8t3EXhz0npXYXmTiU15uNxzT32jgMUHK3Hw@mail.gmail.com>
-To: Dave Taht <dave.taht@gmail.com>
-Subject: Re: [Cake] [Bloat] Really getting 1G out of ISP?
+In-Reply-To: <CAHb6LvodW0WNeHAfRHLB6NhDT6+maWVnoR14+setpzCWnwiPTQ@mail.gmail.com>
+Content-Language: en-MW
+X-MDID: 1625664974-Z70Jk3X-yGgo
+Subject: Re: [Cake] [Starlink] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2:
+ Internet Quality workshop CFP for the internet architecture board
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -79,415 +80,431 @@ List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>,
- Giuseppe De Luca <dropheaders@gmx.com>, bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============7679210745926935381=="
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ starlink@lists.bufferbloat.net, codel@lists.bufferbloat.net,
+ cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============7679210745926935381==
-Content-Type: multipart/alternative; boundary="000000000000f1041c05c67fa4d1"
-
---000000000000f1041c05c67fa4d1
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-On Tue, Jul 6, 2021 at 7:26 PM Dave Taht <dave.taht@gmail.com> wrote:
-
-> On Tue, Jul 6, 2021 at 3:32 PM Aaron Wood <woody77@gmail.com> wrote:
-> >
-> > I'm running an Odyssey from Seeed Studios (celeron J4125 with dual
-> i211), and it can handle Cake at 1Gbps on a single core (which it needs t=
-o,
-> because OpenWRT's i211 support still has multiple receive queues disabled=
-).
->
-> Not clear if that is shaped or not? Line rate is easy on processors of
-> that class or better, but shaped?
->
-
-That's shaped.  I can shape 800+, and the kernel ramps the clock rate up to
-2.5GHz as needed, IIRC.  I'm guessing that it might thermally limit at some
-point, but I haven't had sustained >500Mbps traffic for long enough to
-really exercise that.  Although the covid WFH and has definitely increased
-the likelihood that I'm hitting >500Mbps downloads.
-
-
-> some points:
->
-> On inbound shaping especially it it still best to lock network traffic
-> to a single core in low end platforms.
->
-> Cake itself is not multicore, although the design essentially is. We
-> did some work towards trying to make it shape across multiple cores
-> and multiple hardware queues. IF the locking contention could be
-> minimized (RCU) I felt it possible for a win here, but a bigger win
-> would be to eliminate "mirred" from the ingress path entirely.
->
-
-I was going to play around with shaping to lower levels across multiple
-cores, as many of the loads I deal with are multi-stream, but I always
-worry about the ack path, as the provisioned rates are so asymmetric
-(35Mbps up).  I'm using `ack-filter-aggressive` on egress to help.  I've
-found that the most aggressive ack filtering seems to hurt throughput.
-
-
-
-
->
-> Even multiple transmit queues remains kind of dicy in linux, and
-> actually tend to slow network processing in most cases I've tried at
-> gbit line rates. They also add latency, as (1) BQL is MIAD, not AIMD,
-> so it stays "stuck" at a "good" level for a long time, AND 2) each hw
-> queue gets an additive fifo at this layer, so where, you might need
-> only 40k to keep a single hw queue busy, you end up with 160k with 4
-> hw queues. This problem is getting worse and worse (64 queues are
-> common in newer hardware, 1000s in really new hardware) and a revisit
-> to how BQL does things in this case would be useful. Ideally it would
-> share state (with a cross core variable and atomic locks) as to how
-> much total buffering was actually needed "down there" across all the
-> queues, but without trying it, I worry that that would end up costing
-> a lot of cpu cycles.
->
-> Feel free to experiment with multiple transmit queues locked to other
-> cores with the set-affinity bits in /proc/interrupts. I'm sure these
-> MUST be useful on some platform, but I think most of the use for
-> multiple hw queues is when a locally processing application  is
-> getting the data, not when it is being routed.
->
-> Ironically, I guess, the shorter your queues the higher likelihood a
-> given packet will remain in l2 or even l1 cache.
->
-
-I'm pinning all the queues to cores.  Although I've pinned rx/tx for the
-same interface to the same cores, with cores 0-1 doing LAN and 2-3 doing
-WAN duties...  I may try matching flow directions per core (rx WAN and tx
-LAN on the same core).
-
-One separate reason to set affinity on startup is that the reshuffling that
-the kernel tries to do will cause things to stumble as the caches all miss.
-
-The note about BQL is interesting...  Is that actually configurable (I
-haven't gone looking, before).
-
-OTOH, I've hit a point where trying to squeeze the most out of it just
-doesn't seem necessary.  When I was bench-testing it (with local traffic
-generation), I could saturate wire rates in both directions with cake
-running, and limiting.  So...  Not much of a worry there.  But it's still
-inconsistent on live traffic and with a real internet.  I'm not sure if
-that is due to the dynamic frequency scaling, or just congestion at the
-head-end, or what.
-
-I was going to start a separate thread, but I've been contemplating what
-measurements and stats I can long-term monitor to understand the
-intermittent stumbles and hangs that I see.  I'm fairly certain that
-they're in the "It can't be DNS....  ::sigh:: It's always DNS...."
-category, though.  And if that's the case, I should just log all the
-queries and look at the response times.  It seems to be marginally better
-with dns-over-https (doing happy-eyeballs-like concurrent requests across
-google and cloudflare), but I can't be certain.
-
-
-
-> I
-> >
-> > On Tue, Jun 22, 2021 at 12:44 AM Giuseppe De Luca <dropheaders@gmx.com>
-> wrote:
-> >>
-> >> Also a PC Engines APU4 will do the job
-> >> (https://inonius.net/results/?userId=3D17996087f5e8 - this is a
-> >> 1gbit/1gbit, with Openwrt/sqm-scripts set to 900/900.  ISP is Sony NUR=
-O
-> >> in Japan). Will follow this thread to know if some interesting device
-> >> popup :)
-> >>
-> >>
-> >> https://inonius.net/results/?userId=3D17996087f5e8
-> >>
-> >> On 6/22/2021 6:12 AM, Sebastian Moeller wrote:
-> >> >
-> >> > On 22 June 2021 06:00:48 CEST, Stephen Hemminger <
-> stephen@networkplumber.org> wrote:
-> >> >> Is there any consumer hardware that can actually keep up and do AQM
-> at
-> >> >> 1Gbit.
-> >> >          Over in the OpenWrt forums the same question pops up
-> routinely once per week. The best answer ATM seems to be a combination of=
- a
-> raspberry pi4B with a decent USB3 gigabit ethernet dongle, a managed swit=
-ch
-> and any capable (OpenWrt) AP of the user's liking. With 4 arm A72 cores t=
-he
-> will traffic shape up to a gigabit as reported by multiple users.
-> >> >
-> >> >
-> >> >> It seems everyone seems obsessed with gamer Wifi 6. But can only do
-> >> >> 300Mbit single
-> >> >> stream with any kind of QoS.
-> >> > IIUC most commercial home routers/APs bet on offload engines to do
-> most of the heavy lifting, but as far as I understand only the NSS cores
-> have a shaper and fq_codel module....
-> >> >
-> >> >
-> >> >> It doesn't help that all the local ISP's claim 10Mbit upload even
-> with
-> >> >> 1G download.
-> >> >> Is this a head end provisioning problem or related to Docsis 3.0 (o=
-r
-> >> >> later) modems?
-> >> > For DOCSIS the issue seems to be an unfortunate frequency split
-> between up and downstream and use of lower efficiency coding schemes .
-> >> > Over here the incumbent cable isp provisions  fifty Mbps for upstrea=
-m
-> and plans to increase that to hundred once the upstream is switched to
-> docsis 3.1.
-> >> > I believe one issue is that since most of the upstream is required
-> for the reverse ACK traffic for the download and hence it can not be
-> oversubscribed too much.... but I think we have real docsis experts on th=
-e
-> list, so I will stop my speculation here...
-> >> >
-> >> > Regards
-> >> >           Sebastian
-> >> >
-> >> >
-> >> >
-> >> >
-> >> >> _______________________________________________
-> >> >> Bloat mailing list
-> >> >> Bloat@lists.bufferbloat.net
-> >> >> https://lists.bufferbloat.net/listinfo/bloat
-> >> _______________________________________________
-> >> Bloat mailing list
-> >> Bloat@lists.bufferbloat.net
-> >> https://lists.bufferbloat.net/listinfo/bloat
-> >
-> > _______________________________________________
-> > Bloat mailing list
-> > Bloat@lists.bufferbloat.net
-> > https://lists.bufferbloat.net/listinfo/bloat
->
->
->
-> --
-> Latest Podcast:
-> https://www.linkedin.com/feed/update/urn:li:activity:6791014284936785920/
->
-> Dave T=C3=A4ht CTO, TekLibre, LLC
->
-
---000000000000f1041c05c67fa4d1
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div dir=3D"ltr"><br></div><br><div class=3D"gmail_quote">=
-<div dir=3D"ltr" class=3D"gmail_attr">On Tue, Jul 6, 2021 at 7:26 PM Dave T=
-aht &lt;<a href=3D"mailto:dave.taht@gmail.com">dave.taht@gmail.com</a>&gt; =
-wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0=
-px 0.8ex;border-left-width:1px;border-left-style:solid;border-left-color:rg=
-b(204,204,204);padding-left:1ex">On Tue, Jul 6, 2021 at 3:32 PM Aaron Wood =
-&lt;<a href=3D"mailto:woody77@gmail.com" target=3D"_blank">woody77@gmail.co=
-m</a>&gt; wrote:<br>
-&gt;<br>
-&gt; I&#39;m running an Odyssey from Seeed Studios (celeron J4125 with dual=
- i211), and it can handle Cake at 1Gbps on a single core (which it needs to=
-, because OpenWRT&#39;s i211 support still has multiple receive queues disa=
-bled).<br>
-<br>
-Not clear if that is shaped or not? Line rate is easy on processors of<br>
-that class or better, but shaped?<br></blockquote><div><br></div><div>That&=
-#39;s shaped.=C2=A0 I can shape 800+, and the kernel ramps the clock rate u=
-p to 2.5GHz as needed, IIRC.=C2=A0 I&#39;m guessing that it might thermally=
- limit at some point, but I haven&#39;t had sustained &gt;500Mbps traffic f=
-or long enough to really exercise that.=C2=A0 Although the covid WFH and ha=
-s definitely increased the likelihood that I&#39;m hitting &gt;500Mbps down=
-loads.</div><div>=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"mar=
-gin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-style:solid;border-=
-left-color:rgb(204,204,204);padding-left:1ex">
-some points:<br>
-<br>
-On inbound shaping especially it it still best to lock network traffic<br>
-to a single core in low end platforms.<br>
-<br>
-Cake itself is not multicore, although the design essentially is. We<br>
-did some work towards trying to make it shape across multiple cores<br>
-and multiple hardware queues. IF the locking contention could be<br>
-minimized (RCU) I felt it possible for a win here, but a bigger win<br>
-would be to eliminate &quot;mirred&quot; from the ingress path entirely.<br=
-></blockquote><div><br></div><div>I was going to play around with shaping t=
-o lower levels across multiple cores, as many of the loads I deal with are =
-multi-stream, but I always worry about the ack path, as the provisioned rat=
-es are so asymmetric (35Mbps up).=C2=A0 I&#39;m using `ack-filter-aggressiv=
-e` on egress to help.=C2=A0 I&#39;ve found that the most aggressive ack fil=
-tering seems to hurt throughput.</div><div><br></div><div><br></div><div>=
-=C2=A0</div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0=
-.8ex;border-left-width:1px;border-left-style:solid;border-left-color:rgb(20=
-4,204,204);padding-left:1ex">
-<br>
-Even multiple transmit queues remains kind of dicy in linux, and<br>
-actually tend to slow network processing in most cases I&#39;ve tried at<br=
->
-gbit line rates. They also add latency, as (1) BQL is MIAD, not AIMD,<br>
-so it stays &quot;stuck&quot; at a &quot;good&quot; level for a long time, =
-AND 2) each hw<br>
-queue gets an additive fifo at this layer, so where, you might need<br>
-only 40k to keep a single hw queue busy, you end up with 160k with 4<br>
-hw queues. This problem is getting worse and worse (64 queues are<br>
-common in newer hardware, 1000s in really new hardware) and a revisit<br>
-to how BQL does things in this case would be useful. Ideally it would<br>
-share state (with a cross core variable and atomic locks) as to how<br>
-much total buffering was actually needed &quot;down there&quot; across all =
-the<br>
-queues, but without trying it, I worry that that would end up costing<br>
-a lot of cpu cycles.<br>
-<br>
-Feel free to experiment with multiple transmit queues locked to other<br>
-cores with the set-affinity bits in /proc/interrupts. I&#39;m sure these<br=
->
-MUST be useful on some platform, but I think most of the use for<br>
-multiple hw queues is when a locally processing application=C2=A0 is<br>
-getting the data, not when it is being routed.<br>
-<br>
-Ironically, I guess, the shorter your queues the higher likelihood a<br>
-given packet will remain in l2 or even l1 cache.<br></blockquote><div><br><=
-/div><div>I&#39;m pinning all the queues to cores.=C2=A0 Although I&#39;ve =
-pinned rx/tx for the same interface to the same cores, with cores 0-1 doing=
- LAN and 2-3 doing WAN duties...=C2=A0 I may try matching flow directions p=
-er core (rx WAN and tx LAN on the same core). =C2=A0</div><div><br></div><d=
-iv>One separate reason to set affinity on startup is that the reshuffling t=
-hat the kernel tries to do will cause things to stumble as the caches all m=
-iss.</div><div><br></div><div>The note about BQL is interesting...=C2=A0 Is=
- that actually configurable (I haven&#39;t gone looking, before).</div><div=
-><br></div><div>OTOH, I&#39;ve hit a point where trying to squeeze the most=
- out of it just doesn&#39;t seem necessary.=C2=A0 When I was bench-testing =
-it (with local traffic generation), I could saturate wire rates in both dir=
-ections with cake running, and limiting.=C2=A0 So...=C2=A0 Not much of a wo=
-rry there.=C2=A0 But it&#39;s still inconsistent on live traffic and with a=
- real internet.=C2=A0 I&#39;m not sure if that is due to the dynamic freque=
-ncy scaling, or just congestion at the head-end, or what.</div><div><br></d=
-iv><div>I was going to start a separate thread, but I&#39;ve been contempla=
-ting what measurements and stats I can long-term monitor to understand the =
-intermittent stumbles and hangs that I see.=C2=A0 I&#39;m fairly certain th=
-at they&#39;re in the &quot;It can&#39;t be DNS.... =C2=A0::sigh:: It&#39;s=
- always DNS....&quot; category, though.=C2=A0 And if that&#39;s the case, I=
- should just log all the queries and look at the response times.=C2=A0 It s=
-eems to be marginally better with dns-over-https (doing happy-eyeballs-like=
- concurrent requests across google and cloudflare), but I can&#39;t be cert=
-ain.</div><div><br></div><div>=C2=A0</div><blockquote class=3D"gmail_quote"=
- style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-style:=
-solid;border-left-color:rgb(204,204,204);padding-left:1ex">
-I<br>
-&gt;<br>
-&gt; On Tue, Jun 22, 2021 at 12:44 AM Giuseppe De Luca &lt;<a href=3D"mailt=
-o:dropheaders@gmx.com" target=3D"_blank">dropheaders@gmx.com</a>&gt; wrote:=
-<br>
-&gt;&gt;<br>
-&gt;&gt; Also a PC Engines APU4 will do the job<br>
-&gt;&gt; (<a href=3D"https://inonius.net/results/?userId=3D17996087f5e8" re=
-l=3D"noreferrer" target=3D"_blank">https://inonius.net/results/?userId=3D17=
-996087f5e8</a> - this is a<br>
-&gt;&gt; 1gbit/1gbit, with Openwrt/sqm-scripts set to 900/900.=C2=A0 ISP is=
- Sony NURO<br>
-&gt;&gt; in Japan). Will follow this thread to know if some interesting dev=
-ice<br>
-&gt;&gt; popup :)<br>
-&gt;&gt;<br>
-&gt;&gt;<br>
-&gt;&gt; <a href=3D"https://inonius.net/results/?userId=3D17996087f5e8" rel=
-=3D"noreferrer" target=3D"_blank">https://inonius.net/results/?userId=3D179=
-96087f5e8</a><br>
-&gt;&gt;<br>
-&gt;&gt; On 6/22/2021 6:12 AM, Sebastian Moeller wrote:<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt; On 22 June 2021 06:00:48 CEST, Stephen Hemminger &lt;<a href=
-=3D"mailto:stephen@networkplumber.org" target=3D"_blank">stephen@networkplu=
-mber.org</a>&gt; wrote:<br>
-&gt;&gt; &gt;&gt; Is there any consumer hardware that can actually keep up =
-and do AQM at<br>
-&gt;&gt; &gt;&gt; 1Gbit.<br>
-&gt;&gt; &gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 Over in the OpenWrt forums =
-the same question pops up routinely once per week. The best answer ATM seem=
-s to be a combination of a raspberry pi4B with a decent USB3 gigabit ethern=
-et dongle, a managed switch and any capable (OpenWrt) AP of the user&#39;s =
-liking. With 4 arm A72 cores the will traffic shape up to a gigabit as repo=
-rted by multiple users.<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;&gt; It seems everyone seems obsessed with gamer Wifi 6. But c=
-an only do<br>
-&gt;&gt; &gt;&gt; 300Mbit single<br>
-&gt;&gt; &gt;&gt; stream with any kind of QoS.<br>
-&gt;&gt; &gt; IIUC most commercial home routers/APs bet on offload engines =
-to do most of the heavy lifting, but as far as I understand only the NSS co=
-res have a shaper and fq_codel module....<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;&gt; It doesn&#39;t help that all the local ISP&#39;s claim 10=
-Mbit upload even with<br>
-&gt;&gt; &gt;&gt; 1G download.<br>
-&gt;&gt; &gt;&gt; Is this a head end provisioning problem or related to Doc=
-sis 3.0 (or<br>
-&gt;&gt; &gt;&gt; later) modems?<br>
-&gt;&gt; &gt; For DOCSIS the issue seems to be an unfortunate frequency spl=
-it between up and downstream and use of lower efficiency coding schemes .<b=
-r>
-&gt;&gt; &gt; Over here the incumbent cable isp provisions=C2=A0 fifty Mbps=
- for upstream and plans to increase that to hundred once the upstream is sw=
-itched to docsis 3.1.<br>
-&gt;&gt; &gt; I believe one issue is that since most of the upstream is req=
-uired for the reverse ACK traffic for the download and hence it can not be =
-oversubscribed too much.... but I think we have real docsis experts on the =
-list, so I will stop my speculation here...<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt; Regards<br>
-&gt;&gt; &gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0Sebastian<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt;&gt; _______________________________________________<br>
-&gt;&gt; &gt;&gt; Bloat mailing list<br>
-&gt;&gt; &gt;&gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"=
-_blank">Bloat@lists.bufferbloat.net</a><br>
-&gt;&gt; &gt;&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" =
-rel=3D"noreferrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo=
-/bloat</a><br>
-&gt;&gt; _______________________________________________<br>
-&gt;&gt; Bloat mailing list<br>
-&gt;&gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"_blank">B=
-loat@lists.bufferbloat.net</a><br>
-&gt;&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" rel=3D"no=
-referrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/bloat</a=
-><br>
-&gt;<br>
-&gt; _______________________________________________<br>
-&gt; Bloat mailing list<br>
-&gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"_blank">Bloat=
-@lists.bufferbloat.net</a><br>
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" rel=3D"norefe=
-rrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/bloat</a><br=
->
-<br>
-<br>
-<br>
--- <br>
-Latest Podcast:<br>
-<a href=3D"https://www.linkedin.com/feed/update/urn:li:activity:67910142849=
-36785920/" rel=3D"noreferrer" target=3D"_blank">https://www.linkedin.com/fe=
-ed/update/urn:li:activity:6791014284936785920/</a><br>
-<br>
-Dave T=C3=A4ht CTO, TekLibre, LLC<br>
-</blockquote></div></div>
-
---000000000000f1041c05c67fa4d1--
-
---===============7679210745926935381==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============7679210745926935381==--
+VGhhbmtzIGZvciB0aGUgY2xhcmlmaWNhdGlvbi4gIFRoZXJlIGFyZSB2ZW5kb3JzIHRoYXQgbWFr
+ZSB0aGVzZSwgYnV0IHdlIGhhdmUgbm90IHRyaWVkCmludGVncmF0aW5nIG91ciBzb2Z0d2FyZSBj
+b250cm9sIHdpdGggYW55IG9mIHRoZW0uICBUbyBkYXRlLCBub3QgbWFueSBvZiBvdXIgY3VzdG9t
+ZXJzCmhhdmUgYmVlbiBpbnRlcmVzdGVkIGluIHRoaXMsIHNvIGl0IGRpZCBub3Qgc2VlbSB3b3J0
+aCB0aGUgZWZmb3J0LgoKRG8geW91IHNlZSB0aGlzIGFzIGJlaW5nIHVzZWZ1bCBmb3Igbm9ybWFs
+IEFQIHZlbmRvcnMvdXNlcnMsIG9yIG1vc3RseSBqdXN0IHJhZGlvIG1hbnVmYWN0dXJlcnMgc3Vj
+aAphcyBCQ00/CgpJbiBjYXNlIHNvbWVvbmUgaGFzIG9uZSBvZiB0aGVzZSB0aGF0IGhhcyBhIHNh
+bmUgQVBJLCBJJ2QgY29uc2lkZXIgYWRkaW5nIGF1dG9tYXRpb24gc3VwcG9ydAp0byBkcml2ZSBp
+dCB3aGlsZSBydW5uaW5nIHRocm91Z2hwdXQgb3IgUnZSIG9yIHdoYXRldmVyIG90aGVyIHR5cGVz
+IG9mIHRlc3RzIHNlZW0gaW50ZXJlc3RpbmcuCgpUaGFua3MsCkJlbgoKT24gNy82LzIxIDM6MDUg
+UE0sIEJvYiBNY01haG9uIHdyb3RlOgo+IFNvcnJ5LCBJIHNob3VsZCBoYXZlwqBiZWVuIG1vcmUg
+Y2xlYXIuIE5vdCBhIGZpeGVkIGJ1dGxlciBtYXRyaXggYnV0IGEgZGV2aWNlIHdpdGggc29saWQg
+c3RhdGUsIHByb2dyYW1tYWJsZSwgcGhhc2Ugc2hpZnRlcnMsIDAgLSAzNjAgZGVncmVlcy4gSXQn
+cyBhIHdheSB0byAKPiBjcmVhdGUgbXVsdGlwbGUgcGh5IGNoYW5uZWxzIGFuZCBhZmZlY3QgYW5k
+IHZhcnkgdGhlIG9mZiBkaWFnb25hbCBlbGVtZW50cyBvZiBhIE1JTU8gSC1tYXRyaXggdXNpbmcg
+Y29uZHVjdGVkIHBhcnRzLiBUaGVuIGF1dG9tYXRpb27CoHNvZnR3YXJlIGNhbiBoYXZlIG1vcmUg
+Cj4gcm9idXN0wqBSRiBNSU1PIHRlc3Qgc2NlbmFyaW9zIHRoYXQgYXJlIHJlcHJvZHVjaWJsZS4K
+PiAKPiBodHRwczovL3dlYi5zdGFuZm9yZC5lZHUvfmRudHNlL0NoYXB0ZXJzX1BERi9GdW5kYW1l
+bnRhbHNfV2lyZWxlc3NfQ29tbXVuaWNhdGlvbl9jaGFwdGVyNy5wZGYgCj4gPGh0dHBzOi8vd2Vi
+LnN0YW5mb3JkLmVkdS9+ZG50c2UvQ2hhcHRlcnNfUERGL0Z1bmRhbWVudGFsc19XaXJlbGVzc19D
+b21tdW5pY2F0aW9uX2NoYXB0ZXI3LnBkZj4KPiAKPiBCb2IKPiAKPiBPbiBUdWUsIEp1bCA2LCAy
+MDIxIGF0IDI6MjQgUE0gQmVuIEdyZWVhciA8Z3JlZWFyYkBjYW5kZWxhdGVjaC5jb20gPG1haWx0
+bzpncmVlYXJiQGNhbmRlbGF0ZWNoLmNvbT4+IHdyb3RlOgo+IAo+ICAgICBXZSB0cmllZCBhZGRp
+bmcgaW4gYW4gZXh0ZXJuYWwgYnV0bGVyIG1hdHJpeCBpbiB0aGUgcGFzdCwgYnV0IGNvdWxkIG5v
+dCBub3RpY2UgYW55IHVzZWZ1bCBkaWZmZXJlbmNlLsKgIFBvc3NpYmx5Cj4gICAgIHdlIGRpZG4n
+dCBoYXZlIHRoZSByaWdodCB1c2UgY2FzZS4KPiAKPiAgICAgVHlwaWNhbGx5IHdlIGFyZSBjb21w
+ZXRpdGl2ZSBvbiBwcmljZSBmb3IgZnVsbCB0ZXN0aW5nIHNvbHV0aW9ucywgYnV0IHlvdSBjYW4g
+Z2V0IHN0YW5kLWFsb25lIGF0dGVudWF0b3JzCj4gICAgIGNoZWFwZXIgZnJvbSBzcGVjaWFsaXpl
+ZCB2ZW5kb3JzLsKgIEhhcHB5IHRvIGRpc2N1c3MgcHJpY2luZyBvZmZsaXN0IGlmIHlvdSB3aXNo
+Lgo+IAo+ICAgICBUaGFua3MsCj4gICAgIEJlbgo+IAo+ICAgICBPbiA3LzYvMjEgMTo0MyBQTSwg
+Qm9iIE1jTWFob24gd3JvdGU6Cj4gICAgICA+IFRoZSBmb3VyIHBhcnQgYXR0ZW51YXRvciBwYXJ0
+IHdvdWxkIGJlIG1vcmUgaW50ZXJlc3RpbmcgdG8gbWUgaWYgaXQgYWxzbyBoYWQgYSBzb2xpZMKg
+c3RhdGUgcGhhc2Ugc2hpZnRlcnMuwqAgVGhpcyBhbGxvd3MgZm9yIHRlc3RpbmcgMngyIE1JTU8g
+dGVzdGluZyBwZXIKPiAgICAgID4gYWZmZWN0aW5nIHRoZSBzcGF0aWFsIHN0cmVhbSBlaWdlbiB2
+ZWN0b3JzL3ZhbHVlcy4KPiAgICAgID4KPiAgICAgID4gQm9iCj4gICAgICA+Cj4gICAgICA+IFBT
+LiBUaGUgcHJpY2UgcGVyIHBvcnQgaXNuJ3QgY29tcGV0aXRpdmUuIFByb2JhYmx5IGEgZ29vZCBp
+ZGVhIHRvIHN1cnZleSB0aGUgbWFya2V0IGNvbXBldGl0aW9uLgo+ICAgICAgPgo+ICAgICAgPiBP
+biBUdWUsIEp1bCA2LCAyMDIxIGF0IDY6NDYgQU0gQmVuIEdyZWVhciA8Z3JlZWFyYkBjYW5kZWxh
+dGVjaC5jb20gPG1haWx0bzpncmVlYXJiQGNhbmRlbGF0ZWNoLmNvbT4gPG1haWx0bzpncmVlYXJi
+QGNhbmRlbGF0ZWNoLmNvbQo+ICAgICA8bWFpbHRvOmdyZWVhcmJAY2FuZGVsYXRlY2guY29tPj4+
+IHdyb3RlOgo+ICAgICAgPgo+ICAgICAgPsKgIMKgIMKgSGVsbG8sCj4gICAgICA+Cj4gICAgICA+
+wqAgwqAgwqBJIGFtIGludGVyZXN0ZWQgdG8gaGVhciB3aXNoIGxpc3RzIGZvciBuZXR3b3JrIHRl
+c3RpbmcgZmVhdHVyZXMuwqAgV2UgbWFrZSB0ZXN0IGVxdWlwbWVudCwgc3VwcG9ydGluZyBsb3Rz
+Cj4gICAgICA+wqAgwqAgwqBvZiB3aWZpIHN0YXRpb25zIGFuZCBhIGRpc3RyaWJ1dGVkIGFyY2hp
+dGVjdHVyZSwgd2l0aCBidWlsdC1pbiB1ZHAsIHRjcCwgaXB2NiwgaHR0cCwgLi4uIHByb3RvY29s
+cywKPiAgICAgID7CoCDCoCDCoGFuZCBvcGVuIHRvIGNyZWF0aW5nL2ltcHJvdmluZyBzb21lIG9m
+IG91ciBhdXRvbWF0ZWQgdGVzdHMuCj4gICAgICA+Cj4gICAgICA+wqAgwqAgwqBJIGtub3cgRGF2
+ZSBoYXMgc29tZSB0ZXN0IHNjcmlwdHMgYWxyZWFkeSwgc28gSSdtIG5vdCBuZWNlc3NhcmlseSBs
+b29raW5nIHRvIHJlaW1wbGVtZW50IHRoYXQsCj4gICAgICA+wqAgwqAgwqBidXQgbW9yZSBmaXNo
+aW5nIGZvciBvdGhlci9uZXcgaWRlYXMuCj4gICAgICA+Cj4gICAgICA+wqAgwqAgwqBUaGFua3Ms
+Cj4gICAgICA+wqAgwqAgwqBCZW4KPiAgICAgID4KPiAgICAgID7CoCDCoCDCoE9uIDcvMi8yMSA0
+OjI4IFBNLCBCb2IgTWNNYWhvbiB3cm90ZToKPiAgICAgID7CoCDCoCDCoCA+IEkgdGhpbmsgd2Ug
+bmVlZCB0aGUgbGFuZ3VhZ2XCoG9mIG1hdGggaGVyZS4gSXQgc2VlbXMgbGlrZSB0aGUgbmV0d29y
+ayBwb3dlciBtZXRyaWMsIGludHJvZHVjZWQgYnkgS2xlaW5yb2NrIGFuZMKgSmFmZmUgaW4gdGhl
+IGxhdGUgNzBzLCBpcyBzb21ldGhpbmcKPiAgICAgdXNlZnVsLgo+ICAgICAgPsKgIMKgIMKgID4g
+RWZmZWN0aXZlIGVuZC9lbmQgcXVldWUgZGVwdGhzIHBlciBMaXR0bGUncyBsYXcgYWxzbyBzZWVt
+cyB1c2VmdWwuIEJvdGggYXJlIGF2YWlsYWJsZSBpbiBpcGVyZiAyIGZyb20gYSB0ZXN0IHBlcnNw
+ZWN0aXZlLiBSZXB1cnBvc2luZyB0ZXN0Cj4gICAgIHRlY2huaXF1ZXMgdG8KPiAgICAgID7CoCDC
+oCDCoGFjdHVhbAo+ICAgICAgPsKgIMKgIMKgID4gdHJhZmZpYyBjb3VsZCBiZSB1c2VmdWwuIEhl
+bmNlwqB0aGUgcXVlc3Rpb24gYXJvdW5kIHdoYXQgZXhhY3QgdGVsZW1ldHJ5IGlzIHVzZWZ1bCB0
+byBhcHBzIG1ha2luZyBzb2NrZXQgd3JpdGUoKSBhbmQgcmVhZCgpIGNhbGxzLgo+ICAgICAgPsKg
+IMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+IEJvYgo+ICAgICAgPsKgIMKgIMKgID4KPiAgICAg
+ID7CoCDCoCDCoCA+IE9uIEZyaSwgSnVsIDIsIDIwMjEgYXQgMTA6MDcgQU0gRGF2ZSBUYWh0IDxk
+YXZlLnRhaHRAZ21haWwuY29tIDxtYWlsdG86ZGF2ZS50YWh0QGdtYWlsLmNvbT4gPG1haWx0bzpk
+YXZlLnRhaHRAZ21haWwuY29tCj4gICAgIDxtYWlsdG86ZGF2ZS50YWh0QGdtYWlsLmNvbT4+IDxt
+YWlsdG86ZGF2ZS50YWh0QGdtYWlsLmNvbSA8bWFpbHRvOmRhdmUudGFodEBnbWFpbC5jb20+IDxt
+YWlsdG86ZGF2ZS50YWh0QGdtYWlsLmNvbSA8bWFpbHRvOmRhdmUudGFodEBnbWFpbC5jb20+Pj4+
+IHdyb3RlOgo+ICAgICAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqBJbiB0
+ZXJtcyBvZiB0cnlpbmcgdG8gZmluZCAiUXVhbGl0eSIgSSBoYXZlIHRyaWVkIHRvIGVuY291cmFn
+ZSBmb2xrIHRvCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgYm90aCByZWFkICJ6ZW4gYW5kIHRo
+ZSBhcnQgb2YgbW90b3JjeWNsZSBtYWludGVuYW5jZSJbMF0sIGFuZCBEZW1pbmcncwo+ICAgICAg
+PsKgIMKgIMKgID7CoCDCoCDCoHdvcmsgb24gInRvdGFsIHF1YWxpdHkgbWFuYWdlbWVudCIuCj4g
+ICAgICA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoE15IG93biBzbGljZSBh
+dCB0aGlzIG5ldHdvcmssIGNvbXB1dGVyIGFuZCBsaWZlc3R5bGUgImlzc3VlIiBpcyBhaW1pbmcK
+PiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqBmb3IgImltcGVyY2VwdGlibGUgbGF0ZW5jeSIgaW4g
+YWxsIHRoaW5ncy4gWzFdLiBUaGVyZSdzIGEgbG90IG9mCj4gICAgICA+wqAgwqAgwqAgPsKgIMKg
+IMKgZmFsbG91dCBmcm9tIHRoYXQgaW4gdGVybXMgb2Ygbm90IGp1c3QgYWRkcmVzc2luZyBxdWV1
+aW5nIGRlbGF5LCBidXQKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqBjYWNoaW5nLCBwcmVmZXRj
+aGluZywgYW5kIGxlYXJuaW5nIG1vcmUgYWJvdXQgd2hhdCBhIHVzZXIgcmVhbGx5IG5lZWRzCj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgKGFzIG9wcG9zZWQgdG8gd2FudHMpIHRvIGtub3cgdmlh
+IGludGVsbGlnZW50IGFnZW50cy4KPiAgICAgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAg
+PsKgIMKgIMKgWzBdIElmIHlvdSB3YW50IHRvIGdldCBkZXByZXNzZWQsIHJlYWQgUGlyc2lnJ3Mg
+c3VjY2Vzc29yIHRvICJ6ZW4uLi4iLAo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoGxpbGEsIHdo
+aWNoIGlzIGluIHBhcnQgYWJvdXQgd2hhdCBoYXBwZW5zIHdoZW4gYW4gZW5naW5lZXIgaGl0cyBh
+bgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoGluc29sdWJsZSBwcm9ibGVtLgo+ICAgICAgPsKg
+IMKgIMKgID7CoCDCoCDCoFsxXSBodHRwczovL3d3dy5pbnRlcm5ldHNvY2lldHkub3JnL2V2ZW50
+cy9sYXRlbmN5MjAxMy8gPGh0dHBzOi8vd3d3LmludGVybmV0c29jaWV0eS5vcmcvZXZlbnRzL2xh
+dGVuY3kyMDEzLz4KPiAgICAgPGh0dHBzOi8vd3d3LmludGVybmV0c29jaWV0eS5vcmcvZXZlbnRz
+L2xhdGVuY3kyMDEzLyA8aHR0cHM6Ly93d3cuaW50ZXJuZXRzb2NpZXR5Lm9yZy9ldmVudHMvbGF0
+ZW5jeTIwMTMvPj4KPiAgICAgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPgo+ICAgICAg
+PsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqBPbiBUaHUsIEp1bCAxLCAyMDIx
+IGF0IDY6MTYgUE0gRGF2aWQgUC4gUmVlZCA8ZHByZWVkQGRlZXBwbHVtLmNvbSA8bWFpbHRvOmRw
+cmVlZEBkZWVwcGx1bS5jb20+IDxtYWlsdG86ZHByZWVkQGRlZXBwbHVtLmNvbQo+ICAgICA8bWFp
+bHRvOmRwcmVlZEBkZWVwcGx1bS5jb20+PiA8bWFpbHRvOmRwcmVlZEBkZWVwcGx1bS5jb20gPG1h
+aWx0bzpkcHJlZWRAZGVlcHBsdW0uY29tPgo+ICAgICAgPsKgIMKgIMKgPG1haWx0bzpkcHJlZWRA
+ZGVlcHBsdW0uY29tIDxtYWlsdG86ZHByZWVkQGRlZXBwbHVtLmNvbT4+Pj4gd3JvdGU6Cj4gICAg
+ICA+wqAgwqAgwqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiBXZWxs
+LCBuaWNlIHRoYXQgdGhlIGZvbGtzIGRvaW5nIHRoZSBjb25mZXJlbmNlwqAgYXJlIHdpbGxpbmcg
+dG8gY29uc2lkZXIgdGhhdCBxdWFsaXR5IG9mIHVzZXIgZXhwZXJpZW5jZSBoYXMgbGl0dGxlIHRv
+IGRvIHdpdGggc2lnbmFsbGluZwo+ICAgICByYXRlIGF0IHRoZQo+ICAgICAgPsKgIMKgIMKgID7C
+oCDCoCDCoHBoeXNpY2FsIGxheWVyIG9yIHRocm91Z2hwdXQgb2YgRlRQIHRyYW5zZmVycy4KPiAg
+ICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+Cj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiBC
+dXQgaG9uZXN0bHksIHRoZSBmYWN0IHRoYXQgdGhleSBjYWxsIHRoZSBwcm9ibGVtICJuZXR3b3Jr
+IHF1YWxpdHkiIHN1Z2dlc3RzIHRoYXQgdGhleSBSRUFMTFksIFJFQUxMWSBkb24ndCB1bmRlcnN0
+YW5kIHRoZSBJbnRlcm5ldCBpc24ndCB0aGUKPiAgICAgID7CoCDCoCDCoGhhcmR3YXJlIG9yCj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgdGhlIHJvdXRlcnMgb3IgZXZlbiB0aGUgcm91dGluZyBh
+bGdvcml0aG1zICp0byBpdHMgdXNlcnMqLgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+Cj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+
+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+IEJ5IGlnbm9yaW5nIHRoZSBkaXZlcnNpdHkgb2Yg
+YXBwbGljYXRpb25zIG5vdyBhbmQgaW4gdGhlIGZ1dHVyZSwgYW5kIHRoZSBmYWN0IHRoYXQgd2Ug
+RE9OJ1QgS05PVyB3aGF0IHdpbGwgYmUgY29taW5nIHVwLCB0aGlzIGNvbmZlcmVuY2Ugd2lsbAo+
+ICAgICAgPsKgIMKgIMKgbGlrZWx5IGZhbGwKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqBpbnRv
+IHRoZSB1c3VhbCB0cmFwIHRoYXQgbmV0LWhlYWRzIGZhbGwgaW50byAtIG9wdGltaXppbmcgZm9y
+IHNvbWUgaW1hZ2luYXJ5IHJlYWxpdHkgdGhhdCBkb2Vzbid0IGV4aXN0LCBhbmQgaW4gZmFjdCB3
+aWxsIHByb2JhYmx5IG5ldmVyIGJlCj4gICAgIHdoYXQgdXNlcnMKPiAgICAgID7CoCDCoCDCoCA+
+wqAgwqAgwqBhY3R1YWxseSB3aWxsIGRvIGdpdmVuIHRoZSBjaGFuY2UuCj4gICAgICA+wqAgwqAg
+wqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKg
+IMKgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gSSBzYXcgdGhpcyBp
+c3N1ZSBpbiAxOTc2IGluIHRoZSBncm91cCBkZXZlbG9waW5nIHRoZSBvcmlnaW5hbCBJbnRlcm5l
+dCBwcm90b2NvbHMgLSBhIGRlc2lyZSB0byBwdXQgKmludG8gdGhlIG5ldHdvcmsqIHNwZWNpYWwg
+dHJpY2tzIHRvCj4gICAgIG9wdGltaXplIEFTUjMzCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKg
+bG9naW5zIHRvIHJlbW90ZSBjb21wdXRlcnMgZnJvbSB0ZXJtaW5hbCBjb25jZW50cmF0b3JzIChh
+a2EgcmVtb3RlIGxvZ2luKSwgYnVsayBmaWxlIHRyYW5zZmVycyBiZXR3ZWVuIGZpbGUgc3lzdGVt
+cyBvbiBkaWZmZXJlbnQgdGltZS1zaGFyaW5nCj4gICAgICA+wqAgwqAgwqBzeXN0ZW1zLCBhbmQK
+PiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAic2Vzc2lvbnMiICh2aXJ0dWFsIGNpcmN1aXRzKSB0
+aGF0IHJlcXVpcmVkIGxvZ2lucy4gQW5kIHRoZW4gdHJ5aW5nIHRvIGV4cGxvaXQgdW5kZXJseWlu
+ZyAibXVsdGljYXN0IiBieSBidWlsZGluZyBpdCBpbnRvIHRoZSBJUCBsYXllciwKPiAgICAgYmVj
+YXVzZSBzb21lb25lCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgdGhvdWdodCB0aGF0IFRWIGJy
+b2FkY2FzdCB3b3VsZCBiZSB0aGUgZG9taW5hbnQgYXBwbGljYXRpb24uCj4gICAgICA+wqAgwqAg
+wqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKg
+IMKgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gRnJhbmtseSwgdG8g
+dGhpbmsgb2YgInF1YWxpdHkiIGFzIHNvbWV0aGluZyB0aGF0IGNhbiBiZSAicHJvdmlkZWQiIGJ5
+ICJ0aGUgbmV0d29yayIgbWlzc2VzIHRoZSBlbnRpcmUgcG9pbnQgb2YgImVuZC10by1lbmQgYXJn
+dW1lbnQgaW4KPiAgICAgc3lzdGVtIGRlc2lnbiIuCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKg
+UXVhbGl0eSBpcyBub3QgYSBwcm9wZXJ0eSBkZWZpbmVkIG9yIGNyZWF0ZWQgYnkgVGhlIE5ldHdv
+cmsuIElmIHlvdSB3YW50IHRvIHRhbGsgYWJvdXQgUXVhbGl0eSwgeW91IG5lZWQgdG8gdGFsayBh
+Ym91dCB1c2VycyAtIGFsbCB0aGUgdXNlcnMKPiAgICAgYXQgYWxsCj4gICAgICA+wqAgwqAgwqB0
+aW1lcywKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqBub3cgYW5kIGludG8gdGhlIGZ1dHVyZSwg
+YW5kIHRoYXQncyBzb21ldGhpbmcgeW91IGNhbid0IGRvIGlmIHlvdSBkb24ndCBib3RoZXIgdG8g
+aW5jbHVkZSBjdXJyZW50IGFuZCBmdXR1cmUgdXNlcnMgdGFsa2luZyBhYm91dCB3aGF0IHRoZXkg
+bWlnaHQKPiAgICAgID7CoCDCoCDCoGV4cGVjdCB0bwo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDC
+oGV4cGVyaWVuY2UgdGhhdCB0aGV5IGRvbid0IGV4cGVyaWVuY2UuCj4gICAgICA+wqAgwqAgwqAg
+PsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKg
+ID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gVGhlcmUgd2FzIG11Y2gg
+ZmlnaHRpbmcgYmFjayBpbiAxOTc2IHRoYXQgYmFzaWNhbGx5IGludm9sdmVkICJuZXR3b3JrIGV4
+cGVydHMiIHNheWluZyB0aGF0IHRoZSBuZXR3b3JrIHdhcyB0aGUgcGxhY2UgdG8gInNvbHZlIiBz
+dWNoIGlzc3VlcyBhcwo+ICAgICAgPsKgIMKgIMKgcXVhbGl0eSwKPiAgICAgID7CoCDCoCDCoCA+
+wqAgwqAgwqBzbyBhcHBsaWNhdGlvbnMgY291bGQgYXZvaWQgaGF2aW5nIHRvIHNvbHZlIHN1Y2gg
+aXNzdWVzLgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKg
+IMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID7C
+oCDCoCDCoCA+IFdoYXQgc29tZSBvZiB1cyBtYW5hZ2VkIHRvIGRvIHdhcyB0byBhcmd1ZSB0aGF0
+IHlvdSBjYW4ndCAic29sdmUiIHN1Y2ggaXNzdWVzLiBBbGwgeW91IGNhbiBkbyBpcyBwcm92aWRl
+IGEgZnJhbWV3b3JrIHRoYXQgZW5hYmxlcyBkaWZmZXJlbnQKPiAgICAgdXNlcyB0bwo+ICAgICAg
+PsKgIMKgIMKgID7CoCDCoCDCoCpjb29wZXJhdGUqIGluIHNvbWUgd2F5Lgo+ICAgICAgPsKgIMKg
+IMKgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDC
+oCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+IFdoaWNoIGlzIHdo
+eSB0aGUgSW50ZXJuZXQgZHJvcHMgcGFja2V0cyByYXRoZXIgdGhhbiBxdWV1ZWluZyB0aGVtLCBh
+bmQgd2h5IGRpZmZzZXJ2IGNhbm5vdCB3b3JrLgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+
+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gKEkga25vdyB0aGUgbGF0dGVyIGlzIGNvbmZ0
+cm92ZXJzaWFsLCBidXQgYXQgdGhlIG1vbWVudCwgQUxMIG9mIGRpZmZzZXJ2IGF0dGVtcHRzIHRv
+IHRhbGsgYWJvdXQgZW5kLXRvLWVuZCBhcHBsaWNhaXRvbiBzcGVjaWZpYyBtZXRyaWNzLCBidXQK
+PiAgICAgID7CoCDCoCDCoG5ldmVyLCBldmVyCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgZXhw
+bGFpbnMgd2hhdCB0aGUgZGlmZnNlcnYgY29udHJvbCBwb2ludHMgYWN0dWFsbHkgZG8gdy5yLnQu
+IHdoYXQgdGhlIElQIGxheWVyIGNhbiBhY3R1YWxseSBjb250cm9sLiBTbyBpdCBpcyBtZWFuaW5n
+bGVzcyAtIGFub3RoZXIgdmlvbGF0aW9uCj4gICAgIG9mIHRoZQo+ICAgICAgPsKgIMKgIMKgID7C
+oCDCoCDCoHNvLWNhbGxlZCBlbmQtdG8tZW5kIHByaW5jaXBsZSkuCj4gICAgICA+wqAgwqAgwqAg
+PsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKg
+ID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gTmV0d29ya3MgYXJlIGFi
+b3V0IGdldHRpbmcgcGFja2V0cyBmcm9tIGhlcmUgdG8gdGhlcmUsIG11bHRpcGxleGluZyB0aGUg
+dW5kZXJseWluZyByZXNvdXJjZXMuIFRoYXQncyBpdC4gUXVhbGl0eSBpcyBhIHdob2xlIGRpZmZl
+cmVudCB0aGluZy4KPiAgICAgID7CoCDCoCDCoFF1YWxpdHkgY2FuCj4gICAgICA+wqAgwqAgwqAg
+PsKgIMKgIMKgYmUgaW1wcm92ZWQgYnkgZW5kLXRvLWVuZCBhcHByb2FjaGVzLCBpZiB0aGUgdW5k
+ZXJseWluZyBuZXR3b3JrIHByb3ZpZGVzIHNvbWUga2luZCBvZiB0aGluZyB0aGF0IGFjdHVhbGx5
+IGNyZWF0ZXMgYSB3YXkgZm9yIGVuZC10by1lbmQKPiAgICAgYXBwbGljYXRpb25zIHRvCj4gICAg
+ICA+wqAgwqAgwqAgPsKgIMKgIMKgYWZmZWN0IHF1ZXVlaW5nIGFuZCByb3V0aW5nIGRlY2lzaW9u
+cywgYW5kIG1vcmUgaW1wb3J0YW50bHkgZ2V0dGluZyAidGVsZW1ldHJ5IiBmcm9tIHRoZSBuZXR3
+b3JrIHJlZ2FyZGluZyB3aGF0IGlzIGFjdHVhbGx5IGdvaW5nIG9uIHdpdGggdGhlCj4gICAgIG90
+aGVyCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgZW5kLXRvLWVuZCB1c2VycyBzaGFyaW5nIHRo
+ZSBpbmZyYXN0cnVjdHVyZS4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKg
+IMKgIMKgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4KPiAgICAgID7C
+oCDCoCDCoCA+wqAgwqAgwqAgPiBUaGlzIGNvbmZlcmVuY2Ugd29uJ3QgdGFsayBhYm91dCBpdCB0
+aGlzIHdheS4gU28gZG9uJ3Qgd2FzdGUgeW91ciB0aW1lLgo+ICAgICAgPsKgIMKgIMKgID7CoCDC
+oCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAg
+wqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKg
+IMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID7C
+oCDCoCDCoCA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gT24gV2VkbmVzZGF5LCBKdW5l
+IDMwLCAyMDIxIDg6MTJwbSwgIkRhdmUgVGFodCIgPGRhdmUudGFodEBnbWFpbC5jb20gPG1haWx0
+bzpkYXZlLnRhaHRAZ21haWwuY29tPiA8bWFpbHRvOmRhdmUudGFodEBnbWFpbC5jb20KPiAgICAg
+PG1haWx0bzpkYXZlLnRhaHRAZ21haWwuY29tPj4gPG1haWx0bzpkYXZlLnRhaHRAZ21haWwuY29t
+IDxtYWlsdG86ZGF2ZS50YWh0QGdtYWlsLmNvbT4KPiAgICAgID7CoCDCoCDCoDxtYWlsdG86ZGF2
+ZS50YWh0QGdtYWlsLmNvbSA8bWFpbHRvOmRhdmUudGFodEBnbWFpbC5jb20+Pj4+IHNhaWQ6Cj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+
+IFRoZSBwcm9ncmFtIGNvbW1pdHRlZSBtZW1iZXJzIGFyZSAqYW1hemluZyouIFBlcmhhcHMsIGZp
+bmFsbHksIHdlIGNhbgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gbW92ZSB0aGUgYmFy
+IGZvciB0aGUgaW50ZXJuZXQncyBxdWFsaXR5IG1ldHJpY3MgcGFzdCBlbmRsZXNzLCBibGluZAo+
+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gcmVwZXRpdGlvbnMgb2Ygc3BlZWR0ZXN0Lgo+
+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAg
+PiA+IEZvciBjb21wbGV0ZSBkZXRhaWxzLCBwbGVhc2Ugc2VlOgo+ICAgICAgPsKgIMKgIMKgID7C
+oCDCoCDCoCA+ID4gaHR0cHM6Ly93d3cuaWFiLm9yZy9hY3Rpdml0aWVzL3dvcmtzaG9wcy9uZXR3
+b3JrLXF1YWxpdHkvIDxodHRwczovL3d3dy5pYWIub3JnL2FjdGl2aXRpZXMvd29ya3Nob3BzL25l
+dHdvcmstcXVhbGl0eS8+Cj4gICAgIDxodHRwczovL3d3dy5pYWIub3JnL2FjdGl2aXRpZXMvd29y
+a3Nob3BzL25ldHdvcmstcXVhbGl0eS8gPGh0dHBzOi8vd3d3LmlhYi5vcmcvYWN0aXZpdGllcy93
+b3Jrc2hvcHMvbmV0d29yay1xdWFsaXR5Lz4+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4g
+Pgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gU3VibWlzc2lvbnMgRHVlOiBNb25kYXkg
+Mm5kIEF1Z3VzdCAyMDIxLCBtaWRuaWdodCBBT0UgKEFueXdoZXJlIE9uIEVhcnRoKQo+ICAgICAg
+PsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gSW52aXRhdGlvbnMgSXNzdWVkIGJ5OiBNb25kYXkgMTZ0
+aCBBdWd1c3QgMjAyMQo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4KPiAgICAgID7CoCDC
+oCDCoCA+wqAgwqAgwqAgPiA+IFdvcmtzaG9wIERhdGU6IFRoaXMgd2lsbCBiZSBhIHZpcnR1YWwg
+d29ya3Nob3AsIHNwcmVhZCBvdmVyIHRocmVlIGRheXM6Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKg
+IMKgID4gPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gMTQwMC0xODAwIFVUQyBUdWUg
+MTR0aCBTZXB0ZW1iZXIgMjAyMQo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gMTQwMC0x
+ODAwIFVUQyBXZWQgMTV0aCBTZXB0ZW1iZXIgMjAyMQo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDC
+oCA+ID4gMTQwMC0xODAwIFVUQyBUaHUgMTZ0aCBTZXB0ZW1iZXIgMjAyMQo+ICAgICAgPsKgIMKg
+IMKgID7CoCDCoCDCoCA+ID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IFdvcmtzaG9w
+IGNvLWNoYWlyczogV2VzIEhhcmRha2VyLCBFdmdlbnkgS2hvcm92LCBPbWVyIFNoYXBpcmEKPiAg
+ICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4g
+PiBUaGUgUHJvZ3JhbSBDb21taXR0ZWUgbWVtYmVyczoKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAg
+wqAgPiA+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBKYXJpIEFya2tvLCBPbGl2aWVy
+IEJvbmF2ZW50dXJlLCBWaW50IENlcmYsIFN0dWFydCBDaGVzaGlyZSwgU2FtCj4gICAgICA+wqAg
+wqAgwqAgPsKgIMKgIMKgID4gPiBDcm93Zm9yZCwgTmljayBGZWFtc3RlciwgSmltIEdldHR5cywg
+VG9rZSBIb2lsYW5kLUpvcmdlbnNlbiwgR2VvZmYKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAg
+PiA+IEh1c3RvbiwgQ3VsbGVuIEplbm5pbmdzLCBLYXRhcnp5bmEgS29zZWstU3pvdHQsIE1pcmph
+IEt1ZWhsZXdpbmQsCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBKYXNvbiBMaXZpbmdv
+b2QsIE1hdHQgTWF0aGlhcywgUmFuZGFsbCBNZXllciwgS2F0aGxlZW4gTmljaG9scywKPiAgICAg
+ID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IENocmlzdG9waCBQYWFzY2gsIFRvbW15IFBhdWx5LCBH
+cmVnIFdoaXRlLCBLZWl0aCBXaW5zdGVpbi4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+
+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBTZW5kIFN1Ym1pc3Npb25zIHRvOiBuZXR3
+b3JrLXF1YWxpdHktd29ya3Nob3AtcGNAaWFiLm9yZyA8bWFpbHRvOm5ldHdvcmstcXVhbGl0eS13
+b3Jrc2hvcC1wY0BpYWIub3JnPgo+ICAgICA8bWFpbHRvOm5ldHdvcmstcXVhbGl0eS13b3Jrc2hv
+cC1wY0BpYWIub3JnIDxtYWlsdG86bmV0d29yay1xdWFsaXR5LXdvcmtzaG9wLXBjQGlhYi5vcmc+
+Pgo+ICAgICAgPsKgIMKgIMKgPG1haWx0bzpuZXR3b3JrLXF1YWxpdHktd29ya3Nob3AtcGNAaWFi
+Lm9yZyA8bWFpbHRvOm5ldHdvcmstcXVhbGl0eS13b3Jrc2hvcC1wY0BpYWIub3JnPiA8bWFpbHRv
+Om5ldHdvcmstcXVhbGl0eS13b3Jrc2hvcC1wY0BpYWIub3JnCj4gICAgIDxtYWlsdG86bmV0d29y
+ay1xdWFsaXR5LXdvcmtzaG9wLXBjQGlhYi5vcmc+Pj4uCj4gICAgICA+wqAgwqAgwqAgPsKgIMKg
+IMKgID4gPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gUG9zaXRpb24gcGFwZXJzIGZy
+b20gYWNhZGVtaWEsIGluZHVzdHJ5LCB0aGUgb3BlbiBzb3VyY2UgY29tbXVuaXR5IGFuZAo+ICAg
+ICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gb3RoZXJzIHRoYXQgZm9jdXMgb24gbWVhc3VyZW1l
+bnRzLCBleHBlcmllbmNlcywgb2JzZXJ2YXRpb25zIGFuZAo+ICAgICAgPsKgIMKgIMKgID7CoCDC
+oCDCoCA+ID4gYWR2aWNlIGZvciB0aGUgZnV0dXJlIGFyZSB3ZWxjb21lLiBQYXBlcnMgdGhhdCBy
+ZWZsZWN0IGV4cGVyaWVuY2UKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IGJhc2VkIG9u
+IGRlcGxveWVkIHNlcnZpY2VzIGFyZSBlc3BlY2lhbGx5IHdlbGNvbWUuIFRoZSBvcmdhbml6ZXJz
+Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiB1bmRlcnN0YW5kIHRoYXQgc3BlY2lmaWMg
+YWN0aW9ucyB0YWtlbiBieSBvcGVyYXRvcnMgYXJlIHVubGlrZWx5IHRvIGJlCj4gICAgICA+wqAg
+wqAgwqAgPsKgIMKgIMKgID4gPiBkaXNjdXNzZWQgaW4gZGV0YWlsLCBzbyBwYXBlcnMgZGlzY3Vz
+c2luZyBnZW5lcmFsIGNhdGVnb3JpZXMgb2YKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+
+IGFjdGlvbnMgYW5kIGlzc3VlcyB3aXRob3V0IG5hbWluZyBzcGVjaWZpYyB0ZWNobm9sb2dpZXMs
+IHByb2R1Y3RzLCBvcgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gb3RoZXIgcGxheWVy
+cyBpbiB0aGUgZWNvc3lzdGVtIGFyZSBleHBlY3RlZC4gUGFwZXJzIHNob3VsZCBub3QgZm9jdXMK
+PiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IG9uIHNwZWNpZmljIHByb3RvY29sIHNvbHV0
+aW9ucy4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+Cj4gICAgICA+wqAgwqAgwqAgPsKg
+IMKgIMKgID4gPiBUaGUgd29ya3Nob3Agd2lsbCBiZSBieSBpbnZpdGF0aW9uIG9ubHkuIFRob3Nl
+IHdpc2hpbmcgdG8gYXR0ZW5kCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBzaG91bGQg
+c3VibWl0IGEgcG9zaXRpb24gcGFwZXIgdG8gdGhlIGFkZHJlc3MgYWJvdmU7IGl0IG1heSB0YWtl
+IHRoZQo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gZm9ybSBvZiBhbiBJbnRlcm5ldC1E
+cmFmdC4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+Cj4gICAgICA+wqAgwqAgwqAgPsKg
+IMKgIMKgID4gPiBBbGwgaW5wdXRzIHN1Ym1pdHRlZCBhbmQgY29uc2lkZXJlZCByZWxldmFudCB3
+aWxsIGJlIHB1Ymxpc2hlZCBvbiB0aGUKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IHdv
+cmtzaG9wIHdlYnNpdGUuIFRoZSBvcmdhbmlzZXJzIHdpbGwgZGVjaWRlIHdob20gdG8gaW52aXRl
+IGJhc2VkIG9uCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiB0aGUgc3VibWlzc2lvbnMg
+cmVjZWl2ZWQuIFNlc3Npb25zIHdpbGwgYmUgb3JnYW5pemVkIGFjY29yZGluZyB0bwo+ICAgICAg
+PsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gY29udGVudCwgYW5kIG5vdCBldmVyeSBhY2NlcHRlZCBz
+dWJtaXNzaW9uIG9yIGludml0ZWQgYXR0ZW5kZWUgd2lsbAo+ICAgICAgPsKgIMKgIMKgID7CoCDC
+oCDCoCA+ID4gaGF2ZSBhbiBvcHBvcnR1bml0eSB0byBwcmVzZW50IGFzIHRoZSBpbnRlbnQgaXMg
+dG8gZm9zdGVyIGRpc2N1c3Npb24KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IGFuZCBu
+b3Qgc2ltcGx5IHRvIGhhdmUgYSBzZXF1ZW5jZSBvZiBwcmVzZW50YXRpb25zLgo+ICAgICAgPsKg
+IMKgIMKgID7CoCDCoCDCoCA+ID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IFBvc2l0
+aW9uIHBhcGVycyBmcm9tIHRob3NlIG5vdCBwbGFubmluZyB0byBhdHRlbmQgdGhlIHZpcnR1YWwg
+c2Vzc2lvbnMKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IHRoZW1zZWx2ZXMgYXJlIGFs
+c28gZW5jb3VyYWdlZC4gQSB3b3Jrc2hvcCByZXBvcnQgd2lsbCBiZSBwdWJsaXNoZWQKPiAgICAg
+ID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IGFmdGVyd2FyZHMuCj4gICAgICA+wqAgwqAgwqAgPsKg
+IMKgIMKgID4gPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gT3ZlcnZpZXc6Cj4gICAg
+ICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4g
+IldlIGJlbGlldmUgdGhhdCBvbmUgb2YgdGhlIG1ham9yIGZhY3RvcnMgYmVoaW5kIHRoaXMgbGFj
+ayBvZiBwcm9ncmVzcwo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gaXMgdGhlIHBvcHVs
+YXIgcGVyY2VwdGlvbiB0aGF0IHRocm91Z2hwdXQgaXMgdGhlIG9mdGVuIHNvbGUgbWVhc3VyZSBv
+Zgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gdGhlIHF1YWxpdHkgb2YgSW50ZXJuZXQg
+Y29ubmVjdGl2aXR5LiBXaXRoIHN1Y2ggbmFycm93IGZvY3VzLCBwZW9wbGUKPiAgICAgID7CoCDC
+oCDCoCA+wqAgwqAgwqAgPiA+IGRvbuKAmXQgY29uc2lkZXIgcXVlc3Rpb25zIHN1Y2ggYXM6Cj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+
+ID4gV2hhdCBpcyB0aGUgbGF0ZW5jeSB1bmRlciB0eXBpY2FsIHdvcmtpbmcgY29uZGl0aW9ucz8K
+PiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IEhvdyByZWxpYWJsZSBpcyB0aGUgY29ubmVj
+dGl2aXR5IGFjcm9zcyBsb25nZXIgdGltZSBwZXJpb2RzPwo+ICAgICAgPsKgIMKgIMKgID7CoCDC
+oCDCoCA+ID4gRG9lcyB0aGUgbmV0d29yayBhbGxvdyB0aGUgdXNlIG9mIGEgYnJvYWQgcmFuZ2Ug
+b2YgcHJvdG9jb2xzPwo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gV2hhdCBzZXJ2aWNl
+cyBjYW4gYmUgcnVuIGJ5IGNsaWVudHMgb2YgdGhlIG5ldHdvcms/Cj4gICAgICA+wqAgwqAgwqAg
+PsKgIMKgIMKgID4gPiBXaGF0IGtpbmQgb2YgSVB2NCwgTkFUIG9yIElQdjYgY29ubmVjdGl2aXR5
+IGlzIG9mZmVyZWQsIGFuZCBhcmUgdGhlcmUgZmlyZXdhbGxzPwo+ICAgICAgPsKgIMKgIMKgID7C
+oCDCoCDCoCA+ID4gV2hhdCBzZWN1cml0eSBtZWNoYW5pc21zIGFyZSBhdmFpbGFibGUgZm9yIGxv
+Y2FsIHNlcnZpY2VzLCBzdWNoIGFzIEROUz8KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+
+IFRvIHdoYXQgZGVncmVlIGFyZSB0aGUgcHJpdmFjeSwgY29uZmlkZW50aWFsaXR5LCBpbnRlZ3Jp
+dHkgYW5kCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBhdXRoZW50aWNpdHkgb2YgdXNl
+ciBjb21tdW5pY2F0aW9ucyBndWFyZGVkPwo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4K
+PiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IEltcHJvdmluZyB0aGVzZSBhc3BlY3RzIG9m
+IG5ldHdvcmsgcXVhbGl0eSB3aWxsIGxpa2VseSBkZXBlbmQgb24KPiAgICAgID7CoCDCoCDCoCA+
+wqAgwqAgwqAgPiA+IG1lYXN1cmVtZW50IGFuZCBleHBvc2luZyBtZXRyaWNzIHRvIGFsbCBpbnZv
+bHZlZCBwYXJ0aWVzLCBpbmNsdWRpbmcgdG8KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+
+IGVuZCB1c2VycyBpbiBhIG1lYW5pbmdmdWwgd2F5LiBTdWNoIG1lYXN1cmVtZW50cyBhbmQgZXhw
+b3N1cmUgb2YgdGhlCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiByaWdodCBtZXRyaWNz
+IHdpbGwgYWxsb3cgc2VydmljZSBwcm92aWRlcnMgYW5kIG5ldHdvcmsgb3BlcmF0b3JzIHRvCj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBmb2N1cyBvbiB0aGUgYXNwZWN0cyB0aGF0IGlt
+cGFjdHMgdGhlIHVzZXJz4oCZIGV4cGVyaWVuY2UgbW9zdCBhbmQgYXQKPiAgICAgID7CoCDCoCDC
+oCA+wqAgwqAgwqAgPiA+IHRoZSBzYW1lIHRpbWUgZW1wb3dlcnMgdXNlcnMgdG8gY2hvb3NlIHRo
+ZSBJbnRlcm5ldCBzZXJ2aWNlIHRoYXQgd2lsbAo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+
+ID4gZ2l2ZSB0aGVtIHRoZSBiZXN0IGV4cGVyaWVuY2UuIgo+ICAgICAgPsKgIMKgIMKgID7CoCDC
+oCDCoCA+ID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+Cj4gICAgICA+wqAgwqAgwqAg
+PsKgIMKgIMKgID4gPiAtLQo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gTGF0ZXN0IFBv
+ZGNhc3Q6Cj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBodHRwczovL3d3dy5saW5rZWRp
+bi5jb20vZmVlZC91cGRhdGUvdXJuOmxpOmFjdGl2aXR5OjY3OTEwMTQyODQ5MzY3ODU5MjAvCj4g
+ICAgIDxodHRwczovL3d3dy5saW5rZWRpbi5jb20vZmVlZC91cGRhdGUvdXJuOmxpOmFjdGl2aXR5
+OjY3OTEwMTQyODQ5MzY3ODU5MjAvPgo+ICAgICAgPsKgIMKgIMKgPGh0dHBzOi8vd3d3Lmxpbmtl
+ZGluLmNvbS9mZWVkL3VwZGF0ZS91cm46bGk6YWN0aXZpdHk6Njc5MTAxNDI4NDkzNjc4NTkyMC8g
+PGh0dHBzOi8vd3d3LmxpbmtlZGluLmNvbS9mZWVkL3VwZGF0ZS91cm46bGk6YWN0aXZpdHk6Njc5
+MTAxNDI4NDkzNjc4NTkyMC8+Pgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4KPiAgICAg
+ID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IERhdmUgVMOkaHQgQ1RPLCBUZWtMaWJyZSwgTExDCj4g
+ICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgID4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4gQ2Vyb3dy
+dC1kZXZlbCBtYWlsaW5nIGxpc3QKPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAgPiA+IENlcm93
+cnQtZGV2ZWxAbGlzdHMuYnVmZmVyYmxvYXQubmV0IDxtYWlsdG86Q2Vyb3dydC1kZXZlbEBsaXN0
+cy5idWZmZXJibG9hdC5uZXQ+IDxtYWlsdG86Q2Vyb3dydC1kZXZlbEBsaXN0cy5idWZmZXJibG9h
+dC5uZXQKPiAgICAgPG1haWx0bzpDZXJvd3J0LWRldmVsQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4+
+IDxtYWlsdG86Q2Vyb3dydC1kZXZlbEBsaXN0cy5idWZmZXJibG9hdC5uZXQgPG1haWx0bzpDZXJv
+d3J0LWRldmVsQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4KPiAgICAgID7CoCDCoCDCoDxtYWlsdG86
+Q2Vyb3dydC1kZXZlbEBsaXN0cy5idWZmZXJibG9hdC5uZXQgPG1haWx0bzpDZXJvd3J0LWRldmVs
+QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4+Pgo+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4g
+aHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2Vyb3dydC1kZXZlbCA8aHR0
+cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2Vyb3dydC1kZXZlbD4KPiAgICAg
+PGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nlcm93cnQtZGV2ZWwgPGh0
+dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nlcm93cnQtZGV2ZWw+Pgo+ICAg
+ICAgPsKgIMKgIMKgID7CoCDCoCDCoCA+ID4KPiAgICAgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAg
+wqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID4KPiAgICAgID7CoCDCoCDCoCA+wqAgwqAgwqAtLQo+
+ICAgICAgPsKgIMKgIMKgID7CoCDCoCDCoExhdGVzdCBQb2RjYXN0Ogo+ICAgICAgPsKgIMKgIMKg
+ID4gaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2ZlZWQvdXBkYXRlL3VybjpsaTphY3Rpdml0eTo2
+NzkxMDE0Mjg0OTM2Nzg1OTIwLwo+ICAgICA8aHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2ZlZWQv
+dXBkYXRlL3VybjpsaTphY3Rpdml0eTo2NzkxMDE0Mjg0OTM2Nzg1OTIwLz4gPGh0dHBzOi8vd3d3
+LmxpbmtlZGluLmNvbS9mZWVkL3VwZGF0ZS91cm46bGk6YWN0aXZpdHk6Njc5MTAxNDI4NDkzNjc4
+NTkyMC8KPiAgICAgPGh0dHBzOi8vd3d3LmxpbmtlZGluLmNvbS9mZWVkL3VwZGF0ZS91cm46bGk6
+YWN0aXZpdHk6Njc5MTAxNDI4NDkzNjc4NTkyMC8+Pgo+ICAgICAgPsKgIMKgIMKgID4KPiAgICAg
+ID7CoCDCoCDCoCA+wqAgwqAgwqBEYXZlIFTDpGh0IENUTywgVGVrTGlicmUsIExMQwo+ICAgICAg
+PsKgIMKgIMKgID7CoCDCoCDCoF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCj4gICAgICA+wqAgwqAgwqAgPsKgIMKgIMKgTWFrZS13aWZpLWZhc3QgbWFpbGlu
+ZyBsaXN0Cj4gICAgICA+wqAgwqAgwqAgPiBNYWtlLXdpZmktZmFzdEBsaXN0cy5idWZmZXJibG9h
+dC5uZXQgPG1haWx0bzpNYWtlLXdpZmktZmFzdEBsaXN0cy5idWZmZXJibG9hdC5uZXQ+IDxtYWls
+dG86TWFrZS13aWZpLWZhc3RAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4gICAgIDxtYWlsdG86TWFr
+ZS13aWZpLWZhc3RAbGlzdHMuYnVmZmVyYmxvYXQubmV0Pj4gPG1haWx0bzpNYWtlLXdpZmktZmFz
+dEBsaXN0cy5idWZmZXJibG9hdC5uZXQgPG1haWx0bzpNYWtlLXdpZmktZmFzdEBsaXN0cy5idWZm
+ZXJibG9hdC5uZXQ+Cj4gICAgICA+wqAgwqAgwqA8bWFpbHRvOk1ha2Utd2lmaS1mYXN0QGxpc3Rz
+LmJ1ZmZlcmJsb2F0Lm5ldCA8bWFpbHRvOk1ha2Utd2lmaS1mYXN0QGxpc3RzLmJ1ZmZlcmJsb2F0
+Lm5ldD4+Pgo+ICAgICAgPsKgIMKgIMKgID4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQv
+bGlzdGluZm8vbWFrZS13aWZpLWZhc3QgPGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xp
+c3RpbmZvL21ha2Utd2lmaS1mYXN0Pgo+ICAgICA8aHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5u
+ZXQvbGlzdGluZm8vbWFrZS13aWZpLWZhc3QgPGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0
+L2xpc3RpbmZvL21ha2Utd2lmaS1mYXN0Pj4KPiAgICAgID7CoCDCoCDCoCA+Cj4gICAgICA+wqAg
+wqAgwqAgPgo+ICAgICAgPsKgIMKgIMKgID4gVGhpcyBlbGVjdHJvbmljIGNvbW11bmljYXRpb24g
+YW5kIHRoZSBpbmZvcm1hdGlvbiBhbmQgYW55IGZpbGVzIHRyYW5zbWl0dGVkIHdpdGggaXQsIG9y
+IGF0dGFjaGVkIHRvIGl0LCBhcmUgY29uZmlkZW50aWFsIGFuZCBhcmUgaW50ZW5kZWQgc29sZWx5
+Cj4gICAgIGZvciB0aGUKPiAgICAgID7CoCDCoCDCoHVzZSBvZgo+ICAgICAgPsKgIMKgIMKgID4g
+dGhlIGluZGl2aWR1YWwgb3IgZW50aXR5IHRvIHdob20gaXQgaXMgYWRkcmVzc2VkIGFuZCBtYXkg
+Y29udGFpbiBpbmZvcm1hdGlvbiB0aGF0IGlzIGNvbmZpZGVudGlhbCwgbGVnYWxseSBwcml2aWxl
+Z2VkLCBwcm90ZWN0ZWQgYnkgcHJpdmFjeSBsYXdzLCBvcgo+ICAgICAgPsKgIMKgIMKgb3RoZXJ3
+aXNlCj4gICAgICA+wqAgwqAgwqAgPiByZXN0cmljdGVkIGZyb20gZGlzY2xvc3VyZSB0byBhbnlv
+bmUgZWxzZS4gSWYgeW91IGFyZSBub3QgdGhlIGludGVuZGVkIHJlY2lwaWVudCBvciB0aGUgcGVy
+c29uIHJlc3BvbnNpYmxlIGZvciBkZWxpdmVyaW5nIHRoZSBlLW1haWwgdG8gdGhlIGludGVuZGVk
+Cj4gICAgICA+wqAgwqAgwqByZWNpcGllbnQsCj4gICAgICA+wqAgwqAgwqAgPiB5b3UgYXJlIGhl
+cmVieSBub3RpZmllZCB0aGF0IGFueSB1c2UsIGNvcHlpbmcsIGRpc3RyaWJ1dGluZywgZGlzc2Vt
+aW5hdGlvbiwgZm9yd2FyZGluZywgcHJpbnRpbmcsIG9yIGNvcHlpbmcgb2YgdGhpcyBlLW1haWwg
+aXMgc3RyaWN0bHkKPiAgICAgcHJvaGliaXRlZC4gSWYgeW91Cj4gICAgICA+wqAgwqAgwqAgPiBy
+ZWNlaXZlZCB0aGlzIGUtbWFpbCBpbiBlcnJvciwgcGxlYXNlIHJldHVybiB0aGUgZS1tYWlsIHRv
+IHRoZSBzZW5kZXIsIGRlbGV0ZSBpdCBmcm9tIHlvdXIgY29tcHV0ZXIsIGFuZCBkZXN0cm95IGFu
+eSBwcmludGVkIGNvcHkgb2YgaXQuCj4gICAgICA+wqAgwqAgwqAgPgo+ICAgICAgPsKgIMKgIMKg
+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiAgICAg
+ID7CoCDCoCDCoCA+IFN0YXJsaW5rIG1haWxpbmcgbGlzdAo+ICAgICAgPsKgIMKgIMKgID4gU3Rh
+cmxpbmtAbGlzdHMuYnVmZmVyYmxvYXQubmV0IDxtYWlsdG86U3RhcmxpbmtAbGlzdHMuYnVmZmVy
+YmxvYXQubmV0PiA8bWFpbHRvOlN0YXJsaW5rQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldCA8bWFpbHRv
+OlN0YXJsaW5rQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4+Cj4gICAgICA+wqAgwqAgwqAgPiBodHRw
+czovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9zdGFybGluayA8aHR0cHM6Ly9saXN0
+cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vc3Rhcmxpbms+Cj4gICAgICA+wqAgwqAgwqAgPgo+
+ICAgICAgPgo+ICAgICAgPgo+ICAgICAgPsKgIMKgIMKgLS0KPiAgICAgID7CoCDCoCDCoEJlbiBH
+cmVlYXIgPGdyZWVhcmJAY2FuZGVsYXRlY2guY29tIDxtYWlsdG86Z3JlZWFyYkBjYW5kZWxhdGVj
+aC5jb20+IDxtYWlsdG86Z3JlZWFyYkBjYW5kZWxhdGVjaC5jb20gPG1haWx0bzpncmVlYXJiQGNh
+bmRlbGF0ZWNoLmNvbT4+Pgo+ICAgICAgPsKgIMKgIMKgQ2FuZGVsYSBUZWNobm9sb2dpZXMgSW5j
+IGh0dHA6Ly93d3cuY2FuZGVsYXRlY2guY29tIDxodHRwOi8vd3d3LmNhbmRlbGF0ZWNoLmNvbT4K
+PiAgICAgID4KPiAgICAgID4KPiAgICAgID4gVGhpcyBlbGVjdHJvbmljIGNvbW11bmljYXRpb24g
+YW5kIHRoZSBpbmZvcm1hdGlvbiBhbmQgYW55IGZpbGVzIHRyYW5zbWl0dGVkIHdpdGggaXQsIG9y
+IGF0dGFjaGVkIHRvIGl0LCBhcmUgY29uZmlkZW50aWFsIGFuZCBhcmUgaW50ZW5kZWQgc29sZWx5
+IGZvciB0aGUKPiAgICAgdXNlIG9mCj4gICAgICA+IHRoZSBpbmRpdmlkdWFsIG9yIGVudGl0eSB0
+byB3aG9tIGl0IGlzIGFkZHJlc3NlZCBhbmQgbWF5IGNvbnRhaW4gaW5mb3JtYXRpb24gdGhhdCBp
+cyBjb25maWRlbnRpYWwsIGxlZ2FsbHkgcHJpdmlsZWdlZCwgcHJvdGVjdGVkIGJ5IHByaXZhY3kg
+bGF3cywgb3IKPiAgICAgb3RoZXJ3aXNlCj4gICAgICA+IHJlc3RyaWN0ZWQgZnJvbSBkaXNjbG9z
+dXJlIHRvIGFueW9uZSBlbHNlLiBJZiB5b3UgYXJlIG5vdCB0aGUgaW50ZW5kZWQgcmVjaXBpZW50
+IG9yIHRoZSBwZXJzb24gcmVzcG9uc2libGUgZm9yIGRlbGl2ZXJpbmcgdGhlIGUtbWFpbCB0byB0
+aGUgaW50ZW5kZWQKPiAgICAgcmVjaXBpZW50LAo+ICAgICAgPiB5b3UgYXJlIGhlcmVieSBub3Rp
+ZmllZCB0aGF0IGFueSB1c2UsIGNvcHlpbmcsIGRpc3RyaWJ1dGluZywgZGlzc2VtaW5hdGlvbiwg
+Zm9yd2FyZGluZywgcHJpbnRpbmcsIG9yIGNvcHlpbmcgb2YgdGhpcyBlLW1haWwgaXMgc3RyaWN0
+bHkgcHJvaGliaXRlZC4gSWYgeW91Cj4gICAgICA+IHJlY2VpdmVkIHRoaXMgZS1tYWlsIGluIGVy
+cm9yLCBwbGVhc2UgcmV0dXJuIHRoZSBlLW1haWwgdG8gdGhlIHNlbmRlciwgZGVsZXRlIGl0IGZy
+b20geW91ciBjb21wdXRlciwgYW5kIGRlc3Ryb3kgYW55IHByaW50ZWQgY29weSBvZiBpdC4KPiAK
+PiAKPiAgICAgLS0gCj4gICAgIEJlbiBHcmVlYXIgPGdyZWVhcmJAY2FuZGVsYXRlY2guY29tIDxt
+YWlsdG86Z3JlZWFyYkBjYW5kZWxhdGVjaC5jb20+Pgo+ICAgICBDYW5kZWxhIFRlY2hub2xvZ2ll
+cyBJbmMgaHR0cDovL3d3dy5jYW5kZWxhdGVjaC5jb20gPGh0dHA6Ly93d3cuY2FuZGVsYXRlY2gu
+Y29tPgo+IAo+IAo+IFRoaXMgZWxlY3Ryb25pYyBjb21tdW5pY2F0aW9uIGFuZCB0aGUgaW5mb3Jt
+YXRpb24gYW5kIGFueSBmaWxlcyB0cmFuc21pdHRlZCB3aXRoIGl0LCBvciBhdHRhY2hlZCB0byBp
+dCwgYXJlIGNvbmZpZGVudGlhbCBhbmQgYXJlIGludGVuZGVkIHNvbGVseSBmb3IgdGhlIHVzZSBv
+ZiAKPiB0aGUgaW5kaXZpZHVhbCBvciBlbnRpdHkgdG8gd2hvbSBpdCBpcyBhZGRyZXNzZWQgYW5k
+IG1heSBjb250YWluIGluZm9ybWF0aW9uIHRoYXQgaXMgY29uZmlkZW50aWFsLCBsZWdhbGx5IHBy
+aXZpbGVnZWQsIHByb3RlY3RlZCBieSBwcml2YWN5IGxhd3MsIG9yIG90aGVyd2lzZSAKPiByZXN0
+cmljdGVkIGZyb20gZGlzY2xvc3VyZSB0byBhbnlvbmUgZWxzZS4gSWYgeW91IGFyZSBub3QgdGhl
+IGludGVuZGVkIHJlY2lwaWVudCBvciB0aGUgcGVyc29uIHJlc3BvbnNpYmxlIGZvciBkZWxpdmVy
+aW5nIHRoZSBlLW1haWwgdG8gdGhlIGludGVuZGVkIHJlY2lwaWVudCwgCj4geW91IGFyZSBoZXJl
+Ynkgbm90aWZpZWQgdGhhdCBhbnkgdXNlLCBjb3B5aW5nLCBkaXN0cmlidXRpbmcsIGRpc3NlbWlu
+YXRpb24sIGZvcndhcmRpbmcsIHByaW50aW5nLCBvciBjb3B5aW5nIG9mIHRoaXMgZS1tYWlsIGlz
+IHN0cmljdGx5IHByb2hpYml0ZWQuIElmIHlvdSAKPiByZWNlaXZlZCB0aGlzIGUtbWFpbCBpbiBl
+cnJvciwgcGxlYXNlIHJldHVybiB0aGUgZS1tYWlsIHRvIHRoZSBzZW5kZXIsIGRlbGV0ZSBpdCBm
+cm9tIHlvdXIgY29tcHV0ZXIsIGFuZCBkZXN0cm95IGFueSBwcmludGVkIGNvcHkgb2YgaXQuCgoK
+LS0gCkJlbiBHcmVlYXIgPGdyZWVhcmJAY2FuZGVsYXRlY2guY29tPgpDYW5kZWxhIFRlY2hub2xv
+Z2llcyBJbmMgIGh0dHA6Ly93d3cuY2FuZGVsYXRlY2guY29tCl9fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMu
+YnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nh
+a2UK
