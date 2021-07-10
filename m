@@ -2,65 +2,68 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 690273C3597
-	for <lists+cake@lfdr.de>; Sat, 10 Jul 2021 19:00:54 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C6D403C3680
+	for <lists+cake@lfdr.de>; Sat, 10 Jul 2021 21:43:50 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 219FF3CBCB;
-	Sat, 10 Jul 2021 13:00:53 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 0C82A3CBC7;
+	Sat, 10 Jul 2021 15:43:43 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1625936453;
-	bh=raEQqZQfBODDR3ZOBxrmXR1X5yn0mf4nm59gUewQFDg=;
+	d=lists.bufferbloat.net; s=201610; t=1625946223;
+	bh=askbXSCNW9WtgE0Ptqg5uHt/cPJWmlAQAJATdOZsaSQ=;
 	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=p6g8K2oHFUSdIfH+vC8cv1QS+AcUwe9G/3URc2uKavoMWDRkP6eK6LH8Gtp37KkxQ
-	 AwqWvsLAYdZml3kxbN1YCdLmjaGwRH7Te16/bW4LHUykqOz0RT2SDNL81f6b4dc7uz
-	 qCXIzv8IeFUEYoCaNeh3CZAlHjoWe6g6J3e//3wAhcCEti6t1hTJuzu4X3oS3HAuji
-	 zUHP+UuB4Y/xYGsWbJ6fJgf/NimlvOO9jR7YOn4qXEU/xnzm6hSRqaitRxbbMkEZ31
-	 lUY/7upKDtMLk4+ho4z7cN3Jur5aKyZwhzWaUbUNj0xVruZBF5fg0me0QLR+RglChP
-	 CS51IoFE2Op1A==
+	b=F/VdlXJvN9SrGH0HVjVlsJ5h+990FPsPiz0f5TSs7MfzgR0TJJwdafazhTd00hoQ0
+	 HAT2WWSqSAkCnQ+QR05voo7SuxeKAzIH94+EcZFyp5beA7/jPNHA7gY1s4bWgXmB+H
+	 ePHOBvlHPkZagFEAg66v0IhSPm51/5f/BSSlTOjc37Y6vr6HrcYsGFFZ+glinYKzvg
+	 XomDzsdRPOKae/kvCsUByeUsfiJbQB1P8w+1uVau+Vnyk53hjD+S579hCdHkmiJ1WO
+	 G/zuQW8QcCLqgXQ+9j1C0zvGJOzh/oNf2d5vLlD7kJBU8b6TmKuJT+Lo7J7eQSOB9u
+	 WjFd/Isj/3Hxw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x131.google.com (mail-lf1-x131.google.com
- [IPv6:2a00:1450:4864:20::131])
+Received: from mail-il1-x136.google.com (mail-il1-x136.google.com
+ [IPv6:2607:f8b0:4864:20::136])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 0EDF93B29E
- for <cake@lists.bufferbloat.net>; Sat, 10 Jul 2021 13:00:51 -0400 (EDT)
-Received: by mail-lf1-x131.google.com with SMTP id y42so30719037lfa.3
- for <cake@lists.bufferbloat.net>; Sat, 10 Jul 2021 10:00:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=jackrabbitwireless.com; s=google;
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 870AC3B29E;
+ Sat, 10 Jul 2021 15:43:41 -0400 (EDT)
+Received: by mail-il1-x136.google.com with SMTP id b6so5023880iln.12;
+ Sat, 10 Jul 2021 12:43:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=R5s7DlJ6W+jcXEl6l93zkf6nyBB2D3403wkHkWOkecQ=;
- b=X+2kMnelZpLPKx+yUGgSxRCxUHFBlePpEUoAiGqTWgbmHXbSIRfpHr9dy9lJU2Kel8
- 8XLEZzNZQ91DxBAnI/TllyxFnEKtzWyPSg4/yPQ9/LCNyEBsmvSC4ypaiRTjnUkfT89n
- hzqV6d3VI+0iqOT0FrOqeD4VyBhh5B7+s/+/0=
+ :cc:content-transfer-encoding;
+ bh=Uw0kl/XhqHJ6ZjRz/VBLGdf++JxLZBdNgAeywh3pDPY=;
+ b=Oo+m5CQwrHqwCWTyJcKysn+Y8mcZ1a5EIraawcXmMCyuyDC88TZGUerQkFZkixN6OV
+ 7DRgKc3Evx+U5lyJIKqiAdn6O1ue27ksf+q4cju2v+fC1GlDvHmdquK96hWeYO8df4Ug
+ I6JJWfSj7EO9OfK+fcZqcnq/bJ6dwqmEDpY8+JqZ1OX8QLIi1JTFnC40nkMG2ZY3bjVW
+ tcNa4dY9nRe1Pht+FPUSImcfhFmI7EYtw3BtAJm2L0fLew9ilYzFGOH1JMe7rPLioHr1
+ WJUZXtaeSyZUXT5tn6g0U+B+XDcQG88r8rWf4kee9+s8WSCkLrhFTfl2nOU/B+jgwPwN
+ NoHQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=R5s7DlJ6W+jcXEl6l93zkf6nyBB2D3403wkHkWOkecQ=;
- b=IBe8HYDTr+OsAM7uTFPzUCVb+0HwM3LEWnlOZHt+eozp92fTc/PvtYiO9Lv26F64YE
- ADMAL+VlW3lmdk1+HRWbKy4V39ti9MSCIywBNzxLZY+lL0kNJz7yu/SIy88BX/kyc1ra
- /9cDpp+0Uvp7/MNLaQtw042oEH6k63ZoHSeveCYM0g0+p5wXmqn6RSaXYtdRNZK0MHmp
- fPIR7/kIEmxDHiRUvMvKlscetp/QP0ax6WkAo1F4vjxOJt5bbdr4e6e6hWtccfilUQsx
- 2pH1x5FIMcEDOMVhlqjw2y5EVB5bY1d/+KykV4QHvTk1T3LJIK+l3Kimw/y5QbgGHvJ7
- PYbg==
-X-Gm-Message-State: AOAM53128N7K50uM2n4QthuJOGlwtXPXnU6L4zIj1s0VYxj/n7WRi00e
- 60EuhNpDK8U9nG1HWJngtFS3+er3P+zxnuf/zWVFWA==
-X-Google-Smtp-Source: ABdhPJyIN00TqodFh+Yni70+A189InVvPmn5EIQ1gTMgsINwCS/gSFiN7yx453urkb2O3lySdkolxMADT1iERKfu2Jw=
-X-Received: by 2002:a05:6512:159e:: with SMTP id
- bp30mr22381586lfb.263.1625936449254; 
- Sat, 10 Jul 2021 10:00:49 -0700 (PDT)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=Uw0kl/XhqHJ6ZjRz/VBLGdf++JxLZBdNgAeywh3pDPY=;
+ b=L7A83TphCBXGYN1iID6KXIqGFgkLIOMaf7lBeQNmyyRtPTWcXac8X29LPWk+IWi4tQ
+ 1aD/trRLM1xUx5g8GHGxMn39NZI3kUMXJkszcqEEa8W0cq6EAKImzkw8gCCgXkttjq3L
+ RUVF5WyTFYe2AXps5XX2S8Z45LP5ET0cfAzFnGg3rI6CryMG+dOmf46mdZmXAGfW1sL5
+ xaA+9M9moxxn4qgoqGlsX/4E3FXo3zsMno+pbj8CnPYM/XzGDB5AHis0QHhCWj/6R/He
+ sqkw+WVQUIJ+uFXhNBBNjL5JZbrOr1y2QNmrtLBQq6qRGrKiJQRH81HvJJ1hW6eXbRt/
+ 83xA==
+X-Gm-Message-State: AOAM533lV0SX1PZxMXrkXKH2upyDfmr0zOWkBqs1189b9qCgky/r+faw
+ +kYdW3j3WBZ1qLSbWeLcOP0EWsAKd4eiQiQukjA=
+X-Google-Smtp-Source: ABdhPJydeq4pHpIF7Z1KHhRcObGz9zezj7KqtNdZ7AI35fCfg6rmxkjv8w1ga3CYM/ywyjgwm4Cfj1ebTtSXYq6X+4M=
+X-Received: by 2002:a92:d346:: with SMTP id a6mr4584829ilh.249.1625946220677; 
+ Sat, 10 Jul 2021 12:43:40 -0700 (PDT)
 MIME-Version: 1.0
 References: <1625910047-56840-1-git-send-email-shenjian15@huawei.com>
  <CAA93jw4oWpoWkRk+YrzLfWX+0PpMHMJmALup6BLBczwLrjn-hA@mail.gmail.com>
-In-Reply-To: <CAA93jw4oWpoWkRk+YrzLfWX+0PpMHMJmALup6BLBczwLrjn-hA@mail.gmail.com>
-From: =?UTF-8?Q?Robert_Chac=C3=B3n?= <robert.chacon@jackrabbitwireless.com>
-Date: Sat, 10 Jul 2021 11:00:37 -0600
-Message-ID: <CAOZyJouL=pM+GTTQ3AfEiwE6j5Jt3DFLMJYjasnJLBUszTd=tA@mail.gmail.com>
-To: Dave Taht <dave.taht@gmail.com>
+ <CAOZyJouL=pM+GTTQ3AfEiwE6j5Jt3DFLMJYjasnJLBUszTd=tA@mail.gmail.com>
+In-Reply-To: <CAOZyJouL=pM+GTTQ3AfEiwE6j5Jt3DFLMJYjasnJLBUszTd=tA@mail.gmail.com>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Sat, 10 Jul 2021 12:43:28 -0700
+Message-ID: <CAA93jw7MBjijx0MiWPkmRttEELWsNjCdcHwkjPduto6+F4G24w@mail.gmail.com>
+To: =?UTF-8?Q?Robert_Chac=C3=B3n?= <robert.chacon@jackrabbitwireless.com>
 Subject: Re: [Cake] Fwd: [RFC net-next] net: extend netdev features
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -75,4196 +78,1627 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============6314900565531920525=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============6314900565531920525==
-Content-Type: multipart/alternative; boundary="0000000000007c51d805c6c7d4aa"
-
---0000000000007c51d805c6c7d4aa
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-I have a question regarding this, and the current maximum number of htb
-leaf classes and/or qdiscs per interface.
-I recently integrated Jesper's xdp-cpumap-tc
-<https://github.com/xdp-project/xdp-cpumap-tc> code into LibreQoS
-<https://github.com/rchac/LibreQoS>, which increased throughput to 10Gbps
-on tests.
-I suspect somewhere between 10Gbps and 40Gbps throughput is now possible if
-you throw enough cores at it. Asking our local university to help us test
-this.
-Xdp-cpumap-tc uses xdp's cpumap-redirect feature to filter packets into the
-appropriate CPU / queue using eBPF hash maps, rather than linux tc filters
-/ u32.
-
-Question) Since LibreQoS would not depend on tc filters, would the current
-32-bit or 64-bit feature limit impose a practical client limit on LibreQoS?
-The average user's throughput is around 3.5Mbps at peak hours, so I'm
-thinking ~5800 qdiscs and ~5800 htb leaf classes would be required for each
-interface at 20Gbps throughput for example.
-There may be some more immediate limitations I'm not understanding. Just
-curious about the practical limitations there.
-
-Thanks!
-Robert
-
-On Sat, Jul 10, 2021 at 9:33 AM Dave Taht <dave.taht@gmail.com> wrote:
->
-> One thing somewhat related to this was finally expanding the space
-> available for the tc and iptables functionality for
-> things like hashing and actions etc from 16 bits to 32. That is
-> something of a fork lift upgrade, but... 64k queues is not
-> enough in some cases, nor is 64k possible users in libreqos. thoughts
->
-> ---------- Forwarded message ---------
-> From: Jian Shen <shenjian15@huawei.com>
-> Date: Sat, Jul 10, 2021 at 2:47 AM
-> Subject: [RFC net-next] net: extend netdev features
-> To: <davem@davemloft.net>, <kuba@kernel.org>
-> Cc: <netdev@vger.kernel.org>, <linuxarm@openeuler.org>
->
->
-> For the prototype of netdev_features_t is u64, and the number
-> of netdevice feature bits is 64 now. So there is no space to
-> introduce new feature bit.
->
-> I did a small change for this. Keep the prototype of
-> netdev_feature_t, and extend the feature members in struct
-> net_device to an array of netdev_features_t. So more features
-> bits can be used.
->
-> As this change, some functions which use netdev_features_t as
-> parameter or returen value will be affected.
-> I did below changes:
-> a. parameter: "netdev_features_t" to "netdev_features_t *"
-> b. return value: "netdev_feature_t" to "void", and add
-> "netdev_feature_t *" as output parameter.
->
-> I kept some functions no change, which are surely useing the
-> first 64 bit of net device features now, such as function
-> nedev_add_tso_features(). In order to minimize to changes.
->
-> For the features are array now, so it's unable to do logical
-> operation directly. I introduce a inline function set for
-> them, including "netdev_features_and/andnot/or/xor/equal/empty".
->
-> For NETDEV_FEATURE_COUNT may be more than 64, so the shift
-> operation for NETDEV_FEATURE_COUNT is illegal. I changed some
-> macroes and functions, which does shift opertion with it.
->
-> I haven't finished all the changes, for it affected all the
-> drivers which use the feature, need more time and test. I
-> sent this RFC patch, want to know whether this change is
-> acceptable, and how to improve it.
->
-> Any comments will be helpful.
->
-> Signed-off-by: Jian Shen <shenjian15@huawei.com>
-> ---
->  drivers/net/ethernet/hisilicon/hns/hns_enet.c   |  34 +--
->  drivers/net/ethernet/hisilicon/hns3/hns3_enet.c |  97 ++++-----
->  drivers/net/ethernet/huawei/hinic/hinic_main.c  |  71 +++---
->  drivers/net/ethernet/huawei/hinic/hinic_rx.c    |   4 +-
->  include/linux/if_vlan.h                         |   2 +-
->  include/linux/netdev_features.h                 | 105 ++++++++-
->  include/linux/netdevice.h                       |  31 +--
->  net/8021q/vlan.c                                |   4 +-
->  net/8021q/vlan.h                                |   2 +-
->  net/8021q/vlan_dev.c                            |  49 +++--
->  net/core/dev.c                                  | 276
-++++++++++++------------
->  net/core/netpoll.c                              |   6 +-
->  net/ethtool/features.c                          |  56 +++--
->  net/ethtool/ioctl.c                             |  93 +++++---
->  14 files changed, 493 insertions(+), 337 deletions(-)
->
-> diff --git a/drivers/net/ethernet/hisilicon/hns/hns_enet.c
-> b/drivers/net/ethernet/hisilicon/hns/hns_enet.c
-> index ad534f9..4f245cf 100644
-> --- a/drivers/net/ethernet/hisilicon/hns/hns_enet.c
-> +++ b/drivers/net/ethernet/hisilicon/hns/hns_enet.c
-> @@ -479,7 +479,7 @@ static void hns_nic_rx_checksum(struct
-> hns_nic_ring_data *ring_data,
->         u32 l4id;
->
->         /* check if RX checksum offload is enabled */
-> -       if (unlikely(!(netdev->features & NETIF_F_RXCSUM)))
-> +       if (unlikely(!(netdev->features[0] & NETIF_F_RXCSUM)))
->                 return;
->
->         /* In hardware, we only support checksum for the following
-protocols:
-> @@ -1768,17 +1768,17 @@ static int hns_nic_change_mtu(struct
-> net_device *ndev, int new_mtu)
->  }
->
->  static int hns_nic_set_features(struct net_device *netdev,
-> -                               netdev_features_t features)
-> +                               netdev_features_t *features)
->  {
->         struct hns_nic_priv *priv =3D netdev_priv(netdev);
->
->         switch (priv->enet_ver) {
->         case AE_VERSION_1:
-> -               if (features & (NETIF_F_TSO | NETIF_F_TSO6))
-> +               if (features[0] & (NETIF_F_TSO | NETIF_F_TSO6))
->                         netdev_info(netdev, "enet v1 do not support
-tso!\n");
->                 break;
->         default:
-> -               if (features & (NETIF_F_TSO | NETIF_F_TSO6)) {
-> +               if (features[0] & (NETIF_F_TSO | NETIF_F_TSO6)) {
->                         priv->ops.fill_desc =3D fill_tso_desc;
->                         priv->ops.maybe_stop_tx =3D hns_nic_maybe_stop_ts=
-o;
->                         /* The chip only support 7*4096 */
-> @@ -1789,24 +1789,23 @@ static int hns_nic_set_features(struct
-> net_device *netdev,
->                 }
->                 break;
->         }
-> -       netdev->features =3D features;
-> +       netdev->features[0] =3D features[0];
->         return 0;
->  }
->
-> -static netdev_features_t hns_nic_fix_features(
-> -               struct net_device *netdev, netdev_features_t features)
-> +static void hns_nic_fix_features(struct net_device *netdev,
-> +                                netdev_features_t *features)
->  {
->         struct hns_nic_priv *priv =3D netdev_priv(netdev);
->
->         switch (priv->enet_ver) {
->         case AE_VERSION_1:
-> -               features &=3D ~(NETIF_F_TSO | NETIF_F_TSO6 |
-> +               features[0] &=3D ~(NETIF_F_TSO | NETIF_F_TSO6 |
->                                 NETIF_F_HW_VLAN_CTAG_FILTER);
->                 break;
->         default:
->                 break;
->         }
-> -       return features;
->  }
->
->  static int hns_nic_uc_sync(struct net_device *netdev, const unsigned
-> char *addr)
-> @@ -2163,8 +2162,8 @@ static void hns_nic_set_priv_ops(struct
-> net_device *netdev)
->                 priv->ops.maybe_stop_tx =3D hns_nic_maybe_stop_tx;
->         } else {
->                 priv->ops.get_rxd_bnum =3D get_v2rx_desc_bnum;
-> -               if ((netdev->features & NETIF_F_TSO) ||
-> -                   (netdev->features & NETIF_F_TSO6)) {
-> +               if ((netdev->features[0] & NETIF_F_TSO) ||
-> +                   (netdev->features[0] & NETIF_F_TSO6)) {
->                         priv->ops.fill_desc =3D fill_tso_desc;
->                         priv->ops.maybe_stop_tx =3D hns_nic_maybe_stop_ts=
-o;
->                         /* This chip only support 7*4096 */
-> @@ -2325,22 +2324,23 @@ static int hns_nic_dev_probe(struct
-> platform_device *pdev)
->         ndev->netdev_ops =3D &hns_nic_netdev_ops;
->         hns_ethtool_set_ops(ndev);
->
-> -       ndev->features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |
-> +       ndev->features[0] |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |
->                 NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |
->                 NETIF_F_GRO;
-> -       ndev->vlan_features |=3D
-> +       ndev->vlan_features[0] |=3D
->                 NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM | NETIF_F_RXCSUM;
-> -       ndev->vlan_features |=3D NETIF_F_SG | NETIF_F_GSO | NETIF_F_GRO;
-> +       ndev->vlan_features[0] |=3D NETIF_F_SG | NETIF_F_GSO | NETIF_F_GR=
-O;
->
->         /* MTU range: 68 - 9578 (v1) or 9706 (v2) */
->         ndev->min_mtu =3D MAC_MIN_MTU;
->         switch (priv->enet_ver) {
->         case AE_VERSION_2:
-> -               ndev->features |=3D NETIF_F_TSO | NETIF_F_TSO6 |
-NETIF_F_NTUPLE;
-> -               ndev->hw_features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSU=
-M |
-> +               ndev->features[0] |=3D
-> +                               NETIF_F_TSO | NETIF_F_TSO6 |
-NETIF_F_NTUPLE;
-> +               ndev->hw_features[0] |=3D NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM |
->                         NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |
->                         NETIF_F_GRO | NETIF_F_TSO | NETIF_F_TSO6;
-> -               ndev->vlan_features |=3D NETIF_F_TSO | NETIF_F_TSO6;
-> +               ndev->vlan_features[0] |=3D NETIF_F_TSO | NETIF_F_TSO6;
->                 ndev->max_mtu =3D MAC_MAX_MTU_V2 -
->                                 (ETH_HLEN + ETH_FCS_LEN + VLAN_HLEN);
->                 break;
-> diff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
-> b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
-> index cdb5f14..ba56907 100644
-> --- a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
-> +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c
-> @@ -1481,7 +1481,7 @@ static int hns3_handle_vtags(struct
-> hns3_enet_ring *tx_ring,
->                 return -EINVAL;
->
->         if (skb->protocol =3D=3D htons(ETH_P_8021Q) &&
-> -           !(handle->kinfo.netdev->features & NETIF_F_HW_VLAN_CTAG_TX)) =
-{
-> +           !(handle->kinfo.netdev->features[0] &
-NETIF_F_HW_VLAN_CTAG_TX)) {
->                 /* When HW VLAN acceleration is turned off, and the stack
->                  * sets the protocol to 802.1q, the driver just need to
->                  * set the protocol to the encapsulated ethertype.
-> @@ -2300,56 +2300,57 @@ static int hns3_nic_do_ioctl(struct net_device
-*netdev,
->  }
->
->  static int hns3_nic_set_features(struct net_device *netdev,
-> -                                netdev_features_t features)
-> +                                netdev_features_t *features)
->  {
-> -       netdev_features_t changed =3D netdev->features ^ features;
-> +       netdev_features_t changed[NETDEV_FEATURE_DWORDS];
->         struct hns3_nic_priv *priv =3D netdev_priv(netdev);
->         struct hnae3_handle *h =3D priv->ae_handle;
->         bool enable;
->         int ret;
->
-> -       if (changed & (NETIF_F_GRO_HW) && h->ae_algo->ops->set_gro_en) {
-> -               enable =3D !!(features & NETIF_F_GRO_HW);
-> +       netdev_features_xor(changed, netdev->features, features);
-> +       if (changed[0] & (NETIF_F_GRO_HW) && h->ae_algo->ops->set_gro_en)
-{
-> +               enable =3D !!(features[0] & NETIF_F_GRO_HW);
->                 ret =3D h->ae_algo->ops->set_gro_en(h, enable);
->                 if (ret)
->                         return ret;
->         }
->
-> -       if ((changed & NETIF_F_HW_VLAN_CTAG_RX) &&
-> +       if ((changed[0] & NETIF_F_HW_VLAN_CTAG_RX) &&
->             h->ae_algo->ops->enable_hw_strip_rxvtag) {
-> -               enable =3D !!(features & NETIF_F_HW_VLAN_CTAG_RX);
-> +               enable =3D !!(features[0] & NETIF_F_HW_VLAN_CTAG_RX);
->                 ret =3D h->ae_algo->ops->enable_hw_strip_rxvtag(h, enable=
-);
->                 if (ret)
->                         return ret;
->         }
->
-> -       if ((changed & NETIF_F_NTUPLE) && h->ae_algo->ops->enable_fd) {
-> -               enable =3D !!(features & NETIF_F_NTUPLE);
-> +       if ((changed[0] & NETIF_F_NTUPLE) && h->ae_algo->ops->enable_fd) =
-{
-> +               enable =3D !!(features[0] & NETIF_F_NTUPLE);
->                 h->ae_algo->ops->enable_fd(h, enable);
->         }
->
-> -       if ((netdev->features & NETIF_F_HW_TC) > (features &
-NETIF_F_HW_TC) &&
-> +       if ((netdev->features[0] & NETIF_F_HW_TC) >
-> +            (features[0] & NETIF_F_HW_TC) &&
->             h->ae_algo->ops->cls_flower_active(h)) {
->                 netdev_err(netdev,
->                            "there are offloaded TC filters active,
-> cannot disable HW TC offload");
->                 return -EINVAL;
->         }
->
-> -       if ((changed & NETIF_F_HW_VLAN_CTAG_FILTER) &&
-> +       if ((changed[0] & NETIF_F_HW_VLAN_CTAG_FILTER) &&
->             h->ae_algo->ops->enable_vlan_filter) {
-> -               enable =3D !!(features & NETIF_F_HW_VLAN_CTAG_FILTER);
-> +               enable =3D !!(features[0] & NETIF_F_HW_VLAN_CTAG_FILTER);
->                 ret =3D h->ae_algo->ops->enable_vlan_filter(h, enable);
->                 if (ret)
->                         return ret;
->         }
->
-> -       netdev->features =3D features;
-> +       netdev_features_copy(netdev->features, features);
->         return 0;
->  }
->
-> -static netdev_features_t hns3_features_check(struct sk_buff *skb,
-> -                                            struct net_device *dev,
-> -                                            netdev_features_t features)
-> +static void hns3_features_check(struct sk_buff *skb, struct net_device
-*dev,
-> +                               netdev_features_t *features)
->  {
->  #define HNS3_MAX_HDR_LEN       480U
->  #define HNS3_MAX_L4_HDR_LEN    60U
-> @@ -2373,9 +2374,7 @@ static netdev_features_t
-> hns3_features_check(struct sk_buff *skb,
->          * len of 480 bytes.
->          */
->         if (len > HNS3_MAX_HDR_LEN)
-> -               features &=3D ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);
-> -
-> -       return features;
-> +               features[0] &=3D ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);
->  }
->
->  static void hns3_nic_get_stats64(struct net_device *netdev,
-> @@ -3127,27 +3126,28 @@ static void hns3_set_default_feature(struct
-> net_device *netdev)
->
->         netdev->priv_flags |=3D IFF_UNICAST_FLT;
->
-> -       netdev->hw_enc_features |=3D NETIF_F_RXCSUM | NETIF_F_SG |
-NETIF_F_GSO |
-> +       netdev->hw_enc_features[0] |=3D
-> +               NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |
->                 NETIF_F_GRO | NETIF_F_TSO | NETIF_F_TSO6 |
-NETIF_F_GSO_GRE |
->                 NETIF_F_GSO_GRE_CSUM | NETIF_F_GSO_UDP_TUNNEL |
->                 NETIF_F_SCTP_CRC | NETIF_F_TSO_MANGLEID |
-NETIF_F_FRAGLIST;
->
->         netdev->gso_partial_features |=3D NETIF_F_GSO_GRE_CSUM;
->
-> -       netdev->features |=3D NETIF_F_HW_VLAN_CTAG_FILTER |
-> +       netdev->features[0] |=3D NETIF_F_HW_VLAN_CTAG_FILTER |
->                 NETIF_F_HW_VLAN_CTAG_TX | NETIF_F_HW_VLAN_CTAG_RX |
->                 NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |
->                 NETIF_F_GRO | NETIF_F_TSO | NETIF_F_TSO6 |
-NETIF_F_GSO_GRE |
->                 NETIF_F_GSO_GRE_CSUM | NETIF_F_GSO_UDP_TUNNEL |
->                 NETIF_F_SCTP_CRC | NETIF_F_FRAGLIST;
->
-> -       netdev->vlan_features |=3D NETIF_F_RXCSUM |
-> +       netdev->vlan_features[0] |=3D NETIF_F_RXCSUM |
->                 NETIF_F_SG | NETIF_F_GSO | NETIF_F_GRO |
->                 NETIF_F_TSO | NETIF_F_TSO6 | NETIF_F_GSO_GRE |
->                 NETIF_F_GSO_GRE_CSUM | NETIF_F_GSO_UDP_TUNNEL |
->                 NETIF_F_SCTP_CRC | NETIF_F_FRAGLIST;
->
-> -       netdev->hw_features |=3D NETIF_F_HW_VLAN_CTAG_TX |
-> +       netdev->hw_features[0] |=3D NETIF_F_HW_VLAN_CTAG_TX |
->                 NETIF_F_HW_VLAN_CTAG_RX |
->                 NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |
->                 NETIF_F_GRO | NETIF_F_TSO | NETIF_F_TSO6 |
-NETIF_F_GSO_GRE |
-> @@ -3155,48 +3155,49 @@ static void hns3_set_default_feature(struct
-> net_device *netdev)
->                 NETIF_F_SCTP_CRC | NETIF_F_FRAGLIST;
->
->         if (ae_dev->dev_version >=3D HNAE3_DEVICE_VERSION_V2) {
-> -               netdev->hw_features |=3D NETIF_F_GRO_HW;
-> -               netdev->features |=3D NETIF_F_GRO_HW;
-> +               netdev->hw_features[0] |=3D NETIF_F_GRO_HW;
-> +               netdev->features[0] |=3D NETIF_F_GRO_HW;
->
->                 if (!(h->flags & HNAE3_SUPPORT_VF)) {
-> -                       netdev->hw_features |=3D NETIF_F_NTUPLE;
-> -                       netdev->features |=3D NETIF_F_NTUPLE;
-> +                       netdev->hw_features[0] |=3D NETIF_F_NTUPLE;
-> +                       netdev->features[0] |=3D NETIF_F_NTUPLE;
->                 }
->         }
->
->         if (test_bit(HNAE3_DEV_SUPPORT_UDP_GSO_B, ae_dev->caps)) {
-> -               netdev->hw_features |=3D NETIF_F_GSO_UDP_L4;
-> -               netdev->features |=3D NETIF_F_GSO_UDP_L4;
-> -               netdev->vlan_features |=3D NETIF_F_GSO_UDP_L4;
-> -               netdev->hw_enc_features |=3D NETIF_F_GSO_UDP_L4;
-> +               netdev->hw_features[0] |=3D NETIF_F_GSO_UDP_L4;
-> +               netdev->features[0] |=3D NETIF_F_GSO_UDP_L4;
-> +               netdev->vlan_features[0] |=3D NETIF_F_GSO_UDP_L4;
-> +               netdev->hw_enc_features[0] |=3D NETIF_F_GSO_UDP_L4;
->         }
->
->         if (test_bit(HNAE3_DEV_SUPPORT_HW_TX_CSUM_B, ae_dev->caps)) {
-> -               netdev->hw_features |=3D NETIF_F_HW_CSUM;
-> -               netdev->features |=3D NETIF_F_HW_CSUM;
-> -               netdev->vlan_features |=3D NETIF_F_HW_CSUM;
-> -               netdev->hw_enc_features |=3D NETIF_F_HW_CSUM;
-> +               netdev->hw_features[0] |=3D NETIF_F_HW_CSUM;
-> +               netdev->features[0] |=3D NETIF_F_HW_CSUM;
-> +               netdev->vlan_features[0] |=3D NETIF_F_HW_CSUM;
-> +               netdev->hw_enc_features[0] |=3D NETIF_F_HW_CSUM;
->         } else {
-> -               netdev->hw_features |=3D NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM;
-> -               netdev->features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM=
-;
-> -               netdev->vlan_features |=3D NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM;
-> -               netdev->hw_enc_features |=3D NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM;
-> +               netdev->hw_features[0] |=3D NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM;
-> +               netdev->features[0] |=3D NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM;
-> +               netdev->vlan_features[0] |=3D NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM;
-> +               netdev->hw_enc_features[0] |=3D
-> +                                       NETIF_F_IP_CSUM |
-NETIF_F_IPV6_CSUM;
->         }
->
->         if (test_bit(HNAE3_DEV_SUPPORT_UDP_TUNNEL_CSUM_B, ae_dev->caps)) =
-{
-> -               netdev->hw_features |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> -               netdev->features |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> -               netdev->vlan_features |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> -               netdev->hw_enc_features |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> +               netdev->hw_features[0] |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> +               netdev->features[0] |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> +               netdev->vlan_features[0] |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM=
-;
-> +               netdev->hw_enc_features[0] |=3D NETIF_F_GSO_UDP_TUNNEL_CS=
-UM;
->         }
->
->         if (test_bit(HNAE3_DEV_SUPPORT_FD_FORWARD_TC_B, ae_dev->caps)) {
-> -               netdev->hw_features |=3D NETIF_F_HW_TC;
-> -               netdev->features |=3D NETIF_F_HW_TC;
-> +               netdev->hw_features[0] |=3D NETIF_F_HW_TC;
-> +               netdev->features[0] |=3D NETIF_F_HW_TC;
->         }
->
->         if (test_bit(HNAE3_DEV_SUPPORT_VLAN_FLTR_MDF_B, ae_dev->caps))
-> -               netdev->hw_features |=3D NETIF_F_HW_VLAN_CTAG_FILTER;
-> +               netdev->hw_features[0] |=3D NETIF_F_HW_VLAN_CTAG_FILTER;
->  }
->
->  static int hns3_alloc_buffer(struct hns3_enet_ring *ring,
-> @@ -3727,7 +3728,7 @@ static void hns3_rx_checksum(struct
-> hns3_enet_ring *ring, struct sk_buff *skb,
->
->         skb_checksum_none_assert(skb);
->
-> -       if (!(netdev->features & NETIF_F_RXCSUM))
-> +       if (!(netdev->features[0] & NETIF_F_RXCSUM))
->                 return;
->
->         if (test_bit(HNS3_NIC_STATE_RXD_ADV_LAYOUT_ENABLE, &priv->state))
-> @@ -4024,7 +4025,7 @@ static int hns3_handle_bdinfo(struct
-> hns3_enet_ring *ring, struct sk_buff *skb)
->          * ot_vlan_tag in two layer tag case, and stored at vlan_tag
->          * in one layer tag case.
->          */
-> -       if (netdev->features & NETIF_F_HW_VLAN_CTAG_RX) {
-> +       if (netdev->features[0] & NETIF_F_HW_VLAN_CTAG_RX) {
->                 u16 vlan_tag;
->
->                 if (hns3_parse_vlan_tag(ring, desc, l234info, &vlan_tag))
-> diff --git a/drivers/net/ethernet/huawei/hinic/hinic_main.c
-> b/drivers/net/ethernet/huawei/hinic/hinic_main.c
-> index 405ee4d..b193ee4 100644
-> --- a/drivers/net/ethernet/huawei/hinic/hinic_main.c
-> +++ b/drivers/net/ethernet/huawei/hinic/hinic_main.c
-> @@ -79,8 +79,8 @@ MODULE_PARM_DESC(rx_weight, "Number Rx packets for
-> NAPI budget (default=3D64)");
->  static int change_mac_addr(struct net_device *netdev, const u8 *addr);
->
->  static int set_features(struct hinic_dev *nic_dev,
-> -                       netdev_features_t pre_features,
-> -                       netdev_features_t features, bool force_change);
-> +                       netdev_features_t *pre_features,
-> +                       netdev_features_t *features, bool force_change);
->
->  static void update_rx_stats(struct hinic_dev *nic_dev, struct hinic_rxq
-*rxq)
->  {
-> @@ -880,7 +880,7 @@ static void hinic_get_stats64(struct net_device
-*netdev,
->  }
->
->  static int hinic_set_features(struct net_device *netdev,
-> -                             netdev_features_t features)
-> +                             netdev_features_t *features)
->  {
->         struct hinic_dev *nic_dev =3D netdev_priv(netdev);
->
-> @@ -888,18 +888,16 @@ static int hinic_set_features(struct net_device
-*netdev,
->                             features, false);
->  }
->
-> -static netdev_features_t hinic_fix_features(struct net_device *netdev,
-> -                                           netdev_features_t features)
-> +static void hinic_fix_features(struct net_device *netdev,
-> +                              netdev_features_t features)
->  {
->         struct hinic_dev *nic_dev =3D netdev_priv(netdev);
->
->         /* If Rx checksum is disabled, then LRO should also be disabled *=
-/
-> -       if (!(features & NETIF_F_RXCSUM)) {
-> +       if (!(features[0] & NETIF_F_RXCSUM)) {
->                 netif_info(nic_dev, drv, netdev, "disabling LRO as
-> RXCSUM is off\n");
-> -               features &=3D ~NETIF_F_LRO;
-> +               features[0] &=3D ~NETIF_F_LRO;
->         }
-> -
-> -       return features;
->  }
->
->  static const struct net_device_ops hinic_netdev_ops =3D {
-> @@ -943,19 +941,22 @@ static const struct net_device_ops
-hinicvf_netdev_ops =3D {
->
->  static void netdev_features_init(struct net_device *netdev)
->  {
-> -       netdev->hw_features =3D NETIF_F_SG | NETIF_F_HIGHDMA |
-NETIF_F_IP_CSUM |
-> -                             NETIF_F_IPV6_CSUM | NETIF_F_TSO |
-NETIF_F_TSO6 |
-> -                             NETIF_F_RXCSUM | NETIF_F_LRO |
-> -                             NETIF_F_HW_VLAN_CTAG_TX |
-> NETIF_F_HW_VLAN_CTAG_RX |
-> -                             NETIF_F_GSO_UDP_TUNNEL |
-> NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> -
-> -       netdev->vlan_features =3D netdev->hw_features;
-> -
-> -       netdev->features =3D netdev->hw_features |
-NETIF_F_HW_VLAN_CTAG_FILTER;
-> -
-> -       netdev->hw_enc_features =3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM
-> | NETIF_F_SCTP_CRC |
-> -                                 NETIF_F_SG | NETIF_F_TSO |
-> NETIF_F_TSO6 | NETIF_F_TSO_ECN |
-> -                                 NETIF_F_GSO_UDP_TUNNEL_CSUM |
-> NETIF_F_GSO_UDP_TUNNEL;
-> +       netdev->hw_features[0] =3D
-> +                       NETIF_F_SG | NETIF_F_HIGHDMA | NETIF_F_IP_CSUM |
-> +                       NETIF_F_IPV6_CSUM | NETIF_F_TSO | NETIF_F_TSO6 |
-> +                       NETIF_F_RXCSUM | NETIF_F_LRO |
-> +                       NETIF_F_HW_VLAN_CTAG_TX | NETIF_F_HW_VLAN_CTAG_RX
-|
-> +                       NETIF_F_GSO_UDP_TUNNEL |
-NETIF_F_GSO_UDP_TUNNEL_CSUM;
-> +
-> +       netdev_features_copy(netdev->vlan_features, netdev->hw_features);
-> +
-> +       netdev->features[0] =3D
-> +                       netdev->hw_features[0] |
-NETIF_F_HW_VLAN_CTAG_FILTER;
-> +
-> +       netdev->hw_enc_features[0] =3D
-> +               NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM | NETIF_F_SCTP_CRC |
-> +               NETIF_F_SG | NETIF_F_TSO | NETIF_F_TSO6 | NETIF_F_TSO_ECN
-|
-> +               NETIF_F_GSO_UDP_TUNNEL_CSUM | NETIF_F_GSO_UDP_TUNNEL;
->  }
->
->  static void hinic_refresh_nic_cfg(struct hinic_dev *nic_dev)
-> @@ -1072,21 +1073,22 @@ static void link_err_event(void *handle,
->  }
->
->  static int set_features(struct hinic_dev *nic_dev,
-> -                       netdev_features_t pre_features,
-> -                       netdev_features_t features, bool force_change)
-> +                       netdev_features_t *pre_features,
-> +                       netdev_features_t *features, bool force_change)
->  {
-> -       netdev_features_t changed =3D force_change ? ~0 : pre_features ^
-features;
-> +       netdev_features_t failed_features[NETDEV_FEATURE_DWORDS] =3D {0};
->         u32 csum_en =3D HINIC_RX_CSUM_OFFLOAD_EN;
-> -       netdev_features_t failed_features =3D 0;
-> +       netdev_features_t changed;
->         int ret =3D 0;
->         int err =3D 0;
->
-> +       changed =3D force_change ? ~0 : pre_features[0] ^ features[0];
->         if (changed & NETIF_F_TSO) {
-> -               ret =3D hinic_port_set_tso(nic_dev, (features &
-NETIF_F_TSO) ?
-> +               ret =3D hinic_port_set_tso(nic_dev, (features[0] &
-NETIF_F_TSO) ?
->                                          HINIC_TSO_ENABLE :
-HINIC_TSO_DISABLE);
->                 if (ret) {
->                         err =3D ret;
-> -                       failed_features |=3D NETIF_F_TSO;
-> +                       failed_features[0] |=3D NETIF_F_TSO;
->                 }
->         }
->
-> @@ -1094,33 +1096,34 @@ static int set_features(struct hinic_dev *nic_dev=
-,
->                 ret =3D hinic_set_rx_csum_offload(nic_dev, csum_en);
->                 if (ret) {
->                         err =3D ret;
-> -                       failed_features |=3D NETIF_F_RXCSUM;
-> +                       failed_features[0] |=3D NETIF_F_RXCSUM;
->                 }
->         }
->
->         if (changed & NETIF_F_LRO) {
->                 ret =3D hinic_set_rx_lro_state(nic_dev,
-> -                                            !!(features & NETIF_F_LRO),
-> +                                            !!(features[0] &
-NETIF_F_LRO),
->                                              HINIC_LRO_RX_TIMER_DEFAULT,
->
- HINIC_LRO_MAX_WQE_NUM_DEFAULT);
->                 if (ret) {
->                         err =3D ret;
-> -                       failed_features |=3D NETIF_F_LRO;
-> +                       failed_features[0] |=3D NETIF_F_LRO;
->                 }
->         }
->
->         if (changed & NETIF_F_HW_VLAN_CTAG_RX) {
->                 ret =3D hinic_set_rx_vlan_offload(nic_dev,
-> -                                               !!(features &
-> +                                               !!(features[0] &
->
- NETIF_F_HW_VLAN_CTAG_RX));
->                 if (ret) {
->                         err =3D ret;
-> -                       failed_features |=3D NETIF_F_HW_VLAN_CTAG_RX;
-> +                       failed_features[0] |=3D NETIF_F_HW_VLAN_CTAG_RX;
->                 }
->         }
->
->         if (err) {
-> -               nic_dev->netdev->features =3D features ^ failed_features;
-> +               netdev_features_xor(nic_dev->netdev->features, features,
-> +                                   failed_features)
->                 return -EIO;
->         }
->
-> diff --git a/drivers/net/ethernet/huawei/hinic/hinic_rx.c
-> b/drivers/net/ethernet/huawei/hinic/hinic_rx.c
-> index fed3b6b..452a91b 100644
-> --- a/drivers/net/ethernet/huawei/hinic/hinic_rx.c
-> +++ b/drivers/net/ethernet/huawei/hinic/hinic_rx.c
-> @@ -106,7 +106,7 @@ static void rx_csum(struct hinic_rxq *rxq, u32 status=
-,
->
->         csum_err =3D HINIC_RQ_CQE_STATUS_GET(status, CSUM_ERR);
->
-> -       if (!(netdev->features & NETIF_F_RXCSUM))
-> +       if (!(netdev->features[0] & NETIF_F_RXCSUM))
->                 return;
->
->         if (!csum_err) {
-> @@ -411,7 +411,7 @@ static int rxq_recv(struct hinic_rxq *rxq, int budget=
-)
->
->                 offload_type =3D be32_to_cpu(cqe->offload_type);
->                 vlan_len =3D be32_to_cpu(cqe->len);
-> -               if ((netdev->features & NETIF_F_HW_VLAN_CTAG_RX) &&
-> +               if ((netdev->features[0] & NETIF_F_HW_VLAN_CTAG_RX) &&
->                     HINIC_GET_RX_VLAN_OFFLOAD_EN(offload_type)) {
->                         vid =3D HINIC_GET_RX_VLAN_TAG(vlan_len);
->                         __vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q),
-vid);
-> diff --git a/include/linux/if_vlan.h b/include/linux/if_vlan.h
-> index 41a5183..4173464 100644
-> --- a/include/linux/if_vlan.h
-> +++ b/include/linux/if_vlan.h
-> @@ -563,7 +563,7 @@ static inline int __vlan_hwaccel_get_tag(const
-> struct sk_buff *skb,
->   */
->  static inline int vlan_get_tag(const struct sk_buff *skb, u16 *vlan_tci)
->  {
-> -       if (skb->dev->features & NETIF_F_HW_VLAN_CTAG_TX) {
-> +       if (skb->dev->features[0] & NETIF_F_HW_VLAN_CTAG_TX) {
->                 return __vlan_hwaccel_get_tag(skb, vlan_tci);
->         } else {
->                 return __vlan_get_tag(skb, vlan_tci);
-> diff --git a/include/linux/netdev_features.h
-b/include/linux/netdev_features.h
-> index 2c6b9e4..9184963 100644
-> --- a/include/linux/netdev_features.h
-> +++ b/include/linux/netdev_features.h
-> @@ -102,7 +102,8 @@ enum {
->  };
->
->  /* copy'n'paste compression ;) */
-> -#define __NETIF_F_BIT(bit)     ((netdev_features_t)1 << (bit))
-> +#define __NETIF_F_BIT(bit)     ((netdev_features_t)1 << (bit & 0x3F))
-> +
->  #define __NETIF_F(name)
- __NETIF_F_BIT(NETIF_F_##name##_BIT)
->
->  #define NETIF_F_FCOE_CRC       __NETIF_F(FCOE_CRC)
-> @@ -169,6 +170,8 @@ enum {
->  #define NETIF_F_HW_HSR_FWD     __NETIF_F(HW_HSR_FWD)
->  #define NETIF_F_HW_HSR_DUP     __NETIF_F(HW_HSR_DUP)
->
-> +#define NETDEV_FEATURE_DWORDS  DIV_ROUND_UP(NETDEV_FEATURE_COUNT, 64)
-> +
->  /* Finds the next feature with the highest number of the range of start
-till 0.
->   */
->  static inline int find_next_netdev_feature(u64 feature, unsigned long
-start)
-> @@ -185,8 +188,7 @@ static inline int find_next_netdev_feature(u64
-> feature, unsigned long start)
->   * mask_addr should be a u64 and bit an int
->   */
->  #define for_each_netdev_feature(mask_addr, bit)
->          \
-> -       for ((bit) =3D find_next_netdev_feature((mask_addr),             =
- \
-> -                                             NETDEV_FEATURE_COUNT);    \
-> +       for ((bit) =3D find_next_netdev_feature((mask_addr), 64);        =
- \
->              (bit) >=3D 0;                                               =
- \
->              (bit) =3D find_next_netdev_feature((mask_addr), (bit) - 1))
->
-> @@ -195,11 +197,6 @@ static inline int find_next_netdev_feature(u64
-> feature, unsigned long start)
->  #define NETIF_F_NEVER_CHANGE   (NETIF_F_VLAN_CHALLENGED | \
->                                  NETIF_F_LLTX | NETIF_F_NETNS_LOCAL)
->
-> -/* remember that ((t)1 << t_BITS) is undefined in C99 */
-> -#define NETIF_F_ETHTOOL_BITS   ((__NETIF_F_BIT(NETDEV_FEATURE_COUNT - 1)
-| \
-> -               (__NETIF_F_BIT(NETDEV_FEATURE_COUNT - 1) - 1)) & \
-> -               ~NETIF_F_NEVER_CHANGE)
-> -
->  /* Segmentation offload feature mask */
->  #define NETIF_F_GSO_MASK       (__NETIF_F_BIT(NETIF_F_GSO_LAST + 1) - \
->                 __NETIF_F_BIT(NETIF_F_GSO_SHIFT))
-> @@ -261,4 +258,96 @@ static inline int find_next_netdev_feature(u64
-> feature, unsigned long start)
->                                  NETIF_F_GSO_UDP_TUNNEL |               \
->                                  NETIF_F_GSO_UDP_TUNNEL_CSUM)
->
-> +static inline void netdev_features_copy(netdev_features_t *dst,
-> +                                       const netdev_features_t *src)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               dst[i] =3D src[i];
-> +}
-> +
-> +static inline void netdev_features_and(netdev_features_t *dst,
-> +                                      const netdev_features_t *a,
-> +                                      const netdev_features_t *b)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               dst[i] =3D a[i] & b[i];
-> +}
-> +
-> +static inline void netdev_features_andnot(netdev_features_t *dst,
-> +                                         const netdev_features_t *a,
-> +                                         const netdev_features_t *b)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               dst[i] =3D a[i] & ~b[i];
-> +}
-> +
-> +static inline void netdev_features_or(netdev_features_t *dst,
-> +                                     const netdev_features_t *a,
-> +                                     const netdev_features_t *b)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               dst[i] =3D a[i] | b[i];
-> +}
-> +
-> +static inline void netdev_features_xor(netdev_features_t *dst,
-> +                                      const netdev_features_t *a,
-> +                                      const netdev_features_t *b)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               dst[i] =3D a[i] ^ b[i];
-> +}
-> +
-> +static inline void netdev_features_set(netdev_features_t *dst,
-> +                                      unsigned int bit)
-> +{
-> +       dst[bit / 64] |=3D __NETIF_F_BIT(bit);
-> +}
-> +
-> +static inline bool netdev_features_equal(const netdev_features_t *a,
-> +                                        const netdev_features_t *b)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               if (a[i] !=3D b[i])
-> +                       return false;
-> +
-> +       return true;
-> +}
-> +
-> +static inline void netdev_features_empty(netdev_features_t *src)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               if (src[i])
-> +                       return false;
-> +
-> +       return true;
-> +}
-> +
-> +static inline void netdev_features_ethtool_bits(netdev_features_t *dst)
-> +{
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++) {
-> +               if (NETDEV_FEATURE_COUNT >=3D (i + 1) * 64)
-> +                       dst[i] =3D GENMASK_ULL(63, 0);
-> +               else
-> +                       dst[i] =3D GENMASK_ULL(NETDEV_FEATURE_COUNT - i *
-64,
-> +                                                 0);
-> +       }
-> +       dst[0] &=3D ~NETIF_F_NEVER_CHANGE;
-> +}
-> +
->  #endif /* _LINUX_NETDEV_FEATURES_H */
-> diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
-> index eaf5bb0..4a29487 100644
-> --- a/include/linux/netdevice.h
-> +++ b/include/linux/netdevice.h
-> @@ -1347,9 +1347,9 @@ struct net_device_ops {
->         int                     (*ndo_stop)(struct net_device *dev);
->         netdev_tx_t             (*ndo_start_xmit)(struct sk_buff *skb,
->                                                   struct net_device *dev)=
-;
-> -       netdev_features_t       (*ndo_features_check)(struct sk_buff *skb=
-,
-> +       void                    (*ndo_features_check)(struct sk_buff *skb=
-,
->                                                       struct net_device
-*dev,
-> -
-> netdev_features_t features);
-> +
-> netdev_features_t *features);
->         u16                     (*ndo_select_queue)(struct net_device
-*dev,
->                                                     struct sk_buff *skb,
->                                                     struct net_device
-*sb_dev);
-> @@ -1467,10 +1467,10 @@ struct net_device_ops {
->                                                       bool all_slaves);
->         struct net_device*      (*ndo_sk_get_lower_dev)(struct net_device
-*dev,
->                                                         struct sock *sk);
-> -       netdev_features_t       (*ndo_fix_features)(struct net_device
-*dev,
-> -                                                   netdev_features_t
-features);
-> +       void                    (*ndo_fix_features)(struct net_device
-*dev,
-> +                                                   netdev_features_t
-> *features);
->         int                     (*ndo_set_features)(struct net_device
-*dev,
-> -                                                   netdev_features_t
-features);
-> +                                                   netdev_features_t
-> *features);
->         int                     (*ndo_neigh_construct)(struct net_device
-*dev,
->                                                        struct neighbour
-*n);
->         void                    (*ndo_neigh_destroy)(struct net_device
-*dev,
-> @@ -1978,12 +1978,12 @@ struct net_device {
->         unsigned short          needed_headroom;
->         unsigned short          needed_tailroom;
->
-> -       netdev_features_t       features;
-> -       netdev_features_t       hw_features;
-> -       netdev_features_t       wanted_features;
-> -       netdev_features_t       vlan_features;
-> -       netdev_features_t       hw_enc_features;
-> -       netdev_features_t       mpls_features;
-> +       netdev_features_t       features[NETDEV_FEATURE_DWORDS];
-> +       netdev_features_t       hw_features[NETDEV_FEATURE_DWORDS];
-> +       netdev_features_t       wanted_features[NETDEV_FEATURE_DWORDS];
-> +       netdev_features_t       vlan_features[NETDEV_FEATURE_DWORDS];
-> +       netdev_features_t       hw_enc_features[NETDEV_FEATURE_DWORDS];
-> +       netdev_features_t       mpls_features[NETDEV_FEATURE_DWORDS];
->         netdev_features_t       gso_partial_features;
->
->         unsigned int            min_mtu;
-> @@ -4986,10 +4986,11 @@ static inline netdev_features_t
-> netdev_intersect_features(netdev_features_t f1,
->         return f1 & f2;
->  }
->
-> -static inline netdev_features_t netdev_get_wanted_features(
-> -       struct net_device *dev)
-> +static inline void netdev_get_wanted_features(struct net_device *dev,
-> +                                             netdev_features_t *wanted)
->  {
-> -       return (dev->features & ~dev->hw_features) | dev->wanted_features=
-;
-> +       netdev_features_andnot(wanted, dev->features, dev->hw_features);
-> +       netdev_features_or(wanted, wanted, dev->wanted_features);
->  }
->  netdev_features_t netdev_increment_features(netdev_features_t all,
->         netdev_features_t one, netdev_features_t mask);
-> @@ -5014,7 +5015,7 @@ void netif_stacked_transfer_operstate(const
-> struct net_device *rootdev,
->  netdev_features_t passthru_features_check(struct sk_buff *skb,
->                                           struct net_device *dev,
->                                           netdev_features_t features);
-> -netdev_features_t netif_skb_features(struct sk_buff *skb);
-> +void netif_skb_features(struct sk_buff *skb, netdev_features_t
-*features);
->
->  static inline bool net_gso_ok(netdev_features_t features, int gso_type)
->  {
-> diff --git a/net/8021q/vlan.c b/net/8021q/vlan.c
-> index 4cdf841..7d77692 100644
-> --- a/net/8021q/vlan.c
-> +++ b/net/8021q/vlan.c
-> @@ -328,7 +328,7 @@ static void vlan_transfer_features(struct net_device
-*dev,
->         vlandev->gso_max_size =3D dev->gso_max_size;
->         vlandev->gso_max_segs =3D dev->gso_max_segs;
->
-> -       if (vlan_hw_offload_capable(dev->features, vlan->vlan_proto))
-> +       if (vlan_hw_offload_capable(dev->features[0], vlan->vlan_proto))
->                 vlandev->hard_header_len =3D dev->hard_header_len;
->         else
->                 vlandev->hard_header_len =3D dev->hard_header_len +
-VLAN_HLEN;
-> @@ -339,7 +339,7 @@ static void vlan_transfer_features(struct net_device
-*dev,
->
->         vlandev->priv_flags &=3D ~IFF_XMIT_DST_RELEASE;
->         vlandev->priv_flags |=3D (vlan->real_dev->priv_flags &
-> IFF_XMIT_DST_RELEASE);
-> -       vlandev->hw_enc_features =3D vlan_tnl_features(vlan->real_dev);
-> +       vlandev->hw_enc_features[0] =3D vlan_tnl_features(vlan->real_dev)=
-;
->
->         netdev_update_features(vlandev);
->  }
-> diff --git a/net/8021q/vlan.h b/net/8021q/vlan.h
-> index 1a705a4..4e784a1 100644
-> --- a/net/8021q/vlan.h
-> +++ b/net/8021q/vlan.h
-> @@ -107,7 +107,7 @@ static inline netdev_features_t
-> vlan_tnl_features(struct net_device *real_dev)
->  {
->         netdev_features_t ret;
->
-> -       ret =3D real_dev->hw_enc_features &
-> +       ret =3D real_dev->hw_enc_features[0] &
->               (NETIF_F_CSUM_MASK | NETIF_F_GSO_SOFTWARE |
->                NETIF_F_GSO_ENCAP_ALL);
->
-> diff --git a/net/8021q/vlan_dev.c b/net/8021q/vlan_dev.c
-> index a0367b3..6d49761 100644
-> --- a/net/8021q/vlan_dev.c
-> +++ b/net/8021q/vlan_dev.c
-> @@ -566,21 +566,21 @@ static int vlan_dev_init(struct net_device *dev)
->         if (vlan->flags & VLAN_FLAG_BRIDGE_BINDING)
->                 dev->state |=3D (1 << __LINK_STATE_NOCARRIER);
->
-> -       dev->hw_features =3D NETIF_F_HW_CSUM | NETIF_F_SG |
-> -                          NETIF_F_FRAGLIST | NETIF_F_GSO_SOFTWARE |
-> -                          NETIF_F_GSO_ENCAP_ALL |
-> -                          NETIF_F_HIGHDMA | NETIF_F_SCTP_CRC |
-> -                          NETIF_F_ALL_FCOE;
-> +       dev->hw_features[0] =3D NETIF_F_HW_CSUM | NETIF_F_SG |
-> +                             NETIF_F_FRAGLIST | NETIF_F_GSO_SOFTWARE |
-> +                             NETIF_F_GSO_ENCAP_ALL |
-> +                             NETIF_F_HIGHDMA | NETIF_F_SCTP_CRC |
-> +                             NETIF_F_ALL_FCOE;
->
-> -       dev->features |=3D dev->hw_features | NETIF_F_LLTX;
-> +       dev->features[0] |=3D dev->hw_features[0] | NETIF_F_LLTX;
->         dev->gso_max_size =3D real_dev->gso_max_size;
->         dev->gso_max_segs =3D real_dev->gso_max_segs;
-> -       if (dev->features & NETIF_F_VLAN_FEATURES)
-> +       if (dev->features[0] & NETIF_F_VLAN_FEATURES)
->                 netdev_warn(real_dev, "VLAN features are set
-> incorrectly.  Q-in-Q configurations may not work correctly.\n");
->
-> -       dev->vlan_features =3D real_dev->vlan_features & ~NETIF_F_ALL_FCO=
-E;
-> -       dev->hw_enc_features =3D vlan_tnl_features(real_dev);
-> -       dev->mpls_features =3D real_dev->mpls_features;
-> +       dev->vlan_features[0] =3D real_dev->vlan_features[0] &
-~NETIF_F_ALL_FCOE;
-> +       dev->hw_enc_features[0] =3D vlan_tnl_features(real_dev);
-> +       netdev_features_copy(dev->mpls_features, real_dev->mpls_features)=
-;
->
->         /* ipv6 shared card related stuff */
->         dev->dev_id =3D real_dev->dev_id;
-> @@ -633,27 +633,30 @@ void vlan_dev_uninit(struct net_device *dev)
->         }
->  }
->
-> -static netdev_features_t vlan_dev_fix_features(struct net_device *dev,
-> -       netdev_features_t features)
-> +static void vlan_dev_fix_features(struct net_device *dev,
-> +                                 netdev_features_t *features)
->  {
->         struct net_device *real_dev =3D vlan_dev_priv(dev)->real_dev;
-> -       netdev_features_t old_features =3D features;
-> -       netdev_features_t lower_features;
-> +       netdev_features_t lower_features[NETDEV_FEATURE_DWORDS];
-> +       netdev_features_t old_features[NETDEV_FEATURE_DWORDS];
->
-> -       lower_features =3D
-netdev_intersect_features((real_dev->vlan_features |
-> -                                                   NETIF_F_RXCSUM),
-> -                                                  real_dev->features);
-> +       netdev_features_copy(lower_features, features);
-> +
-> +       lower_features[0] =3D
-> +               netdev_intersect_features((real_dev->vlan_features[0] |
-> +                                          NETIF_F_RXCSUM),
-> +                                         real_dev->features[0]);
->
->         /* Add HW_CSUM setting to preserve user ability to control
->          * checksum offload on the vlan device.
->          */
-> -       if (lower_features & (NETIF_F_IP_CSUM|NETIF_F_IPV6_CSUM))
-> -               lower_features |=3D NETIF_F_HW_CSUM;
-> -       features =3D netdev_intersect_features(features, lower_features);
-> -       features |=3D old_features & (NETIF_F_SOFT_FEATURES |
-> NETIF_F_GSO_SOFTWARE);
-> -       features |=3D NETIF_F_LLTX;
-> +       if (lower_features[0] & (NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM))
-> +               lower_features[0] |=3D NETIF_F_HW_CSUM;
->
-> -       return features;
-> +       features[0] =3D netdev_intersect_features(features[0],
-lower_features[0]);
-> +       features[0] |=3D old_features[0] &
-> +                       (NETIF_F_SOFT_FEATURES | NETIF_F_GSO_SOFTWARE);
-> +       features[0] |=3D NETIF_F_LLTX;
->  }
->
->  static int vlan_ethtool_get_link_ksettings(struct net_device *dev,
-> diff --git a/net/core/dev.c b/net/core/dev.c
-> index c253c2a..7066bf3 100644
-> --- a/net/core/dev.c
-> +++ b/net/core/dev.c
-> @@ -1765,7 +1765,7 @@ void dev_disable_lro(struct net_device *dev)
->         dev->wanted_features &=3D ~NETIF_F_LRO;
->         netdev_update_features(dev);
->
-> -       if (unlikely(dev->features & NETIF_F_LRO))
-> +       if (unlikely(dev->features[0] & NETIF_F_LRO))
->                 netdev_WARN(dev, "failed to disable LRO!\n");
->
->         netdev_for_each_lower_dev(dev, lower_dev, iter)
-> @@ -1786,7 +1786,7 @@ static void dev_disable_gro_hw(struct net_device
-*dev)
->         dev->wanted_features &=3D ~NETIF_F_GRO_HW;
->         netdev_update_features(dev);
->
-> -       if (unlikely(dev->features & NETIF_F_GRO_HW))
-> +       if (unlikely(dev->features[0] & NETIF_F_GRO_HW))
->                 netdev_WARN(dev, "failed to disable GRO_HW!\n");
->  }
->
-> @@ -3276,7 +3276,7 @@ static void skb_warn_bad_offload(const struct
-> sk_buff *skb)
->         }
->         skb_dump(KERN_WARNING, skb, false);
->         WARN(1, "%s: caps=3D(%pNF, %pNF)\n",
-> -            name, dev ? &dev->features : &null_features,
-> +            name, dev ? &dev->features[0] : &null_features,
->              skb->sk ? &skb->sk->sk_route_caps : &null_features);
->  }
->
-> @@ -3463,7 +3463,8 @@ struct sk_buff *__skb_gso_segment(struct sk_buff
-*skb,
->                 netdev_features_t partial_features =3D NETIF_F_GSO_ROBUST=
-;
->                 struct net_device *dev =3D skb->dev;
->
-> -               partial_features |=3D dev->features &
-dev->gso_partial_features;
-> +               partial_features |=3D
-> +                               dev->features[0] &
-dev->gso_partial_features;
->                 if (!skb_gso_ok(skb, features | partial_features))
->                         features &=3D ~NETIF_F_GSO_PARTIAL;
->         }
-> @@ -3508,7 +3509,7 @@ static int illegal_highdma(struct net_device
-> *dev, struct sk_buff *skb)
->  #ifdef CONFIG_HIGHMEM
->         int i;
->
-> -       if (!(dev->features & NETIF_F_HIGHDMA)) {
-> +       if (!(dev->features[0] & NETIF_F_HIGHDMA)) {
->                 for (i =3D 0; i < skb_shinfo(skb)->nr_frags; i++) {
->                         skb_frag_t *frag =3D &skb_shinfo(skb)->frags[i];
->
-> @@ -3612,34 +3613,33 @@ static netdev_features_t
-> gso_features_check(const struct sk_buff *skb,
->         return features;
->  }
->
-> -netdev_features_t netif_skb_features(struct sk_buff *skb)
-> +void netif_skb_features(struct sk_buff *skb, netdev_features_t *features=
-)
->  {
->         struct net_device *dev =3D skb->dev;
-> -       netdev_features_t features =3D dev->features;
->
-> +       netdev_features_copy(features, dev->features);
->         if (skb_is_gso(skb))
-> -               features =3D gso_features_check(skb, dev, features);
-> +               features[0] =3D gso_features_check(skb, dev, features[0])=
-;
->
->         /* If encapsulation offload request, verify we are testing
->          * hardware encapsulation features instead of standard
->          * features for the netdev
->          */
->         if (skb->encapsulation)
-> -               features &=3D dev->hw_enc_features;
-> +               netdev_features_and(features, dev->hw_enc_features);
->
->         if (skb_vlan_tagged(skb))
-> -               features =3D netdev_intersect_features(features,
-> -                                                    dev->vlan_features |
-> -
- NETIF_F_HW_VLAN_CTAG_TX |
-> -
- NETIF_F_HW_VLAN_STAG_TX);
-> +               features[0] =3D netdev_intersect_features(features[0],
-> +
-dev->vlan_features[0] |
-> +
-> NETIF_F_HW_VLAN_CTAG_TX |
-> +
-> NETIF_F_HW_VLAN_STAG_TX);
->
->         if (dev->netdev_ops->ndo_features_check)
-> -               features &=3D dev->netdev_ops->ndo_features_check(skb, de=
-v,
-> -                                                               features)=
-;
-> +               dev->netdev_ops->ndo_features_check(skb, dev, features);
->         else
-> -               features &=3D dflt_features_check(skb, dev, features);
-> +               features[0] &=3D dflt_features_check(skb, dev, features[0=
-]);
->
-> -       return harmonize_features(skb, features);
-> +       features[0] =3D harmonize_features(skb, features[0]);
->  }
->  EXPORT_SYMBOL(netif_skb_features);
->
-> @@ -3722,10 +3722,10 @@ EXPORT_SYMBOL(skb_csum_hwoffload_help);
->
->  static struct sk_buff *validate_xmit_skb(struct sk_buff *skb, struct
-> net_device *dev, bool *again)
->  {
-> -       netdev_features_t features;
-> +       netdev_features_t features[NETDEV_FEATURE_DWORDS];
->
-> -       features =3D netif_skb_features(skb);
-> -       skb =3D validate_xmit_vlan(skb, features);
-> +       netif_skb_features(skb, features);
-> +       skb =3D validate_xmit_vlan(skb, features[0]);
->         if (unlikely(!skb))
->                 goto out_null;
->
-> @@ -3733,10 +3733,10 @@ static struct sk_buff
-> *validate_xmit_skb(struct sk_buff *skb, struct net_device
->         if (unlikely(!skb))
->                 goto out_null;
->
-> -       if (netif_needs_gso(skb, features)) {
-> +       if (netif_needs_gso(skb, features[0])) {
->                 struct sk_buff *segs;
->
-> -               segs =3D skb_gso_segment(skb, features);
-> +               segs =3D skb_gso_segment(skb, features[0]);
->                 if (IS_ERR(segs)) {
->                         goto out_kfree_skb;
->                 } else if (segs) {
-> @@ -3744,7 +3744,7 @@ static struct sk_buff *validate_xmit_skb(struct
-> sk_buff *skb, struct net_device
->                         skb =3D segs;
->                 }
->         } else {
-> -               if (skb_needs_linearize(skb, features) &&
-> +               if (skb_needs_linearize(skb, features[0]) &&
->                     __skb_linearize(skb))
->                         goto out_kfree_skb;
->
-> @@ -3759,12 +3759,12 @@ static struct sk_buff
-> *validate_xmit_skb(struct sk_buff *skb, struct net_device
->                         else
->                                 skb_set_transport_header(skb,
->
-> skb_checksum_start_offset(skb));
-> -                       if (skb_csum_hwoffload_help(skb, features))
-> +                       if (skb_csum_hwoffload_help(skb, features[0]))
->                                 goto out_kfree_skb;
->                 }
->         }
->
-> -       skb =3D validate_xmit_xfrm(skb, features, again);
-> +       skb =3D validate_xmit_xfrm(skb, features[0], again);
->
->         return skb;
->
-> @@ -4429,7 +4429,7 @@ set_rps_cpu(struct net_device *dev, struct sk_buff
-*skb,
->
->                 /* Should we steer this flow to a different hardware
-queue? */
->                 if (!skb_rx_queue_recorded(skb) || !dev->rx_cpu_rmap ||
-> -                   !(dev->features & NETIF_F_NTUPLE))
-> +                   !(dev->features[0] & NETIF_F_NTUPLE))
->                         goto out;
->                 rxq_index =3D cpu_rmap_lookup_index(dev->rx_cpu_rmap,
-next_cpu);
->                 if (rxq_index =3D=3D skb_get_rx_queue(skb))
-> @@ -9799,171 +9799,179 @@ static void net_set_todo(struct net_device *dev=
-)
->         dev_net(dev)->dev_unreg_count++;
->  }
->
-> -static netdev_features_t netdev_sync_upper_features(struct net_device
-*lower,
-> -       struct net_device *upper, netdev_features_t features)
-> +static void netdev_sync_upper_features(struct net_device *lower,
-> +                                      struct net_device *upper,
-> +                                      netdev_features_t *features)
->  {
->         netdev_features_t upper_disables =3D NETIF_F_UPPER_DISABLES;
->         netdev_features_t feature;
->         int feature_bit;
-> +       unsigned int i;
->
-> -       for_each_netdev_feature(upper_disables, feature_bit) {
-> -               feature =3D __NETIF_F_BIT(feature_bit);
-> -               if (!(upper->wanted_features & feature)
-> -                   && (features & feature)) {
-> -                       netdev_dbg(lower, "Dropping feature %pNF,
-> upper dev %s has it off.\n",
-> -                                  &feature, upper->name);
-> -                       features &=3D ~feature;
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++) {
-> +               for_each_netdev_feature(upper_disables, feature_bit) {
-> +                       feature =3D __NETIF_F_BIT(feature_bit);
-> +                       if (!(upper->wanted_features[i] & feature) &&
-> +                           (features[i] & feature)) {
-> +                               netdev_dbg(lower, "Dropping
-> feature[%u] %pNF, upper dev %s has it off.\n",
-> +                                          i, &feature, upper->name);
-> +                               features[i] &=3D ~feature;
-> +                       }
->                 }
->         }
-> -
-> -       return features;
->  }
->
->  static void netdev_sync_lower_features(struct net_device *upper,
-> -       struct net_device *lower, netdev_features_t features)
-> +       struct net_device *lower, netdev_features_t *features)
->  {
->         netdev_features_t upper_disables =3D NETIF_F_UPPER_DISABLES;
->         netdev_features_t feature;
->         int feature_bit;
-> +       unsigned int i;
->
-> -       for_each_netdev_feature(upper_disables, feature_bit) {
-> -               feature =3D __NETIF_F_BIT(feature_bit);
-> -               if (!(features & feature) && (lower->features & feature))
-{
-> -                       netdev_dbg(upper, "Disabling feature %pNF on
-> lower dev %s.\n",
-> -                                  &feature, lower->name);
-> -                       lower->wanted_features &=3D ~feature;
-> -                       __netdev_update_features(lower);
-> -
-> -                       if (unlikely(lower->features & feature))
-> -                               netdev_WARN(upper, "failed to disable
-> %pNF on %s!\n",
-> -                                           &feature, lower->name);
-> -                       else
-> -                               netdev_features_change(lower);
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++) {
-> +               for_each_netdev_feature(upper_disables, feature_bit) {
-> +                       feature =3D __NETIF_F_BIT(feature_bit);
-> +                       if (!(features[i] & feature) &&
-> +                           (lower->features[i] & feature)) {
-> +                               netdev_dbg(upper, "Disabling
-> feature[%u] %pNF on lower dev %s.\n",
-> +                                          i, &feature, lower->name);
-> +                               lower->wanted_features[i] &=3D ~feature[i=
-];
-> +                               __netdev_update_features(lower);
-> +
-> +                               if (unlikely(lower->features[i] &
-feature))
-> +                                       netdev_WARN(upper, "failed to
-> disable feature[%u] %pNF on %s!\n",
-> +                                                   i, &feature,
-lower->name);
-> +                               else
-> +                                       netdev_features_change(lower);
-> +                       }
->                 }
->         }
->  }
->
-> -static netdev_features_t netdev_fix_features(struct net_device *dev,
-> -       netdev_features_t features)
-> +static void netdev_fix_features(struct net_device *dev,
-> +                               netdev_features_t *features)
->  {
->         /* Fix illegal checksum combinations */
-> -       if ((features & NETIF_F_HW_CSUM) &&
-> -           (features & (NETIF_F_IP_CSUM|NETIF_F_IPV6_CSUM))) {
-> +       if ((features[0] & NETIF_F_HW_CSUM) &&
-> +           (features[0] & (NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM))) {
->                 netdev_warn(dev, "mixed HW and IP checksum settings.\n");
-> -               features &=3D ~(NETIF_F_IP_CSUM|NETIF_F_IPV6_CSUM);
-> +               features[0] &=3D ~(NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM);
->         }
->
->         /* TSO requires that SG is present as well. */
-> -       if ((features & NETIF_F_ALL_TSO) && !(features & NETIF_F_SG)) {
-> +       if ((features[0] & NETIF_F_ALL_TSO) && !(features[0] &
-NETIF_F_SG)) {
->                 netdev_dbg(dev, "Dropping TSO features since no SG
-feature.\n");
-> -               features &=3D ~NETIF_F_ALL_TSO;
-> +               features[0] &=3D ~NETIF_F_ALL_TSO;
->         }
->
-> -       if ((features & NETIF_F_TSO) && !(features & NETIF_F_HW_CSUM) &&
-> -                                       !(features & NETIF_F_IP_CSUM)) {
-> +       if ((features[0] & NETIF_F_TSO) && !(features[0] &
-NETIF_F_HW_CSUM) &&
-> +           !(features[0] & NETIF_F_IP_CSUM)) {
->                 netdev_dbg(dev, "Dropping TSO features since no CSUM
-> feature.\n");
-> -               features &=3D ~NETIF_F_TSO;
-> -               features &=3D ~NETIF_F_TSO_ECN;
-> +               features[0] &=3D ~NETIF_F_TSO;
-> +               features[0] &=3D ~NETIF_F_TSO_ECN;
->         }
->
-> -       if ((features & NETIF_F_TSO6) && !(features & NETIF_F_HW_CSUM) &&
-> -                                        !(features & NETIF_F_IPV6_CSUM))
-{
-> +       if ((features[0] & NETIF_F_TSO6) && !(features[0] &
-NETIF_F_HW_CSUM) &&
-> +           !(features[0] & NETIF_F_IPV6_CSUM)) {
->                 netdev_dbg(dev, "Dropping TSO6 features since no CSUM
-> feature.\n");
-> -               features &=3D ~NETIF_F_TSO6;
-> +               features[0] &=3D ~NETIF_F_TSO6;
->         }
->
->         /* TSO with IPv4 ID mangling requires IPv4 TSO be enabled */
-> -       if ((features & NETIF_F_TSO_MANGLEID) && !(features &
-NETIF_F_TSO))
-> -               features &=3D ~NETIF_F_TSO_MANGLEID;
-> +       if ((features[0] & NETIF_F_TSO_MANGLEID) &&
-> +           !(features[0] & NETIF_F_TSO))
-> +               features[0] &=3D ~NETIF_F_TSO_MANGLEID;
->
->         /* TSO ECN requires that TSO is present as well. */
-> -       if ((features & NETIF_F_ALL_TSO) =3D=3D NETIF_F_TSO_ECN)
-> -               features &=3D ~NETIF_F_TSO_ECN;
-> +       if ((features[0] & NETIF_F_ALL_TSO) =3D=3D NETIF_F_TSO_ECN)
-> +               features[0] &=3D ~NETIF_F_TSO_ECN;
->
->         /* Software GSO depends on SG. */
-> -       if ((features & NETIF_F_GSO) && !(features & NETIF_F_SG)) {
-> +       if ((features[0] & NETIF_F_GSO) && !(features[0] & NETIF_F_SG)) {
->                 netdev_dbg(dev, "Dropping NETIF_F_GSO since no SG
-feature.\n");
-> -               features &=3D ~NETIF_F_GSO;
-> +               features[0] &=3D ~NETIF_F_GSO;
->         }
->
->         /* GSO partial features require GSO partial be set */
-> -       if ((features & dev->gso_partial_features) &&
-> -           !(features & NETIF_F_GSO_PARTIAL)) {
-> +       if ((features[0] & dev->gso_partial_features) &&
-> +           !(features[0] & NETIF_F_GSO_PARTIAL)) {
->                 netdev_dbg(dev,
->                            "Dropping partially supported GSO features
-> since no GSO partial.\n");
-> -               features &=3D ~dev->gso_partial_features;
-> +               features[0] &=3D ~dev->gso_partial_features;
->         }
->
-> -       if (!(features & NETIF_F_RXCSUM)) {
-> +       if (!(features[0] & NETIF_F_RXCSUM)) {
->                 /* NETIF_F_GRO_HW implies doing RXCSUM since every packet
->                  * successfully merged by hardware must also have the
->                  * checksum verified by hardware.  If the user does not
->                  * want to enable RXCSUM, logically, we should disable
-GRO_HW.
->                  */
-> -               if (features & NETIF_F_GRO_HW) {
-> +               if (features[0] & NETIF_F_GRO_HW) {
->                         netdev_dbg(dev, "Dropping NETIF_F_GRO_HW since
-> no RXCSUM feature.\n");
-> -                       features &=3D ~NETIF_F_GRO_HW;
-> +                       features[0] &=3D ~NETIF_F_GRO_HW;
->                 }
->         }
->
->         /* LRO/HW-GRO features cannot be combined with RX-FCS */
-> -       if (features & NETIF_F_RXFCS) {
-> -               if (features & NETIF_F_LRO) {
-> +       if (features[0] & NETIF_F_RXFCS) {
-> +               if (features[0] & NETIF_F_LRO) {
->                         netdev_dbg(dev, "Dropping LRO feature since
-> RX-FCS is requested.\n");
-> -                       features &=3D ~NETIF_F_LRO;
-> +                       features[0] &=3D ~NETIF_F_LRO;
->                 }
->
-> -               if (features & NETIF_F_GRO_HW) {
-> +               if (features[0] & NETIF_F_GRO_HW) {
->                         netdev_dbg(dev, "Dropping HW-GRO feature since
-> RX-FCS is requested.\n");
-> -                       features &=3D ~NETIF_F_GRO_HW;
-> +                       features[0] &=3D ~NETIF_F_GRO_HW;
->                 }
->         }
->
-> -       if (features & NETIF_F_HW_TLS_TX) {
-> -               bool ip_csum =3D (features & (NETIF_F_IP_CSUM |
-> NETIF_F_IPV6_CSUM)) =3D=3D
-> +       if (features[0] & NETIF_F_HW_TLS_TX) {
-> +               bool ip_csum =3D (features[0] & (NETIF_F_IP_CSUM |
-> NETIF_F_IPV6_CSUM)) =3D=3D
->                         (NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM);
-> -               bool hw_csum =3D features & NETIF_F_HW_CSUM;
-> +               bool hw_csum =3D features[0] & NETIF_F_HW_CSUM;
->
->                 if (!ip_csum && !hw_csum) {
->                         netdev_dbg(dev, "Dropping TLS TX HW offload
-> feature since no CSUM feature.\n");
-> -                       features &=3D ~NETIF_F_HW_TLS_TX;
-> +                       features[0] &=3D ~NETIF_F_HW_TLS_TX;
->                 }
->         }
->
-> -       if ((features & NETIF_F_HW_TLS_RX) && !(features &
-NETIF_F_RXCSUM)) {
-> +       if ((features[0] & NETIF_F_HW_TLS_RX) &&
-> +           !(features[0] & NETIF_F_RXCSUM)) {
->                 netdev_dbg(dev, "Dropping TLS RX HW offload feature
-> since no RXCSUM feature.\n");
-> -               features &=3D ~NETIF_F_HW_TLS_RX;
-> +               features[0] &=3D ~NETIF_F_HW_TLS_RX;
->         }
-> -
-> -       return features;
->  }
->
->  int __netdev_update_features(struct net_device *dev)
->  {
-> +       netdev_features_t features[NETDEV_FEATURE_DWORDS];
->         struct net_device *upper, *lower;
-> -       netdev_features_t features;
->         struct list_head *iter;
-> +       unsigned int i;
->         int err =3D -1;
->
->         ASSERT_RTNL();
->
-> -       features =3D netdev_get_wanted_features(dev);
-> +       netdev_get_wanted_features(dev, features);
->
->         if (dev->netdev_ops->ndo_fix_features)
-> -               features =3D dev->netdev_ops->ndo_fix_features(dev,
-features);
-> +               dev->netdev_ops->ndo_fix_features(dev, features);
->
->         /* driver might be less strict about feature dependencies */
-> -       features =3D netdev_fix_features(dev, features);
-> +       netdev_fix_features(dev, features);
->
->         /* some features can't be enabled if they're off on an upper
-device */
->         netdev_for_each_upper_dev_rcu(dev, upper, iter)
-> -               features =3D netdev_sync_upper_features(dev, upper,
-features);
-> +               netdev_sync_upper_features(dev, upper, features);
->
-> -       if (dev->features =3D=3D features)
-> +       if (netdev_features_equal(dev->features, features))
->                 goto sync_lower;
->
-> -       netdev_dbg(dev, "Features changed: %pNF -> %pNF\n",
-> -               &dev->features, &features);
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               netdev_dbg(dev, "Features[%u] changed: %pNF -> %pNF\n",
-> +                          i, &dev->features[i], &features[i]);
->
->         if (dev->netdev_ops->ndo_set_features)
->                 err =3D dev->netdev_ops->ndo_set_features(dev, features);
-> @@ -9971,9 +9979,10 @@ int __netdev_update_features(struct net_device
-*dev)
->                 err =3D 0;
->
->         if (unlikely(err < 0)) {
-> -               netdev_err(dev,
-> -                       "set_features() failed (%d); wanted %pNF, left
-%pNF\n",
-> -                       err, &features, &dev->features);
-> +               for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +                       netdev_err(dev,
-> +                                  "set_features() failed (%d);
-> wanted[%u] %pNF, left[%u] %pNF\n",
-> +                                  err, i, &features[i], i,
-&dev->features[i]);
->                 /* return non-0 since some features might have changed an=
-d
->                  * it's better to fire a spurious notification than miss
-it
->                  */
-> @@ -9988,9 +9997,10 @@ int __netdev_update_features(struct net_device
-*dev)
->                 netdev_sync_lower_features(dev, lower, features);
->
->         if (!err) {
-> -               netdev_features_t diff =3D features ^ dev->features;
-> +               netdev_features_t diff[NETDEV_FEATURE_DWORDS];
->
-> -               if (diff & NETIF_F_RX_UDP_TUNNEL_PORT) {
-> +               netdev_features_xor(diff, features, dev->features);
-> +               if (diff[0] & NETIF_F_RX_UDP_TUNNEL_PORT) {
->                         /* udp_tunnel_{get,drop}_rx_info both need
->                          * NETIF_F_RX_UDP_TUNNEL_PORT enabled on the
->                          * device, or they won't do anything.
-> @@ -9998,33 +10008,33 @@ int __netdev_update_features(struct net_device
-*dev)
->                          * *before* calling udp_tunnel_get_rx_info,
->                          * but *after* calling udp_tunnel_drop_rx_info.
->                          */
-> -                       if (features & NETIF_F_RX_UDP_TUNNEL_PORT) {
-> -                               dev->features =3D features;
-> +                       if (features[0] & NETIF_F_RX_UDP_TUNNEL_PORT) {
-> +                               dev->features[0] =3D features[0];
->                                 udp_tunnel_get_rx_info(dev);
->                         } else {
->                                 udp_tunnel_drop_rx_info(dev);
->                         }
->                 }
->
-> -               if (diff & NETIF_F_HW_VLAN_CTAG_FILTER) {
-> -                       if (features & NETIF_F_HW_VLAN_CTAG_FILTER) {
-> -                               dev->features =3D features;
-> +               if (diff[0] & NETIF_F_HW_VLAN_CTAG_FILTER) {
-> +                       if (features[0] & NETIF_F_HW_VLAN_CTAG_FILTER) {
-> +                               dev->features[0] =3D features[0];
->                                 err |=3D vlan_get_rx_ctag_filter_info(dev=
-);
->                         } else {
->                                 vlan_drop_rx_ctag_filter_info(dev);
->                         }
->                 }
->
-> -               if (diff & NETIF_F_HW_VLAN_STAG_FILTER) {
-> +               if (diff[0] & NETIF_F_HW_VLAN_STAG_FILTER) {
->                         if (features & NETIF_F_HW_VLAN_STAG_FILTER) {
-> -                               dev->features =3D features;
-> +                               dev->features[0] =3D features[0];
->                                 err |=3D vlan_get_rx_stag_filter_info(dev=
-);
->                         } else {
->                                 vlan_drop_rx_stag_filter_info(dev);
->                         }
->                 }
->
-> -               dev->features =3D features;
-> +               netdev_features_copy(dev->features, features);
->         }
->
->         return err < 0 ? 0 : 1;
-> @@ -10213,7 +10223,7 @@ int register_netdevice(struct net_device *dev)
->         int ret;
->         struct net *net =3D dev_net(dev);
->
-> -       BUILD_BUG_ON(sizeof(netdev_features_t) * BITS_PER_BYTE <
-> +       BUILD_BUG_ON(sizeof(dev->features) * BITS_PER_BYTE <
->                      NETDEV_FEATURE_COUNT);
->         BUG_ON(dev_boot_phase);
->         ASSERT_RTNL();
-> @@ -10250,7 +10260,7 @@ int register_netdevice(struct net_device *dev)
->                 }
->         }
->
-> -       if (((dev->hw_features | dev->features) &
-> +       if (((dev->hw_features[0] | dev->features[0]) &
->              NETIF_F_HW_VLAN_CTAG_FILTER) &&
->             (!dev->netdev_ops->ndo_vlan_rx_add_vid ||
->              !dev->netdev_ops->ndo_vlan_rx_kill_vid)) {
-> @@ -10268,44 +10278,46 @@ int register_netdevice(struct net_device *dev)
->         /* Transfer changeable features to wanted_features and enable
->          * software offloads (GSO and GRO).
->          */
-> -       dev->hw_features |=3D (NETIF_F_SOFT_FEATURES |
-NETIF_F_SOFT_FEATURES_OFF);
-> -       dev->features |=3D NETIF_F_SOFT_FEATURES;
-> +       dev->hw_features[0] |=3D
-> +                       (NETIF_F_SOFT_FEATURES |
-NETIF_F_SOFT_FEATURES_OFF);
-> +       dev->features[0] |=3D NETIF_F_SOFT_FEATURES;
->
->         if (dev->udp_tunnel_nic_info) {
-> -               dev->features |=3D NETIF_F_RX_UDP_TUNNEL_PORT;
-> -               dev->hw_features |=3D NETIF_F_RX_UDP_TUNNEL_PORT;
-> +               dev->features[0] |=3D NETIF_F_RX_UDP_TUNNEL_PORT;
-> +               dev->hw_features[0] |=3D NETIF_F_RX_UDP_TUNNEL_PORT;
->         }
->
-> -       dev->wanted_features =3D dev->features & dev->hw_features;
-> +       netdev_features_and(dev->wanted_features, dev->features,
-> +                           dev->hw_features);
->
->         if (!(dev->flags & IFF_LOOPBACK))
-> -               dev->hw_features |=3D NETIF_F_NOCACHE_COPY;
-> +               dev->hw_features[0] |=3D NETIF_F_NOCACHE_COPY;
->
->         /* If IPv4 TCP segmentation offload is supported we should also
->          * allow the device to enable segmenting the frame with the optio=
-n
->          * of ignoring a static IP ID value.  This doesn't enable the
->          * feature itself but allows the user to enable it later.
->          */
-> -       if (dev->hw_features & NETIF_F_TSO)
-> -               dev->hw_features |=3D NETIF_F_TSO_MANGLEID;
-> -       if (dev->vlan_features & NETIF_F_TSO)
-> -               dev->vlan_features |=3D NETIF_F_TSO_MANGLEID;
-> -       if (dev->mpls_features & NETIF_F_TSO)
-> -               dev->mpls_features |=3D NETIF_F_TSO_MANGLEID;
-> -       if (dev->hw_enc_features & NETIF_F_TSO)
-> -               dev->hw_enc_features |=3D NETIF_F_TSO_MANGLEID;
-> +       if (dev->hw_features[0] & NETIF_F_TSO)
-> +               dev->hw_features[0] |=3D NETIF_F_TSO_MANGLEID;
-> +       if (dev->vlan_features[0] & NETIF_F_TSO)
-> +               dev->vlan_features[0] |=3D NETIF_F_TSO_MANGLEID;
-> +       if (dev->mpls_features[0] & NETIF_F_TSO)
-> +               dev->mpls_features[0] |=3D NETIF_F_TSO_MANGLEID;
-> +       if (dev->hw_enc_features[0] & NETIF_F_TSO)
-> +               dev->hw_enc_features[0] |=3D NETIF_F_TSO_MANGLEID;
->
->         /* Make NETIF_F_HIGHDMA inheritable to VLAN devices.
->          */
-> -       dev->vlan_features |=3D NETIF_F_HIGHDMA;
-> +       dev->vlan_features[0] |=3D NETIF_F_HIGHDMA;
->
->         /* Make NETIF_F_SG inheritable to tunnel devices.
->          */
-> -       dev->hw_enc_features |=3D NETIF_F_SG | NETIF_F_GSO_PARTIAL;
-> +       dev->hw_enc_features[0] |=3D NETIF_F_SG | NETIF_F_GSO_PARTIAL;
->
->         /* Make NETIF_F_SG inheritable to MPLS.
->          */
-> -       dev->mpls_features |=3D NETIF_F_SG;
-> +       dev->mpls_features[0] |=3D NETIF_F_SG;
->
->         ret =3D call_netdevice_notifiers(NETDEV_POST_INIT, dev);
->         ret =3D notifier_to_errno(ret);
-> @@ -11146,7 +11158,7 @@ int __dev_change_net_namespace(struct
-> net_device *dev, struct net *net,
->
->         /* Don't allow namespace local devices to be moved. */
->         err =3D -EINVAL;
-> -       if (dev->features & NETIF_F_NETNS_LOCAL)
-> +       if (dev->features[0] & NETIF_F_NETNS_LOCAL)
->                 goto out;
->
->         /* Ensure the device has been registrered */
-> @@ -11506,7 +11518,7 @@ static void __net_exit
-> default_device_exit(struct net *net)
->                 char fb_name[IFNAMSIZ];
->
->                 /* Ignore unmoveable devices (i.e. loopback) */
-> -               if (dev->features & NETIF_F_NETNS_LOCAL)
-> +               if (dev->features[0] & NETIF_F_NETNS_LOCAL)
->                         continue;
->
->                 /* Leave virtual devices for the generic cleanup */
-> diff --git a/net/core/netpoll.c b/net/core/netpoll.c
-> index 0a6b047..2c0adf4 100644
-> --- a/net/core/netpoll.c
-> +++ b/net/core/netpoll.c
-> @@ -74,13 +74,13 @@ static netdev_tx_t netpoll_start_xmit(struct sk_buff
-*skb,
->                                       struct net_device *dev,
->                                       struct netdev_queue *txq)
->  {
-> +       netdev_features_t features[NETDEV_FEATURE_DWORDS];
->         netdev_tx_t status =3D NETDEV_TX_OK;
-> -       netdev_features_t features;
->
-> -       features =3D netif_skb_features(skb);
-> +       netif_skb_features(skb, features);
->
->         if (skb_vlan_tag_present(skb) &&
-> -           !vlan_hw_offload_capable(features, skb->vlan_proto)) {
-> +           !vlan_hw_offload_capable(features[0], skb->vlan_proto)) {
->                 skb =3D __vlan_hwaccel_push_inside(skb);
->                 if (unlikely(!skb)) {
->                         /* This is actually a packet drop, but we
-> diff --git a/net/ethtool/features.c b/net/ethtool/features.c
-> index 1c9f4df..0eedb17 100644
-> --- a/net/ethtool/features.c
-> +++ b/net/ethtool/features.c
-> @@ -25,12 +25,13 @@ const struct nla_policy ethnl_features_get_policy[] =
-=3D
-{
->                 NLA_POLICY_NESTED(ethnl_header_policy),
->  };
->
-> -static void ethnl_features_to_bitmap32(u32 *dest, netdev_features_t src)
-> +static void ethnl_features_to_bitmap32(u32 *dest, netdev_features_t *src=
-)
->  {
-> +       u32 *__src =3D (u32 *)src;
->         unsigned int i;
->
->         for (i =3D 0; i < ETHTOOL_DEV_FEATURE_WORDS; i++)
-> -               dest[i] =3D src >> (32 * i);
-> +               dest[i] =3D __src[i];
->  }
->
->  static int features_prepare_data(const struct ethnl_req_info *req_base,
-> @@ -38,15 +39,23 @@ static int features_prepare_data(const struct
-> ethnl_req_info *req_base,
->                                  struct genl_info *info)
->  {
->         struct features_reply_data *data =3D FEATURES_REPDATA(reply_base)=
-;
-> +       netdev_features_t features[NETDEV_FEATURE_DWORDS] =3D {0};
->         struct net_device *dev =3D reply_base->dev;
-> -       netdev_features_t all_features;
-> +       unsigned int i;
->
->         ethnl_features_to_bitmap32(data->hw, dev->hw_features);
->         ethnl_features_to_bitmap32(data->wanted, dev->wanted_features);
->         ethnl_features_to_bitmap32(data->active, dev->features);
-> -       ethnl_features_to_bitmap32(data->nochange, NETIF_F_NEVER_CHANGE);
-> -       all_features =3D GENMASK_ULL(NETDEV_FEATURE_COUNT - 1, 0);
-> -       ethnl_features_to_bitmap32(data->all, all_features);
-> +       features[0] =3D NETIF_F_NEVER_CHANGE;
-> +       ethnl_features_to_bitmap32(data->nochange, features);
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++) {
-> +               if (NETDEV_FEATURE_COUNT >=3D (i + 1) * 64)
-> +                       features[i] =3D GENMASK_ULL(63, 0);
-> +               else
-> +                       features[i] =3D GENMASK_ULL(NETDEV_FEATURE_COUNT =
--
-i * 64,
-> +                                                 0);
-> +       }
-> +       ethnl_features_to_bitmap32(data->all, features);
->
->         return 0;
->  }
-> @@ -131,27 +140,29 @@ const struct nla_policy ethnl_features_set_policy[]
-=3D {
->         [ETHTOOL_A_FEATURES_WANTED]     =3D { .type =3D NLA_NESTED },
->  };
->
-> -static void ethnl_features_to_bitmap(unsigned long *dest,
-> netdev_features_t val)
-> +static void ethnl_features_to_bitmap(unsigned long *dest,
-> +                                    netdev_features_t *val)
->  {
->         const unsigned int words =3D BITS_TO_LONGS(NETDEV_FEATURE_COUNT);
->         unsigned int i;
->
->         bitmap_zero(dest, NETDEV_FEATURE_COUNT);
->         for (i =3D 0; i < words; i++)
-> -               dest[i] =3D (unsigned long)(val >> (i * BITS_PER_LONG));
-> +               dest[i] =3D
-> +                       (unsigned long)(val[i / 2] >> (i % 2 *
-BITS_PER_LONG));
->  }
->
-> -static netdev_features_t ethnl_bitmap_to_features(unsigned long *src)
-> +static void ethnl_bitmap_to_features(netdev_features_t *val, unsigned
-> long *src)
->  {
-> -       const unsigned int nft_bits =3D sizeof(netdev_features_t) *
-BITS_PER_BYTE;
->         const unsigned int words =3D BITS_TO_LONGS(NETDEV_FEATURE_COUNT);
-> -       netdev_features_t ret =3D 0;
->         unsigned int i;
->
-> +       for (i =3D 0; i < NETDEV_FEATURE_DWORDS; i++)
-> +               val[i] =3D 0;
-> +
->         for (i =3D 0; i < words; i++)
-> -               ret |=3D (netdev_features_t)(src[i]) << (i * BITS_PER_LON=
-G);
-> -       ret &=3D ~(netdev_features_t)0 >> (nft_bits - NETDEV_FEATURE_COUN=
-T);
-> -       return ret;
-> +               val[i / 2] |=3D
-> +                       (netdev_features_t)(src[i]) << (i % 2 *
-BITS_PER_LONG);
->  }
->
->  static int features_send_reply(struct net_device *dev, struct genl_info
-*info,
-> @@ -212,12 +223,14 @@ int ethnl_set_features(struct sk_buff *skb,
-> struct genl_info *info)
->  {
->         DECLARE_BITMAP(wanted_diff_mask, NETDEV_FEATURE_COUNT);
->         DECLARE_BITMAP(active_diff_mask, NETDEV_FEATURE_COUNT);
-> +       netdev_features_t features[NETDEV_FEATURE_DWORDS];
->         DECLARE_BITMAP(old_active, NETDEV_FEATURE_COUNT);
->         DECLARE_BITMAP(old_wanted, NETDEV_FEATURE_COUNT);
->         DECLARE_BITMAP(new_active, NETDEV_FEATURE_COUNT);
->         DECLARE_BITMAP(new_wanted, NETDEV_FEATURE_COUNT);
->         DECLARE_BITMAP(req_wanted, NETDEV_FEATURE_COUNT);
->         DECLARE_BITMAP(req_mask, NETDEV_FEATURE_COUNT);
-> +       netdev_features_t tmp[NETDEV_FEATURE_DWORDS];
->         struct ethnl_req_info req_info =3D {};
->         struct nlattr **tb =3D info->attrs;
->         struct net_device *dev;
-> @@ -242,7 +255,11 @@ int ethnl_set_features(struct sk_buff *skb,
-> struct genl_info *info)
->                                  netdev_features_strings, info->extack);
->         if (ret < 0)
->                 goto out_rtnl;
-> -       if (ethnl_bitmap_to_features(req_mask) & ~NETIF_F_ETHTOOL_BITS) {
-> +
-> +       ethnl_bitmap_to_features(features, req_mask);
-> +       netdev_features_ethtool_bits(tmp);
-> +       netdev_features_andnot(features, features, tmp);
-> +       if (!netdev_features_empty(features)) {
->                 GENL_SET_ERR_MSG(info, "attempt to change non-ethtool
-> features");
->                 ret =3D -EINVAL;
->                 goto out_rtnl;
-> @@ -253,8 +270,13 @@ int ethnl_set_features(struct sk_buff *skb,
-> struct genl_info *info)
->         bitmap_andnot(new_wanted, old_wanted, req_mask,
-NETDEV_FEATURE_COUNT);
->         bitmap_or(req_wanted, new_wanted, req_wanted,
-NETDEV_FEATURE_COUNT);
->         if (!bitmap_equal(req_wanted, old_wanted, NETDEV_FEATURE_COUNT)) =
-{
-> -               dev->wanted_features &=3D ~dev->hw_features;
-> -               dev->wanted_features |=3D
-> ethnl_bitmap_to_features(req_wanted) & dev->hw_features;
-> +               netdev_features_andnot(dev->wanted_features,
-> +                                      dev->wanted_features,
-> +                                      dev->hw_features);
-> +               ethnl_bitmap_to_features(features, req_wanted);
-> +               netdev_features_and(features, features, dev->hw_features)=
-;
-> +               netdev_features_or(dev->wanted_features,
-dev->wanted_features,
-> +                                  features);
->                 __netdev_update_features(dev);
->         }
->         ethnl_features_to_bitmap(new_active, dev->features);
-> diff --git a/net/ethtool/ioctl.c b/net/ethtool/ioctl.c
-> index baa5d10..f213ec9 100644
-> --- a/net/ethtool/ioctl.c
-> +++ b/net/ethtool/ioctl.c
-> @@ -67,12 +67,15 @@ static int ethtool_get_features(struct net_device
-> *dev, void __user *useraddr)
->         int i;
->
->         /* in case feature bits run out again */
-> -       BUILD_BUG_ON(ETHTOOL_DEV_FEATURE_WORDS * sizeof(u32) >
-> sizeof(netdev_features_t));
-> +       BUILD_BUG_ON(ETHTOOL_DEV_FEATURE_WORDS * sizeof(u32) >
-> sizeof(dev->features));
->
->         for (i =3D 0; i < ETHTOOL_DEV_FEATURE_WORDS; ++i) {
-> -               features[i].available =3D (u32)(dev->hw_features >> (32 *
-i));
-> -               features[i].requested =3D (u32)(dev->wanted_features >> (=
-32
-* i));
-> -               features[i].active =3D (u32)(dev->features >> (32 * i));
-> +               features[i].available =3D
-> +                       (u32)(dev->hw_features[i / 2] >> (i % 2 * 32));
-> +               features[i].requested =3D
-> +                       (u32)(dev->wanted_features[i / 2] >> (i % 2 *
-32));
-> +               features[i].active =3D
-> +                       (u32)(dev->features[i / 2] >> (i % 2 * 32));
->                 features[i].never_changed =3D
->                         (u32)(NETIF_F_NEVER_CHANGE >> (32 * i));
->         }
-> @@ -97,7 +100,9 @@ static int ethtool_set_features(struct net_device
-> *dev, void __user *useraddr)
->  {
->         struct ethtool_sfeatures cmd;
->         struct ethtool_set_features_block
-features[ETHTOOL_DEV_FEATURE_WORDS];
-> -       netdev_features_t wanted =3D 0, valid =3D 0;
-> +       netdev_features_t wanted[NETDEV_FEATURE_DWORDS] =3D {0};
-> +       netdev_features_t valid[NETDEV_FEATURE_DWORDS] =3D {0};
-> +       netdev_features_t tmp[NETDEV_FEATURE_DWORDS];
->         int i, ret =3D 0;
->
->         if (copy_from_user(&cmd, useraddr, sizeof(cmd)))
-> @@ -111,23 +116,33 @@ static int ethtool_set_features(struct
-> net_device *dev, void __user *useraddr)
->                 return -EFAULT;
->
->         for (i =3D 0; i < ETHTOOL_DEV_FEATURE_WORDS; ++i) {
-> -               valid |=3D (netdev_features_t)features[i].valid << (32 * =
-i);
-> -               wanted |=3D (netdev_features_t)features[i].requested << (=
-32
-* i);
-> +               valid[i / 2] |=3D
-> +                       (netdev_features_t)features[i].valid << (32 * i);
-> +               wanted[i / 2] |=3D
-> +                       (netdev_features_t)features[i].requested << (32 *
-i);
->         }
->
-> -       if (valid & ~NETIF_F_ETHTOOL_BITS)
-> +       netdev_features_ethtool_bits(tmp);
-> +       netdev_features_andnot(tmp, features, tmp);
-> +       if (!netdev_features_empty(tmp))
->                 return -EINVAL;
->
-> -       if (valid & ~dev->hw_features) {
-> -               valid &=3D dev->hw_features;
-> +       netdev_features_andnot(tmp, valid, dev->hw_features);
-> +
-> +       if (!netdev_features_empty(tmp)) {
-> +               netdev_features_and(valid, valid, dev->hw_features);
->                 ret |=3D ETHTOOL_F_UNSUPPORTED;
->         }
->
-> -       dev->wanted_features &=3D ~valid;
-> -       dev->wanted_features |=3D wanted & valid;
-> +       netdev_features_andnot(dev->wanted_features, dev->wanted_features=
-,
-> +                              valid);
-> +       netdev_features_and(wanted, wanted, valid);
-> +       netdev_features_or(dev->wanted_features, dev->wanted_features,
-wanted);
->         __netdev_update_features(dev);
->
-> -       if ((dev->wanted_features ^ dev->features) & valid)
-> +       netdev_features_xor(tmp, dev->wanted_features, dev->features);
-> +       netdev_features_and(tmp, tmp, valid);
-> +       if (!netdev_features_empty(tmp))
->                 ret |=3D ETHTOOL_F_WISH;
->
->         return ret;
-> @@ -227,7 +242,7 @@ static int ethtool_get_one_feature(struct net_device
-*dev,
->         netdev_features_t mask =3D ethtool_get_feature_mask(ethcmd);
->         struct ethtool_value edata =3D {
->                 .cmd =3D ethcmd,
-> -               .data =3D !!(dev->features & mask),
-> +               .data =3D !!(dev->features[0] & mask),
->         };
->
->         if (copy_to_user(useraddr, &edata, sizeof(edata)))
-> @@ -238,21 +253,23 @@ static int ethtool_get_one_feature(struct
-net_device *dev,
->  static int ethtool_set_one_feature(struct net_device *dev,
->         void __user *useraddr, u32 ethcmd)
->  {
-> +       netdev_features_t mask[NETDEV_FEATURE_DWORDS] =3D {0};
->         struct ethtool_value edata;
-> -       netdev_features_t mask;
->
->         if (copy_from_user(&edata, useraddr, sizeof(edata)))
->                 return -EFAULT;
->
-> -       mask =3D ethtool_get_feature_mask(ethcmd);
-> -       mask &=3D dev->hw_features;
-> -       if (!mask)
-> +       mask[0] =3D ethtool_get_feature_mask(ethcmd);
-> +       netdev_features_and(mask, mask, dev->hw_features);
-> +       if (netdev_features_empty(mask))
->                 return -EOPNOTSUPP;
->
->         if (edata.data)
-> -               dev->wanted_features |=3D mask;
-> +               netdev_features_or(dev->wanted_features,
-dev->wanted_features,
-> +                                  mask)
->         else
-> -               dev->wanted_features &=3D ~mask;
-> +               netdev_features_andnot(dev->wanted_features,
-> +                                      dev->wanted_features, mask);
->
->         __netdev_update_features(dev);
->
-> @@ -285,29 +302,37 @@ static u32 __ethtool_get_flags(struct net_device
-*dev)
->
->  static int __ethtool_set_flags(struct net_device *dev, u32 data)
->  {
-> -       netdev_features_t features =3D 0, changed;
-> +       netdev_features_t features[NETDEV_FEATURE_DWORDS] =3D {0};
-> +       netdev_features_t changed[NETDEV_FEATURE_DWORDS];
-> +       netdev_features_t tmp[NETDEV_FEATURE_DWORDS];
->
->         if (data & ~ETH_ALL_FLAGS)
->                 return -EINVAL;
->
->         if (data & ETH_FLAG_LRO)
-> -               features |=3D NETIF_F_LRO;
-> +               features[0] |=3D NETIF_F_LRO;
->         if (data & ETH_FLAG_RXVLAN)
-> -               features |=3D NETIF_F_HW_VLAN_CTAG_RX;
-> +               features[0] |=3D NETIF_F_HW_VLAN_CTAG_RX;
->         if (data & ETH_FLAG_TXVLAN)
-> -               features |=3D NETIF_F_HW_VLAN_CTAG_TX;
-> +               features[0] |=3D NETIF_F_HW_VLAN_CTAG_TX;
->         if (data & ETH_FLAG_NTUPLE)
-> -               features |=3D NETIF_F_NTUPLE;
-> +               features[0] |=3D NETIF_F_NTUPLE;
->         if (data & ETH_FLAG_RXHASH)
-> -               features |=3D NETIF_F_RXHASH;
-> +               features[0] |=3D NETIF_F_RXHASH;
->
->         /* allow changing only bits set in hw_features */
-> -       changed =3D (features ^ dev->features) & ETH_ALL_FEATURES;
-> -       if (changed & ~dev->hw_features)
-> -               return (changed & dev->hw_features) ? -EINVAL :
--EOPNOTSUPP;
-> +       netdev_features_xor(changed, features, dev->features);
-> +       changed[0] &=3D ETH_ALL_FEATURES;
-> +
-> +       netdev_features_andnot(tmp, changed, dev->hw_features);
-> +       if (!netdev_features_empty(tmp)) {
-> +               netdev_features_and(tmp, changed, dev->hw_features);
-> +               return (!netdev_features_empty(tmp)) ? -EINVAL :
--EOPNOTSUPP;
-> +       }
->
-> -       dev->wanted_features =3D
-> -               (dev->wanted_features & ~changed) | (features & changed);
-> +       netdev_features_andnot(tmp, dev->wanted_features, changed);
-> +       netdev_features_and(features, features, changed);
-> +       netdev_features_or(dev->wanted_features, tmp, features);
->
->         __netdev_update_features(dev);
->
-> @@ -2587,7 +2612,7 @@ int dev_ethtool(struct net *net, struct ifreq *ifr)
->         void __user *useraddr =3D ifr->ifr_data;
->         u32 ethcmd, sub_cmd;
->         int rc;
-> -       netdev_features_t old_features;
-> +       netdev_features_t old_features[NETDEV_FEATURE_DWORDS];
->
->         if (!dev || !netif_device_present(dev))
->                 return -ENODEV;
-> @@ -2650,7 +2675,7 @@ int dev_ethtool(struct net *net, struct ifreq *ifr)
->                 if (rc  < 0)
->                         return rc;
->         }
-> -       old_features =3D dev->features;
-> +       netdev_features_copy(old_features, dev->features);
->
->         switch (ethcmd) {
->         case ETHTOOL_GSET:
-> @@ -2865,7 +2890,7 @@ int dev_ethtool(struct net *net, struct ifreq *ifr)
->         if (dev->ethtool_ops->complete)
->                 dev->ethtool_ops->complete(dev);
->
-> -       if (old_features !=3D dev->features)
-> +       if (!netdev_features_equal(old_features, dev->features))
->                 netdev_features_change(dev);
->
->         return rc;
-> --
-> 2.8.1
->
->
->
-> --
-> Latest Podcast:
-> https://www.linkedin.com/feed/update/urn:li:activity:6791014284936785920/
->
-> Dave T=C3=A4ht CTO, TekLibre, LLC
-> _______________________________________________
-> Cake mailing list
-> Cake@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/cake
-
-
-
---
-Robert Chac=C3=B3n
-robert.chacon@jackrabbitwireless.com
-
---0000000000007c51d805c6c7d4aa
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">I have a question regarding this, and the current maximum =
-number of htb leaf classes and/or qdiscs per interface.<br>I recently integ=
-rated Jesper&#39;s <a href=3D"https://github.com/xdp-project/xdp-cpumap-tc"=
->xdp-cpumap-tc</a> code into <a href=3D"https://github.com/rchac/LibreQoS" =
-target=3D"_blank">LibreQoS</a>, which increased throughput to 10Gbps on tes=
-ts.<br>I suspect somewhere between 10Gbps and 40Gbps throughput is now poss=
-ible if you throw enough cores at it. Asking our local university to help u=
-s test this.<br>Xdp-cpumap-tc uses xdp&#39;s cpumap-redirect feature to fil=
-ter packets into the appropriate CPU / queue using eBPF hash maps, rather t=
-han linux tc filters / u32.<br><br>Question) Since LibreQoS would not depen=
-d on tc filters, would the current 32-bit or 64-bit feature limit impose a =
-practical client limit on LibreQoS?<br><div>The average user&#39;s throughp=
-ut is around 3.5Mbps at peak hours, so I&#39;m thinking ~5800 qdiscs and ~5=
-800 htb leaf classes would be required for each interface at 20Gbps through=
-put for example.</div><div>There may be some more immediate limitations I&#=
-39;m not understanding. Just curious about the practical limitations there.=
-</div><div><br></div><div>Thanks!<br></div>Robert<br><br>On Sat, Jul 10, 20=
-21 at 9:33 AM Dave Taht &lt;<a href=3D"mailto:dave.taht@gmail.com" target=
-=3D"_blank">dave.taht@gmail.com</a>&gt; wrote:<br>&gt;<br>&gt; One thing so=
-mewhat related to this was finally expanding the space<br>&gt; available fo=
-r the tc and iptables functionality for<br>&gt; things like hashing and act=
-ions etc from 16 bits to 32. That is<br>&gt; something of a fork lift upgra=
-de, but... 64k queues is not<br>&gt; enough in some cases, nor is 64k possi=
-ble users in libreqos. thoughts<br>&gt;<br>&gt; ---------- Forwarded messag=
-e ---------<br>&gt; From: Jian Shen &lt;<a href=3D"mailto:shenjian15@huawei=
-.com" target=3D"_blank">shenjian15@huawei.com</a>&gt;<br>&gt; Date: Sat, Ju=
-l 10, 2021 at 2:47 AM<br>&gt; Subject: [RFC net-next] net: extend netdev fe=
-atures<br>&gt; To: &lt;<a href=3D"mailto:davem@davemloft.net" target=3D"_bl=
-ank">davem@davemloft.net</a>&gt;, &lt;<a href=3D"mailto:kuba@kernel.org" ta=
-rget=3D"_blank">kuba@kernel.org</a>&gt;<br>&gt; Cc: &lt;<a href=3D"mailto:n=
-etdev@vger.kernel.org" target=3D"_blank">netdev@vger.kernel.org</a>&gt;, &l=
-t;<a href=3D"mailto:linuxarm@openeuler.org" target=3D"_blank">linuxarm@open=
-euler.org</a>&gt;<br>&gt;<br>&gt;<br>&gt; For the prototype of netdev_featu=
-res_t is u64, and the number<br>&gt; of netdevice feature bits is 64 now. S=
-o there is no space to<br>&gt; introduce new feature bit.<br>&gt;<br>&gt; I=
- did a small change for this. Keep the prototype of<br>&gt; netdev_feature_=
-t, and extend the feature members in struct<br>&gt; net_device to an array =
-of netdev_features_t. So more features<br>&gt; bits can be used.<br>&gt;<br=
->&gt; As this change, some functions which use netdev_features_t as<br>&gt;=
- parameter or returen value will be affected.<br>&gt; I did below changes:<=
-br>&gt; a. parameter: &quot;netdev_features_t&quot; to &quot;netdev_feature=
-s_t *&quot;<br>&gt; b. return value: &quot;netdev_feature_t&quot; to &quot;=
-void&quot;, and add<br>&gt; &quot;netdev_feature_t *&quot; as output parame=
-ter.<br>&gt;<br>&gt; I kept some functions no change, which are surely usei=
-ng the<br>&gt; first 64 bit of net device features now, such as function<br=
->&gt; nedev_add_tso_features(). In order to minimize to changes.<br>&gt;<br=
->&gt; For the features are array now, so it&#39;s unable to do logical<br>&=
-gt; operation directly. I introduce a inline function set for<br>&gt; them,=
- including &quot;netdev_features_and/andnot/or/xor/equal/empty&quot;.<br>&g=
-t;<br>&gt; For NETDEV_FEATURE_COUNT may be more than 64, so the shift<br>&g=
-t; operation for NETDEV_FEATURE_COUNT is illegal. I changed some<br>&gt; ma=
-croes and functions, which does shift opertion with it.<br>&gt;<br>&gt; I h=
-aven&#39;t finished all the changes, for it affected all the<br>&gt; driver=
-s which use the feature, need more time and test. I<br>&gt; sent this RFC p=
-atch, want to know whether this change is<br>&gt; acceptable, and how to im=
-prove it.<br>&gt;<br>&gt; Any comments will be helpful.<br>&gt;<br>&gt; Sig=
-ned-off-by: Jian Shen &lt;<a href=3D"mailto:shenjian15@huawei.com" target=
-=3D"_blank">shenjian15@huawei.com</a>&gt;<br>&gt; ---<br>&gt; =C2=A0drivers=
-/net/ethernet/hisilicon/hns/hns_enet.c =C2=A0 | =C2=A034 +--<br>&gt; =C2=A0=
-drivers/net/ethernet/hisilicon/hns3/hns3_enet.c | =C2=A097 ++++-----<br>&gt=
-; =C2=A0drivers/net/ethernet/huawei/hinic/hinic_main.c =C2=A0| =C2=A071 +++=
----<br>&gt; =C2=A0drivers/net/ethernet/huawei/hinic/hinic_rx.c =C2=A0 =C2=
-=A0| =C2=A0 4 +-<br>&gt; =C2=A0include/linux/if_vlan.h =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 | =C2=A0 2 =
-+-<br>&gt; =C2=A0include/linux/netdev_features.h =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 | 105 ++++++++-<br>&gt; =C2=A0include/linux=
-/netdevice.h =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 | =C2=A031 +--<br>&gt; =C2=A0net/8021q/vlan.c =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0| =C2=A0 4 +-<br>&gt; =C2=A0net/8021q/vlan.h =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0| =C2=A0 2 +-<br>&gt; =C2=A0net/8021q/vlan_d=
-ev.c =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0| =C2=A049 +++--<br>&gt; =C2=A0net/core/dev.c =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0| 276 ++++++++++++------------=
-<br>&gt; =C2=A0net/core/netpoll.c =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0| =C2=A0 6 +=
--<br>&gt; =C2=A0net/ethtool/features.c =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0| =C2=A056 +++--<br>=
-&gt; =C2=A0net/ethtool/ioctl.c =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 | =C2=A093 +++++---=
-<br>&gt; =C2=A014 files changed, 493 insertions(+), 337 deletions(-)<br>&gt=
-;<br>&gt; diff --git a/drivers/net/ethernet/hisilicon/hns/hns_enet.c<br>&gt=
-; b/drivers/net/ethernet/hisilicon/hns/hns_enet.c<br>&gt; index ad534f9..4f=
-245cf 100644<br>&gt; --- a/drivers/net/ethernet/hisilicon/hns/hns_enet.c<br=
->&gt; +++ b/drivers/net/ethernet/hisilicon/hns/hns_enet.c<br>&gt; @@ -479,7=
- +479,7 @@ static void hns_nic_rx_checksum(struct<br>&gt; hns_nic_ring_data=
- *ring_data,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 u32 l4id;<br>&gt;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 /* check if RX checksum offload is enabled */<b=
-r>&gt; - =C2=A0 =C2=A0 =C2=A0 if (unlikely(!(netdev-&gt;features &amp; NETI=
-F_F_RXCSUM)))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (unlikely(!(netdev-&gt;feat=
-ures[0] &amp; NETIF_F_RXCSUM)))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 return;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /*=
- In hardware, we only support checksum for the following protocols:<br>&gt;=
- @@ -1768,17 +1768,17 @@ static int hns_nic_change_mtu(struct<br>&gt; net_d=
-evice *ndev, int new_mtu)<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0static int =
-hns_nic_set_features(struct net_device *netdev,<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev_features_t features)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_t *features)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 struct hns_nic_priv *priv =3D netdev_priv(netdev);<br>&gt=
-;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 switch (priv-&gt;enet_ver) {<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 case AE_VERSION_1:<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (features &amp; (NETIF_F_TSO | NETIF_F_T=
-SO6))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (featur=
-es[0] &amp; (NETIF_F_TSO | NETIF_F_TSO6))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_info(net=
-dev, &quot;enet v1 do not support tso!\n&quot;);<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 break;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 default:<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-if (features &amp; (NETIF_F_TSO | NETIF_F_TSO6)) {<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (features[0] &amp; (NETIF_F_TSO | NET=
-IF_F_TSO6)) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 priv-&gt;ops.fill_desc =3D fill_tso_desc;<b=
-r>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 priv-&gt;ops.maybe_stop_tx =3D hns_nic_maybe_stop_tso;<br=
->&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 /* The chip only support 7*4096 */<br>&gt; @@ -1789,24 +1789=
-,23 @@ static int hns_nic_set_features(struct<br>&gt; net_device *netdev,<b=
-r>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 break;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;featur=
-es =3D features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev-&gt;features[0] =3D =
-features[0];<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 return 0;<br>&gt; =C2=A0}<=
-br>&gt;<br>&gt; -static netdev_features_t hns_nic_fix_features(<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct net_device *netdev,=
- netdev_features_t features)<br>&gt; +static void hns_nic_fix_features(stru=
-ct net_device *netdev,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0netdev=
-_features_t *features)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-struct hns_nic_priv *priv =3D netdev_priv(netdev);<br>&gt;<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 switch (priv-&gt;enet_ver) {<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 case AE_VERSION_1:<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 features &amp;=3D ~(NETIF_F_TSO | NETIF_F_TSO6 |<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~(NET=
-IF_F_TSO | NETIF_F_TSO6 |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETI=
-F_F_HW_VLAN_CTAG_FILTER);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 break;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 default:<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 break;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; - =C2=A0 =C2=A0 =C2=A0 return features;<=
-br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0static int hns_nic_uc_sync(struct net=
-_device *netdev, const unsigned<br>&gt; char *addr)<br>&gt; @@ -2163,8 +216=
-2,8 @@ static void hns_nic_set_priv_ops(struct<br>&gt; net_device *netdev)<=
-br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 priv-&gt;op=
-s.maybe_stop_tx =3D hns_nic_maybe_stop_tx;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 } else {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 priv-&gt;ops.get_rxd_bnum =3D get_v2rx_desc_bnum;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if ((netdev-&gt;features &amp; NETIF=
-_F_TSO) ||<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 (netdev-&gt;features &amp; NETIF_F_TSO6)) {<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if ((netdev-&gt;features[0] &amp; NE=
-TIF_F_TSO) ||<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 (netdev-&gt;features[0] &amp; NETIF_F_TSO6)) {<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 priv-&gt;ops.fill_desc =3D fill_tso_desc;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 priv-&gt;ops=
-.maybe_stop_tx =3D hns_nic_maybe_stop_tso;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* This chip on=
-ly support 7*4096 */<br>&gt; @@ -2325,22 +2324,23 @@ static int hns_nic_dev=
-_probe(struct<br>&gt; platform_device *pdev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 ndev-&gt;netdev_ops =3D &amp;hns_nic_netdev_ops;<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 hns_ethtool_set_ops(ndev);<br>&gt;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 ndev-&gt;features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |<br>=
-&gt; + =C2=A0 =C2=A0 =C2=A0 ndev-&gt;features[0] |=3D NETIF_F_IP_CSUM | NET=
-IF_F_IPV6_CSUM |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_GRO;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 ndev-&gt;vlan_features |=3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 ndev-=
-&gt;vlan_features[0] |=3D<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM | NETIF_F_RXCSUM;<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 ndev-&gt;vlan_features |=3D NETIF_F_SG | NETIF_F_G=
-SO | NETIF_F_GRO;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 ndev-&gt;vlan_features[0] =
-|=3D NETIF_F_SG | NETIF_F_GSO | NETIF_F_GRO;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 /* MTU range: 68 - 9578 (v1) or 9706 (v2) */<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 ndev-&gt;min_mtu =3D MAC_MIN_MTU;<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 switch (priv-&gt;enet_ver) {<br>&gt; =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 case AE_VERSION_2:<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 ndev-&gt;features |=3D NETIF_F_TSO | NETIF_F_TSO6 | NETIF_F_NTUP=
-LE;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ndev-&gt;hw_=
-features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ndev-&gt;features[0] |=3D<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_TSO | NETIF_F_TSO6 | NETIF_F_NTUPLE;<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ndev-&gt;hw_featur=
-es[0] |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM |<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_=
-RXCSUM | NETIF_F_SG | NETIF_F_GSO |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_GRO | NETIF_F_=
-TSO | NETIF_F_TSO6;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 ndev-&gt;vlan_features |=3D NETIF_F_TSO | NETIF_F_TSO6;<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ndev-&gt;vlan_features[0] |=
-=3D NETIF_F_TSO | NETIF_F_TSO6;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 ndev-&gt;max_mtu =3D MAC_MAX_MTU_V2 -<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (ETH_HLEN + ETH_FCS_LEN + VLAN_HLEN);<br>&g=
-t; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 break;<br>&gt; d=
-iff --git a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c<br>&gt; b/drive=
-rs/net/ethernet/hisilicon/hns3/hns3_enet.c<br>&gt; index cdb5f14..ba56907 1=
-00644<br>&gt; --- a/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c<br>&gt;=
- +++ b/drivers/net/ethernet/hisilicon/hns3/hns3_enet.c<br>&gt; @@ -1481,7 +=
-1481,7 @@ static int hns3_handle_vtags(struct<br>&gt; hns3_enet_ring *tx_ri=
-ng,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return =
--EINVAL;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (skb-&gt;protocol =
-=3D=3D htons(ETH_P_8021Q) &amp;&amp;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 !(handle-&gt;kinfo.netdev-&gt;features &amp; NETIF_F_HW_VLAN_CTAG_TX=
-)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(handle-&gt;kinfo.netdev=
--&gt;features[0] &amp; NETIF_F_HW_VLAN_CTAG_TX)) {<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* When HW VLAN acceleration is t=
-urned off, and the stack<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0* sets the protocol to 802.1q, the driver just need to<=
-br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* set=
- the protocol to the encapsulated ethertype.<br>&gt; @@ -2300,56 +2300,57 @=
-@ static int hns3_nic_do_ioctl(struct net_device *netdev,<br>&gt; =C2=A0}<b=
-r>&gt;<br>&gt; =C2=A0static int hns3_nic_set_features(struct net_device *ne=
-tdev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0netdev_features_t featu=
-res)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0netdev_features_t *feat=
-ures)<br>&gt; =C2=A0{<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t chan=
-ged =3D netdev-&gt;features ^ features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netd=
-ev_features_t changed[NETDEV_FEATURE_DWORDS];<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 struct hns3_nic_priv *priv =3D netdev_priv(netdev);<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 struct hnae3_handle *h =3D priv-&gt;ae_handle;<br>&gt;=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 bool enable;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 int ret;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (changed &amp; (NETI=
-F_F_GRO_HW) &amp;&amp; h-&gt;ae_algo-&gt;ops-&gt;set_gro_en) {<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 enable =3D !!(features &am=
-p; NETIF_F_GRO_HW);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_xor(chan=
-ged, netdev-&gt;features, features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (cha=
-nged[0] &amp; (NETIF_F_GRO_HW) &amp;&amp; h-&gt;ae_algo-&gt;ops-&gt;set_gro=
-_en) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 enable =
-=3D !!(features[0] &amp; NETIF_F_GRO_HW);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =3D h-&gt;ae_algo-&gt;ops-&gt;set_gro_e=
-n(h, enable);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 if (ret)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return ret;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((changed &amp; NETIF_F_=
-HW_VLAN_CTAG_RX) &amp;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if ((changed[0] =
-&amp; NETIF_F_HW_VLAN_CTAG_RX) &amp;&amp;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 h-&gt;ae_algo-&gt;ops-&gt;enable_hw_strip_rxvtag) {<br>&g=
-t; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 enable =3D !!(feature=
-s &amp; NETIF_F_HW_VLAN_CTAG_RX);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 enable =3D !!(features[0] &amp; NETIF_F_HW_VLAN_CTAG_RX);=
-<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =3D h-=
-&gt;ae_algo-&gt;ops-&gt;enable_hw_strip_rxvtag(h, enable);<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret)<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 return ret;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 if ((changed &amp; NETIF_F_NTUPLE) &amp;&amp; h-&gt;ae_al=
-go-&gt;ops-&gt;enable_fd) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 enable =3D !!(features &amp; NETIF_F_NTUPLE);<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 if ((changed[0] &amp; NETIF_F_NTUPLE) &amp;&amp; h-&gt;ae=
-_algo-&gt;ops-&gt;enable_fd) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 enable =3D !!(features[0] &amp; NETIF_F_NTUPLE);<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 h-&gt;ae_algo-&gt;ops-=
-&gt;enable_fd(h, enable);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>=
-&gt; - =C2=A0 =C2=A0 =C2=A0 if ((netdev-&gt;features &amp; NETIF_F_HW_TC) &=
-gt; (features &amp; NETIF_F_HW_TC) &amp;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 if ((netdev-&gt;features[0] &amp; NETIF_F_HW_TC) &gt;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0(features[0] &amp; NETIF_F_HW_TC) &amp;&a=
-mp;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 h-&gt;ae_algo-&gt;ops=
--&gt;cls_flower_active(h)) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_err(netdev,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0&quot;=
-there are offloaded TC filters active,<br>&gt; cannot disable HW TC offload=
-&quot;);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 re=
-turn -EINVAL;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 if ((changed &amp; NETIF_F_HW_VLAN_CTAG_FILTER) &amp;&amp=
-;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if ((changed[0] &amp; NETIF_F_HW_VLAN_CTAG=
-_FILTER) &amp;&amp;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 h-&gt=
-;ae_algo-&gt;ops-&gt;enable_vlan_filter) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 enable =3D !!(features &amp; NETIF_F_HW_VLAN_CT=
-AG_FILTER);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 enab=
-le =3D !!(features[0] &amp; NETIF_F_HW_VLAN_CTAG_FILTER);<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =3D h-&gt;ae_algo-&gt;=
-ops-&gt;enable_vlan_filter(h, enable);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return ret;<br>&gt;=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netde=
-v-&gt;features =3D features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features=
-_copy(netdev-&gt;features, features);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 r=
-eturn 0;<br>&gt; =C2=A0}<br>&gt;<br>&gt; -static netdev_features_t hns3_fea=
-tures_check(struct sk_buff *skb,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0struct net_device *dev,<br>=
-&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0netdev_features_t features)<br>&gt; +static void hns3_features=
-_check(struct sk_buff *skb, struct net_device *dev,<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_t *features)<br>&gt; =C2=A0{<br>&gt; =C2=
-=A0#define HNS3_MAX_HDR_LEN =C2=A0 =C2=A0 =C2=A0 480U<br>&gt; =C2=A0#define=
- HNS3_MAX_L4_HDR_LEN =C2=A0 =C2=A060U<br>&gt; @@ -2373,9 +2374,7 @@ static =
-netdev_features_t<br>&gt; hns3_features_check(struct sk_buff *skb,<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* len of 480 bytes.<br>&gt; =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0*/<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (len &gt; HN=
-S3_MAX_HDR_LEN)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-features &amp;=3D ~(NETIF_F_CSUM_MASK | NETIF_F_GSO_MASK);<br>&gt; -<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 return features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~(NETIF_F_CSUM_MASK | NETI=
-F_F_GSO_MASK);<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0static void hns3_nic_g=
-et_stats64(struct net_device *netdev,<br>&gt; @@ -3127,27 +3126,28 @@ stati=
-c void hns3_set_default_feature(struct<br>&gt; net_device *netdev)<br>&gt;<=
-br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;priv_flags |=3D IFF_UNICAST_=
-FLT;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_features |=3D=
- NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |<br>&gt; + =C2=A0 =C2=A0 =C2=A0=
- netdev-&gt;hw_enc_features[0] |=3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 NETIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_GRO | NETIF=
-_F_TSO | NETIF_F_TSO6 | NETIF_F_GSO_GRE |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_GSO_GRE_CSUM | NETIF_F_GSO_UDP_TUNN=
-EL |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_=
-F_SCTP_CRC | NETIF_F_TSO_MANGLEID | NETIF_F_FRAGLIST;<br>&gt;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;gso_partial_features |=3D NETIF_F_GSO_G=
-RE_CSUM;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;features |=3D NE=
-TIF_F_HW_VLAN_CTAG_FILTER |<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev-&gt;featu=
-res[0] |=3D NETIF_F_HW_VLAN_CTAG_FILTER |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_HW_VLAN_CTAG_TX | NETIF_F_HW_VLAN_C=
-TAG_RX |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NE=
-TIF_F_RXCSUM | NETIF_F_SG | NETIF_F_GSO |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_GRO | NETIF_F_TSO | NETIF_F_TSO6 | =
-NETIF_F_GSO_GRE |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 NETIF_F_GSO_GRE_CSUM | NETIF_F_GSO_UDP_TUNNEL |<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_SCTP_CRC | NETIF_F_FR=
-AGLIST;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan_features |=
-=3D NETIF_F_RXCSUM |<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan_feature=
-s[0] |=3D NETIF_F_RXCSUM |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 NETIF_F_SG | NETIF_F_GSO | NETIF_F_GRO |<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_TSO | NETIF_F_TSO6=
- | NETIF_F_GSO_GRE |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 NETIF_F_GSO_GRE_CSUM | NETIF_F_GSO_UDP_TUNNEL |<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_SCTP_CRC | NETIF_F=
-_FRAGLIST;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features |=
-=3D NETIF_F_HW_VLAN_CTAG_TX |<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_=
-features[0] |=3D NETIF_F_HW_VLAN_CTAG_TX |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_HW_VLAN_CTAG_RX |<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_RXCSUM | NETIF_F_S=
-G | NETIF_F_GSO |<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 NETIF_F_GRO | NETIF_F_TSO | NETIF_F_TSO6 | NETIF_F_GSO_GRE |<br>&gt;=
- @@ -3155,48 +3155,49 @@ static void hns3_set_default_feature(struct<br>&gt=
-; net_device *netdev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 NETIF_F_SCTP_CRC | NETIF_F_FRAGLIST;<br>&gt;<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 if (ae_dev-&gt;dev_version &gt;=3D HNAE3_DEVICE_VERSION_V=
-2) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;=
-hw_features |=3D NETIF_F_GRO_HW;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev-&gt;features |=3D NETIF_F_GRO_HW;<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features[0] |=3D N=
-ETIF_F_GRO_HW;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 n=
-etdev-&gt;features[0] |=3D NETIF_F_GRO_HW;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!(h-&gt;flags &amp; HNAE3_SUP=
-PORT_VF)) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features |=3D NETIF_F_NTUPLE;<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 netdev-&gt;features |=3D NETIF_F_NTUPLE;<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_f=
-eatures[0] |=3D NETIF_F_NTUPLE;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;features[0] |=3D N=
-ETIF_F_NTUPLE;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 if (test_bit(HNAE3_DEV_SUPPORT_UDP_GSO_B, ae_dev-&gt;caps)) {=
-<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_f=
-eatures |=3D NETIF_F_GSO_UDP_L4;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev-&gt;features |=3D NETIF_F_GSO_UDP_L4;<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan_features |=
-=3D NETIF_F_GSO_UDP_L4;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 netdev-&gt;hw_enc_features |=3D NETIF_F_GSO_UDP_L4;<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features[0] |=
-=3D NETIF_F_GSO_UDP_L4;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 netdev-&gt;features[0] |=3D NETIF_F_GSO_UDP_L4;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan_features[0] |=3D =
-NETIF_F_GSO_UDP_L4;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 netdev-&gt;hw_enc_features[0] |=3D NETIF_F_GSO_UDP_L4;<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (test=
-_bit(HNAE3_DEV_SUPPORT_HW_TX_CSUM_B, ae_dev-&gt;caps)) {<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features |=3D NETIF=
-_F_HW_CSUM;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netd=
-ev-&gt;features |=3D NETIF_F_HW_CSUM;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan_features |=3D NETIF_F_HW_CSUM;<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_feat=
-ures |=3D NETIF_F_HW_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 netdev-&gt;hw_features[0] |=3D NETIF_F_HW_CSUM;<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;features[0] |=3D NETI=
-F_F_HW_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 net=
-dev-&gt;vlan_features[0] |=3D NETIF_F_HW_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_features[0] |=3D NETIF_F_=
-HW_CSUM;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 } else {<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features |=3D NETIF_F_=
-IP_CSUM | NETIF_F_IPV6_CSUM;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev-&gt;features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;=
-<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan=
-_features |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_features |=3D NETIF_F=
-_IP_CSUM | NETIF_F_IPV6_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev-&gt;hw_features[0] |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6=
-_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&g=
-t;features[0] |=3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan_features[0] |=3D =
-NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_features[0] |=3D<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_IP_CSUM | NETI=
-F_F_IPV6_CSUM;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 if (test_bit(HNAE3_DEV_SUPPORT_UDP_TUNNEL_CSUM_B, ae_=
-dev-&gt;caps)) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- netdev-&gt;hw_features |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;features |=3D NETIF_F_=
-GSO_UDP_TUNNEL_CSUM;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 netdev-&gt;vlan_features |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;<br>&gt; -=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_feature=
-s |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features[0] |=3D NETIF_F_GSO_UDP_TUNNEL_=
-CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt=
-;features[0] |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;vlan_features[0] |=3D NETIF_F_GS=
-O_UDP_TUNNEL_CSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 netdev-&gt;hw_enc_features[0] |=3D NETIF_F_GSO_UDP_TUNNEL_CSUM;<br>&gt;=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-if (test_bit(HNAE3_DEV_SUPPORT_FD_FORWARD_TC_B, ae_dev-&gt;caps)) {<br>&gt;=
- - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features =
-|=3D NETIF_F_HW_TC;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 netdev-&gt;features |=3D NETIF_F_HW_TC;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features[0] |=3D NETIF_F_HW_TC;<b=
-r>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;featur=
-es[0] |=3D NETIF_F_HW_TC;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (test_bit(HNAE3_DEV_SUPPORT_VLAN_FLTR_M=
-DF_B, ae_dev-&gt;caps))<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 netdev-&gt;hw_features |=3D NETIF_F_HW_VLAN_CTAG_FILTER;<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features[0] =
-|=3D NETIF_F_HW_VLAN_CTAG_FILTER;<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0sta=
-tic int hns3_alloc_buffer(struct hns3_enet_ring *ring,<br>&gt; @@ -3727,7 +=
-3728,7 @@ static void hns3_rx_checksum(struct<br>&gt; hns3_enet_ring *ring,=
- struct sk_buff *skb,<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 skb_check=
-sum_none_assert(skb);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (!(netdev-&=
-gt;features &amp; NETIF_F_RXCSUM))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (!(net=
-dev-&gt;features[0] &amp; NETIF_F_RXCSUM))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 if (test_bit(HNS3_NIC_STATE_RXD_ADV_LAYOUT_ENABLE, &amp;priv-&gt=
-;state))<br>&gt; @@ -4024,7 +4025,7 @@ static int hns3_handle_bdinfo(struct=
-<br>&gt; hns3_enet_ring *ring, struct sk_buff *skb)<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0* ot_vlan_tag in two layer tag case, and stored at vlan=
-_tag<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* in one layer tag case.<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0*/<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if=
- (netdev-&gt;features &amp; NETIF_F_HW_VLAN_CTAG_RX) {<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 if (netdev-&gt;features[0] &amp; NETIF_F_HW_VLAN_CTAG_RX) {<br>&=
-gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 u16 vlan_tag;<b=
-r>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (=
-hns3_parse_vlan_tag(ring, desc, l234info, &amp;vlan_tag))<br>&gt; diff --gi=
-t a/drivers/net/ethernet/huawei/hinic/hinic_main.c<br>&gt; b/drivers/net/et=
-hernet/huawei/hinic/hinic_main.c<br>&gt; index 405ee4d..b193ee4 100644<br>&=
-gt; --- a/drivers/net/ethernet/huawei/hinic/hinic_main.c<br>&gt; +++ b/driv=
-ers/net/ethernet/huawei/hinic/hinic_main.c<br>&gt; @@ -79,8 +79,8 @@ MODULE=
-_PARM_DESC(rx_weight, &quot;Number Rx packets for<br>&gt; NAPI budget (defa=
-ult=3D64)&quot;);<br>&gt; =C2=A0static int change_mac_addr(struct net_devic=
-e *netdev, const u8 *addr);<br>&gt;<br>&gt; =C2=A0static int set_features(s=
-truct hinic_dev *nic_dev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t pre_features,<br>&=
-gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 netdev_features_t features, bool force_change);<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netde=
-v_features_t *pre_features,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t *features, bool=
- force_change);<br>&gt;<br>&gt; =C2=A0static void update_rx_stats(struct hi=
-nic_dev *nic_dev, struct hinic_rxq *rxq)<br>&gt; =C2=A0{<br>&gt; @@ -880,7 =
-+880,7 @@ static void hinic_get_stats64(struct net_device *netdev,<br>&gt; =
-=C2=A0}<br>&gt;<br>&gt; =C2=A0static int hinic_set_features(struct net_devi=
-ce *netdev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t features)<b=
-r>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t *features)<br>&gt; =C2=A0=
-{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct hinic_dev *nic_dev =3D netdev_=
-priv(netdev);<br>&gt;<br>&gt; @@ -888,18 +888,16 @@ static int hinic_set_fe=
-atures(struct net_device *netdev,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features=
-, false);<br>&gt; =C2=A0}<br>&gt;<br>&gt; -static netdev_features_t hinic_f=
-ix_features(struct net_device *netdev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t features=
-)<br>&gt; +static void hinic_fix_features(struct net_device *netdev,<br>&gt=
-; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0netdev_features_t features)<br>&gt; =C2=
-=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct hinic_dev *nic_dev =3D netd=
-ev_priv(netdev);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* If Rx check=
-sum is disabled, then LRO should also be disabled */<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 if (!(features &amp; NETIF_F_RXCSUM)) {<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 if (!(features[0] &amp; NETIF_F_RXCSUM)) {<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netif_info(nic_dev, drv, netdev, &qu=
-ot;disabling LRO as<br>&gt; RXCSUM is off\n&quot;);<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F_LRO;<br>&gt;=
- + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~N=
-ETIF_F_LRO;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; -<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 return features;<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0st=
-atic const struct net_device_ops hinic_netdev_ops =3D {<br>&gt; @@ -943,19 =
-+941,22 @@ static const struct net_device_ops hinicvf_netdev_ops =3D {<br>&=
-gt;<br>&gt; =C2=A0static void netdev_features_init(struct net_device *netde=
-v)<br>&gt; =C2=A0{<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features =
-=3D NETIF_F_SG | NETIF_F_HIGHDMA | NETIF_F_IP_CSUM |<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 NETIF_F_IPV6_CSUM | NETIF_F_TSO | NETIF_F_TSO6 |<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_RXCSUM | NETIF_F_LRO |<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 NETIF_F_HW_VLAN_CTAG_TX |<br>&gt; NETIF_F_HW_VLAN_CTAG_RX=
- |<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_GSO_UDP_TUNNEL |<br>&gt; NETIF_=
-F_GSO_UDP_TUNNEL_CSUM;<br>&gt; -<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;=
-vlan_features =3D netdev-&gt;hw_features;<br>&gt; -<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 netdev-&gt;features =3D netdev-&gt;hw_features | NETIF_F_HW_VLAN_CT=
-AG_FILTER;<br>&gt; -<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_featu=
-res =3D NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM<br>&gt; | NETIF_F_SCTP_CRC |<br=
->&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_SG | NETIF_F_TSO |<br=
->&gt; NETIF_F_TSO6 | NETIF_F_TSO_ECN |<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 NETIF_F_GSO_UDP_TUNNEL_CSUM |<br>&gt; NETIF_F_GSO_UDP_TUNNEL;=
-<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features[0] =3D<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 N=
-ETIF_F_SG | NETIF_F_HIGHDMA | NETIF_F_IP_CSUM |<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_IPV6_CS=
-UM | NETIF_F_TSO | NETIF_F_TSO6 |<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_RXCSUM | NETIF_F_LRO =
-|<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 NETIF_F_HW_VLAN_CTAG_TX | NETIF_F_HW_VLAN_CTAG_RX |<br>&gt; +=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 NETIF_F_GSO_UDP_TUNNEL | NETIF_F_GSO_UDP_TUNNEL_CSUM;<br>&gt; +<br>&gt;=
- + =C2=A0 =C2=A0 =C2=A0 netdev_features_copy(netdev-&gt;vlan_features, netd=
-ev-&gt;hw_features);<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev-&gt;fe=
-atures[0] =3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_features[0] | NETIF_F_HW_VLAN_CTA=
-G_FILTER;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev-&gt;hw_enc_featur=
-es[0] =3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_=
-F_IP_CSUM | NETIF_F_IPV6_CSUM | NETIF_F_SCTP_CRC |<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_SG | NETIF_F_TSO | NETIF_F_TSO6 =
-| NETIF_F_TSO_ECN |<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 NETIF_F_GSO_UDP_TUNNEL_CSUM | NETIF_F_GSO_UDP_TUNNEL;<br>&gt; =C2=A0}<b=
-r>&gt;<br>&gt; =C2=A0static void hinic_refresh_nic_cfg(struct hinic_dev *ni=
-c_dev)<br>&gt; @@ -1072,21 +1073,22 @@ static void link_err_event(void *han=
-dle,<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0static int set_features(struct h=
-inic_dev *nic_dev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t pre_features,<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 netdev_features_t features, bool force_change)<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_featu=
-res_t *pre_features,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t *features, bool force_=
-change)<br>&gt; =C2=A0{<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t ch=
-anged =3D force_change ? ~0 : pre_features ^ features;<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_t failed_features[NETDEV_FEATURE_DWORDS] =3D {0}=
-;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 u32 csum_en =3D HINIC_RX_CSUM_OFFLOAD=
-_EN;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t failed_features =3D 0=
-;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t changed;<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 int ret =3D 0;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 int=
- err =3D 0;<br>&gt;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 changed =3D force_change=
- ? ~0 : pre_features[0] ^ features[0];<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-if (changed &amp; NETIF_F_TSO) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 ret =3D hinic_port_set_tso(nic_dev, (features &amp; NETIF=
-_F_TSO) ?<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =
-=3D hinic_port_set_tso(nic_dev, (features[0] &amp; NETIF_F_TSO) ?<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0HI=
-NIC_TSO_ENABLE : HINIC_TSO_DISABLE);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 err =3D ret;<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 failed_features |=3D NETIF_F_TSO;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 failed_features[0] |=
-=3D NETIF_F_TSO;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; @@ -1094,33 =
-+1096,34 @@ static int set_features(struct hinic_dev *nic_dev,<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =3D hinic_set_rx_c=
-sum_offload(nic_dev, csum_en);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 if (ret) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 err =3D ret;<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 f=
-ailed_features |=3D NETIF_F_RXCSUM;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 failed_features[0] |=3D NE=
-TIF_F_RXCSUM;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 if (changed &amp; NETIF_F_LRO) {<br>&gt; =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =3D hinic_set_rx_lro_state(nic_dev,=
-<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0!!(features &amp; NETIF_F_LRO),<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0!!(featur=
-es[0] &amp; NETIF_F_LRO),<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0HINIC_LRO_RX_TIMER_DEFAULT,<br=
->&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0HINIC_LRO_MAX_WQE_NUM_DEFAULT);<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret) {<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 err =3D =
-ret;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 failed_features |=3D NETIF_F_LRO;<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 failed_feat=
-ures[0] |=3D NETIF_F_LRO;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 if (changed &amp; NETIF_F_HW_VLAN_CTAG_RX) {<br>&g=
-t; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret =3D hinic_se=
-t_rx_vlan_offload(nic_dev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !!(features &amp;<br>&gt; =
-+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 !!(features[0] &amp;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0NETIF_F_HW_VLAN_CTAG_RX));<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 if (ret) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 err =3D ret;<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 f=
-ailed_features |=3D NETIF_F_HW_VLAN_CTAG_RX;<br>&gt; + =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 failed_features[0]=
- |=3D NETIF_F_HW_VLAN_CTAG_RX;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (err) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 nic_dev-&gt;netdev-&gt;features =3D features ^ fai=
-led_features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ne=
-tdev_features_xor(nic_dev-&gt;netdev-&gt;features, features,<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 failed_features)<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return -EIO;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; diff --git a/drivers/net/etherne=
-t/huawei/hinic/hinic_rx.c<br>&gt; b/drivers/net/ethernet/huawei/hinic/hinic=
-_rx.c<br>&gt; index fed3b6b..452a91b 100644<br>&gt; --- a/drivers/net/ether=
-net/huawei/hinic/hinic_rx.c<br>&gt; +++ b/drivers/net/ethernet/huawei/hinic=
-/hinic_rx.c<br>&gt; @@ -106,7 +106,7 @@ static void rx_csum(struct hinic_rx=
-q *rxq, u32 status,<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 csum_err =
-=3D HINIC_RQ_CQE_STATUS_GET(status, CSUM_ERR);<br>&gt;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 if (!(netdev-&gt;features &amp; NETIF_F_RXCSUM))<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 if (!(netdev-&gt;features[0] &amp; NETIF_F_RXCSUM))<br>&g=
-t; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return;<br>&gt;<=
-br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!csum_err) {<br>&gt; @@ -411,7 +411=
-,7 @@ static int rxq_recv(struct hinic_rxq *rxq, int budget)<br>&gt;<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 offload_type =3D =
-be32_to_cpu(cqe-&gt;offload_type);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 vlan_len =3D be32_to_cpu(cqe-&gt;len);<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if ((netdev-&gt;features &=
-amp; NETIF_F_HW_VLAN_CTAG_RX) &amp;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 if ((netdev-&gt;features[0] &amp; NETIF_F_HW_VLAN_=
-CTAG_RX) &amp;&amp;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 HINIC_GET_RX_VLAN_OFFLOAD_EN(offload_type)) {<br>&=
-gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 vid =3D HINIC_GET_RX_VLAN_TAG(vlan_len);<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 _=
-_vlan_hwaccel_put_tag(skb, htons(ETH_P_8021Q), vid);<br>&gt; diff --git a/i=
-nclude/linux/if_vlan.h b/include/linux/if_vlan.h<br>&gt; index 41a5183..417=
-3464 100644<br>&gt; --- a/include/linux/if_vlan.h<br>&gt; +++ b/include/lin=
-ux/if_vlan.h<br>&gt; @@ -563,7 +563,7 @@ static inline int __vlan_hwaccel_g=
-et_tag(const<br>&gt; struct sk_buff *skb,<br>&gt; =C2=A0 */<br>&gt; =C2=A0s=
-tatic inline int vlan_get_tag(const struct sk_buff *skb, u16 *vlan_tci)<br>=
-&gt; =C2=A0{<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (skb-&gt;dev-&gt;features &a=
-mp; NETIF_F_HW_VLAN_CTAG_TX) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (skb-&gt;d=
-ev-&gt;features[0] &amp; NETIF_F_HW_VLAN_CTAG_TX) {<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return __vlan_hwaccel_get_tag(skb=
-, vlan_tci);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 } else {<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return __vlan_get_tag(skb,=
- vlan_tci);<br>&gt; diff --git a/include/linux/netdev_features.h b/include/=
-linux/netdev_features.h<br>&gt; index 2c6b9e4..9184963 100644<br>&gt; --- a=
-/include/linux/netdev_features.h<br>&gt; +++ b/include/linux/netdev_feature=
-s.h<br>&gt; @@ -102,7 +102,8 @@ enum {<br>&gt; =C2=A0};<br>&gt;<br>&gt; =C2=
-=A0/* copy&#39;n&#39;paste compression ;) */<br>&gt; -#define __NETIF_F_BIT=
-(bit) =C2=A0 =C2=A0 ((netdev_features_t)1 &lt;&lt; (bit))<br>&gt; +#define =
-__NETIF_F_BIT(bit) =C2=A0 =C2=A0 ((netdev_features_t)1 &lt;&lt; (bit &amp; =
-0x3F))<br>&gt; +<br>&gt; =C2=A0#define __NETIF_F(name) =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0__NETIF_F_BIT(NETIF_F_##name##_BIT)<br>&=
-gt;<br>&gt; =C2=A0#define NETIF_F_FCOE_CRC =C2=A0 =C2=A0 =C2=A0 __NETIF_F(F=
-COE_CRC)<br>&gt; @@ -169,6 +170,8 @@ enum {<br>&gt; =C2=A0#define NETIF_F_H=
-W_HSR_FWD =C2=A0 =C2=A0 __NETIF_F(HW_HSR_FWD)<br>&gt; =C2=A0#define NETIF_F=
-_HW_HSR_DUP =C2=A0 =C2=A0 __NETIF_F(HW_HSR_DUP)<br>&gt;<br>&gt; +#define NE=
-TDEV_FEATURE_DWORDS =C2=A0DIV_ROUND_UP(NETDEV_FEATURE_COUNT, 64)<br>&gt; +<=
-br>&gt; =C2=A0/* Finds the next feature with the highest number of the rang=
-e of start till 0.<br>&gt; =C2=A0 */<br>&gt; =C2=A0static inline int find_n=
-ext_netdev_feature(u64 feature, unsigned long start)<br>&gt; @@ -185,8 +188=
-,7 @@ static inline int find_next_netdev_feature(u64<br>&gt; feature, unsig=
-ned long start)<br>&gt; =C2=A0 * mask_addr should be a u64 and bit an int<b=
-r>&gt; =C2=A0 */<br>&gt; =C2=A0#define for_each_netdev_feature(mask_addr, b=
-it)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 for ((bit) =3D find_next_netdev_feature((mask_addr), =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETDEV_FEATURE_COUNT); =C2=
-=A0 =C2=A0\<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for ((bit) =3D find_next_netdev_=
-feature((mask_addr), 64); =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0(bit) &gt;=3D 0; =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<=
-br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0(bit) =3D find_next=
-_netdev_feature((mask_addr), (bit) - 1))<br>&gt;<br>&gt; @@ -195,11 +197,6 =
-@@ static inline int find_next_netdev_feature(u64<br>&gt; feature, unsigned=
- long start)<br>&gt; =C2=A0#define NETIF_F_NEVER_CHANGE =C2=A0 (NETIF_F_VLA=
-N_CHALLENGED | \<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_=
-F_LLTX | NETIF_F_NETNS_LOCAL)<br>&gt;<br>&gt; -/* remember that ((t)1 &lt;&=
-lt; t_BITS) is undefined in C99 */<br>&gt; -#define NETIF_F_ETHTOOL_BITS =
-=C2=A0 ((__NETIF_F_BIT(NETDEV_FEATURE_COUNT - 1) | \<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (__NETIF_F_BIT(NETDEV_FEATURE_COUNT =
-- 1) - 1)) &amp; \<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 ~NETIF_F_NEVER_CHANGE)<br>&gt; -<br>&gt; =C2=A0/* Segmentation offload =
-feature mask */<br>&gt; =C2=A0#define NETIF_F_GSO_MASK =C2=A0 =C2=A0 =C2=A0=
- (__NETIF_F_BIT(NETIF_F_GSO_LAST + 1) - \<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 __NETIF_F_BIT(NETIF_F_GSO_SHIFT))<br>&gt; @=
-@ -261,4 +258,96 @@ static inline int find_next_netdev_feature(u64<br>&gt; =
-feature, unsigned long start)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0NETIF_F_GSO_UDP_TUNNEL | =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 \<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_G=
-SO_UDP_TUNNEL_CSUM)<br>&gt;<br>&gt; +static inline void netdev_features_cop=
-y(netdev_features_t *dst,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 const netdev_features_t *src)<br>&gt; +{<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 unsigned int i;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-for (i =3D 0; i &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dst[i] =3D src[i];<br>&gt; +}<br>&gt; +<=
-br>&gt; +static inline void netdev_features_and(netdev_features_t *dst,<br>=
-&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0const net=
-dev_features_t *a,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0const netdev_features_t *b)<br>&gt; +{<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 unsigned int i;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =3D=
- 0; i &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 dst[i] =3D a[i] &amp; b[i];<br>&gt; +}<br>&gt; +<b=
-r>&gt; +static inline void netdev_features_andnot(netdev_features_t *dst,<b=
-r>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 c=
-onst netdev_features_t *a,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 const netdev_features_t *b)<br>&gt; +{<br>&gt; =
-+ =C2=A0 =C2=A0 =C2=A0 unsigned int i;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 for (i =3D 0; i &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dst[i] =3D a[i] &amp; ~b[i];<br>&=
-gt; +}<br>&gt; +<br>&gt; +static inline void netdev_features_or(netdev_feat=
-ures_t *dst,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 c=
-onst netdev_features_t *a,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 const netdev_features_t *b)<br>&gt; +{<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 unsigned int i;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =
-=3D 0; i &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 dst[i] =3D a[i] | b[i];<br>&gt; +}<br>&gt; +<br=
->&gt; +static inline void netdev_features_xor(netdev_features_t *dst,<br>&g=
-t; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0const netdev_=
-features_t *a,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0const netdev_features_t *b)<br>&gt; +{<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 unsigned int i;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =3D =
-0; i &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 dst[i] =3D a[i] ^ b[i];<br>&gt; +}<br>&gt; +<br>&gt; =
-+static inline void netdev_features_set(netdev_features_t *dst,<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0unsigned int bit=
-)<br>&gt; +{<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dst[bit / 64] |=3D __NETIF_F_BI=
-T(bit);<br>&gt; +}<br>&gt; +<br>&gt; +static inline bool netdev_features_eq=
-ual(const netdev_features_t *a,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0const netdev_features_t *b)<br>&gt; +{<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 unsigned int i;<br>&gt; +<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 for (i =3D 0; i &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (a[i] !=3D b[i])<br>&gt; +=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 return false;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 return true;<br>=
-&gt; +}<br>&gt; +<br>&gt; +static inline void netdev_features_empty(netdev_=
-features_t *src)<br>&gt; +{<br>&gt; + =C2=A0 =C2=A0 =C2=A0 unsigned int i;<=
-br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i &lt; NETDEV_FEATUR=
-E_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 i=
-f (src[i])<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 return false;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 return true;<br>&gt; +}<br>&gt; +<br>&gt; +static inline void netdev=
-_features_ethtool_bits(netdev_features_t *dst)<br>&gt; +{<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 unsigned int i;<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for =
-(i =3D 0; i &lt; NETDEV_FEATURE_DWORDS; i++) {<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (NETDEV_FEATURE_COUNT &gt;=3D (i + 1) * =
-64)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 dst[i] =3D GENMASK_ULL(63, 0);<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 else<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dst[i] =3D GENMASK_ULL=
-(NETDEV_FEATURE_COUNT - i * 64,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 0);<br>&gt; =
-+ =C2=A0 =C2=A0 =C2=A0 }<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dst[0] &amp;=3D ~NE=
-TIF_F_NEVER_CHANGE;<br>&gt; +}<br>&gt; +<br>&gt; =C2=A0#endif /* _LINUX_NET=
-DEV_FEATURES_H */<br>&gt; diff --git a/include/linux/netdevice.h b/include/=
-linux/netdevice.h<br>&gt; index eaf5bb0..4a29487 100644<br>&gt; --- a/inclu=
-de/linux/netdevice.h<br>&gt; +++ b/include/linux/netdevice.h<br>&gt; @@ -13=
-47,9 +1347,9 @@ struct net_device_ops {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- int =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-(*ndo_stop)(struct net_device *dev);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 ne=
-tdev_tx_t =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (*ndo_start_xmit)(struc=
-t sk_buff *skb,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct net_device *dev=
-);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 (*=
-ndo_features_check)(struct sk_buff *skb,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 voi=
-d =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0(*nd=
-o_features_check)(struct sk_buff *skb,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 struct net_device *dev,<br>&gt; -<br>&gt; netdev_features_t f=
-eatures);<br>&gt; +<br>&gt; netdev_features_t *features);<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 u16 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 (*ndo_select_queue)(struct net_device *dev,<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct sk_buff *skb,<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 struct net_device *sb_dev);<br>&gt; @@ -1467,10 +1=
-467,10 @@ struct net_device_ops {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 bool all_slaves);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct net=
-_device* =C2=A0 =C2=A0 =C2=A0(*ndo_sk_get_lower_dev)(struct net_device *dev=
-,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct sock *sk=
-);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 (*=
-ndo_fix_features)(struct net_device *dev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 netdev_features_t features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 void =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0(*ndo_fix=
-_features)(struct net_device *dev,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 n=
-etdev_features_t<br>&gt; *features);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 in=
-t =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (*n=
-do_set_features)(struct net_device *dev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 netdev_features_t features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netde=
-v_features_t<br>&gt; *features);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 int =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (*ndo=
-_neigh_construct)(struct net_device *dev,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0struct neighbour *n);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 void =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0(*ndo_neigh_destroy)(struct net_device *dev,<br>&gt; @@ -1978,12 +197=
-8,12 @@ struct net_device {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 unsigned sh=
-ort =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0needed_headroom;<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 unsigned short =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0needed_t=
-ailroom;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t =C2=A0 =
-=C2=A0 =C2=A0 features;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t =
-=C2=A0 =C2=A0 =C2=A0 hw_features;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_fea=
-tures_t =C2=A0 =C2=A0 =C2=A0 wanted_features;<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 vlan_features;<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 hw_enc_features;<br>&g=
-t; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 mpls_featu=
-res;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 =
-features[NETDEV_FEATURE_DWORDS];<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_feat=
-ures_t =C2=A0 =C2=A0 =C2=A0 hw_features[NETDEV_FEATURE_DWORDS];<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 wanted_features=
-[NETDEV_FEATURE_DWORDS];<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t =
-=C2=A0 =C2=A0 =C2=A0 vlan_features[NETDEV_FEATURE_DWORDS];<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 hw_enc_features[NETDE=
-V_FEATURE_DWORDS];<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t =C2=A0 =
-=C2=A0 =C2=A0 mpls_features[NETDEV_FEATURE_DWORDS];<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev_features_t =C2=A0 =C2=A0 =C2=A0 gso_partial_features;<=
-br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 unsigned int =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0min_mtu;<br>&gt; @@ -4986,10 +4986,11 @@ static inl=
-ine netdev_features_t<br>&gt; netdev_intersect_features(netdev_features_t f=
-1,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 return f1 &amp; f2;<br>&gt; =C2=A0}<=
-br>&gt;<br>&gt; -static inline netdev_features_t netdev_get_wanted_features=
-(<br>&gt; - =C2=A0 =C2=A0 =C2=A0 struct net_device *dev)<br>&gt; +static in=
-line void netdev_get_wanted_features(struct net_device *dev,<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 netdev_features_t *wanted)<br>&gt; =C2=A0{<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 return (dev-&gt;features &amp; ~dev-&gt;hw_features) | dev-&gt;wanted_f=
-eatures;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_andnot(wanted, dev-=
-&gt;features, dev-&gt;hw_features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_f=
-eatures_or(wanted, wanted, dev-&gt;wanted_features);<br>&gt; =C2=A0}<br>&gt=
-; =C2=A0netdev_features_t netdev_increment_features(netdev_features_t all,<=
-br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t one, netdev_features_=
-t mask);<br>&gt; @@ -5014,7 +5015,7 @@ void netif_stacked_transfer_operstat=
-e(const<br>&gt; struct net_device *rootdev,<br>&gt; =C2=A0netdev_features_t=
- passthru_features_check(struct sk_buff *skb,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct net_device *dev=
-,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_t features);<br>&gt; -netdev_features_t netif_sk=
-b_features(struct sk_buff *skb);<br>&gt; +void netif_skb_features(struct sk=
-_buff *skb, netdev_features_t *features);<br>&gt;<br>&gt; =C2=A0static inli=
-ne bool net_gso_ok(netdev_features_t features, int gso_type)<br>&gt; =C2=A0=
-{<br>&gt; diff --git a/net/8021q/vlan.c b/net/8021q/vlan.c<br>&gt; index 4c=
-df841..7d77692 100644<br>&gt; --- a/net/8021q/vlan.c<br>&gt; +++ b/net/8021=
-q/vlan.c<br>&gt; @@ -328,7 +328,7 @@ static void vlan_transfer_features(str=
-uct net_device *dev,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 vlandev-&gt;gso_ma=
-x_size =3D dev-&gt;gso_max_size;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 vlande=
-v-&gt;gso_max_segs =3D dev-&gt;gso_max_segs;<br>&gt;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 if (vlan_hw_offload_capable(dev-&gt;features, vlan-&gt;vlan_prot=
-o))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (vlan_hw_offload_capable(dev-&gt;feat=
-ures[0], vlan-&gt;vlan_proto))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 vlandev-&gt;hard_header_len =3D dev-&gt;hard_header_le=
-n;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 else<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 vlandev-&gt;hard_header_len =3D dev-&gt;=
-hard_header_len + VLAN_HLEN;<br>&gt; @@ -339,7 +339,7 @@ static void vlan_t=
-ransfer_features(struct net_device *dev,<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 vlandev-&gt;priv_flags &amp;=3D ~IFF_XMIT_DST_RELEASE;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 vlandev-&gt;priv_flags |=3D (vlan-&gt;real_dev-=
-&gt;priv_flags &amp;<br>&gt; IFF_XMIT_DST_RELEASE);<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 vlandev-&gt;hw_enc_features =3D vlan_tnl_features(vlan-&gt;real_dev=
-);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 vlandev-&gt;hw_enc_features[0] =3D vlan_t=
-nl_features(vlan-&gt;real_dev);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- netdev_update_features(vlandev);<br>&gt; =C2=A0}<br>&gt; diff --git a/net/=
-8021q/vlan.h b/net/8021q/vlan.h<br>&gt; index 1a705a4..4e784a1 100644<br>&g=
-t; --- a/net/8021q/vlan.h<br>&gt; +++ b/net/8021q/vlan.h<br>&gt; @@ -107,7 =
-+107,7 @@ static inline netdev_features_t<br>&gt; vlan_tnl_features(struct =
-net_device *real_dev)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 n=
-etdev_features_t ret;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 ret =3D real_d=
-ev-&gt;hw_enc_features &amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 ret =3D real_de=
-v-&gt;hw_enc_features[0] &amp;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 (NETIF_F_CSUM_MASK | NETIF_F_GSO_SOFTWARE |<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_GSO_ENCAP_ALL);<br>=
-&gt;<br>&gt; diff --git a/net/8021q/vlan_dev.c b/net/8021q/vlan_dev.c<br>&g=
-t; index a0367b3..6d49761 100644<br>&gt; --- a/net/8021q/vlan_dev.c<br>&gt;=
- +++ b/net/8021q/vlan_dev.c<br>&gt; @@ -566,21 +566,21 @@ static int vlan_d=
-ev_init(struct net_device *dev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (vla=
-n-&gt;flags &amp; VLAN_FLAG_BRIDGE_BINDING)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;state |=3D (1 &lt;&lt; __LINK_ST=
-ATE_NOCARRIER);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_features =
-=3D NETIF_F_HW_CSUM | NETIF_F_SG |<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_FRAGL=
-IST | NETIF_F_GSO_SOFTWARE |<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_GSO_ENCAP_AL=
-L |<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_HIGHDMA | NETIF_F_SCTP_CRC |<br>&gt;=
- - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0NETIF_F_ALL_FCOE;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&g=
-t;hw_features[0] =3D NETIF_F_HW_CSUM | NETIF_F_SG |<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 NETIF_F_FRAGLIST | NETIF_F_GSO_SOFTWARE |<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 NETIF_F_GSO_ENCAP_ALL |<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETI=
-F_F_HIGHDMA | NETIF_F_SCTP_CRC |<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_=
-ALL_FCOE;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt;features |=3D dev-=
-&gt;hw_features | NETIF_F_LLTX;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&gt;feat=
-ures[0] |=3D dev-&gt;hw_features[0] | NETIF_F_LLTX;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 dev-&gt;gso_max_size =3D real_dev-&gt;gso_max_size;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;gso_max_segs =3D real_dev-&gt;gso_max_s=
-egs;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;features &amp; NETIF_F_VLAN=
-_FEATURES)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;features[0] &amp; NET=
-IF_F_VLAN_FEATURES)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 netdev_warn(real_dev, &quot;VLAN features are set<br>&gt; incorr=
-ectly.=C2=A0 Q-in-Q configurations may not work correctly.\n&quot;);<br>&gt=
-;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt;vlan_features =3D real_dev-&gt;vla=
-n_features &amp; ~NETIF_F_ALL_FCOE;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt;=
-hw_enc_features =3D vlan_tnl_features(real_dev);<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 dev-&gt;mpls_features =3D real_dev-&gt;mpls_features;<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 dev-&gt;vlan_features[0] =3D real_dev-&gt;vlan_features[0=
-] &amp; ~NETIF_F_ALL_FCOE;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_enc_fe=
-atures[0] =3D vlan_tnl_features(real_dev);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 n=
-etdev_features_copy(dev-&gt;mpls_features, real_dev-&gt;mpls_features);<br>=
-&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* ipv6 shared card related stuff =
-*/<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;dev_id =3D real_dev-&gt;dev_=
-id;<br>&gt; @@ -633,27 +633,30 @@ void vlan_dev_uninit(struct net_device *d=
-ev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0}<br>&gt;<br>&gt; -=
-static netdev_features_t vlan_dev_fix_features(struct net_device *dev,<br>&=
-gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t features)<br>&gt; +static void=
- vlan_dev_fix_features(struct net_device *dev,<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 netdev_features_t *features)<br>&gt; =C2=A0{<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 struct net_device *real_dev =3D vlan_dev_priv(d=
-ev)-&gt;real_dev;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t old_feat=
-ures =3D features;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t lower_f=
-eatures;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t lower_features[NE=
-TDEV_FEATURE_DWORDS];<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t old_=
-features[NETDEV_FEATURE_DWORDS];<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 low=
-er_features =3D netdev_intersect_features((real_dev-&gt;vlan_features |<br>=
-&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 NETIF_F_RXCSUM),<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0real_dev-&gt;features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_=
-features_copy(lower_features, features);<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 lower_features[0] =3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev_intersect_features((real_dev-&gt;vlan_features[0] |<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0NETIF_F_RXCSUM),<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 real_dev-&gt;features[0]);<br>&gt;<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 /* Add HW_CSUM setting to preserve user ability to con=
-trol<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* checksum offload on the vl=
-an device.<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0*/<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 if (lower_features &amp; (NETIF_F_IP_CSUM|NETIF_F_IPV6_CSUM))=
-<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 lower_features =
-|=3D NETIF_F_HW_CSUM;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 features =3D netdev_in=
-tersect_features(features, lower_features);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-features |=3D old_features &amp; (NETIF_F_SOFT_FEATURES |<br>&gt; NETIF_F_G=
-SO_SOFTWARE);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 features |=3D NETIF_F_LLTX;<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 if (lower_features[0] &amp; (NETIF_F_IP_CSUM |=
- NETIF_F_IPV6_CSUM))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 lower_features[0] |=3D NETIF_F_HW_CSUM;<br>&gt;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 return features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 features[0] =3D =
-netdev_intersect_features(features[0], lower_features[0]);<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 features[0] |=3D old_features[0] &amp;<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (NETIF_F=
-_SOFT_FEATURES | NETIF_F_GSO_SOFTWARE);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 feat=
-ures[0] |=3D NETIF_F_LLTX;<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0static int=
- vlan_ethtool_get_link_ksettings(struct net_device *dev,<br>&gt; diff --git=
- a/net/core/dev.c b/net/core/dev.c<br>&gt; index c253c2a..7066bf3 100644<br=
->&gt; --- a/net/core/dev.c<br>&gt; +++ b/net/core/dev.c<br>&gt; @@ -1765,7 =
-+1765,7 @@ void dev_disable_lro(struct net_device *dev)<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 dev-&gt;wanted_features &amp;=3D ~NETIF_F_LRO;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_update_features(dev);<br>&gt;<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 if (unlikely(dev-&gt;features &amp; NETIF_F_LRO))<br>&=
-gt; + =C2=A0 =C2=A0 =C2=A0 if (unlikely(dev-&gt;features[0] &amp; NETIF_F_L=
-RO))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev=
-_WARN(dev, &quot;failed to disable LRO!\n&quot;);<br>&gt;<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 netdev_for_each_lower_dev(dev, lower_dev, iter)<br>&gt=
-; @@ -1786,7 +1786,7 @@ static void dev_disable_gro_hw(struct net_device *d=
-ev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;wanted_features &amp;=3D ~N=
-ETIF_F_GRO_HW;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_update_features(d=
-ev);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (unlikely(dev-&gt;features &=
-amp; NETIF_F_GRO_HW))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (unlikely(dev-&gt;f=
-eatures[0] &amp; NETIF_F_GRO_HW))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 netdev_WARN(dev, &quot;failed to disable GRO_HW!\n=
-&quot;);<br>&gt; =C2=A0}<br>&gt;<br>&gt; @@ -3276,7 +3276,7 @@ static void =
-skb_warn_bad_offload(const struct<br>&gt; sk_buff *skb)<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 skb_dump(KERN_WARNI=
-NG, skb, false);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 WARN(1, &quot;%s: caps=
-=3D(%pNF, %pNF)\n&quot;,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0name, dev ? &amp;dev-&gt;features : &amp;null_features,<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0name, dev ? &amp;dev-&gt;features[0] : &=
-amp;null_features,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
-skb-&gt;sk ? &amp;skb-&gt;sk-&gt;sk_route_caps : &amp;null_features);<br>&g=
-t; =C2=A0}<br>&gt;<br>&gt; @@ -3463,7 +3463,8 @@ struct sk_buff *__skb_gso_=
-segment(struct sk_buff *skb,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_t partial_features =3D NETIF_F_GSO_ROBUST=
-;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct ne=
-t_device *dev =3D skb-&gt;dev;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 partial_features |=3D dev-&gt;features &amp; dev-&=
-gt;gso_partial_features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 partial_features |=3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 d=
-ev-&gt;features[0] &amp; dev-&gt;gso_partial_features;<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!skb_gso_ok(skb, features=
- | partial_features))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F_GSO_PARTI=
-AL;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; @@ -3508,7 +3509,7 @@ sta=
-tic int illegal_highdma(struct net_device<br>&gt; *dev, struct sk_buff *skb=
-)<br>&gt; =C2=A0#ifdef CONFIG_HIGHMEM<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 i=
-nt i;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (!(dev-&gt;features &amp; N=
-ETIF_F_HIGHDMA)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (!(dev-&gt;features[0]=
- &amp; NETIF_F_HIGHDMA)) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 for (i =3D 0; i &lt; skb_shinfo(skb)-&gt;nr_frags; i++) {=
-<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 skb_frag_t *frag =3D &amp;skb_shinfo(skb)-&gt;frags[i];<b=
-r>&gt;<br>&gt; @@ -3612,34 +3613,33 @@ static netdev_features_t<br>&gt; gso=
-_features_check(const struct sk_buff *skb,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 return features;<br>&gt; =C2=A0}<br>&gt;<br>&gt; -netdev_features_t net=
-if_skb_features(struct sk_buff *skb)<br>&gt; +void netif_skb_features(struc=
-t sk_buff *skb, netdev_features_t *features)<br>&gt; =C2=A0{<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 struct net_device *dev =3D skb-&gt;dev;<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_t features =3D dev-&gt;features;<br>&gt;<=
-br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_copy(features, dev-&gt;featu=
-res);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (skb_is_gso(skb))<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features =3D gso_features_=
-check(skb, dev, features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 features[0] =3D gso_features_check(skb, dev, features[0]);<br>&g=
-t;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* If encapsulation offload request,=
- verify we are testing<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* hardware=
- encapsulation features instead of standard<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0* features for the netdev<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0*/<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (skb-&gt;encapsulation)<br>=
-&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D d=
-ev-&gt;hw_enc_features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 netdev_features_and(features, dev-&gt;hw_enc_features);<br>&gt;<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (skb_vlan_tagged(skb))<br>&gt; - =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features =3D netdev_intersect_fe=
-atures(features,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0dev-&gt;vlan_fea=
-tures |<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_HW_VLAN_CTAG_TX=
- |<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_HW_VLAN_STAG_TX);<br>&=
-gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] =3D netd=
-ev_intersect_features(features[0],<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 dev-&gt;vlan_features[0] |<br>&gt; +<br>&gt; NETIF_F_HW_VLAN_=
-CTAG_TX |<br>&gt; +<br>&gt; NETIF_F_HW_VLAN_STAG_TX);<br>&gt;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;netdev_ops-&gt;ndo_features_check)<br>=
-&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D d=
-ev-&gt;netdev_ops-&gt;ndo_features_check(skb, dev,<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features);<br>&gt; =
-+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;netdev_ops-&gt;n=
-do_features_check(skb, dev, features);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-else<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &a=
-mp;=3D dflt_features_check(skb, dev, features);<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D dflt_features_check(sk=
-b, dev, features[0]);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 return harmoni=
-ze_features(skb, features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 features[0] =3D =
-harmonize_features(skb, features[0]);<br>&gt; =C2=A0}<br>&gt; =C2=A0EXPORT_=
-SYMBOL(netif_skb_features);<br>&gt;<br>&gt; @@ -3722,10 +3722,10 @@ EXPORT_=
-SYMBOL(skb_csum_hwoffload_help);<br>&gt;<br>&gt; =C2=A0static struct sk_buf=
-f *validate_xmit_skb(struct sk_buff *skb, struct<br>&gt; net_device *dev, b=
-ool *again)<br>&gt; =C2=A0{<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_=
-t features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t features[NETDE=
-V_FEATURE_DWORDS];<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 features =3D neti=
-f_skb_features(skb);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 skb =3D validate_xmit_v=
-lan(skb, features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netif_skb_features(skb, =
-features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 skb =3D validate_xmit_vlan(skb, f=
-eatures[0]);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (unlikely(!skb))<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 goto out_null;<br=
->&gt;<br>&gt; @@ -3733,10 +3733,10 @@ static struct sk_buff<br>&gt; *valida=
-te_xmit_skb(struct sk_buff *skb, struct net_device<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 if (unlikely(!skb))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 goto out_null;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 if (netif_needs_gso(skb, features)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if=
- (netif_needs_gso(skb, features[0])) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 struct sk_buff *segs;<br>&gt;<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 segs =3D skb_gso_segment(skb, fea=
-tures);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 segs =3D=
- skb_gso_segment(skb, features[0]);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 if (IS_ERR(segs)) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 goto out_kfr=
-ee_skb;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 } e=
-lse if (segs) {<br>&gt; @@ -3744,7 +3744,7 @@ static struct sk_buff *valida=
-te_xmit_skb(struct<br>&gt; sk_buff *skb, struct net_device<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 skb =3D segs;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 } else {<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (skb_needs_linearize(skb, feature=
-s) &amp;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if=
- (skb_needs_linearize(skb, features[0]) &amp;&amp;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 __skb_linearize(skb=
-))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 goto out_kfree_skb;<br>&gt;<br>&gt; @@ -3759,12 +3759,=
-12 @@ static struct sk_buff<br>&gt; *validate_xmit_skb(struct sk_buff *skb,=
- struct net_device<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 else<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 skb_set_transport_header(skb,<br>&gt;<br>&gt; skb_checksum_st=
-art_offset(skb));<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (skb_csum_hwoffload_help(skb, features))=
-<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 if (skb_csum_hwoffload_help(skb, features[0]))<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 goto out_kfree_skb;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 skb =3D validate_xmit_xfrm(=
-skb, features, again);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 skb =3D validate_xmit=
-_xfrm(skb, features[0], again);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- return skb;<br>&gt;<br>&gt; @@ -4429,7 +4429,7 @@ set_rps_cpu(struct net_d=
-evice *dev, struct sk_buff *skb,<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* Should we steer this flow to a different=
- hardware queue? */<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 if (!skb_rx_queue_recorded(skb) || !dev-&gt;rx_cpu_rmap ||<br>&g=
-t; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(dev-&=
-gt;features &amp; NETIF_F_NTUPLE))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(dev-&gt;features[0] &amp; NETIF_F_NTUP=
-LE))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 goto out;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 rxq_index =3D cpu_rmap_lookup_index(dev-&gt;rx_cpu_rma=
-p, next_cpu);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 if (rxq_index =3D=3D skb_get_rx_queue(skb))<br>&gt; @@ -9799,171 +9799,=
-179 @@ static void net_set_todo(struct net_device *dev)<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 dev_net(dev)-&gt;dev_unreg_count++;<br>&gt; =C2=A0}<br>&g=
-t;<br>&gt; -static netdev_features_t netdev_sync_upper_features(struct net_=
-device *lower,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 struct net_device *upper, net=
-dev_features_t features)<br>&gt; +static void netdev_sync_upper_features(st=
-ruct net_device *lower,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0struct net_device *upper,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0netdev_features_t *features)<br>&gt; =
-=C2=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t upper_disable=
-s =3D NETIF_F_UPPER_DISABLES;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_fe=
-atures_t feature;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 int feature_bit;<br>&=
-gt; + =C2=A0 =C2=A0 =C2=A0 unsigned int i;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 for_each_netdev_feature(upper_disables, feature_bit) {<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 feature =3D __NETIF_F_BIT(fea=
-ture_bit);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!=
-(upper-&gt;wanted_features &amp; feature)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &amp;&amp; (features &amp; featur=
-e)) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_dbg(lower, &quot;Dropping feature %pNF,<br>&gt; up=
-per dev %s has it off.\n&quot;,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0&amp;feature, upper-&gt;name);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~=
-feature;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i &lt; NETDEV_FEATURE=
-_DWORDS; i++) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-for_each_netdev_feature(upper_disables, feature_bit) {<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 feature =
-=3D __NETIF_F_BIT(feature_bit);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!(upper-&gt;wanted_featur=
-es[i] &amp; feature) &amp;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (features[i] &a=
-mp; feature)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(lower, &=
-quot;Dropping<br>&gt; feature[%u] %pNF, upper dev %s has it off.\n&quot;,<b=
-r>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0i, &amp;feature, upper-&gt;name);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 features[i] &amp;=3D ~feature;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 }<br>&gt; -<br>&gt; - =C2=A0 =C2=A0 =C2=A0 return features;<br>&gt; =
-=C2=A0}<br>&gt;<br>&gt; =C2=A0static void netdev_sync_lower_features(struct=
- net_device *upper,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 struct net_device *lower=
-, netdev_features_t features)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 struct net_dev=
-ice *lower, netdev_features_t *features)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_t upper_disables =3D NETIF_F_UPPER_DISABL=
-ES;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t feature;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 int feature_bit;<br>&gt; + =C2=A0 =C2=A0 =C2=A0=
- unsigned int i;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 for_each_netdev_fea=
-ture(upper_disables, feature_bit) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 feature =3D __NETIF_F_BIT(feature_bit);<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!(features &amp; feature)=
- &amp;&amp; (lower-&gt;features &amp; feature)) {<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(u=
-pper, &quot;Disabling feature %pNF on<br>&gt; lower dev %s.\n&quot;,<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0&amp;feature, lower-&gt;nam=
-e);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 lower-&gt;wanted_features &amp;=3D ~feature;<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 __netdev_update_features(lower);<br>&gt; -<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (unlikely(lo=
-wer-&gt;features &amp; feature))<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 n=
-etdev_WARN(upper, &quot;failed to disable<br>&gt; %pNF on %s!\n&quot;,<br>&=
-gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 &amp;feature, lower-&gt;name);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 else<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 netdev_features_change(lower);<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 for (i =3D 0; i &lt; NETDEV_FEATURE_DWORDS; i++) {<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 for_each_netdev_feature(upper_di=
-sables, feature_bit) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 feature =3D __NETIF_F_BIT(feature_bit);<=
-br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 if (!(features[i] &amp; feature) &amp;&amp;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 (lower-&gt;features[i] &amp; feature)) {<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_dbg(upper, &quot;Disabling<br>&gt; feature[%u] %pN=
-F on lower dev %s.\n&quot;,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0i, &amp;feature, lower-&gt;name);<br>=
-&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 lower-&gt;wanted_features[i] &amp;=
-=3D ~feature[i];<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 __netdev_update_fe=
-atures(lower);<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (unli=
-kely(lower-&gt;features[i] &amp; feature))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_WARN(upper, &quot;failed to<b=
-r>&gt; disable feature[%u] %pNF on %s!\n&quot;,<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 i, &amp;feature, lower-&gt;name);<br>&gt; + =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 else<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_change(lower);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 }<br>&gt; =C2=A0}<br>&gt;<br>&gt; -static netdev_features_t n=
-etdev_fix_features(struct net_device *dev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 n=
-etdev_features_t features)<br>&gt; +static void netdev_fix_features(struct =
-net_device *dev,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t =
-*features)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* Fix illeg=
-al checksum combinations */<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((features &a=
-mp; NETIF_F_HW_CSUM) &amp;&amp;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 (features &amp; (NETIF_F_IP_CSUM|NETIF_F_IPV6_CSUM))) {<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 if ((features[0] &amp; NETIF_F_HW_CSUM) &amp;&amp;<br>&gt=
-; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (features[0] &amp; (NETIF_F_IP_CSUM =
-| NETIF_F_IPV6_CSUM))) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev_warn(dev, &quot;mixed HW and IP checksum settings.\n&q=
-uot;);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features =
-&amp;=3D ~(NETIF_F_IP_CSUM|NETIF_F_IPV6_CSUM);<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~(NETIF_F_IP_CSUM | NE=
-TIF_F_IPV6_CSUM);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 /* TSO requires that SG is present as well. */<br>=
-&gt; - =C2=A0 =C2=A0 =C2=A0 if ((features &amp; NETIF_F_ALL_TSO) &amp;&amp;=
- !(features &amp; NETIF_F_SG)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if ((featur=
-es[0] &amp; NETIF_F_ALL_TSO) &amp;&amp; !(features[0] &amp; NETIF_F_SG)) {<=
-br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(=
-dev, &quot;Dropping TSO features since no SG feature.\n&quot;);<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F=
-_ALL_TSO;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 featur=
-es[0] &amp;=3D ~NETIF_F_ALL_TSO;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&=
-gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((features &amp; NETIF_F_TSO) &amp;&a=
-mp; !(features &amp; NETIF_F_HW_CSUM) &amp;&amp;<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(features &amp; NETIF_F_IP_C=
-SUM)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if ((features[0] &amp; NETIF_F_TSO) =
-&amp;&amp; !(features[0] &amp; NETIF_F_HW_CSUM) &amp;&amp;<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(features[0] &amp; NETIF_F_IP_CSUM)) {<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev, &=
-quot;Dropping TSO features since no CSUM<br>&gt; feature.\n&quot;);<br>&gt;=
- - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETI=
-F_F_TSO;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 feature=
-s &amp;=3D ~NETIF_F_TSO_ECN;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 features[0] &amp;=3D ~NETIF_F_TSO;<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~NETIF_F_TSO_ECN;<b=
-r>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0=
- if ((features &amp; NETIF_F_TSO6) &amp;&amp; !(features &amp; NETIF_F_HW_C=
-SUM) &amp;&amp;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0!(features &amp; NETIF_F_IPV6_CSUM)) {<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 if ((features[0] &amp; NETIF_F_TSO6) &amp;&amp; !(features[0]=
- &amp; NETIF_F_HW_CSUM) &amp;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 !(features[0] &amp; NETIF_F_IPV6_CSUM)) {<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev, &quot;Dropping TSO6 =
-features since no CSUM<br>&gt; feature.\n&quot;);<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F_TSO6;<br>&gt;=
- + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~N=
-ETIF_F_TSO6;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 /* TSO with IPv4 ID mangling requires IPv4 TSO be enab=
-led */<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((features &amp; NETIF_F_TSO_MANGL=
-EID) &amp;&amp; !(features &amp; NETIF_F_TSO))<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F_TSO_MANGLEID;<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 if ((features[0] &amp; NETIF_F_TSO_MANGLEID) &=
-amp;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(features[0] &amp; =
-NETIF_F_TSO))<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 fe=
-atures[0] &amp;=3D ~NETIF_F_TSO_MANGLEID;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 /* TSO ECN requires that TSO is present as well. */<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 if ((features &amp; NETIF_F_ALL_TSO) =3D=3D NETIF_F_TS=
-O_ECN)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features =
-&amp;=3D ~NETIF_F_TSO_ECN;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if ((features[0] =
-&amp; NETIF_F_ALL_TSO) =3D=3D NETIF_F_TSO_ECN)<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~NETIF_F_TSO_ECN;<br>&=
-gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* Software GSO depends on SG. */<b=
-r>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((features &amp; NETIF_F_GSO) &amp;&amp; !=
-(features &amp; NETIF_F_SG)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if ((features=
-[0] &amp; NETIF_F_GSO) &amp;&amp; !(features[0] &amp; NETIF_F_SG)) {<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev, &=
-quot;Dropping NETIF_F_GSO since no SG feature.\n&quot;);<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F_GSO;<b=
-r>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=
-=3D ~NETIF_F_GSO;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 /* GSO partial features require GSO partial be set=
- */<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((features &amp; dev-&gt;gso_partial_=
-features) &amp;&amp;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(feature=
-s &amp; NETIF_F_GSO_PARTIAL)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if ((feature=
-s[0] &amp; dev-&gt;gso_partial_features) &amp;&amp;<br>&gt; + =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 !(features[0] &amp; NETIF_F_GSO_PARTIAL)) {<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev,<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0&quot;Dropping partially supported GSO features<=
-br>&gt; since no GSO partial.\n&quot;);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~dev-&gt;gso_partial_features;<b=
-r>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=
-=3D ~dev-&gt;gso_partial_features;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br=
->&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (!(features &amp; NETIF_F_RXCSUM)) =
-{<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (!(features[0] &amp; NETIF_F_RXCSUM)) {=
-<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* NETIF_F=
-_GRO_HW implies doing RXCSUM since every packet<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* successfully merged by hardw=
-are must also have the<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0* checksum verified by hardware.=C2=A0 If the user does=
- not<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
-* want to enable RXCSUM, logically, we should disable GRO_HW.<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0*/<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (features &amp; NETIF_F_GR=
-O_HW) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (feat=
-ures[0] &amp; NETIF_F_GRO_HW) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev, &quot;Drop=
-ping NETIF_F_GRO_HW since<br>&gt; no RXCSUM feature.\n&quot;);<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 features &amp;=3D ~NETIF_F_GRO_HW;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~=
-NETIF_F_GRO_HW;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 /* LRO/HW-GRO features cannot be combined with RX-FCS */<=
-br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (features &amp; NETIF_F_RXFCS) {<br>&gt; =
-- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (features &amp; NETIF=
-_F_LRO) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (features[0] &amp; NETIF_F_RXFC=
-S) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (feature=
-s[0] &amp; NETIF_F_LRO) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev, &quot;Dropping L=
-RO feature since<br>&gt; RX-FCS is requested.\n&quot;);<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 featu=
-res &amp;=3D ~NETIF_F_LRO;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~NETIF_F_LRO;<b=
-r>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br=
->&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (features &amp;=
- NETIF_F_GRO_HW) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 if (features[0] &amp; NETIF_F_GRO_HW) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(d=
-ev, &quot;Dropping HW-GRO feature since<br>&gt; RX-FCS is requested.\n&quot=
-;);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F_GRO_HW;<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features=
-[0] &amp;=3D ~NETIF_F_GRO_HW;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 if (features &amp; NETIF_F_HW_TLS_TX) {<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 bool ip_csum =3D (features=
- &amp; (NETIF_F_IP_CSUM |<br>&gt; NETIF_F_IPV6_CSUM)) =3D=3D<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 if (features[0] &amp; NETIF_F_HW_TLS_TX) {<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 bool ip_csum =3D (features[0]=
- &amp; (NETIF_F_IP_CSUM |<br>&gt; NETIF_F_IPV6_CSUM)) =3D=3D<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 (NETIF_F_IP_CSUM | NETIF_F_IPV6_CSUM);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 bool hw_csum =3D features &amp; NETIF_F_HW_CSUM=
-;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 bool hw_csum =
-=3D features[0] &amp; NETIF_F_HW_CSUM;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!ip_csum &amp;&amp; !hw_csum) {<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev_dbg(dev, &quot;Dropping TLS TX HW offload<br>&gt; feat=
-ure since no CSUM feature.\n&quot;);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F=
-_HW_TLS_TX;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~NETIF_F_HW_TLS_TX;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((features=
- &amp; NETIF_F_HW_TLS_RX) &amp;&amp; !(features &amp; NETIF_F_RXCSUM)) {<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 if ((features[0] &amp; NETIF_F_HW_TLS_RX) &amp=
-;&amp;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !(features[0] &amp; NET=
-IF_F_RXCSUM)) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 netdev_dbg(dev, &quot;Dropping TLS RX HW offload feature<br>&gt; sin=
-ce no RXCSUM feature.\n&quot;);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 features &amp;=3D ~NETIF_F_HW_TLS_RX;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] &amp;=3D ~NETIF_F_HW_=
-TLS_RX;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; -<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 return features;<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0int __=
-netdev_update_features(struct net_device *dev)<br>&gt; =C2=A0{<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 netdev_features_t features[NETDEV_FEATURE_DWORDS];<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct net_device *upper, *lower;<br>&gt; =
-- =C2=A0 =C2=A0 =C2=A0 netdev_features_t features;<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 struct list_head *iter;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 unsign=
-ed int i;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 int err =3D -1;<br>&gt;<br>&g=
-t; =C2=A0 =C2=A0 =C2=A0 =C2=A0 ASSERT_RTNL();<br>&gt;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 features =3D netdev_get_wanted_features(dev);<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 netdev_get_wanted_features(dev, features);<br>&gt;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;netdev_ops-&gt;ndo_fix_features)<br=
->&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features =3D dev-&=
-gt;netdev_ops-&gt;ndo_fix_features(dev, features);<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;netdev_ops-&gt;ndo_fix_features(=
-dev, features);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* driver might=
- be less strict about feature dependencies */<br>&gt; - =C2=A0 =C2=A0 =C2=
-=A0 features =3D netdev_fix_features(dev, features);<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 netdev_fix_features(dev, features);<br>&gt;<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 /* some features can&#39;t be enabled if they&#39;re off =
-on an upper device */<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_for_each_u=
-pper_dev_rcu(dev, upper, iter)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 features =3D netdev_sync_upper_features(dev, upper, features=
-);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_sync_u=
-pper_features(dev, upper, features);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0=
- if (dev-&gt;features =3D=3D features)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (n=
-etdev_features_equal(dev-&gt;features, features))<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 goto sync_lower;<br>&gt;<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev, &quot;Features changed: %pNF -&gt; %pN=
-F\n&quot;,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &amp;=
-dev-&gt;features, &amp;features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =3D=
- 0; i &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 netdev_dbg(dev, &quot;Features[%u] changed: %pNF -=
-&gt; %pNF\n&quot;,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0i, &amp;dev-&gt;features[i], &=
-amp;features[i]);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;n=
-etdev_ops-&gt;ndo_set_features)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 err =3D dev-&gt;netdev_ops-&gt;ndo_set_features(dev, f=
-eatures);<br>&gt; @@ -9971,9 +9979,10 @@ int __netdev_update_features(struc=
-t net_device *dev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 err =3D 0;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (unlikely=
-(err &lt; 0)) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-netdev_err(dev,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 &quot;set_features() failed (%d); wanted %pNF, =
-left %pNF\n&quot;,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 err, &amp;features, &amp;dev-&gt;features);=
-<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i=
- &lt; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_err(dev,<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0&quot;set_features() failed (%d);<=
-br>&gt; wanted[%u] %pNF, left[%u] %pNF\n&quot;,<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0err, i, &amp;features[i], i, &amp;dev-&gt;featur=
-es[i]);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* =
-return non-0 since some features might have changed and<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* it&#39;s better to fi=
-re a spurious notification than miss it<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0*/<br>&gt; @@ -9988,9 +9997,10 @@ int __=
-netdev_update_features(struct net_device *dev)<br>&gt; =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_sync_lower_features(dev, lower, =
-features);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!err) {<br>&gt; =
-- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t diff =
-=3D features ^ dev-&gt;features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_t diff[NETDEV_FEATURE_DWORDS];<br>&gt;<br=
->&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (diff &amp; NET=
-IF_F_RX_UDP_TUNNEL_PORT) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_xor(diff, features, dev-&gt;features);<br>&gt; +=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (diff[0] &amp; NETIF_F=
-_RX_UDP_TUNNEL_PORT) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* udp_tunnel_{get,drop}_rx_info =
-both need<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* NETIF_F_RX_UDP_TUNNEL_PORT enabled on t=
-he<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0* device, or they won&#39;t do anything.<br>&gt;=
- @@ -9998,33 +10008,33 @@ int __netdev_update_features(struct net_device *d=
-ev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0* *before* calling udp_tunnel_get_rx_info,<br>&g=
-t; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0* but *after* calling udp_tunnel_drop_rx_info.<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0*/<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (features &amp; NETIF_F_RX_UDP_TUNNEL_PO=
-RT) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;features =3D features=
-;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 if (features[0] &amp; NETIF_F_RX_UDP_TUNNEL_PORT) {<br>&gt; +=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;features[0] =3D features[0];<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 udp_tunnel_get_rx_info(dev);<br>&gt;=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 } else {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 udp_tunn=
-el_drop_rx_info(dev);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (diff &amp; NETIF_F_HW_VLAN_CTAG_FILTER) {<b=
-r>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 if (features &amp; NETIF_F_HW_VLAN_CTAG_FILTER) {<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;features =3D features;<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (diff[0] &amp; NETIF_F_HW_VLA=
-N_CTAG_FILTER) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (features[0] &amp; NETIF_F_HW_VLAN_CTAG_FIL=
-TER) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;features[0] =3D fe=
-atures[0];<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 err |=3D vlan_get_r=
-x_ctag_filter_info(dev);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 } else {<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 vlan_drop_rx_ctag_filter_info(dev);<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>=
-&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (diff &a=
-mp; NETIF_F_HW_VLAN_STAG_FILTER) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 if (diff[0] &amp; NETIF_F_HW_VLAN_STAG_FILTER) {<br>&g=
-t; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 if (features &amp; NETIF_F_HW_VLAN_STAG_FILTER) {<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;features =3D features;<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;features[0] =3D features[0];<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 err |=3D vlan_get_rx_stag_filter_inf=
-o(dev);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 } else {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 vlan_drop_rx_stag_filter_info(dev);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;features =3D featu=
-res;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_feat=
-ures_copy(dev-&gt;features, features);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-}<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 return err &lt; 0 ? 0 : 1;<br=
->&gt; @@ -10213,7 +10223,7 @@ int register_netdevice(struct net_device *dev=
-)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 int ret;<br>&gt; =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 struct net *net =3D dev_net(dev);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 BUILD_BUG_ON(sizeof(netdev_features_t) * BITS_PER_BYTE &lt;<br>&gt; =
-+ =C2=A0 =C2=A0 =C2=A0 BUILD_BUG_ON(sizeof(dev-&gt;features) * BITS_PER_BYT=
-E &lt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- BUG_ON(dev_boot_phase);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 ASSERT_RTNL();=
-<br>&gt; @@ -10250,7 +10260,7 @@ int register_netdevice(struct net_device *=
-dev)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&=
-gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if=
- (((dev-&gt;hw_features | dev-&gt;features) &amp;<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 if (((dev-&gt;hw_features[0] | dev-&gt;features[0]) &amp;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0NETIF_F_HW_VLAN_CTAG_FILTER=
-) &amp;&amp;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (!dev-&gt;ne=
-tdev_ops-&gt;ndo_vlan_rx_add_vid ||<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0!dev-&gt;netdev_ops-&gt;ndo_vlan_rx_kill_vid)) {<br>&gt; @=
-@ -10268,44 +10278,46 @@ int register_netdevice(struct net_device *dev)<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* Transfer changeable features to wanted_=
-features and enable<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* software of=
-floads (GSO and GRO).<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0*/<br>&gt; =
-- =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_features |=3D (NETIF_F_SOFT_FEATURES | NE=
-TIF_F_SOFT_FEATURES_OFF);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt;features |=
-=3D NETIF_F_SOFT_FEATURES;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_featur=
-es[0] |=3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 (NETIF_F_SOFT_FEATURES | NETIF_F_SOFT_FEATURES_OFF=
-);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&gt;features[0] |=3D NETIF_F_SOFT_FEA=
-TURES;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;udp_tunnel_n=
-ic_info) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&=
-gt;features |=3D NETIF_F_RX_UDP_TUNNEL_PORT;<br>&gt; - =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_features |=3D NETIF_F_RX_UDP_TUNNEL=
-_PORT;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;f=
-eatures[0] |=3D NETIF_F_RX_UDP_TUNNEL_PORT;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_features[0] |=3D NETIF_F_RX_UDP_TUNN=
-EL_PORT;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 dev-&gt;wanted_features =3D dev-&gt;features &amp; dev-&gt;hw_fe=
-atures;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_and(dev-&gt;wanted_f=
-eatures, dev-&gt;features,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_features);<=
-br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!(dev-&gt;flags &amp; IFF_L=
-OOPBACK))<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&g=
-t;hw_features |=3D NETIF_F_NOCACHE_COPY;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_features[0] |=3D NETIF_F_NOCACHE_COPY;<=
-br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* If IPv4 TCP segmentation off=
-load is supported we should also<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
-* allow the device to enable segmenting the frame with the option<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* of ignoring a static IP ID value.=C2=A0=
- This doesn&#39;t enable the<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0* fe=
-ature itself but allows the user to enable it later.<br>&gt; =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0*/<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;hw_featur=
-es &amp; NETIF_F_TSO)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 dev-&gt;hw_features |=3D NETIF_F_TSO_MANGLEID;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 if (dev-&gt;vlan_features &amp; NETIF_F_TSO)<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;vlan_features |=3D NETIF_=
-F_TSO_MANGLEID;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;mpls_features &a=
-mp; NETIF_F_TSO)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- dev-&gt;mpls_features |=3D NETIF_F_TSO_MANGLEID;<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 if (dev-&gt;hw_enc_features &amp; NETIF_F_TSO)<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_enc_features |=3D NETIF_F=
-_TSO_MANGLEID;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;hw_features[0] &a=
-mp; NETIF_F_TSO)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- dev-&gt;hw_features[0] |=3D NETIF_F_TSO_MANGLEID;<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 if (dev-&gt;vlan_features[0] &amp; NETIF_F_TSO)<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;vlan_features[0] |=3D NETIF_=
-F_TSO_MANGLEID;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;mpls_features[0]=
- &amp; NETIF_F_TSO)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 dev-&gt;mpls_features[0] |=3D NETIF_F_TSO_MANGLEID;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 if (dev-&gt;hw_enc_features[0] &amp; NETIF_F_TSO)<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_enc_features[0]=
- |=3D NETIF_F_TSO_MANGLEID;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* =
-Make NETIF_F_HIGHDMA inheritable to VLAN devices.<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0*/<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt;vlan_features |=
-=3D NETIF_F_HIGHDMA;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&gt;vlan_features[0=
-] |=3D NETIF_F_HIGHDMA;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* Make=
- NETIF_F_SG inheritable to tunnel devices.<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0*/<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_enc_features |=3D NE=
-TIF_F_SG | NETIF_F_GSO_PARTIAL;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&gt;hw_e=
-nc_features[0] |=3D NETIF_F_SG | NETIF_F_GSO_PARTIAL;<br>&gt;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 /* Make NETIF_F_SG inheritable to MPLS.<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0*/<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&gt=
-;mpls_features |=3D NETIF_F_SG;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 dev-&gt;mpls=
-_features[0] |=3D NETIF_F_SG;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 r=
-et =3D call_netdevice_notifiers(NETDEV_POST_INIT, dev);<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 ret =3D notifier_to_errno(ret);<br>&gt; @@ -11146,7 +1115=
-8,7 @@ int __dev_change_net_namespace(struct<br>&gt; net_device *dev, struc=
-t net *net,<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* Don&#39;t allow =
-namespace local devices to be moved. */<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- err =3D -EINVAL;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;features &amp;=
- NETIF_F_NETNS_LOCAL)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;features[0=
-] &amp; NETIF_F_NETNS_LOCAL)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 goto out;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* =
-Ensure the device has been registrered */<br>&gt; @@ -11506,7 +11518,7 @@ s=
-tatic void __net_exit<br>&gt; default_device_exit(struct net *net)<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 char fb_name[IFNAMS=
-IZ];<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 /* Ignore unmoveable devices (i.e. loopback) */<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;features &amp; NETIF_F_NETN=
-S_LOCAL)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (dev=
--&gt;features[0] &amp; NETIF_F_NETNS_LOCAL)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 continue;<br=
->&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* Le=
-ave virtual devices for the generic cleanup */<br>&gt; diff --git a/net/cor=
-e/netpoll.c b/net/core/netpoll.c<br>&gt; index 0a6b047..2c0adf4 100644<br>&=
-gt; --- a/net/core/netpoll.c<br>&gt; +++ b/net/core/netpoll.c<br>&gt; @@ -7=
-4,13 +74,13 @@ static netdev_tx_t netpoll_start_xmit(struct sk_buff *skb,<b=
-r>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct n=
-et_device *dev,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 struct netdev_queue *txq)<br>&gt; =C2=A0{<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_t features[NETDEV_FEATURE_DWORDS];<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 netdev_tx_t status =3D NETDEV_TX_OK;<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_t features;<br>&gt;<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 features =3D netif_skb_features(skb);<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 netif_skb_features(skb, features);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 if (skb_vlan_tag_present(skb) &amp;&amp;<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 !vlan_hw_offload_capable(features, skb-&gt;vlan_proto=
-)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 !vlan_hw_offload_capable(=
-features[0], skb-&gt;vlan_proto)) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 skb =3D __vlan_hwaccel_push_inside(skb);<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (unlikely(!skb))=
- {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 /* This is actually a packet drop, but we<br>&gt; diff=
- --git a/net/ethtool/features.c b/net/ethtool/features.c<br>&gt; index 1c9f=
-4df..0eedb17 100644<br>&gt; --- a/net/ethtool/features.c<br>&gt; +++ b/net/=
-ethtool/features.c<br>&gt; @@ -25,12 +25,13 @@ const struct nla_policy ethn=
-l_features_get_policy[] =3D {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 NLA_POLICY_NESTED(ethnl_header_policy),<br>&gt; =C2=A0=
-};<br>&gt;<br>&gt; -static void ethnl_features_to_bitmap32(u32 *dest, netde=
-v_features_t src)<br>&gt; +static void ethnl_features_to_bitmap32(u32 *dest=
-, netdev_features_t *src)<br>&gt; =C2=A0{<br>&gt; + =C2=A0 =C2=A0 =C2=A0 u3=
-2 *__src =3D (u32 *)src;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 unsigned int i=
-;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i &lt; ETHTOOL_=
-DEV_FEATURE_WORDS; i++)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 dest[i] =3D src &gt;&gt; (32 * i);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 dest[i] =3D __src[i];<br>&gt; =C2=A0}<br>&gt;<b=
-r>&gt; =C2=A0static int features_prepare_data(const struct ethnl_req_info *=
-req_base,<br>&gt; @@ -38,15 +39,23 @@ static int features_prepare_data(cons=
-t struct<br>&gt; ethnl_req_info *req_base,<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0struct genl_info *info)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 struct features_reply_data *data =3D FEATURES_REPDATA(=
-reply_base);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t features[NETD=
-EV_FEATURE_DWORDS] =3D {0};<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct net_=
-device *dev =3D reply_base-&gt;dev;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_f=
-eatures_t all_features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 unsigned int i;<br>&=
-gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 ethnl_features_to_bitmap32(data-&gt=
-;hw, dev-&gt;hw_features);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 ethnl_featur=
-es_to_bitmap32(data-&gt;wanted, dev-&gt;wanted_features);<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 ethnl_features_to_bitmap32(data-&gt;active, dev-&gt;fe=
-atures);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 ethnl_features_to_bitmap32(data-&gt=
-;nochange, NETIF_F_NEVER_CHANGE);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 all_featur=
-es =3D GENMASK_ULL(NETDEV_FEATURE_COUNT - 1, 0);<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 ethnl_features_to_bitmap32(data-&gt;all, all_features);<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 features[0] =3D NETIF_F_NEVER_CHANGE;<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 ethnl_features_to_bitmap32(data-&gt;nochange, features);<br>=
-&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i &lt; NETDEV_FEATURE_DWORDS; i++=
-) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (NETDEV_F=
-EATURE_COUNT &gt;=3D (i + 1) * 64)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[i] =3D GENMASK_UL=
-L(63, 0);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 else<b=
-r>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 features[i] =3D GENMASK_ULL(NETDEV_FEATURE_COUNT - i * 64,<br>&g=
-t; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 0);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 }<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 ethnl_features_to_bitmap32(data-&gt;all, features);<br>&g=
-t;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 return 0;<br>&gt; =C2=A0}<br>&gt; @@=
- -131,27 +140,29 @@ const struct nla_policy ethnl_features_set_policy[] =3D=
- {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 [ETHTOOL_A_FEATURES_WANTED] =C2=A0 =
-=C2=A0 =3D { .type =3D NLA_NESTED },<br>&gt; =C2=A0};<br>&gt;<br>&gt; -stat=
-ic void ethnl_features_to_bitmap(unsigned long *dest,<br>&gt; netdev_featur=
-es_t val)<br>&gt; +static void ethnl_features_to_bitmap(unsigned long *dest=
-,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0netdev_featur=
-es_t *val)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 const unsign=
-ed int words =3D BITS_TO_LONGS(NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 unsigned int i;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-bitmap_zero(dest, NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 for (i =3D 0; i &lt; words; i++)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 dest[i] =3D (unsigned long)(val &gt;&gt; (i * BITS_PER=
-_LONG));<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dest[i]=
- =3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 (unsigned long)(val[i / 2] &gt;&gt; (i % 2 * BITS_PER_LON=
-G));<br>&gt; =C2=A0}<br>&gt;<br>&gt; -static netdev_features_t ethnl_bitmap=
-_to_features(unsigned long *src)<br>&gt; +static void ethnl_bitmap_to_featu=
-res(netdev_features_t *val, unsigned<br>&gt; long *src)<br>&gt; =C2=A0{<br>=
-&gt; - =C2=A0 =C2=A0 =C2=A0 const unsigned int nft_bits =3D sizeof(netdev_f=
-eatures_t) * BITS_PER_BYTE;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 const unsig=
-ned int words =3D BITS_TO_LONGS(NETDEV_FEATURE_COUNT);<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_t ret =3D 0;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- unsigned int i;<br>&gt;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i &lt=
-; NETDEV_FEATURE_DWORDS; i++)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 val[i] =3D 0;<br>&gt; +<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 f=
-or (i =3D 0; i &lt; words; i++)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 ret |=3D (netdev_features_t)(src[i]) &lt;&lt; (i * BITS_P=
-ER_LONG);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 ret &amp;=3D ~(netdev_features_t)0=
- &gt;&gt; (nft_bits - NETDEV_FEATURE_COUNT);<br>&gt; - =C2=A0 =C2=A0 =C2=A0=
- return ret;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 val=
-[i / 2] |=3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 (netdev_features_t)(src[i]) &lt;&lt; (i % 2 * BITS=
-_PER_LONG);<br>&gt; =C2=A0}<br>&gt;<br>&gt; =C2=A0static int features_send_=
-reply(struct net_device *dev, struct genl_info *info,<br>&gt; @@ -212,12 +2=
-23,14 @@ int ethnl_set_features(struct sk_buff *skb,<br>&gt; struct genl_in=
-fo *info)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 DECLARE_BITMA=
-P(wanted_diff_mask, NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 DECLARE_BITMAP(active_diff_mask, NETDEV_FEATURE_COUNT);<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_t features[NETDEV_FEATURE_DWORDS];<br>&gt=
-; =C2=A0 =C2=A0 =C2=A0 =C2=A0 DECLARE_BITMAP(old_active, NETDEV_FEATURE_COU=
-NT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 DECLARE_BITMAP(old_wanted, NETDEV_=
-FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 DECLARE_BITMAP(new_acti=
-ve, NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 DECLARE_BITM=
-AP(new_wanted, NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 D=
-ECLARE_BITMAP(req_wanted, NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 DECLARE_BITMAP(req_mask, NETDEV_FEATURE_COUNT);<br>&gt; + =C2=A0=
- =C2=A0 =C2=A0 netdev_features_t tmp[NETDEV_FEATURE_DWORDS];<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 struct ethnl_req_info req_info =3D {};<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 struct nlattr **tb =3D info-&gt;attrs;<br>&gt; =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 struct net_device *dev;<br>&gt; @@ -242,7 +255,11 @@ =
-int ethnl_set_features(struct sk_buff *skb,<br>&gt; struct genl_info *info)=
-<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0netdev_features_strings=
-, info-&gt;extack);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (ret &lt; 0)<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 goto out_rtnl;=
-<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (ethnl_bitmap_to_features(req_mask) &amp=
-; ~NETIF_F_ETHTOOL_BITS) {<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 ethnl_b=
-itmap_to_features(features, req_mask);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netde=
-v_features_ethtool_bits(tmp);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_feature=
-s_andnot(features, features, tmp);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (!netd=
-ev_features_empty(features)) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 GENL_SET_ERR_MSG(info, &quot;attempt to change non-eth=
-tool<br>&gt; features&quot;);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 ret =3D -EINVAL;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 goto out_rtnl;<br>&gt; @@ -253,8 +270,13 @@ int=
- ethnl_set_features(struct sk_buff *skb,<br>&gt; struct genl_info *info)<br=
->&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 bitmap_andnot(new_wanted, old_wanted, req=
-_mask, NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 bitmap_or=
-(req_wanted, new_wanted, req_wanted, NETDEV_FEATURE_COUNT);<br>&gt; =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 if (!bitmap_equal(req_wanted, old_wanted, NETDEV_FEATU=
-RE_COUNT)) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev=
--&gt;wanted_features &amp;=3D ~dev-&gt;hw_features;<br>&gt; - =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;wanted_features |=3D<br>&gt; et=
-hnl_bitmap_to_features(req_wanted) &amp; dev-&gt;hw_features;<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_andnot(dev-&g=
-t;wanted_features,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0dev-&gt;wanted_features,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0dev-&gt;hw_features);<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ethnl_bitmap_to_features(features, r=
-eq_wanted);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netd=
-ev_features_and(features, features, dev-&gt;hw_features);<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_or(dev-&gt;wanted=
-_features, dev-&gt;wanted_features,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0features);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 __netdev_update_features(dev);<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 }<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 ethnl_features_to_bitmap(n=
-ew_active, dev-&gt;features);<br>&gt; diff --git a/net/ethtool/ioctl.c b/ne=
-t/ethtool/ioctl.c<br>&gt; index baa5d10..f213ec9 100644<br>&gt; --- a/net/e=
-thtool/ioctl.c<br>&gt; +++ b/net/ethtool/ioctl.c<br>&gt; @@ -67,12 +67,15 @=
-@ static int ethtool_get_features(struct net_device<br>&gt; *dev, void __us=
-er *useraddr)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 int i;<br>&gt;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 /* in case feature bits run out again */<br>&gt=
-; - =C2=A0 =C2=A0 =C2=A0 BUILD_BUG_ON(ETHTOOL_DEV_FEATURE_WORDS * sizeof(u3=
-2) &gt;<br>&gt; sizeof(netdev_features_t));<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-BUILD_BUG_ON(ETHTOOL_DEV_FEATURE_WORDS * sizeof(u32) &gt;<br>&gt; sizeof(de=
-v-&gt;features));<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 for (i =3D 0;=
- i &lt; ETHTOOL_DEV_FEATURE_WORDS; ++i) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 features[i].available =3D (u32)(dev-&gt;hw_feat=
-ures &gt;&gt; (32 * i));<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 features[i].requested =3D (u32)(dev-&gt;wanted_features &gt;&gt;=
- (32 * i));<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 feat=
-ures[i].active =3D (u32)(dev-&gt;features &gt;&gt; (32 * i));<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[i].available =3D<br>=
-&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 (u32)(dev-&gt;hw_features[i / 2] &gt;&gt; (i % 2 * 32));<br>&gt;=
- + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[i].requested =
-=3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 (u32)(dev-&gt;wanted_features[i / 2] &gt;&gt; (i % 2 * 32=
-));<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[i].=
-active =3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 (u32)(dev-&gt;features[i / 2] &gt;&gt; (i % 2 * 32=
-));<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 feature=
-s[i].never_changed =3D<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (u32)(NETIF_F_NEVER_CHANGE &gt;&g=
-t; (32 * i));<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; @@ -97,7 +100,9=
- @@ static int ethtool_set_features(struct net_device<br>&gt; *dev, void __=
-user *useraddr)<br>&gt; =C2=A0{<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct =
-ethtool_sfeatures cmd;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct ethtool_s=
-et_features_block features[ETHTOOL_DEV_FEATURE_WORDS];<br>&gt; - =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_t wanted =3D 0, valid =3D 0;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 netdev_features_t wanted[NETDEV_FEATURE_DWORDS] =3D {0};<br>&=
-gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t valid[NETDEV_FEATURE_DWORDS] =
-=3D {0};<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t tmp[NETDEV_FEATUR=
-E_DWORDS];<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 int i, ret =3D 0;<br>&gt;<br=
->&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (copy_from_user(&amp;cmd, useraddr, si=
-zeof(cmd)))<br>&gt; @@ -111,23 +116,33 @@ static int ethtool_set_features(s=
-truct<br>&gt; net_device *dev, void __user *useraddr)<br>&gt; =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return -EFAULT;<br>&gt;<br>&gt; =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 for (i =3D 0; i &lt; ETHTOOL_DEV_FEATURE_WORDS;=
- ++i) {<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 valid |=
-=3D (netdev_features_t)features[i].valid &lt;&lt; (32 * i);<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 wanted |=3D (netdev_features_=
-t)features[i].requested &lt;&lt; (32 * i);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 valid[i / 2] |=3D<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (netdev_feature=
-s_t)features[i].valid &lt;&lt; (32 * i);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 wanted[i / 2] |=3D<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 (netdev_features_t)=
-features[i].requested &lt;&lt; (32 * i);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (valid &amp; ~NETIF_F_ETHTO=
-OL_BITS)<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_ethtool_bits(tmp);<=
-br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_andnot(tmp, features, tmp);<=
-br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (!netdev_features_empty(tmp))<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return -EINVAL;<br>&gt=
-;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (valid &amp; ~dev-&gt;hw_features) {<br=
->&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 valid &amp;=3D dev=
--&gt;hw_features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_andnot(tmp=
-, valid, dev-&gt;hw_features);<br>&gt; +<br>&gt; + =C2=A0 =C2=A0 =C2=A0 if =
-(!netdev_features_empty(tmp)) {<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 netdev_features_and(valid, valid, dev-&gt;hw_features);<b=
-r>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret |=3D ETH=
-TOOL_F_UNSUPPORTED;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; -=
- =C2=A0 =C2=A0 =C2=A0 dev-&gt;wanted_features &amp;=3D ~valid;<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 dev-&gt;wanted_features |=3D wanted &amp; valid;<br>&g=
-t; + =C2=A0 =C2=A0 =C2=A0 netdev_features_andnot(dev-&gt;wanted_features, d=
-ev-&gt;wanted_features,<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0valid);<br>&=
-gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_and(wanted, wanted, valid);<br>&=
-gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_or(dev-&gt;wanted_features, dev-=
-&gt;wanted_features, wanted);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 __netdev_=
-update_features(dev);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if ((dev-&gt;w=
-anted_features ^ dev-&gt;features) &amp; valid)<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 netdev_features_xor(tmp, dev-&gt;wanted_features, dev-&gt;features);<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_and(tmp, tmp, valid);<br>&gt; =
-+ =C2=A0 =C2=A0 =C2=A0 if (!netdev_features_empty(tmp))<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 ret |=3D ETHTOOL_F_WISH;<br>&=
-gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 return ret;<br>&gt; @@ -227,7 +242,=
-7 @@ static int ethtool_get_one_feature(struct net_device *dev,<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_t mask =3D ethtool_get_feature_mas=
-k(ethcmd);<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct ethtool_value edata =
-=3D {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 .cmd =
-=3D ethcmd,<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 .dat=
-a =3D !!(dev-&gt;features &amp; mask),<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 .data =3D !!(dev-&gt;features[0] &amp; mask),<br>&=
-gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 };<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 if (copy_to_user(useraddr, &amp;edata, sizeof(edata)))<br>&gt; @@ -238,=
-21 +253,23 @@ static int ethtool_get_one_feature(struct net_device *dev,<br=
->&gt; =C2=A0static int ethtool_set_one_feature(struct net_device *dev,<br>&=
-gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 void __user *useraddr, u32 ethcmd)<br>&gt; =
-=C2=A0{<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t mask[NETDEV_FEATUR=
-E_DWORDS] =3D {0};<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct ethtool_value=
- edata;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t mask;<br>&gt;<br>&=
-gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (copy_from_user(&amp;edata, useraddr, si=
-zeof(edata)))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 return -EFAULT;<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 mask =3D ethtool=
-_get_feature_mask(ethcmd);<br>&gt; - =C2=A0 =C2=A0 =C2=A0 mask &amp;=3D dev=
--&gt;hw_features;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 if (!mask)<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 mask[0] =3D ethtool_get_feature_mask(ethcmd);<br>&gt; + =
-=C2=A0 =C2=A0 =C2=A0 netdev_features_and(mask, mask, dev-&gt;hw_features);<=
-br>&gt; + =C2=A0 =C2=A0 =C2=A0 if (netdev_features_empty(mask))<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return -EOPNOTSUPP;<br=
->&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (edata.data)<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;wanted_features |=3D mask=
-;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_feature=
-s_or(dev-&gt;wanted_features, dev-&gt;wanted_features,<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0mask)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- else<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 dev-&gt;wa=
-nted_features &amp;=3D ~mask;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 netdev_features_andnot(dev-&gt;wanted_features,<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0dev-&gt;wanted_featu=
-res, mask);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 __netdev_update_fea=
-tures(dev);<br>&gt;<br>&gt; @@ -285,29 +302,37 @@ static u32 __ethtool_get_=
-flags(struct net_device *dev)<br>&gt;<br>&gt; =C2=A0static int __ethtool_se=
-t_flags(struct net_device *dev, u32 data)<br>&gt; =C2=A0{<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 netdev_features_t features =3D 0, changed;<br>&gt; + =C2=A0 =
-=C2=A0 =C2=A0 netdev_features_t features[NETDEV_FEATURE_DWORDS] =3D {0};<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t changed[NETDEV_FEATURE_DWORD=
-S];<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t tmp[NETDEV_FEATURE_DWO=
-RDS];<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (data &amp; ~ETH_ALL_F=
-LAGS)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 retur=
-n -EINVAL;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (data &amp; ETH_F=
-LAG_LRO)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 feature=
-s |=3D NETIF_F_LRO;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 features[0] |=3D NETIF_F_LRO;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (d=
-ata &amp; ETH_FLAG_RXVLAN)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 features |=3D NETIF_F_HW_VLAN_CTAG_RX;<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] |=3D NETIF_F_HW_VLAN_CTAG_RX=
-;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (data &amp; ETH_FLAG_TXVLAN)<br>&g=
-t; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features |=3D NETIF_F=
-_HW_VLAN_CTAG_TX;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 features[0] |=3D NETIF_F_HW_VLAN_CTAG_TX;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 if (data &amp; ETH_FLAG_NTUPLE)<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 features |=3D NETIF_F_NTUPLE;<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] |=3D NETIF_F_NTUPLE;<br>=
-&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (data &amp; ETH_FLAG_RXHASH)<br>&gt; - =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features |=3D NETIF_F_RXHA=
-SH;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 features[0] =
-|=3D NETIF_F_RXHASH;<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 /* allow c=
-hanging only bits set in hw_features */<br>&gt; - =C2=A0 =C2=A0 =C2=A0 chan=
-ged =3D (features ^ dev-&gt;features) &amp; ETH_ALL_FEATURES;<br>&gt; - =C2=
-=A0 =C2=A0 =C2=A0 if (changed &amp; ~dev-&gt;hw_features)<br>&gt; - =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return (changed &amp; dev-&gt;hw_=
-features) ? -EINVAL : -EOPNOTSUPP;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_fe=
-atures_xor(changed, features, dev-&gt;features);<br>&gt; + =C2=A0 =C2=A0 =
-=C2=A0 changed[0] &amp;=3D ETH_ALL_FEATURES;<br>&gt; +<br>&gt; + =C2=A0 =C2=
-=A0 =C2=A0 netdev_features_andnot(tmp, changed, dev-&gt;hw_features);<br>&g=
-t; + =C2=A0 =C2=A0 =C2=A0 if (!netdev_features_empty(tmp)) {<br>&gt; + =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_and(tmp, chan=
-ged, dev-&gt;hw_features);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 return (!netdev_features_empty(tmp)) ? -EINVAL : -EOPNOTSUPP;<br=
->&gt; + =C2=A0 =C2=A0 =C2=A0 }<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 dev-&=
-gt;wanted_features =3D<br>&gt; - =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 (dev-&gt;wanted_features &amp; ~changed) | (features &amp; changed);=
-<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_andnot(tmp, dev-&gt;wanted_=
-features, changed);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_and(feat=
-ures, features, changed);<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_or=
-(dev-&gt;wanted_features, tmp, features);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 __netdev_update_features(dev);<br>&gt;<br>&gt; @@ -2587,7 +2612,=
-7 @@ int dev_ethtool(struct net *net, struct ifreq *ifr)<br>&gt; =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 void __user *useraddr =3D ifr-&gt;ifr_data;<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 u32 ethcmd, sub_cmd;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 int rc;<br>&gt; - =C2=A0 =C2=A0 =C2=A0 netdev_features_t old_feature=
-s;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_features_t old_features[NETDEV_FEA=
-TURE_DWORDS];<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (!dev || !neti=
-f_device_present(dev))<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 return -ENODEV;<br>&gt; @@ -2650,7 +2675,7 @@ int dev_ethtool=
-(struct net *net, struct ifreq *ifr)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (rc =C2=A0&lt; 0)<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 return r=
-c;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 }<br>&gt; - =C2=A0 =C2=A0 =C2=A0 old=
-_features =3D dev-&gt;features;<br>&gt; + =C2=A0 =C2=A0 =C2=A0 netdev_featu=
-res_copy(old_features, dev-&gt;features);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 switch (ethcmd) {<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 case ETHTO=
-OL_GSET:<br>&gt; @@ -2865,7 +2890,7 @@ int dev_ethtool(struct net *net, str=
-uct ifreq *ifr)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 if (dev-&gt;ethtool_ops=
--&gt;complete)<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 dev-&gt;ethtool_ops-&gt;complete(dev);<br>&gt;<br>&gt; - =C2=A0 =C2=A0 =
-=C2=A0 if (old_features !=3D dev-&gt;features)<br>&gt; + =C2=A0 =C2=A0 =C2=
-=A0 if (!netdev_features_equal(old_features, dev-&gt;features))<br>&gt; =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 netdev_features_change=
-(dev);<br>&gt;<br>&gt; =C2=A0 =C2=A0 =C2=A0 =C2=A0 return rc;<br>&gt; --<br=
->&gt; 2.8.1<br>&gt;<br>&gt;<br>&gt;<br>&gt; --<br>&gt; Latest Podcast:<br>&=
-gt; <a href=3D"https://www.linkedin.com/feed/update/urn:li:activity:6791014=
-284936785920/" target=3D"_blank">https://www.linkedin.com/feed/update/urn:l=
-i:activity:6791014284936785920/</a><br>&gt;<br>&gt; Dave T=C3=A4ht CTO, Tek=
-Libre, LLC<br>&gt; _______________________________________________<br>&gt; =
-Cake mailing list<br>&gt; <a href=3D"mailto:Cake@lists.bufferbloat.net" tar=
-get=3D"_blank">Cake@lists.bufferbloat.net</a><br>&gt; <a href=3D"https://li=
-sts.bufferbloat.net/listinfo/cake" target=3D"_blank">https://lists.bufferbl=
-oat.net/listinfo/cake</a><br><br><br><br>--<br>Robert Chac=C3=B3n<br><a hre=
-f=3D"mailto:robert.chacon@jackrabbitwireless.com" target=3D"_blank">robert.=
-chacon@jackrabbitwireless.com</a></div>
-
---0000000000007c51d805c6c7d4aa--
-
---===============6314900565531920525==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============6314900565531920525==--
+Y2FuIEkgZW5jb3VyYWdlIHlvdSB0byB0cnkgY2FrZSB3aXRoIGl0J3MgaW50ZWdyYWwgc2hhcGVy
+IGluc3RlYWQgb2YgaHRiPwoKb3IgaHRiICsgY2FrZSBkaWZmc2VydjQgYWNrLWZpbHRlcj8gKEkn
+dmUgc2V0dGxlZCBvbiB0aGF0IHRvIG9wdGltaXplCmV2ZW4gYmV0dGVyIGZvciBtYXJrZWQgdmlk
+ZW9jb25mZXJlbmNpbmcgdHJhZmZpYy4KZmFjZXRpbWUsIGluIHBhcnRpY3VsYXIsIGRvZXMgbm90
+IGhhbmRsZSBsb3NzIHdlbGwpCgoKT24gU2F0LCBKdWwgMTAsIDIwMjEgYXQgMTA6MDAgQU0gUm9i
+ZXJ0IENoYWPDs24KPHJvYmVydC5jaGFjb25AamFja3JhYmJpdHdpcmVsZXNzLmNvbT4gd3JvdGU6
+Cj4KPiBJIGhhdmUgYSBxdWVzdGlvbiByZWdhcmRpbmcgdGhpcywgYW5kIHRoZSBjdXJyZW50IG1h
+eGltdW0gbnVtYmVyIG9mIGh0YiBsZWFmIGNsYXNzZXMgYW5kL29yIHFkaXNjcyBwZXIgaW50ZXJm
+YWNlLgo+IEkgcmVjZW50bHkgaW50ZWdyYXRlZCBKZXNwZXIncyB4ZHAtY3B1bWFwLXRjIGNvZGUg
+aW50byBMaWJyZVFvUywgd2hpY2ggaW5jcmVhc2VkIHRocm91Z2hwdXQgdG8gMTBHYnBzIG9uIHRl
+c3RzLgo+IEkgc3VzcGVjdCBzb21ld2hlcmUgYmV0d2VlbiAxMEdicHMgYW5kIDQwR2JwcyB0aHJv
+dWdocHV0IGlzIG5vdyBwb3NzaWJsZSBpZiB5b3UgdGhyb3cgZW5vdWdoIGNvcmVzIGF0IGl0LiBB
+c2tpbmcgb3VyIGxvY2FsIHVuaXZlcnNpdHkgdG8gaGVscCB1cyB0ZXN0IHRoaXMuCj4gWGRwLWNw
+dW1hcC10YyB1c2VzIHhkcCdzIGNwdW1hcC1yZWRpcmVjdCBmZWF0dXJlIHRvIGZpbHRlciBwYWNr
+ZXRzIGludG8gdGhlIGFwcHJvcHJpYXRlIENQVSAvIHF1ZXVlIHVzaW5nIGVCUEYgaGFzaCBtYXBz
+LCByYXRoZXIgdGhhbiBsaW51eCB0YyBmaWx0ZXJzIC8gdTMyLgo+Cj4gUXVlc3Rpb24pIFNpbmNl
+IExpYnJlUW9TIHdvdWxkIG5vdCBkZXBlbmQgb24gdGMgZmlsdGVycywgd291bGQgdGhlIGN1cnJl
+bnQgMzItYml0IG9yIDY0LWJpdCBmZWF0dXJlIGxpbWl0IGltcG9zZSBhIHByYWN0aWNhbCBjbGll
+bnQgbGltaXQgb24gTGlicmVRb1M/Cj4gVGhlIGF2ZXJhZ2UgdXNlcidzIHRocm91Z2hwdXQgaXMg
+YXJvdW5kIDMuNU1icHMgYXQgcGVhayBob3Vycywgc28gSSdtIHRoaW5raW5nIH41ODAwIHFkaXNj
+cyBhbmQgfjU4MDAgaHRiIGxlYWYgY2xhc3NlcyB3b3VsZCBiZSByZXF1aXJlZCBmb3IgZWFjaCBp
+bnRlcmZhY2UgYXQgMjBHYnBzIHRocm91Z2hwdXQgZm9yIGV4YW1wbGUuCj4gVGhlcmUgbWF5IGJl
+IHNvbWUgbW9yZSBpbW1lZGlhdGUgbGltaXRhdGlvbnMgSSdtIG5vdCB1bmRlcnN0YW5kaW5nLiBK
+dXN0IGN1cmlvdXMgYWJvdXQgdGhlIHByYWN0aWNhbCBsaW1pdGF0aW9ucyB0aGVyZS4KPgo+IFRo
+YW5rcyEKPiBSb2JlcnQKPgo+IE9uIFNhdCwgSnVsIDEwLCAyMDIxIGF0IDk6MzMgQU0gRGF2ZSBU
+YWh0IDxkYXZlLnRhaHRAZ21haWwuY29tPiB3cm90ZToKPiA+Cj4gPiBPbmUgdGhpbmcgc29tZXdo
+YXQgcmVsYXRlZCB0byB0aGlzIHdhcyBmaW5hbGx5IGV4cGFuZGluZyB0aGUgc3BhY2UKPiA+IGF2
+YWlsYWJsZSBmb3IgdGhlIHRjIGFuZCBpcHRhYmxlcyBmdW5jdGlvbmFsaXR5IGZvcgo+ID4gdGhp
+bmdzIGxpa2UgaGFzaGluZyBhbmQgYWN0aW9ucyBldGMgZnJvbSAxNiBiaXRzIHRvIDMyLiBUaGF0
+IGlzCj4gPiBzb21ldGhpbmcgb2YgYSBmb3JrIGxpZnQgdXBncmFkZSwgYnV0Li4uIDY0ayBxdWV1
+ZXMgaXMgbm90Cj4gPiBlbm91Z2ggaW4gc29tZSBjYXNlcywgbm9yIGlzIDY0ayBwb3NzaWJsZSB1
+c2VycyBpbiBsaWJyZXFvcy4gdGhvdWdodHMKPiA+Cj4gPiAtLS0tLS0tLS0tIEZvcndhcmRlZCBt
+ZXNzYWdlIC0tLS0tLS0tLQo+ID4gRnJvbTogSmlhbiBTaGVuIDxzaGVuamlhbjE1QGh1YXdlaS5j
+b20+Cj4gPiBEYXRlOiBTYXQsIEp1bCAxMCwgMjAyMSBhdCAyOjQ3IEFNCj4gPiBTdWJqZWN0OiBb
+UkZDIG5ldC1uZXh0XSBuZXQ6IGV4dGVuZCBuZXRkZXYgZmVhdHVyZXMKPiA+IFRvOiA8ZGF2ZW1A
+ZGF2ZW1sb2Z0Lm5ldD4sIDxrdWJhQGtlcm5lbC5vcmc+Cj4gPiBDYzogPG5ldGRldkB2Z2VyLmtl
+cm5lbC5vcmc+LCA8bGludXhhcm1Ab3BlbmV1bGVyLm9yZz4KPiA+Cj4gPgo+ID4gRm9yIHRoZSBw
+cm90b3R5cGUgb2YgbmV0ZGV2X2ZlYXR1cmVzX3QgaXMgdTY0LCBhbmQgdGhlIG51bWJlcgo+ID4g
+b2YgbmV0ZGV2aWNlIGZlYXR1cmUgYml0cyBpcyA2NCBub3cuIFNvIHRoZXJlIGlzIG5vIHNwYWNl
+IHRvCj4gPiBpbnRyb2R1Y2UgbmV3IGZlYXR1cmUgYml0Lgo+ID4KPiA+IEkgZGlkIGEgc21hbGwg
+Y2hhbmdlIGZvciB0aGlzLiBLZWVwIHRoZSBwcm90b3R5cGUgb2YKPiA+IG5ldGRldl9mZWF0dXJl
+X3QsIGFuZCBleHRlbmQgdGhlIGZlYXR1cmUgbWVtYmVycyBpbiBzdHJ1Y3QKPiA+IG5ldF9kZXZp
+Y2UgdG8gYW4gYXJyYXkgb2YgbmV0ZGV2X2ZlYXR1cmVzX3QuIFNvIG1vcmUgZmVhdHVyZXMKPiA+
+IGJpdHMgY2FuIGJlIHVzZWQuCj4gPgo+ID4gQXMgdGhpcyBjaGFuZ2UsIHNvbWUgZnVuY3Rpb25z
+IHdoaWNoIHVzZSBuZXRkZXZfZmVhdHVyZXNfdCBhcwo+ID4gcGFyYW1ldGVyIG9yIHJldHVyZW4g
+dmFsdWUgd2lsbCBiZSBhZmZlY3RlZC4KPiA+IEkgZGlkIGJlbG93IGNoYW5nZXM6Cj4gPiBhLiBw
+YXJhbWV0ZXI6ICJuZXRkZXZfZmVhdHVyZXNfdCIgdG8gIm5ldGRldl9mZWF0dXJlc190ICoiCj4g
+PiBiLiByZXR1cm4gdmFsdWU6ICJuZXRkZXZfZmVhdHVyZV90IiB0byAidm9pZCIsIGFuZCBhZGQK
+PiA+ICJuZXRkZXZfZmVhdHVyZV90ICoiIGFzIG91dHB1dCBwYXJhbWV0ZXIuCj4gPgo+ID4gSSBr
+ZXB0IHNvbWUgZnVuY3Rpb25zIG5vIGNoYW5nZSwgd2hpY2ggYXJlIHN1cmVseSB1c2VpbmcgdGhl
+Cj4gPiBmaXJzdCA2NCBiaXQgb2YgbmV0IGRldmljZSBmZWF0dXJlcyBub3csIHN1Y2ggYXMgZnVu
+Y3Rpb24KPiA+IG5lZGV2X2FkZF90c29fZmVhdHVyZXMoKS4gSW4gb3JkZXIgdG8gbWluaW1pemUg
+dG8gY2hhbmdlcy4KPiA+Cj4gPiBGb3IgdGhlIGZlYXR1cmVzIGFyZSBhcnJheSBub3csIHNvIGl0
+J3MgdW5hYmxlIHRvIGRvIGxvZ2ljYWwKPiA+IG9wZXJhdGlvbiBkaXJlY3RseS4gSSBpbnRyb2R1
+Y2UgYSBpbmxpbmUgZnVuY3Rpb24gc2V0IGZvcgo+ID4gdGhlbSwgaW5jbHVkaW5nICJuZXRkZXZf
+ZmVhdHVyZXNfYW5kL2FuZG5vdC9vci94b3IvZXF1YWwvZW1wdHkiLgo+ID4KPiA+IEZvciBORVRE
+RVZfRkVBVFVSRV9DT1VOVCBtYXkgYmUgbW9yZSB0aGFuIDY0LCBzbyB0aGUgc2hpZnQKPiA+IG9w
+ZXJhdGlvbiBmb3IgTkVUREVWX0ZFQVRVUkVfQ09VTlQgaXMgaWxsZWdhbC4gSSBjaGFuZ2VkIHNv
+bWUKPiA+IG1hY3JvZXMgYW5kIGZ1bmN0aW9ucywgd2hpY2ggZG9lcyBzaGlmdCBvcGVydGlvbiB3
+aXRoIGl0Lgo+ID4KPiA+IEkgaGF2ZW4ndCBmaW5pc2hlZCBhbGwgdGhlIGNoYW5nZXMsIGZvciBp
+dCBhZmZlY3RlZCBhbGwgdGhlCj4gPiBkcml2ZXJzIHdoaWNoIHVzZSB0aGUgZmVhdHVyZSwgbmVl
+ZCBtb3JlIHRpbWUgYW5kIHRlc3QuIEkKPiA+IHNlbnQgdGhpcyBSRkMgcGF0Y2gsIHdhbnQgdG8g
+a25vdyB3aGV0aGVyIHRoaXMgY2hhbmdlIGlzCj4gPiBhY2NlcHRhYmxlLCBhbmQgaG93IHRvIGlt
+cHJvdmUgaXQuCj4gPgo+ID4gQW55IGNvbW1lbnRzIHdpbGwgYmUgaGVscGZ1bC4KPiA+Cj4gPiBT
+aWduZWQtb2ZmLWJ5OiBKaWFuIFNoZW4gPHNoZW5qaWFuMTVAaHVhd2VpLmNvbT4KPiA+IC0tLQo+
+ID4gIGRyaXZlcnMvbmV0L2V0aGVybmV0L2hpc2lsaWNvbi9obnMvaG5zX2VuZXQuYyAgIHwgIDM0
+ICstLQo+ID4gIGRyaXZlcnMvbmV0L2V0aGVybmV0L2hpc2lsaWNvbi9obnMzL2huczNfZW5ldC5j
+IHwgIDk3ICsrKystLS0tLQo+ID4gIGRyaXZlcnMvbmV0L2V0aGVybmV0L2h1YXdlaS9oaW5pYy9o
+aW5pY19tYWluLmMgIHwgIDcxICsrKy0tLQo+ID4gIGRyaXZlcnMvbmV0L2V0aGVybmV0L2h1YXdl
+aS9oaW5pYy9oaW5pY19yeC5jICAgIHwgICA0ICstCj4gPiAgaW5jbHVkZS9saW51eC9pZl92bGFu
+LmggICAgICAgICAgICAgICAgICAgICAgICAgfCAgIDIgKy0KPiA+ICBpbmNsdWRlL2xpbnV4L25l
+dGRldl9mZWF0dXJlcy5oICAgICAgICAgICAgICAgICB8IDEwNSArKysrKysrKy0KPiA+ICBpbmNs
+dWRlL2xpbnV4L25ldGRldmljZS5oICAgICAgICAgICAgICAgICAgICAgICB8ICAzMSArLS0KPiA+
+ICBuZXQvODAyMXEvdmxhbi5jICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNCAr
+LQo+ID4gIG5ldC84MDIxcS92bGFuLmggICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHwg
+ICAyICstCj4gPiAgbmV0LzgwMjFxL3ZsYW5fZGV2LmMgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgfCAgNDkgKysrLS0KPiA+ICBuZXQvY29yZS9kZXYuYyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICB8IDI3NiArKysrKysrKysrKystLS0tLS0tLS0tLS0KPiA+ICBuZXQvY29yZS9u
+ZXRwb2xsLmMgICAgICAgICAgICAgICAgICAgICAgICAgICAgICB8ICAgNiArLQo+ID4gIG5ldC9l
+dGh0b29sL2ZlYXR1cmVzLmMgICAgICAgICAgICAgICAgICAgICAgICAgIHwgIDU2ICsrKy0tCj4g
+PiAgbmV0L2V0aHRvb2wvaW9jdGwuYyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgfCAgOTMg
+KysrKystLS0KPiA+ICAxNCBmaWxlcyBjaGFuZ2VkLCA0OTMgaW5zZXJ0aW9ucygrKSwgMzM3IGRl
+bGV0aW9ucygtKQo+ID4KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9oaXNp
+bGljb24vaG5zL2huc19lbmV0LmMKPiA+IGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvaGlzaWxpY29u
+L2hucy9obnNfZW5ldC5jCj4gPiBpbmRleCBhZDUzNGY5Li40ZjI0NWNmIDEwMDY0NAo+ID4gLS0t
+IGEvZHJpdmVycy9uZXQvZXRoZXJuZXQvaGlzaWxpY29uL2hucy9obnNfZW5ldC5jCj4gPiArKysg
+Yi9kcml2ZXJzL25ldC9ldGhlcm5ldC9oaXNpbGljb24vaG5zL2huc19lbmV0LmMKPiA+IEBAIC00
+NzksNyArNDc5LDcgQEAgc3RhdGljIHZvaWQgaG5zX25pY19yeF9jaGVja3N1bShzdHJ1Y3QKPiA+
+IGhuc19uaWNfcmluZ19kYXRhICpyaW5nX2RhdGEsCj4gPiAgICAgICAgIHUzMiBsNGlkOwo+ID4K
+PiA+ICAgICAgICAgLyogY2hlY2sgaWYgUlggY2hlY2tzdW0gb2ZmbG9hZCBpcyBlbmFibGVkICov
+Cj4gPiAtICAgICAgIGlmICh1bmxpa2VseSghKG5ldGRldi0+ZmVhdHVyZXMgJiBORVRJRl9GX1JY
+Q1NVTSkpKQo+ID4gKyAgICAgICBpZiAodW5saWtlbHkoIShuZXRkZXYtPmZlYXR1cmVzWzBdICYg
+TkVUSUZfRl9SWENTVU0pKSkKPiA+ICAgICAgICAgICAgICAgICByZXR1cm47Cj4gPgo+ID4gICAg
+ICAgICAvKiBJbiBoYXJkd2FyZSwgd2Ugb25seSBzdXBwb3J0IGNoZWNrc3VtIGZvciB0aGUgZm9s
+bG93aW5nIHByb3RvY29sczoKPiA+IEBAIC0xNzY4LDE3ICsxNzY4LDE3IEBAIHN0YXRpYyBpbnQg
+aG5zX25pY19jaGFuZ2VfbXR1KHN0cnVjdAo+ID4gbmV0X2RldmljZSAqbmRldiwgaW50IG5ld19t
+dHUpCj4gPiAgfQo+ID4KPiA+ICBzdGF0aWMgaW50IGhuc19uaWNfc2V0X2ZlYXR1cmVzKHN0cnVj
+dCBuZXRfZGV2aWNlICpuZXRkZXYsCj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+IG5ldGRldl9mZWF0dXJlc190IGZlYXR1cmVzKQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCAqZmVhdHVyZXMpCj4gPiAgewo+ID4gICAgICAgICBz
+dHJ1Y3QgaG5zX25pY19wcml2ICpwcml2ID0gbmV0ZGV2X3ByaXYobmV0ZGV2KTsKPiA+Cj4gPiAg
+ICAgICAgIHN3aXRjaCAocHJpdi0+ZW5ldF92ZXIpIHsKPiA+ICAgICAgICAgY2FzZSBBRV9WRVJT
+SU9OXzE6Cj4gPiAtICAgICAgICAgICAgICAgaWYgKGZlYXR1cmVzICYgKE5FVElGX0ZfVFNPIHwg
+TkVUSUZfRl9UU082KSkKPiA+ICsgICAgICAgICAgICAgICBpZiAoZmVhdHVyZXNbMF0gJiAoTkVU
+SUZfRl9UU08gfCBORVRJRl9GX1RTTzYpKQo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgbmV0
+ZGV2X2luZm8obmV0ZGV2LCAiZW5ldCB2MSBkbyBub3Qgc3VwcG9ydCB0c28hXG4iKTsKPiA+ICAg
+ICAgICAgICAgICAgICBicmVhazsKPiA+ICAgICAgICAgZGVmYXVsdDoKPiA+IC0gICAgICAgICAg
+ICAgICBpZiAoZmVhdHVyZXMgJiAoTkVUSUZfRl9UU08gfCBORVRJRl9GX1RTTzYpKSB7Cj4gPiAr
+ICAgICAgICAgICAgICAgaWYgKGZlYXR1cmVzWzBdICYgKE5FVElGX0ZfVFNPIHwgTkVUSUZfRl9U
+U082KSkgewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgcHJpdi0+b3BzLmZpbGxfZGVzYyA9
+IGZpbGxfdHNvX2Rlc2M7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBwcml2LT5vcHMubWF5
+YmVfc3RvcF90eCA9IGhuc19uaWNfbWF5YmVfc3RvcF90c287Cj4gPiAgICAgICAgICAgICAgICAg
+ICAgICAgICAvKiBUaGUgY2hpcCBvbmx5IHN1cHBvcnQgNyo0MDk2ICovCj4gPiBAQCAtMTc4OSwy
+NCArMTc4OSwyMyBAQCBzdGF0aWMgaW50IGhuc19uaWNfc2V0X2ZlYXR1cmVzKHN0cnVjdAo+ID4g
+bmV0X2RldmljZSAqbmV0ZGV2LAo+ID4gICAgICAgICAgICAgICAgIH0KPiA+ICAgICAgICAgICAg
+ICAgICBicmVhazsKPiA+ICAgICAgICAgfQo+ID4gLSAgICAgICBuZXRkZXYtPmZlYXR1cmVzID0g
+ZmVhdHVyZXM7Cj4gPiArICAgICAgIG5ldGRldi0+ZmVhdHVyZXNbMF0gPSBmZWF0dXJlc1swXTsK
+PiA+ICAgICAgICAgcmV0dXJuIDA7Cj4gPiAgfQo+ID4KPiA+IC1zdGF0aWMgbmV0ZGV2X2ZlYXR1
+cmVzX3QgaG5zX25pY19maXhfZmVhdHVyZXMoCj4gPiAtICAgICAgICAgICAgICAgc3RydWN0IG5l
+dF9kZXZpY2UgKm5ldGRldiwgbmV0ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZXMpCj4gPiArc3RhdGlj
+IHZvaWQgaG5zX25pY19maXhfZmVhdHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKm5ldGRldiwKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc190ICpmZWF0
+dXJlcykKPiA+ICB7Cj4gPiAgICAgICAgIHN0cnVjdCBobnNfbmljX3ByaXYgKnByaXYgPSBuZXRk
+ZXZfcHJpdihuZXRkZXYpOwo+ID4KPiA+ICAgICAgICAgc3dpdGNoIChwcml2LT5lbmV0X3Zlcikg
+ewo+ID4gICAgICAgICBjYXNlIEFFX1ZFUlNJT05fMToKPiA+IC0gICAgICAgICAgICAgICBmZWF0
+dXJlcyAmPSB+KE5FVElGX0ZfVFNPIHwgTkVUSUZfRl9UU082IHwKPiA+ICsgICAgICAgICAgICAg
+ICBmZWF0dXJlc1swXSAmPSB+KE5FVElGX0ZfVFNPIHwgTkVUSUZfRl9UU082IHwKPiA+ICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgTkVUSUZfRl9IV19WTEFOX0NUQUdfRklMVEVSKTsK
+PiA+ICAgICAgICAgICAgICAgICBicmVhazsKPiA+ICAgICAgICAgZGVmYXVsdDoKPiA+ICAgICAg
+ICAgICAgICAgICBicmVhazsKPiA+ICAgICAgICAgfQo+ID4gLSAgICAgICByZXR1cm4gZmVhdHVy
+ZXM7Cj4gPiAgfQo+ID4KPiA+ICBzdGF0aWMgaW50IGhuc19uaWNfdWNfc3luYyhzdHJ1Y3QgbmV0
+X2RldmljZSAqbmV0ZGV2LCBjb25zdCB1bnNpZ25lZAo+ID4gY2hhciAqYWRkcikKPiA+IEBAIC0y
+MTYzLDggKzIxNjIsOCBAQCBzdGF0aWMgdm9pZCBobnNfbmljX3NldF9wcml2X29wcyhzdHJ1Y3QK
+PiA+IG5ldF9kZXZpY2UgKm5ldGRldikKPiA+ICAgICAgICAgICAgICAgICBwcml2LT5vcHMubWF5
+YmVfc3RvcF90eCA9IGhuc19uaWNfbWF5YmVfc3RvcF90eDsKPiA+ICAgICAgICAgfSBlbHNlIHsK
+PiA+ICAgICAgICAgICAgICAgICBwcml2LT5vcHMuZ2V0X3J4ZF9ibnVtID0gZ2V0X3YycnhfZGVz
+Y19ibnVtOwo+ID4gLSAgICAgICAgICAgICAgIGlmICgobmV0ZGV2LT5mZWF0dXJlcyAmIE5FVElG
+X0ZfVFNPKSB8fAo+ID4gLSAgICAgICAgICAgICAgICAgICAobmV0ZGV2LT5mZWF0dXJlcyAmIE5F
+VElGX0ZfVFNPNikpIHsKPiA+ICsgICAgICAgICAgICAgICBpZiAoKG5ldGRldi0+ZmVhdHVyZXNb
+MF0gJiBORVRJRl9GX1RTTykgfHwKPiA+ICsgICAgICAgICAgICAgICAgICAgKG5ldGRldi0+ZmVh
+dHVyZXNbMF0gJiBORVRJRl9GX1RTTzYpKSB7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBw
+cml2LT5vcHMuZmlsbF9kZXNjID0gZmlsbF90c29fZGVzYzsKPiA+ICAgICAgICAgICAgICAgICAg
+ICAgICAgIHByaXYtPm9wcy5tYXliZV9zdG9wX3R4ID0gaG5zX25pY19tYXliZV9zdG9wX3RzbzsK
+PiA+ICAgICAgICAgICAgICAgICAgICAgICAgIC8qIFRoaXMgY2hpcCBvbmx5IHN1cHBvcnQgNyo0
+MDk2ICovCj4gPiBAQCAtMjMyNSwyMiArMjMyNCwyMyBAQCBzdGF0aWMgaW50IGhuc19uaWNfZGV2
+X3Byb2JlKHN0cnVjdAo+ID4gcGxhdGZvcm1fZGV2aWNlICpwZGV2KQo+ID4gICAgICAgICBuZGV2
+LT5uZXRkZXZfb3BzID0gJmhuc19uaWNfbmV0ZGV2X29wczsKPiA+ICAgICAgICAgaG5zX2V0aHRv
+b2xfc2V0X29wcyhuZGV2KTsKPiA+Cj4gPiAtICAgICAgIG5kZXYtPmZlYXR1cmVzIHw9IE5FVElG
+X0ZfSVBfQ1NVTSB8IE5FVElGX0ZfSVBWNl9DU1VNIHwKPiA+ICsgICAgICAgbmRldi0+ZmVhdHVy
+ZXNbMF0gfD0gTkVUSUZfRl9JUF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NTVU0gfAo+ID4gICAgICAg
+ICAgICAgICAgIE5FVElGX0ZfUlhDU1VNIHwgTkVUSUZfRl9TRyB8IE5FVElGX0ZfR1NPIHwKPiA+
+ICAgICAgICAgICAgICAgICBORVRJRl9GX0dSTzsKPiA+IC0gICAgICAgbmRldi0+dmxhbl9mZWF0
+dXJlcyB8PQo+ID4gKyAgICAgICBuZGV2LT52bGFuX2ZlYXR1cmVzWzBdIHw9Cj4gPiAgICAgICAg
+ICAgICAgICAgTkVUSUZfRl9JUF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NTVU0gfCBORVRJRl9GX1JY
+Q1NVTTsKPiA+IC0gICAgICAgbmRldi0+dmxhbl9mZWF0dXJlcyB8PSBORVRJRl9GX1NHIHwgTkVU
+SUZfRl9HU08gfCBORVRJRl9GX0dSTzsKPiA+ICsgICAgICAgbmRldi0+dmxhbl9mZWF0dXJlc1sw
+XSB8PSBORVRJRl9GX1NHIHwgTkVUSUZfRl9HU08gfCBORVRJRl9GX0dSTzsKPiA+Cj4gPiAgICAg
+ICAgIC8qIE1UVSByYW5nZTogNjggLSA5NTc4ICh2MSkgb3IgOTcwNiAodjIpICovCj4gPiAgICAg
+ICAgIG5kZXYtPm1pbl9tdHUgPSBNQUNfTUlOX01UVTsKPiA+ICAgICAgICAgc3dpdGNoIChwcml2
+LT5lbmV0X3Zlcikgewo+ID4gICAgICAgICBjYXNlIEFFX1ZFUlNJT05fMjoKPiA+IC0gICAgICAg
+ICAgICAgICBuZGV2LT5mZWF0dXJlcyB8PSBORVRJRl9GX1RTTyB8IE5FVElGX0ZfVFNPNiB8IE5F
+VElGX0ZfTlRVUExFOwo+ID4gLSAgICAgICAgICAgICAgIG5kZXYtPmh3X2ZlYXR1cmVzIHw9IE5F
+VElGX0ZfSVBfQ1NVTSB8IE5FVElGX0ZfSVBWNl9DU1VNIHwKPiA+ICsgICAgICAgICAgICAgICBu
+ZGV2LT5mZWF0dXJlc1swXSB8PQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBO
+RVRJRl9GX1RTTyB8IE5FVElGX0ZfVFNPNiB8IE5FVElGX0ZfTlRVUExFOwo+ID4gKyAgICAgICAg
+ICAgICAgIG5kZXYtPmh3X2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfSVBfQ1NVTSB8IE5FVElGX0Zf
+SVBWNl9DU1VNIHwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfUlhDU1VNIHwg
+TkVUSUZfRl9TRyB8IE5FVElGX0ZfR1NPIHwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIE5F
+VElGX0ZfR1JPIHwgTkVUSUZfRl9UU08gfCBORVRJRl9GX1RTTzY7Cj4gPiAtICAgICAgICAgICAg
+ICAgbmRldi0+dmxhbl9mZWF0dXJlcyB8PSBORVRJRl9GX1RTTyB8IE5FVElGX0ZfVFNPNjsKPiA+
+ICsgICAgICAgICAgICAgICBuZGV2LT52bGFuX2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfVFNPIHwg
+TkVUSUZfRl9UU082Owo+ID4gICAgICAgICAgICAgICAgIG5kZXYtPm1heF9tdHUgPSBNQUNfTUFY
+X01UVV9WMiAtCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIChFVEhfSExFTiAr
+IEVUSF9GQ1NfTEVOICsgVkxBTl9ITEVOKTsKPiA+ICAgICAgICAgICAgICAgICBicmVhazsKPiA+
+IGRpZmYgLS1naXQgYS9kcml2ZXJzL25ldC9ldGhlcm5ldC9oaXNpbGljb24vaG5zMy9obnMzX2Vu
+ZXQuYwo+ID4gYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9oaXNpbGljb24vaG5zMy9obnMzX2VuZXQu
+Ywo+ID4gaW5kZXggY2RiNWYxNC4uYmE1NjkwNyAxMDA2NDQKPiA+IC0tLSBhL2RyaXZlcnMvbmV0
+L2V0aGVybmV0L2hpc2lsaWNvbi9obnMzL2huczNfZW5ldC5jCj4gPiArKysgYi9kcml2ZXJzL25l
+dC9ldGhlcm5ldC9oaXNpbGljb24vaG5zMy9obnMzX2VuZXQuYwo+ID4gQEAgLTE0ODEsNyArMTQ4
+MSw3IEBAIHN0YXRpYyBpbnQgaG5zM19oYW5kbGVfdnRhZ3Moc3RydWN0Cj4gPiBobnMzX2VuZXRf
+cmluZyAqdHhfcmluZywKPiA+ICAgICAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsKPiA+Cj4g
+PiAgICAgICAgIGlmIChza2ItPnByb3RvY29sID09IGh0b25zKEVUSF9QXzgwMjFRKSAmJgo+ID4g
+LSAgICAgICAgICAgIShoYW5kbGUtPmtpbmZvLm5ldGRldi0+ZmVhdHVyZXMgJiBORVRJRl9GX0hX
+X1ZMQU5fQ1RBR19UWCkpIHsKPiA+ICsgICAgICAgICAgICEoaGFuZGxlLT5raW5mby5uZXRkZXYt
+PmZlYXR1cmVzWzBdICYgTkVUSUZfRl9IV19WTEFOX0NUQUdfVFgpKSB7Cj4gPiAgICAgICAgICAg
+ICAgICAgLyogV2hlbiBIVyBWTEFOIGFjY2VsZXJhdGlvbiBpcyB0dXJuZWQgb2ZmLCBhbmQgdGhl
+IHN0YWNrCj4gPiAgICAgICAgICAgICAgICAgICogc2V0cyB0aGUgcHJvdG9jb2wgdG8gODAyLjFx
+LCB0aGUgZHJpdmVyIGp1c3QgbmVlZCB0bwo+ID4gICAgICAgICAgICAgICAgICAqIHNldCB0aGUg
+cHJvdG9jb2wgdG8gdGhlIGVuY2Fwc3VsYXRlZCBldGhlcnR5cGUuCj4gPiBAQCAtMjMwMCw1NiAr
+MjMwMCw1NyBAQCBzdGF0aWMgaW50IGhuczNfbmljX2RvX2lvY3RsKHN0cnVjdCBuZXRfZGV2aWNl
+ICpuZXRkZXYsCj4gPiAgfQo+ID4KPiA+ICBzdGF0aWMgaW50IGhuczNfbmljX3NldF9mZWF0dXJl
+cyhzdHJ1Y3QgbmV0X2RldmljZSAqbmV0ZGV2LAo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZXMpCj4gPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCAqZmVhdHVyZXMpCj4gPiAgewo+ID4g
+LSAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCBjaGFuZ2VkID0gbmV0ZGV2LT5mZWF0dXJlcyBeIGZl
+YXR1cmVzOwo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCBjaGFuZ2VkW05FVERFVl9GRUFU
+VVJFX0RXT1JEU107Cj4gPiAgICAgICAgIHN0cnVjdCBobnMzX25pY19wcml2ICpwcml2ID0gbmV0
+ZGV2X3ByaXYobmV0ZGV2KTsKPiA+ICAgICAgICAgc3RydWN0IGhuYWUzX2hhbmRsZSAqaCA9IHBy
+aXYtPmFlX2hhbmRsZTsKPiA+ICAgICAgICAgYm9vbCBlbmFibGU7Cj4gPiAgICAgICAgIGludCBy
+ZXQ7Cj4gPgo+ID4gLSAgICAgICBpZiAoY2hhbmdlZCAmIChORVRJRl9GX0dST19IVykgJiYgaC0+
+YWVfYWxnby0+b3BzLT5zZXRfZ3JvX2VuKSB7Cj4gPiAtICAgICAgICAgICAgICAgZW5hYmxlID0g
+ISEoZmVhdHVyZXMgJiBORVRJRl9GX0dST19IVyk7Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJl
+c194b3IoY2hhbmdlZCwgbmV0ZGV2LT5mZWF0dXJlcywgZmVhdHVyZXMpOwo+ID4gKyAgICAgICBp
+ZiAoY2hhbmdlZFswXSAmIChORVRJRl9GX0dST19IVykgJiYgaC0+YWVfYWxnby0+b3BzLT5zZXRf
+Z3JvX2VuKSB7Cj4gPiArICAgICAgICAgICAgICAgZW5hYmxlID0gISEoZmVhdHVyZXNbMF0gJiBO
+RVRJRl9GX0dST19IVyk7Cj4gPiAgICAgICAgICAgICAgICAgcmV0ID0gaC0+YWVfYWxnby0+b3Bz
+LT5zZXRfZ3JvX2VuKGgsIGVuYWJsZSk7Cj4gPiAgICAgICAgICAgICAgICAgaWYgKHJldCkKPiA+
+ICAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiByZXQ7Cj4gPiAgICAgICAgIH0KPiA+Cj4g
+PiAtICAgICAgIGlmICgoY2hhbmdlZCAmIE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYKSAmJgo+ID4g
+KyAgICAgICBpZiAoKGNoYW5nZWRbMF0gJiBORVRJRl9GX0hXX1ZMQU5fQ1RBR19SWCkgJiYKPiA+
+ICAgICAgICAgICAgIGgtPmFlX2FsZ28tPm9wcy0+ZW5hYmxlX2h3X3N0cmlwX3J4dnRhZykgewo+
+ID4gLSAgICAgICAgICAgICAgIGVuYWJsZSA9ICEhKGZlYXR1cmVzICYgTkVUSUZfRl9IV19WTEFO
+X0NUQUdfUlgpOwo+ID4gKyAgICAgICAgICAgICAgIGVuYWJsZSA9ICEhKGZlYXR1cmVzWzBdICYg
+TkVUSUZfRl9IV19WTEFOX0NUQUdfUlgpOwo+ID4gICAgICAgICAgICAgICAgIHJldCA9IGgtPmFl
+X2FsZ28tPm9wcy0+ZW5hYmxlX2h3X3N0cmlwX3J4dnRhZyhoLCBlbmFibGUpOwo+ID4gICAgICAg
+ICAgICAgICAgIGlmIChyZXQpCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmV0
+Owo+ID4gICAgICAgICB9Cj4gPgo+ID4gLSAgICAgICBpZiAoKGNoYW5nZWQgJiBORVRJRl9GX05U
+VVBMRSkgJiYgaC0+YWVfYWxnby0+b3BzLT5lbmFibGVfZmQpIHsKPiA+IC0gICAgICAgICAgICAg
+ICBlbmFibGUgPSAhIShmZWF0dXJlcyAmIE5FVElGX0ZfTlRVUExFKTsKPiA+ICsgICAgICAgaWYg
+KChjaGFuZ2VkWzBdICYgTkVUSUZfRl9OVFVQTEUpICYmIGgtPmFlX2FsZ28tPm9wcy0+ZW5hYmxl
+X2ZkKSB7Cj4gPiArICAgICAgICAgICAgICAgZW5hYmxlID0gISEoZmVhdHVyZXNbMF0gJiBORVRJ
+Rl9GX05UVVBMRSk7Cj4gPiAgICAgICAgICAgICAgICAgaC0+YWVfYWxnby0+b3BzLT5lbmFibGVf
+ZmQoaCwgZW5hYmxlKTsKPiA+ICAgICAgICAgfQo+ID4KPiA+IC0gICAgICAgaWYgKChuZXRkZXYt
+PmZlYXR1cmVzICYgTkVUSUZfRl9IV19UQykgPiAoZmVhdHVyZXMgJiBORVRJRl9GX0hXX1RDKSAm
+Jgo+ID4gKyAgICAgICBpZiAoKG5ldGRldi0+ZmVhdHVyZXNbMF0gJiBORVRJRl9GX0hXX1RDKSA+
+Cj4gPiArICAgICAgICAgICAgKGZlYXR1cmVzWzBdICYgTkVUSUZfRl9IV19UQykgJiYKPiA+ICAg
+ICAgICAgICAgIGgtPmFlX2FsZ28tPm9wcy0+Y2xzX2Zsb3dlcl9hY3RpdmUoaCkpIHsKPiA+ICAg
+ICAgICAgICAgICAgICBuZXRkZXZfZXJyKG5ldGRldiwKPiA+ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICJ0aGVyZSBhcmUgb2ZmbG9hZGVkIFRDIGZpbHRlcnMgYWN0aXZlLAo+ID4gY2Fubm90
+IGRpc2FibGUgSFcgVEMgb2ZmbG9hZCIpOwo+ID4gICAgICAgICAgICAgICAgIHJldHVybiAtRUlO
+VkFMOwo+ID4gICAgICAgICB9Cj4gPgo+ID4gLSAgICAgICBpZiAoKGNoYW5nZWQgJiBORVRJRl9G
+X0hXX1ZMQU5fQ1RBR19GSUxURVIpICYmCj4gPiArICAgICAgIGlmICgoY2hhbmdlZFswXSAmIE5F
+VElGX0ZfSFdfVkxBTl9DVEFHX0ZJTFRFUikgJiYKPiA+ICAgICAgICAgICAgIGgtPmFlX2FsZ28t
+Pm9wcy0+ZW5hYmxlX3ZsYW5fZmlsdGVyKSB7Cj4gPiAtICAgICAgICAgICAgICAgZW5hYmxlID0g
+ISEoZmVhdHVyZXMgJiBORVRJRl9GX0hXX1ZMQU5fQ1RBR19GSUxURVIpOwo+ID4gKyAgICAgICAg
+ICAgICAgIGVuYWJsZSA9ICEhKGZlYXR1cmVzWzBdICYgTkVUSUZfRl9IV19WTEFOX0NUQUdfRklM
+VEVSKTsKPiA+ICAgICAgICAgICAgICAgICByZXQgPSBoLT5hZV9hbGdvLT5vcHMtPmVuYWJsZV92
+bGFuX2ZpbHRlcihoLCBlbmFibGUpOwo+ID4gICAgICAgICAgICAgICAgIGlmIChyZXQpCj4gPiAg
+ICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmV0Owo+ID4gICAgICAgICB9Cj4gPgo+ID4g
+LSAgICAgICBuZXRkZXYtPmZlYXR1cmVzID0gZmVhdHVyZXM7Cj4gPiArICAgICAgIG5ldGRldl9m
+ZWF0dXJlc19jb3B5KG5ldGRldi0+ZmVhdHVyZXMsIGZlYXR1cmVzKTsKPiA+ICAgICAgICAgcmV0
+dXJuIDA7Cj4gPiAgfQo+ID4KPiA+IC1zdGF0aWMgbmV0ZGV2X2ZlYXR1cmVzX3QgaG5zM19mZWF0
+dXJlc19jaGVjayhzdHJ1Y3Qgc2tfYnVmZiAqc2tiLAo+ID4gLSAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IG5ldF9kZXZpY2UgKmRldiwKPiA+IC0gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc190
+IGZlYXR1cmVzKQo+ID4gK3N0YXRpYyB2b2lkIGhuczNfZmVhdHVyZXNfY2hlY2soc3RydWN0IHNr
+X2J1ZmYgKnNrYiwgc3RydWN0IG5ldF9kZXZpY2UgKmRldiwKPiA+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgKmZlYXR1cmVzKQo+ID4gIHsKPiA+ICAj
+ZGVmaW5lIEhOUzNfTUFYX0hEUl9MRU4gICAgICAgNDgwVQo+ID4gICNkZWZpbmUgSE5TM19NQVhf
+TDRfSERSX0xFTiAgICA2MFUKPiA+IEBAIC0yMzczLDkgKzIzNzQsNyBAQCBzdGF0aWMgbmV0ZGV2
+X2ZlYXR1cmVzX3QKPiA+IGhuczNfZmVhdHVyZXNfY2hlY2soc3RydWN0IHNrX2J1ZmYgKnNrYiwK
+PiA+ICAgICAgICAgICogbGVuIG9mIDQ4MCBieXRlcy4KPiA+ICAgICAgICAgICovCj4gPiAgICAg
+ICAgIGlmIChsZW4gPiBITlMzX01BWF9IRFJfTEVOKQo+ID4gLSAgICAgICAgICAgICAgIGZlYXR1
+cmVzICY9IH4oTkVUSUZfRl9DU1VNX01BU0sgfCBORVRJRl9GX0dTT19NQVNLKTsKPiA+IC0KPiA+
+IC0gICAgICAgcmV0dXJuIGZlYXR1cmVzOwo+ID4gKyAgICAgICAgICAgICAgIGZlYXR1cmVzWzBd
+ICY9IH4oTkVUSUZfRl9DU1VNX01BU0sgfCBORVRJRl9GX0dTT19NQVNLKTsKPiA+ICB9Cj4gPgo+
+ID4gIHN0YXRpYyB2b2lkIGhuczNfbmljX2dldF9zdGF0czY0KHN0cnVjdCBuZXRfZGV2aWNlICpu
+ZXRkZXYsCj4gPiBAQCAtMzEyNywyNyArMzEyNiwyOCBAQCBzdGF0aWMgdm9pZCBobnMzX3NldF9k
+ZWZhdWx0X2ZlYXR1cmUoc3RydWN0Cj4gPiBuZXRfZGV2aWNlICpuZXRkZXYpCj4gPgo+ID4gICAg
+ICAgICBuZXRkZXYtPnByaXZfZmxhZ3MgfD0gSUZGX1VOSUNBU1RfRkxUOwo+ID4KPiA+IC0gICAg
+ICAgbmV0ZGV2LT5od19lbmNfZmVhdHVyZXMgfD0gTkVUSUZfRl9SWENTVU0gfCBORVRJRl9GX1NH
+IHwgTkVUSUZfRl9HU08gfAo+ID4gKyAgICAgICBuZXRkZXYtPmh3X2VuY19mZWF0dXJlc1swXSB8
+PQo+ID4gKyAgICAgICAgICAgICAgIE5FVElGX0ZfUlhDU1VNIHwgTkVUSUZfRl9TRyB8IE5FVElG
+X0ZfR1NPIHwKPiA+ICAgICAgICAgICAgICAgICBORVRJRl9GX0dSTyB8IE5FVElGX0ZfVFNPIHwg
+TkVUSUZfRl9UU082IHwgTkVUSUZfRl9HU09fR1JFIHwKPiA+ICAgICAgICAgICAgICAgICBORVRJ
+Rl9GX0dTT19HUkVfQ1NVTSB8IE5FVElGX0ZfR1NPX1VEUF9UVU5ORUwgfAo+ID4gICAgICAgICAg
+ICAgICAgIE5FVElGX0ZfU0NUUF9DUkMgfCBORVRJRl9GX1RTT19NQU5HTEVJRCB8IE5FVElGX0Zf
+RlJBR0xJU1Q7Cj4gPgo+ID4gICAgICAgICBuZXRkZXYtPmdzb19wYXJ0aWFsX2ZlYXR1cmVzIHw9
+IE5FVElGX0ZfR1NPX0dSRV9DU1VNOwo+ID4KPiA+IC0gICAgICAgbmV0ZGV2LT5mZWF0dXJlcyB8
+PSBORVRJRl9GX0hXX1ZMQU5fQ1RBR19GSUxURVIgfAo+ID4gKyAgICAgICBuZXRkZXYtPmZlYXR1
+cmVzWzBdIHw9IE5FVElGX0ZfSFdfVkxBTl9DVEFHX0ZJTFRFUiB8Cj4gPiAgICAgICAgICAgICAg
+ICAgTkVUSUZfRl9IV19WTEFOX0NUQUdfVFggfCBORVRJRl9GX0hXX1ZMQU5fQ1RBR19SWCB8Cj4g
+PiAgICAgICAgICAgICAgICAgTkVUSUZfRl9SWENTVU0gfCBORVRJRl9GX1NHIHwgTkVUSUZfRl9H
+U08gfAo+ID4gICAgICAgICAgICAgICAgIE5FVElGX0ZfR1JPIHwgTkVUSUZfRl9UU08gfCBORVRJ
+Rl9GX1RTTzYgfCBORVRJRl9GX0dTT19HUkUgfAo+ID4gICAgICAgICAgICAgICAgIE5FVElGX0Zf
+R1NPX0dSRV9DU1VNIHwgTkVUSUZfRl9HU09fVURQX1RVTk5FTCB8Cj4gPiAgICAgICAgICAgICAg
+ICAgTkVUSUZfRl9TQ1RQX0NSQyB8IE5FVElGX0ZfRlJBR0xJU1Q7Cj4gPgo+ID4gLSAgICAgICBu
+ZXRkZXYtPnZsYW5fZmVhdHVyZXMgfD0gTkVUSUZfRl9SWENTVU0gfAo+ID4gKyAgICAgICBuZXRk
+ZXYtPnZsYW5fZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9SWENTVU0gfAo+ID4gICAgICAgICAgICAg
+ICAgIE5FVElGX0ZfU0cgfCBORVRJRl9GX0dTTyB8IE5FVElGX0ZfR1JPIHwKPiA+ICAgICAgICAg
+ICAgICAgICBORVRJRl9GX1RTTyB8IE5FVElGX0ZfVFNPNiB8IE5FVElGX0ZfR1NPX0dSRSB8Cj4g
+PiAgICAgICAgICAgICAgICAgTkVUSUZfRl9HU09fR1JFX0NTVU0gfCBORVRJRl9GX0dTT19VRFBf
+VFVOTkVMIHwKPiA+ICAgICAgICAgICAgICAgICBORVRJRl9GX1NDVFBfQ1JDIHwgTkVUSUZfRl9G
+UkFHTElTVDsKPiA+Cj4gPiAtICAgICAgIG5ldGRldi0+aHdfZmVhdHVyZXMgfD0gTkVUSUZfRl9I
+V19WTEFOX0NUQUdfVFggfAo+ID4gKyAgICAgICBuZXRkZXYtPmh3X2ZlYXR1cmVzWzBdIHw9IE5F
+VElGX0ZfSFdfVkxBTl9DVEFHX1RYIHwKPiA+ICAgICAgICAgICAgICAgICBORVRJRl9GX0hXX1ZM
+QU5fQ1RBR19SWCB8Cj4gPiAgICAgICAgICAgICAgICAgTkVUSUZfRl9SWENTVU0gfCBORVRJRl9G
+X1NHIHwgTkVUSUZfRl9HU08gfAo+ID4gICAgICAgICAgICAgICAgIE5FVElGX0ZfR1JPIHwgTkVU
+SUZfRl9UU08gfCBORVRJRl9GX1RTTzYgfCBORVRJRl9GX0dTT19HUkUgfAo+ID4gQEAgLTMxNTUs
+NDggKzMxNTUsNDkgQEAgc3RhdGljIHZvaWQgaG5zM19zZXRfZGVmYXVsdF9mZWF0dXJlKHN0cnVj
+dAo+ID4gbmV0X2RldmljZSAqbmV0ZGV2KQo+ID4gICAgICAgICAgICAgICAgIE5FVElGX0ZfU0NU
+UF9DUkMgfCBORVRJRl9GX0ZSQUdMSVNUOwo+ID4KPiA+ICAgICAgICAgaWYgKGFlX2Rldi0+ZGV2
+X3ZlcnNpb24gPj0gSE5BRTNfREVWSUNFX1ZFUlNJT05fVjIpIHsKPiA+IC0gICAgICAgICAgICAg
+ICBuZXRkZXYtPmh3X2ZlYXR1cmVzIHw9IE5FVElGX0ZfR1JPX0hXOwo+ID4gLSAgICAgICAgICAg
+ICAgIG5ldGRldi0+ZmVhdHVyZXMgfD0gTkVUSUZfRl9HUk9fSFc7Cj4gPiArICAgICAgICAgICAg
+ICAgbmV0ZGV2LT5od19mZWF0dXJlc1swXSB8PSBORVRJRl9GX0dST19IVzsKPiA+ICsgICAgICAg
+ICAgICAgICBuZXRkZXYtPmZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfR1JPX0hXOwo+ID4KPiA+ICAg
+ICAgICAgICAgICAgICBpZiAoIShoLT5mbGFncyAmIEhOQUUzX1NVUFBPUlRfVkYpKSB7Cj4gPiAt
+ICAgICAgICAgICAgICAgICAgICAgICBuZXRkZXYtPmh3X2ZlYXR1cmVzIHw9IE5FVElGX0ZfTlRV
+UExFOwo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgbmV0ZGV2LT5mZWF0dXJlcyB8PSBORVRJ
+Rl9GX05UVVBMRTsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIG5ldGRldi0+aHdfZmVhdHVy
+ZXNbMF0gfD0gTkVUSUZfRl9OVFVQTEU7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBuZXRk
+ZXYtPmZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfTlRVUExFOwo+ID4gICAgICAgICAgICAgICAgIH0K
+PiA+ICAgICAgICAgfQo+ID4KPiA+ICAgICAgICAgaWYgKHRlc3RfYml0KEhOQUUzX0RFVl9TVVBQ
+T1JUX1VEUF9HU09fQiwgYWVfZGV2LT5jYXBzKSkgewo+ID4gLSAgICAgICAgICAgICAgIG5ldGRl
+di0+aHdfZmVhdHVyZXMgfD0gTkVUSUZfRl9HU09fVURQX0w0Owo+ID4gLSAgICAgICAgICAgICAg
+IG5ldGRldi0+ZmVhdHVyZXMgfD0gTkVUSUZfRl9HU09fVURQX0w0Owo+ID4gLSAgICAgICAgICAg
+ICAgIG5ldGRldi0+dmxhbl9mZWF0dXJlcyB8PSBORVRJRl9GX0dTT19VRFBfTDQ7Cj4gPiAtICAg
+ICAgICAgICAgICAgbmV0ZGV2LT5od19lbmNfZmVhdHVyZXMgfD0gTkVUSUZfRl9HU09fVURQX0w0
+Owo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldi0+aHdfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9H
+U09fVURQX0w0Owo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldi0+ZmVhdHVyZXNbMF0gfD0gTkVU
+SUZfRl9HU09fVURQX0w0Owo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldi0+dmxhbl9mZWF0dXJl
+c1swXSB8PSBORVRJRl9GX0dTT19VRFBfTDQ7Cj4gPiArICAgICAgICAgICAgICAgbmV0ZGV2LT5o
+d19lbmNfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9HU09fVURQX0w0Owo+ID4gICAgICAgICB9Cj4g
+Pgo+ID4gICAgICAgICBpZiAodGVzdF9iaXQoSE5BRTNfREVWX1NVUFBPUlRfSFdfVFhfQ1NVTV9C
+LCBhZV9kZXYtPmNhcHMpKSB7Cj4gPiAtICAgICAgICAgICAgICAgbmV0ZGV2LT5od19mZWF0dXJl
+cyB8PSBORVRJRl9GX0hXX0NTVU07Cj4gPiAtICAgICAgICAgICAgICAgbmV0ZGV2LT5mZWF0dXJl
+cyB8PSBORVRJRl9GX0hXX0NTVU07Cj4gPiAtICAgICAgICAgICAgICAgbmV0ZGV2LT52bGFuX2Zl
+YXR1cmVzIHw9IE5FVElGX0ZfSFdfQ1NVTTsKPiA+IC0gICAgICAgICAgICAgICBuZXRkZXYtPmh3
+X2VuY19mZWF0dXJlcyB8PSBORVRJRl9GX0hXX0NTVU07Cj4gPiArICAgICAgICAgICAgICAgbmV0
+ZGV2LT5od19mZWF0dXJlc1swXSB8PSBORVRJRl9GX0hXX0NTVU07Cj4gPiArICAgICAgICAgICAg
+ICAgbmV0ZGV2LT5mZWF0dXJlc1swXSB8PSBORVRJRl9GX0hXX0NTVU07Cj4gPiArICAgICAgICAg
+ICAgICAgbmV0ZGV2LT52bGFuX2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfSFdfQ1NVTTsKPiA+ICsg
+ICAgICAgICAgICAgICBuZXRkZXYtPmh3X2VuY19mZWF0dXJlc1swXSB8PSBORVRJRl9GX0hXX0NT
+VU07Cj4gPiAgICAgICAgIH0gZWxzZSB7Cj4gPiAtICAgICAgICAgICAgICAgbmV0ZGV2LT5od19m
+ZWF0dXJlcyB8PSBORVRJRl9GX0lQX0NTVU0gfCBORVRJRl9GX0lQVjZfQ1NVTTsKPiA+IC0gICAg
+ICAgICAgICAgICBuZXRkZXYtPmZlYXR1cmVzIHw9IE5FVElGX0ZfSVBfQ1NVTSB8IE5FVElGX0Zf
+SVBWNl9DU1VNOwo+ID4gLSAgICAgICAgICAgICAgIG5ldGRldi0+dmxhbl9mZWF0dXJlcyB8PSBO
+RVRJRl9GX0lQX0NTVU0gfCBORVRJRl9GX0lQVjZfQ1NVTTsKPiA+IC0gICAgICAgICAgICAgICBu
+ZXRkZXYtPmh3X2VuY19mZWF0dXJlcyB8PSBORVRJRl9GX0lQX0NTVU0gfCBORVRJRl9GX0lQVjZf
+Q1NVTTsKPiA+ICsgICAgICAgICAgICAgICBuZXRkZXYtPmh3X2ZlYXR1cmVzWzBdIHw9IE5FVElG
+X0ZfSVBfQ1NVTSB8IE5FVElGX0ZfSVBWNl9DU1VNOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRl
+di0+ZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9JUF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NTVU07Cj4g
+PiArICAgICAgICAgICAgICAgbmV0ZGV2LT52bGFuX2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfSVBf
+Q1NVTSB8IE5FVElGX0ZfSVBWNl9DU1VNOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldi0+aHdf
+ZW5jX2ZlYXR1cmVzWzBdIHw9Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgTkVUSUZfRl9JUF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NTVU07Cj4gPiAgICAgICAgIH0K
+PiA+Cj4gPiAgICAgICAgIGlmICh0ZXN0X2JpdChITkFFM19ERVZfU1VQUE9SVF9VRFBfVFVOTkVM
+X0NTVU1fQiwgYWVfZGV2LT5jYXBzKSkgewo+ID4gLSAgICAgICAgICAgICAgIG5ldGRldi0+aHdf
+ZmVhdHVyZXMgfD0gTkVUSUZfRl9HU09fVURQX1RVTk5FTF9DU1VNOwo+ID4gLSAgICAgICAgICAg
+ICAgIG5ldGRldi0+ZmVhdHVyZXMgfD0gTkVUSUZfRl9HU09fVURQX1RVTk5FTF9DU1VNOwo+ID4g
+LSAgICAgICAgICAgICAgIG5ldGRldi0+dmxhbl9mZWF0dXJlcyB8PSBORVRJRl9GX0dTT19VRFBf
+VFVOTkVMX0NTVU07Cj4gPiAtICAgICAgICAgICAgICAgbmV0ZGV2LT5od19lbmNfZmVhdHVyZXMg
+fD0gTkVUSUZfRl9HU09fVURQX1RVTk5FTF9DU1VNOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRl
+di0+aHdfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9HU09fVURQX1RVTk5FTF9DU1VNOwo+ID4gKyAg
+ICAgICAgICAgICAgIG5ldGRldi0+ZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9HU09fVURQX1RVTk5F
+TF9DU1VNOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldi0+dmxhbl9mZWF0dXJlc1swXSB8PSBO
+RVRJRl9GX0dTT19VRFBfVFVOTkVMX0NTVU07Cj4gPiArICAgICAgICAgICAgICAgbmV0ZGV2LT5o
+d19lbmNfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9HU09fVURQX1RVTk5FTF9DU1VNOwo+ID4gICAg
+ICAgICB9Cj4gPgo+ID4gICAgICAgICBpZiAodGVzdF9iaXQoSE5BRTNfREVWX1NVUFBPUlRfRkRf
+Rk9SV0FSRF9UQ19CLCBhZV9kZXYtPmNhcHMpKSB7Cj4gPiAtICAgICAgICAgICAgICAgbmV0ZGV2
+LT5od19mZWF0dXJlcyB8PSBORVRJRl9GX0hXX1RDOwo+ID4gLSAgICAgICAgICAgICAgIG5ldGRl
+di0+ZmVhdHVyZXMgfD0gTkVUSUZfRl9IV19UQzsKPiA+ICsgICAgICAgICAgICAgICBuZXRkZXYt
+Pmh3X2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfSFdfVEM7Cj4gPiArICAgICAgICAgICAgICAgbmV0
+ZGV2LT5mZWF0dXJlc1swXSB8PSBORVRJRl9GX0hXX1RDOwo+ID4gICAgICAgICB9Cj4gPgo+ID4g
+ICAgICAgICBpZiAodGVzdF9iaXQoSE5BRTNfREVWX1NVUFBPUlRfVkxBTl9GTFRSX01ERl9CLCBh
+ZV9kZXYtPmNhcHMpKQo+ID4gLSAgICAgICAgICAgICAgIG5ldGRldi0+aHdfZmVhdHVyZXMgfD0g
+TkVUSUZfRl9IV19WTEFOX0NUQUdfRklMVEVSOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldi0+
+aHdfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9IV19WTEFOX0NUQUdfRklMVEVSOwo+ID4gIH0KPiA+
+Cj4gPiAgc3RhdGljIGludCBobnMzX2FsbG9jX2J1ZmZlcihzdHJ1Y3QgaG5zM19lbmV0X3Jpbmcg
+KnJpbmcsCj4gPiBAQCAtMzcyNyw3ICszNzI4LDcgQEAgc3RhdGljIHZvaWQgaG5zM19yeF9jaGVj
+a3N1bShzdHJ1Y3QKPiA+IGhuczNfZW5ldF9yaW5nICpyaW5nLCBzdHJ1Y3Qgc2tfYnVmZiAqc2ti
+LAo+ID4KPiA+ICAgICAgICAgc2tiX2NoZWNrc3VtX25vbmVfYXNzZXJ0KHNrYik7Cj4gPgo+ID4g
+LSAgICAgICBpZiAoIShuZXRkZXYtPmZlYXR1cmVzICYgTkVUSUZfRl9SWENTVU0pKQo+ID4gKyAg
+ICAgICBpZiAoIShuZXRkZXYtPmZlYXR1cmVzWzBdICYgTkVUSUZfRl9SWENTVU0pKQo+ID4gICAg
+ICAgICAgICAgICAgIHJldHVybjsKPiA+Cj4gPiAgICAgICAgIGlmICh0ZXN0X2JpdChITlMzX05J
+Q19TVEFURV9SWERfQURWX0xBWU9VVF9FTkFCTEUsICZwcml2LT5zdGF0ZSkpCj4gPiBAQCAtNDAy
+NCw3ICs0MDI1LDcgQEAgc3RhdGljIGludCBobnMzX2hhbmRsZV9iZGluZm8oc3RydWN0Cj4gPiBo
+bnMzX2VuZXRfcmluZyAqcmluZywgc3RydWN0IHNrX2J1ZmYgKnNrYikKPiA+ICAgICAgICAgICog
+b3Rfdmxhbl90YWcgaW4gdHdvIGxheWVyIHRhZyBjYXNlLCBhbmQgc3RvcmVkIGF0IHZsYW5fdGFn
+Cj4gPiAgICAgICAgICAqIGluIG9uZSBsYXllciB0YWcgY2FzZS4KPiA+ICAgICAgICAgICovCj4g
+PiAtICAgICAgIGlmIChuZXRkZXYtPmZlYXR1cmVzICYgTkVUSUZfRl9IV19WTEFOX0NUQUdfUlgp
+IHsKPiA+ICsgICAgICAgaWYgKG5ldGRldi0+ZmVhdHVyZXNbMF0gJiBORVRJRl9GX0hXX1ZMQU5f
+Q1RBR19SWCkgewo+ID4gICAgICAgICAgICAgICAgIHUxNiB2bGFuX3RhZzsKPiA+Cj4gPiAgICAg
+ICAgICAgICAgICAgaWYgKGhuczNfcGFyc2Vfdmxhbl90YWcocmluZywgZGVzYywgbDIzNGluZm8s
+ICZ2bGFuX3RhZykpCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9uZXQvZXRoZXJuZXQvaHVhd2Vp
+L2hpbmljL2hpbmljX21haW4uYwo+ID4gYi9kcml2ZXJzL25ldC9ldGhlcm5ldC9odWF3ZWkvaGlu
+aWMvaGluaWNfbWFpbi5jCj4gPiBpbmRleCA0MDVlZTRkLi5iMTkzZWU0IDEwMDY0NAo+ID4gLS0t
+IGEvZHJpdmVycy9uZXQvZXRoZXJuZXQvaHVhd2VpL2hpbmljL2hpbmljX21haW4uYwo+ID4gKysr
+IGIvZHJpdmVycy9uZXQvZXRoZXJuZXQvaHVhd2VpL2hpbmljL2hpbmljX21haW4uYwo+ID4gQEAg
+LTc5LDggKzc5LDggQEAgTU9EVUxFX1BBUk1fREVTQyhyeF93ZWlnaHQsICJOdW1iZXIgUnggcGFj
+a2V0cyBmb3IKPiA+IE5BUEkgYnVkZ2V0IChkZWZhdWx0PTY0KSIpOwo+ID4gIHN0YXRpYyBpbnQg
+Y2hhbmdlX21hY19hZGRyKHN0cnVjdCBuZXRfZGV2aWNlICpuZXRkZXYsIGNvbnN0IHU4ICphZGRy
+KTsKPiA+Cj4gPiAgc3RhdGljIGludCBzZXRfZmVhdHVyZXMoc3RydWN0IGhpbmljX2RldiAqbmlj
+X2RldiwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc190IHByZV9m
+ZWF0dXJlcywKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc190IGZl
+YXR1cmVzLCBib29sIGZvcmNlX2NoYW5nZSk7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBu
+ZXRkZXZfZmVhdHVyZXNfdCAqcHJlX2ZlYXR1cmVzLAo+ID4gKyAgICAgICAgICAgICAgICAgICAg
+ICAgbmV0ZGV2X2ZlYXR1cmVzX3QgKmZlYXR1cmVzLCBib29sIGZvcmNlX2NoYW5nZSk7Cj4gPgo+
+ID4gIHN0YXRpYyB2b2lkIHVwZGF0ZV9yeF9zdGF0cyhzdHJ1Y3QgaGluaWNfZGV2ICpuaWNfZGV2
+LCBzdHJ1Y3QgaGluaWNfcnhxICpyeHEpCj4gPiAgewo+ID4gQEAgLTg4MCw3ICs4ODAsNyBAQCBz
+dGF0aWMgdm9pZCBoaW5pY19nZXRfc3RhdHM2NChzdHJ1Y3QgbmV0X2RldmljZSAqbmV0ZGV2LAo+
+ID4gIH0KPiA+Cj4gPiAgc3RhdGljIGludCBoaW5pY19zZXRfZmVhdHVyZXMoc3RydWN0IG5ldF9k
+ZXZpY2UgKm5ldGRldiwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5ldGRldl9m
+ZWF0dXJlc190IGZlYXR1cmVzKQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV0
+ZGV2X2ZlYXR1cmVzX3QgKmZlYXR1cmVzKQo+ID4gIHsKPiA+ICAgICAgICAgc3RydWN0IGhpbmlj
+X2RldiAqbmljX2RldiA9IG5ldGRldl9wcml2KG5ldGRldik7Cj4gPgo+ID4gQEAgLTg4OCwxOCAr
+ODg4LDE2IEBAIHN0YXRpYyBpbnQgaGluaWNfc2V0X2ZlYXR1cmVzKHN0cnVjdCBuZXRfZGV2aWNl
+ICpuZXRkZXYsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZmVhdHVyZXMsIGZhbHNl
+KTsKPiA+ICB9Cj4gPgo+ID4gLXN0YXRpYyBuZXRkZXZfZmVhdHVyZXNfdCBoaW5pY19maXhfZmVh
+dHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKm5ldGRldiwKPiA+IC0gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZXMpCj4gPiAr
+c3RhdGljIHZvaWQgaGluaWNfZml4X2ZlYXR1cmVzKHN0cnVjdCBuZXRfZGV2aWNlICpuZXRkZXYs
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgZmVh
+dHVyZXMpCj4gPiAgewo+ID4gICAgICAgICBzdHJ1Y3QgaGluaWNfZGV2ICpuaWNfZGV2ID0gbmV0
+ZGV2X3ByaXYobmV0ZGV2KTsKPiA+Cj4gPiAgICAgICAgIC8qIElmIFJ4IGNoZWNrc3VtIGlzIGRp
+c2FibGVkLCB0aGVuIExSTyBzaG91bGQgYWxzbyBiZSBkaXNhYmxlZCAqLwo+ID4gLSAgICAgICBp
+ZiAoIShmZWF0dXJlcyAmIE5FVElGX0ZfUlhDU1VNKSkgewo+ID4gKyAgICAgICBpZiAoIShmZWF0
+dXJlc1swXSAmIE5FVElGX0ZfUlhDU1VNKSkgewo+ID4gICAgICAgICAgICAgICAgIG5ldGlmX2lu
+Zm8obmljX2RldiwgZHJ2LCBuZXRkZXYsICJkaXNhYmxpbmcgTFJPIGFzCj4gPiBSWENTVU0gaXMg
+b2ZmXG4iKTsKPiA+IC0gICAgICAgICAgICAgICBmZWF0dXJlcyAmPSB+TkVUSUZfRl9MUk87Cj4g
+PiArICAgICAgICAgICAgICAgZmVhdHVyZXNbMF0gJj0gfk5FVElGX0ZfTFJPOwo+ID4gICAgICAg
+ICB9Cj4gPiAtCj4gPiAtICAgICAgIHJldHVybiBmZWF0dXJlczsKPiA+ICB9Cj4gPgo+ID4gIHN0
+YXRpYyBjb25zdCBzdHJ1Y3QgbmV0X2RldmljZV9vcHMgaGluaWNfbmV0ZGV2X29wcyA9IHsKPiA+
+IEBAIC05NDMsMTkgKzk0MSwyMiBAQCBzdGF0aWMgY29uc3Qgc3RydWN0IG5ldF9kZXZpY2Vfb3Bz
+IGhpbmljdmZfbmV0ZGV2X29wcyA9IHsKPiA+Cj4gPiAgc3RhdGljIHZvaWQgbmV0ZGV2X2ZlYXR1
+cmVzX2luaXQoc3RydWN0IG5ldF9kZXZpY2UgKm5ldGRldikKPiA+ICB7Cj4gPiAtICAgICAgIG5l
+dGRldi0+aHdfZmVhdHVyZXMgPSBORVRJRl9GX1NHIHwgTkVUSUZfRl9ISUdIRE1BIHwgTkVUSUZf
+Rl9JUF9DU1VNIHwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfSVBW
+Nl9DU1VNIHwgTkVUSUZfRl9UU08gfCBORVRJRl9GX1RTTzYgfAo+ID4gLSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgTkVUSUZfRl9SWENTVU0gfCBORVRJRl9GX0xSTyB8Cj4gPiAtICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICBORVRJRl9GX0hXX1ZMQU5fQ1RBR19UWCB8Cj4gPiBORVRJ
+Rl9GX0hXX1ZMQU5fQ1RBR19SWCB8Cj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICBO
+RVRJRl9GX0dTT19VRFBfVFVOTkVMIHwKPiA+IE5FVElGX0ZfR1NPX1VEUF9UVU5ORUxfQ1NVTTsK
+PiA+IC0KPiA+IC0gICAgICAgbmV0ZGV2LT52bGFuX2ZlYXR1cmVzID0gbmV0ZGV2LT5od19mZWF0
+dXJlczsKPiA+IC0KPiA+IC0gICAgICAgbmV0ZGV2LT5mZWF0dXJlcyA9IG5ldGRldi0+aHdfZmVh
+dHVyZXMgfCBORVRJRl9GX0hXX1ZMQU5fQ1RBR19GSUxURVI7Cj4gPiAtCj4gPiAtICAgICAgIG5l
+dGRldi0+aHdfZW5jX2ZlYXR1cmVzID0gTkVUSUZfRl9JUF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NT
+VU0KPiA+IHwgTkVUSUZfRl9TQ1RQX0NSQyB8Cj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgTkVUSUZfRl9TRyB8IE5FVElGX0ZfVFNPIHwKPiA+IE5FVElGX0ZfVFNPNiB8IE5F
+VElGX0ZfVFNPX0VDTiB8Cj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTkVU
+SUZfRl9HU09fVURQX1RVTk5FTF9DU1VNIHwKPiA+IE5FVElGX0ZfR1NPX1VEUF9UVU5ORUw7Cj4g
+PiArICAgICAgIG5ldGRldi0+aHdfZmVhdHVyZXNbMF0gPQo+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgTkVUSUZfRl9TRyB8IE5FVElGX0ZfSElHSERNQSB8IE5FVElGX0ZfSVBfQ1NVTSB8Cj4g
+PiArICAgICAgICAgICAgICAgICAgICAgICBORVRJRl9GX0lQVjZfQ1NVTSB8IE5FVElGX0ZfVFNP
+IHwgTkVUSUZfRl9UU082IHwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfUlhD
+U1VNIHwgTkVUSUZfRl9MUk8gfAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgTkVUSUZfRl9I
+V19WTEFOX0NUQUdfVFggfCBORVRJRl9GX0hXX1ZMQU5fQ1RBR19SWCB8Cj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICBORVRJRl9GX0dTT19VRFBfVFVOTkVMIHwgTkVUSUZfRl9HU09fVURQX1RV
+Tk5FTF9DU1VNOwo+ID4gKwo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfY29weShuZXRkZXYt
+PnZsYW5fZmVhdHVyZXMsIG5ldGRldi0+aHdfZmVhdHVyZXMpOwo+ID4gKwo+ID4gKyAgICAgICBu
+ZXRkZXYtPmZlYXR1cmVzWzBdID0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIG5ldGRldi0+
+aHdfZmVhdHVyZXNbMF0gfCBORVRJRl9GX0hXX1ZMQU5fQ1RBR19GSUxURVI7Cj4gPiArCj4gPiAr
+ICAgICAgIG5ldGRldi0+aHdfZW5jX2ZlYXR1cmVzWzBdID0KPiA+ICsgICAgICAgICAgICAgICBO
+RVRJRl9GX0lQX0NTVU0gfCBORVRJRl9GX0lQVjZfQ1NVTSB8IE5FVElGX0ZfU0NUUF9DUkMgfAo+
+ID4gKyAgICAgICAgICAgICAgIE5FVElGX0ZfU0cgfCBORVRJRl9GX1RTTyB8IE5FVElGX0ZfVFNP
+NiB8IE5FVElGX0ZfVFNPX0VDTiB8Cj4gPiArICAgICAgICAgICAgICAgTkVUSUZfRl9HU09fVURQ
+X1RVTk5FTF9DU1VNIHwgTkVUSUZfRl9HU09fVURQX1RVTk5FTDsKPiA+ICB9Cj4gPgo+ID4gIHN0
+YXRpYyB2b2lkIGhpbmljX3JlZnJlc2hfbmljX2NmZyhzdHJ1Y3QgaGluaWNfZGV2ICpuaWNfZGV2
+KQo+ID4gQEAgLTEwNzIsMjEgKzEwNzMsMjIgQEAgc3RhdGljIHZvaWQgbGlua19lcnJfZXZlbnQo
+dm9pZCAqaGFuZGxlLAo+ID4gIH0KPiA+Cj4gPiAgc3RhdGljIGludCBzZXRfZmVhdHVyZXMoc3Ry
+dWN0IGhpbmljX2RldiAqbmljX2RldiwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgIG5ldGRl
+dl9mZWF0dXJlc190IHByZV9mZWF0dXJlcywKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgIG5l
+dGRldl9mZWF0dXJlc190IGZlYXR1cmVzLCBib29sIGZvcmNlX2NoYW5nZSkKPiA+ICsgICAgICAg
+ICAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc190ICpwcmVfZmVhdHVyZXMsCj4gPiArICAg
+ICAgICAgICAgICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCAqZmVhdHVyZXMsIGJvb2wgZm9y
+Y2VfY2hhbmdlKQo+ID4gIHsKPiA+IC0gICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgY2hhbmdlZCA9
+IGZvcmNlX2NoYW5nZSA/IH4wIDogcHJlX2ZlYXR1cmVzIF4gZmVhdHVyZXM7Cj4gPiArICAgICAg
+IG5ldGRldl9mZWF0dXJlc190IGZhaWxlZF9mZWF0dXJlc1tORVRERVZfRkVBVFVSRV9EV09SRFNd
+ID0gezB9Owo+ID4gICAgICAgICB1MzIgY3N1bV9lbiA9IEhJTklDX1JYX0NTVU1fT0ZGTE9BRF9F
+TjsKPiA+IC0gICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgZmFpbGVkX2ZlYXR1cmVzID0gMDsKPiA+
+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgY2hhbmdlZDsKPiA+ICAgICAgICAgaW50IHJldCA9
+IDA7Cj4gPiAgICAgICAgIGludCBlcnIgPSAwOwo+ID4KPiA+ICsgICAgICAgY2hhbmdlZCA9IGZv
+cmNlX2NoYW5nZSA/IH4wIDogcHJlX2ZlYXR1cmVzWzBdIF4gZmVhdHVyZXNbMF07Cj4gPiAgICAg
+ICAgIGlmIChjaGFuZ2VkICYgTkVUSUZfRl9UU08pIHsKPiA+IC0gICAgICAgICAgICAgICByZXQg
+PSBoaW5pY19wb3J0X3NldF90c28obmljX2RldiwgKGZlYXR1cmVzICYgTkVUSUZfRl9UU08pID8K
+PiA+ICsgICAgICAgICAgICAgICByZXQgPSBoaW5pY19wb3J0X3NldF90c28obmljX2RldiwgKGZl
+YXR1cmVzWzBdICYgTkVUSUZfRl9UU08pID8KPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgSElOSUNfVFNPX0VOQUJMRSA6IEhJTklDX1RTT19ESVNBQkxFKTsKPiA+
+ICAgICAgICAgICAgICAgICBpZiAocmV0KSB7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBl
+cnIgPSByZXQ7Cj4gPiAtICAgICAgICAgICAgICAgICAgICAgICBmYWlsZWRfZmVhdHVyZXMgfD0g
+TkVUSUZfRl9UU087Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBmYWlsZWRfZmVhdHVyZXNb
+MF0gfD0gTkVUSUZfRl9UU087Cj4gPiAgICAgICAgICAgICAgICAgfQo+ID4gICAgICAgICB9Cj4g
+Pgo+ID4gQEAgLTEwOTQsMzMgKzEwOTYsMzQgQEAgc3RhdGljIGludCBzZXRfZmVhdHVyZXMoc3Ry
+dWN0IGhpbmljX2RldiAqbmljX2RldiwKPiA+ICAgICAgICAgICAgICAgICByZXQgPSBoaW5pY19z
+ZXRfcnhfY3N1bV9vZmZsb2FkKG5pY19kZXYsIGNzdW1fZW4pOwo+ID4gICAgICAgICAgICAgICAg
+IGlmIChyZXQpIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGVyciA9IHJldDsKPiA+IC0g
+ICAgICAgICAgICAgICAgICAgICAgIGZhaWxlZF9mZWF0dXJlcyB8PSBORVRJRl9GX1JYQ1NVTTsK
+PiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGZhaWxlZF9mZWF0dXJlc1swXSB8PSBORVRJRl9G
+X1JYQ1NVTTsKPiA+ICAgICAgICAgICAgICAgICB9Cj4gPiAgICAgICAgIH0KPiA+Cj4gPiAgICAg
+ICAgIGlmIChjaGFuZ2VkICYgTkVUSUZfRl9MUk8pIHsKPiA+ICAgICAgICAgICAgICAgICByZXQg
+PSBoaW5pY19zZXRfcnhfbHJvX3N0YXRlKG5pY19kZXYsCj4gPiAtICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAhIShmZWF0dXJlcyAmIE5FVElGX0ZfTFJPKSwKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICEhKGZlYXR1cmVz
+WzBdICYgTkVUSUZfRl9MUk8pLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgSElOSUNfTFJPX1JYX1RJTUVSX0RFRkFVTFQsCj4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBISU5JQ19MUk9fTUFYX1dRRV9OVU1fREVG
+QVVMVCk7Cj4gPiAgICAgICAgICAgICAgICAgaWYgKHJldCkgewo+ID4gICAgICAgICAgICAgICAg
+ICAgICAgICAgZXJyID0gcmV0Owo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgZmFpbGVkX2Zl
+YXR1cmVzIHw9IE5FVElGX0ZfTFJPOwo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgZmFpbGVk
+X2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfTFJPOwo+ID4gICAgICAgICAgICAgICAgIH0KPiA+ICAg
+ICAgICAgfQo+ID4KPiA+ICAgICAgICAgaWYgKGNoYW5nZWQgJiBORVRJRl9GX0hXX1ZMQU5fQ1RB
+R19SWCkgewo+ID4gICAgICAgICAgICAgICAgIHJldCA9IGhpbmljX3NldF9yeF92bGFuX29mZmxv
+YWQobmljX2RldiwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICEhKGZlYXR1cmVzICYKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICEhKGZlYXR1cmVzWzBdICYKPiA+ICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYKSk7
+Cj4gPiAgICAgICAgICAgICAgICAgaWYgKHJldCkgewo+ID4gICAgICAgICAgICAgICAgICAgICAg
+ICAgZXJyID0gcmV0Owo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgZmFpbGVkX2ZlYXR1cmVz
+IHw9IE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYOwo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAg
+ZmFpbGVkX2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYOwo+ID4gICAgICAg
+ICAgICAgICAgIH0KPiA+ICAgICAgICAgfQo+ID4KPiA+ICAgICAgICAgaWYgKGVycikgewo+ID4g
+LSAgICAgICAgICAgICAgIG5pY19kZXYtPm5ldGRldi0+ZmVhdHVyZXMgPSBmZWF0dXJlcyBeIGZh
+aWxlZF9mZWF0dXJlczsKPiA+ICsgICAgICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNfeG9yKG5p
+Y19kZXYtPm5ldGRldi0+ZmVhdHVyZXMsIGZlYXR1cmVzLAo+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgZmFpbGVkX2ZlYXR1cmVzKQo+ID4gICAgICAgICAgICAgICAgIHJl
+dHVybiAtRUlPOwo+ID4gICAgICAgICB9Cj4gPgo+ID4gZGlmZiAtLWdpdCBhL2RyaXZlcnMvbmV0
+L2V0aGVybmV0L2h1YXdlaS9oaW5pYy9oaW5pY19yeC5jCj4gPiBiL2RyaXZlcnMvbmV0L2V0aGVy
+bmV0L2h1YXdlaS9oaW5pYy9oaW5pY19yeC5jCj4gPiBpbmRleCBmZWQzYjZiLi40NTJhOTFiIDEw
+MDY0NAo+ID4gLS0tIGEvZHJpdmVycy9uZXQvZXRoZXJuZXQvaHVhd2VpL2hpbmljL2hpbmljX3J4
+LmMKPiA+ICsrKyBiL2RyaXZlcnMvbmV0L2V0aGVybmV0L2h1YXdlaS9oaW5pYy9oaW5pY19yeC5j
+Cj4gPiBAQCAtMTA2LDcgKzEwNiw3IEBAIHN0YXRpYyB2b2lkIHJ4X2NzdW0oc3RydWN0IGhpbmlj
+X3J4cSAqcnhxLCB1MzIgc3RhdHVzLAo+ID4KPiA+ICAgICAgICAgY3N1bV9lcnIgPSBISU5JQ19S
+UV9DUUVfU1RBVFVTX0dFVChzdGF0dXMsIENTVU1fRVJSKTsKPiA+Cj4gPiAtICAgICAgIGlmICgh
+KG5ldGRldi0+ZmVhdHVyZXMgJiBORVRJRl9GX1JYQ1NVTSkpCj4gPiArICAgICAgIGlmICghKG5l
+dGRldi0+ZmVhdHVyZXNbMF0gJiBORVRJRl9GX1JYQ1NVTSkpCj4gPiAgICAgICAgICAgICAgICAg
+cmV0dXJuOwo+ID4KPiA+ICAgICAgICAgaWYgKCFjc3VtX2Vycikgewo+ID4gQEAgLTQxMSw3ICs0
+MTEsNyBAQCBzdGF0aWMgaW50IHJ4cV9yZWN2KHN0cnVjdCBoaW5pY19yeHEgKnJ4cSwgaW50IGJ1
+ZGdldCkKPiA+Cj4gPiAgICAgICAgICAgICAgICAgb2ZmbG9hZF90eXBlID0gYmUzMl90b19jcHUo
+Y3FlLT5vZmZsb2FkX3R5cGUpOwo+ID4gICAgICAgICAgICAgICAgIHZsYW5fbGVuID0gYmUzMl90
+b19jcHUoY3FlLT5sZW4pOwo+ID4gLSAgICAgICAgICAgICAgIGlmICgobmV0ZGV2LT5mZWF0dXJl
+cyAmIE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYKSAmJgo+ID4gKyAgICAgICAgICAgICAgIGlmICgo
+bmV0ZGV2LT5mZWF0dXJlc1swXSAmIE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYKSAmJgo+ID4gICAg
+ICAgICAgICAgICAgICAgICBISU5JQ19HRVRfUlhfVkxBTl9PRkZMT0FEX0VOKG9mZmxvYWRfdHlw
+ZSkpIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHZpZCA9IEhJTklDX0dFVF9SWF9WTEFO
+X1RBRyh2bGFuX2xlbik7Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBfX3ZsYW5faHdhY2Nl
+bF9wdXRfdGFnKHNrYiwgaHRvbnMoRVRIX1BfODAyMVEpLCB2aWQpOwo+ID4gZGlmZiAtLWdpdCBh
+L2luY2x1ZGUvbGludXgvaWZfdmxhbi5oIGIvaW5jbHVkZS9saW51eC9pZl92bGFuLmgKPiA+IGlu
+ZGV4IDQxYTUxODMuLjQxNzM0NjQgMTAwNjQ0Cj4gPiAtLS0gYS9pbmNsdWRlL2xpbnV4L2lmX3Zs
+YW4uaAo+ID4gKysrIGIvaW5jbHVkZS9saW51eC9pZl92bGFuLmgKPiA+IEBAIC01NjMsNyArNTYz
+LDcgQEAgc3RhdGljIGlubGluZSBpbnQgX192bGFuX2h3YWNjZWxfZ2V0X3RhZyhjb25zdAo+ID4g
+c3RydWN0IHNrX2J1ZmYgKnNrYiwKPiA+ICAgKi8KPiA+ICBzdGF0aWMgaW5saW5lIGludCB2bGFu
+X2dldF90YWcoY29uc3Qgc3RydWN0IHNrX2J1ZmYgKnNrYiwgdTE2ICp2bGFuX3RjaSkKPiA+ICB7
+Cj4gPiAtICAgICAgIGlmIChza2ItPmRldi0+ZmVhdHVyZXMgJiBORVRJRl9GX0hXX1ZMQU5fQ1RB
+R19UWCkgewo+ID4gKyAgICAgICBpZiAoc2tiLT5kZXYtPmZlYXR1cmVzWzBdICYgTkVUSUZfRl9I
+V19WTEFOX0NUQUdfVFgpIHsKPiA+ICAgICAgICAgICAgICAgICByZXR1cm4gX192bGFuX2h3YWNj
+ZWxfZ2V0X3RhZyhza2IsIHZsYW5fdGNpKTsKPiA+ICAgICAgICAgfSBlbHNlIHsKPiA+ICAgICAg
+ICAgICAgICAgICByZXR1cm4gX192bGFuX2dldF90YWcoc2tiLCB2bGFuX3RjaSk7Cj4gPiBkaWZm
+IC0tZ2l0IGEvaW5jbHVkZS9saW51eC9uZXRkZXZfZmVhdHVyZXMuaCBiL2luY2x1ZGUvbGludXgv
+bmV0ZGV2X2ZlYXR1cmVzLmgKPiA+IGluZGV4IDJjNmI5ZTQuLjkxODQ5NjMgMTAwNjQ0Cj4gPiAt
+LS0gYS9pbmNsdWRlL2xpbnV4L25ldGRldl9mZWF0dXJlcy5oCj4gPiArKysgYi9pbmNsdWRlL2xp
+bnV4L25ldGRldl9mZWF0dXJlcy5oCj4gPiBAQCAtMTAyLDcgKzEwMiw4IEBAIGVudW0gewo+ID4g
+IH07Cj4gPgo+ID4gIC8qIGNvcHknbidwYXN0ZSBjb21wcmVzc2lvbiA7KSAqLwo+ID4gLSNkZWZp
+bmUgX19ORVRJRl9GX0JJVChiaXQpICAgICAoKG5ldGRldl9mZWF0dXJlc190KTEgPDwgKGJpdCkp
+Cj4gPiArI2RlZmluZSBfX05FVElGX0ZfQklUKGJpdCkgICAgICgobmV0ZGV2X2ZlYXR1cmVzX3Qp
+MSA8PCAoYml0ICYgMHgzRikpCj4gPiArCj4gPiAgI2RlZmluZSBfX05FVElGX0YobmFtZSkgICAg
+ICAgICAgICAgICAgX19ORVRJRl9GX0JJVChORVRJRl9GXyMjbmFtZSMjX0JJVCkKPiA+Cj4gPiAg
+I2RlZmluZSBORVRJRl9GX0ZDT0VfQ1JDICAgICAgIF9fTkVUSUZfRihGQ09FX0NSQykKPiA+IEBA
+IC0xNjksNiArMTcwLDggQEAgZW51bSB7Cj4gPiAgI2RlZmluZSBORVRJRl9GX0hXX0hTUl9GV0Qg
+ICAgIF9fTkVUSUZfRihIV19IU1JfRldEKQo+ID4gICNkZWZpbmUgTkVUSUZfRl9IV19IU1JfRFVQ
+ICAgICBfX05FVElGX0YoSFdfSFNSX0RVUCkKPiA+Cj4gPiArI2RlZmluZSBORVRERVZfRkVBVFVS
+RV9EV09SRFMgIERJVl9ST1VORF9VUChORVRERVZfRkVBVFVSRV9DT1VOVCwgNjQpCj4gPiArCj4g
+PiAgLyogRmluZHMgdGhlIG5leHQgZmVhdHVyZSB3aXRoIHRoZSBoaWdoZXN0IG51bWJlciBvZiB0
+aGUgcmFuZ2Ugb2Ygc3RhcnQgdGlsbCAwLgo+ID4gICAqLwo+ID4gIHN0YXRpYyBpbmxpbmUgaW50
+IGZpbmRfbmV4dF9uZXRkZXZfZmVhdHVyZSh1NjQgZmVhdHVyZSwgdW5zaWduZWQgbG9uZyBzdGFy
+dCkKPiA+IEBAIC0xODUsOCArMTg4LDcgQEAgc3RhdGljIGlubGluZSBpbnQgZmluZF9uZXh0X25l
+dGRldl9mZWF0dXJlKHU2NAo+ID4gZmVhdHVyZSwgdW5zaWduZWQgbG9uZyBzdGFydCkKPiA+ICAg
+KiBtYXNrX2FkZHIgc2hvdWxkIGJlIGEgdTY0IGFuZCBiaXQgYW4gaW50Cj4gPiAgICovCj4gPiAg
+I2RlZmluZSBmb3JfZWFjaF9uZXRkZXZfZmVhdHVyZShtYXNrX2FkZHIsIGJpdCkKPiA+ICAgICAg
+ICAgIFwKPiA+IC0gICAgICAgZm9yICgoYml0KSA9IGZpbmRfbmV4dF9uZXRkZXZfZmVhdHVyZSgo
+bWFza19hZGRyKSwgICAgICAgICAgICAgIFwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBORVRERVZfRkVBVFVSRV9DT1VOVCk7ICAgIFwKPiA+ICsgICAg
+ICAgZm9yICgoYml0KSA9IGZpbmRfbmV4dF9uZXRkZXZfZmVhdHVyZSgobWFza19hZGRyKSwgNjQp
+OyAgICAgICAgIFwKPiA+ICAgICAgICAgICAgICAoYml0KSA+PSAwOyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIFwKPiA+ICAgICAgICAgICAgICAoYml0KSA9
+IGZpbmRfbmV4dF9uZXRkZXZfZmVhdHVyZSgobWFza19hZGRyKSwgKGJpdCkgLSAxKSkKPiA+Cj4g
+PiBAQCAtMTk1LDExICsxOTcsNiBAQCBzdGF0aWMgaW5saW5lIGludCBmaW5kX25leHRfbmV0ZGV2
+X2ZlYXR1cmUodTY0Cj4gPiBmZWF0dXJlLCB1bnNpZ25lZCBsb25nIHN0YXJ0KQo+ID4gICNkZWZp
+bmUgTkVUSUZfRl9ORVZFUl9DSEFOR0UgICAoTkVUSUZfRl9WTEFOX0NIQUxMRU5HRUQgfCBcCj4g
+PiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBORVRJRl9GX0xMVFggfCBORVRJRl9G
+X05FVE5TX0xPQ0FMKQo+ID4KPiA+IC0vKiByZW1lbWJlciB0aGF0ICgodCkxIDw8IHRfQklUUykg
+aXMgdW5kZWZpbmVkIGluIEM5OSAqLwo+ID4gLSNkZWZpbmUgTkVUSUZfRl9FVEhUT09MX0JJVFMg
+ICAoKF9fTkVUSUZfRl9CSVQoTkVUREVWX0ZFQVRVUkVfQ09VTlQgLSAxKSB8IFwKPiA+IC0gICAg
+ICAgICAgICAgICAoX19ORVRJRl9GX0JJVChORVRERVZfRkVBVFVSRV9DT1VOVCAtIDEpIC0gMSkp
+ICYgXAo+ID4gLSAgICAgICAgICAgICAgIH5ORVRJRl9GX05FVkVSX0NIQU5HRSkKPiA+IC0KPiA+
+ICAvKiBTZWdtZW50YXRpb24gb2ZmbG9hZCBmZWF0dXJlIG1hc2sgKi8KPiA+ICAjZGVmaW5lIE5F
+VElGX0ZfR1NPX01BU0sgICAgICAgKF9fTkVUSUZfRl9CSVQoTkVUSUZfRl9HU09fTEFTVCArIDEp
+IC0gXAo+ID4gICAgICAgICAgICAgICAgIF9fTkVUSUZfRl9CSVQoTkVUSUZfRl9HU09fU0hJRlQp
+KQo+ID4gQEAgLTI2MSw0ICsyNTgsOTYgQEAgc3RhdGljIGlubGluZSBpbnQgZmluZF9uZXh0X25l
+dGRldl9mZWF0dXJlKHU2NAo+ID4gZmVhdHVyZSwgdW5zaWduZWQgbG9uZyBzdGFydCkKPiA+ICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfR1NPX1VEUF9UVU5ORUwgfCAg
+ICAgICAgICAgICAgIFwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElG
+X0ZfR1NPX1VEUF9UVU5ORUxfQ1NVTSkKPiA+Cj4gPiArc3RhdGljIGlubGluZSB2b2lkIG5ldGRl
+dl9mZWF0dXJlc19jb3B5KG5ldGRldl9mZWF0dXJlc190ICpkc3QsCj4gPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgY29uc3QgbmV0ZGV2X2ZlYXR1cmVzX3QgKnNyYykK
+PiA+ICt7Cj4gPiArICAgICAgIHVuc2lnbmVkIGludCBpOwo+ID4gKwo+ID4gKyAgICAgICBmb3Ig
+KGkgPSAwOyBpIDwgTkVUREVWX0ZFQVRVUkVfRFdPUkRTOyBpKyspCj4gPiArICAgICAgICAgICAg
+ICAgZHN0W2ldID0gc3JjW2ldOwo+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgaW5saW5lIHZvaWQg
+bmV0ZGV2X2ZlYXR1cmVzX2FuZChuZXRkZXZfZmVhdHVyZXNfdCAqZHN0LAo+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29uc3QgbmV0ZGV2X2ZlYXR1cmVzX3QgKmEs
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBuZXRkZXZf
+ZmVhdHVyZXNfdCAqYikKPiA+ICt7Cj4gPiArICAgICAgIHVuc2lnbmVkIGludCBpOwo+ID4gKwo+
+ID4gKyAgICAgICBmb3IgKGkgPSAwOyBpIDwgTkVUREVWX0ZFQVRVUkVfRFdPUkRTOyBpKyspCj4g
+PiArICAgICAgICAgICAgICAgZHN0W2ldID0gYVtpXSAmIGJbaV07Cj4gPiArfQo+ID4gKwo+ID4g
+K3N0YXRpYyBpbmxpbmUgdm9pZCBuZXRkZXZfZmVhdHVyZXNfYW5kbm90KG5ldGRldl9mZWF0dXJl
+c190ICpkc3QsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBj
+b25zdCBuZXRkZXZfZmVhdHVyZXNfdCAqYSwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGNvbnN0IG5ldGRldl9mZWF0dXJlc190ICpiKQo+ID4gK3sKPiA+ICsg
+ICAgICAgdW5zaWduZWQgaW50IGk7Cj4gPiArCj4gPiArICAgICAgIGZvciAoaSA9IDA7IGkgPCBO
+RVRERVZfRkVBVFVSRV9EV09SRFM7IGkrKykKPiA+ICsgICAgICAgICAgICAgICBkc3RbaV0gPSBh
+W2ldICYgfmJbaV07Cj4gPiArfQo+ID4gKwo+ID4gK3N0YXRpYyBpbmxpbmUgdm9pZCBuZXRkZXZf
+ZmVhdHVyZXNfb3IobmV0ZGV2X2ZlYXR1cmVzX3QgKmRzdCwKPiA+ICsgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgY29uc3QgbmV0ZGV2X2ZlYXR1cmVzX3QgKmEsCj4gPiArICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IG5ldGRldl9mZWF0dXJlc190
+ICpiKQo+ID4gK3sKPiA+ICsgICAgICAgdW5zaWduZWQgaW50IGk7Cj4gPiArCj4gPiArICAgICAg
+IGZvciAoaSA9IDA7IGkgPCBORVRERVZfRkVBVFVSRV9EV09SRFM7IGkrKykKPiA+ICsgICAgICAg
+ICAgICAgICBkc3RbaV0gPSBhW2ldIHwgYltpXTsKPiA+ICt9Cj4gPiArCj4gPiArc3RhdGljIGlu
+bGluZSB2b2lkIG5ldGRldl9mZWF0dXJlc194b3IobmV0ZGV2X2ZlYXR1cmVzX3QgKmRzdCwKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IG5ldGRldl9mZWF0
+dXJlc190ICphLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgY29u
+c3QgbmV0ZGV2X2ZlYXR1cmVzX3QgKmIpCj4gPiArewo+ID4gKyAgICAgICB1bnNpZ25lZCBpbnQg
+aTsKPiA+ICsKPiA+ICsgICAgICAgZm9yIChpID0gMDsgaSA8IE5FVERFVl9GRUFUVVJFX0RXT1JE
+UzsgaSsrKQo+ID4gKyAgICAgICAgICAgICAgIGRzdFtpXSA9IGFbaV0gXiBiW2ldOwo+ID4gK30K
+PiA+ICsKPiA+ICtzdGF0aWMgaW5saW5lIHZvaWQgbmV0ZGV2X2ZlYXR1cmVzX3NldChuZXRkZXZf
+ZmVhdHVyZXNfdCAqZHN0LAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgdW5zaWduZWQgaW50IGJpdCkKPiA+ICt7Cj4gPiArICAgICAgIGRzdFtiaXQgLyA2NF0gfD0g
+X19ORVRJRl9GX0JJVChiaXQpOwo+ID4gK30KPiA+ICsKPiA+ICtzdGF0aWMgaW5saW5lIGJvb2wg
+bmV0ZGV2X2ZlYXR1cmVzX2VxdWFsKGNvbnN0IG5ldGRldl9mZWF0dXJlc190ICphLAo+ID4gKyAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBjb25zdCBuZXRkZXZfZmVhdHVy
+ZXNfdCAqYikKPiA+ICt7Cj4gPiArICAgICAgIHVuc2lnbmVkIGludCBpOwo+ID4gKwo+ID4gKyAg
+ICAgICBmb3IgKGkgPSAwOyBpIDwgTkVUREVWX0ZFQVRVUkVfRFdPUkRTOyBpKyspCj4gPiArICAg
+ICAgICAgICAgICAgaWYgKGFbaV0gIT0gYltpXSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+IHJldHVybiBmYWxzZTsKPiA+ICsKPiA+ICsgICAgICAgcmV0dXJuIHRydWU7Cj4gPiArfQo+ID4g
+Kwo+ID4gK3N0YXRpYyBpbmxpbmUgdm9pZCBuZXRkZXZfZmVhdHVyZXNfZW1wdHkobmV0ZGV2X2Zl
+YXR1cmVzX3QgKnNyYykKPiA+ICt7Cj4gPiArICAgICAgIHVuc2lnbmVkIGludCBpOwo+ID4gKwo+
+ID4gKyAgICAgICBmb3IgKGkgPSAwOyBpIDwgTkVUREVWX0ZFQVRVUkVfRFdPUkRTOyBpKyspCj4g
+PiArICAgICAgICAgICAgICAgaWYgKHNyY1tpXSkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+IHJldHVybiBmYWxzZTsKPiA+ICsKPiA+ICsgICAgICAgcmV0dXJuIHRydWU7Cj4gPiArfQo+ID4g
+Kwo+ID4gK3N0YXRpYyBpbmxpbmUgdm9pZCBuZXRkZXZfZmVhdHVyZXNfZXRodG9vbF9iaXRzKG5l
+dGRldl9mZWF0dXJlc190ICpkc3QpCj4gPiArewo+ID4gKyAgICAgICB1bnNpZ25lZCBpbnQgaTsK
+PiA+ICsKPiA+ICsgICAgICAgZm9yIChpID0gMDsgaSA8IE5FVERFVl9GRUFUVVJFX0RXT1JEUzsg
+aSsrKSB7Cj4gPiArICAgICAgICAgICAgICAgaWYgKE5FVERFVl9GRUFUVVJFX0NPVU5UID49IChp
+ICsgMSkgKiA2NCkKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGRzdFtpXSA9IEdFTk1BU0tf
+VUxMKDYzLCAwKTsKPiA+ICsgICAgICAgICAgICAgICBlbHNlCj4gPiArICAgICAgICAgICAgICAg
+ICAgICAgICBkc3RbaV0gPSBHRU5NQVNLX1VMTChORVRERVZfRkVBVFVSRV9DT1VOVCAtIGkgKiA2
+NCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+MCk7Cj4gPiArICAgICAgIH0KPiA+ICsgICAgICAgZHN0WzBdICY9IH5ORVRJRl9GX05FVkVSX0NI
+QU5HRTsKPiA+ICt9Cj4gPiArCj4gPiAgI2VuZGlmIC8qIF9MSU5VWF9ORVRERVZfRkVBVFVSRVNf
+SCAqLwo+ID4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvbmV0ZGV2aWNlLmggYi9pbmNsdWRl
+L2xpbnV4L25ldGRldmljZS5oCj4gPiBpbmRleCBlYWY1YmIwLi40YTI5NDg3IDEwMDY0NAo+ID4g
+LS0tIGEvaW5jbHVkZS9saW51eC9uZXRkZXZpY2UuaAo+ID4gKysrIGIvaW5jbHVkZS9saW51eC9u
+ZXRkZXZpY2UuaAo+ID4gQEAgLTEzNDcsOSArMTM0Nyw5IEBAIHN0cnVjdCBuZXRfZGV2aWNlX29w
+cyB7Cj4gPiAgICAgICAgIGludCAgICAgICAgICAgICAgICAgICAgICgqbmRvX3N0b3ApKHN0cnVj
+dCBuZXRfZGV2aWNlICpkZXYpOwo+ID4gICAgICAgICBuZXRkZXZfdHhfdCAgICAgICAgICAgICAo
+Km5kb19zdGFydF94bWl0KShzdHJ1Y3Qgc2tfYnVmZiAqc2tiLAo+ID4gICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqZGV2
+KTsKPiA+IC0gICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgICAgICAgKCpuZG9fZmVhdHVyZXNfY2hl
+Y2spKHN0cnVjdCBza19idWZmICpza2IsCj4gPiArICAgICAgIHZvaWQgICAgICAgICAgICAgICAg
+ICAgICgqbmRvX2ZlYXR1cmVzX2NoZWNrKShzdHJ1Y3Qgc2tfYnVmZiAqc2tiLAo+ID4gICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc3RydWN0IG5l
+dF9kZXZpY2UgKmRldiwKPiA+IC0KPiA+IG5ldGRldl9mZWF0dXJlc190IGZlYXR1cmVzKTsKPiA+
+ICsKPiA+IG5ldGRldl9mZWF0dXJlc190ICpmZWF0dXJlcyk7Cj4gPiAgICAgICAgIHUxNiAgICAg
+ICAgICAgICAgICAgICAgICgqbmRvX3NlbGVjdF9xdWV1ZSkoc3RydWN0IG5ldF9kZXZpY2UgKmRl
+diwKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBzdHJ1Y3Qgc2tfYnVmZiAqc2tiLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBuZXRfZGV2aWNlICpzYl9kZXYpOwo+ID4gQEAg
+LTE0NjcsMTAgKzE0NjcsMTAgQEAgc3RydWN0IG5ldF9kZXZpY2Vfb3BzIHsKPiA+ICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGJvb2wgYWxsX3Ns
+YXZlcyk7Cj4gPiAgICAgICAgIHN0cnVjdCBuZXRfZGV2aWNlKiAgICAgICgqbmRvX3NrX2dldF9s
+b3dlcl9kZXYpKHN0cnVjdCBuZXRfZGV2aWNlICpkZXYsCj4gPiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBzb2NrICpzayk7Cj4g
+PiAtICAgICAgIG5ldGRldl9mZWF0dXJlc190ICAgICAgICgqbmRvX2ZpeF9mZWF0dXJlcykoc3Ry
+dWN0IG5ldF9kZXZpY2UgKmRldiwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCBmZWF0dXJlcyk7Cj4gPiArICAg
+ICAgIHZvaWQgICAgICAgICAgICAgICAgICAgICgqbmRvX2ZpeF9mZWF0dXJlcykoc3RydWN0IG5l
+dF9kZXZpY2UgKmRldiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNfdAo+ID4gKmZlYXR1cmVzKTsKPiA+ICAgICAg
+ICAgaW50ICAgICAgICAgICAgICAgICAgICAgKCpuZG9fc2V0X2ZlYXR1cmVzKShzdHJ1Y3QgbmV0
+X2RldmljZSAqZGV2LAo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc190IGZlYXR1cmVzKTsKPiA+ICsgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNf
+dAo+ID4gKmZlYXR1cmVzKTsKPiA+ICAgICAgICAgaW50ICAgICAgICAgICAgICAgICAgICAgKCpu
+ZG9fbmVpZ2hfY29uc3RydWN0KShzdHJ1Y3QgbmV0X2RldmljZSAqZGV2LAo+ID4gICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBuZWln
+aGJvdXIgKm4pOwo+ID4gICAgICAgICB2b2lkICAgICAgICAgICAgICAgICAgICAoKm5kb19uZWln
+aF9kZXN0cm95KShzdHJ1Y3QgbmV0X2RldmljZSAqZGV2LAo+ID4gQEAgLTE5NzgsMTIgKzE5Nzgs
+MTIgQEAgc3RydWN0IG5ldF9kZXZpY2Ugewo+ID4gICAgICAgICB1bnNpZ25lZCBzaG9ydCAgICAg
+ICAgICBuZWVkZWRfaGVhZHJvb207Cj4gPiAgICAgICAgIHVuc2lnbmVkIHNob3J0ICAgICAgICAg
+IG5lZWRlZF90YWlscm9vbTsKPiA+Cj4gPiAtICAgICAgIG5ldGRldl9mZWF0dXJlc190ICAgICAg
+IGZlYXR1cmVzOwo+ID4gLSAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCAgICAgICBod19mZWF0dXJl
+czsKPiA+IC0gICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgICAgICAgd2FudGVkX2ZlYXR1cmVzOwo+
+ID4gLSAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCAgICAgICB2bGFuX2ZlYXR1cmVzOwo+ID4gLSAg
+ICAgICBuZXRkZXZfZmVhdHVyZXNfdCAgICAgICBod19lbmNfZmVhdHVyZXM7Cj4gPiAtICAgICAg
+IG5ldGRldl9mZWF0dXJlc190ICAgICAgIG1wbHNfZmVhdHVyZXM7Cj4gPiArICAgICAgIG5ldGRl
+dl9mZWF0dXJlc190ICAgICAgIGZlYXR1cmVzW05FVERFVl9GRUFUVVJFX0RXT1JEU107Cj4gPiAr
+ICAgICAgIG5ldGRldl9mZWF0dXJlc190ICAgICAgIGh3X2ZlYXR1cmVzW05FVERFVl9GRUFUVVJF
+X0RXT1JEU107Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc190ICAgICAgIHdhbnRlZF9mZWF0
+dXJlc1tORVRERVZfRkVBVFVSRV9EV09SRFNdOwo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNf
+dCAgICAgICB2bGFuX2ZlYXR1cmVzW05FVERFVl9GRUFUVVJFX0RXT1JEU107Cj4gPiArICAgICAg
+IG5ldGRldl9mZWF0dXJlc190ICAgICAgIGh3X2VuY19mZWF0dXJlc1tORVRERVZfRkVBVFVSRV9E
+V09SRFNdOwo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCAgICAgICBtcGxzX2ZlYXR1cmVz
+W05FVERFVl9GRUFUVVJFX0RXT1JEU107Cj4gPiAgICAgICAgIG5ldGRldl9mZWF0dXJlc190ICAg
+ICAgIGdzb19wYXJ0aWFsX2ZlYXR1cmVzOwo+ID4KPiA+ICAgICAgICAgdW5zaWduZWQgaW50ICAg
+ICAgICAgICAgbWluX210dTsKPiA+IEBAIC00OTg2LDEwICs0OTg2LDExIEBAIHN0YXRpYyBpbmxp
+bmUgbmV0ZGV2X2ZlYXR1cmVzX3QKPiA+IG5ldGRldl9pbnRlcnNlY3RfZmVhdHVyZXMobmV0ZGV2
+X2ZlYXR1cmVzX3QgZjEsCj4gPiAgICAgICAgIHJldHVybiBmMSAmIGYyOwo+ID4gIH0KPiA+Cj4g
+PiAtc3RhdGljIGlubGluZSBuZXRkZXZfZmVhdHVyZXNfdCBuZXRkZXZfZ2V0X3dhbnRlZF9mZWF0
+dXJlcygKPiA+IC0gICAgICAgc3RydWN0IG5ldF9kZXZpY2UgKmRldikKPiA+ICtzdGF0aWMgaW5s
+aW5lIHZvaWQgbmV0ZGV2X2dldF93YW50ZWRfZmVhdHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKmRl
+diwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXRk
+ZXZfZmVhdHVyZXNfdCAqd2FudGVkKQo+ID4gIHsKPiA+IC0gICAgICAgcmV0dXJuIChkZXYtPmZl
+YXR1cmVzICYgfmRldi0+aHdfZmVhdHVyZXMpIHwgZGV2LT53YW50ZWRfZmVhdHVyZXM7Cj4gPiAr
+ICAgICAgIG5ldGRldl9mZWF0dXJlc19hbmRub3Qod2FudGVkLCBkZXYtPmZlYXR1cmVzLCBkZXYt
+Pmh3X2ZlYXR1cmVzKTsKPiA+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX29yKHdhbnRlZCwgd2Fu
+dGVkLCBkZXYtPndhbnRlZF9mZWF0dXJlcyk7Cj4gPiAgfQo+ID4gIG5ldGRldl9mZWF0dXJlc190
+IG5ldGRldl9pbmNyZW1lbnRfZmVhdHVyZXMobmV0ZGV2X2ZlYXR1cmVzX3QgYWxsLAo+ID4gICAg
+ICAgICBuZXRkZXZfZmVhdHVyZXNfdCBvbmUsIG5ldGRldl9mZWF0dXJlc190IG1hc2spOwo+ID4g
+QEAgLTUwMTQsNyArNTAxNSw3IEBAIHZvaWQgbmV0aWZfc3RhY2tlZF90cmFuc2Zlcl9vcGVyc3Rh
+dGUoY29uc3QKPiA+IHN0cnVjdCBuZXRfZGV2aWNlICpyb290ZGV2LAo+ID4gIG5ldGRldl9mZWF0
+dXJlc190IHBhc3N0aHJ1X2ZlYXR1cmVzX2NoZWNrKHN0cnVjdCBza19idWZmICpza2IsCj4gPiAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgbmV0X2Rldmlj
+ZSAqZGV2LAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV0
+ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZXMpOwo+ID4gLW5ldGRldl9mZWF0dXJlc190IG5ldGlmX3Nr
+Yl9mZWF0dXJlcyhzdHJ1Y3Qgc2tfYnVmZiAqc2tiKTsKPiA+ICt2b2lkIG5ldGlmX3NrYl9mZWF0
+dXJlcyhzdHJ1Y3Qgc2tfYnVmZiAqc2tiLCBuZXRkZXZfZmVhdHVyZXNfdCAqZmVhdHVyZXMpOwo+
+ID4KPiA+ICBzdGF0aWMgaW5saW5lIGJvb2wgbmV0X2dzb19vayhuZXRkZXZfZmVhdHVyZXNfdCBm
+ZWF0dXJlcywgaW50IGdzb190eXBlKQo+ID4gIHsKPiA+IGRpZmYgLS1naXQgYS9uZXQvODAyMXEv
+dmxhbi5jIGIvbmV0LzgwMjFxL3ZsYW4uYwo+ID4gaW5kZXggNGNkZjg0MS4uN2Q3NzY5MiAxMDA2
+NDQKPiA+IC0tLSBhL25ldC84MDIxcS92bGFuLmMKPiA+ICsrKyBiL25ldC84MDIxcS92bGFuLmMK
+PiA+IEBAIC0zMjgsNyArMzI4LDcgQEAgc3RhdGljIHZvaWQgdmxhbl90cmFuc2Zlcl9mZWF0dXJl
+cyhzdHJ1Y3QgbmV0X2RldmljZSAqZGV2LAo+ID4gICAgICAgICB2bGFuZGV2LT5nc29fbWF4X3Np
+emUgPSBkZXYtPmdzb19tYXhfc2l6ZTsKPiA+ICAgICAgICAgdmxhbmRldi0+Z3NvX21heF9zZWdz
+ID0gZGV2LT5nc29fbWF4X3NlZ3M7Cj4gPgo+ID4gLSAgICAgICBpZiAodmxhbl9od19vZmZsb2Fk
+X2NhcGFibGUoZGV2LT5mZWF0dXJlcywgdmxhbi0+dmxhbl9wcm90bykpCj4gPiArICAgICAgIGlm
+ICh2bGFuX2h3X29mZmxvYWRfY2FwYWJsZShkZXYtPmZlYXR1cmVzWzBdLCB2bGFuLT52bGFuX3By
+b3RvKSkKPiA+ICAgICAgICAgICAgICAgICB2bGFuZGV2LT5oYXJkX2hlYWRlcl9sZW4gPSBkZXYt
+PmhhcmRfaGVhZGVyX2xlbjsKPiA+ICAgICAgICAgZWxzZQo+ID4gICAgICAgICAgICAgICAgIHZs
+YW5kZXYtPmhhcmRfaGVhZGVyX2xlbiA9IGRldi0+aGFyZF9oZWFkZXJfbGVuICsgVkxBTl9ITEVO
+Owo+ID4gQEAgLTMzOSw3ICszMzksNyBAQCBzdGF0aWMgdm9pZCB2bGFuX3RyYW5zZmVyX2ZlYXR1
+cmVzKHN0cnVjdCBuZXRfZGV2aWNlICpkZXYsCj4gPgo+ID4gICAgICAgICB2bGFuZGV2LT5wcml2
+X2ZsYWdzICY9IH5JRkZfWE1JVF9EU1RfUkVMRUFTRTsKPiA+ICAgICAgICAgdmxhbmRldi0+cHJp
+dl9mbGFncyB8PSAodmxhbi0+cmVhbF9kZXYtPnByaXZfZmxhZ3MgJgo+ID4gSUZGX1hNSVRfRFNU
+X1JFTEVBU0UpOwo+ID4gLSAgICAgICB2bGFuZGV2LT5od19lbmNfZmVhdHVyZXMgPSB2bGFuX3Ru
+bF9mZWF0dXJlcyh2bGFuLT5yZWFsX2Rldik7Cj4gPiArICAgICAgIHZsYW5kZXYtPmh3X2VuY19m
+ZWF0dXJlc1swXSA9IHZsYW5fdG5sX2ZlYXR1cmVzKHZsYW4tPnJlYWxfZGV2KTsKPiA+Cj4gPiAg
+ICAgICAgIG5ldGRldl91cGRhdGVfZmVhdHVyZXModmxhbmRldik7Cj4gPiAgfQo+ID4gZGlmZiAt
+LWdpdCBhL25ldC84MDIxcS92bGFuLmggYi9uZXQvODAyMXEvdmxhbi5oCj4gPiBpbmRleCAxYTcw
+NWE0Li40ZTc4NGExIDEwMDY0NAo+ID4gLS0tIGEvbmV0LzgwMjFxL3ZsYW4uaAo+ID4gKysrIGIv
+bmV0LzgwMjFxL3ZsYW4uaAo+ID4gQEAgLTEwNyw3ICsxMDcsNyBAQCBzdGF0aWMgaW5saW5lIG5l
+dGRldl9mZWF0dXJlc190Cj4gPiB2bGFuX3RubF9mZWF0dXJlcyhzdHJ1Y3QgbmV0X2RldmljZSAq
+cmVhbF9kZXYpCj4gPiAgewo+ID4gICAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCByZXQ7Cj4gPgo+
+ID4gLSAgICAgICByZXQgPSByZWFsX2Rldi0+aHdfZW5jX2ZlYXR1cmVzICYKPiA+ICsgICAgICAg
+cmV0ID0gcmVhbF9kZXYtPmh3X2VuY19mZWF0dXJlc1swXSAmCj4gPiAgICAgICAgICAgICAgIChO
+RVRJRl9GX0NTVU1fTUFTSyB8IE5FVElGX0ZfR1NPX1NPRlRXQVJFIHwKPiA+ICAgICAgICAgICAg
+ICAgIE5FVElGX0ZfR1NPX0VOQ0FQX0FMTCk7Cj4gPgo+ID4gZGlmZiAtLWdpdCBhL25ldC84MDIx
+cS92bGFuX2Rldi5jIGIvbmV0LzgwMjFxL3ZsYW5fZGV2LmMKPiA+IGluZGV4IGEwMzY3YjMuLjZk
+NDk3NjEgMTAwNjQ0Cj4gPiAtLS0gYS9uZXQvODAyMXEvdmxhbl9kZXYuYwo+ID4gKysrIGIvbmV0
+LzgwMjFxL3ZsYW5fZGV2LmMKPiA+IEBAIC01NjYsMjEgKzU2NiwyMSBAQCBzdGF0aWMgaW50IHZs
+YW5fZGV2X2luaXQoc3RydWN0IG5ldF9kZXZpY2UgKmRldikKPiA+ICAgICAgICAgaWYgKHZsYW4t
+PmZsYWdzICYgVkxBTl9GTEFHX0JSSURHRV9CSU5ESU5HKQo+ID4gICAgICAgICAgICAgICAgIGRl
+di0+c3RhdGUgfD0gKDEgPDwgX19MSU5LX1NUQVRFX05PQ0FSUklFUik7Cj4gPgo+ID4gLSAgICAg
+ICBkZXYtPmh3X2ZlYXR1cmVzID0gTkVUSUZfRl9IV19DU1VNIHwgTkVUSUZfRl9TRyB8Cj4gPiAt
+ICAgICAgICAgICAgICAgICAgICAgICAgICBORVRJRl9GX0ZSQUdMSVNUIHwgTkVUSUZfRl9HU09f
+U09GVFdBUkUgfAo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgTkVUSUZfRl9HU09fRU5D
+QVBfQUxMIHwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfSElHSERNQSB8
+IE5FVElGX0ZfU0NUUF9DUkMgfAo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgTkVUSUZf
+Rl9BTExfRkNPRTsKPiA+ICsgICAgICAgZGV2LT5od19mZWF0dXJlc1swXSA9IE5FVElGX0ZfSFdf
+Q1NVTSB8IE5FVElGX0ZfU0cgfAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgTkVU
+SUZfRl9GUkFHTElTVCB8IE5FVElGX0ZfR1NPX1NPRlRXQVJFIHwKPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIE5FVElGX0ZfR1NPX0VOQ0FQX0FMTCB8Cj4gPiArICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICBORVRJRl9GX0hJR0hETUEgfCBORVRJRl9GX1NDVFBfQ1JDIHwKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfQUxMX0ZDT0U7Cj4gPgo+ID4g
+LSAgICAgICBkZXYtPmZlYXR1cmVzIHw9IGRldi0+aHdfZmVhdHVyZXMgfCBORVRJRl9GX0xMVFg7
+Cj4gPiArICAgICAgIGRldi0+ZmVhdHVyZXNbMF0gfD0gZGV2LT5od19mZWF0dXJlc1swXSB8IE5F
+VElGX0ZfTExUWDsKPiA+ICAgICAgICAgZGV2LT5nc29fbWF4X3NpemUgPSByZWFsX2Rldi0+Z3Nv
+X21heF9zaXplOwo+ID4gICAgICAgICBkZXYtPmdzb19tYXhfc2VncyA9IHJlYWxfZGV2LT5nc29f
+bWF4X3NlZ3M7Cj4gPiAtICAgICAgIGlmIChkZXYtPmZlYXR1cmVzICYgTkVUSUZfRl9WTEFOX0ZF
+QVRVUkVTKQo+ID4gKyAgICAgICBpZiAoZGV2LT5mZWF0dXJlc1swXSAmIE5FVElGX0ZfVkxBTl9G
+RUFUVVJFUykKPiA+ICAgICAgICAgICAgICAgICBuZXRkZXZfd2FybihyZWFsX2RldiwgIlZMQU4g
+ZmVhdHVyZXMgYXJlIHNldAo+ID4gaW5jb3JyZWN0bHkuICBRLWluLVEgY29uZmlndXJhdGlvbnMg
+bWF5IG5vdCB3b3JrIGNvcnJlY3RseS5cbiIpOwo+ID4KPiA+IC0gICAgICAgZGV2LT52bGFuX2Zl
+YXR1cmVzID0gcmVhbF9kZXYtPnZsYW5fZmVhdHVyZXMgJiB+TkVUSUZfRl9BTExfRkNPRTsKPiA+
+IC0gICAgICAgZGV2LT5od19lbmNfZmVhdHVyZXMgPSB2bGFuX3RubF9mZWF0dXJlcyhyZWFsX2Rl
+dik7Cj4gPiAtICAgICAgIGRldi0+bXBsc19mZWF0dXJlcyA9IHJlYWxfZGV2LT5tcGxzX2ZlYXR1
+cmVzOwo+ID4gKyAgICAgICBkZXYtPnZsYW5fZmVhdHVyZXNbMF0gPSByZWFsX2Rldi0+dmxhbl9m
+ZWF0dXJlc1swXSAmIH5ORVRJRl9GX0FMTF9GQ09FOwo+ID4gKyAgICAgICBkZXYtPmh3X2VuY19m
+ZWF0dXJlc1swXSA9IHZsYW5fdG5sX2ZlYXR1cmVzKHJlYWxfZGV2KTsKPiA+ICsgICAgICAgbmV0
+ZGV2X2ZlYXR1cmVzX2NvcHkoZGV2LT5tcGxzX2ZlYXR1cmVzLCByZWFsX2Rldi0+bXBsc19mZWF0
+dXJlcyk7Cj4gPgo+ID4gICAgICAgICAvKiBpcHY2IHNoYXJlZCBjYXJkIHJlbGF0ZWQgc3R1ZmYg
+Ki8KPiA+ICAgICAgICAgZGV2LT5kZXZfaWQgPSByZWFsX2Rldi0+ZGV2X2lkOwo+ID4gQEAgLTYz
+MywyNyArNjMzLDMwIEBAIHZvaWQgdmxhbl9kZXZfdW5pbml0KHN0cnVjdCBuZXRfZGV2aWNlICpk
+ZXYpCj4gPiAgICAgICAgIH0KPiA+ICB9Cj4gPgo+ID4gLXN0YXRpYyBuZXRkZXZfZmVhdHVyZXNf
+dCB2bGFuX2Rldl9maXhfZmVhdHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKmRldiwKPiA+IC0gICAg
+ICAgbmV0ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZXMpCj4gPiArc3RhdGljIHZvaWQgdmxhbl9kZXZf
+Zml4X2ZlYXR1cmVzKHN0cnVjdCBuZXRfZGV2aWNlICpkZXYsCj4gPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgKmZlYXR1cmVzKQo+ID4gIHsKPiA+
+ICAgICAgICAgc3RydWN0IG5ldF9kZXZpY2UgKnJlYWxfZGV2ID0gdmxhbl9kZXZfcHJpdihkZXYp
+LT5yZWFsX2RldjsKPiA+IC0gICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3Qgb2xkX2ZlYXR1cmVzID0g
+ZmVhdHVyZXM7Cj4gPiAtICAgICAgIG5ldGRldl9mZWF0dXJlc190IGxvd2VyX2ZlYXR1cmVzOwo+
+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCBsb3dlcl9mZWF0dXJlc1tORVRERVZfRkVBVFVS
+RV9EV09SRFNdOwo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCBvbGRfZmVhdHVyZXNbTkVU
+REVWX0ZFQVRVUkVfRFdPUkRTXTsKPiA+Cj4gPiAtICAgICAgIGxvd2VyX2ZlYXR1cmVzID0gbmV0
+ZGV2X2ludGVyc2VjdF9mZWF0dXJlcygocmVhbF9kZXYtPnZsYW5fZmVhdHVyZXMgfAo+ID4gLSAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0Zf
+UlhDU1VNKSwKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIHJlYWxfZGV2LT5mZWF0dXJlcyk7Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc19j
+b3B5KGxvd2VyX2ZlYXR1cmVzLCBmZWF0dXJlcyk7Cj4gPiArCj4gPiArICAgICAgIGxvd2VyX2Zl
+YXR1cmVzWzBdID0KPiA+ICsgICAgICAgICAgICAgICBuZXRkZXZfaW50ZXJzZWN0X2ZlYXR1cmVz
+KChyZWFsX2Rldi0+dmxhbl9mZWF0dXJlc1swXSB8Cj4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgTkVUSUZfRl9SWENTVU0pLAo+ID4gKyAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgcmVhbF9kZXYtPmZlYXR1cmVzWzBdKTsKPiA+Cj4g
+PiAgICAgICAgIC8qIEFkZCBIV19DU1VNIHNldHRpbmcgdG8gcHJlc2VydmUgdXNlciBhYmlsaXR5
+IHRvIGNvbnRyb2wKPiA+ICAgICAgICAgICogY2hlY2tzdW0gb2ZmbG9hZCBvbiB0aGUgdmxhbiBk
+ZXZpY2UuCj4gPiAgICAgICAgICAqLwo+ID4gLSAgICAgICBpZiAobG93ZXJfZmVhdHVyZXMgJiAo
+TkVUSUZfRl9JUF9DU1VNfE5FVElGX0ZfSVBWNl9DU1VNKSkKPiA+IC0gICAgICAgICAgICAgICBs
+b3dlcl9mZWF0dXJlcyB8PSBORVRJRl9GX0hXX0NTVU07Cj4gPiAtICAgICAgIGZlYXR1cmVzID0g
+bmV0ZGV2X2ludGVyc2VjdF9mZWF0dXJlcyhmZWF0dXJlcywgbG93ZXJfZmVhdHVyZXMpOwo+ID4g
+LSAgICAgICBmZWF0dXJlcyB8PSBvbGRfZmVhdHVyZXMgJiAoTkVUSUZfRl9TT0ZUX0ZFQVRVUkVT
+IHwKPiA+IE5FVElGX0ZfR1NPX1NPRlRXQVJFKTsKPiA+IC0gICAgICAgZmVhdHVyZXMgfD0gTkVU
+SUZfRl9MTFRYOwo+ID4gKyAgICAgICBpZiAobG93ZXJfZmVhdHVyZXNbMF0gJiAoTkVUSUZfRl9J
+UF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NTVU0pKQo+ID4gKyAgICAgICAgICAgICAgIGxvd2VyX2Zl
+YXR1cmVzWzBdIHw9IE5FVElGX0ZfSFdfQ1NVTTsKPiA+Cj4gPiAtICAgICAgIHJldHVybiBmZWF0
+dXJlczsKPiA+ICsgICAgICAgZmVhdHVyZXNbMF0gPSBuZXRkZXZfaW50ZXJzZWN0X2ZlYXR1cmVz
+KGZlYXR1cmVzWzBdLCBsb3dlcl9mZWF0dXJlc1swXSk7Cj4gPiArICAgICAgIGZlYXR1cmVzWzBd
+IHw9IG9sZF9mZWF0dXJlc1swXSAmCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAoTkVUSUZf
+Rl9TT0ZUX0ZFQVRVUkVTIHwgTkVUSUZfRl9HU09fU09GVFdBUkUpOwo+ID4gKyAgICAgICBmZWF0
+dXJlc1swXSB8PSBORVRJRl9GX0xMVFg7Cj4gPiAgfQo+ID4KPiA+ICBzdGF0aWMgaW50IHZsYW5f
+ZXRodG9vbF9nZXRfbGlua19rc2V0dGluZ3Moc3RydWN0IG5ldF9kZXZpY2UgKmRldiwKPiA+IGRp
+ZmYgLS1naXQgYS9uZXQvY29yZS9kZXYuYyBiL25ldC9jb3JlL2Rldi5jCj4gPiBpbmRleCBjMjUz
+YzJhLi43MDY2YmYzIDEwMDY0NAo+ID4gLS0tIGEvbmV0L2NvcmUvZGV2LmMKPiA+ICsrKyBiL25l
+dC9jb3JlL2Rldi5jCj4gPiBAQCAtMTc2NSw3ICsxNzY1LDcgQEAgdm9pZCBkZXZfZGlzYWJsZV9s
+cm8oc3RydWN0IG5ldF9kZXZpY2UgKmRldikKPiA+ICAgICAgICAgZGV2LT53YW50ZWRfZmVhdHVy
+ZXMgJj0gfk5FVElGX0ZfTFJPOwo+ID4gICAgICAgICBuZXRkZXZfdXBkYXRlX2ZlYXR1cmVzKGRl
+dik7Cj4gPgo+ID4gLSAgICAgICBpZiAodW5saWtlbHkoZGV2LT5mZWF0dXJlcyAmIE5FVElGX0Zf
+TFJPKSkKPiA+ICsgICAgICAgaWYgKHVubGlrZWx5KGRldi0+ZmVhdHVyZXNbMF0gJiBORVRJRl9G
+X0xSTykpCj4gPiAgICAgICAgICAgICAgICAgbmV0ZGV2X1dBUk4oZGV2LCAiZmFpbGVkIHRvIGRp
+c2FibGUgTFJPIVxuIik7Cj4gPgo+ID4gICAgICAgICBuZXRkZXZfZm9yX2VhY2hfbG93ZXJfZGV2
+KGRldiwgbG93ZXJfZGV2LCBpdGVyKQo+ID4gQEAgLTE3ODYsNyArMTc4Niw3IEBAIHN0YXRpYyB2
+b2lkIGRldl9kaXNhYmxlX2dyb19odyhzdHJ1Y3QgbmV0X2RldmljZSAqZGV2KQo+ID4gICAgICAg
+ICBkZXYtPndhbnRlZF9mZWF0dXJlcyAmPSB+TkVUSUZfRl9HUk9fSFc7Cj4gPiAgICAgICAgIG5l
+dGRldl91cGRhdGVfZmVhdHVyZXMoZGV2KTsKPiA+Cj4gPiAtICAgICAgIGlmICh1bmxpa2VseShk
+ZXYtPmZlYXR1cmVzICYgTkVUSUZfRl9HUk9fSFcpKQo+ID4gKyAgICAgICBpZiAodW5saWtlbHko
+ZGV2LT5mZWF0dXJlc1swXSAmIE5FVElGX0ZfR1JPX0hXKSkKPiA+ICAgICAgICAgICAgICAgICBu
+ZXRkZXZfV0FSTihkZXYsICJmYWlsZWQgdG8gZGlzYWJsZSBHUk9fSFchXG4iKTsKPiA+ICB9Cj4g
+Pgo+ID4gQEAgLTMyNzYsNyArMzI3Niw3IEBAIHN0YXRpYyB2b2lkIHNrYl93YXJuX2JhZF9vZmZs
+b2FkKGNvbnN0IHN0cnVjdAo+ID4gc2tfYnVmZiAqc2tiKQo+ID4gICAgICAgICB9Cj4gPiAgICAg
+ICAgIHNrYl9kdW1wKEtFUk5fV0FSTklORywgc2tiLCBmYWxzZSk7Cj4gPiAgICAgICAgIFdBUk4o
+MSwgIiVzOiBjYXBzPSglcE5GLCAlcE5GKVxuIiwKPiA+IC0gICAgICAgICAgICBuYW1lLCBkZXYg
+PyAmZGV2LT5mZWF0dXJlcyA6ICZudWxsX2ZlYXR1cmVzLAo+ID4gKyAgICAgICAgICAgIG5hbWUs
+IGRldiA/ICZkZXYtPmZlYXR1cmVzWzBdIDogJm51bGxfZmVhdHVyZXMsCj4gPiAgICAgICAgICAg
+ICAgc2tiLT5zayA/ICZza2ItPnNrLT5za19yb3V0ZV9jYXBzIDogJm51bGxfZmVhdHVyZXMpOwo+
+ID4gIH0KPiA+Cj4gPiBAQCAtMzQ2Myw3ICszNDYzLDggQEAgc3RydWN0IHNrX2J1ZmYgKl9fc2ti
+X2dzb19zZWdtZW50KHN0cnVjdCBza19idWZmICpza2IsCj4gPiAgICAgICAgICAgICAgICAgbmV0
+ZGV2X2ZlYXR1cmVzX3QgcGFydGlhbF9mZWF0dXJlcyA9IE5FVElGX0ZfR1NPX1JPQlVTVDsKPiA+
+ICAgICAgICAgICAgICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqZGV2ID0gc2tiLT5kZXY7Cj4gPgo+
+ID4gLSAgICAgICAgICAgICAgIHBhcnRpYWxfZmVhdHVyZXMgfD0gZGV2LT5mZWF0dXJlcyAmIGRl
+di0+Z3NvX3BhcnRpYWxfZmVhdHVyZXM7Cj4gPiArICAgICAgICAgICAgICAgcGFydGlhbF9mZWF0
+dXJlcyB8PQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXYtPmZlYXR1cmVz
+WzBdICYgZGV2LT5nc29fcGFydGlhbF9mZWF0dXJlczsKPiA+ICAgICAgICAgICAgICAgICBpZiAo
+IXNrYl9nc29fb2soc2tiLCBmZWF0dXJlcyB8IHBhcnRpYWxfZmVhdHVyZXMpKQo+ID4gICAgICAg
+ICAgICAgICAgICAgICAgICAgZmVhdHVyZXMgJj0gfk5FVElGX0ZfR1NPX1BBUlRJQUw7Cj4gPiAg
+ICAgICAgIH0KPiA+IEBAIC0zNTA4LDcgKzM1MDksNyBAQCBzdGF0aWMgaW50IGlsbGVnYWxfaGln
+aGRtYShzdHJ1Y3QgbmV0X2RldmljZQo+ID4gKmRldiwgc3RydWN0IHNrX2J1ZmYgKnNrYikKPiA+
+ICAjaWZkZWYgQ09ORklHX0hJR0hNRU0KPiA+ICAgICAgICAgaW50IGk7Cj4gPgo+ID4gLSAgICAg
+ICBpZiAoIShkZXYtPmZlYXR1cmVzICYgTkVUSUZfRl9ISUdIRE1BKSkgewo+ID4gKyAgICAgICBp
+ZiAoIShkZXYtPmZlYXR1cmVzWzBdICYgTkVUSUZfRl9ISUdIRE1BKSkgewo+ID4gICAgICAgICAg
+ICAgICAgIGZvciAoaSA9IDA7IGkgPCBza2Jfc2hpbmZvKHNrYiktPm5yX2ZyYWdzOyBpKyspIHsK
+PiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHNrYl9mcmFnX3QgKmZyYWcgPSAmc2tiX3NoaW5m
+byhza2IpLT5mcmFnc1tpXTsKPiA+Cj4gPiBAQCAtMzYxMiwzNCArMzYxMywzMyBAQCBzdGF0aWMg
+bmV0ZGV2X2ZlYXR1cmVzX3QKPiA+IGdzb19mZWF0dXJlc19jaGVjayhjb25zdCBzdHJ1Y3Qgc2tf
+YnVmZiAqc2tiLAo+ID4gICAgICAgICByZXR1cm4gZmVhdHVyZXM7Cj4gPiAgfQo+ID4KPiA+IC1u
+ZXRkZXZfZmVhdHVyZXNfdCBuZXRpZl9za2JfZmVhdHVyZXMoc3RydWN0IHNrX2J1ZmYgKnNrYikK
+PiA+ICt2b2lkIG5ldGlmX3NrYl9mZWF0dXJlcyhzdHJ1Y3Qgc2tfYnVmZiAqc2tiLCBuZXRkZXZf
+ZmVhdHVyZXNfdCAqZmVhdHVyZXMpCj4gPiAgewo+ID4gICAgICAgICBzdHJ1Y3QgbmV0X2Rldmlj
+ZSAqZGV2ID0gc2tiLT5kZXY7Cj4gPiAtICAgICAgIG5ldGRldl9mZWF0dXJlc190IGZlYXR1cmVz
+ID0gZGV2LT5mZWF0dXJlczsKPiA+Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc19jb3B5KGZl
+YXR1cmVzLCBkZXYtPmZlYXR1cmVzKTsKPiA+ICAgICAgICAgaWYgKHNrYl9pc19nc28oc2tiKSkK
+PiA+IC0gICAgICAgICAgICAgICBmZWF0dXJlcyA9IGdzb19mZWF0dXJlc19jaGVjayhza2IsIGRl
+diwgZmVhdHVyZXMpOwo+ID4gKyAgICAgICAgICAgICAgIGZlYXR1cmVzWzBdID0gZ3NvX2ZlYXR1
+cmVzX2NoZWNrKHNrYiwgZGV2LCBmZWF0dXJlc1swXSk7Cj4gPgo+ID4gICAgICAgICAvKiBJZiBl
+bmNhcHN1bGF0aW9uIG9mZmxvYWQgcmVxdWVzdCwgdmVyaWZ5IHdlIGFyZSB0ZXN0aW5nCj4gPiAg
+ICAgICAgICAqIGhhcmR3YXJlIGVuY2Fwc3VsYXRpb24gZmVhdHVyZXMgaW5zdGVhZCBvZiBzdGFu
+ZGFyZAo+ID4gICAgICAgICAgKiBmZWF0dXJlcyBmb3IgdGhlIG5ldGRldgo+ID4gICAgICAgICAg
+Ki8KPiA+ICAgICAgICAgaWYgKHNrYi0+ZW5jYXBzdWxhdGlvbikKPiA+IC0gICAgICAgICAgICAg
+ICBmZWF0dXJlcyAmPSBkZXYtPmh3X2VuY19mZWF0dXJlczsKPiA+ICsgICAgICAgICAgICAgICBu
+ZXRkZXZfZmVhdHVyZXNfYW5kKGZlYXR1cmVzLCBkZXYtPmh3X2VuY19mZWF0dXJlcyk7Cj4gPgo+
+ID4gICAgICAgICBpZiAoc2tiX3ZsYW5fdGFnZ2VkKHNrYikpCj4gPiAtICAgICAgICAgICAgICAg
+ZmVhdHVyZXMgPSBuZXRkZXZfaW50ZXJzZWN0X2ZlYXR1cmVzKGZlYXR1cmVzLAo+ID4gLSAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBkZXYtPnZsYW5f
+ZmVhdHVyZXMgfAo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICBORVRJRl9GX0hXX1ZMQU5fQ1RBR19UWCB8Cj4gPiAtICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIE5FVElGX0ZfSFdfVkxBTl9TVEFH
+X1RYKTsKPiA+ICsgICAgICAgICAgICAgICBmZWF0dXJlc1swXSA9IG5ldGRldl9pbnRlcnNlY3Rf
+ZmVhdHVyZXMoZmVhdHVyZXNbMF0sCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgIGRldi0+dmxhbl9mZWF0dXJlc1swXSB8Cj4gPiArCj4g
+PiBORVRJRl9GX0hXX1ZMQU5fQ1RBR19UWCB8Cj4gPiArCj4gPiBORVRJRl9GX0hXX1ZMQU5fU1RB
+R19UWCk7Cj4gPgo+ID4gICAgICAgICBpZiAoZGV2LT5uZXRkZXZfb3BzLT5uZG9fZmVhdHVyZXNf
+Y2hlY2spCj4gPiAtICAgICAgICAgICAgICAgZmVhdHVyZXMgJj0gZGV2LT5uZXRkZXZfb3BzLT5u
+ZG9fZmVhdHVyZXNfY2hlY2soc2tiLCBkZXYsCj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZmVhdHVyZXMpOwo+ID4gKyAg
+ICAgICAgICAgICAgIGRldi0+bmV0ZGV2X29wcy0+bmRvX2ZlYXR1cmVzX2NoZWNrKHNrYiwgZGV2
+LCBmZWF0dXJlcyk7Cj4gPiAgICAgICAgIGVsc2UKPiA+IC0gICAgICAgICAgICAgICBmZWF0dXJl
+cyAmPSBkZmx0X2ZlYXR1cmVzX2NoZWNrKHNrYiwgZGV2LCBmZWF0dXJlcyk7Cj4gPiArICAgICAg
+ICAgICAgICAgZmVhdHVyZXNbMF0gJj0gZGZsdF9mZWF0dXJlc19jaGVjayhza2IsIGRldiwgZmVh
+dHVyZXNbMF0pOwo+ID4KPiA+IC0gICAgICAgcmV0dXJuIGhhcm1vbml6ZV9mZWF0dXJlcyhza2Is
+IGZlYXR1cmVzKTsKPiA+ICsgICAgICAgZmVhdHVyZXNbMF0gPSBoYXJtb25pemVfZmVhdHVyZXMo
+c2tiLCBmZWF0dXJlc1swXSk7Cj4gPiAgfQo+ID4gIEVYUE9SVF9TWU1CT0wobmV0aWZfc2tiX2Zl
+YXR1cmVzKTsKPiA+Cj4gPiBAQCAtMzcyMiwxMCArMzcyMiwxMCBAQCBFWFBPUlRfU1lNQk9MKHNr
+Yl9jc3VtX2h3b2ZmbG9hZF9oZWxwKTsKPiA+Cj4gPiAgc3RhdGljIHN0cnVjdCBza19idWZmICp2
+YWxpZGF0ZV94bWl0X3NrYihzdHJ1Y3Qgc2tfYnVmZiAqc2tiLCBzdHJ1Y3QKPiA+IG5ldF9kZXZp
+Y2UgKmRldiwgYm9vbCAqYWdhaW4pCj4gPiAgewo+ID4gLSAgICAgICBuZXRkZXZfZmVhdHVyZXNf
+dCBmZWF0dXJlczsKPiA+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZXNbTkVUREVW
+X0ZFQVRVUkVfRFdPUkRTXTsKPiA+Cj4gPiAtICAgICAgIGZlYXR1cmVzID0gbmV0aWZfc2tiX2Zl
+YXR1cmVzKHNrYik7Cj4gPiAtICAgICAgIHNrYiA9IHZhbGlkYXRlX3htaXRfdmxhbihza2IsIGZl
+YXR1cmVzKTsKPiA+ICsgICAgICAgbmV0aWZfc2tiX2ZlYXR1cmVzKHNrYiwgZmVhdHVyZXMpOwo+
+ID4gKyAgICAgICBza2IgPSB2YWxpZGF0ZV94bWl0X3ZsYW4oc2tiLCBmZWF0dXJlc1swXSk7Cj4g
+PiAgICAgICAgIGlmICh1bmxpa2VseSghc2tiKSkKPiA+ICAgICAgICAgICAgICAgICBnb3RvIG91
+dF9udWxsOwo+ID4KPiA+IEBAIC0zNzMzLDEwICszNzMzLDEwIEBAIHN0YXRpYyBzdHJ1Y3Qgc2tf
+YnVmZgo+ID4gKnZhbGlkYXRlX3htaXRfc2tiKHN0cnVjdCBza19idWZmICpza2IsIHN0cnVjdCBu
+ZXRfZGV2aWNlCj4gPiAgICAgICAgIGlmICh1bmxpa2VseSghc2tiKSkKPiA+ICAgICAgICAgICAg
+ICAgICBnb3RvIG91dF9udWxsOwo+ID4KPiA+IC0gICAgICAgaWYgKG5ldGlmX25lZWRzX2dzbyhz
+a2IsIGZlYXR1cmVzKSkgewo+ID4gKyAgICAgICBpZiAobmV0aWZfbmVlZHNfZ3NvKHNrYiwgZmVh
+dHVyZXNbMF0pKSB7Cj4gPiAgICAgICAgICAgICAgICAgc3RydWN0IHNrX2J1ZmYgKnNlZ3M7Cj4g
+Pgo+ID4gLSAgICAgICAgICAgICAgIHNlZ3MgPSBza2JfZ3NvX3NlZ21lbnQoc2tiLCBmZWF0dXJl
+cyk7Cj4gPiArICAgICAgICAgICAgICAgc2VncyA9IHNrYl9nc29fc2VnbWVudChza2IsIGZlYXR1
+cmVzWzBdKTsKPiA+ICAgICAgICAgICAgICAgICBpZiAoSVNfRVJSKHNlZ3MpKSB7Cj4gPiAgICAg
+ICAgICAgICAgICAgICAgICAgICBnb3RvIG91dF9rZnJlZV9za2I7Cj4gPiAgICAgICAgICAgICAg
+ICAgfSBlbHNlIGlmIChzZWdzKSB7Cj4gPiBAQCAtMzc0NCw3ICszNzQ0LDcgQEAgc3RhdGljIHN0
+cnVjdCBza19idWZmICp2YWxpZGF0ZV94bWl0X3NrYihzdHJ1Y3QKPiA+IHNrX2J1ZmYgKnNrYiwg
+c3RydWN0IG5ldF9kZXZpY2UKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIHNrYiA9IHNlZ3M7
+Cj4gPiAgICAgICAgICAgICAgICAgfQo+ID4gICAgICAgICB9IGVsc2Ugewo+ID4gLSAgICAgICAg
+ICAgICAgIGlmIChza2JfbmVlZHNfbGluZWFyaXplKHNrYiwgZmVhdHVyZXMpICYmCj4gPiArICAg
+ICAgICAgICAgICAgaWYgKHNrYl9uZWVkc19saW5lYXJpemUoc2tiLCBmZWF0dXJlc1swXSkgJiYK
+PiA+ICAgICAgICAgICAgICAgICAgICAgX19za2JfbGluZWFyaXplKHNrYikpCj4gPiAgICAgICAg
+ICAgICAgICAgICAgICAgICBnb3RvIG91dF9rZnJlZV9za2I7Cj4gPgo+ID4gQEAgLTM3NTksMTIg
+KzM3NTksMTIgQEAgc3RhdGljIHN0cnVjdCBza19idWZmCj4gPiAqdmFsaWRhdGVfeG1pdF9za2Io
+c3RydWN0IHNrX2J1ZmYgKnNrYiwgc3RydWN0IG5ldF9kZXZpY2UKPiA+ICAgICAgICAgICAgICAg
+ICAgICAgICAgIGVsc2UKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgc2tiX3Nl
+dF90cmFuc3BvcnRfaGVhZGVyKHNrYiwKPiA+Cj4gPiBza2JfY2hlY2tzdW1fc3RhcnRfb2Zmc2V0
+KHNrYikpOwo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgaWYgKHNrYl9jc3VtX2h3b2ZmbG9h
+ZF9oZWxwKHNrYiwgZmVhdHVyZXMpKQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgaWYgKHNr
+Yl9jc3VtX2h3b2ZmbG9hZF9oZWxwKHNrYiwgZmVhdHVyZXNbMF0pKQo+ID4gICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICBnb3RvIG91dF9rZnJlZV9za2I7Cj4gPiAgICAgICAgICAgICAg
+ICAgfQo+ID4gICAgICAgICB9Cj4gPgo+ID4gLSAgICAgICBza2IgPSB2YWxpZGF0ZV94bWl0X3hm
+cm0oc2tiLCBmZWF0dXJlcywgYWdhaW4pOwo+ID4gKyAgICAgICBza2IgPSB2YWxpZGF0ZV94bWl0
+X3hmcm0oc2tiLCBmZWF0dXJlc1swXSwgYWdhaW4pOwo+ID4KPiA+ICAgICAgICAgcmV0dXJuIHNr
+YjsKPiA+Cj4gPiBAQCAtNDQyOSw3ICs0NDI5LDcgQEAgc2V0X3Jwc19jcHUoc3RydWN0IG5ldF9k
+ZXZpY2UgKmRldiwgc3RydWN0IHNrX2J1ZmYgKnNrYiwKPiA+Cj4gPiAgICAgICAgICAgICAgICAg
+LyogU2hvdWxkIHdlIHN0ZWVyIHRoaXMgZmxvdyB0byBhIGRpZmZlcmVudCBoYXJkd2FyZSBxdWV1
+ZT8gKi8KPiA+ICAgICAgICAgICAgICAgICBpZiAoIXNrYl9yeF9xdWV1ZV9yZWNvcmRlZChza2Ip
+IHx8ICFkZXYtPnJ4X2NwdV9ybWFwIHx8Cj4gPiAtICAgICAgICAgICAgICAgICAgICEoZGV2LT5m
+ZWF0dXJlcyAmIE5FVElGX0ZfTlRVUExFKSkKPiA+ICsgICAgICAgICAgICAgICAgICAgIShkZXYt
+PmZlYXR1cmVzWzBdICYgTkVUSUZfRl9OVFVQTEUpKQo+ID4gICAgICAgICAgICAgICAgICAgICAg
+ICAgZ290byBvdXQ7Cj4gPiAgICAgICAgICAgICAgICAgcnhxX2luZGV4ID0gY3B1X3JtYXBfbG9v
+a3VwX2luZGV4KGRldi0+cnhfY3B1X3JtYXAsIG5leHRfY3B1KTsKPiA+ICAgICAgICAgICAgICAg
+ICBpZiAocnhxX2luZGV4ID09IHNrYl9nZXRfcnhfcXVldWUoc2tiKSkKPiA+IEBAIC05Nzk5LDE3
+MSArOTc5OSwxNzkgQEAgc3RhdGljIHZvaWQgbmV0X3NldF90b2RvKHN0cnVjdCBuZXRfZGV2aWNl
+ICpkZXYpCj4gPiAgICAgICAgIGRldl9uZXQoZGV2KS0+ZGV2X3VucmVnX2NvdW50Kys7Cj4gPiAg
+fQo+ID4KPiA+IC1zdGF0aWMgbmV0ZGV2X2ZlYXR1cmVzX3QgbmV0ZGV2X3N5bmNfdXBwZXJfZmVh
+dHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKmxvd2VyLAo+ID4gLSAgICAgICBzdHJ1Y3QgbmV0X2Rl
+dmljZSAqdXBwZXIsIG5ldGRldl9mZWF0dXJlc190IGZlYXR1cmVzKQo+ID4gK3N0YXRpYyB2b2lk
+IG5ldGRldl9zeW5jX3VwcGVyX2ZlYXR1cmVzKHN0cnVjdCBuZXRfZGV2aWNlICpsb3dlciwKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIHN0cnVjdCBuZXRfZGV2aWNl
+ICp1cHBlciwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIG5ldGRl
+dl9mZWF0dXJlc190ICpmZWF0dXJlcykKPiA+ICB7Cj4gPiAgICAgICAgIG5ldGRldl9mZWF0dXJl
+c190IHVwcGVyX2Rpc2FibGVzID0gTkVUSUZfRl9VUFBFUl9ESVNBQkxFUzsKPiA+ICAgICAgICAg
+bmV0ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZTsKPiA+ICAgICAgICAgaW50IGZlYXR1cmVfYml0Owo+
+ID4gKyAgICAgICB1bnNpZ25lZCBpbnQgaTsKPiA+Cj4gPiAtICAgICAgIGZvcl9lYWNoX25ldGRl
+dl9mZWF0dXJlKHVwcGVyX2Rpc2FibGVzLCBmZWF0dXJlX2JpdCkgewo+ID4gLSAgICAgICAgICAg
+ICAgIGZlYXR1cmUgPSBfX05FVElGX0ZfQklUKGZlYXR1cmVfYml0KTsKPiA+IC0gICAgICAgICAg
+ICAgICBpZiAoISh1cHBlci0+d2FudGVkX2ZlYXR1cmVzICYgZmVhdHVyZSkKPiA+IC0gICAgICAg
+ICAgICAgICAgICAgJiYgKGZlYXR1cmVzICYgZmVhdHVyZSkpIHsKPiA+IC0gICAgICAgICAgICAg
+ICAgICAgICAgIG5ldGRldl9kYmcobG93ZXIsICJEcm9wcGluZyBmZWF0dXJlICVwTkYsCj4gPiB1
+cHBlciBkZXYgJXMgaGFzIGl0IG9mZi5cbiIsCj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICZmZWF0dXJlLCB1cHBlci0+bmFtZSk7Cj4gPiAtICAgICAgICAgICAgICAgICAg
+ICAgICBmZWF0dXJlcyAmPSB+ZmVhdHVyZTsKPiA+ICsgICAgICAgZm9yIChpID0gMDsgaSA8IE5F
+VERFVl9GRUFUVVJFX0RXT1JEUzsgaSsrKSB7Cj4gPiArICAgICAgICAgICAgICAgZm9yX2VhY2hf
+bmV0ZGV2X2ZlYXR1cmUodXBwZXJfZGlzYWJsZXMsIGZlYXR1cmVfYml0KSB7Cj4gPiArICAgICAg
+ICAgICAgICAgICAgICAgICBmZWF0dXJlID0gX19ORVRJRl9GX0JJVChmZWF0dXJlX2JpdCk7Cj4g
+PiArICAgICAgICAgICAgICAgICAgICAgICBpZiAoISh1cHBlci0+d2FudGVkX2ZlYXR1cmVzW2ld
+ICYgZmVhdHVyZSkgJiYKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAoZmVhdHVyZXNb
+aV0gJiBmZWF0dXJlKSkgewo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXRk
+ZXZfZGJnKGxvd2VyLCAiRHJvcHBpbmcKPiA+IGZlYXR1cmVbJXVdICVwTkYsIHVwcGVyIGRldiAl
+cyBoYXMgaXQgb2ZmLlxuIiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICBpLCAmZmVhdHVyZSwgdXBwZXItPm5hbWUpOwo+ID4gKyAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBmZWF0dXJlc1tpXSAmPSB+ZmVhdHVyZTsKPiA+ICsgICAgICAgICAgICAg
+ICAgICAgICAgIH0KPiA+ICAgICAgICAgICAgICAgICB9Cj4gPiAgICAgICAgIH0KPiA+IC0KPiA+
+IC0gICAgICAgcmV0dXJuIGZlYXR1cmVzOwo+ID4gIH0KPiA+Cj4gPiAgc3RhdGljIHZvaWQgbmV0
+ZGV2X3N5bmNfbG93ZXJfZmVhdHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKnVwcGVyLAo+ID4gLSAg
+ICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqbG93ZXIsIG5ldGRldl9mZWF0dXJlc190IGZlYXR1cmVz
+KQo+ID4gKyAgICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqbG93ZXIsIG5ldGRldl9mZWF0dXJlc190
+ICpmZWF0dXJlcykKPiA+ICB7Cj4gPiAgICAgICAgIG5ldGRldl9mZWF0dXJlc190IHVwcGVyX2Rp
+c2FibGVzID0gTkVUSUZfRl9VUFBFUl9ESVNBQkxFUzsKPiA+ICAgICAgICAgbmV0ZGV2X2ZlYXR1
+cmVzX3QgZmVhdHVyZTsKPiA+ICAgICAgICAgaW50IGZlYXR1cmVfYml0Owo+ID4gKyAgICAgICB1
+bnNpZ25lZCBpbnQgaTsKPiA+Cj4gPiAtICAgICAgIGZvcl9lYWNoX25ldGRldl9mZWF0dXJlKHVw
+cGVyX2Rpc2FibGVzLCBmZWF0dXJlX2JpdCkgewo+ID4gLSAgICAgICAgICAgICAgIGZlYXR1cmUg
+PSBfX05FVElGX0ZfQklUKGZlYXR1cmVfYml0KTsKPiA+IC0gICAgICAgICAgICAgICBpZiAoIShm
+ZWF0dXJlcyAmIGZlYXR1cmUpICYmIChsb3dlci0+ZmVhdHVyZXMgJiBmZWF0dXJlKSkgewo+ID4g
+LSAgICAgICAgICAgICAgICAgICAgICAgbmV0ZGV2X2RiZyh1cHBlciwgIkRpc2FibGluZyBmZWF0
+dXJlICVwTkYgb24KPiA+IGxvd2VyIGRldiAlcy5cbiIsCj4gPiAtICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICZmZWF0dXJlLCBsb3dlci0+bmFtZSk7Cj4gPiAtICAgICAgICAgICAg
+ICAgICAgICAgICBsb3dlci0+d2FudGVkX2ZlYXR1cmVzICY9IH5mZWF0dXJlOwo+ID4gLSAgICAg
+ICAgICAgICAgICAgICAgICAgX19uZXRkZXZfdXBkYXRlX2ZlYXR1cmVzKGxvd2VyKTsKPiA+IC0K
+PiA+IC0gICAgICAgICAgICAgICAgICAgICAgIGlmICh1bmxpa2VseShsb3dlci0+ZmVhdHVyZXMg
+JiBmZWF0dXJlKSkKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV0ZGV2X1dB
+Uk4odXBwZXIsICJmYWlsZWQgdG8gZGlzYWJsZQo+ID4gJXBORiBvbiAlcyFcbiIsCj4gPiAtICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICZmZWF0dXJlLCBsb3dlci0+
+bmFtZSk7Cj4gPiAtICAgICAgICAgICAgICAgICAgICAgICBlbHNlCj4gPiAtICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc19jaGFuZ2UobG93ZXIpOwo+ID4gKyAg
+ICAgICBmb3IgKGkgPSAwOyBpIDwgTkVUREVWX0ZFQVRVUkVfRFdPUkRTOyBpKyspIHsKPiA+ICsg
+ICAgICAgICAgICAgICBmb3JfZWFjaF9uZXRkZXZfZmVhdHVyZSh1cHBlcl9kaXNhYmxlcywgZmVh
+dHVyZV9iaXQpIHsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGZlYXR1cmUgPSBfX05FVElG
+X0ZfQklUKGZlYXR1cmVfYml0KTsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmICghKGZl
+YXR1cmVzW2ldICYgZmVhdHVyZSkgJiYKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAo
+bG93ZXItPmZlYXR1cmVzW2ldICYgZmVhdHVyZSkpIHsKPiA+ICsgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgbmV0ZGV2X2RiZyh1cHBlciwgIkRpc2FibGluZwo+ID4gZmVhdHVyZVsldV0g
+JXBORiBvbiBsb3dlciBkZXYgJXMuXG4iLAo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGksICZmZWF0dXJlLCBsb3dlci0+bmFtZSk7Cj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIGxvd2VyLT53YW50ZWRfZmVhdHVyZXNbaV0gJj0gfmZlYXR1
+cmVbaV07Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF9fbmV0ZGV2X3VwZGF0
+ZV9mZWF0dXJlcyhsb3dlcik7Cj4gPiArCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIGlmICh1bmxpa2VseShsb3dlci0+ZmVhdHVyZXNbaV0gJiBmZWF0dXJlKSkKPiA+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXRkZXZfV0FSTih1cHBlciwgImZh
+aWxlZCB0bwo+ID4gZGlzYWJsZSBmZWF0dXJlWyV1XSAlcE5GIG9uICVzIVxuIiwKPiA+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBpLCAmZmVhdHVy
+ZSwgbG93ZXItPm5hbWUpOwo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbHNl
+Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgbmV0ZGV2X2ZlYXR1
+cmVzX2NoYW5nZShsb3dlcik7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICB9Cj4gPiAgICAg
+ICAgICAgICAgICAgfQo+ID4gICAgICAgICB9Cj4gPiAgfQo+ID4KPiA+IC1zdGF0aWMgbmV0ZGV2
+X2ZlYXR1cmVzX3QgbmV0ZGV2X2ZpeF9mZWF0dXJlcyhzdHJ1Y3QgbmV0X2RldmljZSAqZGV2LAo+
+ID4gLSAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCBmZWF0dXJlcykKPiA+ICtzdGF0aWMgdm9pZCBu
+ZXRkZXZfZml4X2ZlYXR1cmVzKHN0cnVjdCBuZXRfZGV2aWNlICpkZXYsCj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc190ICpmZWF0dXJlcykKPiA+ICB7
+Cj4gPiAgICAgICAgIC8qIEZpeCBpbGxlZ2FsIGNoZWNrc3VtIGNvbWJpbmF0aW9ucyAqLwo+ID4g
+LSAgICAgICBpZiAoKGZlYXR1cmVzICYgTkVUSUZfRl9IV19DU1VNKSAmJgo+ID4gLSAgICAgICAg
+ICAgKGZlYXR1cmVzICYgKE5FVElGX0ZfSVBfQ1NVTXxORVRJRl9GX0lQVjZfQ1NVTSkpKSB7Cj4g
+PiArICAgICAgIGlmICgoZmVhdHVyZXNbMF0gJiBORVRJRl9GX0hXX0NTVU0pICYmCj4gPiArICAg
+ICAgICAgICAoZmVhdHVyZXNbMF0gJiAoTkVUSUZfRl9JUF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NT
+VU0pKSkgewo+ID4gICAgICAgICAgICAgICAgIG5ldGRldl93YXJuKGRldiwgIm1peGVkIEhXIGFu
+ZCBJUCBjaGVja3N1bSBzZXR0aW5ncy5cbiIpOwo+ID4gLSAgICAgICAgICAgICAgIGZlYXR1cmVz
+ICY9IH4oTkVUSUZfRl9JUF9DU1VNfE5FVElGX0ZfSVBWNl9DU1VNKTsKPiA+ICsgICAgICAgICAg
+ICAgICBmZWF0dXJlc1swXSAmPSB+KE5FVElGX0ZfSVBfQ1NVTSB8IE5FVElGX0ZfSVBWNl9DU1VN
+KTsKPiA+ICAgICAgICAgfQo+ID4KPiA+ICAgICAgICAgLyogVFNPIHJlcXVpcmVzIHRoYXQgU0cg
+aXMgcHJlc2VudCBhcyB3ZWxsLiAqLwo+ID4gLSAgICAgICBpZiAoKGZlYXR1cmVzICYgTkVUSUZf
+Rl9BTExfVFNPKSAmJiAhKGZlYXR1cmVzICYgTkVUSUZfRl9TRykpIHsKPiA+ICsgICAgICAgaWYg
+KChmZWF0dXJlc1swXSAmIE5FVElGX0ZfQUxMX1RTTykgJiYgIShmZWF0dXJlc1swXSAmIE5FVElG
+X0ZfU0cpKSB7Cj4gPiAgICAgICAgICAgICAgICAgbmV0ZGV2X2RiZyhkZXYsICJEcm9wcGluZyBU
+U08gZmVhdHVyZXMgc2luY2Ugbm8gU0cgZmVhdHVyZS5cbiIpOwo+ID4gLSAgICAgICAgICAgICAg
+IGZlYXR1cmVzICY9IH5ORVRJRl9GX0FMTF9UU087Cj4gPiArICAgICAgICAgICAgICAgZmVhdHVy
+ZXNbMF0gJj0gfk5FVElGX0ZfQUxMX1RTTzsKPiA+ICAgICAgICAgfQo+ID4KPiA+IC0gICAgICAg
+aWYgKChmZWF0dXJlcyAmIE5FVElGX0ZfVFNPKSAmJiAhKGZlYXR1cmVzICYgTkVUSUZfRl9IV19D
+U1VNKSAmJgo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICEoZmVh
+dHVyZXMgJiBORVRJRl9GX0lQX0NTVU0pKSB7Cj4gPiArICAgICAgIGlmICgoZmVhdHVyZXNbMF0g
+JiBORVRJRl9GX1RTTykgJiYgIShmZWF0dXJlc1swXSAmIE5FVElGX0ZfSFdfQ1NVTSkgJiYKPiA+
+ICsgICAgICAgICAgICEoZmVhdHVyZXNbMF0gJiBORVRJRl9GX0lQX0NTVU0pKSB7Cj4gPiAgICAg
+ICAgICAgICAgICAgbmV0ZGV2X2RiZyhkZXYsICJEcm9wcGluZyBUU08gZmVhdHVyZXMgc2luY2Ug
+bm8gQ1NVTQo+ID4gZmVhdHVyZS5cbiIpOwo+ID4gLSAgICAgICAgICAgICAgIGZlYXR1cmVzICY9
+IH5ORVRJRl9GX1RTTzsKPiA+IC0gICAgICAgICAgICAgICBmZWF0dXJlcyAmPSB+TkVUSUZfRl9U
+U09fRUNOOwo+ID4gKyAgICAgICAgICAgICAgIGZlYXR1cmVzWzBdICY9IH5ORVRJRl9GX1RTTzsK
+PiA+ICsgICAgICAgICAgICAgICBmZWF0dXJlc1swXSAmPSB+TkVUSUZfRl9UU09fRUNOOwo+ID4g
+ICAgICAgICB9Cj4gPgo+ID4gLSAgICAgICBpZiAoKGZlYXR1cmVzICYgTkVUSUZfRl9UU082KSAm
+JiAhKGZlYXR1cmVzICYgTkVUSUZfRl9IV19DU1VNKSAmJgo+ID4gLSAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAhKGZlYXR1cmVzICYgTkVUSUZfRl9JUFY2X0NTVU0pKSB7
+Cj4gPiArICAgICAgIGlmICgoZmVhdHVyZXNbMF0gJiBORVRJRl9GX1RTTzYpICYmICEoZmVhdHVy
+ZXNbMF0gJiBORVRJRl9GX0hXX0NTVU0pICYmCj4gPiArICAgICAgICAgICAhKGZlYXR1cmVzWzBd
+ICYgTkVUSUZfRl9JUFY2X0NTVU0pKSB7Cj4gPiAgICAgICAgICAgICAgICAgbmV0ZGV2X2RiZyhk
+ZXYsICJEcm9wcGluZyBUU082IGZlYXR1cmVzIHNpbmNlIG5vIENTVU0KPiA+IGZlYXR1cmUuXG4i
+KTsKPiA+IC0gICAgICAgICAgICAgICBmZWF0dXJlcyAmPSB+TkVUSUZfRl9UU082Owo+ID4gKyAg
+ICAgICAgICAgICAgIGZlYXR1cmVzWzBdICY9IH5ORVRJRl9GX1RTTzY7Cj4gPiAgICAgICAgIH0K
+PiA+Cj4gPiAgICAgICAgIC8qIFRTTyB3aXRoIElQdjQgSUQgbWFuZ2xpbmcgcmVxdWlyZXMgSVB2
+NCBUU08gYmUgZW5hYmxlZCAqLwo+ID4gLSAgICAgICBpZiAoKGZlYXR1cmVzICYgTkVUSUZfRl9U
+U09fTUFOR0xFSUQpICYmICEoZmVhdHVyZXMgJiBORVRJRl9GX1RTTykpCj4gPiAtICAgICAgICAg
+ICAgICAgZmVhdHVyZXMgJj0gfk5FVElGX0ZfVFNPX01BTkdMRUlEOwo+ID4gKyAgICAgICBpZiAo
+KGZlYXR1cmVzWzBdICYgTkVUSUZfRl9UU09fTUFOR0xFSUQpICYmCj4gPiArICAgICAgICAgICAh
+KGZlYXR1cmVzWzBdICYgTkVUSUZfRl9UU08pKQo+ID4gKyAgICAgICAgICAgICAgIGZlYXR1cmVz
+WzBdICY9IH5ORVRJRl9GX1RTT19NQU5HTEVJRDsKPiA+Cj4gPiAgICAgICAgIC8qIFRTTyBFQ04g
+cmVxdWlyZXMgdGhhdCBUU08gaXMgcHJlc2VudCBhcyB3ZWxsLiAqLwo+ID4gLSAgICAgICBpZiAo
+KGZlYXR1cmVzICYgTkVUSUZfRl9BTExfVFNPKSA9PSBORVRJRl9GX1RTT19FQ04pCj4gPiAtICAg
+ICAgICAgICAgICAgZmVhdHVyZXMgJj0gfk5FVElGX0ZfVFNPX0VDTjsKPiA+ICsgICAgICAgaWYg
+KChmZWF0dXJlc1swXSAmIE5FVElGX0ZfQUxMX1RTTykgPT0gTkVUSUZfRl9UU09fRUNOKQo+ID4g
+KyAgICAgICAgICAgICAgIGZlYXR1cmVzWzBdICY9IH5ORVRJRl9GX1RTT19FQ047Cj4gPgo+ID4g
+ICAgICAgICAvKiBTb2Z0d2FyZSBHU08gZGVwZW5kcyBvbiBTRy4gKi8KPiA+IC0gICAgICAgaWYg
+KChmZWF0dXJlcyAmIE5FVElGX0ZfR1NPKSAmJiAhKGZlYXR1cmVzICYgTkVUSUZfRl9TRykpIHsK
+PiA+ICsgICAgICAgaWYgKChmZWF0dXJlc1swXSAmIE5FVElGX0ZfR1NPKSAmJiAhKGZlYXR1cmVz
+WzBdICYgTkVUSUZfRl9TRykpIHsKPiA+ICAgICAgICAgICAgICAgICBuZXRkZXZfZGJnKGRldiwg
+IkRyb3BwaW5nIE5FVElGX0ZfR1NPIHNpbmNlIG5vIFNHIGZlYXR1cmUuXG4iKTsKPiA+IC0gICAg
+ICAgICAgICAgICBmZWF0dXJlcyAmPSB+TkVUSUZfRl9HU087Cj4gPiArICAgICAgICAgICAgICAg
+ZmVhdHVyZXNbMF0gJj0gfk5FVElGX0ZfR1NPOwo+ID4gICAgICAgICB9Cj4gPgo+ID4gICAgICAg
+ICAvKiBHU08gcGFydGlhbCBmZWF0dXJlcyByZXF1aXJlIEdTTyBwYXJ0aWFsIGJlIHNldCAqLwo+
+ID4gLSAgICAgICBpZiAoKGZlYXR1cmVzICYgZGV2LT5nc29fcGFydGlhbF9mZWF0dXJlcykgJiYK
+PiA+IC0gICAgICAgICAgICEoZmVhdHVyZXMgJiBORVRJRl9GX0dTT19QQVJUSUFMKSkgewo+ID4g
+KyAgICAgICBpZiAoKGZlYXR1cmVzWzBdICYgZGV2LT5nc29fcGFydGlhbF9mZWF0dXJlcykgJiYK
+PiA+ICsgICAgICAgICAgICEoZmVhdHVyZXNbMF0gJiBORVRJRl9GX0dTT19QQVJUSUFMKSkgewo+
+ID4gICAgICAgICAgICAgICAgIG5ldGRldl9kYmcoZGV2LAo+ID4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIkRyb3BwaW5nIHBhcnRpYWxseSBzdXBwb3J0ZWQgR1NPIGZlYXR1cmVzCj4gPiBz
+aW5jZSBubyBHU08gcGFydGlhbC5cbiIpOwo+ID4gLSAgICAgICAgICAgICAgIGZlYXR1cmVzICY9
+IH5kZXYtPmdzb19wYXJ0aWFsX2ZlYXR1cmVzOwo+ID4gKyAgICAgICAgICAgICAgIGZlYXR1cmVz
+WzBdICY9IH5kZXYtPmdzb19wYXJ0aWFsX2ZlYXR1cmVzOwo+ID4gICAgICAgICB9Cj4gPgo+ID4g
+LSAgICAgICBpZiAoIShmZWF0dXJlcyAmIE5FVElGX0ZfUlhDU1VNKSkgewo+ID4gKyAgICAgICBp
+ZiAoIShmZWF0dXJlc1swXSAmIE5FVElGX0ZfUlhDU1VNKSkgewo+ID4gICAgICAgICAgICAgICAg
+IC8qIE5FVElGX0ZfR1JPX0hXIGltcGxpZXMgZG9pbmcgUlhDU1VNIHNpbmNlIGV2ZXJ5IHBhY2tl
+dAo+ID4gICAgICAgICAgICAgICAgICAqIHN1Y2Nlc3NmdWxseSBtZXJnZWQgYnkgaGFyZHdhcmUg
+bXVzdCBhbHNvIGhhdmUgdGhlCj4gPiAgICAgICAgICAgICAgICAgICogY2hlY2tzdW0gdmVyaWZp
+ZWQgYnkgaGFyZHdhcmUuICBJZiB0aGUgdXNlciBkb2VzIG5vdAo+ID4gICAgICAgICAgICAgICAg
+ICAqIHdhbnQgdG8gZW5hYmxlIFJYQ1NVTSwgbG9naWNhbGx5LCB3ZSBzaG91bGQgZGlzYWJsZSBH
+Uk9fSFcuCj4gPiAgICAgICAgICAgICAgICAgICovCj4gPiAtICAgICAgICAgICAgICAgaWYgKGZl
+YXR1cmVzICYgTkVUSUZfRl9HUk9fSFcpIHsKPiA+ICsgICAgICAgICAgICAgICBpZiAoZmVhdHVy
+ZXNbMF0gJiBORVRJRl9GX0dST19IVykgewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgbmV0
+ZGV2X2RiZyhkZXYsICJEcm9wcGluZyBORVRJRl9GX0dST19IVyBzaW5jZQo+ID4gbm8gUlhDU1VN
+IGZlYXR1cmUuXG4iKTsKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgIGZlYXR1cmVzICY9IH5O
+RVRJRl9GX0dST19IVzsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGZlYXR1cmVzWzBdICY9
+IH5ORVRJRl9GX0dST19IVzsKPiA+ICAgICAgICAgICAgICAgICB9Cj4gPiAgICAgICAgIH0KPiA+
+Cj4gPiAgICAgICAgIC8qIExSTy9IVy1HUk8gZmVhdHVyZXMgY2Fubm90IGJlIGNvbWJpbmVkIHdp
+dGggUlgtRkNTICovCj4gPiAtICAgICAgIGlmIChmZWF0dXJlcyAmIE5FVElGX0ZfUlhGQ1MpIHsK
+PiA+IC0gICAgICAgICAgICAgICBpZiAoZmVhdHVyZXMgJiBORVRJRl9GX0xSTykgewo+ID4gKyAg
+ICAgICBpZiAoZmVhdHVyZXNbMF0gJiBORVRJRl9GX1JYRkNTKSB7Cj4gPiArICAgICAgICAgICAg
+ICAgaWYgKGZlYXR1cmVzWzBdICYgTkVUSUZfRl9MUk8pIHsKPiA+ICAgICAgICAgICAgICAgICAg
+ICAgICAgIG5ldGRldl9kYmcoZGV2LCAiRHJvcHBpbmcgTFJPIGZlYXR1cmUgc2luY2UKPiA+IFJY
+LUZDUyBpcyByZXF1ZXN0ZWQuXG4iKTsKPiA+IC0gICAgICAgICAgICAgICAgICAgICAgIGZlYXR1
+cmVzICY9IH5ORVRJRl9GX0xSTzsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGZlYXR1cmVz
+WzBdICY9IH5ORVRJRl9GX0xSTzsKPiA+ICAgICAgICAgICAgICAgICB9Cj4gPgo+ID4gLSAgICAg
+ICAgICAgICAgIGlmIChmZWF0dXJlcyAmIE5FVElGX0ZfR1JPX0hXKSB7Cj4gPiArICAgICAgICAg
+ICAgICAgaWYgKGZlYXR1cmVzWzBdICYgTkVUSUZfRl9HUk9fSFcpIHsKPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgIG5ldGRldl9kYmcoZGV2LCAiRHJvcHBpbmcgSFctR1JPIGZlYXR1cmUgc2lu
+Y2UKPiA+IFJYLUZDUyBpcyByZXF1ZXN0ZWQuXG4iKTsKPiA+IC0gICAgICAgICAgICAgICAgICAg
+ICAgIGZlYXR1cmVzICY9IH5ORVRJRl9GX0dST19IVzsKPiA+ICsgICAgICAgICAgICAgICAgICAg
+ICAgIGZlYXR1cmVzWzBdICY9IH5ORVRJRl9GX0dST19IVzsKPiA+ICAgICAgICAgICAgICAgICB9
+Cj4gPiAgICAgICAgIH0KPiA+Cj4gPiAtICAgICAgIGlmIChmZWF0dXJlcyAmIE5FVElGX0ZfSFdf
+VExTX1RYKSB7Cj4gPiAtICAgICAgICAgICAgICAgYm9vbCBpcF9jc3VtID0gKGZlYXR1cmVzICYg
+KE5FVElGX0ZfSVBfQ1NVTSB8Cj4gPiBORVRJRl9GX0lQVjZfQ1NVTSkpID09Cj4gPiArICAgICAg
+IGlmIChmZWF0dXJlc1swXSAmIE5FVElGX0ZfSFdfVExTX1RYKSB7Cj4gPiArICAgICAgICAgICAg
+ICAgYm9vbCBpcF9jc3VtID0gKGZlYXR1cmVzWzBdICYgKE5FVElGX0ZfSVBfQ1NVTSB8Cj4gPiBO
+RVRJRl9GX0lQVjZfQ1NVTSkpID09Cj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAoTkVUSUZf
+Rl9JUF9DU1VNIHwgTkVUSUZfRl9JUFY2X0NTVU0pOwo+ID4gLSAgICAgICAgICAgICAgIGJvb2wg
+aHdfY3N1bSA9IGZlYXR1cmVzICYgTkVUSUZfRl9IV19DU1VNOwo+ID4gKyAgICAgICAgICAgICAg
+IGJvb2wgaHdfY3N1bSA9IGZlYXR1cmVzWzBdICYgTkVUSUZfRl9IV19DU1VNOwo+ID4KPiA+ICAg
+ICAgICAgICAgICAgICBpZiAoIWlwX2NzdW0gJiYgIWh3X2NzdW0pIHsKPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgIG5ldGRldl9kYmcoZGV2LCAiRHJvcHBpbmcgVExTIFRYIEhXIG9mZmxvYWQK
+PiA+IGZlYXR1cmUgc2luY2Ugbm8gQ1NVTSBmZWF0dXJlLlxuIik7Cj4gPiAtICAgICAgICAgICAg
+ICAgICAgICAgICBmZWF0dXJlcyAmPSB+TkVUSUZfRl9IV19UTFNfVFg7Cj4gPiArICAgICAgICAg
+ICAgICAgICAgICAgICBmZWF0dXJlc1swXSAmPSB+TkVUSUZfRl9IV19UTFNfVFg7Cj4gPiAgICAg
+ICAgICAgICAgICAgfQo+ID4gICAgICAgICB9Cj4gPgo+ID4gLSAgICAgICBpZiAoKGZlYXR1cmVz
+ICYgTkVUSUZfRl9IV19UTFNfUlgpICYmICEoZmVhdHVyZXMgJiBORVRJRl9GX1JYQ1NVTSkpIHsK
+PiA+ICsgICAgICAgaWYgKChmZWF0dXJlc1swXSAmIE5FVElGX0ZfSFdfVExTX1JYKSAmJgo+ID4g
+KyAgICAgICAgICAgIShmZWF0dXJlc1swXSAmIE5FVElGX0ZfUlhDU1VNKSkgewo+ID4gICAgICAg
+ICAgICAgICAgIG5ldGRldl9kYmcoZGV2LCAiRHJvcHBpbmcgVExTIFJYIEhXIG9mZmxvYWQgZmVh
+dHVyZQo+ID4gc2luY2Ugbm8gUlhDU1VNIGZlYXR1cmUuXG4iKTsKPiA+IC0gICAgICAgICAgICAg
+ICBmZWF0dXJlcyAmPSB+TkVUSUZfRl9IV19UTFNfUlg7Cj4gPiArICAgICAgICAgICAgICAgZmVh
+dHVyZXNbMF0gJj0gfk5FVElGX0ZfSFdfVExTX1JYOwo+ID4gICAgICAgICB9Cj4gPiAtCj4gPiAt
+ICAgICAgIHJldHVybiBmZWF0dXJlczsKPiA+ICB9Cj4gPgo+ID4gIGludCBfX25ldGRldl91cGRh
+dGVfZmVhdHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKmRldikKPiA+ICB7Cj4gPiArICAgICAgIG5l
+dGRldl9mZWF0dXJlc190IGZlYXR1cmVzW05FVERFVl9GRUFUVVJFX0RXT1JEU107Cj4gPiAgICAg
+ICAgIHN0cnVjdCBuZXRfZGV2aWNlICp1cHBlciwgKmxvd2VyOwo+ID4gLSAgICAgICBuZXRkZXZf
+ZmVhdHVyZXNfdCBmZWF0dXJlczsKPiA+ICAgICAgICAgc3RydWN0IGxpc3RfaGVhZCAqaXRlcjsK
+PiA+ICsgICAgICAgdW5zaWduZWQgaW50IGk7Cj4gPiAgICAgICAgIGludCBlcnIgPSAtMTsKPiA+
+Cj4gPiAgICAgICAgIEFTU0VSVF9SVE5MKCk7Cj4gPgo+ID4gLSAgICAgICBmZWF0dXJlcyA9IG5l
+dGRldl9nZXRfd2FudGVkX2ZlYXR1cmVzKGRldik7Cj4gPiArICAgICAgIG5ldGRldl9nZXRfd2Fu
+dGVkX2ZlYXR1cmVzKGRldiwgZmVhdHVyZXMpOwo+ID4KPiA+ICAgICAgICAgaWYgKGRldi0+bmV0
+ZGV2X29wcy0+bmRvX2ZpeF9mZWF0dXJlcykKPiA+IC0gICAgICAgICAgICAgICBmZWF0dXJlcyA9
+IGRldi0+bmV0ZGV2X29wcy0+bmRvX2ZpeF9mZWF0dXJlcyhkZXYsIGZlYXR1cmVzKTsKPiA+ICsg
+ICAgICAgICAgICAgICBkZXYtPm5ldGRldl9vcHMtPm5kb19maXhfZmVhdHVyZXMoZGV2LCBmZWF0
+dXJlcyk7Cj4gPgo+ID4gICAgICAgICAvKiBkcml2ZXIgbWlnaHQgYmUgbGVzcyBzdHJpY3QgYWJv
+dXQgZmVhdHVyZSBkZXBlbmRlbmNpZXMgKi8KPiA+IC0gICAgICAgZmVhdHVyZXMgPSBuZXRkZXZf
+Zml4X2ZlYXR1cmVzKGRldiwgZmVhdHVyZXMpOwo+ID4gKyAgICAgICBuZXRkZXZfZml4X2ZlYXR1
+cmVzKGRldiwgZmVhdHVyZXMpOwo+ID4KPiA+ICAgICAgICAgLyogc29tZSBmZWF0dXJlcyBjYW4n
+dCBiZSBlbmFibGVkIGlmIHRoZXkncmUgb2ZmIG9uIGFuIHVwcGVyIGRldmljZSAqLwo+ID4gICAg
+ICAgICBuZXRkZXZfZm9yX2VhY2hfdXBwZXJfZGV2X3JjdShkZXYsIHVwcGVyLCBpdGVyKQo+ID4g
+LSAgICAgICAgICAgICAgIGZlYXR1cmVzID0gbmV0ZGV2X3N5bmNfdXBwZXJfZmVhdHVyZXMoZGV2
+LCB1cHBlciwgZmVhdHVyZXMpOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldl9zeW5jX3VwcGVy
+X2ZlYXR1cmVzKGRldiwgdXBwZXIsIGZlYXR1cmVzKTsKPiA+Cj4gPiAtICAgICAgIGlmIChkZXYt
+PmZlYXR1cmVzID09IGZlYXR1cmVzKQo+ID4gKyAgICAgICBpZiAobmV0ZGV2X2ZlYXR1cmVzX2Vx
+dWFsKGRldi0+ZmVhdHVyZXMsIGZlYXR1cmVzKSkKPiA+ICAgICAgICAgICAgICAgICBnb3RvIHN5
+bmNfbG93ZXI7Cj4gPgo+ID4gLSAgICAgICBuZXRkZXZfZGJnKGRldiwgIkZlYXR1cmVzIGNoYW5n
+ZWQ6ICVwTkYgLT4gJXBORlxuIiwKPiA+IC0gICAgICAgICAgICAgICAmZGV2LT5mZWF0dXJlcywg
+JmZlYXR1cmVzKTsKPiA+ICsgICAgICAgZm9yIChpID0gMDsgaSA8IE5FVERFVl9GRUFUVVJFX0RX
+T1JEUzsgaSsrKQo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldl9kYmcoZGV2LCAiRmVhdHVyZXNb
+JXVdIGNoYW5nZWQ6ICVwTkYgLT4gJXBORlxuIiwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAg
+ICAgIGksICZkZXYtPmZlYXR1cmVzW2ldLCAmZmVhdHVyZXNbaV0pOwo+ID4KPiA+ICAgICAgICAg
+aWYgKGRldi0+bmV0ZGV2X29wcy0+bmRvX3NldF9mZWF0dXJlcykKPiA+ICAgICAgICAgICAgICAg
+ICBlcnIgPSBkZXYtPm5ldGRldl9vcHMtPm5kb19zZXRfZmVhdHVyZXMoZGV2LCBmZWF0dXJlcyk7
+Cj4gPiBAQCAtOTk3MSw5ICs5OTc5LDEwIEBAIGludCBfX25ldGRldl91cGRhdGVfZmVhdHVyZXMo
+c3RydWN0IG5ldF9kZXZpY2UgKmRldikKPiA+ICAgICAgICAgICAgICAgICBlcnIgPSAwOwo+ID4K
+PiA+ICAgICAgICAgaWYgKHVubGlrZWx5KGVyciA8IDApKSB7Cj4gPiAtICAgICAgICAgICAgICAg
+bmV0ZGV2X2VycihkZXYsCj4gPiAtICAgICAgICAgICAgICAgICAgICAgICAic2V0X2ZlYXR1cmVz
+KCkgZmFpbGVkICglZCk7IHdhbnRlZCAlcE5GLCBsZWZ0ICVwTkZcbiIsCj4gPiAtICAgICAgICAg
+ICAgICAgICAgICAgICBlcnIsICZmZWF0dXJlcywgJmRldi0+ZmVhdHVyZXMpOwo+ID4gKyAgICAg
+ICAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBORVRERVZfRkVBVFVSRV9EV09SRFM7IGkrKykKPiA+
+ICsgICAgICAgICAgICAgICAgICAgICAgIG5ldGRldl9lcnIoZGV2LAo+ID4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAic2V0X2ZlYXR1cmVzKCkgZmFpbGVkICglZCk7Cj4gPiB3
+YW50ZWRbJXVdICVwTkYsIGxlZnRbJXVdICVwTkZcbiIsCj4gPiArICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgIGVyciwgaSwgJmZlYXR1cmVzW2ldLCBpLCAmZGV2LT5mZWF0dXJlc1tp
+XSk7Cj4gPiAgICAgICAgICAgICAgICAgLyogcmV0dXJuIG5vbi0wIHNpbmNlIHNvbWUgZmVhdHVy
+ZXMgbWlnaHQgaGF2ZSBjaGFuZ2VkIGFuZAo+ID4gICAgICAgICAgICAgICAgICAqIGl0J3MgYmV0
+dGVyIHRvIGZpcmUgYSBzcHVyaW91cyBub3RpZmljYXRpb24gdGhhbiBtaXNzIGl0Cj4gPiAgICAg
+ICAgICAgICAgICAgICovCj4gPiBAQCAtOTk4OCw5ICs5OTk3LDEwIEBAIGludCBfX25ldGRldl91
+cGRhdGVfZmVhdHVyZXMoc3RydWN0IG5ldF9kZXZpY2UgKmRldikKPiA+ICAgICAgICAgICAgICAg
+ICBuZXRkZXZfc3luY19sb3dlcl9mZWF0dXJlcyhkZXYsIGxvd2VyLCBmZWF0dXJlcyk7Cj4gPgo+
+ID4gICAgICAgICBpZiAoIWVycikgewo+ID4gLSAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJl
+c190IGRpZmYgPSBmZWF0dXJlcyBeIGRldi0+ZmVhdHVyZXM7Cj4gPiArICAgICAgICAgICAgICAg
+bmV0ZGV2X2ZlYXR1cmVzX3QgZGlmZltORVRERVZfRkVBVFVSRV9EV09SRFNdOwo+ID4KPiA+IC0g
+ICAgICAgICAgICAgICBpZiAoZGlmZiAmIE5FVElGX0ZfUlhfVURQX1RVTk5FTF9QT1JUKSB7Cj4g
+PiArICAgICAgICAgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3hvcihkaWZmLCBmZWF0dXJlcywgZGV2
+LT5mZWF0dXJlcyk7Cj4gPiArICAgICAgICAgICAgICAgaWYgKGRpZmZbMF0gJiBORVRJRl9GX1JY
+X1VEUF9UVU5ORUxfUE9SVCkgewo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgLyogdWRwX3R1
+bm5lbF97Z2V0LGRyb3B9X3J4X2luZm8gYm90aCBuZWVkCj4gPiAgICAgICAgICAgICAgICAgICAg
+ICAgICAgKiBORVRJRl9GX1JYX1VEUF9UVU5ORUxfUE9SVCBlbmFibGVkIG9uIHRoZQo+ID4gICAg
+ICAgICAgICAgICAgICAgICAgICAgICogZGV2aWNlLCBvciB0aGV5IHdvbid0IGRvIGFueXRoaW5n
+Lgo+ID4gQEAgLTk5OTgsMzMgKzEwMDA4LDMzIEBAIGludCBfX25ldGRldl91cGRhdGVfZmVhdHVy
+ZXMoc3RydWN0IG5ldF9kZXZpY2UgKmRldikKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAq
+ICpiZWZvcmUqIGNhbGxpbmcgdWRwX3R1bm5lbF9nZXRfcnhfaW5mbywKPiA+ICAgICAgICAgICAg
+ICAgICAgICAgICAgICAqIGJ1dCAqYWZ0ZXIqIGNhbGxpbmcgdWRwX3R1bm5lbF9kcm9wX3J4X2lu
+Zm8uCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgKi8KPiA+IC0gICAgICAgICAgICAgICAg
+ICAgICAgIGlmIChmZWF0dXJlcyAmIE5FVElGX0ZfUlhfVURQX1RVTk5FTF9QT1JUKSB7Cj4gPiAt
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRldi0+ZmVhdHVyZXMgPSBmZWF0dXJlczsK
+PiA+ICsgICAgICAgICAgICAgICAgICAgICAgIGlmIChmZWF0dXJlc1swXSAmIE5FVElGX0ZfUlhf
+VURQX1RVTk5FTF9QT1JUKSB7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGRl
+di0+ZmVhdHVyZXNbMF0gPSBmZWF0dXJlc1swXTsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgdWRwX3R1bm5lbF9nZXRfcnhfaW5mbyhkZXYpOwo+ID4gICAgICAgICAgICAgICAg
+ICAgICAgICAgfSBlbHNlIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgdWRw
+X3R1bm5lbF9kcm9wX3J4X2luZm8oZGV2KTsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIH0K
+PiA+ICAgICAgICAgICAgICAgICB9Cj4gPgo+ID4gLSAgICAgICAgICAgICAgIGlmIChkaWZmICYg
+TkVUSUZfRl9IV19WTEFOX0NUQUdfRklMVEVSKSB7Cj4gPiAtICAgICAgICAgICAgICAgICAgICAg
+ICBpZiAoZmVhdHVyZXMgJiBORVRJRl9GX0hXX1ZMQU5fQ1RBR19GSUxURVIpIHsKPiA+IC0gICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgZGV2LT5mZWF0dXJlcyA9IGZlYXR1cmVzOwo+ID4g
+KyAgICAgICAgICAgICAgIGlmIChkaWZmWzBdICYgTkVUSUZfRl9IV19WTEFOX0NUQUdfRklMVEVS
+KSB7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICBpZiAoZmVhdHVyZXNbMF0gJiBORVRJRl9G
+X0hXX1ZMQU5fQ1RBR19GSUxURVIpIHsKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgZGV2LT5mZWF0dXJlc1swXSA9IGZlYXR1cmVzWzBdOwo+ID4gICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBlcnIgfD0gdmxhbl9nZXRfcnhfY3RhZ19maWx0ZXJfaW5mbyhkZXYpOwo+
+ID4gICAgICAgICAgICAgICAgICAgICAgICAgfSBlbHNlIHsKPiA+ICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgdmxhbl9kcm9wX3J4X2N0YWdfZmlsdGVyX2luZm8oZGV2KTsKPiA+ICAg
+ICAgICAgICAgICAgICAgICAgICAgIH0KPiA+ICAgICAgICAgICAgICAgICB9Cj4gPgo+ID4gLSAg
+ICAgICAgICAgICAgIGlmIChkaWZmICYgTkVUSUZfRl9IV19WTEFOX1NUQUdfRklMVEVSKSB7Cj4g
+PiArICAgICAgICAgICAgICAgaWYgKGRpZmZbMF0gJiBORVRJRl9GX0hXX1ZMQU5fU1RBR19GSUxU
+RVIpIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIGlmIChmZWF0dXJlcyAmIE5FVElGX0Zf
+SFdfVkxBTl9TVEFHX0ZJTFRFUikgewo+ID4gLSAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBkZXYtPmZlYXR1cmVzID0gZmVhdHVyZXM7Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIGRldi0+ZmVhdHVyZXNbMF0gPSBmZWF0dXJlc1swXTsKPiA+ICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgZXJyIHw9IHZsYW5fZ2V0X3J4X3N0YWdfZmlsdGVyX2luZm8oZGV2
+KTsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIH0gZWxzZSB7Cj4gPiAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIHZsYW5fZHJvcF9yeF9zdGFnX2ZpbHRlcl9pbmZvKGRldik7Cj4g
+PiAgICAgICAgICAgICAgICAgICAgICAgICB9Cj4gPiAgICAgICAgICAgICAgICAgfQo+ID4KPiA+
+IC0gICAgICAgICAgICAgICBkZXYtPmZlYXR1cmVzID0gZmVhdHVyZXM7Cj4gPiArICAgICAgICAg
+ICAgICAgbmV0ZGV2X2ZlYXR1cmVzX2NvcHkoZGV2LT5mZWF0dXJlcywgZmVhdHVyZXMpOwo+ID4g
+ICAgICAgICB9Cj4gPgo+ID4gICAgICAgICByZXR1cm4gZXJyIDwgMCA/IDAgOiAxOwo+ID4gQEAg
+LTEwMjEzLDcgKzEwMjIzLDcgQEAgaW50IHJlZ2lzdGVyX25ldGRldmljZShzdHJ1Y3QgbmV0X2Rl
+dmljZSAqZGV2KQo+ID4gICAgICAgICBpbnQgcmV0Owo+ID4gICAgICAgICBzdHJ1Y3QgbmV0ICpu
+ZXQgPSBkZXZfbmV0KGRldik7Cj4gPgo+ID4gLSAgICAgICBCVUlMRF9CVUdfT04oc2l6ZW9mKG5l
+dGRldl9mZWF0dXJlc190KSAqIEJJVFNfUEVSX0JZVEUgPAo+ID4gKyAgICAgICBCVUlMRF9CVUdf
+T04oc2l6ZW9mKGRldi0+ZmVhdHVyZXMpICogQklUU19QRVJfQllURSA8Cj4gPiAgICAgICAgICAg
+ICAgICAgICAgICBORVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiAgICAgICAgIEJVR19PTihkZXZf
+Ym9vdF9waGFzZSk7Cj4gPiAgICAgICAgIEFTU0VSVF9SVE5MKCk7Cj4gPiBAQCAtMTAyNTAsNyAr
+MTAyNjAsNyBAQCBpbnQgcmVnaXN0ZXJfbmV0ZGV2aWNlKHN0cnVjdCBuZXRfZGV2aWNlICpkZXYp
+Cj4gPiAgICAgICAgICAgICAgICAgfQo+ID4gICAgICAgICB9Cj4gPgo+ID4gLSAgICAgICBpZiAo
+KChkZXYtPmh3X2ZlYXR1cmVzIHwgZGV2LT5mZWF0dXJlcykgJgo+ID4gKyAgICAgICBpZiAoKChk
+ZXYtPmh3X2ZlYXR1cmVzWzBdIHwgZGV2LT5mZWF0dXJlc1swXSkgJgo+ID4gICAgICAgICAgICAg
+IE5FVElGX0ZfSFdfVkxBTl9DVEFHX0ZJTFRFUikgJiYKPiA+ICAgICAgICAgICAgICghZGV2LT5u
+ZXRkZXZfb3BzLT5uZG9fdmxhbl9yeF9hZGRfdmlkIHx8Cj4gPiAgICAgICAgICAgICAgIWRldi0+
+bmV0ZGV2X29wcy0+bmRvX3ZsYW5fcnhfa2lsbF92aWQpKSB7Cj4gPiBAQCAtMTAyNjgsNDQgKzEw
+Mjc4LDQ2IEBAIGludCByZWdpc3Rlcl9uZXRkZXZpY2Uoc3RydWN0IG5ldF9kZXZpY2UgKmRldikK
+PiA+ICAgICAgICAgLyogVHJhbnNmZXIgY2hhbmdlYWJsZSBmZWF0dXJlcyB0byB3YW50ZWRfZmVh
+dHVyZXMgYW5kIGVuYWJsZQo+ID4gICAgICAgICAgKiBzb2Z0d2FyZSBvZmZsb2FkcyAoR1NPIGFu
+ZCBHUk8pLgo+ID4gICAgICAgICAgKi8KPiA+IC0gICAgICAgZGV2LT5od19mZWF0dXJlcyB8PSAo
+TkVUSUZfRl9TT0ZUX0ZFQVRVUkVTIHwgTkVUSUZfRl9TT0ZUX0ZFQVRVUkVTX09GRik7Cj4gPiAt
+ICAgICAgIGRldi0+ZmVhdHVyZXMgfD0gTkVUSUZfRl9TT0ZUX0ZFQVRVUkVTOwo+ID4gKyAgICAg
+ICBkZXYtPmh3X2ZlYXR1cmVzWzBdIHw9Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAoTkVU
+SUZfRl9TT0ZUX0ZFQVRVUkVTIHwgTkVUSUZfRl9TT0ZUX0ZFQVRVUkVTX09GRik7Cj4gPiArICAg
+ICAgIGRldi0+ZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9TT0ZUX0ZFQVRVUkVTOwo+ID4KPiA+ICAg
+ICAgICAgaWYgKGRldi0+dWRwX3R1bm5lbF9uaWNfaW5mbykgewo+ID4gLSAgICAgICAgICAgICAg
+IGRldi0+ZmVhdHVyZXMgfD0gTkVUSUZfRl9SWF9VRFBfVFVOTkVMX1BPUlQ7Cj4gPiAtICAgICAg
+ICAgICAgICAgZGV2LT5od19mZWF0dXJlcyB8PSBORVRJRl9GX1JYX1VEUF9UVU5ORUxfUE9SVDsK
+PiA+ICsgICAgICAgICAgICAgICBkZXYtPmZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfUlhfVURQX1RV
+Tk5FTF9QT1JUOwo+ID4gKyAgICAgICAgICAgICAgIGRldi0+aHdfZmVhdHVyZXNbMF0gfD0gTkVU
+SUZfRl9SWF9VRFBfVFVOTkVMX1BPUlQ7Cj4gPiAgICAgICAgIH0KPiA+Cj4gPiAtICAgICAgIGRl
+di0+d2FudGVkX2ZlYXR1cmVzID0gZGV2LT5mZWF0dXJlcyAmIGRldi0+aHdfZmVhdHVyZXM7Cj4g
+PiArICAgICAgIG5ldGRldl9mZWF0dXJlc19hbmQoZGV2LT53YW50ZWRfZmVhdHVyZXMsIGRldi0+
+ZmVhdHVyZXMsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgZGV2LT5od19mZWF0dXJl
+cyk7Cj4gPgo+ID4gICAgICAgICBpZiAoIShkZXYtPmZsYWdzICYgSUZGX0xPT1BCQUNLKSkKPiA+
+IC0gICAgICAgICAgICAgICBkZXYtPmh3X2ZlYXR1cmVzIHw9IE5FVElGX0ZfTk9DQUNIRV9DT1BZ
+Owo+ID4gKyAgICAgICAgICAgICAgIGRldi0+aHdfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9OT0NB
+Q0hFX0NPUFk7Cj4gPgo+ID4gICAgICAgICAvKiBJZiBJUHY0IFRDUCBzZWdtZW50YXRpb24gb2Zm
+bG9hZCBpcyBzdXBwb3J0ZWQgd2Ugc2hvdWxkIGFsc28KPiA+ICAgICAgICAgICogYWxsb3cgdGhl
+IGRldmljZSB0byBlbmFibGUgc2VnbWVudGluZyB0aGUgZnJhbWUgd2l0aCB0aGUgb3B0aW9uCj4g
+PiAgICAgICAgICAqIG9mIGlnbm9yaW5nIGEgc3RhdGljIElQIElEIHZhbHVlLiAgVGhpcyBkb2Vz
+bid0IGVuYWJsZSB0aGUKPiA+ICAgICAgICAgICogZmVhdHVyZSBpdHNlbGYgYnV0IGFsbG93cyB0
+aGUgdXNlciB0byBlbmFibGUgaXQgbGF0ZXIuCj4gPiAgICAgICAgICAqLwo+ID4gLSAgICAgICBp
+ZiAoZGV2LT5od19mZWF0dXJlcyAmIE5FVElGX0ZfVFNPKQo+ID4gLSAgICAgICAgICAgICAgIGRl
+di0+aHdfZmVhdHVyZXMgfD0gTkVUSUZfRl9UU09fTUFOR0xFSUQ7Cj4gPiAtICAgICAgIGlmIChk
+ZXYtPnZsYW5fZmVhdHVyZXMgJiBORVRJRl9GX1RTTykKPiA+IC0gICAgICAgICAgICAgICBkZXYt
+PnZsYW5fZmVhdHVyZXMgfD0gTkVUSUZfRl9UU09fTUFOR0xFSUQ7Cj4gPiAtICAgICAgIGlmIChk
+ZXYtPm1wbHNfZmVhdHVyZXMgJiBORVRJRl9GX1RTTykKPiA+IC0gICAgICAgICAgICAgICBkZXYt
+Pm1wbHNfZmVhdHVyZXMgfD0gTkVUSUZfRl9UU09fTUFOR0xFSUQ7Cj4gPiAtICAgICAgIGlmIChk
+ZXYtPmh3X2VuY19mZWF0dXJlcyAmIE5FVElGX0ZfVFNPKQo+ID4gLSAgICAgICAgICAgICAgIGRl
+di0+aHdfZW5jX2ZlYXR1cmVzIHw9IE5FVElGX0ZfVFNPX01BTkdMRUlEOwo+ID4gKyAgICAgICBp
+ZiAoZGV2LT5od19mZWF0dXJlc1swXSAmIE5FVElGX0ZfVFNPKQo+ID4gKyAgICAgICAgICAgICAg
+IGRldi0+aHdfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9UU09fTUFOR0xFSUQ7Cj4gPiArICAgICAg
+IGlmIChkZXYtPnZsYW5fZmVhdHVyZXNbMF0gJiBORVRJRl9GX1RTTykKPiA+ICsgICAgICAgICAg
+ICAgICBkZXYtPnZsYW5fZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9UU09fTUFOR0xFSUQ7Cj4gPiAr
+ICAgICAgIGlmIChkZXYtPm1wbHNfZmVhdHVyZXNbMF0gJiBORVRJRl9GX1RTTykKPiA+ICsgICAg
+ICAgICAgICAgICBkZXYtPm1wbHNfZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9UU09fTUFOR0xFSUQ7
+Cj4gPiArICAgICAgIGlmIChkZXYtPmh3X2VuY19mZWF0dXJlc1swXSAmIE5FVElGX0ZfVFNPKQo+
+ID4gKyAgICAgICAgICAgICAgIGRldi0+aHdfZW5jX2ZlYXR1cmVzWzBdIHw9IE5FVElGX0ZfVFNP
+X01BTkdMRUlEOwo+ID4KPiA+ICAgICAgICAgLyogTWFrZSBORVRJRl9GX0hJR0hETUEgaW5oZXJp
+dGFibGUgdG8gVkxBTiBkZXZpY2VzLgo+ID4gICAgICAgICAgKi8KPiA+IC0gICAgICAgZGV2LT52
+bGFuX2ZlYXR1cmVzIHw9IE5FVElGX0ZfSElHSERNQTsKPiA+ICsgICAgICAgZGV2LT52bGFuX2Zl
+YXR1cmVzWzBdIHw9IE5FVElGX0ZfSElHSERNQTsKPiA+Cj4gPiAgICAgICAgIC8qIE1ha2UgTkVU
+SUZfRl9TRyBpbmhlcml0YWJsZSB0byB0dW5uZWwgZGV2aWNlcy4KPiA+ICAgICAgICAgICovCj4g
+PiAtICAgICAgIGRldi0+aHdfZW5jX2ZlYXR1cmVzIHw9IE5FVElGX0ZfU0cgfCBORVRJRl9GX0dT
+T19QQVJUSUFMOwo+ID4gKyAgICAgICBkZXYtPmh3X2VuY19mZWF0dXJlc1swXSB8PSBORVRJRl9G
+X1NHIHwgTkVUSUZfRl9HU09fUEFSVElBTDsKPiA+Cj4gPiAgICAgICAgIC8qIE1ha2UgTkVUSUZf
+Rl9TRyBpbmhlcml0YWJsZSB0byBNUExTLgo+ID4gICAgICAgICAgKi8KPiA+IC0gICAgICAgZGV2
+LT5tcGxzX2ZlYXR1cmVzIHw9IE5FVElGX0ZfU0c7Cj4gPiArICAgICAgIGRldi0+bXBsc19mZWF0
+dXJlc1swXSB8PSBORVRJRl9GX1NHOwo+ID4KPiA+ICAgICAgICAgcmV0ID0gY2FsbF9uZXRkZXZp
+Y2Vfbm90aWZpZXJzKE5FVERFVl9QT1NUX0lOSVQsIGRldik7Cj4gPiAgICAgICAgIHJldCA9IG5v
+dGlmaWVyX3RvX2Vycm5vKHJldCk7Cj4gPiBAQCAtMTExNDYsNyArMTExNTgsNyBAQCBpbnQgX19k
+ZXZfY2hhbmdlX25ldF9uYW1lc3BhY2Uoc3RydWN0Cj4gPiBuZXRfZGV2aWNlICpkZXYsIHN0cnVj
+dCBuZXQgKm5ldCwKPiA+Cj4gPiAgICAgICAgIC8qIERvbid0IGFsbG93IG5hbWVzcGFjZSBsb2Nh
+bCBkZXZpY2VzIHRvIGJlIG1vdmVkLiAqLwo+ID4gICAgICAgICBlcnIgPSAtRUlOVkFMOwo+ID4g
+LSAgICAgICBpZiAoZGV2LT5mZWF0dXJlcyAmIE5FVElGX0ZfTkVUTlNfTE9DQUwpCj4gPiArICAg
+ICAgIGlmIChkZXYtPmZlYXR1cmVzWzBdICYgTkVUSUZfRl9ORVROU19MT0NBTCkKPiA+ICAgICAg
+ICAgICAgICAgICBnb3RvIG91dDsKPiA+Cj4gPiAgICAgICAgIC8qIEVuc3VyZSB0aGUgZGV2aWNl
+IGhhcyBiZWVuIHJlZ2lzdHJlcmVkICovCj4gPiBAQCAtMTE1MDYsNyArMTE1MTgsNyBAQCBzdGF0
+aWMgdm9pZCBfX25ldF9leGl0Cj4gPiBkZWZhdWx0X2RldmljZV9leGl0KHN0cnVjdCBuZXQgKm5l
+dCkKPiA+ICAgICAgICAgICAgICAgICBjaGFyIGZiX25hbWVbSUZOQU1TSVpdOwo+ID4KPiA+ICAg
+ICAgICAgICAgICAgICAvKiBJZ25vcmUgdW5tb3ZlYWJsZSBkZXZpY2VzIChpLmUuIGxvb3BiYWNr
+KSAqLwo+ID4gLSAgICAgICAgICAgICAgIGlmIChkZXYtPmZlYXR1cmVzICYgTkVUSUZfRl9ORVRO
+U19MT0NBTCkKPiA+ICsgICAgICAgICAgICAgICBpZiAoZGV2LT5mZWF0dXJlc1swXSAmIE5FVElG
+X0ZfTkVUTlNfTE9DQUwpCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICBjb250aW51ZTsKPiA+
+Cj4gPiAgICAgICAgICAgICAgICAgLyogTGVhdmUgdmlydHVhbCBkZXZpY2VzIGZvciB0aGUgZ2Vu
+ZXJpYyBjbGVhbnVwICovCj4gPiBkaWZmIC0tZ2l0IGEvbmV0L2NvcmUvbmV0cG9sbC5jIGIvbmV0
+L2NvcmUvbmV0cG9sbC5jCj4gPiBpbmRleCAwYTZiMDQ3Li4yYzBhZGY0IDEwMDY0NAo+ID4gLS0t
+IGEvbmV0L2NvcmUvbmV0cG9sbC5jCj4gPiArKysgYi9uZXQvY29yZS9uZXRwb2xsLmMKPiA+IEBA
+IC03NCwxMyArNzQsMTMgQEAgc3RhdGljIG5ldGRldl90eF90IG5ldHBvbGxfc3RhcnRfeG1pdChz
+dHJ1Y3Qgc2tfYnVmZiAqc2tiLAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqZGV2LAo+ID4gICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBzdHJ1Y3QgbmV0ZGV2X3F1ZXVlICp0eHEpCj4gPiAgewo+ID4gKyAgICAg
+ICBuZXRkZXZfZmVhdHVyZXNfdCBmZWF0dXJlc1tORVRERVZfRkVBVFVSRV9EV09SRFNdOwo+ID4g
+ICAgICAgICBuZXRkZXZfdHhfdCBzdGF0dXMgPSBORVRERVZfVFhfT0s7Cj4gPiAtICAgICAgIG5l
+dGRldl9mZWF0dXJlc190IGZlYXR1cmVzOwo+ID4KPiA+IC0gICAgICAgZmVhdHVyZXMgPSBuZXRp
+Zl9za2JfZmVhdHVyZXMoc2tiKTsKPiA+ICsgICAgICAgbmV0aWZfc2tiX2ZlYXR1cmVzKHNrYiwg
+ZmVhdHVyZXMpOwo+ID4KPiA+ICAgICAgICAgaWYgKHNrYl92bGFuX3RhZ19wcmVzZW50KHNrYikg
+JiYKPiA+IC0gICAgICAgICAgICF2bGFuX2h3X29mZmxvYWRfY2FwYWJsZShmZWF0dXJlcywgc2ti
+LT52bGFuX3Byb3RvKSkgewo+ID4gKyAgICAgICAgICAgIXZsYW5faHdfb2ZmbG9hZF9jYXBhYmxl
+KGZlYXR1cmVzWzBdLCBza2ItPnZsYW5fcHJvdG8pKSB7Cj4gPiAgICAgICAgICAgICAgICAgc2ti
+ID0gX192bGFuX2h3YWNjZWxfcHVzaF9pbnNpZGUoc2tiKTsKPiA+ICAgICAgICAgICAgICAgICBp
+ZiAodW5saWtlbHkoIXNrYikpIHsKPiA+ICAgICAgICAgICAgICAgICAgICAgICAgIC8qIFRoaXMg
+aXMgYWN0dWFsbHkgYSBwYWNrZXQgZHJvcCwgYnV0IHdlCj4gPiBkaWZmIC0tZ2l0IGEvbmV0L2V0
+aHRvb2wvZmVhdHVyZXMuYyBiL25ldC9ldGh0b29sL2ZlYXR1cmVzLmMKPiA+IGluZGV4IDFjOWY0
+ZGYuLjBlZWRiMTcgMTAwNjQ0Cj4gPiAtLS0gYS9uZXQvZXRodG9vbC9mZWF0dXJlcy5jCj4gPiAr
+KysgYi9uZXQvZXRodG9vbC9mZWF0dXJlcy5jCj4gPiBAQCAtMjUsMTIgKzI1LDEzIEBAIGNvbnN0
+IHN0cnVjdCBubGFfcG9saWN5IGV0aG5sX2ZlYXR1cmVzX2dldF9wb2xpY3lbXSA9IHsKPiA+ICAg
+ICAgICAgICAgICAgICBOTEFfUE9MSUNZX05FU1RFRChldGhubF9oZWFkZXJfcG9saWN5KSwKPiA+
+ICB9Owo+ID4KPiA+IC1zdGF0aWMgdm9pZCBldGhubF9mZWF0dXJlc190b19iaXRtYXAzMih1MzIg
+KmRlc3QsIG5ldGRldl9mZWF0dXJlc190IHNyYykKPiA+ICtzdGF0aWMgdm9pZCBldGhubF9mZWF0
+dXJlc190b19iaXRtYXAzMih1MzIgKmRlc3QsIG5ldGRldl9mZWF0dXJlc190ICpzcmMpCj4gPiAg
+ewo+ID4gKyAgICAgICB1MzIgKl9fc3JjID0gKHUzMiAqKXNyYzsKPiA+ICAgICAgICAgdW5zaWdu
+ZWQgaW50IGk7Cj4gPgo+ID4gICAgICAgICBmb3IgKGkgPSAwOyBpIDwgRVRIVE9PTF9ERVZfRkVB
+VFVSRV9XT1JEUzsgaSsrKQo+ID4gLSAgICAgICAgICAgICAgIGRlc3RbaV0gPSBzcmMgPj4gKDMy
+ICogaSk7Cj4gPiArICAgICAgICAgICAgICAgZGVzdFtpXSA9IF9fc3JjW2ldOwo+ID4gIH0KPiA+
+Cj4gPiAgc3RhdGljIGludCBmZWF0dXJlc19wcmVwYXJlX2RhdGEoY29uc3Qgc3RydWN0IGV0aG5s
+X3JlcV9pbmZvICpyZXFfYmFzZSwKPiA+IEBAIC0zOCwxNSArMzksMjMgQEAgc3RhdGljIGludCBm
+ZWF0dXJlc19wcmVwYXJlX2RhdGEoY29uc3Qgc3RydWN0Cj4gPiBldGhubF9yZXFfaW5mbyAqcmVx
+X2Jhc2UsCj4gPiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBzdHJ1Y3QgZ2VubF9p
+bmZvICppbmZvKQo+ID4gIHsKPiA+ICAgICAgICAgc3RydWN0IGZlYXR1cmVzX3JlcGx5X2RhdGEg
+KmRhdGEgPSBGRUFUVVJFU19SRVBEQVRBKHJlcGx5X2Jhc2UpOwo+ID4gKyAgICAgICBuZXRkZXZf
+ZmVhdHVyZXNfdCBmZWF0dXJlc1tORVRERVZfRkVBVFVSRV9EV09SRFNdID0gezB9Owo+ID4gICAg
+ICAgICBzdHJ1Y3QgbmV0X2RldmljZSAqZGV2ID0gcmVwbHlfYmFzZS0+ZGV2Owo+ID4gLSAgICAg
+ICBuZXRkZXZfZmVhdHVyZXNfdCBhbGxfZmVhdHVyZXM7Cj4gPiArICAgICAgIHVuc2lnbmVkIGlu
+dCBpOwo+ID4KPiA+ICAgICAgICAgZXRobmxfZmVhdHVyZXNfdG9fYml0bWFwMzIoZGF0YS0+aHcs
+IGRldi0+aHdfZmVhdHVyZXMpOwo+ID4gICAgICAgICBldGhubF9mZWF0dXJlc190b19iaXRtYXAz
+MihkYXRhLT53YW50ZWQsIGRldi0+d2FudGVkX2ZlYXR1cmVzKTsKPiA+ICAgICAgICAgZXRobmxf
+ZmVhdHVyZXNfdG9fYml0bWFwMzIoZGF0YS0+YWN0aXZlLCBkZXYtPmZlYXR1cmVzKTsKPiA+IC0g
+ICAgICAgZXRobmxfZmVhdHVyZXNfdG9fYml0bWFwMzIoZGF0YS0+bm9jaGFuZ2UsIE5FVElGX0Zf
+TkVWRVJfQ0hBTkdFKTsKPiA+IC0gICAgICAgYWxsX2ZlYXR1cmVzID0gR0VOTUFTS19VTEwoTkVU
+REVWX0ZFQVRVUkVfQ09VTlQgLSAxLCAwKTsKPiA+IC0gICAgICAgZXRobmxfZmVhdHVyZXNfdG9f
+Yml0bWFwMzIoZGF0YS0+YWxsLCBhbGxfZmVhdHVyZXMpOwo+ID4gKyAgICAgICBmZWF0dXJlc1sw
+XSA9IE5FVElGX0ZfTkVWRVJfQ0hBTkdFOwo+ID4gKyAgICAgICBldGhubF9mZWF0dXJlc190b19i
+aXRtYXAzMihkYXRhLT5ub2NoYW5nZSwgZmVhdHVyZXMpOwo+ID4gKyAgICAgICBmb3IgKGkgPSAw
+OyBpIDwgTkVUREVWX0ZFQVRVUkVfRFdPUkRTOyBpKyspIHsKPiA+ICsgICAgICAgICAgICAgICBp
+ZiAoTkVUREVWX0ZFQVRVUkVfQ09VTlQgPj0gKGkgKyAxKSAqIDY0KQo+ID4gKyAgICAgICAgICAg
+ICAgICAgICAgICAgZmVhdHVyZXNbaV0gPSBHRU5NQVNLX1VMTCg2MywgMCk7Cj4gPiArICAgICAg
+ICAgICAgICAgZWxzZQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgZmVhdHVyZXNbaV0gPSBH
+RU5NQVNLX1VMTChORVRERVZfRkVBVFVSRV9DT1VOVCAtIGkgKiA2NCwKPiA+ICsgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgMCk7Cj4gPiArICAgICAgIH0K
+PiA+ICsgICAgICAgZXRobmxfZmVhdHVyZXNfdG9fYml0bWFwMzIoZGF0YS0+YWxsLCBmZWF0dXJl
+cyk7Cj4gPgo+ID4gICAgICAgICByZXR1cm4gMDsKPiA+ICB9Cj4gPiBAQCAtMTMxLDI3ICsxNDAs
+MjkgQEAgY29uc3Qgc3RydWN0IG5sYV9wb2xpY3kgZXRobmxfZmVhdHVyZXNfc2V0X3BvbGljeVtd
+ID0gewo+ID4gICAgICAgICBbRVRIVE9PTF9BX0ZFQVRVUkVTX1dBTlRFRF0gICAgID0geyAudHlw
+ZSA9IE5MQV9ORVNURUQgfSwKPiA+ICB9Owo+ID4KPiA+IC1zdGF0aWMgdm9pZCBldGhubF9mZWF0
+dXJlc190b19iaXRtYXAodW5zaWduZWQgbG9uZyAqZGVzdCwKPiA+IG5ldGRldl9mZWF0dXJlc190
+IHZhbCkKPiA+ICtzdGF0aWMgdm9pZCBldGhubF9mZWF0dXJlc190b19iaXRtYXAodW5zaWduZWQg
+bG9uZyAqZGVzdCwKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBuZXRk
+ZXZfZmVhdHVyZXNfdCAqdmFsKQo+ID4gIHsKPiA+ICAgICAgICAgY29uc3QgdW5zaWduZWQgaW50
+IHdvcmRzID0gQklUU19UT19MT05HUyhORVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiAgICAgICAg
+IHVuc2lnbmVkIGludCBpOwo+ID4KPiA+ICAgICAgICAgYml0bWFwX3plcm8oZGVzdCwgTkVUREVW
+X0ZFQVRVUkVfQ09VTlQpOwo+ID4gICAgICAgICBmb3IgKGkgPSAwOyBpIDwgd29yZHM7IGkrKykK
+PiA+IC0gICAgICAgICAgICAgICBkZXN0W2ldID0gKHVuc2lnbmVkIGxvbmcpKHZhbCA+PiAoaSAq
+IEJJVFNfUEVSX0xPTkcpKTsKPiA+ICsgICAgICAgICAgICAgICBkZXN0W2ldID0KPiA+ICsgICAg
+ICAgICAgICAgICAgICAgICAgICh1bnNpZ25lZCBsb25nKSh2YWxbaSAvIDJdID4+IChpICUgMiAq
+IEJJVFNfUEVSX0xPTkcpKTsKPiA+ICB9Cj4gPgo+ID4gLXN0YXRpYyBuZXRkZXZfZmVhdHVyZXNf
+dCBldGhubF9iaXRtYXBfdG9fZmVhdHVyZXModW5zaWduZWQgbG9uZyAqc3JjKQo+ID4gK3N0YXRp
+YyB2b2lkIGV0aG5sX2JpdG1hcF90b19mZWF0dXJlcyhuZXRkZXZfZmVhdHVyZXNfdCAqdmFsLCB1
+bnNpZ25lZAo+ID4gbG9uZyAqc3JjKQo+ID4gIHsKPiA+IC0gICAgICAgY29uc3QgdW5zaWduZWQg
+aW50IG5mdF9iaXRzID0gc2l6ZW9mKG5ldGRldl9mZWF0dXJlc190KSAqIEJJVFNfUEVSX0JZVEU7
+Cj4gPiAgICAgICAgIGNvbnN0IHVuc2lnbmVkIGludCB3b3JkcyA9IEJJVFNfVE9fTE9OR1MoTkVU
+REVWX0ZFQVRVUkVfQ09VTlQpOwo+ID4gLSAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCByZXQgPSAw
+Owo+ID4gICAgICAgICB1bnNpZ25lZCBpbnQgaTsKPiA+Cj4gPiArICAgICAgIGZvciAoaSA9IDA7
+IGkgPCBORVRERVZfRkVBVFVSRV9EV09SRFM7IGkrKykKPiA+ICsgICAgICAgICAgICAgICB2YWxb
+aV0gPSAwOwo+ID4gKwo+ID4gICAgICAgICBmb3IgKGkgPSAwOyBpIDwgd29yZHM7IGkrKykKPiA+
+IC0gICAgICAgICAgICAgICByZXQgfD0gKG5ldGRldl9mZWF0dXJlc190KShzcmNbaV0pIDw8IChp
+ICogQklUU19QRVJfTE9ORyk7Cj4gPiAtICAgICAgIHJldCAmPSB+KG5ldGRldl9mZWF0dXJlc190
+KTAgPj4gKG5mdF9iaXRzIC0gTkVUREVWX0ZFQVRVUkVfQ09VTlQpOwo+ID4gLSAgICAgICByZXR1
+cm4gcmV0Owo+ID4gKyAgICAgICAgICAgICAgIHZhbFtpIC8gMl0gfD0KPiA+ICsgICAgICAgICAg
+ICAgICAgICAgICAgIChuZXRkZXZfZmVhdHVyZXNfdCkoc3JjW2ldKSA8PCAoaSAlIDIgKiBCSVRT
+X1BFUl9MT05HKTsKPiA+ICB9Cj4gPgo+ID4gIHN0YXRpYyBpbnQgZmVhdHVyZXNfc2VuZF9yZXBs
+eShzdHJ1Y3QgbmV0X2RldmljZSAqZGV2LCBzdHJ1Y3QgZ2VubF9pbmZvICppbmZvLAo+ID4gQEAg
+LTIxMiwxMiArMjIzLDE0IEBAIGludCBldGhubF9zZXRfZmVhdHVyZXMoc3RydWN0IHNrX2J1ZmYg
+KnNrYiwKPiA+IHN0cnVjdCBnZW5sX2luZm8gKmluZm8pCj4gPiAgewo+ID4gICAgICAgICBERUNM
+QVJFX0JJVE1BUCh3YW50ZWRfZGlmZl9tYXNrLCBORVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiAg
+ICAgICAgIERFQ0xBUkVfQklUTUFQKGFjdGl2ZV9kaWZmX21hc2ssIE5FVERFVl9GRUFUVVJFX0NP
+VU5UKTsKPiA+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgZmVhdHVyZXNbTkVUREVWX0ZFQVRV
+UkVfRFdPUkRTXTsKPiA+ICAgICAgICAgREVDTEFSRV9CSVRNQVAob2xkX2FjdGl2ZSwgTkVUREVW
+X0ZFQVRVUkVfQ09VTlQpOwo+ID4gICAgICAgICBERUNMQVJFX0JJVE1BUChvbGRfd2FudGVkLCBO
+RVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiAgICAgICAgIERFQ0xBUkVfQklUTUFQKG5ld19hY3Rp
+dmUsIE5FVERFVl9GRUFUVVJFX0NPVU5UKTsKPiA+ICAgICAgICAgREVDTEFSRV9CSVRNQVAobmV3
+X3dhbnRlZCwgTkVUREVWX0ZFQVRVUkVfQ09VTlQpOwo+ID4gICAgICAgICBERUNMQVJFX0JJVE1B
+UChyZXFfd2FudGVkLCBORVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiAgICAgICAgIERFQ0xBUkVf
+QklUTUFQKHJlcV9tYXNrLCBORVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiArICAgICAgIG5ldGRl
+dl9mZWF0dXJlc190IHRtcFtORVRERVZfRkVBVFVSRV9EV09SRFNdOwo+ID4gICAgICAgICBzdHJ1
+Y3QgZXRobmxfcmVxX2luZm8gcmVxX2luZm8gPSB7fTsKPiA+ICAgICAgICAgc3RydWN0IG5sYXR0
+ciAqKnRiID0gaW5mby0+YXR0cnM7Cj4gPiAgICAgICAgIHN0cnVjdCBuZXRfZGV2aWNlICpkZXY7
+Cj4gPiBAQCAtMjQyLDcgKzI1NSwxMSBAQCBpbnQgZXRobmxfc2V0X2ZlYXR1cmVzKHN0cnVjdCBz
+a19idWZmICpza2IsCj4gPiBzdHJ1Y3QgZ2VubF9pbmZvICppbmZvKQo+ID4gICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3N0cmluZ3MsIGluZm8tPmV4dGFj
+ayk7Cj4gPiAgICAgICAgIGlmIChyZXQgPCAwKQo+ID4gICAgICAgICAgICAgICAgIGdvdG8gb3V0
+X3J0bmw7Cj4gPiAtICAgICAgIGlmIChldGhubF9iaXRtYXBfdG9fZmVhdHVyZXMocmVxX21hc2sp
+ICYgfk5FVElGX0ZfRVRIVE9PTF9CSVRTKSB7Cj4gPiArCj4gPiArICAgICAgIGV0aG5sX2JpdG1h
+cF90b19mZWF0dXJlcyhmZWF0dXJlcywgcmVxX21hc2spOwo+ID4gKyAgICAgICBuZXRkZXZfZmVh
+dHVyZXNfZXRodG9vbF9iaXRzKHRtcCk7Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc19hbmRu
+b3QoZmVhdHVyZXMsIGZlYXR1cmVzLCB0bXApOwo+ID4gKyAgICAgICBpZiAoIW5ldGRldl9mZWF0
+dXJlc19lbXB0eShmZWF0dXJlcykpIHsKPiA+ICAgICAgICAgICAgICAgICBHRU5MX1NFVF9FUlJf
+TVNHKGluZm8sICJhdHRlbXB0IHRvIGNoYW5nZSBub24tZXRodG9vbAo+ID4gZmVhdHVyZXMiKTsK
+PiA+ICAgICAgICAgICAgICAgICByZXQgPSAtRUlOVkFMOwo+ID4gICAgICAgICAgICAgICAgIGdv
+dG8gb3V0X3J0bmw7Cj4gPiBAQCAtMjUzLDggKzI3MCwxMyBAQCBpbnQgZXRobmxfc2V0X2ZlYXR1
+cmVzKHN0cnVjdCBza19idWZmICpza2IsCj4gPiBzdHJ1Y3QgZ2VubF9pbmZvICppbmZvKQo+ID4g
+ICAgICAgICBiaXRtYXBfYW5kbm90KG5ld193YW50ZWQsIG9sZF93YW50ZWQsIHJlcV9tYXNrLCBO
+RVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiAgICAgICAgIGJpdG1hcF9vcihyZXFfd2FudGVkLCBu
+ZXdfd2FudGVkLCByZXFfd2FudGVkLCBORVRERVZfRkVBVFVSRV9DT1VOVCk7Cj4gPiAgICAgICAg
+IGlmICghYml0bWFwX2VxdWFsKHJlcV93YW50ZWQsIG9sZF93YW50ZWQsIE5FVERFVl9GRUFUVVJF
+X0NPVU5UKSkgewo+ID4gLSAgICAgICAgICAgICAgIGRldi0+d2FudGVkX2ZlYXR1cmVzICY9IH5k
+ZXYtPmh3X2ZlYXR1cmVzOwo+ID4gLSAgICAgICAgICAgICAgIGRldi0+d2FudGVkX2ZlYXR1cmVz
+IHw9Cj4gPiBldGhubF9iaXRtYXBfdG9fZmVhdHVyZXMocmVxX3dhbnRlZCkgJiBkZXYtPmh3X2Zl
+YXR1cmVzOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc19hbmRub3QoZGV2LT53
+YW50ZWRfZmVhdHVyZXMsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICBkZXYtPndhbnRlZF9mZWF0dXJlcywKPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgIGRldi0+aHdfZmVhdHVyZXMpOwo+ID4gKyAgICAgICAgICAgICAgIGV0aG5sX2Jp
+dG1hcF90b19mZWF0dXJlcyhmZWF0dXJlcywgcmVxX3dhbnRlZCk7Cj4gPiArICAgICAgICAgICAg
+ICAgbmV0ZGV2X2ZlYXR1cmVzX2FuZChmZWF0dXJlcywgZmVhdHVyZXMsIGRldi0+aHdfZmVhdHVy
+ZXMpOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc19vcihkZXYtPndhbnRlZF9m
+ZWF0dXJlcywgZGV2LT53YW50ZWRfZmVhdHVyZXMsCj4gPiArICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgIGZlYXR1cmVzKTsKPiA+ICAgICAgICAgICAgICAgICBfX25ldGRldl91cGRh
+dGVfZmVhdHVyZXMoZGV2KTsKPiA+ICAgICAgICAgfQo+ID4gICAgICAgICBldGhubF9mZWF0dXJl
+c190b19iaXRtYXAobmV3X2FjdGl2ZSwgZGV2LT5mZWF0dXJlcyk7Cj4gPiBkaWZmIC0tZ2l0IGEv
+bmV0L2V0aHRvb2wvaW9jdGwuYyBiL25ldC9ldGh0b29sL2lvY3RsLmMKPiA+IGluZGV4IGJhYTVk
+MTAuLmYyMTNlYzkgMTAwNjQ0Cj4gPiAtLS0gYS9uZXQvZXRodG9vbC9pb2N0bC5jCj4gPiArKysg
+Yi9uZXQvZXRodG9vbC9pb2N0bC5jCj4gPiBAQCAtNjcsMTIgKzY3LDE1IEBAIHN0YXRpYyBpbnQg
+ZXRodG9vbF9nZXRfZmVhdHVyZXMoc3RydWN0IG5ldF9kZXZpY2UKPiA+ICpkZXYsIHZvaWQgX191
+c2VyICp1c2VyYWRkcikKPiA+ICAgICAgICAgaW50IGk7Cj4gPgo+ID4gICAgICAgICAvKiBpbiBj
+YXNlIGZlYXR1cmUgYml0cyBydW4gb3V0IGFnYWluICovCj4gPiAtICAgICAgIEJVSUxEX0JVR19P
+TihFVEhUT09MX0RFVl9GRUFUVVJFX1dPUkRTICogc2l6ZW9mKHUzMikgPgo+ID4gc2l6ZW9mKG5l
+dGRldl9mZWF0dXJlc190KSk7Cj4gPiArICAgICAgIEJVSUxEX0JVR19PTihFVEhUT09MX0RFVl9G
+RUFUVVJFX1dPUkRTICogc2l6ZW9mKHUzMikgPgo+ID4gc2l6ZW9mKGRldi0+ZmVhdHVyZXMpKTsK
+PiA+Cj4gPiAgICAgICAgIGZvciAoaSA9IDA7IGkgPCBFVEhUT09MX0RFVl9GRUFUVVJFX1dPUkRT
+OyArK2kpIHsKPiA+IC0gICAgICAgICAgICAgICBmZWF0dXJlc1tpXS5hdmFpbGFibGUgPSAodTMy
+KShkZXYtPmh3X2ZlYXR1cmVzID4+ICgzMiAqIGkpKTsKPiA+IC0gICAgICAgICAgICAgICBmZWF0
+dXJlc1tpXS5yZXF1ZXN0ZWQgPSAodTMyKShkZXYtPndhbnRlZF9mZWF0dXJlcyA+PiAoMzIgKiBp
+KSk7Cj4gPiAtICAgICAgICAgICAgICAgZmVhdHVyZXNbaV0uYWN0aXZlID0gKHUzMikoZGV2LT5m
+ZWF0dXJlcyA+PiAoMzIgKiBpKSk7Cj4gPiArICAgICAgICAgICAgICAgZmVhdHVyZXNbaV0uYXZh
+aWxhYmxlID0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICh1MzIpKGRldi0+aHdfZmVhdHVy
+ZXNbaSAvIDJdID4+IChpICUgMiAqIDMyKSk7Cj4gPiArICAgICAgICAgICAgICAgZmVhdHVyZXNb
+aV0ucmVxdWVzdGVkID0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICh1MzIpKGRldi0+d2Fu
+dGVkX2ZlYXR1cmVzW2kgLyAyXSA+PiAoaSAlIDIgKiAzMikpOwo+ID4gKyAgICAgICAgICAgICAg
+IGZlYXR1cmVzW2ldLmFjdGl2ZSA9Cj4gPiArICAgICAgICAgICAgICAgICAgICAgICAodTMyKShk
+ZXYtPmZlYXR1cmVzW2kgLyAyXSA+PiAoaSAlIDIgKiAzMikpOwo+ID4gICAgICAgICAgICAgICAg
+IGZlYXR1cmVzW2ldLm5ldmVyX2NoYW5nZWQgPQo+ID4gICAgICAgICAgICAgICAgICAgICAgICAg
+KHUzMikoTkVUSUZfRl9ORVZFUl9DSEFOR0UgPj4gKDMyICogaSkpOwo+ID4gICAgICAgICB9Cj4g
+PiBAQCAtOTcsNyArMTAwLDkgQEAgc3RhdGljIGludCBldGh0b29sX3NldF9mZWF0dXJlcyhzdHJ1
+Y3QgbmV0X2RldmljZQo+ID4gKmRldiwgdm9pZCBfX3VzZXIgKnVzZXJhZGRyKQo+ID4gIHsKPiA+
+ICAgICAgICAgc3RydWN0IGV0aHRvb2xfc2ZlYXR1cmVzIGNtZDsKPiA+ICAgICAgICAgc3RydWN0
+IGV0aHRvb2xfc2V0X2ZlYXR1cmVzX2Jsb2NrIGZlYXR1cmVzW0VUSFRPT0xfREVWX0ZFQVRVUkVf
+V09SRFNdOwo+ID4gLSAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCB3YW50ZWQgPSAwLCB2YWxpZCA9
+IDA7Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc190IHdhbnRlZFtORVRERVZfRkVBVFVSRV9E
+V09SRFNdID0gezB9Owo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCB2YWxpZFtORVRERVZf
+RkVBVFVSRV9EV09SRFNdID0gezB9Owo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCB0bXBb
+TkVUREVWX0ZFQVRVUkVfRFdPUkRTXTsKPiA+ICAgICAgICAgaW50IGksIHJldCA9IDA7Cj4gPgo+
+ID4gICAgICAgICBpZiAoY29weV9mcm9tX3VzZXIoJmNtZCwgdXNlcmFkZHIsIHNpemVvZihjbWQp
+KSkKPiA+IEBAIC0xMTEsMjMgKzExNiwzMyBAQCBzdGF0aWMgaW50IGV0aHRvb2xfc2V0X2ZlYXR1
+cmVzKHN0cnVjdAo+ID4gbmV0X2RldmljZSAqZGV2LCB2b2lkIF9fdXNlciAqdXNlcmFkZHIpCj4g
+PiAgICAgICAgICAgICAgICAgcmV0dXJuIC1FRkFVTFQ7Cj4gPgo+ID4gICAgICAgICBmb3IgKGkg
+PSAwOyBpIDwgRVRIVE9PTF9ERVZfRkVBVFVSRV9XT1JEUzsgKytpKSB7Cj4gPiAtICAgICAgICAg
+ICAgICAgdmFsaWQgfD0gKG5ldGRldl9mZWF0dXJlc190KWZlYXR1cmVzW2ldLnZhbGlkIDw8ICgz
+MiAqIGkpOwo+ID4gLSAgICAgICAgICAgICAgIHdhbnRlZCB8PSAobmV0ZGV2X2ZlYXR1cmVzX3Qp
+ZmVhdHVyZXNbaV0ucmVxdWVzdGVkIDw8ICgzMiAqIGkpOwo+ID4gKyAgICAgICAgICAgICAgIHZh
+bGlkW2kgLyAyXSB8PQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICAgKG5ldGRldl9mZWF0dXJl
+c190KWZlYXR1cmVzW2ldLnZhbGlkIDw8ICgzMiAqIGkpOwo+ID4gKyAgICAgICAgICAgICAgIHdh
+bnRlZFtpIC8gMl0gfD0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgIChuZXRkZXZfZmVhdHVy
+ZXNfdClmZWF0dXJlc1tpXS5yZXF1ZXN0ZWQgPDwgKDMyICogaSk7Cj4gPiAgICAgICAgIH0KPiA+
+Cj4gPiAtICAgICAgIGlmICh2YWxpZCAmIH5ORVRJRl9GX0VUSFRPT0xfQklUUykKPiA+ICsgICAg
+ICAgbmV0ZGV2X2ZlYXR1cmVzX2V0aHRvb2xfYml0cyh0bXApOwo+ID4gKyAgICAgICBuZXRkZXZf
+ZmVhdHVyZXNfYW5kbm90KHRtcCwgZmVhdHVyZXMsIHRtcCk7Cj4gPiArICAgICAgIGlmICghbmV0
+ZGV2X2ZlYXR1cmVzX2VtcHR5KHRtcCkpCj4gPiAgICAgICAgICAgICAgICAgcmV0dXJuIC1FSU5W
+QUw7Cj4gPgo+ID4gLSAgICAgICBpZiAodmFsaWQgJiB+ZGV2LT5od19mZWF0dXJlcykgewo+ID4g
+LSAgICAgICAgICAgICAgIHZhbGlkICY9IGRldi0+aHdfZmVhdHVyZXM7Cj4gPiArICAgICAgIG5l
+dGRldl9mZWF0dXJlc19hbmRub3QodG1wLCB2YWxpZCwgZGV2LT5od19mZWF0dXJlcyk7Cj4gPiAr
+Cj4gPiArICAgICAgIGlmICghbmV0ZGV2X2ZlYXR1cmVzX2VtcHR5KHRtcCkpIHsKPiA+ICsgICAg
+ICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNfYW5kKHZhbGlkLCB2YWxpZCwgZGV2LT5od19mZWF0
+dXJlcyk7Cj4gPiAgICAgICAgICAgICAgICAgcmV0IHw9IEVUSFRPT0xfRl9VTlNVUFBPUlRFRDsK
+PiA+ICAgICAgICAgfQo+ID4KPiA+IC0gICAgICAgZGV2LT53YW50ZWRfZmVhdHVyZXMgJj0gfnZh
+bGlkOwo+ID4gLSAgICAgICBkZXYtPndhbnRlZF9mZWF0dXJlcyB8PSB3YW50ZWQgJiB2YWxpZDsK
+PiA+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX2FuZG5vdChkZXYtPndhbnRlZF9mZWF0dXJlcywg
+ZGV2LT53YW50ZWRfZmVhdHVyZXMsCj4gPiArICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+dmFsaWQpOwo+ID4gKyAgICAgICBuZXRkZXZfZmVhdHVyZXNfYW5kKHdhbnRlZCwgd2FudGVkLCB2
+YWxpZCk7Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc19vcihkZXYtPndhbnRlZF9mZWF0dXJl
+cywgZGV2LT53YW50ZWRfZmVhdHVyZXMsIHdhbnRlZCk7Cj4gPiAgICAgICAgIF9fbmV0ZGV2X3Vw
+ZGF0ZV9mZWF0dXJlcyhkZXYpOwo+ID4KPiA+IC0gICAgICAgaWYgKChkZXYtPndhbnRlZF9mZWF0
+dXJlcyBeIGRldi0+ZmVhdHVyZXMpICYgdmFsaWQpCj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJl
+c194b3IodG1wLCBkZXYtPndhbnRlZF9mZWF0dXJlcywgZGV2LT5mZWF0dXJlcyk7Cj4gPiArICAg
+ICAgIG5ldGRldl9mZWF0dXJlc19hbmQodG1wLCB0bXAsIHZhbGlkKTsKPiA+ICsgICAgICAgaWYg
+KCFuZXRkZXZfZmVhdHVyZXNfZW1wdHkodG1wKSkKPiA+ICAgICAgICAgICAgICAgICByZXQgfD0g
+RVRIVE9PTF9GX1dJU0g7Cj4gPgo+ID4gICAgICAgICByZXR1cm4gcmV0Owo+ID4gQEAgLTIyNyw3
+ICsyNDIsNyBAQCBzdGF0aWMgaW50IGV0aHRvb2xfZ2V0X29uZV9mZWF0dXJlKHN0cnVjdCBuZXRf
+ZGV2aWNlICpkZXYsCj4gPiAgICAgICAgIG5ldGRldl9mZWF0dXJlc190IG1hc2sgPSBldGh0b29s
+X2dldF9mZWF0dXJlX21hc2soZXRoY21kKTsKPiA+ICAgICAgICAgc3RydWN0IGV0aHRvb2xfdmFs
+dWUgZWRhdGEgPSB7Cj4gPiAgICAgICAgICAgICAgICAgLmNtZCA9IGV0aGNtZCwKPiA+IC0gICAg
+ICAgICAgICAgICAuZGF0YSA9ICEhKGRldi0+ZmVhdHVyZXMgJiBtYXNrKSwKPiA+ICsgICAgICAg
+ICAgICAgICAuZGF0YSA9ICEhKGRldi0+ZmVhdHVyZXNbMF0gJiBtYXNrKSwKPiA+ICAgICAgICAg
+fTsKPiA+Cj4gPiAgICAgICAgIGlmIChjb3B5X3RvX3VzZXIodXNlcmFkZHIsICZlZGF0YSwgc2l6
+ZW9mKGVkYXRhKSkpCj4gPiBAQCAtMjM4LDIxICsyNTMsMjMgQEAgc3RhdGljIGludCBldGh0b29s
+X2dldF9vbmVfZmVhdHVyZShzdHJ1Y3QgbmV0X2RldmljZSAqZGV2LAo+ID4gIHN0YXRpYyBpbnQg
+ZXRodG9vbF9zZXRfb25lX2ZlYXR1cmUoc3RydWN0IG5ldF9kZXZpY2UgKmRldiwKPiA+ICAgICAg
+ICAgdm9pZCBfX3VzZXIgKnVzZXJhZGRyLCB1MzIgZXRoY21kKQo+ID4gIHsKPiA+ICsgICAgICAg
+bmV0ZGV2X2ZlYXR1cmVzX3QgbWFza1tORVRERVZfRkVBVFVSRV9EV09SRFNdID0gezB9Owo+ID4g
+ICAgICAgICBzdHJ1Y3QgZXRodG9vbF92YWx1ZSBlZGF0YTsKPiA+IC0gICAgICAgbmV0ZGV2X2Zl
+YXR1cmVzX3QgbWFzazsKPiA+Cj4gPiAgICAgICAgIGlmIChjb3B5X2Zyb21fdXNlcigmZWRhdGEs
+IHVzZXJhZGRyLCBzaXplb2YoZWRhdGEpKSkKPiA+ICAgICAgICAgICAgICAgICByZXR1cm4gLUVG
+QVVMVDsKPiA+Cj4gPiAtICAgICAgIG1hc2sgPSBldGh0b29sX2dldF9mZWF0dXJlX21hc2soZXRo
+Y21kKTsKPiA+IC0gICAgICAgbWFzayAmPSBkZXYtPmh3X2ZlYXR1cmVzOwo+ID4gLSAgICAgICBp
+ZiAoIW1hc2spCj4gPiArICAgICAgIG1hc2tbMF0gPSBldGh0b29sX2dldF9mZWF0dXJlX21hc2so
+ZXRoY21kKTsKPiA+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX2FuZChtYXNrLCBtYXNrLCBkZXYt
+Pmh3X2ZlYXR1cmVzKTsKPiA+ICsgICAgICAgaWYgKG5ldGRldl9mZWF0dXJlc19lbXB0eShtYXNr
+KSkKPiA+ICAgICAgICAgICAgICAgICByZXR1cm4gLUVPUE5PVFNVUFA7Cj4gPgo+ID4gICAgICAg
+ICBpZiAoZWRhdGEuZGF0YSkKPiA+IC0gICAgICAgICAgICAgICBkZXYtPndhbnRlZF9mZWF0dXJl
+cyB8PSBtYXNrOwo+ID4gKyAgICAgICAgICAgICAgIG5ldGRldl9mZWF0dXJlc19vcihkZXYtPndh
+bnRlZF9mZWF0dXJlcywgZGV2LT53YW50ZWRfZmVhdHVyZXMsCj4gPiArICAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgIG1hc2spCj4gPiAgICAgICAgIGVsc2UKPiA+IC0gICAgICAgICAg
+ICAgICBkZXYtPndhbnRlZF9mZWF0dXJlcyAmPSB+bWFzazsKPiA+ICsgICAgICAgICAgICAgICBu
+ZXRkZXZfZmVhdHVyZXNfYW5kbm90KGRldi0+d2FudGVkX2ZlYXR1cmVzLAo+ID4gKyAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGV2LT53YW50ZWRfZmVhdHVyZXMsIG1hc2sp
+Owo+ID4KPiA+ICAgICAgICAgX19uZXRkZXZfdXBkYXRlX2ZlYXR1cmVzKGRldik7Cj4gPgo+ID4g
+QEAgLTI4NSwyOSArMzAyLDM3IEBAIHN0YXRpYyB1MzIgX19ldGh0b29sX2dldF9mbGFncyhzdHJ1
+Y3QgbmV0X2RldmljZSAqZGV2KQo+ID4KPiA+ICBzdGF0aWMgaW50IF9fZXRodG9vbF9zZXRfZmxh
+Z3Moc3RydWN0IG5ldF9kZXZpY2UgKmRldiwgdTMyIGRhdGEpCj4gPiAgewo+ID4gLSAgICAgICBu
+ZXRkZXZfZmVhdHVyZXNfdCBmZWF0dXJlcyA9IDAsIGNoYW5nZWQ7Cj4gPiArICAgICAgIG5ldGRl
+dl9mZWF0dXJlc190IGZlYXR1cmVzW05FVERFVl9GRUFUVVJFX0RXT1JEU10gPSB7MH07Cj4gPiAr
+ICAgICAgIG5ldGRldl9mZWF0dXJlc190IGNoYW5nZWRbTkVUREVWX0ZFQVRVUkVfRFdPUkRTXTsK
+PiA+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX3QgdG1wW05FVERFVl9GRUFUVVJFX0RXT1JEU107
+Cj4gPgo+ID4gICAgICAgICBpZiAoZGF0YSAmIH5FVEhfQUxMX0ZMQUdTKQo+ID4gICAgICAgICAg
+ICAgICAgIHJldHVybiAtRUlOVkFMOwo+ID4KPiA+ICAgICAgICAgaWYgKGRhdGEgJiBFVEhfRkxB
+R19MUk8pCj4gPiAtICAgICAgICAgICAgICAgZmVhdHVyZXMgfD0gTkVUSUZfRl9MUk87Cj4gPiAr
+ICAgICAgICAgICAgICAgZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9MUk87Cj4gPiAgICAgICAgIGlm
+IChkYXRhICYgRVRIX0ZMQUdfUlhWTEFOKQo+ID4gLSAgICAgICAgICAgICAgIGZlYXR1cmVzIHw9
+IE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYOwo+ID4gKyAgICAgICAgICAgICAgIGZlYXR1cmVzWzBd
+IHw9IE5FVElGX0ZfSFdfVkxBTl9DVEFHX1JYOwo+ID4gICAgICAgICBpZiAoZGF0YSAmIEVUSF9G
+TEFHX1RYVkxBTikKPiA+IC0gICAgICAgICAgICAgICBmZWF0dXJlcyB8PSBORVRJRl9GX0hXX1ZM
+QU5fQ1RBR19UWDsKPiA+ICsgICAgICAgICAgICAgICBmZWF0dXJlc1swXSB8PSBORVRJRl9GX0hX
+X1ZMQU5fQ1RBR19UWDsKPiA+ICAgICAgICAgaWYgKGRhdGEgJiBFVEhfRkxBR19OVFVQTEUpCj4g
+PiAtICAgICAgICAgICAgICAgZmVhdHVyZXMgfD0gTkVUSUZfRl9OVFVQTEU7Cj4gPiArICAgICAg
+ICAgICAgICAgZmVhdHVyZXNbMF0gfD0gTkVUSUZfRl9OVFVQTEU7Cj4gPiAgICAgICAgIGlmIChk
+YXRhICYgRVRIX0ZMQUdfUlhIQVNIKQo+ID4gLSAgICAgICAgICAgICAgIGZlYXR1cmVzIHw9IE5F
+VElGX0ZfUlhIQVNIOwo+ID4gKyAgICAgICAgICAgICAgIGZlYXR1cmVzWzBdIHw9IE5FVElGX0Zf
+UlhIQVNIOwo+ID4KPiA+ICAgICAgICAgLyogYWxsb3cgY2hhbmdpbmcgb25seSBiaXRzIHNldCBp
+biBod19mZWF0dXJlcyAqLwo+ID4gLSAgICAgICBjaGFuZ2VkID0gKGZlYXR1cmVzIF4gZGV2LT5m
+ZWF0dXJlcykgJiBFVEhfQUxMX0ZFQVRVUkVTOwo+ID4gLSAgICAgICBpZiAoY2hhbmdlZCAmIH5k
+ZXYtPmh3X2ZlYXR1cmVzKQo+ID4gLSAgICAgICAgICAgICAgIHJldHVybiAoY2hhbmdlZCAmIGRl
+di0+aHdfZmVhdHVyZXMpID8gLUVJTlZBTCA6IC1FT1BOT1RTVVBQOwo+ID4gKyAgICAgICBuZXRk
+ZXZfZmVhdHVyZXNfeG9yKGNoYW5nZWQsIGZlYXR1cmVzLCBkZXYtPmZlYXR1cmVzKTsKPiA+ICsg
+ICAgICAgY2hhbmdlZFswXSAmPSBFVEhfQUxMX0ZFQVRVUkVTOwo+ID4gKwo+ID4gKyAgICAgICBu
+ZXRkZXZfZmVhdHVyZXNfYW5kbm90KHRtcCwgY2hhbmdlZCwgZGV2LT5od19mZWF0dXJlcyk7Cj4g
+PiArICAgICAgIGlmICghbmV0ZGV2X2ZlYXR1cmVzX2VtcHR5KHRtcCkpIHsKPiA+ICsgICAgICAg
+ICAgICAgICBuZXRkZXZfZmVhdHVyZXNfYW5kKHRtcCwgY2hhbmdlZCwgZGV2LT5od19mZWF0dXJl
+cyk7Cj4gPiArICAgICAgICAgICAgICAgcmV0dXJuICghbmV0ZGV2X2ZlYXR1cmVzX2VtcHR5KHRt
+cCkpID8gLUVJTlZBTCA6IC1FT1BOT1RTVVBQOwo+ID4gKyAgICAgICB9Cj4gPgo+ID4gLSAgICAg
+ICBkZXYtPndhbnRlZF9mZWF0dXJlcyA9Cj4gPiAtICAgICAgICAgICAgICAgKGRldi0+d2FudGVk
+X2ZlYXR1cmVzICYgfmNoYW5nZWQpIHwgKGZlYXR1cmVzICYgY2hhbmdlZCk7Cj4gPiArICAgICAg
+IG5ldGRldl9mZWF0dXJlc19hbmRub3QodG1wLCBkZXYtPndhbnRlZF9mZWF0dXJlcywgY2hhbmdl
+ZCk7Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc19hbmQoZmVhdHVyZXMsIGZlYXR1cmVzLCBj
+aGFuZ2VkKTsKPiA+ICsgICAgICAgbmV0ZGV2X2ZlYXR1cmVzX29yKGRldi0+d2FudGVkX2ZlYXR1
+cmVzLCB0bXAsIGZlYXR1cmVzKTsKPiA+Cj4gPiAgICAgICAgIF9fbmV0ZGV2X3VwZGF0ZV9mZWF0
+dXJlcyhkZXYpOwo+ID4KPiA+IEBAIC0yNTg3LDcgKzI2MTIsNyBAQCBpbnQgZGV2X2V0aHRvb2wo
+c3RydWN0IG5ldCAqbmV0LCBzdHJ1Y3QgaWZyZXEgKmlmcikKPiA+ICAgICAgICAgdm9pZCBfX3Vz
+ZXIgKnVzZXJhZGRyID0gaWZyLT5pZnJfZGF0YTsKPiA+ICAgICAgICAgdTMyIGV0aGNtZCwgc3Vi
+X2NtZDsKPiA+ICAgICAgICAgaW50IHJjOwo+ID4gLSAgICAgICBuZXRkZXZfZmVhdHVyZXNfdCBv
+bGRfZmVhdHVyZXM7Cj4gPiArICAgICAgIG5ldGRldl9mZWF0dXJlc190IG9sZF9mZWF0dXJlc1tO
+RVRERVZfRkVBVFVSRV9EV09SRFNdOwo+ID4KPiA+ICAgICAgICAgaWYgKCFkZXYgfHwgIW5ldGlm
+X2RldmljZV9wcmVzZW50KGRldikpCj4gPiAgICAgICAgICAgICAgICAgcmV0dXJuIC1FTk9ERVY7
+Cj4gPiBAQCAtMjY1MCw3ICsyNjc1LDcgQEAgaW50IGRldl9ldGh0b29sKHN0cnVjdCBuZXQgKm5l
+dCwgc3RydWN0IGlmcmVxICppZnIpCj4gPiAgICAgICAgICAgICAgICAgaWYgKHJjICA8IDApCj4g
+PiAgICAgICAgICAgICAgICAgICAgICAgICByZXR1cm4gcmM7Cj4gPiAgICAgICAgIH0KPiA+IC0g
+ICAgICAgb2xkX2ZlYXR1cmVzID0gZGV2LT5mZWF0dXJlczsKPiA+ICsgICAgICAgbmV0ZGV2X2Zl
+YXR1cmVzX2NvcHkob2xkX2ZlYXR1cmVzLCBkZXYtPmZlYXR1cmVzKTsKPiA+Cj4gPiAgICAgICAg
+IHN3aXRjaCAoZXRoY21kKSB7Cj4gPiAgICAgICAgIGNhc2UgRVRIVE9PTF9HU0VUOgo+ID4gQEAg
+LTI4NjUsNyArMjg5MCw3IEBAIGludCBkZXZfZXRodG9vbChzdHJ1Y3QgbmV0ICpuZXQsIHN0cnVj
+dCBpZnJlcSAqaWZyKQo+ID4gICAgICAgICBpZiAoZGV2LT5ldGh0b29sX29wcy0+Y29tcGxldGUp
+Cj4gPiAgICAgICAgICAgICAgICAgZGV2LT5ldGh0b29sX29wcy0+Y29tcGxldGUoZGV2KTsKPiA+
+Cj4gPiAtICAgICAgIGlmIChvbGRfZmVhdHVyZXMgIT0gZGV2LT5mZWF0dXJlcykKPiA+ICsgICAg
+ICAgaWYgKCFuZXRkZXZfZmVhdHVyZXNfZXF1YWwob2xkX2ZlYXR1cmVzLCBkZXYtPmZlYXR1cmVz
+KSkKPiA+ICAgICAgICAgICAgICAgICBuZXRkZXZfZmVhdHVyZXNfY2hhbmdlKGRldik7Cj4gPgo+
+ID4gICAgICAgICByZXR1cm4gcmM7Cj4gPiAtLQo+ID4gMi44LjEKPiA+Cj4gPgo+ID4KPiA+IC0t
+Cj4gPiBMYXRlc3QgUG9kY2FzdDoKPiA+IGh0dHBzOi8vd3d3LmxpbmtlZGluLmNvbS9mZWVkL3Vw
+ZGF0ZS91cm46bGk6YWN0aXZpdHk6Njc5MTAxNDI4NDkzNjc4NTkyMC8KPiA+Cj4gPiBEYXZlIFTD
+pGh0IENUTywgVGVrTGlicmUsIExMQwo+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX18KPiA+IENha2UgbWFpbGluZyBsaXN0Cj4gPiBDYWtlQGxpc3RzLmJ1
+ZmZlcmJsb2F0Lm5ldAo+ID4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8v
+Y2FrZQo+Cj4KPgo+IC0tCj4gUm9iZXJ0IENoYWPDs24KPiByb2JlcnQuY2hhY29uQGphY2tyYWJi
+aXR3aXJlbGVzcy5jb20KCgoKLS0gCkxhdGVzdCBQb2RjYXN0OgpodHRwczovL3d3dy5saW5rZWRp
+bi5jb20vZmVlZC91cGRhdGUvdXJuOmxpOmFjdGl2aXR5OjY3OTEwMTQyODQ5MzY3ODU5MjAvCgpE
+YXZlIFTDpGh0IENUTywgVGVrTGlicmUsIExMQwpfX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJs
+b2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
