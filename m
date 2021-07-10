@@ -2,57 +2,57 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id EEB093C368A
-	for <lists+cake@lfdr.de>; Sat, 10 Jul 2021 21:51:52 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 45D5F3C3741
+	for <lists+cake@lfdr.de>; Sun, 11 Jul 2021 01:25:11 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 143903CBC7;
-	Sat, 10 Jul 2021 15:51:15 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 5A69E3CBEF;
+	Sat, 10 Jul 2021 19:25:08 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1625946675;
-	bh=AgATZd3JYlI+LtvQ4M/Fk2PRQolXVXRzubCJM3B6KUs=;
+	d=lists.bufferbloat.net; s=201610; t=1625959508;
+	bh=onfqiUQbxiDCgvaZBFXA0E1dREpqlLA2s627uQnhyHA=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=gLlkdt+WmEbkw/53siT21Dz2Okzjrh8clN/dj/fRWsdGCCuHr2Nk+JxQk4q6ikAgE
-	 gw4yJsz/QFcLQ2ys+e7tSfTs+4toiCx1xRsWrfZ4nvwXAQJb9B4lD1IBBFynoWYRs5
-	 ELJfU6KaBcWqUJZ7XCdn/E4Oec74OephIcTfh9v+f8WxOvpnLcRMYHBm68LzOOzVXD
-	 ZEZztDTrD9IBZa4ywdpPBgWJvBeW+WbmLSVUkAlj5PDudOr/y3MWBSlHEicXY1/g5Q
-	 myq3XzHKePnmnEK7iYlrGduqm8Zz44nR296yLStlMrWtMFDbzlnEoWiw6fVzrz8kok
-	 rSYLBz5iTw5Ig==
+	b=BT9GyCRw6hnwUxfX9KjacHUubEJXuwQW9f0G8oAeoXDSd5hyfCtAlhxUuawCQ4aRp
+	 wGfBCWuyVx8xGLcKgcs19a2eFd9isFu7YOc1OK3C8kpvJTHXA24tkEv5N9F2TaE2B8
+	 ESMoxk6IKdEQ+Y1LIiW2wUUj15PhT8JE0atBli44KmFXd6zR82XD5g+XJIspYqB3Dk
+	 2xlX6amSJ93iUU7acUt3FKWLs61CyC1eklfkjNeuM1CdvKu8E80my936MYz/kykDj8
+	 1a7bBxUh1uy9lj4Po3XhIXN75t61UzOkZyQIO0ATC2i7Ro3WgLSZrnnjptEbdLmv8Y
+	 C1+HZ1XpOfcXQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ej1-x629.google.com (mail-ej1-x629.google.com
- [IPv6:2a00:1450:4864:20::629])
+Received: from mail-ej1-x631.google.com (mail-ej1-x631.google.com
+ [IPv6:2a00:1450:4864:20::631])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 769463CBC7
- for <cake@lists.bufferbloat.net>; Sat, 10 Jul 2021 15:51:13 -0400 (EDT)
-Received: by mail-ej1-x629.google.com with SMTP id o5so23777647ejy.7
- for <cake@lists.bufferbloat.net>; Sat, 10 Jul 2021 12:51:13 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 9128E3CBD7
+ for <cake@lists.bufferbloat.net>; Sat, 10 Jul 2021 19:25:06 -0400 (EDT)
+Received: by mail-ej1-x631.google.com with SMTP id ga14so9657435ejc.6
+ for <cake@lists.bufferbloat.net>; Sat, 10 Jul 2021 16:25:06 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=FLdswf6fahTLjOG8BoP/y6B1SYMw3hHfAfsCk1lYyoU=;
- b=UjCy3ATHjqRKLsaWGQwkqCAl725lZw1RLP7+yZ5W1sMF9onJ3KOlGYmQ4iKORD8U3H
- xCf/NogeveunmmxaNFCd8q3HK3i0VgIWAL3oaKO90nUwnSp5DHEppaDtObJ4Vag8IMDX
- AUjAn9itL0H0HwRspeyX+e5LsmvLGhvUYsOXg=
+ :cc; bh=PCx+jxzdgRpGFQjJJmCMZ61SN3RrupwjVuBOxqnKEcE=;
+ b=Oqnh5d08rDCU1xcb7qVLOhHBOk/C8hdQ3cOWqwrtmIDQwYEr290ddJmk1U5mz6fd7H
+ 4NqjusqEWVmOwqzHA86NqQGWB7IqmW5KOHgx+jYXAgHpEpkT4MIyshhzjArJAcReJdf7
+ bJMjHQpKt1X//wvmfe81h2ZyKgDcRSuUf1G4Q=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=FLdswf6fahTLjOG8BoP/y6B1SYMw3hHfAfsCk1lYyoU=;
- b=B+vlCa+jVnE38V8kfghPVozvRTSDzHVWqZJxpmQB3ZbO4sWyTS//K74O7TF1vXdox8
- pbZsISDNkOy7aSvnfcz6zTxPqEPgGgj0CyLUfRIr8+7b0fhswvrOxBPvoDtP9+D8bqhJ
- SyL8+SCJ1PhY7kyJqNceBNWO/qRIDHuq86QgwrVU/a+QEReKfxAR+8cKub5VNFGdDl77
- 66wcPhKImYty8Yc7BgKLK7hmr+QFB8KAzYPIlo1UDQFvuFqVPhuiLKY2nXxOgHmOrj12
- Zt9J9iVlKQ82WINh9fXSaqfJszYEAMoqhUsXZmqE5ro2uwRm8yHxNY/CV6i3PBKeDBSM
- 9RXg==
-X-Gm-Message-State: AOAM533valGjaeH5J4B0NDKTpDOoEL1sanG3129RjP8f7EWpGj+lIXAl
- 1jw1SNphQgp8sLM9DDlvcYQ2YDBGeetC3+u44mEo6iE88i1YAd5FQEgdID+6R7q/MYzSSjDcux1
- A1ZDf1yzdKNWPZN8E+l+Dd6UuXDBs
-X-Google-Smtp-Source: ABdhPJxw3Nfgjv3yJ58LmCgA/xXLobF5YtkxoB9bZsoBm6o/ZiIJd+KB1CCFMiIl2Ie1usIeK+BJktWI0lx2J1FzwPg=
-X-Received: by 2002:a17:907:2bc7:: with SMTP id
- gv7mr45488270ejc.417.1625946672013; 
- Sat, 10 Jul 2021 12:51:12 -0700 (PDT)
+ bh=PCx+jxzdgRpGFQjJJmCMZ61SN3RrupwjVuBOxqnKEcE=;
+ b=TJfc6batkT85UH4hkymtEC7jcKgkm0D8PTfnmWJ38cLfMOU8TxoaK2bHlfVnEP7Bus
+ 4cdXSEvMFLG5XCjpNgrVKwO4V/FI9o9gQwek5VT7J74n7/OnxeVEpGBFCCTpO5Ibf7TI
+ 3y+TriDVzRXnc5nP4+0BIasI5nvlJJsvJwAxojuUnQaazC2J9DJsbglEiN+qOuBHieWA
+ GryysY9w3XDxGUmvAUxKxqx2go7gVep/tB6PgjcZ+IyWKzFage6LvwlSq8VoCa27JKOE
+ uD89R5MJiPNUb8XRDz1TyZMO3U8TSC2cuMAGysCOAu7clkgcAIQ5m4U+J7KTDB1QVakA
+ FG1A==
+X-Gm-Message-State: AOAM531r37sE5n6rTmLDzFcVfP1icXlI6Djrkuxr9BpqcB6nkLVRu2gJ
+ Y8iQrEBG2+VYiJ28bZIJYS1CFqfmx6+i+/RBiIP+FrXOrWbOOQzv36mRpPM3Q9Ue0/hrXW5nwgT
+ CQIT/hecakqD5j8D6rBzUwLDDGhOv
+X-Google-Smtp-Source: ABdhPJwF4K04hNgQWpRMM0FP8cwp+UvN19fYJDhMr4ryMBkx2KdvfqRJWIcLsMylSoRkCypjK2G7ktsShZCJHEuhzJY=
+X-Received: by 2002:a17:907:76da:: with SMTP id
+ kf26mr18576721ejc.511.1625959505186; 
+ Sat, 10 Jul 2021 16:25:05 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
@@ -64,9 +64,10 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com>
  <1625859083.09751240@apps.rackspace.com>
  <8C38E940-8B97-4767-A39B-25F043AE0856@cs.ucla.edu>
-In-Reply-To: <8C38E940-8B97-4767-A39B-25F043AE0856@cs.ucla.edu>
-Date: Sat, 10 Jul 2021 12:51:00 -0700
-Message-ID: <CAHb6Lvocev7NkXcFypZ_UpevAfEuU+0yVS9tgFi+2pUgvyuUyQ@mail.gmail.com>
+ <CAHb6Lvocev7NkXcFypZ_UpevAfEuU+0yVS9tgFi+2pUgvyuUyQ@mail.gmail.com>
+In-Reply-To: <CAHb6Lvocev7NkXcFypZ_UpevAfEuU+0yVS9tgFi+2pUgvyuUyQ@mail.gmail.com>
+Date: Sat, 10 Jul 2021 16:24:54 -0700
+Message-ID: <CAHb6LvrSEb5rKK=fwnweJvgivAcazfoVAOyG6f7po2Ya+Lg_BA@mail.gmail.com>
 To: Leonard Kleinrock <lk@cs.ucla.edu>
 Subject: Re: [Cake] Little's Law mea culpa,
 	but not invalidating my main point
@@ -88,806 +89,842 @@ Cc: Cake List <cake@lists.bufferbloat.net>,
  starlink@lists.bufferbloat.net, codel@lists.bufferbloat.net,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>, Ben Greear <greearb@candelatech.com>
-Content-Type: multipart/mixed; boundary="===============5823390513258707128=="
+Content-Type: multipart/mixed; boundary="===============4340165933589738024=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============5823390513258707128==
+--===============4340165933589738024==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000d7e68f05c6ca35dc"
+	boundary="000000000000c12c6305c6cd32d1"
 
---000000000000d7e68f05c6ca35dc
-Content-Type: multipart/alternative; boundary="000000000000cfe17505c6ca35ba"
+--000000000000c12c6305c6cd32d1
+Content-Type: multipart/alternative; boundary="000000000000ba578905c6cd32de"
 
---000000000000cfe17505c6ca35ba
+--000000000000ba578905c6cd32de
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-"Analyzing that is really difficult, and if we don=E2=80=99t measure and se=
-nse, we
-have no hope of understanding, controlling, or ameliorating such
-situations."
-
-It is truly a high honor to observe the queueing theory and control theory
-discussions to the world class experts here. We simple test guys must
-measure things and we'd like those things to be generally useful to all who
-can help towards improvements. Hence back to my original question, what
-network, or other, telemetry do experts here see as useful towards
-measuring active traffic to help with this?
-
-Just some background, and my apologies for the indulgence, but we'd like
-our automation rigs to be able to better emulate "real world scenarios" and
-use stochastic based regression type signals when something goes wrong
-which, for us, is typically a side effect to a driver or firmware code
-change and commit. (Humans need machine level support for this.) It's also
-very frustrating that modern data centers aren't generally providing GPS
-atomic time to servers. (I think part of the idea behind IP packets, etc.
-was to mitigate fault domains and the PSTN stratum clocks were a huge weak
-point.) I find, today, not having a common clock reference "accurate and
-precise enough" is hindering progress towards understanding the complexity
-and towards the ameliorating, at least from our attempts to map "bothersome
-to machine and/or humans and relevant real world phenomenon" into our
-automation environments allowing us to catch things early in the eng life
-cycle.
-
-A few of us have pushed over the last five or more years to add one way
-delay (OWD) of the test traffic (which is not the same as 1/2 RTT nor an
-ICMP ping delay) into iperf 2. That code is available to anyone. The lack
-of adoption applied to OWD has been disheartening. One common response has
-been, "We don't need that because users can't get their devices sync'd
-to the atomic clock anyway." (Also 3 is a larger number than 2 so iperf3
-must be better than iperf2 so let us keep using that as our measurement
-tool - though I digress  ;) ;)
+One example question is, if it seems useful to control and queuing theory
+experts to feedback the non-parametric OWD distributions to the sending
+device's transport layer control loop? We find kolmogorov-smirnov distance
+matrices as useful for clustering non-parametric distributions and chose to
+use it because experimentally OWD distributions have been non-parametric
+where the application of the central limit theorem lost the affecting
+information. I'm wondering if the KS distances have any use in real word
+traffic beyond our post analysis techniques?
 
 Bob
 
-PS. One can get a stratum 1 clock with a raspberry pi working in a home for
-about $200. I've got one in my home (along with a $2500 OCXO from
-spectracom) and the Pi is reasonable.
-https://www.satsignal.eu/ntp/Raspberry-Pi-NTP.html
+On Sat, Jul 10, 2021 at 12:51 PM Bob McMahon <bob.mcmahon@broadcom.com>
+wrote:
 
-On Fri, Jul 9, 2021 at 4:01 PM Leonard Kleinrock <lk@cs.ucla.edu> wrote:
-
-> David,
+> "Analyzing that is really difficult, and if we don=E2=80=99t measure and =
+sense, we
+> have no hope of understanding, controlling, or ameliorating such
+> situations."
 >
-> No question that non-stationarity and instability are what we often see i=
-n
-> networks.  And, non-stationarity and instability are both topics that lea=
-d
-> to very complex analytical problems in queueing theory.  You can find som=
-e
-> results on the transient analysis in the queueing theory literature
-> (including the second volume of my Queueing Systems book), but they are
-> limited and hard. Nevertheless, the literature does contain some works on
-> transient analysis of queueing systems as applied to network congestion
-> control - again limited. On the other hand, as you said, control theory
-> addresses stability head on and does offer some tools as well, but again,
-> it is hairy.
->
-> Averages are only averages, but they can provide valuable information. Fo=
-r
-> sure, latency can and does confound behavior.  But, as you point out, it =
-is
-> the proliferation of control protocols that are, in some cases, deployed
-> willy-nilly in networks without proper evaluation of their behavior that
-> can lead to the nasty cycle of large transient latency, frantic repeating
-> of web requests, protocols sending multiple copies, lack of awareness of
-> true capacity or queue size or throughput, etc, all of which you articula=
-te
-> so well, create the chaos and frustration in the network.  Analyzing that
-> is really difficult, and if we don=E2=80=99t measure and sense, we have n=
-o hope of
-> understanding, controlling, or ameliorating such situations.
->
-> Len
->
-> On Jul 9, 2021, at 12:31 PM, David P. Reed <dpreed@deepplum.com> wrote:
->
-> Len - I admit I made a mistake in challenging Little's Law as being based
-> on Poisson processes. It is more general. But it tells you an "average" i=
-n
-> its base form, and latency averages are not useful for end user
-> applications.
->
->
-> However, Little's Law does assume something that is not actually valid
-> about the kind of distributions seen in the network, and in fact, it is N=
-OT
-> true that networks converge on Poisson arrival times.
->
->
-> The key issue is well-described in the sandard analysis of the M/M/1 queu=
-e
-> (e.g. https://en.wikipedia.org/wiki/M/M/1_queue) , which is done only for
-> Poisson processes, and is also limited to "stable" systems. But networks
-> are never stable when fully loaded. They get unstable and those
-> instabilities persist for a long time in the network. Instability is at
-> core the underlying *requirement* of the Internet's usage.
->
->
-> So specifically: real networks, even large ones, and certainly the
-> Internet today, are not asymptotic limits of sums of stationary stochasti=
-c
-> arrival processes. Each esternal terminal of any real network has a real
-> user there, running a real application, and the network is a complex grap=
-h.
-> This makes it completely unlike a single queue. Even the links within a
-> network carry a relatively small number of application flows. There's no
-> ability to apply the Law of Large Numbers to the distributions, because a=
-ny
-> particular path contains only a small number of serialized flows with
-> hightly variable rates.
->
->
-> Here's an example of what really happens in a real network (I've observed
-> this in 5 different cities on ATT's cellular network, back when it was
-> running Alcatel Lucent HSPA+ gear in those cities).
-> But you can see this on any network where transient overload occurs,
-> creating instability.
->
->
->
->
-> At 7 AM, the data transmission of the network is roughty stable. That's
-> because no links are overloaded within the network. Little's Law can tell
-> you by observing the delay and throughput on any path that the average
-> delay in the network is X.
->
->
-> Continue sampling delay in the network as the day wears on. At about 10
-> AM, ping delay starts to soar into the multiple second range. No packers
-> are lost. The peak ping time is about 4000 milliseconds - 4 seconds in mo=
-st
-> of the networks. This is in downtown, no radio errors are reported, no li=
-nk
-> errors.
-> So it is all queueing delay.
->
->
-> Now what Little's law doesn't tell you much about average delay, because
-> clearly *some* subpiece of the network is fully saturated. But what is
-> interesting here is what is happening and where. You can't tell what is
-> saturated, and in fact the entire network is quite unstable, because the
-> peak is constantly varying and you don't know where the throughput is. Al=
-l
-> the packets are now arriving 4 seconds or so later.
->
->
-> Why is the situaton not worse than 4 seconds? Well, there are multiple
-> things going on:
->
->
-> 1) TCP may be doing a lot of retransmissions (non-Poisson at all, not
-> random either. The arrival process is entirely deterministic in each
-> source, based on the retransmission timeout) or it may not be.
->
->
-> 2) Users are pissed off, because they clicked on a web page, and got
-> nothing back. They retry on their screen, or they try another site.
-> Meanwhile, the underlying TCP connection remains there, pumping the netwo=
-rk
-> full of more packets on that old path, which is still backed up with
-> packets that haven't been delivered that are sitting in queues. The real
-> arrival process is not Poisson at all, its a deterministic, repeated
-> retrsnsmission plus a new attempt to connect to a new site.
->
->
-> 3) When the users get a web page back eventually, it is filled with names
-> of other pieces needed to display that web page, which causes some number
-> (often as many as 100) new pages to be fetched, ALL at the same time.
-> Certainly not a stochastic process that will just obey the law of large
-> numbers.
->
->
-> All of these things are the result of initial instability, causing queues
-> to build up.
->
->
-> So what is the state of the system? is it stable? is it stochastic? Is it
-> the sum of enough stochastic stable flows to average out to Poisson?
->
->
-> The answer is clearly NO. Control theory (not queuing theory) suggests
-> that this system is completely uncontrolled and unstable.
->
->
-> So if the system is in this state, what does Little's Lemma tell us? What
-> is the meaning of that hightly variable 4 second delay on ping packets, i=
-n
-> terms of average utilizaton of the network?
->
->
-> We don't even know what all the users really might need, if the system
-> hadn't become unstable, because some users have given up, and others are
-> trying even harder, and new users are arriving.
->
->
-> What we do know, because ATT (at my suggestion) reconfigured their system
-> after blaming Apple Computer company for "bugs" in the original iPhone in
-> public, is that simply *dropping* packets sitting in queues more than a
-> couple milliseconds MADE THE USERS HAPPY. Apparently the required capacit=
+> It is truly a high honor to observe the queueing theory and control theor=
 y
-> was there all along!
+> discussions to the world class experts here. We simple test guys must
+> measure things and we'd like those things to be generally useful to all w=
+ho
+> can help towards improvements. Hence back to my original question, what
+> network, or other, telemetry do experts here see as useful towards
+> measuring active traffic to help with this?
 >
+> Just some background, and my apologies for the indulgence, but we'd like
+> our automation rigs to be able to better emulate "real world scenarios" a=
+nd
+> use stochastic based regression type signals when something goes wrong
+> which, for us, is typically a side effect to a driver or firmware code
+> change and commit. (Humans need machine level support for this.) It's als=
+o
+> very frustrating that modern data centers aren't generally providing GPS
+> atomic time to servers. (I think part of the idea behind IP packets, etc.
+> was to mitigate fault domains and the PSTN stratum clocks were a huge wea=
+k
+> point.) I find, today, not having a common clock reference "accurate and
+> precise enough" is hindering progress towards understanding the complexit=
+y
+> and towards the ameliorating, at least from our attempts to map "botherso=
+me
+> to machine and/or humans and relevant real world phenomenon" into our
+> automation environments allowing us to catch things early in the eng life
+> cycle.
 >
-> So I conclude that the 4 second delay was the largest delay users could
-> barely tolerate before deciding the network was DOWN and going away. And
-> that the backup was the accumulation of useless packets sitting in queues
-> because none of the end systems were receiving congestion signals (which
-> for the Internet stack begins with packet dropping).
+> A few of us have pushed over the last five or more years to add one way
+> delay (OWD) of the test traffic (which is not the same as 1/2 RTT nor an
+> ICMP ping delay) into iperf 2. That code is available to anyone. The lack
+> of adoption applied to OWD has been disheartening. One common response ha=
+s
+> been, "We don't need that because users can't get their devices sync'd
+> to the atomic clock anyway." (Also 3 is a larger number than 2 so iperf3
+> must be better than iperf2 so let us keep using that as our measurement
+> tool - though I digress  ;) ;)
 >
+> Bob
 >
-> I should say that most operators, and especially ATT in this case, do not
-> measure end-to-end latency. Instead they use Little's Lemma to query
-> routers for their current throughput in bits per second, and calculate
-> latency as if Little's Lemma applied. This results in reports to manageme=
-nt
-> that literally say:
+> PS. One can get a stratum 1 clock with a raspberry pi working in a home
+> for about $200. I've got one in my home (along with a $2500 OCXO from
+> spectracom) and the Pi is reasonable.
+> https://www.satsignal.eu/ntp/Raspberry-Pi-NTP.html
 >
->
->   The network is not dropping packets, utilization is near 100% on many o=
-f
-> our switches and routers.
->
->
-> And management responds, Hooray! Because utilization of 100% of their
-> hardware is their investors' metric of maximizing profits. The hardware
-> they are operating is fully utilized. No waste! And users are happy becau=
-se
-> no packets have been dropped!
->
->
-> Hmm... what's wrong with this picture? I can see why Donovan, CTO, would
-> accuse Apple of lousy software that was ruining iPhone user experience!
-> His network was operating without ANY problems.
-> So it must be Apple!
->
->
-> Well, no. The entire problem, as we saw when ATT just changed to shorten
-> egress queues and drop packets when the egress queues overflowed, was tha=
-t
-> ATT's network was amplifying instability, not at the link level, but at t=
-he
-> network level.
->
->
-> And queueing theory can help with that, but *intro queueing theory* canno=
-t.
->
->
-> And a big part of that problem is the pervasive belief that, at the
-> network boundary, *Poisson arrival* is a reasonable model for use in all
-> cases.
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
->
-> On Friday, July 9, 2021 6:05am, "Luca Muscariello" <muscariello@ieee.org>
-> said:
->
-> For those who might be interested in Little's law
-> there is a nice paper by John Little on the occasion
-> of the 50th anniversary  of the result.
->
-> https://www.informs.org/Blogs/Operations-Research-Forum/Little-s-Law-as-V=
-iewed-on-its-50th-Anniversary
->
-> https://www.informs.org/content/download/255808/2414681/file/little_paper=
-.pdf
->
-> Nice read.
-> Luca
->
-> P.S.
-> Who has not a copy of L. Kleinrock's books? I do have and am not ready to
-> lend them!
-> On Fri, Jul 9, 2021 at 11:01 AM Leonard Kleinrock <lk@cs.ucla.edu> wrote:
+> On Fri, Jul 9, 2021 at 4:01 PM Leonard Kleinrock <lk@cs.ucla.edu> wrote:
 >
 >> David,
->> I totally appreciate  your attention to when and when not analytical
->> modeling works. Let me clarify a few things from your note.
->> First, Little's law (also known as Little=E2=80=99s lemma or, as I use i=
-n my
->> book, Little=E2=80=99s result) does not assume Poisson arrivals -  it is=
- good for
->> *any* arrival process and any service process and is an equality between
->> time averages.  It states that the time average of the number in a syste=
-m
->> (for a sample path *w)* is equal to the average arrival rate to the
->> system multiplied by the time-averaged time in the system for that sampl=
-e
->> path.  This is often written as   NTimeAvg =3D=CE=BB=C2=B7TTimeAvg .  Mo=
-reover, if
->> the system is also ergodic, then the time average equals the ensemble
->> average and we often write it as N =CC=84 =3D =CE=BB T =CC=84 .  In any =
-case, this
->> requires neither Poisson arrivals nor exponential service times.
 >>
->> Queueing theorists often do study the case of Poisson arrivals.  True, i=
-t
->> makes the analysis easier, yet there is a better reason it is often used=
+>> No question that non-stationarity and instability are what we often see
+>> in networks.  And, non-stationarity and instability are both topics that
+>> lead to very complex analytical problems in queueing theory.  You can fi=
+nd
+>> some results on the transient analysis in the queueing theory literature
+>> (including the second volume of my Queueing Systems book), but they are
+>> limited and hard. Nevertheless, the literature does contain some works o=
+n
+>> transient analysis of queueing systems as applied to network congestion
+>> control - again limited. On the other hand, as you said, control theory
+>> addresses stability head on and does offer some tools as well, but again=
 ,
->> and that is because the sum of a large number of independent stationary
->> renewal processes approaches a Poisson process.  So nature often gives u=
-s
->> Poisson arrivals.
->> Best,
+>> it is hairy.
+>>
+>> Averages are only averages, but they can provide valuable information.
+>> For sure, latency can and does confound behavior.  But, as you point out=
+,
+>> it is the proliferation of control protocols that are, in some cases,
+>> deployed willy-nilly in networks without proper evaluation of their
+>> behavior that can lead to the nasty cycle of large transient latency,
+>> frantic repeating of web requests, protocols sending multiple copies, la=
+ck
+>> of awareness of true capacity or queue size or throughput, etc, all of
+>> which you articulate so well, create the chaos and frustration in the
+>> network.  Analyzing that is really difficult, and if we don=E2=80=99t me=
+asure and
+>> sense, we have no hope of understanding, controlling, or ameliorating su=
+ch
+>> situations.
+>>
 >> Len
 >>
->> On Jul 8, 2021, at 12:38 PM, David P. Reed <dpreed@deepplum.com> wrote:
+>> On Jul 9, 2021, at 12:31 PM, David P. Reed <dpreed@deepplum.com> wrote:
 >>
->> I will tell you flat out that the arrival time distribution assumption
->> made by Little's Lemma that allows "estimation of queue depth" is totall=
-y
->> unreasonable on ANY Internet in practice.
->>
->>
->> The assumption is a Poisson Arrival Process. In reality, traffic arrival=
-s
->> in real internet applications are extremely far from Poisson, and, of
->> course, using TCP windowing, become highly intercorrelated with crossing
->> traffic that shares the same queue.
->>
->>
->> So, as I've tried to tell many, many net-heads (people who ignore
->> applications layer behavior, like the people that think latency doesn't
->> matter to end users, only throughput), end-to-end packet arrival times o=
-n a
->> practical network are incredibly far from Poisson - and they are more li=
-ke
->> fractal probability distributions, very irregular at all scales of time.
->>
->>
->> So, the idea that iperf can estimate queue depth by Little's Lemma by
->> just measuring saturation of capacity of a path is bogus.The less Poisso=
-n,
->> the worse the estimate gets, by a huge factor.
->>
->>
->>
->>
->> Where does the Poisson assumption come from?  Well, like many theorems,
->> it is the simplest tractable closed form solution - it creates a simplif=
-ied
->> view, by being a "single-parameter" distribution (the parameter is calle=
+>> Len - I admit I made a mistake in challenging Little's Law as being base=
 d
->> lambda for a Poisson distribution).  And the analysis of a simple queue
->> with poisson arrival distribution and a static, fixed service time is th=
-e
->> first interesting Queueing Theory example in most textbooks. It is
->> suggestive of an interesting phenomenon, but it does NOT characterize an=
-y
->> real system.
+>> on Poisson processes. It is more general. But it tells you an "average" =
+in
+>> its base form, and latency averages are not useful for end user
+>> applications.
 >>
 >>
->> It's the queueing theory equivalent of "First, we assume a spherical
->> cow...". in doing an example in a freshman physics class.
+>> However, Little's Law does assume something that is not actually valid
+>> about the kind of distributions seen in the network, and in fact, it is =
+NOT
+>> true that networks converge on Poisson arrival times.
 >>
 >>
->> Unfortunately, most networking engineers understand neither queuing
->> theory nor application networking usage in interactive applications. Whi=
-ch
->> makes them arrogant. They assume all distributions are poisson!
+>> The key issue is well-described in the sandard analysis of the M/M/1
+>> queue (e.g. https://en.wikipedia.org/wiki/M/M/1_queue) , which is done
+>> only for Poisson processes, and is also limited to "stable" systems. But
+>> networks are never stable when fully loaded. They get unstable and those
+>> instabilities persist for a long time in the network. Instability is at
+>> core the underlying *requirement* of the Internet's usage.
+>>
+>>
+>> So specifically: real networks, even large ones, and certainly the
+>> Internet today, are not asymptotic limits of sums of stationary stochast=
+ic
+>> arrival processes. Each esternal terminal of any real network has a real
+>> user there, running a real application, and the network is a complex gra=
+ph.
+>> This makes it completely unlike a single queue. Even the links within a
+>> network carry a relatively small number of application flows. There's no
+>> ability to apply the Law of Large Numbers to the distributions, because =
+any
+>> particular path contains only a small number of serialized flows with
+>> hightly variable rates.
+>>
+>>
+>> Here's an example of what really happens in a real network (I've observe=
+d
+>> this in 5 different cities on ATT's cellular network, back when it was
+>> running Alcatel Lucent HSPA+ gear in those cities).
+>> But you can see this on any network where transient overload occurs,
+>> creating instability.
 >>
 >>
 >>
 >>
->> On Tuesday, July 6, 2021 9:46am, "Ben Greear" <greearb@candelatech.com>
->> said:
+>> At 7 AM, the data transmission of the network is roughty stable. That's
+>> because no links are overloaded within the network. Little's Law can tel=
+l
+>> you by observing the delay and throughput on any path that the average
+>> delay in the network is X.
 >>
->> > Hello,
->> >
->> > I am interested to hear wish lists for network testing features. We
->> make test
->> > equipment, supporting lots
->> > of wifi stations and a distributed architecture, with built-in udp,
->> tcp, ipv6,
->> > http, ... protocols,
->> > and open to creating/improving some of our automated tests.
->> >
->> > I know Dave has some test scripts already, so I'm not necessarily
->> looking to
->> > reimplement that,
->> > but more fishing for other/new ideas.
->> >
->> > Thanks,
->> > Ben
->> >
->> > On 7/2/21 4:28 PM, Bob McMahon wrote:
->> > > I think we need the language of math here. It seems like the network
->> > power metric, introduced by Kleinrock and Jaffe in the late 70s, is
->> something
->> > useful.
->> > > Effective end/end queue depths per Little's law also seems useful.
->> Both are
->> > available in iperf 2 from a test perspective. Repurposing test
->> techniques to
->> > actual
->> > > traffic could be useful. Hence the question around what exact
->> telemetry
->> > is useful to apps making socket write() and read() calls.
->> > >
->> > > Bob
->> > >
->> > > On Fri, Jul 2, 2021 at 10:07 AM Dave Taht <dave.taht@gmail.com
->> > <mailto:dave.taht@gmail.com <dave.taht@gmail.com>>> wrote:
->> > >
->> > > In terms of trying to find "Quality" I have tried to encourage folk =
-to
->> > > both read "zen and the art of motorcycle maintenance"[0], and Deming=
-'s
->> > > work on "total quality management".
->> > >
->> > > My own slice at this network, computer and lifestyle "issue" is aimi=
-ng
->> > > for "imperceptible latency" in all things. [1]. There's a lot of
->> > > fallout from that in terms of not just addressing queuing delay, but
->> > > caching, prefetching, and learning more about what a user really nee=
-ds
->> > > (as opposed to wants) to know via intelligent agents.
->> > >
->> > > [0] If you want to get depressed, read Pirsig's successor to "zen...=
-",
->> > > lila, which is in part about what happens when an engineer hits an
->> > > insoluble problem.
->> > > [1] https://www.internetsociety.org/events/latency2013/
->> > <https://www.internetsociety.org/events/latency2013/>
->> > >
->> > >
->> > >
->> > > On Thu, Jul 1, 2021 at 6:16 PM David P. Reed <dpreed@deepplum.com
->> > <mailto:dpreed@deepplum.com <dpreed@deepplum.com>>> wrote:
->> > > >
->> > > > Well, nice that the folks doing the conference  are willing to
->> > consider that quality of user experience has little to do with
->> signalling rate at
->> > the
->> > > physical layer or throughput of FTP transfers.
->> > > >
->> > > >
->> > > >
->> > > > But honestly, the fact that they call the problem "network quality=
-"
->> > suggests that they REALLY, REALLY don't understand the Internet isn't
->> the hardware
->> > or
->> > > the routers or even the routing algorithms *to its users*.
->> > > >
->> > > >
->> > > >
->> > > > By ignoring the diversity of applications now and in the future,
->> > and the fact that we DON'T KNOW what will be coming up, this conferenc=
-e
->> will
->> > likely fall
->> > > into the usual trap that net-heads fall into - optimizing for some
->> > imaginary reality that doesn't exist, and in fact will probably never
->> be what
->> > users
->> > > actually will do given the chance.
->> > > >
->> > > >
->> > > >
->> > > > I saw this issue in 1976 in the group developing the original
->> > Internet protocols - a desire to put *into the network* special tricks
->> to optimize
->> > ASR33
->> > > logins to remote computers from terminal concentrators (aka remote
->> > login), bulk file transfers between file systems on different
->> time-sharing
->> > systems, and
->> > > "sessions" (virtual circuits) that required logins. And then trying =
-to
->> > exploit underlying "multicast" by building it into the IP layer,
->> because someone
->> > > thought that TV broadcast would be the dominant application.
->> > > >
->> > > >
->> > > >
->> > > > Frankly, to think of "quality" as something that can be "provided"
->> > by "the network" misses the entire point of "end-to-end argument in
->> system
->> > design".
->> > > Quality is not a property defined or created by The Network. If you
->> want
->> > to talk about Quality, you need to talk about users - all the users at
->> all times,
->> > > now and into the future, and that's something you can't do if you
->> don't
->> > bother to include current and future users talking about what they
->> might expect
->> > to
->> > > experience that they don't experience.
->> > > >
->> > > >
->> > > >
->> > > > There was much fighting back in 1976 that basically involved
->> > "network experts" saying that the network was the place to "solve" suc=
-h
->> issues as
->> > quality,
->> > > so applications could avoid having to solve such issues.
->> > > >
->> > > >
->> > > >
->> > > > What some of us managed to do was to argue that you can't "solve"
->> > such issues. All you can do is provide a framework that enables
->> different uses to
->> > > *cooperate* in some way.
->> > > >
->> > > >
->> > > >
->> > > > Which is why the Internet drops packets rather than queueing them,
->> > and why diffserv cannot work.
->> > > >
->> > > > (I know the latter is conftroversial, but at the moment, ALL of
->> > diffserv attempts to talk about end-to-end applicaiton specific
->> metrics, but
->> > never, ever
->> > > explains what the diffserv control points actually do w.r.t. what th=
-e
->> IP
->> > layer can actually control. So it is meaningless - another violation o=
-f
->> the
->> > > so-called end-to-end principle).
->> > > >
->> > > >
->> > > >
->> > > > Networks are about getting packets from here to there, multiplexin=
-g
->> > the underlying resources. That's it. Quality is a whole different
->> thing. Quality
->> > can
->> > > be improved by end-to-end approaches, if the underlying network
->> provides
->> > some kind of thing that actually creates a way for end-to-end
->> applications to
->> > > affect queueing and routing decisions, and more importantly getting
->> > "telemetry" from the network regarding what is actually going on with
->> the other
->> > > end-to-end users sharing the infrastructure.
->> > > >
->> > > >
->> > > >
->> > > > This conference won't talk about it this way. So don't waste your
->> > time.
->> > > >
->> > > >
->> > > >
->> > > >
->> > > >
->> > > >
->> > > >
->> > > > On Wednesday, June 30, 2021 8:12pm, "Dave Taht"
->> > <dave.taht@gmail.com <mailto:dave.taht@gmail.com <dave.taht@gmail.com>=
 >>
->> said:
->> > > >
->> > > > > The program committee members are *amazing*. Perhaps, finally,
->> > we can
->> > > > > move the bar for the internet's quality metrics past endless,
->> > blind
->> > > > > repetitions of speedtest.
->> > > > >
->> > > > > For complete details, please see:
->> > > > > https://www.iab.org/activities/workshops/network-quality/
->> > <https://www.iab.org/activities/workshops/network-quality/>
->> > > > >
->> > > > > Submissions Due: Monday 2nd August 2021, midnight AOE
->> > (Anywhere On Earth)
->> > > > > Invitations Issued by: Monday 16th August 2021
->> > > > >
->> > > > > Workshop Date: This will be a virtual workshop, spread over
->> > three days:
->> > > > >
->> > > > > 1400-1800 UTC Tue 14th September 2021
->> > > > > 1400-1800 UTC Wed 15th September 2021
->> > > > > 1400-1800 UTC Thu 16th September 2021
->> > > > >
->> > > > > Workshop co-chairs: Wes Hardaker, Evgeny Khorov, Omer Shapira
->> > > > >
->> > > > > The Program Committee members:
->> > > > >
->> > > > > Jari Arkko, Olivier Bonaventure, Vint Cerf, Stuart Cheshire,
->> > Sam
->> > > > > Crowford, Nick Feamster, Jim Gettys, Toke Hoiland-Jorgensen,
->> > Geoff
->> > > > > Huston, Cullen Jennings, Katarzyna Kosek-Szott, Mirja
->> > Kuehlewind,
->> > > > > Jason Livingood, Matt Mathias, Randall Meyer, Kathleen
->> > Nichols,
->> > > > > Christoph Paasch, Tommy Pauly, Greg White, Keith Winstein.
->> > > > >
->> > > > > Send Submissions to: network-quality-workshop-pc@iab.org
->> > <mailto:network-quality-workshop-pc@iab.org
->> <network-quality-workshop-pc@iab.org>>.
->> > > > >
->> > > > > Position papers from academia, industry, the open source
->> > community and
->> > > > > others that focus on measurements, experiences, observations
->> > and
->> > > > > advice for the future are welcome. Papers that reflect
->> > experience
->> > > > > based on deployed services are especially welcome. The
->> > organizers
->> > > > > understand that specific actions taken by operators are
->> > unlikely to be
->> > > > > discussed in detail, so papers discussing general categories
->> > of
->> > > > > actions and issues without naming specific technologies,
->> > products, or
->> > > > > other players in the ecosystem are expected. Papers should not
->> > focus
->> > > > > on specific protocol solutions.
->> > > > >
->> > > > > The workshop will be by invitation only. Those wishing to
->> > attend
->> > > > > should submit a position paper to the address above; it may
->> > take the
->> > > > > form of an Internet-Draft.
->> > > > >
->> > > > > All inputs submitted and considered relevant will be published
->> > on the
->> > > > > workshop website. The organisers will decide whom to invite
->> > based on
->> > > > > the submissions received. Sessions will be organized according
->> > to
->> > > > > content, and not every accepted submission or invited attendee
->> > will
->> > > > > have an opportunity to present as the intent is to foster
->> > discussion
->> > > > > and not simply to have a sequence of presentations.
->> > > > >
->> > > > > Position papers from those not planning to attend the virtual
->> > sessions
->> > > > > themselves are also encouraged. A workshop report will be
->> > published
->> > > > > afterwards.
->> > > > >
->> > > > > Overview:
->> > > > >
->> > > > > "We believe that one of the major factors behind this lack of
->> > progress
->> > > > > is the popular perception that throughput is the often sole
->> > measure of
->> > > > > the quality of Internet connectivity. With such narrow focus,
->> > people
->> > > > > don=E2=80=99t consider questions such as:
->> > > > >
->> > > > > What is the latency under typical working conditions?
->> > > > > How reliable is the connectivity across longer time periods?
->> > > > > Does the network allow the use of a broad range of protocols?
->> > > > > What services can be run by clients of the network?
->> > > > > What kind of IPv4, NAT or IPv6 connectivity is offered, and
->> > are there firewalls?
->> > > > > What security mechanisms are available for local services,
->> > such as DNS?
->> > > > > To what degree are the privacy, confidentiality, integrity
->> > and
->> > > > > authenticity of user communications guarded?
->> > > > >
->> > > > > Improving these aspects of network quality will likely depend
->> > on
->> > > > > measurement and exposing metrics to all involved parties,
->> > including to
->> > > > > end users in a meaningful way. Such measurements and exposure
->> > of the
->> > > > > right metrics will allow service providers and network
->> > operators to
->> > > > > focus on the aspects that impacts the users=E2=80=99 experience
->> > most and at
->> > > > > the same time empowers users to choose the Internet service
->> > that will
->> > > > > give them the best experience."
->> > > > >
->> > > > >
->> > > > > --
->> > > > > Latest Podcast:
->> > > > >
->> >
->> https://www.linkedin.com/feed/update/urn:li:activity:6791014284936785920=
-/
->> > <
->> https://www.linkedin.com/feed/update/urn:li:activity:6791014284936785920=
-/
->> >
->> > > > >
->> > > > > Dave T=C3=A4ht CTO, TekLibre, LLC
->> > > > > _______________________________________________
->> > > > > Cerowrt-devel mailing list
->> > > > > Cerowrt-devel@lists.bufferbloat.net
->> > <mailto:Cerowrt-devel@lists.bufferbloat.net
->> <Cerowrt-devel@lists.bufferbloat.net>>
->> > > > > https://lists.bufferbloat.net/listinfo/cerowrt-devel
->> > <https://lists.bufferbloat.net/listinfo/cerowrt-devel>
->> > > > >
->> > >
->> > >
->> > >
->> > > --
->> > > Latest Podcast:
->> > >
->> https://www.linkedin.com/feed/update/urn:li:activity:6791014284936785920=
-/
->> > <
->> https://www.linkedin.com/feed/update/urn:li:activity:6791014284936785920=
-/
->> >
->> > >
->> > > Dave T=C3=A4ht CTO, TekLibre, LLC
->> > > _______________________________________________
->> > > Make-wifi-fast mailing list
->> > > Make-wifi-fast@lists.bufferbloat.net
->> > <mailto:Make-wifi-fast@lists.bufferbloat.net
->> <Make-wifi-fast@lists.bufferbloat.net>>
->> > > https://lists.bufferbloat.net/listinfo/make-wifi-fast
->> > <https://lists.bufferbloat.net/listinfo/make-wifi-fast>
->> > >
->> > >
->> > > This electronic communication and the information and any files
->> transmitted
->> > with it, or attached to it, are confidential and are intended solely
->> for the use
->> > of
->> > > the individual or entity to whom it is addressed and may contain
->> information
->> > that is confidential, legally privileged, protected by privacy laws, o=
+>> Continue sampling delay in the network as the day wears on. At about 10
+>> AM, ping delay starts to soar into the multiple second range. No packers
+>> are lost. The peak ping time is about 4000 milliseconds - 4 seconds in m=
+ost
+>> of the networks. This is in downtown, no radio errors are reported, no l=
+ink
+>> errors.
+>> So it is all queueing delay.
+>>
+>>
+>> Now what Little's law doesn't tell you much about average delay, because
+>> clearly *some* subpiece of the network is fully saturated. But what is
+>> interesting here is what is happening and where. You can't tell what is
+>> saturated, and in fact the entire network is quite unstable, because the
+>> peak is constantly varying and you don't know where the throughput is. A=
+ll
+>> the packets are now arriving 4 seconds or so later.
+>>
+>>
+>> Why is the situaton not worse than 4 seconds? Well, there are multiple
+>> things going on:
+>>
+>>
+>> 1) TCP may be doing a lot of retransmissions (non-Poisson at all, not
+>> random either. The arrival process is entirely deterministic in each
+>> source, based on the retransmission timeout) or it may not be.
+>>
+>>
+>> 2) Users are pissed off, because they clicked on a web page, and got
+>> nothing back. They retry on their screen, or they try another site.
+>> Meanwhile, the underlying TCP connection remains there, pumping the netw=
+ork
+>> full of more packets on that old path, which is still backed up with
+>> packets that haven't been delivered that are sitting in queues. The real
+>> arrival process is not Poisson at all, its a deterministic, repeated
+>> retrsnsmission plus a new attempt to connect to a new site.
+>>
+>>
+>> 3) When the users get a web page back eventually, it is filled with name=
+s
+>> of other pieces needed to display that web page, which causes some numbe=
 r
->> otherwise
->> > > restricted from disclosure to anyone else. If you are not the intend=
-ed
->> > recipient or the person responsible for delivering the e-mail to the
->> intended
->> > recipient,
->> > > you are hereby notified that any use, copying, distributing,
->> dissemination,
->> > forwarding, printing, or copying of this e-mail is strictly prohibited=
-.
->> If you
->> > > received this e-mail in error, please return the e-mail to the
->> sender, delete
->> > it from your computer, and destroy any printed copy of it.
->> > >
->> > > _______________________________________________
->> > > Starlink mailing list
->> > > Starlink@lists.bufferbloat.net
->> > > https://lists.bufferbloat.net/listinfo/starlink
->> > >
->> >
->> >
->> > --
->> > Ben Greear <greearb@candelatech.com>
->> > Candela Technologies Inc http://www.candelatech.com
->> >
->> _______________________________________________
->> Starlink mailing list
->> Starlink@lists.bufferbloat.net
->> https://lists.bufferbloat.net/listinfo/starlink
+>> (often as many as 100) new pages to be fetched, ALL at the same time.
+>> Certainly not a stochastic process that will just obey the law of large
+>> numbers.
 >>
->> _______________________________________________
->> Make-wifi-fast mailing list
->> Make-wifi-fast@lists.bufferbloat.net
->> https://lists.bufferbloat.net/listinfo/make-wifi-fast
+>>
+>> All of these things are the result of initial instability, causing queue=
+s
+>> to build up.
+>>
+>>
+>> So what is the state of the system? is it stable? is it stochastic? Is i=
+t
+>> the sum of enough stochastic stable flows to average out to Poisson?
+>>
+>>
+>> The answer is clearly NO. Control theory (not queuing theory) suggests
+>> that this system is completely uncontrolled and unstable.
+>>
+>>
+>> So if the system is in this state, what does Little's Lemma tell us? Wha=
+t
+>> is the meaning of that hightly variable 4 second delay on ping packets, =
+in
+>> terms of average utilizaton of the network?
+>>
+>>
+>> We don't even know what all the users really might need, if the system
+>> hadn't become unstable, because some users have given up, and others are
+>> trying even harder, and new users are arriving.
+>>
+>>
+>> What we do know, because ATT (at my suggestion) reconfigured their syste=
+m
+>> after blaming Apple Computer company for "bugs" in the original iPhone i=
+n
+>> public, is that simply *dropping* packets sitting in queues more than a
+>> couple milliseconds MADE THE USERS HAPPY. Apparently the required capaci=
+ty
+>> was there all along!
+>>
+>>
+>> So I conclude that the 4 second delay was the largest delay users could
+>> barely tolerate before deciding the network was DOWN and going away. And
+>> that the backup was the accumulation of useless packets sitting in queue=
+s
+>> because none of the end systems were receiving congestion signals (which
+>> for the Internet stack begins with packet dropping).
+>>
+>>
+>> I should say that most operators, and especially ATT in this case, do no=
+t
+>> measure end-to-end latency. Instead they use Little's Lemma to query
+>> routers for their current throughput in bits per second, and calculate
+>> latency as if Little's Lemma applied. This results in reports to managem=
+ent
+>> that literally say:
+>>
+>>
+>>   The network is not dropping packets, utilization is near 100% on many
+>> of our switches and routers.
+>>
+>>
+>> And management responds, Hooray! Because utilization of 100% of their
+>> hardware is their investors' metric of maximizing profits. The hardware
+>> they are operating is fully utilized. No waste! And users are happy beca=
+use
+>> no packets have been dropped!
+>>
+>>
+>> Hmm... what's wrong with this picture? I can see why Donovan, CTO, would
+>> accuse Apple of lousy software that was ruining iPhone user experience!
+>> His network was operating without ANY problems.
+>> So it must be Apple!
+>>
+>>
+>> Well, no. The entire problem, as we saw when ATT just changed to shorten
+>> egress queues and drop packets when the egress queues overflowed, was th=
+at
+>> ATT's network was amplifying instability, not at the link level, but at =
+the
+>> network level.
+>>
+>>
+>> And queueing theory can help with that, but *intro queueing theory*
+>> cannot.
+>>
+>>
+>> And a big part of that problem is the pervasive belief that, at the
+>> network boundary, *Poisson arrival* is a reasonable model for use in all
+>> cases.
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>> On Friday, July 9, 2021 6:05am, "Luca Muscariello" <muscariello@ieee.org=
 >
->
->
+>> said:
+>>
+>> For those who might be interested in Little's law
+>> there is a nice paper by John Little on the occasion
+>> of the 50th anniversary  of the result.
+>>
+>> https://www.informs.org/Blogs/Operations-Research-Forum/Little-s-Law-as-=
+Viewed-on-its-50th-Anniversary
+>>
+>> https://www.informs.org/content/download/255808/2414681/file/little_pape=
+r.pdf
+>>
+>> Nice read.
+>> Luca
+>>
+>> P.S.
+>> Who has not a copy of L. Kleinrock's books? I do have and am not ready t=
+o
+>> lend them!
+>> On Fri, Jul 9, 2021 at 11:01 AM Leonard Kleinrock <lk@cs.ucla.edu> wrote=
+:
+>>
+>>> David,
+>>> I totally appreciate  your attention to when and when not analytical
+>>> modeling works. Let me clarify a few things from your note.
+>>> First, Little's law (also known as Little=E2=80=99s lemma or, as I use =
+in my
+>>> book, Little=E2=80=99s result) does not assume Poisson arrivals -  it i=
+s good for
+>>> *any* arrival process and any service process and is an equality
+>>> between time averages.  It states that the time average of the number i=
+n a
+>>> system (for a sample path *w)* is equal to the average arrival rate to
+>>> the system multiplied by the time-averaged time in the system for that
+>>> sample path.  This is often written as   NTimeAvg =3D=CE=BB=C2=B7TTimeA=
+vg .  Moreover,
+>>> if the system is also ergodic, then the time average equals the ensembl=
+e
+>>> average and we often write it as N =CC=84 =3D =CE=BB T =CC=84 .  In any=
+ case, this
+>>> requires neither Poisson arrivals nor exponential service times.
+>>>
+>>> Queueing theorists often do study the case of Poisson arrivals.  True,
+>>> it makes the analysis easier, yet there is a better reason it is often
+>>> used, and that is because the sum of a large number of independent
+>>> stationary renewal processes approaches a Poisson process.  So nature o=
+ften
+>>> gives us Poisson arrivals.
+>>> Best,
+>>> Len
+>>>
+>>> On Jul 8, 2021, at 12:38 PM, David P. Reed <dpreed@deepplum.com> wrote:
+>>>
+>>> I will tell you flat out that the arrival time distribution assumption
+>>> made by Little's Lemma that allows "estimation of queue depth" is total=
+ly
+>>> unreasonable on ANY Internet in practice.
+>>>
+>>>
+>>> The assumption is a Poisson Arrival Process. In reality, traffic
+>>> arrivals in real internet applications are extremely far from Poisson, =
+and,
+>>> of course, using TCP windowing, become highly intercorrelated with cros=
+sing
+>>> traffic that shares the same queue.
+>>>
+>>>
+>>> So, as I've tried to tell many, many net-heads (people who ignore
+>>> applications layer behavior, like the people that think latency doesn't
+>>> matter to end users, only throughput), end-to-end packet arrival times =
+on a
+>>> practical network are incredibly far from Poisson - and they are more l=
+ike
+>>> fractal probability distributions, very irregular at all scales of time=
+.
+>>>
+>>>
+>>> So, the idea that iperf can estimate queue depth by Little's Lemma by
+>>> just measuring saturation of capacity of a path is bogus.The less Poiss=
+on,
+>>> the worse the estimate gets, by a huge factor.
+>>>
+>>>
+>>>
+>>>
+>>> Where does the Poisson assumption come from?  Well, like many theorems,
+>>> it is the simplest tractable closed form solution - it creates a simpli=
+fied
+>>> view, by being a "single-parameter" distribution (the parameter is call=
+ed
+>>> lambda for a Poisson distribution).  And the analysis of a simple queue
+>>> with poisson arrival distribution and a static, fixed service time is t=
+he
+>>> first interesting Queueing Theory example in most textbooks. It is
+>>> suggestive of an interesting phenomenon, but it does NOT characterize a=
+ny
+>>> real system.
+>>>
+>>>
+>>> It's the queueing theory equivalent of "First, we assume a spherical
+>>> cow...". in doing an example in a freshman physics class.
+>>>
+>>>
+>>> Unfortunately, most networking engineers understand neither queuing
+>>> theory nor application networking usage in interactive applications. Wh=
+ich
+>>> makes them arrogant. They assume all distributions are poisson!
+>>>
+>>>
+>>>
+>>>
+>>> On Tuesday, July 6, 2021 9:46am, "Ben Greear" <greearb@candelatech.com>
+>>> said:
+>>>
+>>> > Hello,
+>>> >
+>>> > I am interested to hear wish lists for network testing features. We
+>>> make test
+>>> > equipment, supporting lots
+>>> > of wifi stations and a distributed architecture, with built-in udp,
+>>> tcp, ipv6,
+>>> > http, ... protocols,
+>>> > and open to creating/improving some of our automated tests.
+>>> >
+>>> > I know Dave has some test scripts already, so I'm not necessarily
+>>> looking to
+>>> > reimplement that,
+>>> > but more fishing for other/new ideas.
+>>> >
+>>> > Thanks,
+>>> > Ben
+>>> >
+>>> > On 7/2/21 4:28 PM, Bob McMahon wrote:
+>>> > > I think we need the language of math here. It seems like the networ=
+k
+>>> > power metric, introduced by Kleinrock and Jaffe in the late 70s, is
+>>> something
+>>> > useful.
+>>> > > Effective end/end queue depths per Little's law also seems useful.
+>>> Both are
+>>> > available in iperf 2 from a test perspective. Repurposing test
+>>> techniques to
+>>> > actual
+>>> > > traffic could be useful. Hence the question around what exact
+>>> telemetry
+>>> > is useful to apps making socket write() and read() calls.
+>>> > >
+>>> > > Bob
+>>> > >
+>>> > > On Fri, Jul 2, 2021 at 10:07 AM Dave Taht <dave.taht@gmail.com
+>>> > <mailto:dave.taht@gmail.com <dave.taht@gmail.com>>> wrote:
+>>> > >
+>>> > > In terms of trying to find "Quality" I have tried to encourage folk
+>>> to
+>>> > > both read "zen and the art of motorcycle maintenance"[0], and
+>>> Deming's
+>>> > > work on "total quality management".
+>>> > >
+>>> > > My own slice at this network, computer and lifestyle "issue" is
+>>> aiming
+>>> > > for "imperceptible latency" in all things. [1]. There's a lot of
+>>> > > fallout from that in terms of not just addressing queuing delay, bu=
+t
+>>> > > caching, prefetching, and learning more about what a user really
+>>> needs
+>>> > > (as opposed to wants) to know via intelligent agents.
+>>> > >
+>>> > > [0] If you want to get depressed, read Pirsig's successor to
+>>> "zen...",
+>>> > > lila, which is in part about what happens when an engineer hits an
+>>> > > insoluble problem.
+>>> > > [1] https://www.internetsociety.org/events/latency2013/
+>>> > <https://www.internetsociety.org/events/latency2013/>
+>>> > >
+>>> > >
+>>> > >
+>>> > > On Thu, Jul 1, 2021 at 6:16 PM David P. Reed <dpreed@deepplum.com
+>>> > <mailto:dpreed@deepplum.com <dpreed@deepplum.com>>> wrote:
+>>> > > >
+>>> > > > Well, nice that the folks doing the conference  are willing to
+>>> > consider that quality of user experience has little to do with
+>>> signalling rate at
+>>> > the
+>>> > > physical layer or throughput of FTP transfers.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > But honestly, the fact that they call the problem "network qualit=
+y"
+>>> > suggests that they REALLY, REALLY don't understand the Internet isn't
+>>> the hardware
+>>> > or
+>>> > > the routers or even the routing algorithms *to its users*.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > By ignoring the diversity of applications now and in the future,
+>>> > and the fact that we DON'T KNOW what will be coming up, this
+>>> conference will
+>>> > likely fall
+>>> > > into the usual trap that net-heads fall into - optimizing for some
+>>> > imaginary reality that doesn't exist, and in fact will probably never
+>>> be what
+>>> > users
+>>> > > actually will do given the chance.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > I saw this issue in 1976 in the group developing the original
+>>> > Internet protocols - a desire to put *into the network* special trick=
+s
+>>> to optimize
+>>> > ASR33
+>>> > > logins to remote computers from terminal concentrators (aka remote
+>>> > login), bulk file transfers between file systems on different
+>>> time-sharing
+>>> > systems, and
+>>> > > "sessions" (virtual circuits) that required logins. And then trying
+>>> to
+>>> > exploit underlying "multicast" by building it into the IP layer,
+>>> because someone
+>>> > > thought that TV broadcast would be the dominant application.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > Frankly, to think of "quality" as something that can be "provided=
+"
+>>> > by "the network" misses the entire point of "end-to-end argument in
+>>> system
+>>> > design".
+>>> > > Quality is not a property defined or created by The Network. If you
+>>> want
+>>> > to talk about Quality, you need to talk about users - all the users a=
+t
+>>> all times,
+>>> > > now and into the future, and that's something you can't do if you
+>>> don't
+>>> > bother to include current and future users talking about what they
+>>> might expect
+>>> > to
+>>> > > experience that they don't experience.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > There was much fighting back in 1976 that basically involved
+>>> > "network experts" saying that the network was the place to "solve"
+>>> such issues as
+>>> > quality,
+>>> > > so applications could avoid having to solve such issues.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > What some of us managed to do was to argue that you can't "solve"
+>>> > such issues. All you can do is provide a framework that enables
+>>> different uses to
+>>> > > *cooperate* in some way.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > Which is why the Internet drops packets rather than queueing them=
+,
+>>> > and why diffserv cannot work.
+>>> > > >
+>>> > > > (I know the latter is conftroversial, but at the moment, ALL of
+>>> > diffserv attempts to talk about end-to-end applicaiton specific
+>>> metrics, but
+>>> > never, ever
+>>> > > explains what the diffserv control points actually do w.r.t. what
+>>> the IP
+>>> > layer can actually control. So it is meaningless - another violation
+>>> of the
+>>> > > so-called end-to-end principle).
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > Networks are about getting packets from here to there, multiplexi=
+ng
+>>> > the underlying resources. That's it. Quality is a whole different
+>>> thing. Quality
+>>> > can
+>>> > > be improved by end-to-end approaches, if the underlying network
+>>> provides
+>>> > some kind of thing that actually creates a way for end-to-end
+>>> applications to
+>>> > > affect queueing and routing decisions, and more importantly getting
+>>> > "telemetry" from the network regarding what is actually going on with
+>>> the other
+>>> > > end-to-end users sharing the infrastructure.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > This conference won't talk about it this way. So don't waste your
+>>> > time.
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > >
+>>> > > > On Wednesday, June 30, 2021 8:12pm, "Dave Taht"
+>>> > <dave.taht@gmail.com <mailto:dave.taht@gmail.com <dave.taht@gmail.com=
+>>>
+>>> said:
+>>> > > >
+>>> > > > > The program committee members are *amazing*. Perhaps, finally,
+>>> > we can
+>>> > > > > move the bar for the internet's quality metrics past endless,
+>>> > blind
+>>> > > > > repetitions of speedtest.
+>>> > > > >
+>>> > > > > For complete details, please see:
+>>> > > > > https://www.iab.org/activities/workshops/network-quality/
+>>> > <https://www.iab.org/activities/workshops/network-quality/>
+>>> > > > >
+>>> > > > > Submissions Due: Monday 2nd August 2021, midnight AOE
+>>> > (Anywhere On Earth)
+>>> > > > > Invitations Issued by: Monday 16th August 2021
+>>> > > > >
+>>> > > > > Workshop Date: This will be a virtual workshop, spread over
+>>> > three days:
+>>> > > > >
+>>> > > > > 1400-1800 UTC Tue 14th September 2021
+>>> > > > > 1400-1800 UTC Wed 15th September 2021
+>>> > > > > 1400-1800 UTC Thu 16th September 2021
+>>> > > > >
+>>> > > > > Workshop co-chairs: Wes Hardaker, Evgeny Khorov, Omer Shapira
+>>> > > > >
+>>> > > > > The Program Committee members:
+>>> > > > >
+>>> > > > > Jari Arkko, Olivier Bonaventure, Vint Cerf, Stuart Cheshire,
+>>> > Sam
+>>> > > > > Crowford, Nick Feamster, Jim Gettys, Toke Hoiland-Jorgensen,
+>>> > Geoff
+>>> > > > > Huston, Cullen Jennings, Katarzyna Kosek-Szott, Mirja
+>>> > Kuehlewind,
+>>> > > > > Jason Livingood, Matt Mathias, Randall Meyer, Kathleen
+>>> > Nichols,
+>>> > > > > Christoph Paasch, Tommy Pauly, Greg White, Keith Winstein.
+>>> > > > >
+>>> > > > > Send Submissions to: network-quality-workshop-pc@iab.org
+>>> > <mailto:network-quality-workshop-pc@iab.org
+>>> <network-quality-workshop-pc@iab.org>>.
+>>> > > > >
+>>> > > > > Position papers from academia, industry, the open source
+>>> > community and
+>>> > > > > others that focus on measurements, experiences, observations
+>>> > and
+>>> > > > > advice for the future are welcome. Papers that reflect
+>>> > experience
+>>> > > > > based on deployed services are especially welcome. The
+>>> > organizers
+>>> > > > > understand that specific actions taken by operators are
+>>> > unlikely to be
+>>> > > > > discussed in detail, so papers discussing general categories
+>>> > of
+>>> > > > > actions and issues without naming specific technologies,
+>>> > products, or
+>>> > > > > other players in the ecosystem are expected. Papers should not
+>>> > focus
+>>> > > > > on specific protocol solutions.
+>>> > > > >
+>>> > > > > The workshop will be by invitation only. Those wishing to
+>>> > attend
+>>> > > > > should submit a position paper to the address above; it may
+>>> > take the
+>>> > > > > form of an Internet-Draft.
+>>> > > > >
+>>> > > > > All inputs submitted and considered relevant will be published
+>>> > on the
+>>> > > > > workshop website. The organisers will decide whom to invite
+>>> > based on
+>>> > > > > the submissions received. Sessions will be organized according
+>>> > to
+>>> > > > > content, and not every accepted submission or invited attendee
+>>> > will
+>>> > > > > have an opportunity to present as the intent is to foster
+>>> > discussion
+>>> > > > > and not simply to have a sequence of presentations.
+>>> > > > >
+>>> > > > > Position papers from those not planning to attend the virtual
+>>> > sessions
+>>> > > > > themselves are also encouraged. A workshop report will be
+>>> > published
+>>> > > > > afterwards.
+>>> > > > >
+>>> > > > > Overview:
+>>> > > > >
+>>> > > > > "We believe that one of the major factors behind this lack of
+>>> > progress
+>>> > > > > is the popular perception that throughput is the often sole
+>>> > measure of
+>>> > > > > the quality of Internet connectivity. With such narrow focus,
+>>> > people
+>>> > > > > don=E2=80=99t consider questions such as:
+>>> > > > >
+>>> > > > > What is the latency under typical working conditions?
+>>> > > > > How reliable is the connectivity across longer time periods?
+>>> > > > > Does the network allow the use of a broad range of protocols?
+>>> > > > > What services can be run by clients of the network?
+>>> > > > > What kind of IPv4, NAT or IPv6 connectivity is offered, and
+>>> > are there firewalls?
+>>> > > > > What security mechanisms are available for local services,
+>>> > such as DNS?
+>>> > > > > To what degree are the privacy, confidentiality, integrity
+>>> > and
+>>> > > > > authenticity of user communications guarded?
+>>> > > > >
+>>> > > > > Improving these aspects of network quality will likely depend
+>>> > on
+>>> > > > > measurement and exposing metrics to all involved parties,
+>>> > including to
+>>> > > > > end users in a meaningful way. Such measurements and exposure
+>>> > of the
+>>> > > > > right metrics will allow service providers and network
+>>> > operators to
+>>> > > > > focus on the aspects that impacts the users=E2=80=99 experience
+>>> > most and at
+>>> > > > > the same time empowers users to choose the Internet service
+>>> > that will
+>>> > > > > give them the best experience."
+>>> > > > >
+>>> > > > >
+>>> > > > > --
+>>> > > > > Latest Podcast:
+>>> > > > >
+>>> >
+>>> https://www.linkedin.com/feed/update/urn:li:activity:679101428493678592=
+0/
+>>> > <
+>>> https://www.linkedin.com/feed/update/urn:li:activity:679101428493678592=
+0/
+>>> >
+>>> > > > >
+>>> > > > > Dave T=C3=A4ht CTO, TekLibre, LLC
+>>> > > > > _______________________________________________
+>>> > > > > Cerowrt-devel mailing list
+>>> > > > > Cerowrt-devel@lists.bufferbloat.net
+>>> > <mailto:Cerowrt-devel@lists.bufferbloat.net
+>>> <Cerowrt-devel@lists.bufferbloat.net>>
+>>> > > > > https://lists.bufferbloat.net/listinfo/cerowrt-devel
+>>> > <https://lists.bufferbloat.net/listinfo/cerowrt-devel>
+>>> > > > >
+>>> > >
+>>> > >
+>>> > >
+>>> > > --
+>>> > > Latest Podcast:
+>>> > >
+>>> https://www.linkedin.com/feed/update/urn:li:activity:679101428493678592=
+0/
+>>> > <
+>>> https://www.linkedin.com/feed/update/urn:li:activity:679101428493678592=
+0/
+>>> >
+>>> > >
+>>> > > Dave T=C3=A4ht CTO, TekLibre, LLC
+>>> > > _______________________________________________
+>>> > > Make-wifi-fast mailing list
+>>> > > Make-wifi-fast@lists.bufferbloat.net
+>>> > <mailto:Make-wifi-fast@lists.bufferbloat.net
+>>> <Make-wifi-fast@lists.bufferbloat.net>>
+>>> > > https://lists.bufferbloat.net/listinfo/make-wifi-fast
+>>> > <https://lists.bufferbloat.net/listinfo/make-wifi-fast>
+>>> > >
+>>> > >
+>>> > > This electronic communication and the information and any files
+>>> transmitted
+>>> > with it, or attached to it, are confidential and are intended solely
+>>> for the use
+>>> > of
+>>> > > the individual or entity to whom it is addressed and may contain
+>>> information
+>>> > that is confidential, legally privileged, protected by privacy laws,
+>>> or otherwise
+>>> > > restricted from disclosure to anyone else. If you are not the
+>>> intended
+>>> > recipient or the person responsible for delivering the e-mail to the
+>>> intended
+>>> > recipient,
+>>> > > you are hereby notified that any use, copying, distributing,
+>>> dissemination,
+>>> > forwarding, printing, or copying of this e-mail is strictly
+>>> prohibited. If you
+>>> > > received this e-mail in error, please return the e-mail to the
+>>> sender, delete
+>>> > it from your computer, and destroy any printed copy of it.
+>>> > >
+>>> > > _______________________________________________
+>>> > > Starlink mailing list
+>>> > > Starlink@lists.bufferbloat.net
+>>> > > https://lists.bufferbloat.net/listinfo/starlink
+>>> > >
+>>> >
+>>> >
+>>> > --
+>>> > Ben Greear <greearb@candelatech.com>
+>>> > Candela Technologies Inc http://www.candelatech.com
+>>> >
+>>> _______________________________________________
+>>> Starlink mailing list
+>>> Starlink@lists.bufferbloat.net
+>>> https://lists.bufferbloat.net/listinfo/starlink
+>>>
+>>> _______________________________________________
+>>> Make-wifi-fast mailing list
+>>> Make-wifi-fast@lists.bufferbloat.net
+>>> https://lists.bufferbloat.net/listinfo/make-wifi-fast
+>>
+>>
+>>
 
 --=20
 This electronic communication and the information and any files transmitted=
@@ -908,235 +945,249 @@ please return the e-mail to the sender, delete it from your computer, and=
 =20
 destroy any printed copy of it.
 
---000000000000cfe17505c6ca35ba
+--000000000000ba578905c6cd32de
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">&quot;Analyzing that is really difficult, and if we don=E2=
-=80=99t measure and sense, we have no hope of understanding, controlling, o=
-r ameliorating such situations.&quot;<br><br>It is truly a high honor to ob=
-serve the queueing theory and control=C2=A0theory discussions to the world =
-class experts here. We simple test guys must measure things and we&#39;d li=
-ke those things to be generally useful to all who can help towards improvem=
-ents. Hence back to my original question, what network, or other, telemetry=
- do experts here see as useful=C2=A0towards measuring active traffic to hel=
-p with this? <br><br>Just some background, and my apologies for the indulge=
-nce, but we&#39;d like our automation rigs to be able to better emulate &qu=
-ot;real world scenarios&quot; and use stochastic based regression type sign=
-als when something goes wrong which, for us, is typically a side effect to =
-a driver or firmware code change and commit. (Humans need machine level sup=
-port for this.) It&#39;s also very frustrating that modern data centers are=
-n&#39;t generally providing GPS atomic time to servers. (I think part of th=
-e idea behind IP packets, etc. was to mitigate fault domains and the PSTN s=
-tratum clocks were a huge weak point.) I find, today, not having a common c=
-lock reference &quot;accurate and precise enough&quot; is hindering=C2=A0pr=
-ogress towards understanding=C2=A0the complexity and towards the ameliorati=
-ng, at least from our attempts to map &quot;bothersome to machine and/or hu=
-mans and relevant real world=C2=A0phenomenon&quot; into our automation=C2=
-=A0environments allowing us to catch things early in the eng life cycle.<br=
-><br>A few of us have pushed over the last five or more years to add one wa=
-y delay (OWD) of the test traffic (which is not the same as 1/2 RTT nor an =
-ICMP ping delay) into iperf 2. That code is available to anyone. The lack o=
-f adoption applied to OWD has been disheartening. One common response has b=
-een, &quot;We don&#39;t need that because users can&#39;t get their devices=
- sync&#39;d to=C2=A0the atomic clock anyway.&quot; (Also 3 is a larger numb=
-er than 2 so iperf3 must be better than iperf2 so let us keep using that as=
- our measurement tool - though I digress=C2=A0 ;) ;)<div><br>Bob<br><br>PS.=
- One can get a stratum=C2=A01 clock with a raspberry pi working in a home f=
-or about $200. I&#39;ve got one in my home (along with a $2500 OCXO from sp=
-ectracom) and the=C2=A0Pi is=C2=A0reasonable.=C2=A0<a href=3D"https://www.s=
-atsignal.eu/ntp/Raspberry-Pi-NTP.html">https://www.satsignal.eu/ntp/Raspber=
-ry-Pi-NTP.html</a>=C2=A0</div></div><br><div class=3D"gmail_quote"><div dir=
+<div dir=3D"ltr">One example question is, if it seems useful to control and=
+ queuing theory experts to feedback the non-parametric OWD distributions=C2=
+=A0to the sending device&#39;s transport layer control loop? We find kolmog=
+orov-smirnov distance matrices as useful for clustering non-parametric dist=
+ributions and chose=C2=A0to use=C2=A0it because experimentally OWD distribu=
+tions have=C2=A0been non-parametric where the application of the central li=
+mit theorem lost the affecting information. I&#39;m wondering if the KS dis=
+tances have any use in real word traffic beyond our post analysis technique=
+s?<br><br>Bob</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D=
+"gmail_attr">On Sat, Jul 10, 2021 at 12:51 PM Bob McMahon &lt;<a href=3D"ma=
+ilto:bob.mcmahon@broadcom.com">bob.mcmahon@broadcom.com</a>&gt; wrote:<br><=
+/div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;bo=
+rder-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">&qu=
+ot;Analyzing that is really difficult, and if we don=E2=80=99t measure and =
+sense, we have no hope of understanding, controlling, or ameliorating such =
+situations.&quot;<br><br>It is truly a high honor to observe the queueing t=
+heory and control=C2=A0theory discussions to the world class experts here. =
+We simple test guys must measure things and we&#39;d like those things to b=
+e generally useful to all who can help towards improvements. Hence back to =
+my original question, what network, or other, telemetry do experts here see=
+ as useful=C2=A0towards measuring active traffic to help with this? <br><br=
+>Just some background, and my apologies for the indulgence, but we&#39;d li=
+ke our automation rigs to be able to better emulate &quot;real world scenar=
+ios&quot; and use stochastic based regression type signals when something g=
+oes wrong which, for us, is typically a side effect to a driver or firmware=
+ code change and commit. (Humans need machine level support for this.) It&#=
+39;s also very frustrating that modern data centers aren&#39;t generally pr=
+oviding GPS atomic time to servers. (I think part of the idea behind IP pac=
+kets, etc. was to mitigate fault domains and the PSTN stratum clocks were a=
+ huge weak point.) I find, today, not having a common clock reference &quot=
+;accurate and precise enough&quot; is hindering=C2=A0progress towards under=
+standing=C2=A0the complexity and towards the ameliorating, at least from ou=
+r attempts to map &quot;bothersome to machine and/or humans and relevant re=
+al world=C2=A0phenomenon&quot; into our automation=C2=A0environments allowi=
+ng us to catch things early in the eng life cycle.<br><br>A few of us have =
+pushed over the last five or more years to add one way delay (OWD) of the t=
+est traffic (which is not the same as 1/2 RTT nor an ICMP ping delay) into =
+iperf 2. That code is available to anyone. The lack of adoption applied to =
+OWD has been disheartening. One common response has been, &quot;We don&#39;=
+t need that because users can&#39;t get their devices sync&#39;d to=C2=A0th=
+e atomic clock anyway.&quot; (Also 3 is a larger number than 2 so iperf3 mu=
+st be better than iperf2 so let us keep using that as our measurement tool =
+- though I digress=C2=A0 ;) ;)<div><br>Bob<br><br>PS. One can get a stratum=
+=C2=A01 clock with a raspberry pi working in a home for about $200. I&#39;v=
+e got one in my home (along with a $2500 OCXO from spectracom) and the=C2=
+=A0Pi is=C2=A0reasonable.=C2=A0<a href=3D"https://www.satsignal.eu/ntp/Rasp=
+berry-Pi-NTP.html" target=3D"_blank">https://www.satsignal.eu/ntp/Raspberry=
+-Pi-NTP.html</a>=C2=A0</div></div><br><div class=3D"gmail_quote"><div dir=
 =3D"ltr" class=3D"gmail_attr">On Fri, Jul 9, 2021 at 4:01 PM Leonard Kleinr=
-ock &lt;<a href=3D"mailto:lk@cs.ucla.edu">lk@cs.ucla.edu</a>&gt; wrote:<br>=
-</div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;b=
-order-left:1px solid rgb(204,204,204);padding-left:1ex"><div style=3D"overf=
-low-wrap: break-word;">David,<div><br></div><div>No question that non-stati=
-onarity and instability are what we often see in networks.=C2=A0 And, non-s=
-tationarity and instability are both topics that lead to very complex analy=
-tical problems in queueing theory.=C2=A0 You can find some results on the t=
-ransient analysis in the queueing theory literature (including the second v=
-olume of my Queueing Systems book), but they are limited and hard. Neverthe=
-less, the literature does contain some works on transient analysis of queue=
-ing systems as applied to network congestion control - again limited.=C2=A0=
-On the other hand, as you said, control theory addresses stability head on =
-and does offer some tools as well, but again, it is hairy.=C2=A0</div><div>=
-<br></div><div>Averages are only averages, but they can provide valuable in=
-formation. For sure, latency can and does confound behavior.=C2=A0 But, as =
-you point out, it is the proliferation of control protocols that are, in so=
-me cases, deployed willy-nilly in networks without proper evaluation of the=
-ir behavior that can lead to the nasty cycle of large transient latency, fr=
-antic repeating of web requests, protocols sending multiple copies, lack of=
- awareness of true capacity or queue size or throughput, etc, all of which =
-you articulate so well, create the chaos and frustration in the network.=C2=
-=A0 Analyzing that is really difficult, and if we don=E2=80=99t measure and=
- sense, we have no hope of understanding, controlling, or ameliorating such=
- situations. =C2=A0</div><div><br></div><div>Len</div><div><div><br><blockq=
-uote type=3D"cite"><div>On Jul 9, 2021, at 12:31 PM, David P. Reed &lt;<a h=
-ref=3D"mailto:dpreed@deepplum.com" target=3D"_blank">dpreed@deepplum.com</a=
->&gt; wrote:</div><br><div><font face=3D"arial" size=3D"2"><div style=3D"ma=
-rgin:0px;padding:0px;font-family:arial;font-size:10pt">Len - I admit I made=
- a mistake in challenging Little&#39;s Law as being based on Poisson proces=
-ses. It is more general. But it tells you an &quot;average&quot; in its bas=
-e form, and latency averages are not useful for end user applications.</div=
+ock &lt;<a href=3D"mailto:lk@cs.ucla.edu" target=3D"_blank">lk@cs.ucla.edu<=
+/a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0=
+px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><=
+div>David,<div><br></div><div>No question that non-stationarity and instabi=
+lity are what we often see in networks.=C2=A0 And, non-stationarity and ins=
+tability are both topics that lead to very complex analytical problems in q=
+ueueing theory.=C2=A0 You can find some results on the transient analysis i=
+n the queueing theory literature (including the second volume of my Queuein=
+g Systems book), but they are limited and hard. Nevertheless, the literatur=
+e does contain some works on transient analysis of queueing systems as appl=
+ied to network congestion control - again limited.=C2=A0On the other hand, =
+as you said, control theory addresses stability head on and does offer some=
+ tools as well, but again, it is hairy.=C2=A0</div><div><br></div><div>Aver=
+ages are only averages, but they can provide valuable information. For sure=
+, latency can and does confound behavior.=C2=A0 But, as you point out, it i=
+s the proliferation of control protocols that are, in some cases, deployed =
+willy-nilly in networks without proper evaluation of their behavior that ca=
+n lead to the nasty cycle of large transient latency, frantic repeating of =
+web requests, protocols sending multiple copies, lack of awareness of true =
+capacity or queue size or throughput, etc, all of which you articulate so w=
+ell, create the chaos and frustration in the network.=C2=A0 Analyzing that =
+is really difficult, and if we don=E2=80=99t measure and sense, we have no =
+hope of understanding, controlling, or ameliorating such situations. =C2=A0=
+</div><div><br></div><div>Len</div><div><div><br><blockquote type=3D"cite">=
+<div>On Jul 9, 2021, at 12:31 PM, David P. Reed &lt;<a href=3D"mailto:dpree=
+d@deepplum.com" target=3D"_blank">dpreed@deepplum.com</a>&gt; wrote:</div><=
+br><div><font face=3D"arial" size=3D"2"><div style=3D"margin:0px;padding:0p=
+x;font-family:arial;font-size:10pt">Len - I admit I made a mistake in chall=
+enging Little&#39;s Law as being based on Poisson processes. It is more gen=
+eral. But it tells you an &quot;average&quot; in its base form, and latency=
+ averages are not useful for end user applications.</div><p style=3D"margin=
+:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"=
+margin:0px;padding:0px;font-family:arial;font-size:10pt">However, Little&#3=
+9;s Law does assume something that is not actually valid about the kind of =
+distributions seen in the network, and in fact, it is NOT true that network=
+s converge on Poisson arrival times.</div><p style=3D"margin:0px;padding:0p=
+x;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padd=
+ing:0px;font-family:arial;font-size:10pt">The key issue is well-described i=
+n the sandard analysis of the M/M/1 queue (e.g. <a href=3D"https://en.wikip=
+edia.org/wiki/M/M/1_queue" target=3D"_blank">https://en.wikipedia.org/wiki/=
+M/M/1_queue</a>) , which is done only for Poisson processes, and is also li=
+mited to &quot;stable&quot; systems. But networks are never stable when ful=
+ly loaded. They get unstable and those instabilities persist for a long tim=
+e in the network. Instability is at core the underlying *requirement* of th=
+e Internet&#39;s usage.</div><p style=3D"margin:0px;padding:0px;font-family=
+:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-=
+family:arial;font-size:10pt">So specifically: real networks, even large one=
+s, and certainly the Internet today, are not asymptotic limits of sums of s=
+tationary stochastic arrival processes. Each esternal terminal of any real =
+network has a real user there, running a real application, and the network =
+is a complex graph. This makes it completely unlike a single queue. Even th=
+e links within a network carry a relatively small number of application flo=
+ws. There&#39;s no ability to apply the Law of Large Numbers to the distrib=
+utions, because any particular path contains only a small number of seriali=
+zed flows with hightly variable rates.</div><p style=3D"margin:0px;padding:=
+0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;pa=
+dding:0px;font-family:arial;font-size:10pt">Here&#39;s an example of what r=
+eally happens in a real network (I&#39;ve observed this in 5 different citi=
+es on ATT&#39;s cellular network, back when it was running Alcatel Lucent H=
+SPA+ gear in those cities).</div><div style=3D"margin:0px;padding:0px;font-=
+family:arial;font-size:10pt">But you can see this on any network where tran=
+sient overload occurs, creating instability.</div><p style=3D"margin:0px;pa=
+dding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p style=3D"margin:0p=
+x;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"mar=
+gin:0px;padding:0px;font-family:arial;font-size:10pt">At 7 AM, the data tra=
+nsmission of the network is roughty stable. That&#39;s because no links are=
+ overloaded within the network. Little&#39;s Law can tell you by observing =
+the delay and throughput on any path that the average delay in the network =
+is X.</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:1=
+0pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-=
+size:10pt">Continue sampling delay in the network as the day wears on. At a=
+bout 10 AM, ping delay starts to soar into the multiple second range. No pa=
+ckers are lost. The peak ping time is about 4000 milliseconds - 4 seconds i=
+n most of the networks. This is in downtown, no radio errors are reported, =
+no link errors.</div><div style=3D"margin:0px;padding:0px;font-family:arial=
+;font-size:10pt">So it is all queueing delay.=C2=A0</div><p style=3D"margin=
+:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"=
+margin:0px;padding:0px;font-family:arial;font-size:10pt">Now what Little&#3=
+9;s law doesn&#39;t tell you much about average delay, because clearly *som=
+e* subpiece of the network is fully saturated. But what is interesting here=
+ is what is happening and where. You can&#39;t tell what is saturated, and =
+in fact the entire network is quite unstable, because the peak is constantl=
+y varying and you don&#39;t know where the throughput is. All the packets a=
+re now arriving 4 seconds or so later.</div><p style=3D"margin:0px;padding:=
+0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;pa=
+dding:0px;font-family:arial;font-size:10pt">Why is the situaton not worse t=
+han 4 seconds? Well, there are multiple things going on:</div><p style=3D"m=
+argin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div styl=
+e=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">1) TCP may be=
+ doing a lot of retransmissions (non-Poisson at all, not random either. The=
+ arrival process is entirely deterministic in each source, based on the ret=
+ransmission timeout) or it may not be.</div><p style=3D"margin:0px;padding:=
+0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;pa=
+dding:0px;font-family:arial;font-size:10pt">2) Users are pissed off, becaus=
+e they clicked on a web page, and got nothing back. They retry on their scr=
+een, or they try another site. Meanwhile, the underlying TCP connection rem=
+ains there, pumping the network full of more packets on that old path, whic=
+h is still backed up with packets that haven&#39;t been delivered that are =
+sitting in queues. The real arrival process is not Poisson at all, its a de=
+terministic, repeated retrsnsmission plus a new attempt to connect to a new=
+ site.</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:=
+10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font=
+-size:10pt">3) When the users get a web page back eventually, it is filled =
+with names of other pieces needed to display that web page, which causes so=
+me number (often as many as 100) new pages to be fetched, ALL at the same t=
+ime. Certainly not a stochastic process that will just obey the law of larg=
+e numbers.</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-s=
+ize:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;=
+font-size:10pt">All of these things are the result of initial instability, =
+causing queues to build up.</div><p style=3D"margin:0px;padding:0px;font-fa=
+mily:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;f=
+ont-family:arial;font-size:10pt">So what is the state of the system? is it =
+stable? is it stochastic? Is it the sum of enough stochastic stable flows t=
+o average out to Poisson?</div><p style=3D"margin:0px;padding:0px;font-fami=
+ly:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;fon=
+t-family:arial;font-size:10pt">The answer is clearly NO. Control theory (no=
+t queuing theory) suggests that this system is completely uncontrolled and =
+unstable.</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-si=
+ze:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;f=
+ont-size:10pt">So if the system is in this state, what does Little&#39;s Le=
+mma tell us? What is the meaning of that hightly variable 4 second delay on=
+ ping packets, in terms of average utilizaton of the network?</div><p style=
+=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div=
+ style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">We don&#=
+39;t even know what all the users really might need, if the system hadn&#39=
+;t become unstable, because some users have given up, and others are trying=
+ even harder, and new users are arriving.</div><p style=3D"margin:0px;paddi=
+ng:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px=
+;padding:0px;font-family:arial;font-size:10pt">What we do know, because ATT=
+ (at my suggestion) reconfigured their system after blaming Apple Computer =
+company for &quot;bugs&quot; in the original iPhone in public, is that simp=
+ly *dropping* packets sitting in queues more than a couple milliseconds MAD=
+E THE USERS HAPPY. Apparently the required capacity was there all along!=C2=
+=A0</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10p=
+t">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-si=
+ze:10pt">So I conclude that the 4 second delay was the largest delay users =
+could barely tolerate before deciding the network was DOWN and going away. =
+And that the backup was the accumulation of useless packets sitting in queu=
+es because none of the end systems were receiving congestion signals (which=
+ for the Internet stack begins with packet dropping).</div><p style=3D"marg=
+in:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=
+=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">I should say t=
+hat most operators, and especially ATT in this case, do not measure end-to-=
+end latency. Instead they use Little&#39;s Lemma to query routers for their=
+ current throughput in bits per second, and calculate latency as if Little&=
+#39;s Lemma applied. This results in reports to management that literally s=
+ay:</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10p=
+t">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-si=
+ze:10pt">=C2=A0 The network is not dropping packets, utilization is near 10=
+0% on many of our switches and routers.</div><p style=3D"margin:0px;padding=
+:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;p=
+adding:0px;font-family:arial;font-size:10pt">And management responds, Hoora=
+y! Because utilization of 100% of their hardware is their investors&#39; me=
+tric of maximizing profits. The hardware they are operating is fully utiliz=
+ed. No waste! And users are happy because no packets have been dropped!</di=
+v><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=
+=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-size:10p=
+t">Hmm... what&#39;s wrong with this picture? I can see why Donovan, CTO, w=
+ould accuse Apple of lousy software that was ruining iPhone user experience=
+!=C2=A0 His network was operating without ANY problems.</div><div style=3D"=
+margin:0px;padding:0px;font-family:arial;font-size:10pt">So it must be Appl=
+e!</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt=
+">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-siz=
+e:10pt">Well, no. The entire problem, as we saw when ATT just changed to sh=
+orten egress queues and drop packets when the egress queues overflowed, was=
+ that ATT&#39;s network was amplifying instability, not at the link level, =
+but at the network level.</div><p style=3D"margin:0px;padding:0px;font-fami=
+ly:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;fon=
+t-family:arial;font-size:10pt">And queueing theory can help with that, but =
+*intro queueing theory* cannot.</div><p style=3D"margin:0px;padding:0px;fon=
+t-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0=
+px;font-family:arial;font-size:10pt">And a big part of that problem is the =
+pervasive belief that, at the network boundary, *Poisson arrival* is a reas=
+onable model for use in all cases.</div><p style=3D"margin:0px;padding:0px;=
+font-family:arial;font-size:10pt">=C2=A0</p><p style=3D"margin:0px;padding:=
+0px;font-family:arial;font-size:10pt">=C2=A0</p><p style=3D"margin:0px;padd=
+ing:0px;font-family:arial;font-size:10pt">=C2=A0</p><p style=3D"margin:0px;=
+padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p style=3D"margin:=
+0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p style=3D"mar=
+gin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p style=3D=
+"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p styl=
+e=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p =
+style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p=
 ><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=
 =A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-size:10p=
-t">However, Little&#39;s Law does assume something that is not actually val=
-id about the kind of distributions seen in the network, and in fact, it is =
-NOT true that networks converge on Poisson arrival times.</div><p style=3D"=
-margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div sty=
-le=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">The key issu=
-e is well-described in the sandard analysis of the M/M/1 queue (e.g. <a hre=
-f=3D"https://en.wikipedia.org/wiki/M/M/1_queue" target=3D"_blank">https://e=
-n.wikipedia.org/wiki/M/M/1_queue</a>) , which is done only for Poisson proc=
-esses, and is also limited to &quot;stable&quot; systems. But networks are =
-never stable when fully loaded. They get unstable and those instabilities p=
-ersist for a long time in the network. Instability is at core the underlyin=
-g *requirement* of the Internet&#39;s usage.</div><p style=3D"margin:0px;pa=
-dding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:=
-0px;padding:0px;font-family:arial;font-size:10pt">So specifically: real net=
-works, even large ones, and certainly the Internet today, are not asymptoti=
-c limits of sums of stationary stochastic arrival processes. Each esternal =
-terminal of any real network has a real user there, running a real applicat=
-ion, and the network is a complex graph. This makes it completely unlike a =
-single queue. Even the links within a network carry a relatively small numb=
-er of application flows. There&#39;s no ability to apply the Law of Large N=
-umbers to the distributions, because any particular path contains only a sm=
-all number of serialized flows with hightly variable rates.</div><p style=
-=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div=
- style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">Here&#39=
-;s an example of what really happens in a real network (I&#39;ve observed t=
-his in 5 different cities on ATT&#39;s cellular network, back when it was r=
-unning Alcatel Lucent HSPA+ gear in those cities).</div><div style=3D"margi=
-n:0px;padding:0px;font-family:arial;font-size:10pt">But you can see this on=
- any network where transient overload occurs, creating instability.</div><p=
- style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</=
-p><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=
-=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-size:10p=
-t">At 7 AM, the data transmission of the network is roughty stable. That&#3=
-9;s because no links are overloaded within the network. Little&#39;s Law ca=
-n tell you by observing the delay and throughput on any path that the avera=
-ge delay in the network is X.</div><p style=3D"margin:0px;padding:0px;font-=
-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px=
-;font-family:arial;font-size:10pt">Continue sampling delay in the network a=
-s the day wears on. At about 10 AM, ping delay starts to soar into the mult=
-iple second range. No packers are lost. The peak ping time is about 4000 mi=
-lliseconds - 4 seconds in most of the networks. This is in downtown, no rad=
-io errors are reported, no link errors.</div><div style=3D"margin:0px;paddi=
-ng:0px;font-family:arial;font-size:10pt">So it is all queueing delay.=C2=A0=
-</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=
-=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-size:=
-10pt">Now what Little&#39;s law doesn&#39;t tell you much about average del=
-ay, because clearly *some* subpiece of the network is fully saturated. But =
-what is interesting here is what is happening and where. You can&#39;t tell=
- what is saturated, and in fact the entire network is quite unstable, becau=
-se the peak is constantly varying and you don&#39;t know where the throughp=
-ut is. All the packets are now arriving 4 seconds or so later.</div><p styl=
-e=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><di=
-v style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">Why is =
-the situaton not worse than 4 seconds? Well, there are multiple things goin=
-g on:</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:1=
-0pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-=
-size:10pt">1) TCP may be doing a lot of retransmissions (non-Poisson at all=
-, not random either. The arrival process is entirely deterministic in each =
-source, based on the retransmission timeout) or it may not be.</div><p styl=
-e=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><di=
-v style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">2) User=
-s are pissed off, because they clicked on a web page, and got nothing back.=
- They retry on their screen, or they try another site. Meanwhile, the under=
-lying TCP connection remains there, pumping the network full of more packet=
-s on that old path, which is still backed up with packets that haven&#39;t =
-been delivered that are sitting in queues. The real arrival process is not =
-Poisson at all, its a deterministic, repeated retrsnsmission plus a new att=
-empt to connect to a new site.</div><p style=3D"margin:0px;padding:0px;font=
--family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0p=
-x;font-family:arial;font-size:10pt">3) When the users get a web page back e=
-ventually, it is filled with names of other pieces needed to display that w=
-eb page, which causes some number (often as many as 100) new pages to be fe=
-tched, ALL at the same time. Certainly not a stochastic process that will j=
-ust obey the law of large numbers.</div><p style=3D"margin:0px;padding:0px;=
-font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;paddin=
-g:0px;font-family:arial;font-size:10pt">All of these things are the result =
-of initial instability, causing queues to build up.</div><p style=3D"margin=
-:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"=
-margin:0px;padding:0px;font-family:arial;font-size:10pt">So what is the sta=
-te of the system? is it stable? is it stochastic? Is it the sum of enough s=
-tochastic stable flows to average out to Poisson?</div><p style=3D"margin:0=
-px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"ma=
-rgin:0px;padding:0px;font-family:arial;font-size:10pt">The answer is clearl=
-y NO. Control theory (not queuing theory) suggests that this system is comp=
-letely uncontrolled and unstable.</div><p style=3D"margin:0px;padding:0px;f=
-ont-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding=
-:0px;font-family:arial;font-size:10pt">So if the system is in this state, w=
-hat does Little&#39;s Lemma tell us? What is the meaning of that hightly va=
-riable 4 second delay on ping packets, in terms of average utilizaton of th=
-e network?</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-s=
-ize:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;=
-font-size:10pt">We don&#39;t even know what all the users really might need=
-, if the system hadn&#39;t become unstable, because some users have given u=
-p, and others are trying even harder, and new users are arriving.</div><p s=
-tyle=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p>=
-<div style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">What=
- we do know, because ATT (at my suggestion) reconfigured their system after=
- blaming Apple Computer company for &quot;bugs&quot; in the original iPhone=
- in public, is that simply *dropping* packets sitting in queues more than a=
- couple milliseconds MADE THE USERS HAPPY. Apparently the required capacity=
- was there all along!=C2=A0</div><p style=3D"margin:0px;padding:0px;font-fa=
-mily:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;f=
-ont-family:arial;font-size:10pt">So I conclude that the 4 second delay was =
-the largest delay users could barely tolerate before deciding the network w=
-as DOWN and going away. And that the backup was the accumulation of useless=
- packets sitting in queues because none of the end systems were receiving c=
-ongestion signals (which for the Internet stack begins with packet dropping=
-).</div><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt=
-">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-family:arial;font-siz=
-e:10pt">I should say that most operators, and especially ATT in this case, =
-do not measure end-to-end latency. Instead they use Little&#39;s Lemma to q=
-uery routers for their current throughput in bits per second, and calculate=
- latency as if Little&#39;s Lemma applied. This results in reports to manag=
-ement that literally say:</div><p style=3D"margin:0px;padding:0px;font-fami=
-ly:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;fon=
-t-family:arial;font-size:10pt">=C2=A0 The network is not dropping packets, =
-utilization is near 100% on many of our switches and routers.</div><p style=
-=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div=
- style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">And mana=
-gement responds, Hooray! Because utilization of 100% of their hardware is t=
-heir investors&#39; metric of maximizing profits. The hardware they are ope=
-rating is fully utilized. No waste! And users are happy because no packets =
-have been dropped!</div><p style=3D"margin:0px;padding:0px;font-family:aria=
-l;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-famil=
-y:arial;font-size:10pt">Hmm... what&#39;s wrong with this picture? I can se=
-e why Donovan, CTO, would accuse Apple of lousy software that was ruining i=
-Phone user experience!=C2=A0 His network was operating without ANY problems=
-.</div><div style=3D"margin:0px;padding:0px;font-family:arial;font-size:10p=
-t">So it must be Apple!</div><p style=3D"margin:0px;padding:0px;font-family=
-:arial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-=
-family:arial;font-size:10pt">Well, no. The entire problem, as we saw when A=
-TT just changed to shorten egress queues and drop packets when the egress q=
-ueues overflowed, was that ATT&#39;s network was amplifying instability, no=
-t at the link level, but at the network level.</div><p style=3D"margin:0px;=
-padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D"margi=
-n:0px;padding:0px;font-family:arial;font-size:10pt">And queueing theory can=
- help with that, but *intro queueing theory* cannot.</div><p style=3D"margi=
-n:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><div style=3D=
-"margin:0px;padding:0px;font-family:arial;font-size:10pt">And a big part of=
- that problem is the pervasive belief that, at the network boundary, *Poiss=
-on arrival* is a reasonable model for use in all cases.</div><p style=3D"ma=
-rgin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p style=
-=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p><p s=
-tyle=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p>=
-<p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0=
-</p><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">=
-=C2=A0</p><p style=3D"margin:0px;padding:0px;font-family:arial;font-size:10=
-pt">=C2=A0</p><p style=3D"margin:0px;padding:0px;font-family:arial;font-siz=
-e:10pt">=C2=A0</p><p style=3D"margin:0px;padding:0px;font-family:arial;font=
--size:10pt">=C2=A0</p><p style=3D"margin:0px;padding:0px;font-family:arial;=
-font-size:10pt">=C2=A0</p><p style=3D"margin:0px;padding:0px;font-family:ar=
-ial;font-size:10pt">=C2=A0</p><div style=3D"margin:0px;padding:0px;font-fam=
-ily:arial;font-size:10pt">On Friday, July 9, 2021 6:05am, &quot;Luca Muscar=
-iello&quot; &lt;<a href=3D"mailto:muscariello@ieee.org" target=3D"_blank">m=
-uscariello@ieee.org</a>&gt; said:<br><br></div>
-<div id=3D"gmail-m_-5774724729815547007SafeStyles1625856330">
+t">On Friday, July 9, 2021 6:05am, &quot;Luca Muscariello&quot; &lt;<a href=
+=3D"mailto:muscariello@ieee.org" target=3D"_blank">muscariello@ieee.org</a>=
+&gt; said:<br><br></div>
+<div id=3D"gmail-m_-6396285309990615985gmail-m_-5774724729815547007SafeStyl=
+es1625856330">
 <div dir=3D"ltr">
 <div dir=3D"ltr">
 <div dir=3D"ltr">
@@ -1265,8 +1316,8 @@ argin:0px;padding:0px;font-family:arial;font-size:10pt">=C2=A0</p>
 uesday, July 6, 2021 9:46am, &quot;Ben Greear&quot; &lt;<a href=3D"mailto:g=
 reearb@candelatech.com" target=3D"_blank">greearb@candelatech.com</a>&gt; s=
 aid:<br><br></div>
-<div id=3D"gmail-m_-5774724729815547007gmail-m_272466165573362254SafeStyles=
-1625772289">
+<div id=3D"gmail-m_-6396285309990615985gmail-m_-5774724729815547007gmail-m_=
+272466165573362254SafeStyles1625772289">
 <div style=3D"margin:0px;padding:0px;font-family:arial;font-size:10pt">&gt;=
  Hello,<br>&gt; <br>&gt; I am interested to hear wish lists for network tes=
 ting features. We make test<br>&gt; equipment, supporting lots<br>&gt; of w=
@@ -1529,6 +1580,7 @@ nk">https://lists.bufferbloat.net/listinfo/make-wifi-fast</a></blockquote>
 </div>
 </div>
 </div></font></div></blockquote></div><br></div></div></blockquote></div>
+</blockquote></div>
 
 <br>
 <span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
@@ -1543,9 +1595,9 @@ uting, dissemination, forwarding, printing, or copying of this e-mail is st=
 rictly prohibited. If you received this e-mail in error, please return the =
 e-mail to the sender, delete it from your computer, and destroy any printed=
  copy of it.</font></span>
---000000000000cfe17505c6ca35ba--
+--000000000000ba578905c6cd32de--
 
---000000000000d7e68f05c6ca35dc
+--000000000000c12c6305c6cd32d1
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -1616,18 +1668,18 @@ bPF1uuJM+dGLJLheUizCr5J/OBEdENg+DSmrqoZ+kZd76iRaF2CkhboR2394Ft8lFlKQiU0q8lnR
 9/kdZ0F0iCcUfhaLaGYWujW7N0LZ+rQuTfuPGLx9zZNeNMWSZi/Pc8vdCO7EnlIxggJtMIICaQIB
 ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
 bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwYS+5PXokx35blu9EwDQYJ
-YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIDhyYUvQ9eHlQ1IUHehpwvPZyQTW0LKXtCG3
-QNlOeXvGMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDcxMDE5
-NTExMlowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
+YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIDl9H3c8oLKWIvxjqkqph/W8B0TSNN3TrDnv
+oZYeWcG8MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDcxMDIz
+MjUwNVowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
 AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
-BgkqhkiG9w0BAQEFAASCAQDpk8woTdDNC4R78iXjx6iL3CJTKXegovyfEca+/pEuXkVcghL3SjhB
-GjrwZDa1l9e54ZAhQnaev5mzRk6V3AB/JV0MeZeXi2MO6DZqA1xIh03iwQ23tAn88ta5y2IPL3K/
-r4k2UiLJdrqvEHC+0WAeUrqwqfx01UTxh+C8AyR3+bPpOhYl8tgkBhU+TULozPVwugfsPRdVj4CV
-s1xkbzFN4YXpbmggre5LLosY8f5LyZXwoqmyrdXZSheZtdV07e5YcLx5HkKMmvZ+xHG3AJvDfw7Q
-jbEnBF3jJNUJ/bosBV6Jp+Yt3Pj+ObOUD4wdb18uCDrM+xe4TlTnSgw/sy4N
---000000000000d7e68f05c6ca35dc--
+BgkqhkiG9w0BAQEFAASCAQCwWR3BZuY+7yHdB7lrcxSvf9pZArYqwz56DkNdxjoKgWrbMTPQsDch
+zL4VMpMMMo+ZxrQn7W+xUEvJvX2q4zEH61He57QG45vok9s6oKZZgtwsTUtTnruvUSPpoozk0Bjz
+LyhRjfnqCg+SHpMfVRYxlT6dMEcjsEeKJMhezGwheGPKCvMK1WFKw+6b+0gvk3xW04TDMfZA0dCQ
+2/68MUOke1f77ELL6syknZTd0jCrbcRTdE0VP1bmV2MTVkXqt2970F4l9U9TGVGWQSwuANPMWFPX
+JIAEJN/INjMlHQA164pEI8Mm0i9i30PThxooWnrma4b21yS6zWuMlRuRFh2+
+--000000000000c12c6305c6cd32d1--
 
---===============5823390513258707128==
+--===============4340165933589738024==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -1637,4 +1689,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============5823390513258707128==--
+--===============4340165933589738024==--
