@@ -2,57 +2,53 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7B733C64B1
-	for <lists+cake@lfdr.de>; Mon, 12 Jul 2021 22:05:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 064F23C6502
+	for <lists+cake@lfdr.de>; Mon, 12 Jul 2021 22:32:21 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 2AF663CB5C;
-	Mon, 12 Jul 2021 16:04:56 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id A3EA63CB41;
+	Mon, 12 Jul 2021 16:32:19 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1626120296;
-	bh=1/I1zjkwBgCX27rGTIdopASeXVvHRu1jP5quTCnbA5Q=;
-	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
-	 From;
-	b=I7EuVGNHbp+0ZCJT0Wtttzdk2Try4Bv9lmIdQgBCYlQ8qHgc1PiUR/siGJpSMoYjD
-	 OmUXju6sBC/6VHXDATf2uTccMmcyNVFW1hGdIfV5PAEnGM3rhPOua/Hylxs695qAmi
-	 9jMlx7a/CJGZAD6JeC96pAkSGEsFUkDjWf0ZBy8/6N4UYDbQOsCCXpwobIWa9zOw4K
-	 FxenIlLzAkZT0VfQsC/HCvQHaQy4eAeTEpkXcnI8BxGT7rffCcwbnUd2pya5BR6sII
-	 JdHzMaeTKK1m7oC8NbmSyYzEtlBjic6IKQIoniSeqDUpc3zaRWBsaxqfdSoxU/pGyv
-	 MjrVRPMiQgEtg==
+	d=lists.bufferbloat.net; s=201610; t=1626121939;
+	bh=TWAWwGLR3y472mt/37r7EGZtVSHbISbmQPfk5oyDSqg=;
+	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=bRIq7sm1AJEjjPd1rZjgdmIfX6FJA20f6ewd0kkI95MCye4UghALnqdY9dTlxMsff
+	 apsYC4esOIyZe8YjcWk/JSfbOKmxTmfMEkd04p70YuUHdj8PCS35BurxasNR0SlREr
+	 lwgi64QOsAahmjZ68Peq+VWioSRC/HQJVDM/kmN070EeuYT+wGNe9ifi1Qsfbc9SY0
+	 RRpH1LN4zYZBBNyI4k+dS1DUQnnn0JOjDQSadqbs3DTXMe+ZEODpfsbcjYxpLLCb1E
+	 bUcd8mHrwIbKdH69WNae34c1UFTSLarBDWC6lJNw6uUuAHmMWA0+xE6DMrraqbwhP/
+	 v9+5Tl3fGxDPg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ed1-x530.google.com (mail-ed1-x530.google.com
- [IPv6:2a00:1450:4864:20::530])
+Received: from dispatch1-us1.ppe-hosted.com (dispatch1-us1.ppe-hosted.com
+ [67.231.154.164])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 2A1643CB47
- for <cake@lists.bufferbloat.net>; Mon, 12 Jul 2021 16:04:54 -0400 (EDT)
-Received: by mail-ed1-x530.google.com with SMTP id ec55so4961584edb.1
- for <cake@lists.bufferbloat.net>; Mon, 12 Jul 2021 13:04:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=yzIqmoCOkld5MJqTme1/dM8w1tAvzTcjQFuMOAcioaY=;
- b=cxehbWsoILtPYqtA3nbH0N7GmcxU8VLYMP89adQ2zTip+LZ/HOfnf2X8BD8RurmxE5
- FCU7hGpeAfTsdkdzTRDlhpgLoFDIhtrIFPjB3O68+5UTS4F1wrGbrTU83/ECkqRc3KCo
- wBq5sf6Y2/EcCn9tANWR3x0k1GkEmoFj3tuno=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=yzIqmoCOkld5MJqTme1/dM8w1tAvzTcjQFuMOAcioaY=;
- b=lDHMUVXsh9lQnvaosgESmscP/RaVHhV2tm1e6wIuKAt85yq3aIFlSyNgAEHnG6Yk/N
- tQF10jNYH1hFJq9ZHthdeUT6pAHnk+YzAcGj32R9Oftk1q4yi7FZ2DAOkJpLqTfu9cnF
- uuqb5HiL3sUH1qCKyc+gOs9gr2tHliQ9/hUu7nlRYG1cYm8Wxl16wCObpQoNMMuklgrS
- WWHdr+AkqGrafALzTYMDXXvjj6mJyHrmVui1Zs+wCLsoLIZ8cIswjtO87lRkX2282MpV
- sQjl6P+epijKygK/LwrpCXCr3+vqvaHrIxn6Hn8wXpZ0io2xKSJYFAMOX22xx1sRRHyw
- qwPA==
-X-Gm-Message-State: AOAM532kgA5ZHlJo+grfhHs1mEOcfMtIo97yvRlWqjM/5O7eG/XLwodG
- ALATG2dVEfY7YVvkCOIhk+CNymBbWCmcMpEbK7IFRyxBM63884sa5oYAnT7ALNwkXPkDdfJhElX
- K5V7ps0nL3XVmMtjaisXaJ6gCkYlN
-X-Google-Smtp-Source: ABdhPJxxT5sEHUAq+TSwKEurT2uNDMi9Dj9ZRbpApV07atlMKqxLa/OtysufxRSFsKoMZrDIYcg8tDIP51nD19725e8=
-X-Received: by 2002:aa7:c89a:: with SMTP id p26mr663222eds.373.1626120292552; 
- Mon, 12 Jul 2021 13:04:52 -0700 (PDT)
-MIME-Version: 1.0
+ by lists.bufferbloat.net (Postfix) with ESMTPS id B5F443CB37;
+ Mon, 12 Jul 2021 16:32:17 -0400 (EDT)
+X-Virus-Scanned: Proofpoint Essentials engine
+Received: from mx1-us1.ppe-hosted.com (unknown [10.110.51.17])
+ by mx1-us1.ppe-hosted.com (PPE Hosted ESMTP Server) with ESMTPS id 870F8A0068; 
+ Mon, 12 Jul 2021 20:32:16 +0000 (UTC)
+Received: from mail3.candelatech.com (mail2.candelatech.com [208.74.158.173])
+ by mx1-us1.ppe-hosted.com (PPE Hosted ESMTP Server) with ESMTP id
+ 90B8F68007F; Mon, 12 Jul 2021 20:32:15 +0000 (UTC)
+Received: from [192.168.100.195] (50-251-239-81-static.hfc.comcastbusiness.net
+ [50.251.239.81])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by mail3.candelatech.com (Postfix) with ESMTPSA id 9C29513C2B1;
+ Mon, 12 Jul 2021 13:32:14 -0700 (PDT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mail3.candelatech.com 9C29513C2B1
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=candelatech.com;
+ s=default; t=1626121934;
+ bh=kluNq+Iz8uclBCz2I1Vru6kTFfRgd3UmP/q0X+3K2TA=;
+ h=Subject:To:Cc:References:From:Date:In-Reply-To:From;
+ b=PuJA2rqd5dl00TK6MvWQ5warNOdWs+N/Na5eUUOQnkYrEPw9Dzm6oQlZEBYcnsqSU
+ DzCX8T158ayn05xU00EAKDsQU90mETzRDr5iNnC0hN2aIQMWy+tju//CIp8clKPe8+
+ uBzGDsTLt888yTUv98AmT3Mhz7o5+Q7ZozpTkui4=
+To: Bob McMahon <bob.mcmahon@broadcom.com>
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
  <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>
@@ -66,12 +62,19 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1626111630.69692379@apps.rackspace.com>
  <CAHb6LvoD+ACc+17WhTVmS8HYnYyboJrCg5zQF8uXtzrmqqKfPA@mail.gmail.com>
  <9c3d61c1-7013-414e-964d-9e83f596e69d@candelatech.com>
-In-Reply-To: <9c3d61c1-7013-414e-964d-9e83f596e69d@candelatech.com>
-Date: Mon, 12 Jul 2021 13:04:41 -0700
-Message-ID: <CAHb6LvpyQtGg3sMF2RV_gMpEcaY32A70VaEwtsnoeq4DHtv7EA@mail.gmail.com>
-To: Ben Greear <greearb@candelatech.com>
+ <CAHb6LvpyQtGg3sMF2RV_gMpEcaY32A70VaEwtsnoeq4DHtv7EA@mail.gmail.com>
+From: Ben Greear <greearb@candelatech.com>
+Organization: Candela Technologies
+Message-ID: <1e8bdf58-2a21-f543-a248-be58bcbddbcf@candelatech.com>
+Date: Mon, 12 Jul 2021 13:32:14 -0700
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101
+ Thunderbird/68.2.2
+MIME-Version: 1.0
+In-Reply-To: <CAHb6LvpyQtGg3sMF2RV_gMpEcaY32A70VaEwtsnoeq4DHtv7EA@mail.gmail.com>
+Content-Language: en-US
+X-MDID: 1626121937-9fOfp_bAH7HL
 Subject: Re: [Cake] [Bloat] Little's Law mea culpa,
-	but not invalidating my main point
+ but not invalidating my main point
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -83,8 +86,6 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
-Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
 Cc: "starlink@lists.bufferbloat.net" <starlink@lists.bufferbloat.net>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
  Leonard Kleinrock <lk@cs.ucla.edu>, Cake List <cake@lists.bufferbloat.net>,
@@ -92,461 +93,160 @@ Cc: "starlink@lists.bufferbloat.net" <starlink@lists.bufferbloat.net>,
  "codel@lists.bufferbloat.net" <codel@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============8788556937122249783=="
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8788556937122249783==
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000006c7d7c05c6f2a2cf"
-
---0000000000006c7d7c05c6f2a2cf
-Content-Type: multipart/alternative; boundary="00000000000066ed5405c6f2a2a9"
-
---00000000000066ed5405c6f2a2a9
-Content-Type: text/plain; charset="UTF-8"
-
-I believe end host's TCP stats are insufficient as seen per the "failed"
-congested control mechanisms over the last decades. I think Jaffe pointed
-this out in 1979 though he was using what's been deemed on this thread as
-"spherical cow queueing theory."
-
-"Flow control in store-and-forward computer networks is appropriate for
-decentralized execution. A formal description of a class of "decentralized
-flow control algorithms" is given. The feasibility of maximizing power with
-such algorithms is investigated. On the assumption that communication links
-behave like M/M/1 servers it is shown that no "decentralized flow control
-algorithm" can maximize network power. Power has been suggested in the
-literature as a network performance objective. It is also shown that no
-objective based only on the users' throughputs and average delay is
-decentralizable. Finally, a restricted class of algorithms cannot even
-approximate power."
-
-https://ieeexplore.ieee.org/document/1095152
-
-Did Jaffe make a mistake?
-
-Also, it's been observed that latency is non-parametric in it's
-distributions and computing gaussians per the central limit theorem for OWD
-feedback loops aren't effective. How does one design a control loop around
-things that are non-parametric? It also begs the question, what are the
-feed forward knobs that can actually help?
-
-Bob
-
-On Mon, Jul 12, 2021 at 12:07 PM Ben Greear <greearb@candelatech.com> wrote:
-
-> Measuring one or a few links provides a bit of data, but seems like if
-> someone is trying to understand
-> a large and real network, then the OWD between point A and B needs to just
-> be input into something much
-> more grand.  Assuming real-time OWD data exists between 100 to 1000
-> endpoint pairs, has anyone found a way
-> to visualize this in a useful manner?
->
-> Also, considering something better than ntp may not really scale to 1000+
-> endpoints, maybe round-trip
-> time is only viable way to get this type of data.  In that case, maybe
-> clever logic could use things
-> like trace-route to get some idea of how long it takes to get 'onto' the
-> internet proper, and so estimate
-> the last-mile latency.  My assumption is that the last-mile latency is
-> where most of the pervasive
-> assymetric network latencies would exist (or just ping 8.8.8.8 which is
-> 20ms from everywhere due to
-> $magic).
->
-> Endpoints could also triangulate a bit if needed, using some anchor points
-> in the network
-> under test.
->
-> Thanks,
-> Ben
->
-> On 7/12/21 11:21 AM, Bob McMahon wrote:
-> > iperf 2 supports OWD and gives full histograms for TCP write to read,
-> TCP connect times, latency of packets (with UDP), latency of "frames" with
-> > simulated video traffic (TCP and UDP), xfer times of bursts with low
-> duty cycle traffic, and TCP RTT (sampling based.) It also has support for
-> sampling (per
-> > interval reports) down to 100 usecs if configured with
-> --enable-fastsampling, otherwise the fastest sampling is 5 ms. We've
-> released all this as open source.
-> >
-> > OWD only works if the end realtime clocks are synchronized using a
-> "machine level" protocol such as IEEE 1588 or PTP. Sadly, *most data
-> centers don't provide
-> > sufficient level of clock accuracy and the GPS pulse per second * to
-> colo and vm customers.
-> >
-> > https://iperf2.sourceforge.io/iperf-manpage.html
-> >
-> > Bob
-> >
-> > On Mon, Jul 12, 2021 at 10:40 AM David P. Reed <dpreed@deepplum.com
-> <mailto:dpreed@deepplum.com>> wrote:
-> >
-> >
-> >     On Monday, July 12, 2021 9:46am, "Livingood, Jason" <
-> Jason_Livingood@comcast.com <mailto:Jason_Livingood@comcast.com>> said:
-> >
-> >      > I think latency/delay is becoming seen to be as important
-> certainly, if not a more direct proxy for end user QoE. This is all still
-> evolving and I have
-> >     to say is a super interesting & fun thing to work on. :-)
-> >
-> >     If I could manage to sell one idea to the management hierarchy of
-> communications industry CEOs (operators, vendors, ...) it is this one:
-> >
-> >     "It's the end-to-end latency, stupid!"
-> >
-> >     And I mean, by end-to-end, latency to complete a task at a relevant
-> layer of abstraction.
-> >
-> >     At the link level, it's packet send to packet receive completion.
-> >
-> >     But at the transport level including retransmission buffers, it's
-> datagram (or message) origination until the acknowledgement arrives for
-> that message being
-> >     delivered after whatever number of retransmissions, freeing the
-> retransmission buffer.
-> >
-> >     At the WWW level, it's mouse click to display update corresponding
-> to completion of the request.
-> >
-> >     What should be noted is that lower level latencies don't directly
-> predict the magnitude of higher-level latencies. But longer lower level
-> latencies almost
-> >     always amplfify higher level latencies. Often non-linearly.
-> >
-> >     Throughput is very, very weakly related to these latencies, in
-> contrast.
-> >
-> >     The amplification process has to do with the presence of queueing.
-> Queueing is ALWAYS bad for latency, and throughput only helps if it is in
-> exactly the
-> >     right place (the so-called input queue of the bottleneck process,
-> which is often a link, but not always).
-> >
-> >     Can we get that slogan into Harvard Business Review? Can we get it
-> taught in Managerial Accounting at HBS? (which does address
-> logistics/supply chain queueing).
-> >
-> >
-> >
-> >
-> >
-> >
-> >
-> > This electronic communication and the information and any files
-> transmitted with it, or attached to it, are confidential and are intended
-> solely for the use of
-> > the individual or entity to whom it is addressed and may contain
-> information that is confidential, legally privileged, protected by privacy
-> laws, or otherwise
-> > restricted from disclosure to anyone else. If you are not the intended
-> recipient or the person responsible for delivering the e-mail to the
-> intended recipient,
-> > you are hereby notified that any use, copying, distributing,
-> dissemination, forwarding, printing, or copying of this e-mail is strictly
-> prohibited. If you
-> > received this e-mail in error, please return the e-mail to the sender,
-> delete it from your computer, and destroy any printed copy of it.
->
->
-> --
-> Ben Greear <greearb@candelatech.com>
-> Candela Technologies Inc  http://www.candelatech.com
->
->
-
--- 
-This electronic communication and the information and any files transmitted 
-with it, or attached to it, are confidential and are intended solely for 
-the use of the individual or entity to whom it is addressed and may contain 
-information that is confidential, legally privileged, protected by privacy 
-laws, or otherwise restricted from disclosure to anyone else. If you are 
-not the intended recipient or the person responsible for delivering the 
-e-mail to the intended recipient, you are hereby notified that any use, 
-copying, distributing, dissemination, forwarding, printing, or copying of 
-this e-mail is strictly prohibited. If you received this e-mail in error, 
-please return the e-mail to the sender, delete it from your computer, and 
-destroy any printed copy of it.
-
---00000000000066ed5405c6f2a2a9
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">I believe end host&#39;s TCP stats are insufficient as see=
-n per the &quot;failed&quot; congested control mechanisms over the last dec=
-ades. I think Jaffe pointed this out in 1979 though he was using what&#39;s=
- been deemed on this thread as &quot;spherical cow queueing theory.&quot;<b=
-r><br>&quot;Flow control in store-and-forward computer networks is appropri=
-ate for decentralized execution. A formal description of a class of &quot;d=
-ecentralized flow control algorithms&quot; is given. The feasibility of max=
-imizing power with such algorithms is investigated. On the assumption that =
-communication links behave like M/M/1 servers it is shown that no &quot;dec=
-entralized flow control algorithm&quot; can maximize network power. Power h=
-as been suggested in the literature as a network performance objective. It =
-is also shown that no objective based only on the users&#39; throughputs an=
-d average delay is decentralizable. Finally, a restricted class of algorith=
-ms cannot even approximate power.&quot;<font color=3D"#333333" face=3D"sans=
--serif"><span style=3D"font-size:15px"><br></span></font><br><a href=3D"htt=
-ps://ieeexplore.ieee.org/document/1095152">https://ieeexplore.ieee.org/docu=
-ment/1095152</a><br><br>Did Jaffe make a mistake?<br><br>Also, it&#39;s bee=
-n observed that latency=C2=A0is non-parametric in it&#39;s distributions an=
-d computing gaussians=C2=A0per the central limit theorem for OWD feedback l=
-oops aren&#39;t effective. How does one design a control loop around things=
- that are non-parametric? It also begs the question, what are the feed forw=
-ard knobs that can actually help?<br><br>Bob</div><br><div class=3D"gmail_q=
-uote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Jul 12, 2021 at 12:07 P=
-M Ben Greear &lt;<a href=3D"mailto:greearb@candelatech.com">greearb@candela=
-tech.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D=
-"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-le=
-ft:1ex">Measuring one or a few links provides a bit of data, but seems like=
- if someone is trying to understand<br>
-a large and real network, then the OWD between point A and B needs to just =
-be input into something much<br>
-more grand.=C2=A0 Assuming real-time OWD data exists between 100 to 1000 en=
-dpoint pairs, has anyone found a way<br>
-to visualize this in a useful manner?<br>
-<br>
-Also, considering something better than ntp may not really scale to 1000+ e=
-ndpoints, maybe round-trip<br>
-time is only viable way to get this type of data.=C2=A0 In that case, maybe=
- clever logic could use things<br>
-like trace-route to get some idea of how long it takes to get &#39;onto&#39=
-; the internet proper, and so estimate<br>
-the last-mile latency.=C2=A0 My assumption is that the last-mile latency is=
- where most of the pervasive<br>
-assymetric network latencies would exist (or just ping 8.8.8.8 which is 20m=
-s from everywhere due to<br>
-$magic).<br>
-<br>
-Endpoints could also triangulate a bit if needed, using some anchor points =
-in the network<br>
-under test.<br>
-<br>
-Thanks,<br>
-Ben<br>
-<br>
-On 7/12/21 11:21 AM, Bob McMahon wrote:<br>
-&gt; iperf 2 supports OWD and gives full histograms for TCP write to read, =
-TCP connect times, latency of packets (with UDP), latency of &quot;frames&q=
-uot; with <br>
-&gt; simulated=C2=A0video=C2=A0traffic (TCP and UDP), xfer times of bursts =
-with low duty cycle traffic, and TCP RTT (sampling based.) It also has supp=
-ort for sampling (per <br>
-&gt; interval reports) down to 100 usecs if configured with --enable-fastsa=
-mpling, otherwise the fastest sampling is 5 ms. We&#39;ve released all this=
- as open source.<br>
-&gt; <br>
-&gt; OWD only works if the end realtime clocks are synchronized using a &qu=
-ot;machine level&quot; protocol such as IEEE 1588 or PTP. Sadly, *most data=
- centers don&#39;t provide <br>
-&gt; sufficient level of clock accuracy and the GPS pulse per second * to c=
-olo and vm customers.<br>
-&gt; <br>
-&gt; <a href=3D"https://iperf2.sourceforge.io/iperf-manpage.html" rel=3D"no=
-referrer" target=3D"_blank">https://iperf2.sourceforge.io/iperf-manpage.htm=
-l</a><br>
-&gt; <br>
-&gt; Bob<br>
-&gt; <br>
-&gt; On Mon, Jul 12, 2021 at 10:40 AM David P. Reed &lt;<a href=3D"mailto:d=
-preed@deepplum.com" target=3D"_blank">dpreed@deepplum.com</a> &lt;mailto:<a=
- href=3D"mailto:dpreed@deepplum.com" target=3D"_blank">dpreed@deepplum.com<=
-/a>&gt;&gt; wrote:<br>
-&gt; <br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0On Monday, July 12, 2021 9:46am, &quot;Livingood, J=
-ason&quot; &lt;<a href=3D"mailto:Jason_Livingood@comcast.com" target=3D"_bl=
-ank">Jason_Livingood@comcast.com</a> &lt;mailto:<a href=3D"mailto:Jason_Liv=
-ingood@comcast.com" target=3D"_blank">Jason_Livingood@comcast.com</a>&gt;&g=
-t; said:<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; I think latency/delay is becoming seen to be =
-as important certainly, if not a more direct proxy for end user QoE. This i=
-s all still evolving and I have<br>
-&gt;=C2=A0 =C2=A0 =C2=A0to say is a super interesting &amp; fun thing to wo=
-rk on. :-)<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0If I could manage to sell one idea to the managemen=
-t hierarchy of communications industry CEOs (operators, vendors, ...) it is=
- this one:<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0&quot;It&#39;s the end-to-end latency, stupid!&quot=
-;<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0And I mean, by end-to-end, latency to complete a ta=
-sk at a relevant layer of abstraction.<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0At the link level, it&#39;s packet send to packet r=
-eceive completion.<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0But at the transport level including retransmission=
- buffers, it&#39;s datagram (or message) origination until the acknowledgem=
-ent arrives for that message being<br>
-&gt;=C2=A0 =C2=A0 =C2=A0delivered after whatever number of retransmissions,=
- freeing the retransmission buffer.<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0At the WWW level, it&#39;s mouse click to display u=
-pdate corresponding to completion of the request.<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0What should be noted is that lower level latencies =
-don&#39;t directly predict the magnitude of higher-level latencies. But lon=
-ger lower level latencies almost<br>
-&gt;=C2=A0 =C2=A0 =C2=A0always amplfify higher level latencies. Often non-l=
-inearly.<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0Throughput is very, very weakly related to these la=
-tencies, in contrast.<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0The amplification process has to do with the presen=
-ce of queueing. Queueing is ALWAYS bad for latency, and throughput only hel=
-ps if it is in exactly the<br>
-&gt;=C2=A0 =C2=A0 =C2=A0right place (the so-called input queue of the bottl=
-eneck process, which is often a link, but not always).<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0Can we get that slogan into Harvard Business Review=
-? Can we get it taught in Managerial Accounting at HBS? (which does address=
- logistics/supply chain queueing).<br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; This electronic communication and the information and any files transm=
-itted with it, or attached to it, are confidential and are intended solely =
-for the use of <br>
-&gt; the individual or entity to whom it is addressed and may contain infor=
-mation that is confidential, legally privileged, protected by privacy laws,=
- or otherwise <br>
-&gt; restricted from disclosure to anyone else. If you are not the intended=
- recipient or the person responsible for delivering the e-mail to the inten=
-ded recipient, <br>
-&gt; you are hereby notified that any use, copying, distributing, dissemina=
-tion, forwarding, printing, or copying of this e-mail is strictly prohibite=
-d. If you <br>
-&gt; received this e-mail in error, please return the e-mail to the sender,=
- delete it from your computer, and destroy any printed copy of it.<br>
-<br>
-<br>
--- <br>
-Ben Greear &lt;<a href=3D"mailto:greearb@candelatech.com" target=3D"_blank"=
->greearb@candelatech.com</a>&gt;<br>
-Candela Technologies Inc=C2=A0 <a href=3D"http://www.candelatech.com" rel=
-=3D"noreferrer" target=3D"_blank">http://www.candelatech.com</a><br>
-<br>
-</blockquote></div>
-
-<br>
-<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
-ctronic communication and the information and any files transmitted with it=
-, or attached to it, are confidential and are intended solely for the use o=
-f the individual or entity to whom it is addressed and may contain informat=
-ion that is confidential, legally privileged, protected by privacy laws, or=
- otherwise restricted from disclosure to anyone else. If you are not the in=
-tended recipient or the person responsible for delivering the e-mail to the=
- intended recipient, you are hereby notified that any use, copying, distrib=
-uting, dissemination, forwarding, printing, or copying of this e-mail is st=
-rictly prohibited. If you received this e-mail in error, please return the =
-e-mail to the sender, delete it from your computer, and destroy any printed=
- copy of it.</font></span>
---00000000000066ed5405c6f2a2a9--
-
---0000000000006c7d7c05c6f2a2cf
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
-
-MIIQagYJKoZIhvcNAQcCoIIQWzCCEFcCAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
-gg3BMIIFDTCCA/WgAwIBAgIQeEqpED+lv77edQixNJMdADANBgkqhkiG9w0BAQsFADBMMSAwHgYD
-VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMzETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
-AxMKR2xvYmFsU2lnbjAeFw0yMDA5MTYwMDAwMDBaFw0yODA5MTYwMDAwMDBaMFsxCzAJBgNVBAYT
-AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhHbG9iYWxTaWduIEdDQyBS
-MyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
-vbCmXCcsbZ/a0fRIQMBxp4gJnnyeneFYpEtNydrZZ+GeKSMdHiDgXD1UnRSIudKo+moQ6YlCOu4t
-rVWO/EiXfYnK7zeop26ry1RpKtogB7/O115zultAz64ydQYLe+a1e/czkALg3sgTcOOcFZTXk38e
-aqsXsipoX1vsNurqPtnC27TWsA7pk4uKXscFjkeUE8JZu9BDKaswZygxBOPBQBwrA5+20Wxlk6k1
-e6EKaaNaNZUy30q3ArEf30ZDpXyfCtiXnupjSK8WU2cK4qsEtj09JS4+mhi0CTCrCnXAzum3tgcH
-cHRg0prcSzzEUDQWoFxyuqwiwhHu3sPQNmFOMwIDAQABo4IB2jCCAdYwDgYDVR0PAQH/BAQDAgGG
-MGAGA1UdJQRZMFcGCCsGAQUFBwMCBggrBgEFBQcDBAYKKwYBBAGCNxQCAgYKKwYBBAGCNwoDBAYJ
-KwYBBAGCNxUGBgorBgEEAYI3CgMMBggrBgEFBQcDBwYIKwYBBQUHAxEwEgYDVR0TAQH/BAgwBgEB
-/wIBADAdBgNVHQ4EFgQUljPR5lgXWzR1ioFWZNW+SN6hj88wHwYDVR0jBBgwFoAUj/BLf6guRSSu
-TVD6Y5qL3uLdG7wwegYIKwYBBQUHAQEEbjBsMC0GCCsGAQUFBzABhiFodHRwOi8vb2NzcC5nbG9i
-YWxzaWduLmNvbS9yb290cjMwOwYIKwYBBQUHMAKGL2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5j
-b20vY2FjZXJ0L3Jvb3QtcjMuY3J0MDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jcmwuZ2xvYmFs
-c2lnbi5jb20vcm9vdC1yMy5jcmwwWgYDVR0gBFMwUTALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgEo
-CjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzAN
-BgkqhkiG9w0BAQsFAAOCAQEAdAXk/XCnDeAOd9nNEUvWPxblOQ/5o/q6OIeTYvoEvUUi2qHUOtbf
-jBGdTptFsXXe4RgjVF9b6DuizgYfy+cILmvi5hfk3Iq8MAZsgtW+A/otQsJvK2wRatLE61RbzkX8
-9/OXEZ1zT7t/q2RiJqzpvV8NChxIj+P7WTtepPm9AIj0Keue+gS2qvzAZAY34ZZeRHgA7g5O4TPJ
-/oTd+4rgiU++wLDlcZYd/slFkaT3xg4qWDepEMjT4T1qFOQIL+ijUArYS4owpPg9NISTKa1qqKWJ
-jFoyms0d0GwOniIIbBvhI2MJ7BSY9MYtWVT5jJO3tsVHwj4cp92CSFuGwunFMzCCA18wggJHoAMC
-AQICCwQAAAAAASFYUwiiMA0GCSqGSIb3DQEBCwUAMEwxIDAeBgNVBAsTF0dsb2JhbFNpZ24gUm9v
-dCBDQSAtIFIzMRMwEQYDVQQKEwpHbG9iYWxTaWduMRMwEQYDVQQDEwpHbG9iYWxTaWduMB4XDTA5
-MDMxODEwMDAwMFoXDTI5MDMxODEwMDAwMFowTDEgMB4GA1UECxMXR2xvYmFsU2lnbiBSb290IENB
-IC0gUjMxEzARBgNVBAoTCkdsb2JhbFNpZ24xEzARBgNVBAMTCkdsb2JhbFNpZ24wggEiMA0GCSqG
-SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMJXaQeQZ4Ihb1wIO2hMoonv0FdhHFrYhy/EYCQ8eyip0E
-XyTLLkvhYIJG4VKrDIFHcGzdZNHr9SyjD4I9DCuul9e2FIYQebs7E4B3jAjhSdJqYi8fXvqWaN+J
-J5U4nwbXPsnLJlkNc96wyOkmDoMVxu9bi9IEYMpJpij2aTv2y8gokeWdimFXN6x0FNx04Druci8u
-nPvQu7/1PQDhBjPogiuuU6Y6FnOM3UEOIDrAtKeh6bJPkC4yYOlXy7kEkmho5TgmYHWyn3f/kRTv
-riBJ/K1AFUjRAjFhGV64l++td7dkmnq/X8ET75ti+w1s4FRpFqkD2m7pg5NxdsZphYIXAgMBAAGj
-QjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBSP8Et/qC5FJK5N
-UPpjmove4t0bvDANBgkqhkiG9w0BAQsFAAOCAQEAS0DbwFCq/sgM7/eWVEVJu5YACUGssxOGhigH
-M8pr5nS5ugAtrqQK0/Xx8Q+Kv3NnSoPHRHt44K9ubG8DKY4zOUXDjuS5V2yq/BKW7FPGLeQkbLmU
-Y/vcU2hnVj6DuM81IcPJaP7O2sJTqsyQiunwXUaMld16WCgaLx3ezQA3QY/tRG3XUyiXfvNnBB4V
-14qWtNPeTCekTBtzc3b0F5nCH3oO4y0IrQocLP88q1UOD5F+NuvDV0m+4S4tfGCLw0FREyOdzvcy
-a5QBqJnnLDMfOjsl0oZAzjsshnjJYS8Uuu7bVW/fhO4FCU29KNhyztNiUGUe65KXgzHZs7XKR1g/
-XzCCBUkwggQxoAMCAQICDBhL7k9eiTHfluW70TANBgkqhkiG9w0BAQsFADBbMQswCQYDVQQGEwJC
-RTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UEAxMoR2xvYmFsU2lnbiBHQ0MgUjMg
-UGVyc29uYWxTaWduIDIgQ0EgMjAyMDAeFw0yMTAyMjIwNDQyMDRaFw0yMjA5MDEwODA5NDlaMIGM
-MQswCQYDVQQGEwJJTjESMBAGA1UECBMJS2FybmF0YWthMRIwEAYDVQQHEwlCYW5nYWxvcmUxFjAU
-BgNVBAoTDUJyb2FkY29tIEluYy4xFDASBgNVBAMTC0JvYiBNY01haG9uMScwJQYJKoZIhvcNAQkB
-Fhhib2IubWNtYWhvbkBicm9hZGNvbS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
-AQDyY95HWFm48WhKUyFbAS9JxiDqBHBdAbgjx4iF46lkqZdVkIJ8pGfcXoGd10Vp9yL5VQevDAt/
-A/Jh22uhSgKR9Almeux9xWGhG8cyZwcCwYrsMt84FqCgEQidT+7YGNdd9oKrjU7mFC7pAnnw+cGI
-d3NFryurgnNPwfEK0X7HwRsga5pM+Zelr/ZM8MkphE1hCvTuPGakNylOFhP+wKL8Bmhsq5tNIInw
-DrPV5EPUikwiGMDmkX8o6roGiUwyqAp8dMZKJZ/vS/aWEELV+gm21Btr7eqdAWyqm09McVpkM4th
-v/FOYcj8DeJr8MXmHW53gN2fv0BzQjqAdrdCBPNRAgMBAAGjggHZMIIB1TAOBgNVHQ8BAf8EBAMC
-BaAwgaMGCCsGAQUFBwEBBIGWMIGTME4GCCsGAQUFBzAChkJodHRwOi8vc2VjdXJlLmdsb2JhbHNp
-Z24uY29tL2NhY2VydC9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcnQwQQYIKwYBBQUHMAGG
-NWh0dHA6Ly9vY3NwLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwME0G
-A1UdIARGMEQwQgYKKwYBBAGgMgEoCjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxz
-aWduLmNvbS9yZXBvc2l0b3J5LzAJBgNVHRMEAjAAMEkGA1UdHwRCMEAwPqA8oDqGOGh0dHA6Ly9j
-cmwuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAuY3JsMCMGA1UdEQQc
-MBqBGGJvYi5tY21haG9uQGJyb2FkY29tLmNvbTATBgNVHSUEDDAKBggrBgEFBQcDBDAfBgNVHSME
-GDAWgBSWM9HmWBdbNHWKgVZk1b5I3qGPzzAdBgNVHQ4EFgQUpyXYr5rh8cZzkns+zXmMG1YkBk4w
-DQYJKoZIhvcNAQELBQADggEBACfauRPak93nzbpn8UXqRZqg6iUZch/UfGj9flerMl4TlK5jWulz
-Y+rRg+iWkjiLk3O+kKu6GI8TLXB2rsoTnrHYij96Uad5/Ut3Q5F4S0ILgOWVU38l0VZIGGG0CzG1
-eLUgN2zjLg++xJuzqijuKQCJb/3+il2MTJ8dcDaXuYcjg7Vt6+EtCBS1SGMVhOTH4Fp50yGWj8ZA
-bPF1uuJM+dGLJLheUizCr5J/OBEdENg+DSmrqoZ+kZd76iRaF2CkhboR2394Ft8lFlKQiU0q8lnR
-9/kdZ0F0iCcUfhaLaGYWujW7N0LZ+rQuTfuPGLx9zZNeNMWSZi/Pc8vdCO7EnlIxggJtMIICaQIB
-ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
-bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwYS+5PXokx35blu9EwDQYJ
-YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIBpuxNXDFqsKvEUkz8Zd7cj/uclk88EnQUwv
-EElTScy6MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDcxMjIw
-MDQ1MlowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
-AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
-BgkqhkiG9w0BAQEFAASCAQBjLyKyQrVQJ8DUzvWbpGSF6+Od6KL88eQlA5yD6hbIU71dpl/5cUEt
-jK96DPteHJYx5vEp07au2JkxcDlWtaEimwFLVgEK5xCZGsRclQnMrN+2uUBBFgAPJ6pTV8G3t5aZ
-TcbOQ35Kbvl/fwJgEBn3D1HY1IQBpGV+Pn60N1a092Zo3oyP5xoST/5wYvKHM6FV8VMwp4jaiEsq
-1z36BsxEez6OZJWSwIwSetXLv6yCkcHLEGIAbg7FZqd2H6BCYe1iS/Yxf9vYpU3bKhf62vmZBKL8
-tdOXEZM0iVfhiz8r9jQJUITJvl6sw7MhYStkBhOZxgQ+7B0dbuazgog2l8FW
---0000000000006c7d7c05c6f2a2cf--
-
---===============8788556937122249783==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8788556937122249783==--
+VURQIGlzIGJldHRlciBmb3IgZ2V0dGluZyBhY3R1YWwgcGFja2V0IGxhdGVuY3ksIGZvciBzdXJl
+LiAgVENQIGlzIHR5cGljYWwtdXNlci1leHBlcmllbmNlLWxhdGVuY3kgdGhvdWdoLApzbyBpdCBp
+cyBhbHNvIHVzZWZ1bC4KCkknbSBpbnRlcmVzdGVkIGluIHRoZSB0ZXN0IGFuZCB2aXN1YWxpemF0
+aW9uIHNpZGUgb2YgdGhpcy4gIElmIHRoZXJlIHdlcmUgYSB3YXkgdG8gZ2l2ZSBlbmdpbmVlcnMK
+YSBnb29kIHJlYWwtdGltZSBsb29rIGF0IGEgY29tcGxleCByZWFsLXdvcmxkIG5ldHdvcmssIHRo
+ZW4gdGhleSBoYXZlIHNvbWV0aGluZyB0byBnbyBvbiB3aGlsZSB0cnlpbmcKdG8gdHVuZSB2YXJp
+b3VzIGtub2JzIGluIHRoZWlyIG5ldHdvcmsgdG8gaW1wcm92ZSBpdC4KCkknbGwgbGV0IG90aGVy
+cyB0cnkgdG8gZmlndXJlIG91dCBob3cgYnVpbGQgYW5kIHR1bmUgdGhlIGtub2JzLCBidXQgdGhl
+IGRhdGEgYWNxdWlzaXRpb24gYW5kCnZpc3VhbGl6YXRpb24gaXMgc29tZXRoaW5nIHdlIG1pZ2h0
+IHRyeSB0byBhY2NvbXBsaXNoLiAgSSBoYXZlIGEgZmVlbGluZyBJJ20gbm90IHRoZQpmaXJzdCBw
+ZXJzb24gdG8gdGhpbmsgb2YgdGhpcywgaG93ZXZlci4uLi5wcm9iYWJseSBzb21lb25lIGFscmVh
+ZHkgaGFzIGRvbmUgc3VjaAphIHRoaW5nLgoKVGhhbmtzLApCZW4KCk9uIDcvMTIvMjEgMTowNCBQ
+TSwgQm9iIE1jTWFob24gd3JvdGU6Cj4gSSBiZWxpZXZlIGVuZCBob3N0J3MgVENQIHN0YXRzIGFy
+ZSBpbnN1ZmZpY2llbnQgYXMgc2VlbiBwZXIgdGhlICJmYWlsZWQiIGNvbmdlc3RlZCBjb250cm9s
+IG1lY2hhbmlzbXMgb3ZlciB0aGUgbGFzdCBkZWNhZGVzLiBJIHRoaW5rIEphZmZlIHBvaW50ZWQg
+dGhpcyBvdXQgaW4gCj4gMTk3OSB0aG91Z2ggaGUgd2FzIHVzaW5nIHdoYXQncyBiZWVuIGRlZW1l
+ZCBvbiB0aGlzIHRocmVhZCBhcyAic3BoZXJpY2FsIGNvdyBxdWV1ZWluZyB0aGVvcnkuIgo+IAo+
+ICJGbG93IGNvbnRyb2wgaW4gc3RvcmUtYW5kLWZvcndhcmQgY29tcHV0ZXIgbmV0d29ya3MgaXMg
+YXBwcm9wcmlhdGUgZm9yIGRlY2VudHJhbGl6ZWQgZXhlY3V0aW9uLiBBIGZvcm1hbCBkZXNjcmlw
+dGlvbiBvZiBhIGNsYXNzIG9mICJkZWNlbnRyYWxpemVkIGZsb3cgY29udHJvbCAKPiBhbGdvcml0
+aG1zIiBpcyBnaXZlbi4gVGhlIGZlYXNpYmlsaXR5IG9mIG1heGltaXppbmcgcG93ZXIgd2l0aCBz
+dWNoIGFsZ29yaXRobXMgaXMgaW52ZXN0aWdhdGVkLiBPbiB0aGUgYXNzdW1wdGlvbiB0aGF0IGNv
+bW11bmljYXRpb24gbGlua3MgYmVoYXZlIGxpa2UgTS9NLzEgCj4gc2VydmVycyBpdCBpcyBzaG93
+biB0aGF0IG5vICJkZWNlbnRyYWxpemVkIGZsb3cgY29udHJvbCBhbGdvcml0aG0iIGNhbiBtYXhp
+bWl6ZSBuZXR3b3JrIHBvd2VyLiBQb3dlciBoYXMgYmVlbiBzdWdnZXN0ZWQgaW4gdGhlIGxpdGVy
+YXR1cmUgYXMgYSBuZXR3b3JrIAo+IHBlcmZvcm1hbmNlIG9iamVjdGl2ZS4gSXQgaXMgYWxzbyBz
+aG93biB0aGF0IG5vIG9iamVjdGl2ZSBiYXNlZCBvbmx5IG9uIHRoZSB1c2VycycgdGhyb3VnaHB1
+dHMgYW5kIGF2ZXJhZ2UgZGVsYXkgaXMgZGVjZW50cmFsaXphYmxlLiBGaW5hbGx5LCBhIHJlc3Ry
+aWN0ZWQgY2xhc3MgCj4gb2YgYWxnb3JpdGhtcyBjYW5ub3QgZXZlbiBhcHByb3hpbWF0ZSBwb3dl
+ci4iCj4gCj4gaHR0cHM6Ly9pZWVleHBsb3JlLmllZWUub3JnL2RvY3VtZW50LzEwOTUxNTIKPiAK
+PiBEaWQgSmFmZmUgbWFrZSBhIG1pc3Rha2U/Cj4gCj4gQWxzbywgaXQncyBiZWVuIG9ic2VydmVk
+IHRoYXQgbGF0ZW5jecKgaXMgbm9uLXBhcmFtZXRyaWMgaW4gaXQncyBkaXN0cmlidXRpb25zIGFu
+ZCBjb21wdXRpbmcgZ2F1c3NpYW5zwqBwZXIgdGhlIGNlbnRyYWwgbGltaXQgdGhlb3JlbSBmb3Ig
+T1dEIGZlZWRiYWNrIGxvb3BzIAo+IGFyZW4ndCBlZmZlY3RpdmUuIEhvdyBkb2VzIG9uZSBkZXNp
+Z24gYSBjb250cm9sIGxvb3AgYXJvdW5kIHRoaW5ncyB0aGF0IGFyZSBub24tcGFyYW1ldHJpYz8g
+SXQgYWxzbyBiZWdzIHRoZSBxdWVzdGlvbiwgd2hhdCBhcmUgdGhlIGZlZWQgZm9yd2FyZCBrbm9i
+cyB0aGF0IGNhbiAKPiBhY3R1YWxseSBoZWxwPwo+IAo+IEJvYgo+IAo+IE9uIE1vbiwgSnVsIDEy
+LCAyMDIxIGF0IDEyOjA3IFBNIEJlbiBHcmVlYXIgPGdyZWVhcmJAY2FuZGVsYXRlY2guY29tIDxt
+YWlsdG86Z3JlZWFyYkBjYW5kZWxhdGVjaC5jb20+PiB3cm90ZToKPiAKPiAgICAgTWVhc3VyaW5n
+IG9uZSBvciBhIGZldyBsaW5rcyBwcm92aWRlcyBhIGJpdCBvZiBkYXRhLCBidXQgc2VlbXMgbGlr
+ZSBpZiBzb21lb25lIGlzIHRyeWluZyB0byB1bmRlcnN0YW5kCj4gICAgIGEgbGFyZ2UgYW5kIHJl
+YWwgbmV0d29yaywgdGhlbiB0aGUgT1dEIGJldHdlZW4gcG9pbnQgQSBhbmQgQiBuZWVkcyB0byBq
+dXN0IGJlIGlucHV0IGludG8gc29tZXRoaW5nIG11Y2gKPiAgICAgbW9yZSBncmFuZC7CoCBBc3N1
+bWluZyByZWFsLXRpbWUgT1dEIGRhdGEgZXhpc3RzIGJldHdlZW4gMTAwIHRvIDEwMDAgZW5kcG9p
+bnQgcGFpcnMsIGhhcyBhbnlvbmUgZm91bmQgYSB3YXkKPiAgICAgdG8gdmlzdWFsaXplIHRoaXMg
+aW4gYSB1c2VmdWwgbWFubmVyPwo+IAo+ICAgICBBbHNvLCBjb25zaWRlcmluZyBzb21ldGhpbmcg
+YmV0dGVyIHRoYW4gbnRwIG1heSBub3QgcmVhbGx5IHNjYWxlIHRvIDEwMDArIGVuZHBvaW50cywg
+bWF5YmUgcm91bmQtdHJpcAo+ICAgICB0aW1lIGlzIG9ubHkgdmlhYmxlIHdheSB0byBnZXQgdGhp
+cyB0eXBlIG9mIGRhdGEuwqAgSW4gdGhhdCBjYXNlLCBtYXliZSBjbGV2ZXIgbG9naWMgY291bGQg
+dXNlIHRoaW5ncwo+ICAgICBsaWtlIHRyYWNlLXJvdXRlIHRvIGdldCBzb21lIGlkZWEgb2YgaG93
+IGxvbmcgaXQgdGFrZXMgdG8gZ2V0ICdvbnRvJyB0aGUgaW50ZXJuZXQgcHJvcGVyLCBhbmQgc28g
+ZXN0aW1hdGUKPiAgICAgdGhlIGxhc3QtbWlsZSBsYXRlbmN5LsKgIE15IGFzc3VtcHRpb24gaXMg
+dGhhdCB0aGUgbGFzdC1taWxlIGxhdGVuY3kgaXMgd2hlcmUgbW9zdCBvZiB0aGUgcGVydmFzaXZl
+Cj4gICAgIGFzc3ltZXRyaWMgbmV0d29yayBsYXRlbmNpZXMgd291bGQgZXhpc3QgKG9yIGp1c3Qg
+cGluZyA4LjguOC44IHdoaWNoIGlzIDIwbXMgZnJvbSBldmVyeXdoZXJlIGR1ZSB0bwo+ICAgICAk
+bWFnaWMpLgo+IAo+ICAgICBFbmRwb2ludHMgY291bGQgYWxzbyB0cmlhbmd1bGF0ZSBhIGJpdCBp
+ZiBuZWVkZWQsIHVzaW5nIHNvbWUgYW5jaG9yIHBvaW50cyBpbiB0aGUgbmV0d29yawo+ICAgICB1
+bmRlciB0ZXN0Lgo+IAo+ICAgICBUaGFua3MsCj4gICAgIEJlbgo+IAo+ICAgICBPbiA3LzEyLzIx
+IDExOjIxIEFNLCBCb2IgTWNNYWhvbiB3cm90ZToKPiAgICAgID4gaXBlcmYgMiBzdXBwb3J0cyBP
+V0QgYW5kIGdpdmVzIGZ1bGwgaGlzdG9ncmFtcyBmb3IgVENQIHdyaXRlIHRvIHJlYWQsIFRDUCBj
+b25uZWN0IHRpbWVzLCBsYXRlbmN5IG9mIHBhY2tldHMgKHdpdGggVURQKSwgbGF0ZW5jeSBvZiAi
+ZnJhbWVzIiB3aXRoCj4gICAgICA+IHNpbXVsYXRlZMKgdmlkZW/CoHRyYWZmaWMgKFRDUCBhbmQg
+VURQKSwgeGZlciB0aW1lcyBvZiBidXJzdHMgd2l0aCBsb3cgZHV0eSBjeWNsZSB0cmFmZmljLCBh
+bmQgVENQIFJUVCAoc2FtcGxpbmcgYmFzZWQuKSBJdCBhbHNvIGhhcyBzdXBwb3J0IGZvciBzYW1w
+bGluZyAocGVyCj4gICAgICA+IGludGVydmFsIHJlcG9ydHMpIGRvd24gdG8gMTAwIHVzZWNzIGlm
+IGNvbmZpZ3VyZWQgd2l0aCAtLWVuYWJsZS1mYXN0c2FtcGxpbmcsIG90aGVyd2lzZSB0aGUgZmFz
+dGVzdCBzYW1wbGluZyBpcyA1IG1zLiBXZSd2ZSByZWxlYXNlZCBhbGwgdGhpcyBhcyBvcGVuIHNv
+dXJjZS4KPiAgICAgID4KPiAgICAgID4gT1dEIG9ubHkgd29ya3MgaWYgdGhlIGVuZCByZWFsdGlt
+ZSBjbG9ja3MgYXJlIHN5bmNocm9uaXplZCB1c2luZyBhICJtYWNoaW5lIGxldmVsIiBwcm90b2Nv
+bCBzdWNoIGFzIElFRUUgMTU4OCBvciBQVFAuIFNhZGx5LCAqbW9zdCBkYXRhIGNlbnRlcnMgZG9u
+J3QKPiAgICAgcHJvdmlkZQo+ICAgICAgPiBzdWZmaWNpZW50IGxldmVsIG9mIGNsb2NrIGFjY3Vy
+YWN5IGFuZCB0aGUgR1BTIHB1bHNlIHBlciBzZWNvbmQgKiB0byBjb2xvIGFuZCB2bSBjdXN0b21l
+cnMuCj4gICAgICA+Cj4gICAgICA+IGh0dHBzOi8vaXBlcmYyLnNvdXJjZWZvcmdlLmlvL2lwZXJm
+LW1hbnBhZ2UuaHRtbAo+ICAgICAgPgo+ICAgICAgPiBCb2IKPiAgICAgID4KPiAgICAgID4gT24g
+TW9uLCBKdWwgMTIsIDIwMjEgYXQgMTA6NDAgQU0gRGF2aWQgUC4gUmVlZCA8ZHByZWVkQGRlZXBw
+bHVtLmNvbSA8bWFpbHRvOmRwcmVlZEBkZWVwcGx1bS5jb20+IDxtYWlsdG86ZHByZWVkQGRlZXBw
+bHVtLmNvbQo+ICAgICA8bWFpbHRvOmRwcmVlZEBkZWVwcGx1bS5jb20+Pj4gd3JvdGU6Cj4gICAg
+ICA+Cj4gICAgICA+Cj4gICAgICA+wqAgwqAgwqBPbiBNb25kYXksIEp1bHkgMTIsIDIwMjEgOTo0
+NmFtLCAiTGl2aW5nb29kLCBKYXNvbiIgPEphc29uX0xpdmluZ29vZEBjb21jYXN0LmNvbSA8bWFp
+bHRvOkphc29uX0xpdmluZ29vZEBjb21jYXN0LmNvbT4KPiAgICAgPG1haWx0bzpKYXNvbl9MaXZp
+bmdvb2RAY29tY2FzdC5jb20gPG1haWx0bzpKYXNvbl9MaXZpbmdvb2RAY29tY2FzdC5jb20+Pj4g
+c2FpZDoKPiAgICAgID4KPiAgICAgID7CoCDCoCDCoCA+IEkgdGhpbmsgbGF0ZW5jeS9kZWxheSBp
+cyBiZWNvbWluZyBzZWVuIHRvIGJlIGFzIGltcG9ydGFudCBjZXJ0YWlubHksIGlmIG5vdCBhIG1v
+cmUgZGlyZWN0IHByb3h5IGZvciBlbmQgdXNlciBRb0UuIFRoaXMgaXMgYWxsIHN0aWxsIGV2b2x2
+aW5nIGFuZCBJCj4gICAgIGhhdmUKPiAgICAgID7CoCDCoCDCoHRvIHNheSBpcyBhIHN1cGVyIGlu
+dGVyZXN0aW5nICYgZnVuIHRoaW5nIHRvIHdvcmsgb24uIDotKQo+ICAgICAgPgo+ICAgICAgPsKg
+IMKgIMKgSWYgSSBjb3VsZCBtYW5hZ2UgdG8gc2VsbCBvbmUgaWRlYSB0byB0aGUgbWFuYWdlbWVu
+dCBoaWVyYXJjaHkgb2YgY29tbXVuaWNhdGlvbnMgaW5kdXN0cnkgQ0VPcyAob3BlcmF0b3JzLCB2
+ZW5kb3JzLCAuLi4pIGl0IGlzIHRoaXMgb25lOgo+ICAgICAgPgo+ICAgICAgPsKgIMKgIMKgIkl0
+J3MgdGhlIGVuZC10by1lbmQgbGF0ZW5jeSwgc3R1cGlkISIKPiAgICAgID4KPiAgICAgID7CoCDC
+oCDCoEFuZCBJIG1lYW4sIGJ5IGVuZC10by1lbmQsIGxhdGVuY3kgdG8gY29tcGxldGUgYSB0YXNr
+IGF0IGEgcmVsZXZhbnQgbGF5ZXIgb2YgYWJzdHJhY3Rpb24uCj4gICAgICA+Cj4gICAgICA+wqAg
+wqAgwqBBdCB0aGUgbGluayBsZXZlbCwgaXQncyBwYWNrZXQgc2VuZCB0byBwYWNrZXQgcmVjZWl2
+ZSBjb21wbGV0aW9uLgo+ICAgICAgPgo+ICAgICAgPsKgIMKgIMKgQnV0IGF0IHRoZSB0cmFuc3Bv
+cnQgbGV2ZWwgaW5jbHVkaW5nIHJldHJhbnNtaXNzaW9uIGJ1ZmZlcnMsIGl0J3MgZGF0YWdyYW0g
+KG9yIG1lc3NhZ2UpIG9yaWdpbmF0aW9uIHVudGlsIHRoZSBhY2tub3dsZWRnZW1lbnQgYXJyaXZl
+cyBmb3IgdGhhdAo+ICAgICBtZXNzYWdlIGJlaW5nCj4gICAgICA+wqAgwqAgwqBkZWxpdmVyZWQg
+YWZ0ZXIgd2hhdGV2ZXIgbnVtYmVyIG9mIHJldHJhbnNtaXNzaW9ucywgZnJlZWluZyB0aGUgcmV0
+cmFuc21pc3Npb24gYnVmZmVyLgo+ICAgICAgPgo+ICAgICAgPsKgIMKgIMKgQXQgdGhlIFdXVyBs
+ZXZlbCwgaXQncyBtb3VzZSBjbGljayB0byBkaXNwbGF5IHVwZGF0ZSBjb3JyZXNwb25kaW5nIHRv
+IGNvbXBsZXRpb24gb2YgdGhlIHJlcXVlc3QuCj4gICAgICA+Cj4gICAgICA+wqAgwqAgwqBXaGF0
+IHNob3VsZCBiZSBub3RlZCBpcyB0aGF0IGxvd2VyIGxldmVsIGxhdGVuY2llcyBkb24ndCBkaXJl
+Y3RseSBwcmVkaWN0IHRoZSBtYWduaXR1ZGUgb2YgaGlnaGVyLWxldmVsIGxhdGVuY2llcy4gQnV0
+IGxvbmdlciBsb3dlciBsZXZlbCBsYXRlbmNpZXMKPiAgICAgYWxtb3N0Cj4gICAgICA+wqAgwqAg
+wqBhbHdheXMgYW1wbGZpZnkgaGlnaGVyIGxldmVsIGxhdGVuY2llcy4gT2Z0ZW4gbm9uLWxpbmVh
+cmx5Lgo+ICAgICAgPgo+ICAgICAgPsKgIMKgIMKgVGhyb3VnaHB1dCBpcyB2ZXJ5LCB2ZXJ5IHdl
+YWtseSByZWxhdGVkIHRvIHRoZXNlIGxhdGVuY2llcywgaW4gY29udHJhc3QuCj4gICAgICA+Cj4g
+ICAgICA+wqAgwqAgwqBUaGUgYW1wbGlmaWNhdGlvbiBwcm9jZXNzIGhhcyB0byBkbyB3aXRoIHRo
+ZSBwcmVzZW5jZSBvZiBxdWV1ZWluZy4gUXVldWVpbmcgaXMgQUxXQVlTIGJhZCBmb3IgbGF0ZW5j
+eSwgYW5kIHRocm91Z2hwdXQgb25seSBoZWxwcyBpZiBpdCBpcyBpbiBleGFjdGx5IHRoZQo+ICAg
+ICAgPsKgIMKgIMKgcmlnaHQgcGxhY2UgKHRoZSBzby1jYWxsZWQgaW5wdXQgcXVldWUgb2YgdGhl
+IGJvdHRsZW5lY2sgcHJvY2Vzcywgd2hpY2ggaXMgb2Z0ZW4gYSBsaW5rLCBidXQgbm90IGFsd2F5
+cykuCj4gICAgICA+Cj4gICAgICA+wqAgwqAgwqBDYW4gd2UgZ2V0IHRoYXQgc2xvZ2FuIGludG8g
+SGFydmFyZCBCdXNpbmVzcyBSZXZpZXc/IENhbiB3ZSBnZXQgaXQgdGF1Z2h0IGluIE1hbmFnZXJp
+YWwgQWNjb3VudGluZyBhdCBIQlM/ICh3aGljaCBkb2VzIGFkZHJlc3MgbG9naXN0aWNzL3N1cHBs
+eSBjaGFpbgo+ICAgICBxdWV1ZWluZykuCj4gICAgICA+Cj4gICAgICA+Cj4gICAgICA+Cj4gICAg
+ICA+Cj4gICAgICA+Cj4gICAgICA+Cj4gICAgICA+Cj4gICAgICA+IFRoaXMgZWxlY3Ryb25pYyBj
+b21tdW5pY2F0aW9uIGFuZCB0aGUgaW5mb3JtYXRpb24gYW5kIGFueSBmaWxlcyB0cmFuc21pdHRl
+ZCB3aXRoIGl0LCBvciBhdHRhY2hlZCB0byBpdCwgYXJlIGNvbmZpZGVudGlhbCBhbmQgYXJlIGlu
+dGVuZGVkIHNvbGVseSBmb3IgdGhlCj4gICAgIHVzZSBvZgo+ICAgICAgPiB0aGUgaW5kaXZpZHVh
+bCBvciBlbnRpdHkgdG8gd2hvbSBpdCBpcyBhZGRyZXNzZWQgYW5kIG1heSBjb250YWluIGluZm9y
+bWF0aW9uIHRoYXQgaXMgY29uZmlkZW50aWFsLCBsZWdhbGx5IHByaXZpbGVnZWQsIHByb3RlY3Rl
+ZCBieSBwcml2YWN5IGxhd3MsIG9yCj4gICAgIG90aGVyd2lzZQo+ICAgICAgPiByZXN0cmljdGVk
+IGZyb20gZGlzY2xvc3VyZSB0byBhbnlvbmUgZWxzZS4gSWYgeW91IGFyZSBub3QgdGhlIGludGVu
+ZGVkIHJlY2lwaWVudCBvciB0aGUgcGVyc29uIHJlc3BvbnNpYmxlIGZvciBkZWxpdmVyaW5nIHRo
+ZSBlLW1haWwgdG8gdGhlIGludGVuZGVkCj4gICAgIHJlY2lwaWVudCwKPiAgICAgID4geW91IGFy
+ZSBoZXJlYnkgbm90aWZpZWQgdGhhdCBhbnkgdXNlLCBjb3B5aW5nLCBkaXN0cmlidXRpbmcsIGRp
+c3NlbWluYXRpb24sIGZvcndhcmRpbmcsIHByaW50aW5nLCBvciBjb3B5aW5nIG9mIHRoaXMgZS1t
+YWlsIGlzIHN0cmljdGx5IHByb2hpYml0ZWQuIElmIHlvdQo+ICAgICAgPiByZWNlaXZlZCB0aGlz
+IGUtbWFpbCBpbiBlcnJvciwgcGxlYXNlIHJldHVybiB0aGUgZS1tYWlsIHRvIHRoZSBzZW5kZXIs
+IGRlbGV0ZSBpdCBmcm9tIHlvdXIgY29tcHV0ZXIsIGFuZCBkZXN0cm95IGFueSBwcmludGVkIGNv
+cHkgb2YgaXQuCj4gCj4gCj4gICAgIC0tIAo+ICAgICBCZW4gR3JlZWFyIDxncmVlYXJiQGNhbmRl
+bGF0ZWNoLmNvbSA8bWFpbHRvOmdyZWVhcmJAY2FuZGVsYXRlY2guY29tPj4KPiAgICAgQ2FuZGVs
+YSBUZWNobm9sb2dpZXMgSW5jIGh0dHA6Ly93d3cuY2FuZGVsYXRlY2guY29tCj4gCj4gCj4gVGhp
+cyBlbGVjdHJvbmljIGNvbW11bmljYXRpb24gYW5kIHRoZSBpbmZvcm1hdGlvbiBhbmQgYW55IGZp
+bGVzIHRyYW5zbWl0dGVkIHdpdGggaXQsIG9yIGF0dGFjaGVkIHRvIGl0LCBhcmUgY29uZmlkZW50
+aWFsIGFuZCBhcmUgaW50ZW5kZWQgc29sZWx5IGZvciB0aGUgdXNlIG9mIAo+IHRoZSBpbmRpdmlk
+dWFsIG9yIGVudGl0eSB0byB3aG9tIGl0IGlzIGFkZHJlc3NlZCBhbmQgbWF5IGNvbnRhaW4gaW5m
+b3JtYXRpb24gdGhhdCBpcyBjb25maWRlbnRpYWwsIGxlZ2FsbHkgcHJpdmlsZWdlZCwgcHJvdGVj
+dGVkIGJ5IHByaXZhY3kgbGF3cywgb3Igb3RoZXJ3aXNlIAo+IHJlc3RyaWN0ZWQgZnJvbSBkaXNj
+bG9zdXJlIHRvIGFueW9uZSBlbHNlLiBJZiB5b3UgYXJlIG5vdCB0aGUgaW50ZW5kZWQgcmVjaXBp
+ZW50IG9yIHRoZSBwZXJzb24gcmVzcG9uc2libGUgZm9yIGRlbGl2ZXJpbmcgdGhlIGUtbWFpbCB0
+byB0aGUgaW50ZW5kZWQgcmVjaXBpZW50LCAKPiB5b3UgYXJlIGhlcmVieSBub3RpZmllZCB0aGF0
+IGFueSB1c2UsIGNvcHlpbmcsIGRpc3RyaWJ1dGluZywgZGlzc2VtaW5hdGlvbiwgZm9yd2FyZGlu
+ZywgcHJpbnRpbmcsIG9yIGNvcHlpbmcgb2YgdGhpcyBlLW1haWwgaXMgc3RyaWN0bHkgcHJvaGli
+aXRlZC4gSWYgeW91IAo+IHJlY2VpdmVkIHRoaXMgZS1tYWlsIGluIGVycm9yLCBwbGVhc2UgcmV0
+dXJuIHRoZSBlLW1haWwgdG8gdGhlIHNlbmRlciwgZGVsZXRlIGl0IGZyb20geW91ciBjb21wdXRl
+ciwgYW5kIGRlc3Ryb3kgYW55IHByaW50ZWQgY29weSBvZiBpdC4KCgotLSAKQmVuIEdyZWVhciA8
+Z3JlZWFyYkBjYW5kZWxhdGVjaC5jb20+CkNhbmRlbGEgVGVjaG5vbG9naWVzIEluYyAgaHR0cDov
+L3d3dy5jYW5kZWxhdGVjaC5jb20KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0
+Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
