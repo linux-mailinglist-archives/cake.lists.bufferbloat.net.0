@@ -2,57 +2,57 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1B9C83C7588
-	for <lists+cake@lfdr.de>; Tue, 13 Jul 2021 19:08:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0D1DA3C75A9
+	for <lists+cake@lfdr.de>; Tue, 13 Jul 2021 19:22:49 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 3CC893CB55;
-	Tue, 13 Jul 2021 13:08:03 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 1AEFB3CB55;
+	Tue, 13 Jul 2021 13:22:47 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1626196083;
-	bh=QrvmGKUUQCWeSFq9d3eC/vKsKH8xa1yC46dD1xyuaKA=;
+	d=lists.bufferbloat.net; s=201610; t=1626196967;
+	bh=Y8hvlTPuPZiDOboSQsJ9xM6giCF+86e9PWeR4Ns0W+k=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=ecVqDWWX1JTM+0xVOCnzHS2L7zT1mjjZMtqoxbMrsUGAUjcDA1Qj2HLrMKwe7tNHN
-	 +g7VUIwm++YsZhUNGh+sFTZWEeNTIrpzJXY3TU4gZe540rryHfhAnkGUsXZSHoqn1S
-	 fn1rqLinizn7SLcUqIkIVjiCZM1oLVeb54kqICx+YAceB77j8cyu/7M/uhMbWfwt8t
-	 xPLb+f1H4EfVfGTsMAGu8wXwSSG9gj/NHxatemsEiTOT3QTm7pCy2/uHHX1fRMx51K
-	 2V8T4jHEVrC2w7fJ4DSHF0Mx9KsRDpPjzzylIZDKqt9Od7sfNunee6o/VkDCfbhuO/
-	 EyTjcohXgfATw==
+	b=hRQH5DJLrtC0hbREszVSXIyKBNuZxqmoDmdWtaWoBDKHPJjNG3S3G4lT6GDRer6lT
+	 cw/Ox23Wmxp37TcQBqMQvnzAehj1jWc8VphdpMfn68IHdjj8Y7tgRslkkQ20iaETqP
+	 OckX4IJNuyEGf5aogQE/P4QXQ01Z5UT9u0VfzJkOPW+WDK/eezcGgB7Hhj5CT5rEcq
+	 daEdSqj9sp6n5lLHAAmy9NrZJWQ+ikPfJwCRGTzkpCXKbtqTfpob0+A8ms2G8UByHy
+	 cUxlzMgjVSm7TZ0qjVznWGLwYt9EYVUW7eU5SCgBqkNvftSasyu0IQxZzP5YXvq/y5
+	 A38t64fS+5QWA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ej1-x633.google.com (mail-ej1-x633.google.com
- [IPv6:2a00:1450:4864:20::633])
+Received: from mail-ej1-x630.google.com (mail-ej1-x630.google.com
+ [IPv6:2a00:1450:4864:20::630])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 75A3E3CB38
- for <cake@lists.bufferbloat.net>; Tue, 13 Jul 2021 13:08:01 -0400 (EDT)
-Received: by mail-ej1-x633.google.com with SMTP id hr1so42859076ejc.1
- for <cake@lists.bufferbloat.net>; Tue, 13 Jul 2021 10:08:01 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 204933CB49
+ for <cake@lists.bufferbloat.net>; Tue, 13 Jul 2021 13:22:46 -0400 (EDT)
+Received: by mail-ej1-x630.google.com with SMTP id hr1so42941180ejc.1
+ for <cake@lists.bufferbloat.net>; Tue, 13 Jul 2021 10:22:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=lHIyuXvDbuhDjTnybNMl/k4kKG2Q8MTPu7n1mQxW8jk=;
- b=D7lnE9haz1kxx53OSCwI1QLSlwpvUL9Z+czO6ziDfi3rrXLb5ff8GO3zrUmBa8HxM9
- CxYhIcqR9Uv1xnpNdmOpTjTeEGeu88TBPLnM8gKcAWSsG+DW9Q0cQeYDXtq7+6YCeIll
- YuRX3j5JCpC21gg1WJDbtdnlNzlZRpo2nIffQ=
+ :cc; bh=c3Ou2hqGDoz3OyicA/Hr03LonXwKEmkjvmglnhaoG4U=;
+ b=F5l4FW/ceDo2XLZIPKCV4AaECevgHIsSdUF4so1Cj0BTI5KQ64dACFuBaVewFYQtwT
+ Kbam4INRMaepX1Azal9pAEqbc0Y6PFyM6iHMbsVC2GFAvbwsjf06Wt/digQwRoQ7q2FK
+ YAqtU2V9g03Q9VkbKOsIG2AKDemjM77hBE6ic=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=lHIyuXvDbuhDjTnybNMl/k4kKG2Q8MTPu7n1mQxW8jk=;
- b=nhZ30d6ssF3j5Y9wcIcJK1TqykaUnkFLfzBWlSP8hsdQFoYmaYUhmMo9sKnhwznvO7
- tn8Fym43AAisDEqT/KVrFMVQC5X+L0jyMlQu4Bf0XQ4XNfuTw2abEDeoXfsCpmDHhlfJ
- BTlKzjgtR9I6K+oDHEzr+47YfOY+GUCuT+fJWtIhecguX0H20ie2V++d7K2trFKg72oF
- s0YqEJj26G6SgUVUEUMLfkNJQg9GGG33t2Gu4CEss325AR4LtJ0nt+1EAUbjFEljRAAT
- 6lNfnpAEsaaV38U2rM0AEiTjEpZaoLXfcv+rhafLKa+UA3ojYy9xmuHpEPxnDQAPJu4l
- 1MMA==
-X-Gm-Message-State: AOAM533T5KMWs3HScmkz+85ttd/ANfhdIpkc/U8kMadf+mvRADy/BeG+
- oIZp22OAeqbOgzkL7Aj4qQEp+9DZBi7ElwwT9aocb0o66ohSkMRnDvS9bVVjCwHU3IxtAilgqOL
- ck4RlOcWZtsSQLYLPwcYeFCvpv9ex
-X-Google-Smtp-Source: ABdhPJzqhNrvaI543U+x7BfSr/Hxmho7DLNbu+it4+nTUHgU2vHLvLk/Dk1TEkSnAlA4X+BnTPdiNW6Xx8M6ITVtza0=
-X-Received: by 2002:a17:906:2dc9:: with SMTP id
- h9mr6944229eji.345.1626196080012; 
- Tue, 13 Jul 2021 10:08:00 -0700 (PDT)
+ bh=c3Ou2hqGDoz3OyicA/Hr03LonXwKEmkjvmglnhaoG4U=;
+ b=O4oENwgaqjfkVW1b3jkyH7NkboQDtUJk2tzaUVPTxjc5C58ugUObrtcVZBK/xEmoSR
+ iVfoZvFjYFOO+d5wH4TKKTLQ/GLwLoXkp6DutxJnxd3rWAQDmDJ2lcbBR3RpF5WZTqsL
+ 7+EnjiVfSR0oONrvo1E/grfOD091MJW77G4EFnp+l5ua+HehKJSdJ+b0ZbDf+iF0iOXm
+ vyzorUySFx9ohPTAbk5h1c3+iQVoqzDW20yzsY4ON9RYx/qLkJo9fsJh7Hk5st7w1pK+
+ 1PSyzyuUSyHCk175YQJ1f08TN1fb7lEOFO5a5Rr3gvBbKmvWJc96mqLVS6DqMijae8LS
+ WgWQ==
+X-Gm-Message-State: AOAM532HVjETyH0RjRI1ldTLxhcIsvHu1seI6gK6OdXvrgpXA7Pn9J5i
+ NMpod0R5jdvYRNqWraU+6Q53zDOtHBmrKYrBPe0cUQR1RtU4cA6i9xVBRDzq7jtprzwVKoD3r/h
+ d8jAixv9vlh5LmZ98lz4G3yFwlByZ
+X-Google-Smtp-Source: ABdhPJx2AAFZwWHcDrci8EHsd8OQUIzCtOZAlr8PUj7QbdQMapRF30xKlzdaBaEUHYsLZK7JxnHFhIqs+cR+bU3xj6g=
+X-Received: by 2002:a17:907:76da:: with SMTP id
+ kf26mr6787115ejc.511.1626196964832; 
+ Tue, 13 Jul 2021 10:22:44 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
@@ -71,8 +71,8 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1e8bdf58-2a21-f543-a248-be58bcbddbcf@candelatech.com>
  <02c601d777b6$c4ce5a10$4e6b0e30$@rizk.com.de>
 In-Reply-To: <02c601d777b6$c4ce5a10$4e6b0e30$@rizk.com.de>
-Date: Tue, 13 Jul 2021 10:07:48 -0700
-Message-ID: <CAHb6LvqRyuK1Xzt6mNhAteit3qZ3bD0vKSqHqog6ZqgMaiBu9w@mail.gmail.com>
+Date: Tue, 13 Jul 2021 10:22:34 -0700
+Message-ID: <CAHb6Lvoirh1au53Zrx5e_dDzLaDS-0H7NEBzz6FaxGk_8brXag@mail.gmail.com>
 To: Amr Rizk <amr@rizk.com.de>
 Subject: Re: [Cake] [Bloat] Little's Law mea culpa,
 	but not invalidating my main point
@@ -95,37 +95,35 @@ Cc: Cake List <cake@lists.bufferbloat.net>,
  codel@lists.bufferbloat.net,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>, Ben Greear <greearb@candelatech.com>
-Content-Type: multipart/mixed; boundary="===============0628771359975453908=="
+Content-Type: multipart/mixed; boundary="===============3963282713620479518=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============0628771359975453908==
+--===============3963282713620479518==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000b5985f05c70447c7"
+	boundary="00000000000073f2bd05c7047c37"
 
---000000000000b5985f05c70447c7
-Content-Type: multipart/alternative; boundary="000000000000afc35405c7044734"
+--00000000000073f2bd05c7047c37
+Content-Type: multipart/alternative; boundary="0000000000006d82c705c7047c44"
 
---000000000000afc35405c7044734
+--0000000000006d82c705c7047c44
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-"Control at endpoints benefits greatly from even small amounts of
-information supplied by the network about the degree of congestion present
-on the path."
+"the infinite TCP flow that converges to a steady behavior is purely
+academic"
 
-Agreed. The ECN mechanism seems like a shared thermostat in a building.
-It's basically an on/off where everyone is trying to set the temperature.
-It does affect, in a non-linear manner, but still an effect. Better than a
-thermostat set at infinity or 0 Kelvin for sure.
+We find this to be mostly true. Sadly, the tools such as iperf drove to
+this condition. While still useful, not realistic.
 
-I find the assumption that congestion occurs "in network" as not always
-true. Taking OWD measurements with read side rate limiting suggests that
-equally important to mitigating bufferbloat driven latency using congestion
-signals is to make sure apps read "fast enough" whatever that means. I
-rarely hear about how important it is for apps to prioritize reads over
-open sockets. Not sure why that's overlooked and bufferbloat gets all the
-attention. I'm probably missing something.
+We added, in iperf 2, the ability to test TCP bursts (--burst-size and
+--burst-period) over low duty cycles and get completely different sets of
+phenomena with TCP.
+
+It seems (past) time that peak average throughput driving the control loop
+needs reconsideration, particularly if TCP_NODELAY is set on a socket. This
+is particularly challenging for WiFi because "requests for low latency"
+usually triggers no aggregation which doesn't always reduce tail latencies.
 
 Bob
 
@@ -421,28 +419,25 @@ please return the e-mail to the sender, delete it from your computer, and=
 =20
 destroy any printed copy of it.
 
---000000000000afc35405c7044734
+--0000000000006d82c705c7047c44
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">&quot;Control at endpoints benefits greatly from even smal=
-l amounts of information supplied by the network about the degree of conges=
-tion present on the path.&quot;<br><br>Agreed. The ECN mechanism seems like=
- a shared thermostat in a building. It&#39;s basically an on/off where ever=
-yone is trying to set the temperature. It does affect, in a non-linear=C2=
-=A0manner, but still an effect. Better than a thermostat set at infinity or=
- 0 Kelvin for sure.<br><br>I find the assumption that congestion occurs &qu=
-ot;in network&quot; as not always true. Taking OWD measurements with read s=
-ide rate limiting suggests that equally important to mitigating bufferbloat=
- driven latency using congestion signals is to make sure apps read &quot;fa=
-st enough&quot; whatever that means. I rarely hear about how important it i=
-s for apps to prioritize reads over open sockets. Not sure why that&#39;s o=
-verlooked and bufferbloat gets all the attention. I&#39;m probably missing =
-something.<br><br>Bob</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" =
-class=3D"gmail_attr">On Tue, Jul 13, 2021 at 12:15 AM Amr Rizk &lt;<a href=
-=3D"mailto:amr@rizk.com.de">amr@rizk.com.de</a>&gt; wrote:<br></div><blockq=
-uote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1p=
-x solid rgb(204,204,204);padding-left:1ex">Ben, <br>
+<div dir=3D"ltr">&quot;the infinite TCP flow that converges to a steady beh=
+avior is purely academic&quot;<br><br>We find this to be mostly true. Sadly=
+, the tools such as iperf=C2=A0drove to this condition. While still useful,=
+ not realistic.<br><br>We added, in iperf 2, the ability to test TCP bursts=
+ (--burst-size and --burst-period) over low duty cycles and get completely =
+different sets of phenomena=C2=A0with TCP.<br><br>It seems (past) time that=
+ peak average throughput driving the control loop needs reconsideration, pa=
+rticularly if TCP_NODELAY is set on a socket. This is particularly challeng=
+ing for WiFi because &quot;requests for low latency&quot; usually triggers =
+no aggregation which doesn&#39;t always reduce tail latencies.<br><br>Bob</=
+div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On=
+ Tue, Jul 13, 2021 at 12:15 AM Amr Rizk &lt;<a href=3D"mailto:amr@rizk.com.=
+de">amr@rizk.com.de</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
+e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
+;padding-left:1ex">Ben, <br>
 <br>
 it depends on what one tries to measure. Doing a rate scan using UDP (to me=
 asure latency distributions under load) is the best thing that we have but =
@@ -756,9 +751,9 @@ uting, dissemination, forwarding, printing, or copying of this e-mail is st=
 rictly prohibited. If you received this e-mail in error, please return the =
 e-mail to the sender, delete it from your computer, and destroy any printed=
  copy of it.</font></span>
---000000000000afc35405c7044734--
+--0000000000006d82c705c7047c44--
 
---000000000000b5985f05c70447c7
+--00000000000073f2bd05c7047c37
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -829,18 +824,18 @@ bPF1uuJM+dGLJLheUizCr5J/OBEdENg+DSmrqoZ+kZd76iRaF2CkhboR2394Ft8lFlKQiU0q8lnR
 9/kdZ0F0iCcUfhaLaGYWujW7N0LZ+rQuTfuPGLx9zZNeNMWSZi/Pc8vdCO7EnlIxggJtMIICaQIB
 ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
 bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwYS+5PXokx35blu9EwDQYJ
-YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIFEZkROJ9qGlUSn3yO6Mo9MXHxt4G2DVWddW
-RSXVhOFtMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDcxMzE3
-MDgwMFowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
+YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIP8rNmK7euTabHrzOkCVinjnxn8Fcch90JGn
+HTbUMdFQMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDcxMzE3
+MjI0NVowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
 AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
-BgkqhkiG9w0BAQEFAASCAQCMGbMxEDtjwsZy7AMYdXG/3RZwZqF97sd7ZWAv9JbdA9bOMToclBIY
-5zpGi2HmyOZfvFSzFkBOyk1ErZ0wfBUA1W/bX0Cei7P0/CnHwLkfdtxsjYGW2YVRfDGgGn1tf02Y
-W10g68cQi9zKCwtyH1BxAKTro7L6P4ETj3XC46RGKJffqM6NJTpUXOthztYZHsabxmyr9O5yA7c8
-nvpOX1FaOYbu9hCROfUTL98xg9uFPiN/t5J4vjHT9E86V/QWr1A1f8CjXo/9C3T71geIrmLyzWkV
-ry9ONrvs6QabbmZ4oA5TC5G+2EiF3FbGkvTQQLLQsWvmCcXJlXTFSnyq9g5w
---000000000000b5985f05c70447c7--
+BgkqhkiG9w0BAQEFAASCAQA95BK5XYPvUmbjIFHA58kbSr8bOcZ7XxQEKNMfwIHE3qHKKw+YgGA3
+v0KXQRLga38/WG+1+jcpjlsqocRrIqj+qAATy8I8WcWROkEMxvc+CqNqPnTujlM8ZOfv084vsbft
+u2NEs+7Zflgrt0t6ZOA7oGrHAKR5bNJRUD/s9BK0qdHPONDsL+BaEqHWwoXOKeb3HCHizJCMDIsW
+0iHhdN3zzDINORlUYiWQ3HSdhO6BH0kDkB/3l0wAIsclqgJ7tWF5y5IjCori/v5uLc5FEU0rp7pv
+VeAo1HgAoAERw51vjSh2Q6Tqo0Df/V9DpUNuQGTovVSAa9J3y71TyhyAVAWl
+--00000000000073f2bd05c7047c37--
 
---===============0628771359975453908==
+--===============3963282713620479518==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -850,4 +845,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============0628771359975453908==--
+--===============3963282713620479518==--
