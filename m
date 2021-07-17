@@ -2,58 +2,59 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9D7CF3CC6CC
-	for <lists+cake@lfdr.de>; Sun, 18 Jul 2021 01:30:07 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id C5CBF3CC6F9
+	for <lists+cake@lfdr.de>; Sun, 18 Jul 2021 01:57:10 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 592803CBC9;
-	Sat, 17 Jul 2021 19:30:00 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 4093E3CB59;
+	Sat, 17 Jul 2021 19:57:09 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1626564600;
-	bh=wqZB90LZ8vh6vanDB4DBCX53TRPw10htpKFTLCN+aOg=;
+	d=lists.bufferbloat.net; s=201610; t=1626566229;
+	bh=RQrtvPrFVfgGEMtg6FvC2KyZyjLHdOCUhqaDDa0xvOE=;
 	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Cc:From;
-	b=Uo6yGWkUn+IJf2VdSGRwftpKiz40pfnHu0WxA2DHhzM4NWOozfjDVwNOkj1kIXn3G
-	 nboP59q36A8lnc5TcB4yi7yghnpmUh5s7au0dupmRHg++lpKQDaT2sxME5DXf2WnMw
-	 bsnXtp4qeFUhXA+xWHZLMhD791+CgEd8OVC4atuD1D4UTUwFaEvimJtOOc541Ci1XH
-	 qxc2+fYRLYgy5xwiJs9QMOWfKILe6mYBtgKAoq7T/4oDXKD34tr5BGNDFoBo6/YXLO
-	 /0FPvVqns5M6ij6QL8L1lqZuYjDG0eI/7QPO68Rd3Hm7zyIHlgD+6EcyqRHWqZNkQE
-	 GmaaT2LEexzVQ==
+	b=kJoE0C7PnMW0dXnK+c+gkxgcJLJJoz4Q9IIX7DiY2RQ3NHNXQSLYs7MOQJcMh4h24
+	 /D31krGGur/IQLTwuhnLSxL4+MbIWPpq5oy2o0upW+tQdTsOWMKwcfE6CkeFIPRkZ3
+	 Sd1sgn/yrHi9beHGL1a6E/6/7TC0bqrzxCSdv6Yc2WylbesblGpZcZqJ0UwVbp0xQW
+	 x3TXvgmFzkiKHjwx086R6V3DJrzXRANjEWPi2Y0gPyzZZl+vyZwGsd8MfGlnAunMIT
+	 uQj4WMVyV3sXfKOSu+MVlD08Swcig6FkOceldpnuaJvy7aggB/cKnJTx6sXwPzUnPh
+	 RPIqB+DV4Ep8Q==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ed1-x536.google.com (mail-ed1-x536.google.com
- [IPv6:2a00:1450:4864:20::536])
+Received: from mail-ej1-x630.google.com (mail-ej1-x630.google.com
+ [IPv6:2a00:1450:4864:20::630])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 0C56B3B2A4;
- Sat, 17 Jul 2021 19:29:58 -0400 (EDT)
-Received: by mail-ed1-x536.google.com with SMTP id h8so17985384eds.4;
- Sat, 17 Jul 2021 16:29:58 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 154EC3B2A4;
+ Sat, 17 Jul 2021 19:57:08 -0400 (EDT)
+Received: by mail-ej1-x630.google.com with SMTP id dp20so19397729ejc.7;
+ Sat, 17 Jul 2021 16:57:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=uxx51oj8IA51TDnm/tuLu8qZq/qMVxcPTK+n52ouYl8=;
- b=dgcTmLdkVv0eefJ/1axo35U/opLQKeMlKME2RS0i1GwJ8TV8q3Fyc2sblPAB3z9xhl
- XTFY3MX9bt59OsfcuIAgLdmZkhS5ELm6grrJZIEV4Q4yfQD4Q777nwRtySOk+fyZrj+k
- m/s92kgjDiildfx96itl5DFUSje9/C5Q1pP/VS0S+TeM/b2mvZ+X2wgWvtNFKPOGsnMO
- bTOmLUNU04BotebTJdRENn/GLL7JU6m+WWWndNlE3BpJoZyGhmwnrexjjoQjr1KVMMre
- li6G67C2IpC76dtXU+n/DvDRX2XsQNwvDaeDX99KEtJ7QaaR+h/jU1bDd8oPybCc7HcY
- /zsA==
+ :cc; bh=NXnhZ2lnz3Dib9SnpVBXcvtiOx6fYR8fcvmNekU6yJI=;
+ b=cnL3oxlA4+0bz/pwwRKUM66FHLtwZ4t7NC9SkG4Hzy4rl+6dL++D5J22TjRg7Uvl7p
+ IkMRd8XHrT8agwrUCUcqWEK1X2cHY25H4/5uIDW+nbOpWfnpGBXpP12HArIJ3gyZnHLA
+ dcla/Tnq3P9T+NDNDgY2DSez703oy9Ll2VA06/nNPe/LFjdOQgnErxELiCnr3r1wcGTh
+ uH/hqTDPWmQUgmBPeAjXG80GQOZBSa2wvjaVk/yQYY1Vj7FXTzGYDczGeP5NuMaxQtv9
+ Zq/m6XnXkZEOXQSz51WmF66j67C7td/lmVgb1bPHDScjxrjgHP0AagsojcNWSFU2EoFx
+ K8Og==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=uxx51oj8IA51TDnm/tuLu8qZq/qMVxcPTK+n52ouYl8=;
- b=kn7Uh3LiUtPk9iDPRX5ZGzdlmC7soLkidmelwXMNQEjaUUo1EnPIs6AWQldTgrWurK
- ah7rDOMgxFd2E+XLZrmDqDt2QDTTXPV3YjjbC1YYFU1uUhIKx3akrLMZ4+rCF/T91XOJ
- t9wmFiIkn5sc3xOvRTflfTnd8tKyGCYtDoEF1WZOo1hQ4/b3/9i6tb5pKfljk4dqOftG
- Um6s6fDwatOZJXOjUYOMKbPoyMbn4AwvzcWdGMk60KZb4BfIqgIwz/Pnn+oXL6kfjFz4
- cEL2xQIO62p4a+4uuR0Fp3M3wwHa6ge+qjPju4AheVq5iVq3CXtxiyJ2zUGbeZeOnCGb
- iaOw==
-X-Gm-Message-State: AOAM5330wzWRhVppqlPpLP4VtGDQ6nTB4Wj1JLcRk8+rfvguIXijutR7
- UMgYTFUORFYhJSR9zO3DTG4QtG2WqoiWnnqlRKY=
-X-Google-Smtp-Source: ABdhPJz4Nvs8ewtqTy1XkFsUyUKf06kE1fJyuJiT83+J6p2HxAAYspIAwZuKKenVQ4HuczZk24PHi2Yqj7szoYdStGo=
-X-Received: by 2002:a50:9f8e:: with SMTP id c14mr24829627edf.283.1626564597843; 
- Sat, 17 Jul 2021 16:29:57 -0700 (PDT)
+ bh=NXnhZ2lnz3Dib9SnpVBXcvtiOx6fYR8fcvmNekU6yJI=;
+ b=CiK4jYGh+zx0Tja+PTMK4vu2bbPQjJ6lnzua0GZn3zFzI5r5VPAA9f6HYJN71N6NuE
+ iBeBDTNMkznRIxLPn+NsZvQ/F62FKkJ/dOPRyKacfQR2PcPYoFpR7hnX1oc9mJJugtdK
+ nCpZHpuPfmsa56kF8jyIQbdVz7Tt8RJA8C6/f6xfOKAaHxtp7cDBOx00KAB2K1shvd5e
+ nLzAHNkS7o7YMwYeieOqBJanZ4gd5lHjiNxmcceVKSE+6Sjyi2vB8fQ1Ua5ethYGvPQV
+ ztKf2TbCBJ/woBy2O5eCwMkn2NoTWxYFbcj24JSJlQ9hrw2NXjGtCyxyKPVO+K7PPDF6
+ +NaA==
+X-Gm-Message-State: AOAM532vkesbchCBr6qXeS4sB9pITf9EQjKnaP9Gd0VrD37YVDXpisT+
+ kkf8XtDZjiK9kbpBRe7/5nfiPKLIVFDbjFR2/yQ=
+X-Google-Smtp-Source: ABdhPJy06GZikIxRFKgD7AdnNh8U75WaLjlLlm3+9dG1BH7fzmmfFyYm+33rGhswc3XLEu+IUcuLY1GPMv2qEbpXk7I=
+X-Received: by 2002:a17:907:10cc:: with SMTP id
+ rv12mr19501078ejb.339.1626566227048; 
+ Sat, 17 Jul 2021 16:57:07 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
@@ -64,19 +65,15 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <FDF5C7A7-47A6-4123-A948-352C07C35F02@cs.ucla.edu>
  <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com>
  <1625859083.09751240@apps.rackspace.com>
- <EF8D7620-438A-4F65-94D9-B35FDB76FBBD@cable.comcast.com>
- <1626111630.69692379@apps.rackspace.com>
- <CAHb6LvoD+ACc+17WhTVmS8HYnYyboJrCg5zQF8uXtzrmqqKfPA@mail.gmail.com>
- <9c3d61c1-7013-414e-964d-9e83f596e69d@candelatech.com>
- <CAHb6LvpyQtGg3sMF2RV_gMpEcaY32A70VaEwtsnoeq4DHtv7EA@mail.gmail.com>
- <1e8bdf58-2a21-f543-a248-be58bcbddbcf@candelatech.com>
-In-Reply-To: <1e8bdf58-2a21-f543-a248-be58bcbddbcf@candelatech.com>
+ <8C38E940-8B97-4767-A39B-25F043AE0856@cs.ucla.edu>
+ <A2CB0701-E08F-46ED-8579-CC24F1444E9C@gmail.com>
+In-Reply-To: <A2CB0701-E08F-46ED-8579-CC24F1444E9C@gmail.com>
 From: Aaron Wood <woody77@gmail.com>
-Date: Sat, 17 Jul 2021 16:29:46 -0700
-Message-ID: <CALQXh-M13cJg+JqPPGwjckH9WqiDhZgCW=8oZdBS_Bp_CEBMag@mail.gmail.com>
-To: Ben Greear <greearb@candelatech.com>
-Subject: Re: [Cake] [Bloat] Little's Law mea culpa,
-	but not invalidating my main point
+Date: Sat, 17 Jul 2021 16:56:55 -0700
+Message-ID: <CALQXh-MvfuSUuV8uTS0N4rpk8oke5Wq7jwr3KXvZ2ErtEXDvGg@mail.gmail.com>
+To: Jonathan Morton <chromatix99@gmail.com>
+Subject: Re: [Cake] [Make-wifi-fast] [Bloat] Little's Law mea culpa,
+ but not invalidating my main point
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -91,591 +88,210 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
 Cc: Cake List <cake@lists.bufferbloat.net>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
  Leonard Kleinrock <lk@cs.ucla.edu>, Bob McMahon <bob.mcmahon@broadcom.com>,
- "starlink@lists.bufferbloat.net" <starlink@lists.bufferbloat.net>,
- "codel@lists.bufferbloat.net" <codel@lists.bufferbloat.net>,
+ starlink@lists.bufferbloat.net, codel <codel@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============6998107843947061437=="
+ bloat <bloat@lists.bufferbloat.net>, Ben Greear <greearb@candelatech.com>
+Content-Type: multipart/mixed; boundary="===============3554403477874336643=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============6998107843947061437==
-Content-Type: multipart/alternative; boundary="0000000000000f0aa105c75a1540"
+--===============3554403477874336643==
+Content-Type: multipart/alternative; boundary="0000000000002abc0f05c75a767c"
 
---0000000000000f0aa105c75a1540
+--0000000000002abc0f05c75a767c
 Content-Type: text/plain; charset="UTF-8"
 
-On Mon, Jul 12, 2021 at 1:32 PM Ben Greear <greearb@candelatech.com> wrote:
+With the disclaimer that I'm not as strong in statistics and modelling as
+I'd like to be....
 
-> UDP is better for getting actual packet latency, for sure.  TCP is
-> typical-user-experience-latency though,
-> so it is also useful.
+I think it's not useful to attempt to stochastically model the behavior of
+what are actually active (well, reactive) components.  The responses of
+each piece are deterministic, but the inputs (users) are not.  So while you
+could maybe measure the behavior of a network, and then build a hidden
+markov model that can produce the same results, I don't see how it would be
+useful for testing the behavior of either the reactive components (TCP CC
+algs) or the layers below the reactive components (queues and links),
+because the model needs to react to the behavior of the pieces it's sitting
+on top of, not due to a stochastic process that's independent (in the
+statistical sense) of the underlying queues and links.
+
+Probably a "well duh..." thought for many here.  But I was _amazed_ when
+working with very senior engineers for network hardware companies, who said
+all testing was done with a static blend of "i-mix" traffic (in both
+directions), even though they were looking at last-mile network usage which
+was going to be primarily TCP download, just like a home, and nothing like
+i-mix.  Or that the applications running on top of that gear were actually
+reactive to their (mis-)management of their queues and loads.
+
+On Fri, Jul 9, 2021 at 4:56 PM Jonathan Morton <chromatix99@gmail.com>
+wrote:
+
+> > On 10 Jul, 2021, at 2:01 am, Leonard Kleinrock <lk@cs.ucla.edu> wrote:
+> >
+> > No question that non-stationarity and instability are what we often see
+> in networks.  And, non-stationarity and instability are both topics that
+> lead to very complex analytical problems in queueing theory.  You can find
+> some results on the transient analysis in the queueing theory literature
+> (including the second volume of my Queueing Systems book), but they are
+> limited and hard. Nevertheless, the literature does contain some works on
+> transient analysis of queueing systems as applied to network congestion
+> control - again limited. On the other hand, as you said, control theory
+> addresses stability head on and does offer some tools as well, but again,
+> it is hairy.
 >
-> I'm interested in the test and visualization side of this.  If there were
-> a way to give engineers
-> a good real-time look at a complex real-world network, then they have
-> something to go on while trying
-> to tune various knobs in their network to improve it.
+> I was just about to mention control theory.
 >
-
-I've always liked the smoke-ping visualization, although a single graph is
-only really useful for a single pair of endpoints (or a single segment,
-maybe).  But I can see using a repeated set of graphs (Tufte has some
-examples), that can represent an overview of pairwise collections of
-latency+loss:
-https://www.edwardtufte.com/bboard/images/0003Cs-8047.GIF
-https://www.edwardtufte.com/tufte/psysvcs_p2
-
-These work for understanding because the tiled graphs are all identically
-constructed, and the reader first learns how to read a single tile, and
-then learns the pattern of which tiles represent which measurements.
-
-Further, they are opinionated.  In the second link above, the y axis is not
-based on the measured data, but standardized expected values, which (I
-think) is key to quick readability.  You never need to read the axes.  Much
-like setting up gauges such that "nominal" is always at the same indicator
-position for all graphs (e.g. straight up).  At a glance, you can see if
-things are "correct" or not.
-
-That tiling arrangement wouldn't be great for showing interrelationships
-(although it may give you a good historical view of correlated behavior).
-One thought is to overlay a network graph diagram (graph of all network
-links) with small "sparkline" type graphs.
-
-For a more physical-based network graph, I could see visualizing the queue
-depth for each egress port (max value over a time of X, or percentage of
-time at max depth).
-
-Taken together, the timewise correlation could be useful (which peers are
-having problems communicating, and which ports between them are impacted?).
-
-I think getting good data about queue depth may be the hard part,
-especially catching transients and the duty cycle / pulse-width of the load
-(and then converting that to a number).  Back when I uncovered the iperf
-application-level pacing granularity was too high 5 years ago, I called it
-them "millibursts", and maybe dtaht pointed out that link utilization is
-always 0% or 100%, and it's just a matter of the PWM of the packet rate
-that makes it look like something in between.
-https://burntchrome.blogspot.com/2016/09/iperf3-and-microbursts.html
-
-
-
-I'll let others try to figure out how build and tune the knobs, but the
-> data acquisition and
-> visualization is something we might try to accomplish.  I have a feeling
-> I'm not the
-> first person to think of this, however....probably someone already has
-> done such
-> a thing.
+> One basic characteristic of Poisson traffic is that it is inelastic, and
+> assumes there is no control feedback whatsoever.  This means it can only be
+> a valid model when the following are both true:
 >
-> Thanks,
-> Ben
+> 1: The offered load is *below* the link capacity, for all links, averaged
+> over time.
 >
-> On 7/12/21 1:04 PM, Bob McMahon wrote:
-> > I believe end host's TCP stats are insufficient as seen per the "failed"
-> congested control mechanisms over the last decades. I think Jaffe pointed
-> this out in
-> > 1979 though he was using what's been deemed on this thread as "spherical
-> cow queueing theory."
-> >
-> > "Flow control in store-and-forward computer networks is appropriate for
-> decentralized execution. A formal description of a class of "decentralized
-> flow control
-> > algorithms" is given. The feasibility of maximizing power with such
-> algorithms is investigated. On the assumption that communication links
-> behave like M/M/1
-> > servers it is shown that no "decentralized flow control algorithm" can
-> maximize network power. Power has been suggested in the literature as a
-> network
-> > performance objective. It is also shown that no objective based only on
-> the users' throughputs and average delay is decentralizable. Finally, a
-> restricted class
-> > of algorithms cannot even approximate power."
-> >
-> > https://ieeexplore.ieee.org/document/1095152
-> >
-> > Did Jaffe make a mistake?
-> >
-> > Also, it's been observed that latency is non-parametric in it's
-> distributions and computing gaussians per the central limit theorem for OWD
-> feedback loops
-> > aren't effective. How does one design a control loop around things that
-> are non-parametric? It also begs the question, what are the feed forward
-> knobs that can
-> > actually help?
-> >
-> > Bob
-> >
-> > On Mon, Jul 12, 2021 at 12:07 PM Ben Greear <greearb@candelatech.com
-> <mailto:greearb@candelatech.com>> wrote:
-> >
-> >     Measuring one or a few links provides a bit of data, but seems like
-> if someone is trying to understand
-> >     a large and real network, then the OWD between point A and B needs
-> to just be input into something much
-> >     more grand.  Assuming real-time OWD data exists between 100 to 1000
-> endpoint pairs, has anyone found a way
-> >     to visualize this in a useful manner?
-> >
-> >     Also, considering something better than ntp may not really scale to
-> 1000+ endpoints, maybe round-trip
-> >     time is only viable way to get this type of data.  In that case,
-> maybe clever logic could use things
-> >     like trace-route to get some idea of how long it takes to get 'onto'
-> the internet proper, and so estimate
-> >     the last-mile latency.  My assumption is that the last-mile latency
-> is where most of the pervasive
-> >     assymetric network latencies would exist (or just ping 8.8.8.8 which
-> is 20ms from everywhere due to
-> >     $magic).
-> >
-> >     Endpoints could also triangulate a bit if needed, using some anchor
-> points in the network
-> >     under test.
-> >
-> >     Thanks,
-> >     Ben
-> >
-> >     On 7/12/21 11:21 AM, Bob McMahon wrote:
-> >      > iperf 2 supports OWD and gives full histograms for TCP write to
-> read, TCP connect times, latency of packets (with UDP), latency of "frames"
-> with
-> >      > simulated video traffic (TCP and UDP), xfer times of bursts with
-> low duty cycle traffic, and TCP RTT (sampling based.) It also has support
-> for sampling (per
-> >      > interval reports) down to 100 usecs if configured with
-> --enable-fastsampling, otherwise the fastest sampling is 5 ms. We've
-> released all this as open source.
-> >      >
-> >      > OWD only works if the end realtime clocks are synchronized using
-> a "machine level" protocol such as IEEE 1588 or PTP. Sadly, *most data
-> centers don't
-> >     provide
-> >      > sufficient level of clock accuracy and the GPS pulse per second *
-> to colo and vm customers.
-> >      >
-> >      > https://iperf2.sourceforge.io/iperf-manpage.html
-> >      >
-> >      > Bob
-> >      >
-> >      > On Mon, Jul 12, 2021 at 10:40 AM David P. Reed <
-> dpreed@deepplum.com <mailto:dpreed@deepplum.com> <mailto:
-> dpreed@deepplum.com
-> >     <mailto:dpreed@deepplum.com>>> wrote:
-> >      >
-> >      >
-> >      >     On Monday, July 12, 2021 9:46am, "Livingood, Jason" <
-> Jason_Livingood@comcast.com <mailto:Jason_Livingood@comcast.com>
-> >     <mailto:Jason_Livingood@comcast.com <mailto:
-> Jason_Livingood@comcast.com>>> said:
-> >      >
-> >      >      > I think latency/delay is becoming seen to be as important
-> certainly, if not a more direct proxy for end user QoE. This is all still
-> evolving and I
-> >     have
-> >      >     to say is a super interesting & fun thing to work on. :-)
-> >      >
-> >      >     If I could manage to sell one idea to the management
-> hierarchy of communications industry CEOs (operators, vendors, ...) it is
-> this one:
-> >      >
-> >      >     "It's the end-to-end latency, stupid!"
-> >      >
-> >      >     And I mean, by end-to-end, latency to complete a task at a
-> relevant layer of abstraction.
-> >      >
-> >      >     At the link level, it's packet send to packet receive
-> completion.
-> >      >
-> >      >     But at the transport level including retransmission buffers,
-> it's datagram (or message) origination until the acknowledgement arrives
-> for that
-> >     message being
-> >      >     delivered after whatever number of retransmissions, freeing
-> the retransmission buffer.
-> >      >
-> >      >     At the WWW level, it's mouse click to display update
-> corresponding to completion of the request.
-> >      >
-> >      >     What should be noted is that lower level latencies don't
-> directly predict the magnitude of higher-level latencies. But longer lower
-> level latencies
-> >     almost
-> >      >     always amplfify higher level latencies. Often non-linearly.
-> >      >
-> >      >     Throughput is very, very weakly related to these latencies,
-> in contrast.
-> >      >
-> >      >     The amplification process has to do with the presence of
-> queueing. Queueing is ALWAYS bad for latency, and throughput only helps if
-> it is in exactly the
-> >      >     right place (the so-called input queue of the bottleneck
-> process, which is often a link, but not always).
-> >      >
-> >      >     Can we get that slogan into Harvard Business Review? Can we
-> get it taught in Managerial Accounting at HBS? (which does address
-> logistics/supply chain
-> >     queueing).
-> >      >
-> >      >
-> >      >
-> >      >
-> >      >
-> >      >
-> >      >
-> >      > This electronic communication and the information and any files
-> transmitted with it, or attached to it, are confidential and are intended
-> solely for the
-> >     use of
-> >      > the individual or entity to whom it is addressed and may contain
-> information that is confidential, legally privileged, protected by privacy
-> laws, or
-> >     otherwise
-> >      > restricted from disclosure to anyone else. If you are not the
-> intended recipient or the person responsible for delivering the e-mail to
-> the intended
-> >     recipient,
-> >      > you are hereby notified that any use, copying, distributing,
-> dissemination, forwarding, printing, or copying of this e-mail is strictly
-> prohibited. If you
-> >      > received this e-mail in error, please return the e-mail to the
-> sender, delete it from your computer, and destroy any printed copy of it.
-> >
-> >
-> >     --
-> >     Ben Greear <greearb@candelatech.com <mailto:greearb@candelatech.com
-> >>
-> >     Candela Technologies Inc http://www.candelatech.com
-> >
-> >
-> > This electronic communication and the information and any files
-> transmitted with it, or attached to it, are confidential and are intended
-> solely for the use of
-> > the individual or entity to whom it is addressed and may contain
-> information that is confidential, legally privileged, protected by privacy
-> laws, or otherwise
-> > restricted from disclosure to anyone else. If you are not the intended
-> recipient or the person responsible for delivering the e-mail to the
-> intended recipient,
-> > you are hereby notified that any use, copying, distributing,
-> dissemination, forwarding, printing, or copying of this e-mail is strictly
-> prohibited. If you
-> > received this e-mail in error, please return the e-mail to the sender,
-> delete it from your computer, and destroy any printed copy of it.
+> 2: A high degree of statistical multiplexing exists.
 >
+> If 1: is not true and the traffic is truly inelastic, then the queues will
+> inevitably fill up and congestion collapse will result, as shown from
+> ARPANET experience in the 1980s; the solution was to introduce control
+> feedback to the traffic, initially in the form of TCP Reno.  If 2: is not
+> true then the traffic cannot be approximated as Poisson arrivals,
+> regardless of load relative to capacity, because the degree of correlation
+> is too high.
 >
-> --
-> Ben Greear <greearb@candelatech.com>
-> Candela Technologies Inc  http://www.candelatech.com
+> Taking the iPhone introduction anecdote as an illustrative example,
+> measuring utilisation as very close to 100% is a clear warning sign that
+> the Poisson model was inappropriate, and a control-theory approach was
+> needed instead, to capture the feedback effects of congestion control.  The
+> high degree of statistical multiplexing inherent to a major ISP backhaul is
+> irrelevant to that determination.
 >
+> Such a model would have found that the primary source of control feedback
+> was human users giving up in disgust.  However, different humans have
+> different levels of tolerance and persistence, so this feedback was not
+> sufficient to reduce the load sufficiently to give the majority of users a
+> good service; instead, *all* users received a poor service and many users
+> received no usable service.  Introducing a technological control feedback,
+> in the form of packet loss upon overflow of correctly-sized queues,
+> improved service for everyone.
+>
+> (BTW, DNS becomes significantly unreliable around 1-2 seconds RTT, due to
+> protocol timeouts, which is inherited by all applications that rely on DNS
+> lookups.  Merely reducing the delays consistently below that threshold
+> would have improved perceived reliability markedly.)
+>
+> Conversely, when talking about the traffic on a single ISP subscriber's
+> last-mile link, the Poisson model has to be discarded due to criterion 2
+> being false.  The number of flows going to even a family household is
+> probably in the low dozens at best.  A control-theory approach can also
+> work here.
+>
+>  - Jonathan Morton
 > _______________________________________________
-> Bloat mailing list
-> Bloat@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/bloat
->
+> Make-wifi-fast mailing list
+> Make-wifi-fast@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/make-wifi-fast
 
---0000000000000f0aa105c75a1540
+--0000000000002abc0f05c75a767c
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr"><div dir=3D"ltr">On Mon, Jul 12, 2021 at 1:32 PM Ben Greea=
-r &lt;<a href=3D"mailto:greearb@candelatech.com">greearb@candelatech.com</a=
->&gt; wrote:<br></div><div class=3D"gmail_quote"><blockquote class=3D"gmail=
-_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left=
--style:solid;border-left-color:rgb(204,204,204);padding-left:1ex">UDP is be=
-tter for getting actual packet latency, for sure.=C2=A0 TCP is typical-user=
--experience-latency though,<br>
-so it is also useful.<br>
+<div dir=3D"ltr">With the disclaimer that I&#39;m not as strong in statisti=
+cs and modelling as I&#39;d like to be....<div><br></div><div>I think it&#3=
+9;s not useful to attempt=C2=A0to stochastically=C2=A0model the behavior of=
+ what are actually active (well, reactive) components.=C2=A0 The responses =
+of each piece are deterministic, but the inputs (users) are not.=C2=A0 So w=
+hile you could maybe measure the behavior of a network, and then build a hi=
+dden markov model that can produce the same results, I don&#39;t see how it=
+ would be useful for testing the behavior of either the reactive components=
+ (TCP CC algs) or the layers below the reactive components (queues and link=
+s), because the model needs to react to the behavior of the pieces it&#39;s=
+ sitting on top of, not due to a stochastic=C2=A0process that&#39;s indepen=
+dent (in the statistical sense) of the underlying queues and links.</div><d=
+iv><br></div><div>Probably a &quot;well duh...&quot; thought for many here.=
+=C2=A0 But I was _amazed_ when working with very senior engineers for netwo=
+rk hardware companies, who said all testing was done with a static blend of=
+ &quot;i-mix&quot; traffic (in both directions), even though they were look=
+ing at last-mile network usage which was going to be primarily TCP download=
+, just like a home, and nothing like i-mix.=C2=A0 Or that the applications =
+running on top of that gear were actually reactive to their (mis-)managemen=
+t of their queues and loads.</div></div><br><div class=3D"gmail_quote"><div=
+ dir=3D"ltr" class=3D"gmail_attr">On Fri, Jul 9, 2021 at 4:56 PM Jonathan M=
+orton &lt;<a href=3D"mailto:chromatix99@gmail.com">chromatix99@gmail.com</a=
+>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px=
+ 0px 0px 0.8ex;border-left-width:1px;border-left-style:solid;border-left-co=
+lor:rgb(204,204,204);padding-left:1ex">&gt; On 10 Jul, 2021, at 2:01 am, Le=
+onard Kleinrock &lt;<a href=3D"mailto:lk@cs.ucla.edu" target=3D"_blank">lk@=
+cs.ucla.edu</a>&gt; wrote:<br>
+&gt; <br>
+&gt; No question that non-stationarity and instability are what we often se=
+e in networks.=C2=A0 And, non-stationarity and instability are both topics =
+that lead to very complex analytical problems in queueing theory.=C2=A0 You=
+ can find some results on the transient analysis in the queueing theory lit=
+erature (including the second volume of my Queueing Systems book), but they=
+ are limited and hard. Nevertheless, the literature does contain some works=
+ on transient analysis of queueing systems as applied to network congestion=
+ control - again limited. On the other hand, as you said, control theory ad=
+dresses stability head on and does offer some tools as well, but again, it =
+is hairy. <br>
 <br>
-I&#39;m interested in the test and visualization side of this.=C2=A0 If the=
-re were a way to give engineers<br>
-a good real-time look at a complex real-world network, then they have somet=
-hing to go on while trying<br>
-to tune various knobs in their network to improve it.<br></blockquote><div>=
-<br></div><div>I&#39;ve always liked the smoke-ping visualization, although=
- a single graph is only really useful for a single pair of endpoints (or a =
-single segment, maybe).=C2=A0 But I can see using a repeated set of graphs =
-(Tufte has some examples), that can represent an overview of pairwise colle=
-ctions of latency+loss:</div><div><a href=3D"https://www.edwardtufte.com/bb=
-oard/images/0003Cs-8047.GIF">https://www.edwardtufte.com/bboard/images/0003=
-Cs-8047.GIF</a><br></div><div><a href=3D"https://www.edwardtufte.com/tufte/=
-psysvcs_p2">https://www.edwardtufte.com/tufte/psysvcs_p2</a><br></div><div>=
-<br></div><div>These work for understanding because the tiled graphs are al=
-l identically constructed, and the reader first learns how to read a single=
- tile, and then learns the pattern of which tiles represent which measureme=
-nts.</div><div><br></div><div>Further, they are opinionated.=C2=A0 In the s=
-econd link above, the y axis is not based on the measured data, but standar=
-dized expected values, which (I think) is key to quick readability.=C2=A0 Y=
-ou never need to read the axes.=C2=A0 Much like setting up gauges such that=
- &quot;nominal&quot; is always at the same indicator position for all graph=
-s (e.g. straight up).=C2=A0 At a glance, you can see if things are &quot;co=
-rrect&quot; or not.</div><div><br></div><div>That tiling arrangement wouldn=
-&#39;t be great for showing interrelationships (although it may give you a =
-good historical view of correlated behavior).=C2=A0 One thought is to overl=
-ay a network graph diagram (graph of all network links) with small &quot;sp=
-arkline&quot; type graphs.</div><div><br></div><div>For a more physical-bas=
-ed network graph, I could see visualizing the queue depth for each egress p=
-ort (max value over a time of X, or percentage of time at max depth).</div>=
-<div><br></div><div>Taken together, the timewise correlation could be usefu=
-l (which peers are having problems communicating, and which ports between t=
-hem are impacted?).</div><div><br></div><div>I think getting good data abou=
-t queue depth may be the hard part, especially catching transients and the =
-duty cycle / pulse-width of the load (and then converting that to a number)=
-.=C2=A0 Back when I uncovered the iperf application-level pacing granularit=
-y was too high 5 years ago, I called it them &quot;millibursts&quot;, and m=
-aybe dtaht pointed out that link utilization is always 0% or 100%, and it&#=
-39;s just a matter of the PWM of the packet rate that makes it look like so=
-mething in between.</div><div><a href=3D"https://burntchrome.blogspot.com/2=
-016/09/iperf3-and-microbursts.html">https://burntchrome.blogspot.com/2016/0=
-9/iperf3-and-microbursts.html</a><br></div><div><br></div><div><br></div><d=
-iv><br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px =
-0.8ex;border-left-width:1px;border-left-style:solid;border-left-color:rgb(2=
-04,204,204);padding-left:1ex">
-I&#39;ll let others try to figure out how build and tune the knobs, but the=
- data acquisition and<br>
-visualization is something we might try to accomplish.=C2=A0 I have a feeli=
-ng I&#39;m not the<br>
-first person to think of this, however....probably someone already has done=
- such<br>
-a thing.<br>
+I was just about to mention control theory.<br>
 <br>
-Thanks,<br>
-Ben<br>
+One basic characteristic of Poisson traffic is that it is inelastic, and as=
+sumes there is no control feedback whatsoever.=C2=A0 This means it can only=
+ be a valid model when the following are both true:<br>
 <br>
-On 7/12/21 1:04 PM, Bob McMahon wrote:<br>
-&gt; I believe end host&#39;s TCP stats are insufficient as seen per the &q=
-uot;failed&quot; congested control mechanisms over the last decades. I thin=
-k Jaffe pointed this out in <br>
-&gt; 1979 though he was using what&#39;s been deemed on this thread as &quo=
-t;spherical cow queueing theory.&quot;<br>
-&gt; <br>
-&gt; &quot;Flow control in store-and-forward computer networks is appropria=
-te for decentralized execution. A formal description of a class of &quot;de=
-centralized flow control <br>
-&gt; algorithms&quot; is given. The feasibility of maximizing power with su=
-ch algorithms is investigated. On the assumption that communication links b=
-ehave like M/M/1 <br>
-&gt; servers it is shown that no &quot;decentralized flow control algorithm=
-&quot; can maximize network power. Power has been suggested in the literatu=
-re as a network <br>
-&gt; performance objective. It is also shown that no objective based only o=
-n the users&#39; throughputs and average delay is decentralizable. Finally,=
- a restricted class <br>
-&gt; of algorithms cannot even approximate power.&quot;<br>
-&gt; <br>
-&gt; <a href=3D"https://ieeexplore.ieee.org/document/1095152" rel=3D"norefe=
-rrer" target=3D"_blank">https://ieeexplore.ieee.org/document/1095152</a><br=
->
-&gt; <br>
-&gt; Did Jaffe make a mistake?<br>
-&gt; <br>
-&gt; Also, it&#39;s been observed that latency=C2=A0is non-parametric in it=
-&#39;s distributions and computing gaussians=C2=A0per the central limit the=
-orem for OWD feedback loops <br>
-&gt; aren&#39;t effective. How does one design a control loop around things=
- that are non-parametric? It also begs the question, what are the feed forw=
-ard knobs that can <br>
-&gt; actually help?<br>
-&gt; <br>
-&gt; Bob<br>
-&gt; <br>
-&gt; On Mon, Jul 12, 2021 at 12:07 PM Ben Greear &lt;<a href=3D"mailto:gree=
-arb@candelatech.com" target=3D"_blank">greearb@candelatech.com</a> &lt;mail=
-to:<a href=3D"mailto:greearb@candelatech.com" target=3D"_blank">greearb@can=
-delatech.com</a>&gt;&gt; wrote:<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0Measuring one or a few links provides a bit of data=
-, but seems like if someone is trying to understand<br>
-&gt;=C2=A0 =C2=A0 =C2=A0a large and real network, then the OWD between poin=
-t A and B needs to just be input into something much<br>
-&gt;=C2=A0 =C2=A0 =C2=A0more grand.=C2=A0 Assuming real-time OWD data exist=
-s between 100 to 1000 endpoint pairs, has anyone found a way<br>
-&gt;=C2=A0 =C2=A0 =C2=A0to visualize this in a useful manner?<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0Also, considering something better than ntp may not=
- really scale to 1000+ endpoints, maybe round-trip<br>
-&gt;=C2=A0 =C2=A0 =C2=A0time is only viable way to get this type of data.=
-=C2=A0 In that case, maybe clever logic could use things<br>
-&gt;=C2=A0 =C2=A0 =C2=A0like trace-route to get some idea of how long it ta=
-kes to get &#39;onto&#39; the internet proper, and so estimate<br>
-&gt;=C2=A0 =C2=A0 =C2=A0the last-mile latency.=C2=A0 My assumption is that =
-the last-mile latency is where most of the pervasive<br>
-&gt;=C2=A0 =C2=A0 =C2=A0assymetric network latencies would exist (or just p=
-ing 8.8.8.8 which is 20ms from everywhere due to<br>
-&gt;=C2=A0 =C2=A0 =C2=A0$magic).<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0Endpoints could also triangulate a bit if needed, u=
-sing some anchor points in the network<br>
-&gt;=C2=A0 =C2=A0 =C2=A0under test.<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0Thanks,<br>
-&gt;=C2=A0 =C2=A0 =C2=A0Ben<br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0On 7/12/21 11:21 AM, Bob McMahon wrote:<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; iperf 2 supports OWD and gives full histogram=
-s for TCP write to read, TCP connect times, latency of packets (with UDP), =
-latency of &quot;frames&quot; with<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; simulated=C2=A0video=C2=A0traffic (TCP and UD=
-P), xfer times of bursts with low duty cycle traffic, and TCP RTT (sampling=
- based.) It also has support for sampling (per<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; interval reports) down to 100 usecs if config=
-ured with --enable-fastsampling, otherwise the fastest sampling is 5 ms. We=
-&#39;ve released all this as open source.<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; OWD only works if the end realtime clocks are=
- synchronized using a &quot;machine level&quot; protocol such as IEEE 1588 =
-or PTP. Sadly, *most data centers don&#39;t<br>
-&gt;=C2=A0 =C2=A0 =C2=A0provide<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; sufficient level of clock accuracy and the GP=
-S pulse per second * to colo and vm customers.<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; <a href=3D"https://iperf2.sourceforge.io/iper=
-f-manpage.html" rel=3D"noreferrer" target=3D"_blank">https://iperf2.sourcef=
-orge.io/iperf-manpage.html</a><br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; Bob<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; On Mon, Jul 12, 2021 at 10:40 AM David P. Ree=
-d &lt;<a href=3D"mailto:dpreed@deepplum.com" target=3D"_blank">dpreed@deepp=
-lum.com</a> &lt;mailto:<a href=3D"mailto:dpreed@deepplum.com" target=3D"_bl=
-ank">dpreed@deepplum.com</a>&gt; &lt;mailto:<a href=3D"mailto:dpreed@deeppl=
-um.com" target=3D"_blank">dpreed@deepplum.com</a><br>
-&gt;=C2=A0 =C2=A0 =C2=A0&lt;mailto:<a href=3D"mailto:dpreed@deepplum.com" t=
-arget=3D"_blank">dpreed@deepplum.com</a>&gt;&gt;&gt; wrote:<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0On Monday, July 12, 2021 9=
-:46am, &quot;Livingood, Jason&quot; &lt;<a href=3D"mailto:Jason_Livingood@c=
-omcast.com" target=3D"_blank">Jason_Livingood@comcast.com</a> &lt;mailto:<a=
- href=3D"mailto:Jason_Livingood@comcast.com" target=3D"_blank">Jason_Living=
-ood@comcast.com</a>&gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0&lt;mailto:<a href=3D"mailto:Jason_Livingood@comcas=
-t.com" target=3D"_blank">Jason_Livingood@comcast.com</a> &lt;mailto:<a href=
-=3D"mailto:Jason_Livingood@comcast.com" target=3D"_blank">Jason_Livingood@c=
-omcast.com</a>&gt;&gt;&gt; said:<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0 &gt; I think latency/dela=
-y is becoming seen to be as important certainly, if not a more direct proxy=
- for end user QoE. This is all still evolving and I<br>
-&gt;=C2=A0 =C2=A0 =C2=A0have<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0to say is a super interest=
-ing &amp; fun thing to work on. :-)<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0If I could manage to sell =
-one idea to the management hierarchy of communications industry CEOs (opera=
-tors, vendors, ...) it is this one:<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0&quot;It&#39;s the end-to-=
-end latency, stupid!&quot;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0And I mean, by end-to-end,=
- latency to complete a task at a relevant layer of abstraction.<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0At the link level, it&#39;=
-s packet send to packet receive completion.<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0But at the transport level=
- including retransmission buffers, it&#39;s datagram (or message) originati=
-on until the acknowledgement arrives for that<br>
-&gt;=C2=A0 =C2=A0 =C2=A0message being<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0delivered after whatever n=
-umber of retransmissions, freeing the retransmission buffer.<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0At the WWW level, it&#39;s=
- mouse click to display update corresponding to completion of the request.<=
-br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0What should be noted is th=
-at lower level latencies don&#39;t directly predict the magnitude of higher=
--level latencies. But longer lower level latencies<br>
-&gt;=C2=A0 =C2=A0 =C2=A0almost<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0always amplfify higher lev=
-el latencies. Often non-linearly.<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0Throughput is very, very w=
-eakly related to these latencies, in contrast.<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0The amplification process =
-has to do with the presence of queueing. Queueing is ALWAYS bad for latency=
-, and throughput only helps if it is in exactly the<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0right place (the so-called=
- input queue of the bottleneck process, which is often a link, but not alwa=
-ys).<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;=C2=A0 =C2=A0 =C2=A0Can we get that slogan int=
-o Harvard Business Review? Can we get it taught in Managerial Accounting at=
- HBS? (which does address logistics/supply chain<br>
-&gt;=C2=A0 =C2=A0 =C2=A0queueing).<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; This electronic communication and the informa=
-tion and any files transmitted with it, or attached to it, are confidential=
- and are intended solely for the<br>
-&gt;=C2=A0 =C2=A0 =C2=A0use of<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; the individual or entity to whom it is addres=
-sed and may contain information that is confidential, legally privileged, p=
-rotected by privacy laws, or<br>
-&gt;=C2=A0 =C2=A0 =C2=A0otherwise<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; restricted from disclosure to anyone else. If=
- you are not the intended recipient or the person responsible for deliverin=
-g the e-mail to the intended<br>
-&gt;=C2=A0 =C2=A0 =C2=A0recipient,<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; you are hereby notified that any use, copying=
-, distributing, dissemination, forwarding, printing, or copying of this e-m=
-ail is strictly prohibited. If you<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 &gt; received this e-mail in error, please return =
-the e-mail to the sender, delete it from your computer, and destroy any pri=
-nted copy of it.<br>
-&gt; <br>
-&gt; <br>
-&gt;=C2=A0 =C2=A0 =C2=A0-- <br>
-&gt;=C2=A0 =C2=A0 =C2=A0Ben Greear &lt;<a href=3D"mailto:greearb@candelatec=
-h.com" target=3D"_blank">greearb@candelatech.com</a> &lt;mailto:<a href=3D"=
-mailto:greearb@candelatech.com" target=3D"_blank">greearb@candelatech.com</=
-a>&gt;&gt;<br>
-&gt;=C2=A0 =C2=A0 =C2=A0Candela Technologies Inc <a href=3D"http://www.cand=
-elatech.com" rel=3D"noreferrer" target=3D"_blank">http://www.candelatech.co=
-m</a><br>
-&gt; <br>
-&gt; <br>
-&gt; This electronic communication and the information and any files transm=
-itted with it, or attached to it, are confidential and are intended solely =
-for the use of <br>
-&gt; the individual or entity to whom it is addressed and may contain infor=
-mation that is confidential, legally privileged, protected by privacy laws,=
- or otherwise <br>
-&gt; restricted from disclosure to anyone else. If you are not the intended=
- recipient or the person responsible for delivering the e-mail to the inten=
-ded recipient, <br>
-&gt; you are hereby notified that any use, copying, distributing, dissemina=
-tion, forwarding, printing, or copying of this e-mail is strictly prohibite=
-d. If you <br>
-&gt; received this e-mail in error, please return the e-mail to the sender,=
- delete it from your computer, and destroy any printed copy of it.<br>
+1: The offered load is *below* the link capacity, for all links, averaged o=
+ver time.<br>
 <br>
+2: A high degree of statistical multiplexing exists.<br>
 <br>
--- <br>
-Ben Greear &lt;<a href=3D"mailto:greearb@candelatech.com" target=3D"_blank"=
->greearb@candelatech.com</a>&gt;<br>
-Candela Technologies Inc=C2=A0 <a href=3D"http://www.candelatech.com" rel=
-=3D"noreferrer" target=3D"_blank">http://www.candelatech.com</a><br>
+If 1: is not true and the traffic is truly inelastic, then the queues will =
+inevitably fill up and congestion collapse will result, as shown from ARPAN=
+ET experience in the 1980s; the solution was to introduce control feedback =
+to the traffic, initially in the form of TCP Reno.=C2=A0 If 2: is not true =
+then the traffic cannot be approximated as Poisson arrivals, regardless of =
+load relative to capacity, because the degree of correlation is too high.<b=
+r>
 <br>
+Taking the iPhone introduction anecdote as an illustrative example, measuri=
+ng utilisation as very close to 100% is a clear warning sign that the Poiss=
+on model was inappropriate, and a control-theory approach was needed instea=
+d, to capture the feedback effects of congestion control.=C2=A0 The high de=
+gree of statistical multiplexing inherent to a major ISP backhaul is irrele=
+vant to that determination.<br>
+<br>
+Such a model would have found that the primary source of control feedback w=
+as human users giving up in disgust.=C2=A0 However, different humans have d=
+ifferent levels of tolerance and persistence, so this feedback was not suff=
+icient to reduce the load sufficiently to give the majority of users a good=
+ service; instead, *all* users received a poor service and many users recei=
+ved no usable service.=C2=A0 Introducing a technological control feedback, =
+in the form of packet loss upon overflow of correctly-sized queues, improve=
+d service for everyone.<br>
+<br>
+(BTW, DNS becomes significantly unreliable around 1-2 seconds RTT, due to p=
+rotocol timeouts, which is inherited by all applications that rely on DNS l=
+ookups.=C2=A0 Merely reducing the delays consistently below that threshold =
+would have improved perceived reliability markedly.)<br>
+<br>
+Conversely, when talking about the traffic on a single ISP subscriber&#39;s=
+ last-mile link, the Poisson model has to be discarded due to criterion 2 b=
+eing false.=C2=A0 The number of flows going to even a family household is p=
+robably in the low dozens at best.=C2=A0 A control-theory approach can also=
+ work here.<br>
+<br>
+=C2=A0- Jonathan Morton<br>
 _______________________________________________<br>
-Bloat mailing list<br>
-<a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"_blank">Bloat@list=
-s.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/bloat" rel=3D"noreferrer"=
- target=3D"_blank">https://lists.bufferbloat.net/listinfo/bloat</a><br>
-</blockquote></div></div>
+Make-wifi-fast mailing list<br>
+<a href=3D"mailto:Make-wifi-fast@lists.bufferbloat.net" target=3D"_blank">M=
+ake-wifi-fast@lists.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/make-wifi-fast" rel=3D"no=
+referrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/make-wif=
+i-fast</a></blockquote></div>
 
---0000000000000f0aa105c75a1540--
+--0000000000002abc0f05c75a767c--
 
---===============6998107843947061437==
+--===============3554403477874336643==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -685,4 +301,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============6998107843947061437==--
+--===============3554403477874336643==--
