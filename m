@@ -2,57 +2,59 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BCA6D3E38F4
-	for <lists+cake@lfdr.de>; Sun,  8 Aug 2021 07:15:50 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id D9CF73E3C3C
+	for <lists+cake@lfdr.de>; Sun,  8 Aug 2021 20:36:58 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 00F243CB43;
-	Sun,  8 Aug 2021 01:15:49 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 57B793CB45;
+	Sun,  8 Aug 2021 14:36:52 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1628399749;
-	bh=EVdnI/VRjagyZBJh5mzjbXR9hh99NEH64kjjB56PdOs=;
-	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
-	 From;
-	b=K+LOZeFMZx3Yzmo5ihNZTUNVh3L3NxK25LUKVAAhNQCJZ2w6l6XXhz3HY5TXpp7v6
-	 Aa9kf2iVGAZxoRecNGyhrjRYNzdeZ/3rcKpigzCgZfgwQSwYlJMnlwp30KbR8Xaza3
-	 qjSHodxWVv4vFTTPB5atzdX9vz+Us/zryFLOiv73jiYIgqWH94kBSuFMItWuiEO4OJ
-	 scVxWifUyzQXEDB6PcvqMLalL3GloWk8xaPz5UfIeazaJaVSUxrdp60RSly5pEZTcF
-	 GbEabWx3/BV7RiYr/2Hubi4B+y1LEksNfnf/CCxVLiWyQ8Ek5XgIKQn1GljebGwJ3D
-	 WG/0rWgQKvE1g==
+	d=lists.bufferbloat.net; s=201610; t=1628447812;
+	bh=OeWHa3YX3iDr4B/9NUp+YMDq+K27NeDZpzyDbg1dYO0=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=PuYm7HVdC+Tcq8LUwl0F4xxFQyi11vdtFWIHVk3JrzIHaRV3OAoht953qrbzMtdIc
+	 asUgZvauX7vq2z1Gn7uYDCMY7LXhz+0/khgo2ZIoZHdASHJIrfT0jHXZCaaDY0w2eP
+	 wu4wjcWfea2Fq4VadhUBUGYy43Cap3OyJCrFkElxgSwYrT5UM5R+ZB0PUU0tgQD27J
+	 cejQnDFMkZM0ouT0dlmaJ8IAZEqTBUAtjfyyhtC0yXBCgH3KQ+M9c6GH7xFxG8Qn3n
+	 oW9srM8GcCWpZwixwYUJ6fWlFXjJn8PEvDEakWeiCpN6v44LeFOH8Vu2prMm6X+LR8
+	 QtPBDTPVvy1Lw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ej1-x62d.google.com (mail-ej1-x62d.google.com
- [IPv6:2a00:1450:4864:20::62d])
+Received: from mail-ej1-x632.google.com (mail-ej1-x632.google.com
+ [IPv6:2a00:1450:4864:20::632])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 460283B2A4
- for <cake@lists.bufferbloat.net>; Sun,  8 Aug 2021 01:15:47 -0400 (EDT)
-Received: by mail-ej1-x62d.google.com with SMTP id hs10so23036472ejc.0
- for <cake@lists.bufferbloat.net>; Sat, 07 Aug 2021 22:15:47 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
+ by lists.bufferbloat.net (Postfix) with ESMTPS id CAA843CB35;
+ Sun,  8 Aug 2021 14:36:50 -0400 (EDT)
+Received: by mail-ej1-x632.google.com with SMTP id e19so24913409ejs.9;
+ Sun, 08 Aug 2021 11:36:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20161025;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=8Y1FhusJcbjLrVwOafIUsCwGTHvT7E2qozBtOg/Sot8=;
- b=Z4gjBXZ6Kk6B7zVCIvEjMxYfwoH1AKtWSy3Eb6TFBlN/RsYWz5yg+hgXryVMiBtVgB
- 3SeJZD0fPNfPg/C6FYhDoelZeBsEtpxzbG/F354kSkChH00un4gmvaJ5DyXgAjxxApx6
- VXU2gc/eYRaiWK9NMurERCbOi5HrZyhBFSI8o=
+ :cc; bh=U693s65721Y7UAwI4CMKCFGK6+nMAb7u9RTto0Wfeyc=;
+ b=Zhv6sYxX691cSMa1CIIEEpiWhyqSl8vL3VGRYXvdsycDl5UpL4hBAbYVTxdvWImfaC
+ cTSzSgwBldZaSJ7jYXYsB0bVijdYG/sNJbmap5oCpsolmQ6Y2jhKSlniphwxUaW0Qere
+ ULlSYCF7BRK2/J6K9oeXSMFPMaSRw3yVji0iR6vtsqTEWVsZWyVnJczPasEvgXQNoaPx
+ 9gft3f7k3dgMNAEyk1HU167fJCpZgCvcHGzd8s6yYlzOh4xWh8bqNfBEwoPjzK4e0Zq4
+ 5C6LVxIUbKUsyTBzde87ALgRmX9ByBczEsWvVWHFIKCID9rpEdX5u89CLYJFQ1zWgbPs
+ 7Slg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=8Y1FhusJcbjLrVwOafIUsCwGTHvT7E2qozBtOg/Sot8=;
- b=qNGMEWqp+UXM/kTK6ITZPs7WwIfJ0QqgOGapB7VIcdf2GIEEuYet5V48HMdJAkbe0g
- RBCPLoXHvucXKl+orh/8b71BtZJubjXq/rd8molCxjajL9Rpkyh4B2dyYUauDTpluLjp
- 6Ccn8fFKnZSVN22TZNy4NlHdiarEc/RI8XNAiNleO8uIXptJUJA2u5n7+bz3j/Vk77fK
- 5SAXlAi2wtSKdpC0SRO/1zs5ZMeXeoXB/dcbsA3zprYce42+vs0ADcrXvhLEWrrT+AYT
- blDaC1VS/7ykbAdMjla44eo43CuVXVOhSTI8CVsrFSMjUrnEEq9axkhPF8oHhwR4YoJ5
- YhAA==
-X-Gm-Message-State: AOAM531uoJ/AkVc5Z1xZJppnLUCgxZBCTQxB+aOozQz6aB4UR2Du+xfH
- 0NX4LdXB6GlA6ihdFnt3wK1vSIU188SGQA8dxS8+KWrJwRMVrkc+CrYwTG6fazopXZJopkWuOSY
- p4BVFl2dkQODngyrXat+DemRxDlGp
-X-Google-Smtp-Source: ABdhPJwDS2cNoh+zWRT4fwPwXTHXYcoYe7uLNlvckA6RjqCmulBSFYvdd1nwXG4ffXH56ptBcpG+v8FysL4LkJZU/wc=
-X-Received: by 2002:a17:906:4e85:: with SMTP id
- v5mr16654917eju.159.1628399746128; 
- Sat, 07 Aug 2021 22:15:46 -0700 (PDT)
+ bh=U693s65721Y7UAwI4CMKCFGK6+nMAb7u9RTto0Wfeyc=;
+ b=oMYjudxVooJ5MrfE9SF0lGAM/v+AWCB0BRIOezuFHdGt7WKWh3s3FjqBDf1f5G/+eO
+ iVXzUZblLhdWHzuJ5fe69aqU1JJ6hHASHChXVZNGhE+gB8LSp+dcn12ezA/e1MEUyALC
+ qt7lbXUCd5/7j7zgYVraB+yMLBvhv/CbxS5W4UFeJeEyiY9mIgQl+w1xcuM6exynyVUw
+ /UVT+SOXnAIlij2FCrMFpkenu7W+ZyAVsAh/78VZo0TgXxrqMEJiZ/bYvT8B3etE5Vib
+ a9lscdHlC1CIUMdxCu/qvsZcQK56Ld/ASTyyc/rWSt96sucRjr601zu1SBnZcMxRZCnO
+ 7kuQ==
+X-Gm-Message-State: AOAM530jWHROsgh1hgREHuO0YiQEcyXwhKnR4PTVQ09IMxLi/neK72vR
+ HuwQLNIVok5seOVg/WMdkUMwgKs7tsKmDP3GV+c=
+X-Google-Smtp-Source: ABdhPJw0mPE79r/7llUQtxR1MU9J5FE2su1aWa4TnIEmbADWOrhJsyIG4zZDMOR9uxI5d0/ltxPs59FfWaz9//9gXVo=
+X-Received: by 2002:a17:906:30d8:: with SMTP id
+ b24mr19032914ejb.358.1628447809758; 
+ Sun, 08 Aug 2021 11:36:49 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
@@ -67,11 +69,13 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <8677F5C4-1893-4A61-A13C-3C8BE17CB789@cs.ucla.edu>
  <CAHb6LvpQP_jCiHeNJAD9qt+wB-HqUAW7N6aGJ+6-PXg+KE5Z2Q@mail.gmail.com>
  <4F6EFB347C08475A9F53B24E0D8BEAE2@SRA6>
-In-Reply-To: <4F6EFB347C08475A9F53B24E0D8BEAE2@SRA6>
-Date: Sat, 7 Aug 2021 22:15:35 -0700
-Message-ID: <CAHb6LvqUctN5SMcqgZNh5u7=nJhtWOuXEmh59PPYag2g+xVrtw@mail.gmail.com>
-To: dickroy@alum.mit.edu
-Subject: Re: [Cake] [Starlink] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2:
+ <CAHb6LvqUctN5SMcqgZNh5u7=nJhtWOuXEmh59PPYag2g+xVrtw@mail.gmail.com>
+In-Reply-To: <CAHb6LvqUctN5SMcqgZNh5u7=nJhtWOuXEmh59PPYag2g+xVrtw@mail.gmail.com>
+From: Aaron Wood <woody77@gmail.com>
+Date: Sun, 8 Aug 2021 11:36:38 -0700
+Message-ID: <CALQXh-Oukro8cvM-tEfowdiBXJuMff8MfuvQ9qsChbaORnWWpg@mail.gmail.com>
+To: Bob McMahon <bob.mcmahon@broadcom.com>
+Subject: Re: [Cake] [Make-wifi-fast] [Starlink] [Cerowrt-devel] Due Aug 2:
  Internet Quality workshop CFP for the internet architecture board
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -84,107 +88,155 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
-Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
-Cc: Cake List <cake@lists.bufferbloat.net>,
+Cc: starlink@lists.bufferbloat.net,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Leonard Kleinrock <lk@cs.ucla.edu>, starlink@lists.bufferbloat.net,
- codel@lists.bufferbloat.net,
+ Leonard Kleinrock <lk@cs.ucla.edu>, Cake List <cake@lists.bufferbloat.net>,
+ codel <codel@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============2974380185499048642=="
+ bloat <bloat@lists.bufferbloat.net>, dickroy@alum.mit.edu
+Content-Type: multipart/mixed; boundary="===============2900379861305829426=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============2974380185499048642==
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000007052f305c9055cef"
+--===============2900379861305829426==
+Content-Type: multipart/alternative; boundary="0000000000003c6ac805c9108d61"
 
---0000000000007052f305c9055cef
-Content-Type: multipart/alternative; boundary="0000000000006bdf1005c9055cd8"
-
---0000000000006bdf1005c9055cd8
+--0000000000003c6ac805c9108d61
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-We have hundreds of test rigs in multiple labs all over geography. Each rig
-is shielded from the others using things like RF enclosures. We want
-reproducibility in the RF paths/channels as well as variability. Most have
-built fixed rigs using conducted equipment. This is far from anything real.
-A butler matrix produces great condition numbers but that makes it too easy
-for MIMO rate selection algorithms.
+My own experiments with this, in the past (5+ years ago), was that you
+absolutely had to use cabled setups for repeatability, but then didn't have
+enough randomness in the variability to really test anything that was
+problematic.  We could create hidden nodes, or arbitrary meshes of devices,
+but they were always static.
 
-Our real world test is using a real house that has been rented. Not cheap
-nor scalable.
+We used N-way RF splitters and either direct coax in lieu of antennas, or
+isolation boxes with an antenna attached to a bulkhead fitting, with coax
+on the outside.  One other problem we ran into was that unshielded radio
+front-ends could "hear" each other without isolation boxes.
 
-There is quite a gap between the two. A RF path device that supports both
-variable range and variable mixing is a step towards closing the gap.
+I really wanted both variable attenuators, and points where I could inject
+RF noise, so that instead of broad-band attenuation, maybe we could just
+swamp the communications with other noise (which is also a common thing we
+were running into with both our 900Mhz (ZWave) and 2.4GHz (wifi) radios.
 
-Bob
+Less common, but something I still see, is that a moving station has
+continual issues staying in proper MIMO phase(s) with the AP.  Or I think
+that's what's happening.  Slow, continual movement of the two, relative to
+each other, and the packet rate drops through the floor until they stop
+having relative motion.  And I assume that also applies to time-varying
+path-loss and path-distance (multipath reflections).
 
-On Sat, Aug 7, 2021 at 10:07 PM Dick Roy <dickroy@alum.mit.edu> wrote:
+On Sat, Aug 7, 2021 at 10:15 PM Bob McMahon via Make-wifi-fast <
+make-wifi-fast@lists.bufferbloat.net> wrote:
 
+> We have hundreds of test rigs in multiple labs all over geography. Each
+> rig is shielded from the others using things like RF enclosures. We want
+> reproducibility in the RF paths/channels as well as variability. Most hav=
+e
+> built fixed rigs using conducted equipment. This is far from anything rea=
+l.
+> A butler matrix produces great condition numbers but that makes it too ea=
+sy
+> for MIMO rate selection algorithms.
 >
+> Our real world test is using a real house that has been rented. Not cheap
+> nor scalable.
 >
->
-> ------------------------------
->
-> *From:* Starlink [mailto:starlink-bounces@lists.bufferbloat.net] *On
-> Behalf Of *Bob McMahon
-> *Sent:* Monday, August 2, 2021 6:24 PM
-> *To:* Leonard Kleinrock
-> *Cc:* starlink@lists.bufferbloat.net; Make-Wifi-fast; Cake List;
-> codel@lists.bufferbloat.net; cerowrt-devel; bloat
-> *Subject:* Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due Aug
-> 2: Internet Quality workshop CFP for the internet architecture board
->
->
->
-> I found the following talk relevant to distances between all the nodes.
-> https://www.youtube.com/watch?v=3DPNoUcQTCxiM
->
-> Distance is an abstract idea but applies to energy into a node as well as
-> phylogenetic trees. It's the same problem, i.e. fitting a distance matrix
-> using some sort of tree. I've found the five branch tree works well for
-> four nodes.
->
-> *[RR] These trees are means for approximating a higher dimensional
-> real-world problem with a lower dimensional structure.  You may be doing
-> this to save hardware when trying to cable up some complex test scenarios=
-,
-> however I=E2=80=99m wondering why?  Why not just put the STAs in the lab =
-and turn
-> them on rather than cabling them?*
->
->
+> There is quite a gap between the two. A RF path device that supports both
+> variable range and variable mixing is a step towards closing the gap.
 >
 > Bob
 >
+> On Sat, Aug 7, 2021 at 10:07 PM Dick Roy <dickroy@alum.mit.edu> wrote:
 >
->
-> On Mon, Aug 2, 2021 at 5:37 PM Leonard Kleinrock <lk@cs.ucla.edu> wrote:
->
-> These cases are what my student, Fouad Tobagi and I called the Hidden
-> Terminal Problem (with the Busy Tone solution) back in 1975.
->
-> Len
->
->
-> > On Aug 2, 2021, at 4:16 PM, David Lang <david@lang.hm> wrote:
-> >
-> > If you are going to setup a test environment for wifi, you need to
-> include the ability to make a fe cases that only happen with RF, not with
-> wired networks and are commonly overlooked
-> >
-> > 1. station A can hear station B and C but they cannot hear each other
-> > 2. station A can hear station B but station B cannot hear station A 3.
-> station A can hear that station B is transmitting, but not with a strong
-> enough signal to decode the signal (yes in theory you can work around
-> interference, but in practice interference is still a real thing)
-> >
-> > David Lang
-> >
->
+>>
+>>
+>>
+>> ------------------------------
+>>
+>> *From:* Starlink [mailto:starlink-bounces@lists.bufferbloat.net] *On
+>> Behalf Of *Bob McMahon
+>> *Sent:* Monday, August 2, 2021 6:24 PM
+>> *To:* Leonard Kleinrock
+>> *Cc:* starlink@lists.bufferbloat.net; Make-Wifi-fast; Cake List;
+>> codel@lists.bufferbloat.net; cerowrt-devel; bloat
+>> *Subject:* Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due
+>> Aug 2: Internet Quality workshop CFP for the internet architecture board
+>>
+>>
+>>
+>> I found the following talk relevant to distances between all the nodes.
+>> https://www.youtube.com/watch?v=3DPNoUcQTCxiM
+>>
+>> Distance is an abstract idea but applies to energy into a node as well a=
+s
+>> phylogenetic trees. It's the same problem, i.e. fitting a distance matri=
+x
+>> using some sort of tree. I've found the five branch tree works well for
+>> four nodes.
+>>
+>> *[RR] These trees are means for approximating a higher dimensional
+>> real-world problem with a lower dimensional structure.  You may be doing
+>> this to save hardware when trying to cable up some complex test scenario=
+s,
+>> however I=E2=80=99m wondering why?  Why not just put the STAs in the lab=
+ and turn
+>> them on rather than cabling them?*
+>>
+>>
+>>
+>> Bob
+>>
+>>
+>>
+>> On Mon, Aug 2, 2021 at 5:37 PM Leonard Kleinrock <lk@cs.ucla.edu> wrote:
+>>
+>> These cases are what my student, Fouad Tobagi and I called the Hidden
+>> Terminal Problem (with the Busy Tone solution) back in 1975.
+>>
+>> Len
+>>
+>>
+>> > On Aug 2, 2021, at 4:16 PM, David Lang <david@lang.hm> wrote:
+>> >
+>> > If you are going to setup a test environment for wifi, you need to
+>> include the ability to make a fe cases that only happen with RF, not wit=
+h
+>> wired networks and are commonly overlooked
+>> >
+>> > 1. station A can hear station B and C but they cannot hear each other
+>> > 2. station A can hear station B but station B cannot hear station A 3.
+>> station A can hear that station B is transmitting, but not with a strong
+>> enough signal to decode the signal (yes in theory you can work around
+>> interference, but in practice interference is still a real thing)
+>> >
+>> > David Lang
+>> >
+>>
+>>
+>> This electronic communication and the information and any files
+>> transmitted with it, or attached to it, are confidential and are intende=
+d
+>> solely for the use of the individual or entity to whom it is addressed a=
+nd
+>> may contain information that is confidential, legally privileged, protec=
+ted
+>> by privacy laws, or otherwise restricted from disclosure to anyone else.=
+ If
+>> you are not the intended recipient or the person responsible for deliver=
+ing
+>> the e-mail to the intended recipient, you are hereby notified that any u=
+se,
+>> copying, distributing, dissemination, forwarding, printing, or copying o=
+f
+>> this e-mail is strictly prohibited. If you received this e-mail in error=
+,
+>> please return the e-mail to the sender, delete it from your computer, an=
+d
+>> destroy any printed copy of it.
+>>
 >
 > This electronic communication and the information and any files
 > transmitted with it, or attached to it, are confidential and are intended
@@ -202,45 +254,55 @@ e,
 > this e-mail is strictly prohibited. If you received this e-mail in error,
 > please return the e-mail to the sender, delete it from your computer, and
 > destroy any printed copy of it.
->
+> _______________________________________________
+> Make-wifi-fast mailing list
+> Make-wifi-fast@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/make-wifi-fast
 
---=20
-This electronic communication and the information and any files transmitted=
-=20
-with it, or attached to it, are confidential and are intended solely for=20
-the use of the individual or entity to whom it is addressed and may contain=
-=20
-information that is confidential, legally privileged, protected by privacy=
-=20
-laws, or otherwise restricted from disclosure to anyone else. If you are=20
-not the intended recipient or the person responsible for delivering the=20
-e-mail to the intended recipient, you are hereby notified that any use,=20
-copying, distributing, dissemination, forwarding, printing, or copying of=
-=20
-this e-mail is strictly prohibited. If you received this e-mail in error,=
-=20
-please return the e-mail to the sender, delete it from your computer, and=
-=20
-destroy any printed copy of it.
-
---0000000000006bdf1005c9055cd8
+--0000000000003c6ac805c9108d61
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">We have hundreds of test rigs in multiple labs all over ge=
-ography. Each rig is shielded from the others using things like RF enclosur=
-es. We want reproducibility in the RF paths/channels as well as variability=
-. Most have built fixed rigs using conducted equipment. This is far from an=
-ything=C2=A0real. A butler matrix produces great condition numbers but that=
- makes it too easy for MIMO rate selection algorithms.<br><br>Our real worl=
-d test is using a real house that has been rented. Not cheap nor scalable.<=
-br><br>There is quite=C2=A0a gap between the two. A RF path device that sup=
-ports both variable range and variable mixing is a step towards closing the=
- gap.<br><br>Bob</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
-=3D"gmail_attr">On Sat, Aug 7, 2021 at 10:07 PM Dick Roy &lt;<a href=3D"mai=
-lto:dickroy@alum.mit.edu">dickroy@alum.mit.edu</a>&gt; wrote:<br></div><blo=
-ckquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left=
-:1px solid rgb(204,204,204);padding-left:1ex">
+<div dir=3D"ltr">My own experiments with this, in the past (5+ years ago), =
+was that you absolutely had to use cabled setups for repeatability, but the=
+n didn&#39;t have enough randomness in the variability to really test anyth=
+ing that was problematic.=C2=A0 We could create hidden nodes, or arbitrary =
+meshes of devices, but they were always static.<div><br></div><div>We used =
+N-way RF splitters and either direct coax in lieu of antennas, or isolation=
+ boxes with an antenna attached to a bulkhead fitting, with coax on the out=
+side.=C2=A0 One other problem we ran into was that unshielded radio front-e=
+nds could &quot;hear&quot; each other without isolation boxes.</div><div><b=
+r></div><div>I really wanted both variable attenuators, and points where I =
+could inject RF noise, so that instead of broad-band attenuation, maybe we =
+could just swamp the communications with other noise (which is also a commo=
+n thing we were running into with both our 900Mhz (ZWave) and 2.4GHz (wifi)=
+ radios.</div><div><br></div><div>Less common, but something I still see, i=
+s that a moving station has continual issues staying in proper MIMO phase(s=
+) with the AP.=C2=A0 Or I think that&#39;s what&#39;s happening.=C2=A0 Slow=
+, continual movement of the two, relative to each other, and the packet rat=
+e drops through the floor until they stop having relative motion.=C2=A0 And=
+ I assume that also applies to time-varying path-loss and path-distance (mu=
+ltipath reflections).</div></div><br><div class=3D"gmail_quote"><div dir=3D=
+"ltr" class=3D"gmail_attr">On Sat, Aug 7, 2021 at 10:15 PM Bob McMahon via =
+Make-wifi-fast &lt;<a href=3D"mailto:make-wifi-fast@lists.bufferbloat.net">=
+make-wifi-fast@lists.bufferbloat.net</a>&gt; wrote:<br></div><blockquote cl=
+ass=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px=
+;border-left-style:solid;border-left-color:rgb(204,204,204);padding-left:1e=
+x"><div dir=3D"ltr">We have hundreds of test rigs in multiple labs all over=
+ geography. Each rig is shielded from the others using things like RF enclo=
+sures. We want reproducibility in the RF paths/channels as well as variabil=
+ity. Most have built fixed rigs using conducted equipment. This is far from=
+ anything=C2=A0real. A butler matrix produces great condition numbers but t=
+hat makes it too easy for MIMO rate selection algorithms.<br><br>Our real w=
+orld test is using a real house that has been rented. Not cheap nor scalabl=
+e.<br><br>There is quite=C2=A0a gap between the two. A RF path device that =
+supports both variable range and variable mixing is a step towards closing =
+the gap.<br><br>Bob</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" cl=
+ass=3D"gmail_attr">On Sat, Aug 7, 2021 at 10:07 PM Dick Roy &lt;<a href=3D"=
+mailto:dickroy@alum.mit.edu" target=3D"_blank">dickroy@alum.mit.edu</a>&gt;=
+ wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px =
+0px 0.8ex;border-left-width:1px;border-left-style:solid;border-left-color:r=
+gb(204,204,204);padding-left:1ex">
 
 
 
@@ -252,7 +314,7 @@ ckquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left=
 
 <div lang=3D"EN-US">
 
-<div class=3D"gmail-m_2644358729133911847Section1">
+<div>
 
 <p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
  style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
@@ -346,9 +408,9 @@ rote:<u></u><u></u></span></font></p>
 
 </div>
 
-<blockquote style=3D"border-top:none;border-right:none;border-bottom:none;b=
-order-left:1pt solid rgb(204,204,204);padding:0in 0in 0in 6pt;margin-left:4=
-.8pt;margin-right:0in">
+<blockquote style=3D"border-style:none none none solid;border-left-width:1p=
+t;border-left-color:rgb(204,204,204);padding:0in 0in 0in 6pt;margin-left:4.=
+8pt;margin-right:0in">
 
 <p class=3D"MsoNormal" style=3D"margin-bottom:12pt"><font size=3D"3" face=
 =3D"Times New Roman"><span style=3D"font-size:12pt">These cases are what my
@@ -385,8 +447,9 @@ but in practice interference is still a real thing)<br>
 
 <p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
 e=3D"font-size:12pt"><br>
-</span></font><font size=3D"2"><span style=3D"font-size:10pt;background:whi=
-te">This
+</span></font><font size=3D"2"><span style=3D"font-size:10pt;background-col=
+or:white;background-position:initial initial;background-repeat:initial init=
+ial">This
 electronic communication and the information and any files transmitted with=
  it,
 or attached to it, are confidential and are intended solely for the use of =
@@ -424,92 +487,18 @@ tended recipient or the person responsible for delivering the e-mail to the=
 uting, dissemination, forwarding, printing, or copying of this e-mail is st=
 rictly prohibited. If you received this e-mail in error, please return the =
 e-mail to the sender, delete it from your computer, and destroy any printed=
- copy of it.</font></span>
---0000000000006bdf1005c9055cd8--
+ copy of it.</font></span>_______________________________________________<b=
+r>
+Make-wifi-fast mailing list<br>
+<a href=3D"mailto:Make-wifi-fast@lists.bufferbloat.net" target=3D"_blank">M=
+ake-wifi-fast@lists.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/make-wifi-fast" rel=3D"no=
+referrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/make-wif=
+i-fast</a></blockquote></div>
 
---0000000000007052f305c9055cef
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
+--0000000000003c6ac805c9108d61--
 
-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
-DrPV5EPUikwiGMDmkX8o6roGiUwyqAp8dMZKJZ/vS/aWEELV+gm21Btr7eqdAWyqm09McVpkM4th
-v/FOYcj8DeJr8MXmHW53gN2fv0BzQjqAdrdCBPNRAgMBAAGjggHZMIIB1TAOBgNVHQ8BAf8EBAMC
-BaAwgaMGCCsGAQUFBwEBBIGWMIGTME4GCCsGAQUFBzAChkJodHRwOi8vc2VjdXJlLmdsb2JhbHNp
-Z24uY29tL2NhY2VydC9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcnQwQQYIKwYBBQUHMAGG
-NWh0dHA6Ly9vY3NwLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwME0G
-A1UdIARGMEQwQgYKKwYBBAGgMgEoCjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxz
-aWduLmNvbS9yZXBvc2l0b3J5LzAJBgNVHRMEAjAAMEkGA1UdHwRCMEAwPqA8oDqGOGh0dHA6Ly9j
-cmwuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAuY3JsMCMGA1UdEQQc
-MBqBGGJvYi5tY21haG9uQGJyb2FkY29tLmNvbTATBgNVHSUEDDAKBggrBgEFBQcDBDAfBgNVHSME
-GDAWgBSWM9HmWBdbNHWKgVZk1b5I3qGPzzAdBgNVHQ4EFgQUpyXYr5rh8cZzkns+zXmMG1YkBk4w
-DQYJKoZIhvcNAQELBQADggEBACfauRPak93nzbpn8UXqRZqg6iUZch/UfGj9flerMl4TlK5jWulz
-Y+rRg+iWkjiLk3O+kKu6GI8TLXB2rsoTnrHYij96Uad5/Ut3Q5F4S0ILgOWVU38l0VZIGGG0CzG1
-eLUgN2zjLg++xJuzqijuKQCJb/3+il2MTJ8dcDaXuYcjg7Vt6+EtCBS1SGMVhOTH4Fp50yGWj8ZA
-bPF1uuJM+dGLJLheUizCr5J/OBEdENg+DSmrqoZ+kZd76iRaF2CkhboR2394Ft8lFlKQiU0q8lnR
-9/kdZ0F0iCcUfhaLaGYWujW7N0LZ+rQuTfuPGLx9zZNeNMWSZi/Pc8vdCO7EnlIxggJtMIICaQIB
-ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
-bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwYS+5PXokx35blu9EwDQYJ
-YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIHc+2u6OF0cmajD54oYfd+xqPa2TfrYmQleO
-HR2kwNtQMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDgwODA1
-MTU0NlowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
-AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
-BgkqhkiG9w0BAQEFAASCAQBtkiZNoJAQ5FpDChKFRN+05bp2cWp0wYKM6j3nWbdvUJMUpkeMK/2w
-NrLu34ehRB8nSI1XXksUbnunyYAz+YIXwQFowGoGYR0Jnv172vDgQ2T+nGT6Fqs7evQe9+nnfSdd
-As8Nun68n2K6UEnR/Lkx+Az76Zme+9fbB7F92J9WnCunZ7y+vvkxQb7ioab88azpF0E0orn+8sVq
-1II6I48u7VZmQR75bD/K81NsozEKw2tARubgiO6vC8Cdz+XtmpVJ0ACKiMDdSj9WelMWnVzv8oFT
-ciOQXbb3zeyqbbv548rc9fqfXRrIszjiGDU8fCU7g32P6sQavBMMeR8QcbyR
---0000000000007052f305c9055cef--
-
---===============2974380185499048642==
+--===============2900379861305829426==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -519,4 +508,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============2974380185499048642==--
+--===============2900379861305829426==--
