@@ -2,56 +2,57 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B2F713E38C5
-	for <lists+cake@lfdr.de>; Sun,  8 Aug 2021 07:08:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BCA6D3E38F4
+	for <lists+cake@lfdr.de>; Sun,  8 Aug 2021 07:15:50 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1675D3CB61;
-	Sun,  8 Aug 2021 01:08:13 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 00F243CB43;
+	Sun,  8 Aug 2021 01:15:49 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1628399293;
-	bh=5UXB0i/W4NwthjyyE0BVHyTXLyhTVNrQUVsmzCxgyYU=;
+	d=lists.bufferbloat.net; s=201610; t=1628399749;
+	bh=EVdnI/VRjagyZBJh5mzjbXR9hh99NEH64kjjB56PdOs=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=BWFBOSfGXoECnbSU9BWrLlkK1mYZlD/VCqdeQRJkbRS0igpuKF9GdFioJkNndom2M
-	 ulZRsN3ymab+WogKIdNXueRcHeDrUZNawl5OyGeiInWCtuyb+32qGpTrbdDwXGXXEp
-	 b3ARB7/orOTAtstUPymVvYKqxd8gD/YHQ8cCzFR5GLdBqraPPqFgXIaW11Ryu/RL31
-	 aXv9fQBTFfBPbQOqj1aOgVMukWFpjfGhIgDTjdSwMJ5M/Czix7Mjg0UYNshkKxwb4z
-	 Bo0EYMGVezdWXis9/3rYridnrl2FG1aOWlgyxtHldSEZFJQemgCuv0o0JKTthkQVw5
-	 bXtJ5OjqFe6og==
+	b=K+LOZeFMZx3Yzmo5ihNZTUNVh3L3NxK25LUKVAAhNQCJZ2w6l6XXhz3HY5TXpp7v6
+	 Aa9kf2iVGAZxoRecNGyhrjRYNzdeZ/3rcKpigzCgZfgwQSwYlJMnlwp30KbR8Xaza3
+	 qjSHodxWVv4vFTTPB5atzdX9vz+Us/zryFLOiv73jiYIgqWH94kBSuFMItWuiEO4OJ
+	 scVxWifUyzQXEDB6PcvqMLalL3GloWk8xaPz5UfIeazaJaVSUxrdp60RSly5pEZTcF
+	 GbEabWx3/BV7RiYr/2Hubi4B+y1LEksNfnf/CCxVLiWyQ8Ek5XgIKQn1GljebGwJ3D
+	 WG/0rWgQKvE1g==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ed1-x52e.google.com (mail-ed1-x52e.google.com
- [IPv6:2a00:1450:4864:20::52e])
+Received: from mail-ej1-x62d.google.com (mail-ej1-x62d.google.com
+ [IPv6:2a00:1450:4864:20::62d])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 1025A3CB39
- for <cake@lists.bufferbloat.net>; Sun,  8 Aug 2021 01:08:11 -0400 (EDT)
-Received: by mail-ed1-x52e.google.com with SMTP id bo19so149590edb.9
- for <cake@lists.bufferbloat.net>; Sat, 07 Aug 2021 22:08:10 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 460283B2A4
+ for <cake@lists.bufferbloat.net>; Sun,  8 Aug 2021 01:15:47 -0400 (EDT)
+Received: by mail-ej1-x62d.google.com with SMTP id hs10so23036472ejc.0
+ for <cake@lists.bufferbloat.net>; Sat, 07 Aug 2021 22:15:47 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=MWhihX6vcFiIlsgUBgFON/7XXrKKZ+MSl+waXGQK10s=;
- b=AEYbT+RhL33iU9Wkv2O8W0qnW+5BfR2WF7R85ph6VfFjYoYqIS5PvB2YSKpJhzNzpE
- 3Qha5P+60BorqBNAm9jCNgPaV8GrxgHxBV3FreABi6FxIUqluqA65vFGvjTQ8xZRAGWs
- SJ/vKx+MtFI41x9PnIxkgLqnAPc3BYXYQieUk=
+ :cc; bh=8Y1FhusJcbjLrVwOafIUsCwGTHvT7E2qozBtOg/Sot8=;
+ b=Z4gjBXZ6Kk6B7zVCIvEjMxYfwoH1AKtWSy3Eb6TFBlN/RsYWz5yg+hgXryVMiBtVgB
+ 3SeJZD0fPNfPg/C6FYhDoelZeBsEtpxzbG/F354kSkChH00un4gmvaJ5DyXgAjxxApx6
+ VXU2gc/eYRaiWK9NMurERCbOi5HrZyhBFSI8o=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=MWhihX6vcFiIlsgUBgFON/7XXrKKZ+MSl+waXGQK10s=;
- b=kIGCS4I+uxbqFFTuLya0dC6eYUJqWfJNpzvyR6L2w/fPD7q6+YhDElw2kByvE+Tlg7
- 8o3n5eYbf2m4NxkKHiKaaN/QhDlkbwl9RVAT9dJGziAXLaju8E6uqNrodA4U9uCshULM
- BT6sflj4R3hNtVuepIa94MDyr+DdHjHhK60RfooFHjRi17nfC0ozzSGb1J/m2yrvk2tn
- 842QZ5IryJ7YnOrMq9IkUm39QJlE04iHFEQoolerdAkPvb1VNVU7S8PAIl+cPe2aZSB3
- NSaU2FEBlkepgjvQA5ud2XFeaClro7p7CL6Tm40Oo4F8POUHiUFeiBC6bFJyRkEUz+nL
- uVIg==
-X-Gm-Message-State: AOAM5315/pGJksa1f40BJ+h0U6FLdVOM4kMk2Z7K9docD1h3yoIA+KOb
- gpLfyXC0oFLf1C9hmQ9EW9aSvPqNMVcOXitvlPH+uLiQzCLnSqR3Y6CUfpvGEkxctdWDclGWr9v
- V7wByVRjxvPSHzX0oCR7z3Z1AxQd+
-X-Google-Smtp-Source: ABdhPJx8VvfpI10aZGIFGORIKnzCt7rJM3aRLSFYuOO0K2scCqdV1ZEnmB2J78ySqwPVutM+4xC0tQbTtWhnnQa1Q5Q=
-X-Received: by 2002:aa7:d8d4:: with SMTP id k20mr21889237eds.373.1628399287716; 
- Sat, 07 Aug 2021 22:08:07 -0700 (PDT)
+ bh=8Y1FhusJcbjLrVwOafIUsCwGTHvT7E2qozBtOg/Sot8=;
+ b=qNGMEWqp+UXM/kTK6ITZPs7WwIfJ0QqgOGapB7VIcdf2GIEEuYet5V48HMdJAkbe0g
+ RBCPLoXHvucXKl+orh/8b71BtZJubjXq/rd8molCxjajL9Rpkyh4B2dyYUauDTpluLjp
+ 6Ccn8fFKnZSVN22TZNy4NlHdiarEc/RI8XNAiNleO8uIXptJUJA2u5n7+bz3j/Vk77fK
+ 5SAXlAi2wtSKdpC0SRO/1zs5ZMeXeoXB/dcbsA3zprYce42+vs0ADcrXvhLEWrrT+AYT
+ blDaC1VS/7ykbAdMjla44eo43CuVXVOhSTI8CVsrFSMjUrnEEq9axkhPF8oHhwR4YoJ5
+ YhAA==
+X-Gm-Message-State: AOAM531uoJ/AkVc5Z1xZJppnLUCgxZBCTQxB+aOozQz6aB4UR2Du+xfH
+ 0NX4LdXB6GlA6ihdFnt3wK1vSIU188SGQA8dxS8+KWrJwRMVrkc+CrYwTG6fazopXZJopkWuOSY
+ p4BVFl2dkQODngyrXat+DemRxDlGp
+X-Google-Smtp-Source: ABdhPJwDS2cNoh+zWRT4fwPwXTHXYcoYe7uLNlvckA6RjqCmulBSFYvdd1nwXG4ffXH56ptBcpG+v8FysL4LkJZU/wc=
+X-Received: by 2002:a17:906:4e85:: with SMTP id
+ v5mr16654917eju.159.1628399746128; 
+ Sat, 07 Aug 2021 22:15:46 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
@@ -63,14 +64,12 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com>
  <CAHb6LvqsZFDDkC1qjr9ccXNjFtq1qnAevQpccNFydP4BOVVL1Q@mail.gmail.com>
  <nycvar.QRO.7.76.6.2108021607160.810590@qynat-yncgbc>
- <e9302d22-8a4a-a74b-658d-c5d4c1c88987@candelatech.com>
- <CAHb6Lvp851pVCt+zUv1PZgpHafCG4RPXEwMn6=CJFXhVf9fK8w@mail.gmail.com>
- <nycvar.QRO.7.76.6.2108022007460.810590@qynat-yncgbc>
- <CAHb6LvqfRxKU0BW04ypRcPDpCcWymnS6qzb3gneQSbBrAbRhHQ@mail.gmail.com>
- <C2F8AFB15FAD4A91BF9A870505084D59@SRA6>
-In-Reply-To: <C2F8AFB15FAD4A91BF9A870505084D59@SRA6>
-Date: Sat, 7 Aug 2021 22:07:56 -0700
-Message-ID: <CAHb6Lvobi4mZwnaGm7x56oGxtUpD9qotcagtBySgy3diovuTaw@mail.gmail.com>
+ <8677F5C4-1893-4A61-A13C-3C8BE17CB789@cs.ucla.edu>
+ <CAHb6LvpQP_jCiHeNJAD9qt+wB-HqUAW7N6aGJ+6-PXg+KE5Z2Q@mail.gmail.com>
+ <4F6EFB347C08475A9F53B24E0D8BEAE2@SRA6>
+In-Reply-To: <4F6EFB347C08475A9F53B24E0D8BEAE2@SRA6>
+Date: Sat, 7 Aug 2021 22:15:35 -0700
+Message-ID: <CAHb6LvqUctN5SMcqgZNh5u7=nJhtWOuXEmh59PPYag2g+xVrtw@mail.gmail.com>
 To: dickroy@alum.mit.edu
 Subject: Re: [Cake] [Starlink] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2:
  Internet Quality workshop CFP for the internet architecture board
@@ -89,33 +88,41 @@ From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
 Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
 Cc: Cake List <cake@lists.bufferbloat.net>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- starlink@lists.bufferbloat.net, codel@lists.bufferbloat.net,
+ Leonard Kleinrock <lk@cs.ucla.edu>, starlink@lists.bufferbloat.net,
+ codel@lists.bufferbloat.net,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============7523524309803693499=="
+Content-Type: multipart/mixed; boundary="===============2974380185499048642=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============7523524309803693499==
+--===============2974380185499048642==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="0000000000001d077405c905416a"
+	boundary="0000000000007052f305c9055cef"
 
---0000000000001d077405c905416a
-Content-Type: multipart/alternative; boundary="000000000000191c2d05c90541e0"
+--0000000000007052f305c9055cef
+Content-Type: multipart/alternative; boundary="0000000000006bdf1005c9055cd8"
 
---000000000000191c2d05c90541e0
+--0000000000006bdf1005c9055cd8
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Thanks - your wording is more accurate. The path loss matrix is hollow
-symmetric while the RF channel is reciprocal.
+We have hundreds of test rigs in multiple labs all over geography. Each rig
+is shielded from the others using things like RF enclosures. We want
+reproducibility in the RF paths/channels as well as variability. Most have
+built fixed rigs using conducted equipment. This is far from anything real.
+A butler matrix produces great condition numbers but that makes it too easy
+for MIMO rate selection algorithms.
 
-The challenge comes when adding phase shifters. Then it's not just a path
-loss matrix anymore.
+Our real world test is using a real house that has been rented. Not cheap
+nor scalable.
+
+There is quite a gap between the two. A RF path device that supports both
+variable range and variable mixing is a step towards closing the gap.
 
 Bob
 
-On Sat, Aug 7, 2021 at 10:04 PM Dick Roy <dickroy@alum.mit.edu> wrote:
+On Sat, Aug 7, 2021 at 10:07 PM Dick Roy <dickroy@alum.mit.edu> wrote:
 
 >
 >
@@ -124,8 +131,8 @@ On Sat, Aug 7, 2021 at 10:04 PM Dick Roy <dickroy@alum.mit.edu> wrote:
 >
 > *From:* Starlink [mailto:starlink-bounces@lists.bufferbloat.net] *On
 > Behalf Of *Bob McMahon
-> *Sent:* Monday, August 2, 2021 8:23 PM
-> *To:* David Lang
+> *Sent:* Monday, August 2, 2021 6:24 PM
+> *To:* Leonard Kleinrock
 > *Cc:* starlink@lists.bufferbloat.net; Make-Wifi-fast; Cake List;
 > codel@lists.bufferbloat.net; cerowrt-devel; bloat
 > *Subject:* Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due Aug
@@ -133,159 +140,49 @@ On Sat, Aug 7, 2021 at 10:04 PM Dick Roy <dickroy@alum.mit.edu> wrote:
 >
 >
 >
-> The distance matrix defines signal attenuations/loss between pairs.
+> I found the following talk relevant to distances between all the nodes.
+> https://www.youtube.com/watch?v=3DPNoUcQTCxiM
 >
-> *[RR] Which makes it a path loss matrix rather than a distance matrix
-> actually.*
+> Distance is an abstract idea but applies to energy into a node as well as
+> phylogenetic trees. It's the same problem, i.e. fitting a distance matrix
+> using some sort of tree. I've found the five branch tree works well for
+> four nodes.
 >
-> It's straightforward to create a distance matrix that has hidden nodes
-> because all "signal  loss" between pairs is defined.  Let's say a 120dB
-> attenuation path will cause a node to be hidden as an example.
->
->      A    B     C    D
->
-> A   -   35   120   65
->
-> B         -      65   65
->
-> C               -       65
->
-> D                         -
->
-> So in the above, AC are hidden from each other but nobody else is. It doe=
-s
-> assume symmetry between pairs but that's typically true.
->
-> *[RR] I=E2=80=99m guessing you really mean reciprocal rather than symmetr=
-ic. An RF
-> channel is reciprocal if the loss when A is transmitting to B is the same
-> as that when B is transmitting to A. When the tx powers and rx
-> sensitivities are such that when combined with the path loss(es) the =E2=
-=80=9Clink
-> budget=E2=80=9D is  the same in both directions, the links are balanced a=
-nd
-> therefore have the same capacity. *
+> *[RR] These trees are means for approximating a higher dimensional
+> real-world problem with a lower dimensional structure.  You may be doing
+> this to save hardware when trying to cable up some complex test scenarios=
+,
+> however I=E2=80=99m wondering why?  Why not just put the STAs in the lab =
+and turn
+> them on rather than cabling them?*
 >
 >
->
-> The RF device takes these distance matrices as settings and calculates th=
-e
-> five branch tree values (as demonstrated in the video).
->
-> There are limitations to solutions though but I've found those not to be
-> an issue to date. I've been able to produce hidden nodes quite readily. A=
-dd
-> the phase shifters and spatial stream powers can also be affected, but th=
-is
-> isn't shown in this simple example.
 >
 > Bob
 >
 >
 >
-> On Mon, Aug 2, 2021 at 8:12 PM David Lang <david@lang.hm> wrote:
+> On Mon, Aug 2, 2021 at 5:37 PM Leonard Kleinrock <lk@cs.ucla.edu> wrote:
 >
-> I guess it depends on what you are intending to test. If you are not goin=
-g
-> to
-> tinker with any of the over-the-air settings (including the number of
-> packets
-> transmitted in one aggregate), the details of what happen over the air
-> don't
-> matter much.
+> These cases are what my student, Fouad Tobagi and I called the Hidden
+> Terminal Problem (with the Busy Tone solution) back in 1975.
 >
-> But if you are going to be doing any tinkering with what is getting sent,
-> and
-> you ignore the hidden transmitter type problems, you will create a
-> solution that
-> seems to work really well in the lab and falls on it's face out in the
-> wild
-> where spectrum overload and hidden transmitters are the norm (at least in
-> urban
-> areas), not rare corner cases.
+> Len
 >
-> you don't need to include them in every test, but you need to have a way
-> to
-> configure your lab to include them before you consider any
-> settings/algorithm
-> ready to try in the wild.
 >
-> David Lang
->
-> On Mon, 2 Aug 2021, Bob McMahon wrote:
->
-> > We find four nodes, a primary BSS and an adjunct one quite good for lot=
-s
-> of
-> > testing.  The six nodes allows for a primary BSS and two adjacent ones.
-> We
-> > want to minimize complexity to necessary and sufficient.
+> > On Aug 2, 2021, at 4:16 PM, David Lang <david@lang.hm> wrote:
 > >
-> > The challenge we find is having variability (e.g. montecarlos) that's
-> > reproducible and has relevant information. Basically, the distance
-> matrices
-> > have h-matrices as their elements. Our chips can provide these
-> h-matrices.
+> > If you are going to setup a test environment for wifi, you need to
+> include the ability to make a fe cases that only happen with RF, not with
+> wired networks and are commonly overlooked
 > >
-> > The parts for solid state programmable attenuators and phase shifters
-> > aren't very expensive. A device that supports a five branch tree and 2x=
-2
-> > MIMO seems a very good starting point.
+> > 1. station A can hear station B and C but they cannot hear each other
+> > 2. station A can hear station B but station B cannot hear station A 3.
+> station A can hear that station B is transmitting, but not with a strong
+> enough signal to decode the signal (yes in theory you can work around
+> interference, but in practice interference is still a real thing)
 > >
-> > Bob
-> >
-> > On Mon, Aug 2, 2021 at 4:55 PM Ben Greear <greearb@candelatech.com>
-> wrote:
-> >
-> >> On 8/2/21 4:16 PM, David Lang wrote:
-> >>> If you are going to setup a test environment for wifi, you need to
-> >> include the ability to make a fe cases that only happen with RF, not
-> with
-> >> wired networks and
-> >>> are commonly overlooked
-> >>>
-> >>> 1. station A can hear station B and C but they cannot hear each other
-> >>> 2. station A can hear station B but station B cannot hear station A 3=
-.
-> >> station A can hear that station B is transmitting, but not with a stro=
-ng
-> >> enough signal to
-> >>> decode the signal (yes in theory you can work around interference, bu=
-t
-> >> in practice interference is still a real thing)
-> >>>
-> >>> David Lang
-> >>>
-> >>
-> >> To add to this, I think you need lots of different station devices,
-> >> different capabilities (/n, /ac, /ax, etc)
-> >> different numbers of spatial streams, and different distances from the
-> >> AP.  From download queueing perspective, changing
-> >> the capabilities may be sufficient while keeping all stations at same
-> >> distance.  This assumes you are not
-> >> actually testing the wifi rate-ctrl alg. itself, so different throughp=
-ut
-> >> levels for different stations would be enough.
-> >>
-> >> So, a good station emulator setup (and/or pile of real stations) and a
-> few
-> >> RF chambers and
-> >> programmable attenuators and you can test that setup...
-> >>
-> >>  From upload perspective, I guess same setup would do the job.
-> >> Queuing/fairness might depend a bit more on the
-> >> station devices, emulated or otherwise, but I guess a clever AP could
-> >> enforce fairness in upstream direction
-> >> too by implementing per-sta queues.
-> >>
-> >> Thanks,
-> >> Ben
-> >>
-> >> --
-> >> Ben Greear <greearb@candelatech.com>
-> >> Candela Technologies Inc  http://www.candelatech.com
-> >>
-> >
+> > David Lang
 > >
 >
 >
@@ -326,18 +223,24 @@ please return the e-mail to the sender, delete it from your computer, and=
 =20
 destroy any printed copy of it.
 
---000000000000191c2d05c90541e0
+--0000000000006bdf1005c9055cd8
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">Thanks - your wording is more accurate. The path loss matr=
-ix is hollow symmetric while the RF channel is reciprocal.=C2=A0<br><br>The=
- challenge comes when adding phase shifters. Then it&#39;s not just=C2=A0a =
-path loss matrix anymore.<br><br>Bob</div><br><div class=3D"gmail_quote"><d=
-iv dir=3D"ltr" class=3D"gmail_attr">On Sat, Aug 7, 2021 at 10:04 PM Dick Ro=
-y &lt;<a href=3D"mailto:dickroy@alum.mit.edu">dickroy@alum.mit.edu</a>&gt; =
-wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0=
-px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+<div dir=3D"ltr">We have hundreds of test rigs in multiple labs all over ge=
+ography. Each rig is shielded from the others using things like RF enclosur=
+es. We want reproducibility in the RF paths/channels as well as variability=
+. Most have built fixed rigs using conducted equipment. This is far from an=
+ything=C2=A0real. A butler matrix produces great condition numbers but that=
+ makes it too easy for MIMO rate selection algorithms.<br><br>Our real worl=
+d test is using a real house that has been rented. Not cheap nor scalable.<=
+br><br>There is quite=C2=A0a gap between the two. A RF path device that sup=
+ports both variable range and variable mixing is a step towards closing the=
+ gap.<br><br>Bob</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">On Sat, Aug 7, 2021 at 10:07 PM Dick Roy &lt;<a href=3D"mai=
+lto:dickroy@alum.mit.edu">dickroy@alum.mit.edu</a>&gt; wrote:<br></div><blo=
+ckquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left=
+:1px solid rgb(204,204,204);padding-left:1ex">
 
 
 
@@ -349,7 +252,7 @@ px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
 
 <div lang=3D"EN-US">
 
-<div class=3D"gmail-m_-1200123025717896489Section1">
+<div class=3D"gmail-m_2644358729133911847Section1">
 
 <p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
  style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
@@ -376,14 +279,14 @@ ahoma"> Starlink
 "_blank">starlink-bounces@lists.bufferbloat.net</a>] <b><span style=3D"font=
 -weight:bold">On Behalf Of </span></b>Bob McMahon<br>
 <b><span style=3D"font-weight:bold">Sent:</span></b> Monday, August 2, 2021=
- 8:23
+ 6:24
 PM<br>
-<b><span style=3D"font-weight:bold">To:</span></b> David Lang<br>
-<b><span style=3D"font-weight:bold">Cc:</span></b>
-<a href=3D"mailto:starlink@lists.bufferbloat.net" target=3D"_blank">starlin=
-k@lists.bufferbloat.net</a>; Make-Wifi-fast; Cake List;
-<a href=3D"mailto:codel@lists.bufferbloat.net" target=3D"_blank">codel@list=
-s.bufferbloat.net</a>; cerowrt-devel; bloat<br>
+<b><span style=3D"font-weight:bold">To:</span></b> Leonard Kleinrock<br>
+<b><span style=3D"font-weight:bold">Cc:</span></b> <a href=3D"mailto:starli=
+nk@lists.bufferbloat.net" target=3D"_blank">starlink@lists.bufferbloat.net<=
+/a>;
+Make-Wifi-fast; Cake List; <a href=3D"mailto:codel@lists.bufferbloat.net" t=
+arget=3D"_blank">codel@lists.bufferbloat.net</a>; cerowrt-devel; bloat<br>
 <b><span style=3D"font-weight:bold">Subject:</span></b> Re: [Starlink] [Cak=
 e]
 [Make-wifi-fast] [Cerowrt-devel] Due Aug 2: Internet Quality workshop CFP f=
@@ -397,108 +300,35 @@ e=3D"font-size:12pt"><u></u>=C2=A0<u></u></span></font></p>
 
 <div>
 
-<p class=3D"MsoNormal" style=3D"margin-bottom:12pt"><font size=3D"3" face=
-=3D"Times New Roman"><span style=3D"font-size:12pt">The distance matrix
-defines signal attenuations/loss between pairs.=C2=A0 <font color=3D"navy">=
-<span style=3D"color:navy"><u></u><u></u></span></font></span></font></p>
-
-<p class=3D"MsoNormal" style=3D"margin-bottom:12pt"><b><i><font size=3D"2" =
-color=3D"navy" face=3D"Arial"><span style=3D"font-size:10pt;font-family:Ari=
-al;color:navy;font-weight:bold;font-style:italic">[RR] Which makes it a pat=
-h loss matrix
-rather than a distance matrix actually.<u></u><u></u></span></font></i></b>=
-</p>
-
-<p class=3D"MsoNormal" style=3D"margin-bottom:12pt"><font size=3D"3" face=
-=3D"Times New Roman"><span style=3D"font-size:12pt">It&#39;s straightforwar=
-d to
-create a distance matrix that has hidden nodes because all &quot;signal=C2=
-=A0
-loss&quot;=C2=A0between=C2=A0pairs is defined.=C2=A0 Let&#39;s say a 120dB
-attenuation path will cause a node to be hidden as an example.<u></u><u></u=
-></span></font></p>
-
-<div>
-
 <p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">=C2=A0 =C2=A0 =C2=A0A=C2=A0 =C2=A0 B=C2=A0 =C2=A0 =C2=
-=A0C=C2=A0 =C2=A0
-D=C2=A0<u></u><u></u></span></font></p>
-
-</div>
-
-<div>
-
-<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">A=C2=A0 =C2=A0-=C2=A0 =C2=A035=C2=A0 =C2=A0120=C2=A0 =
-=C2=A065<u></u><u></u></span></font></p>
-
-</div>
-
-<div>
-
-<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">B=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0-=C2=A0 =C2=A0 =C2=
-=A0 65=C2=A0
-=C2=A065<u></u><u></u></span></font></p>
-
-</div>
-
-<div>
-
-<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">C=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0-=C2=A0 =C2=A0
-=C2=A0 =C2=A065<u></u><u></u></span></font></p>
-
-</div>
-
-<div>
-
-<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">D=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0
-=C2=A0 =C2=A0 =C2=A0-<br>
+e=3D"font-size:12pt">I found the following talk relevant to distances betwe=
+en all the
+nodes.=C2=A0=C2=A0<a href=3D"https://www.youtube.com/watch?v=3DPNoUcQTCxiM"=
+ target=3D"_blank">https://www.youtube.com/watch?v=3DPNoUcQTCxiM</a>
 <br>
-So in the above, AC are hidden from each other=C2=A0but nobody else is. It =
-does
-assume symmetry between=C2=A0pairs but that&#39;s typically true.<font colo=
-r=3D"navy"><span style=3D"color:navy"><u></u><u></u></span></font></span></=
-font></p>
+<br>
+Distance is an abstract idea but applies to energy into a node as well as
+phylogenetic trees. It&#39;s the same problem, i.e. fitting a distance matr=
+ix using
+some sort of tree. I&#39;ve found the five branch tree works well for four =
+nodes.<font color=3D"navy"><span style=3D"color:navy"><u></u><u></u></span>=
+</font></span></font></p>
 
 <p class=3D"MsoNormal"><b><i><font size=3D"2" color=3D"navy" face=3D"Arial"=
 ><span style=3D"font-size:10pt;font-family:Arial;color:navy;font-weight:bol=
-d;font-style:italic">[RR] I=E2=80=99m guessing you really mean reciprocal r=
-ather than
-symmetric. An RF channel is reciprocal if the loss when A is transmitting t=
-o B
-is the same as that when B is transmitting to A. When the tx powers and rx =
-sensitivities
-are such that when combined with the path loss(es) the =E2=80=9Clink budget=
-=E2=80=9D
-is =C2=A0the same in both directions, the links are balanced and therefore =
-have
-the same capacity. <u></u><u></u></span></font></i></b></p>
+d;font-style:italic">[RR] These trees are means for approximating a higher
+dimensional real-world problem with a lower dimensional structure.=C2=A0 Yo=
+u may be
+doing this to save hardware when trying to cable up some complex test scena=
+rios,
+however I=E2=80=99m wondering why?=C2=A0 Why not just put the STAs in the l=
+ab and turn them
+on rather than cabling them?<u></u><u></u></span></font></i></b></p>
 
 <p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
 e=3D"font-size:12pt"><br>
 <br>
-The RF device takes these distance matrices=C2=A0as settings and calculates=
- the
-five branch tree values (as demonstrated in the video). <font color=3D"navy=
-"><span style=3D"color:navy"><u></u><u></u></span></font></span></font></p>
-
-<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">There are limitations=C2=A0to solutions=C2=A0though bu=
-t I&#39;ve found
-those not to be an issue to date. I&#39;ve been able to produce hidden node=
-s quite
-readily. Add the phase shifters=C2=A0and spatial stream powers can also be
-affected, but this isn&#39;t shown in this simple example.<br>
-<br>
-Bob<u></u><u></u></span></font></p>
-
-</div>
+Bob=C2=A0<u></u><u></u></span></font></p>
 
 </div>
 
@@ -510,9 +340,9 @@ e=3D"font-size:12pt"><u></u>=C2=A0<u></u></span></font></p>
 <div>
 
 <p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">On Mon, Aug 2, 2021 at 8:12 PM David Lang &lt;<a href=
-=3D"mailto:david@lang.hm" target=3D"_blank">david@lang.hm</a>&gt; wrote:<u>=
-</u><u></u></span></font></p>
+e=3D"font-size:12pt">On Mon, Aug 2, 2021 at 5:37 PM Leonard Kleinrock &lt;<=
+a href=3D"mailto:lk@cs.ucla.edu" target=3D"_blank">lk@cs.ucla.edu</a>&gt; w=
+rote:<u></u><u></u></span></font></p>
 
 </div>
 
@@ -520,127 +350,34 @@ e=3D"font-size:12pt">On Mon, Aug 2, 2021 at 8:12 PM David Lang &lt;<a href=
 order-left:1pt solid rgb(204,204,204);padding:0in 0in 0in 6pt;margin-left:4=
 .8pt;margin-right:0in">
 
-<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
-e=3D"font-size:12pt">I guess it depends on what you are intending to test. =
-If you are not
-going to <br>
-tinker with any of the over-the-air settings (including the number of packe=
-ts <br>
-transmitted in one aggregate), the details of what happen over the air don&=
-#39;t <br>
-matter much.<br>
+<p class=3D"MsoNormal" style=3D"margin-bottom:12pt"><font size=3D"3" face=
+=3D"Times New Roman"><span style=3D"font-size:12pt">These cases are what my
+student, Fouad Tobagi and I called the Hidden Terminal Problem (with the Bu=
+sy
+Tone solution) back in 1975.<br>
 <br>
-But if you are going to be doing any tinkering with what is getting sent, a=
-nd <br>
-you ignore the hidden transmitter type problems, you will create a solution
-that <br>
-seems to work really well in the lab and falls on it&#39;s face out in the =
-wild <br>
-where spectrum overload and hidden transmitters are the norm (at least in u=
-rban
+Len <br>
 <br>
-areas), not rare corner cases.<br>
 <br>
-you don&#39;t need to include them in every test, but you need to have a wa=
-y to <br>
-configure your lab to include them before you consider any settings/algorit=
-hm <br>
-ready to try in the wild.<br>
-<br>
-David Lang<br>
-<br>
-On Mon, 2 Aug 2021, Bob McMahon wrote:<br>
-<br>
-&gt; We find four nodes, a primary BSS and an adjunct one quite good for lo=
-ts
-of<br>
-&gt; testing.=C2=A0 The six nodes allows for a primary BSS and two adjacent
-ones. We<br>
-&gt; want to minimize complexity to necessary and sufficient.<br>
-&gt;<br>
-&gt; The challenge we find is having variability (e.g. montecarlos) that&#3=
-9;s<br>
-&gt; reproducible and has relevant information. Basically, the distance
-matrices<br>
-&gt; have h-matrices as their elements. Our chips can provide these h-matri=
-ces.<br>
-&gt;<br>
-&gt; The parts for solid state programmable attenuators and phase shifters<=
+&gt; On Aug 2, 2021, at 4:16 PM, David Lang &lt;<a href=3D"mailto:david@lan=
+g.hm" target=3D"_blank">david@lang.hm</a>&gt; wrote:<br>
+&gt; <br>
+&gt; If you are going to setup a test environment for wifi, you need to inc=
+lude
+the ability to make a fe cases that only happen with RF, not with wired
+networks and are commonly overlooked<br>
+&gt; <br>
+&gt; 1. station A can hear station B and C but they cannot hear each other<=
 br>
-&gt; aren&#39;t very expensive. A device that supports a five branch tree a=
-nd 2x2<br>
-&gt; MIMO seems a very good starting point.<br>
-&gt;<br>
-&gt; Bob<br>
-&gt;<br>
-&gt; On Mon, Aug 2, 2021 at 4:55 PM Ben Greear &lt;<a href=3D"mailto:greear=
-b@candelatech.com" target=3D"_blank">greearb@candelatech.com</a>&gt;
-wrote:<br>
-&gt;<br>
-&gt;&gt; On 8/2/21 4:16 PM, David Lang wrote:<br>
-&gt;&gt;&gt; If you are going to setup a test environment for wifi, you nee=
-d to<br>
-&gt;&gt; include the ability to make a fe cases that only happen with RF, n=
-ot
-with<br>
-&gt;&gt; wired networks and<br>
-&gt;&gt;&gt; are commonly overlooked<br>
-&gt;&gt;&gt;<br>
-&gt;&gt;&gt; 1. station A can hear station B and C but they cannot hear eac=
-h
-other<br>
-&gt;&gt;&gt; 2. station A can hear station B but station B cannot hear stat=
-ion
-A 3.<br>
-&gt;&gt; station A can hear that station B is transmitting, but not with a
-strong<br>
-&gt;&gt; enough signal to<br>
-&gt;&gt;&gt; decode the signal (yes in theory you can work around interfere=
-nce,
-but<br>
-&gt;&gt; in practice interference is still a real thing)<br>
-&gt;&gt;&gt;<br>
-&gt;&gt;&gt; David Lang<br>
-&gt;&gt;&gt;<br>
-&gt;&gt;<br>
-&gt;&gt; To add to this, I think you need lots of different station devices=
-,<br>
-&gt;&gt; different capabilities (/n, /ac, /ax, etc)<br>
-&gt;&gt; different numbers of spatial streams, and different distances from=
- the<br>
-&gt;&gt; AP.=C2=A0 From download queueing perspective, changing<br>
-&gt;&gt; the capabilities may be sufficient while keeping all stations at s=
-ame<br>
-&gt;&gt; distance.=C2=A0 This assumes you are not<br>
-&gt;&gt; actually testing the wifi rate-ctrl alg. itself, so different
-throughput<br>
-&gt;&gt; levels for different stations would be enough.<br>
-&gt;&gt;<br>
-&gt;&gt; So, a good station emulator setup (and/or pile of real stations) a=
-nd a
-few<br>
-&gt;&gt; RF chambers and<br>
-&gt;&gt; programmable attenuators and you can test that setup...<br>
-&gt;&gt;<br>
-&gt;&gt;=C2=A0 From upload perspective, I guess same setup would do the job=
-.<br>
-&gt;&gt; Queuing/fairness might depend a bit more on the<br>
-&gt;&gt; station devices, emulated or otherwise, but I guess a clever AP co=
-uld<br>
-&gt;&gt; enforce fairness in upstream direction<br>
-&gt;&gt; too by implementing per-sta queues.<br>
-&gt;&gt;<br>
-&gt;&gt; Thanks,<br>
-&gt;&gt; Ben<br>
-&gt;&gt;<br>
-&gt;&gt; --<br>
-&gt;&gt; Ben Greear &lt;<a href=3D"mailto:greearb@candelatech.com" target=
-=3D"_blank">greearb@candelatech.com</a>&gt;<br>
-&gt;&gt; Candela Technologies Inc=C2=A0 <a href=3D"http://www.candelatech.c=
-om" target=3D"_blank">http://www.candelatech.com</a><br>
-&gt;&gt;<br>
-&gt;<br>
-&gt;<u></u><u></u></span></font></p>
+&gt; 2. station A can hear station B but station B cannot hear station A 3.
+station A can hear that station B is transmitting, but not with a strong en=
+ough
+signal to decode the signal (yes in theory you can work around interference=
+,
+but in practice interference is still a real thing)<br>
+&gt; <br>
+&gt; David Lang<br>
+&gt; <u></u><u></u></span></font></p>
 
 </blockquote>
 
@@ -655,8 +392,9 @@ electronic communication and the information and any files transmitted with=
 or attached to it, are confidential and are intended solely for the use of =
 the
 individual or entity to whom it is addressed and may contain information th=
-at is
-confidential, legally privileged, protected by privacy laws, or otherwise
+at
+is confidential, legally privileged, protected by privacy laws, or otherwis=
+e
 restricted from disclosure to anyone else. If you are not the intended
 recipient or the person responsible for delivering the e-mail to the intend=
 ed
@@ -687,9 +425,9 @@ uting, dissemination, forwarding, printing, or copying of this e-mail is st=
 rictly prohibited. If you received this e-mail in error, please return the =
 e-mail to the sender, delete it from your computer, and destroy any printed=
  copy of it.</font></span>
---000000000000191c2d05c90541e0--
+--0000000000006bdf1005c9055cd8--
 
---0000000000001d077405c905416a
+--0000000000007052f305c9055cef
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -760,18 +498,18 @@ bPF1uuJM+dGLJLheUizCr5J/OBEdENg+DSmrqoZ+kZd76iRaF2CkhboR2394Ft8lFlKQiU0q8lnR
 9/kdZ0F0iCcUfhaLaGYWujW7N0LZ+rQuTfuPGLx9zZNeNMWSZi/Pc8vdCO7EnlIxggJtMIICaQIB
 ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
 bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwYS+5PXokx35blu9EwDQYJ
-YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIKtDFkuu6atzk4nCAYXmbeNGCzgC+YjBV/qn
-9iU+LfqTMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDgwODA1
-MDgwN1owaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
+YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIHc+2u6OF0cmajD54oYfd+xqPa2TfrYmQleO
+HR2kwNtQMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDgwODA1
+MTU0NlowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
 AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
-BgkqhkiG9w0BAQEFAASCAQBBIVU622f3cqtALBGQmdoZBU5yJUR4yU1QnggBwVa6fQo0UIJbwJu0
-23SFNVUEzGjFzf89bvAEiLLeD7AD5uCRumA+vlbEtSL8ik0lMjUOO7QsBCSp+Orb/zcOi1FKWEyy
-/pwXIbiAGr7JrpWXCVgH1qE1XoGhCaekn9xcJNJzdTR+XfiYx24/C9aCvf7SN9VU1y9/sbZf2u46
-jVQvkuoWCCCCJ96irS1UIa5/ufFogDM+qhuLCaAhSVToF76PnJcYFOWeaIlvPQTftk1qY+LSEp1/
-9qlkVVCvxe/4iOWTdAIcn4GOiNOcOgjtFlVUtisfGbmna045c0vkCwqmbDgs
---0000000000001d077405c905416a--
+BgkqhkiG9w0BAQEFAASCAQBtkiZNoJAQ5FpDChKFRN+05bp2cWp0wYKM6j3nWbdvUJMUpkeMK/2w
+NrLu34ehRB8nSI1XXksUbnunyYAz+YIXwQFowGoGYR0Jnv172vDgQ2T+nGT6Fqs7evQe9+nnfSdd
+As8Nun68n2K6UEnR/Lkx+Az76Zme+9fbB7F92J9WnCunZ7y+vvkxQb7ioab88azpF0E0orn+8sVq
+1II6I48u7VZmQR75bD/K81NsozEKw2tARubgiO6vC8Cdz+XtmpVJ0ACKiMDdSj9WelMWnVzv8oFT
+ciOQXbb3zeyqbbv548rc9fqfXRrIszjiGDU8fCU7g32P6sQavBMMeR8QcbyR
+--0000000000007052f305c9055cef--
 
---===============7523524309803693499==
+--===============2974380185499048642==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -781,4 +519,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============7523524309803693499==--
+--===============2974380185499048642==--
