@@ -2,62 +2,63 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04D873E4AAE
-	for <lists+cake@lfdr.de>; Mon,  9 Aug 2021 19:17:45 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7DCC73E4AAF
+	for <lists+cake@lfdr.de>; Mon,  9 Aug 2021 19:17:46 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 862E13CB54;
+	by lists.bufferbloat.net (Postfix) with ESMTP id A21103CB58;
 	Mon,  9 Aug 2021 13:17:42 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1628529462;
-	bh=zrehlNxYLuwqOEY0FQgAdUO3qIdFouRn9QaO8zmSJ7w=;
+	bh=uL5QXpPAkuixnobAbg/tE7jZkxKXP3xwI8j8SP/3wfc=;
 	h=From:To:References:In-Reply-To:Date:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Reply-To:Cc:From;
-	b=OuHnIy1dbc7flKvmEdsbA+1wWEo5CzZzOE0I2znpfwRGZIcdjGIMpL1WRSZ9OgXoT
-	 480KBDghALhwY0ZBEHBy1OLbtNQFL1ooGbQaABf1U7TwC0K0T+dp4ldTIx+rB5B9ra
-	 s1mWcN6D/QjkVGHgqlp5v7kAzhiFmigIwaYZ8guOb+sa6rGRUEJ9mP9pVkgcl+hml2
-	 stpzZkLeCtAFaaJseWx8kn6Rm3km1EPAGUhsKFxEecujb71YL9RcRXtPO6fMDVBsO3
-	 dajBdCRZZs2rhrijxkXRY904tazN+/js0GehrZYkOrcxwDnGwXll1uxDgFZPmnzPOW
-	 vTTLEap550ZJw==
+	b=BmlrZ+wW8ySmldT6hymYEXk1URY/B0yYr1P58v7UoNcIiaaqD84GjP1Luatli600C
+	 21uLH7BBrwoTWW2rqiHKjFJte7hwX+dKMXFvS7uDzhjENlPSeOD7Y1OKHfk+t4vfrP
+	 5xG91jLW/J2uzxzKlHY8Q8Trz5PYRNqDe3Qbs71tBqks4I2ln4mykavv7ED1t9x+FO
+	 hmtGs1dUeF/+G3D4DUfqeG3f91vC1H8Q66DhcFsPxudqhrrOOAxN0fo/IwReZb/aO9
+	 Zaqdfe6ka+TM7gKvz7Y/u/P2epYYc7PIV0tesCxNPF/ip1UjRyUmBRzW42kpkjRAz1
+	 WDoDQCy+OqFxQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from bosmailout06.eigbox.net (bosmailout06.eigbox.net [66.96.189.6])
+Received: from bosmailout08.eigbox.net (bosmailout08.eigbox.net [66.96.189.8])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 910F33B2A4;
- Sun,  8 Aug 2021 00:35:57 -0400 (EDT)
-Received: from bosmailscan07.eigbox.net ([10.20.15.7])
- by bosmailout06.eigbox.net with esmtp (Exim)
- id 1mCaXV-0003i3-7D; Sun, 08 Aug 2021 00:35:57 -0400
+ by lists.bufferbloat.net (Postfix) with ESMTPS id CE5133B2A4;
+ Sun,  8 Aug 2021 01:04:22 -0400 (EDT)
+Received: from bosmailscan08.eigbox.net ([10.20.15.8])
+ by bosmailout08.eigbox.net with esmtp (Exim)
+ id 1mCaz0-0002OU-DU; Sun, 08 Aug 2021 01:04:22 -0400
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=alum.mit.edu; s=dkim; h=Sender:Content-Transfer-Encoding:Content-Type:
- MIME-Version:Message-ID:Date:Subject:In-Reply-To:References:Cc:To:From:
- Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
- :Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+ d=alum.mit.edu; s=dkim; h=Sender:Content-Type:MIME-Version:Message-ID:Date:
+ Subject:In-Reply-To:References:Cc:To:From:Reply-To:Content-Transfer-Encoding:
+ Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+ Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=yvYIFYToAZM1xWjvK2wdA4YvUlOs7QaMQ1e1gxb0CZY=; b=ibDvwDXQ6MAv+TJC1S2Jx6OqJu
- cD+Bo0rTisA6PzGMVLDfLURCF7Xw2i3SRWQxAhdNHONUD4Fn88MiHRg0yM4ZbCdFqHu52YHLwH7vp
- 8W28+n3PW9B3N5ovD4a6PYZtE0EB5zgT5I6hw9i4MrWgpZMeDvbi7s9RphsRnV4WtnbRjC6ITwyob
- W+6QQX2PyoYQbhsN3HgW4T7Bpjvzag8ypaRnS1OG+kSQ7m+Pe7zH2TORL5a8al6g2lJHt78sf6mdV
- scCwEdg4QjoVajPFPo1s6ytCkaq0e0yQCVairhnfx55BaUCrUh4pYKd9N+WJ+lBQ8Ix/8b0EFpeTp
- uEinkA4Q==;
-Received: from [10.115.3.32] (helo=bosimpout12)
- by bosmailscan07.eigbox.net with esmtp (Exim)
- id 1mCaXU-0003DM-Ve; Sun, 08 Aug 2021 00:35:56 -0400
+ bh=yY4C+ij6dePRxl4NzbQR3YiAltpcNKIpO0W8Pz0ksjQ=; b=4CTIi9DcMb0s4hsAHHTQGK+GQ6
+ oJdsqtNBm2pQsQnxlDKRKHSU9uN1FhKeYmAdy1B/FHHRlX6OpCWg1r+HRKWrqCcYLslHhCnNzkmdF
+ LeQ4Qja9FUtc00YyKYE9LRYGh8udJh5mPoJNT+lQCWZWQLnhvqV/uB15h5pfN7NjaPmFhwf1pVRXs
+ TrEPHWDOQZ9psVzwsEmGGfqWkH990fAX15Bz5zjEtWeZDzfoi012vckMb8c3LVm9OlgBsQRhBRj3r
+ jfZuM1fX9XYS3Y7Rzd39yBEOTrZs/BDucBczQvEAWVg++6I0NGihH+ZQOX54cxlCZ4J4++A6LGmYj
+ j89Pa4NA==;
+Received: from [10.115.3.33] (helo=bosimpout13)
+ by bosmailscan08.eigbox.net with esmtp (Exim)
+ id 1mCaz0-0000GG-5o; Sun, 08 Aug 2021 01:04:22 -0400
 Received: from bosauthsmtp17.yourhostingaccount.com ([10.20.18.17])
- by bosimpout12 with 
- id esbt250010N5uqq01sbwq0; Sun, 08 Aug 2021 00:35:56 -0400
-X-Authority-Analysis: v=2.3 cv=d4VuNSrE c=1 sm=1 tr=0
+ by bosimpout13 with 
+ id et4J2500A0N5uqq01t4M4x; Sun, 08 Aug 2021 01:04:22 -0400
+X-Authority-Analysis: v=2.3 cv=RNUo47q+ c=1 sm=1 tr=0
  a=f4kFLigMKr8AH7rIJ//qJA==:117 a=x+7tlP9+fMpTIVJEmcsKvw==:17
- a=kj9zAlcOel0A:10 a=MhDmnRu9jo8A:10 a=Wo7qeYC63mUA:10 a=kurRqvosAAAA:8
- a=Q-fNiiVtAAAA:8 a=uYVGJH5IAAAA:8 a=o83nqyVRAAAA:8 a=s_HMJkiOXO9JVvx2e5sA:9
- a=CjuIK1q_8ugA:10 a=kbxRQ_lfPIoQnHsAj2-A:22 a=Fp8MccfUoT0GBdDC_Lng:22
- a=ZkEWZNUrOYKkpCLSUeX7:22
-Received: from c-73-222-32-85.hsd1.ca.comcast.net ([73.222.32.85]:62483
+ a=MhDmnRu9jo8A:10 a=Wo7qeYC63mUA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=kurRqvosAAAA:8
+ a=uYVGJH5IAAAA:8 a=dJvYDnJI8rs9tBeDG7QA:9 a=CjuIK1q_8ugA:10 a=SSmOFEACAAAA:8
+ a=-xanLQjlmxnFQP_hNSgA:9 a=2mcMFP_YITZjYGnI:21 a=gKO2Hq4RSVkA:10
+ a=UiCQ7L4-1S4A:10 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10
+ a=kbxRQ_lfPIoQnHsAj2-A:22 a=ZkEWZNUrOYKkpCLSUeX7:22
+Received: from c-73-222-32-85.hsd1.ca.comcast.net ([73.222.32.85]:62846
  helo=SRA6) by bosauthsmtp17.eigbox.net with esmtpa (Exim)
- id 1mCaXR-0006SG-G6; Sun, 08 Aug 2021 00:35:53 -0400
+ id 1mCayw-0005ku-Fw; Sun, 08 Aug 2021 01:04:18 -0400
 From: "Dick Roy" <dickroy@alum.mit.edu>
-To: "'David Lang'" <david@lang.hm>, "'Bob McMahon'" <bob.mcmahon@broadcom.com>
+To: "'Bob McMahon'" <bob.mcmahon@broadcom.com>, "'David Lang'" <david@lang.hm>
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
  <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>
@@ -72,14 +73,13 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <CAHb6Lvp851pVCt+zUv1PZgpHafCG4RPXEwMn6=CJFXhVf9fK8w@mail.gmail.com>
  <nycvar.QRO.7.76.6.2108022007460.810590@qynat-yncgbc>
  <CAHb6LvqfRxKU0BW04ypRcPDpCcWymnS6qzb3gneQSbBrAbRhHQ@mail.gmail.com>
- <nycvar.QRO.7.76.6.2108022127410.810590@qynat-yncgbc>
-In-Reply-To: <nycvar.QRO.7.76.6.2108022127410.810590@qynat-yncgbc>
-Date: Sat, 7 Aug 2021 21:35:42 -0700
+In-Reply-To: <CAHb6LvqfRxKU0BW04ypRcPDpCcWymnS6qzb3gneQSbBrAbRhHQ@mail.gmail.com>
+Date: Sat, 7 Aug 2021 22:04:07 -0700
 Organization: SRA
-Message-ID: <ECAAA0D844EC45589043A40B8D5AE4BF@SRA6>
+Message-ID: <C2F8AFB15FAD4A91BF9A870505084D59@SRA6>
 MIME-Version: 1.0
 X-Mailer: Microsoft Office Outlook 11
-Thread-Index: AdeLuSn3FAru8zxtRo2sd1864ZKtggAVNELg
+Thread-Index: AdeLuSlehgCWGfOLQuaOPFk4uJ3x0AAV6VFQ
 X-MimeOLE: Produced By Microsoft MimeOLE
 X-EN-UserInfo: f809475445fb8041985048e338e1a001:931c98230c6409dcc37fa7e93b490c27
 X-EN-AuthUser: dickroy@intellicommunications.com
@@ -105,127 +105,614 @@ Cc: 'Cake List' <cake@lists.bufferbloat.net>,
  starlink@lists.bufferbloat.net, codel@lists.bufferbloat.net,
  'cerowrt-devel' <cerowrt-devel@lists.bufferbloat.net>,
  'bloat' <bloat@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7358063256306577006=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-CgotLS0tLU9yaWdpbmFsIE1lc3NhZ2UtLS0tLQpGcm9tOiBTdGFybGluayBbbWFpbHRvOnN0YXJs
-aW5rLWJvdW5jZXNAbGlzdHMuYnVmZmVyYmxvYXQubmV0XSBPbiBCZWhhbGYgT2YKRGF2aWQgTGFu
-ZwpTZW50OiBNb25kYXksIEF1Z3VzdCAyLCAyMDIxIDk6MzEgUE0KVG86IEJvYiBNY01haG9uCkNj
-OiBzdGFybGlua0BsaXN0cy5idWZmZXJibG9hdC5uZXQ7IE1ha2UtV2lmaS1mYXN0OyBDYWtlIExp
-c3Q7CmNvZGVsQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldDsgY2Vyb3dydC1kZXZlbDsgYmxvYXQKU3Vi
-amVjdDogUmU6IFtTdGFybGlua10gW0Nha2VdIFtNYWtlLXdpZmktZmFzdF0gW0Nlcm93cnQtZGV2
-ZWxdIER1ZSBBdWcgMjoKSW50ZXJuZXQgUXVhbGl0eSB3b3Jrc2hvcCBDRlAgZm9yIHRoZSBpbnRl
-cm5ldCBhcmNoaXRlY3R1cmUgYm9hcmQKCnN5bW1ldHJ5IGlzIG5vdCBhbHdheXMgKG9yIHVzdWFs
-bHkpIHRydWUuIApbUlJdIFRoZXJlIGlzIGEgYmlnIGRpZmZlcmVuY2UgYmV0d2VlbiAic3ltbWV0
-cmljIFJGIGNoYW5uZWxzIiBhbmQgImJhbGFuY2VkClJGIGxpbmtzIi4gIEJlIGNhcmVmdWwgbm90
-IHRvIGNvbmZ1c2UgdGhlIHR3by4KCnN0YXRpb25zIGFyZSBjb21tb25seSBoZWFyZCBhdCBtdWNo
-IApsYXJnZXIgZGlzdGFuY2VzIHRoYW4gdGhleSBjYW4gdGFsaywgbW9iaWxlIGRldmljZXMgaGF2
-ZSBtdWNoIGxlc3MgdHJhbnNtaXQgCnBvd2VyIChiZWN1YXNlIHRoZXkgYXJlIG9wZXJhdGluZyBv
-biBiYXR0ZXJpZXMpIHRoYW4gZml4ZWQgc3RhdGlvbnMsIGFuZAp3aGVuIAp5b3UgYWRqdXN0IHRo
-ZSB0cmFuc21pdCBwb3dlciBvbiBhIHN0YXRpb24sIHlvdSBkb24ndCBhZGp1c3QgaXQncyByZWNl
-aXZlIApzZW5zaXRpdml0eS4KCltSUl0gTm90IHF1aXRlIHRydWUuIFJ4IHNlbnNpdGl2aXR5IGlz
-IGEgZnVuY3Rpb24gb2YgTUNTICh0aGUgbW9kdWxhdGlvbiBhbmQKY29kaW5nIHNjaGVtZSkgYW5k
-IHRob3NlIGxldmVscyBjYW4gYmUgYWRqdXN0ZWQsIGJvdGggdXAgYW5kIGRvd24sIGJ5CmNoYW5n
-aW5nIHRoZSBNQ1MuICBUaGlzIGlzIGluIGZhY3Qgb25lIG9mIHRoZSBtYWpvciB0b29scyB0aGF0
-IG5lZWRzIHRvIGJlCmludGVncmF0ZWQgaW50byB3aXJlbGVzcyBzeXN0ZW1zIHRvZGF5LiAgSXQn
-cyBnZW5lcmFsbHkgb3Zlcmxvb2tlZCwgdGhvdWdoCm5vdCBhbHdheXMhIFN0YXJsaW5rIHNob3Vs
-ZCBiZSBkb2luZyB0aGlzIGlmIHRoZXkgYXJlIG5vdCBhbHJlYWR5IEJUVyEKCkRhdmlkIExhbmcK
-CiAgT24gTW9uLCAyIEF1ZyAyMDIxLCBCb2IgTWNNYWhvbiB3cm90ZToKCj4gRGF0ZTogTW9uLCAy
-IEF1ZyAyMDIxIDIwOjIzOjA2IC0wNzAwCj4gRnJvbTogQm9iIE1jTWFob24gPGJvYi5tY21haG9u
-QGJyb2FkY29tLmNvbT4KPiBUbzogRGF2aWQgTGFuZyA8ZGF2aWRAbGFuZy5obT4KPiBDYzogQmVu
-IEdyZWVhciA8Z3JlZWFyYkBjYW5kZWxhdGVjaC5jb20+LAo+ICAgICBMdWNhIE11c2NhcmllbGxv
-IDxtdXNjYXJpZWxsb0BpZWVlLm9yZz4sCj4gICAgIENha2UgTGlzdCA8Y2FrZUBsaXN0cy5idWZm
-ZXJibG9hdC5uZXQ+LAo+ICAgICBNYWtlLVdpZmktZmFzdCA8bWFrZS13aWZpLWZhc3RAbGlzdHMu
-YnVmZmVyYmxvYXQubmV0PiwKPiAgICAgTGVvbmFyZCBLbGVpbnJvY2sgPGxrQGNzLnVjbGEuZWR1
-Piwgc3RhcmxpbmtAbGlzdHMuYnVmZmVyYmxvYXQubmV0LAo+ICAgICBjb2RlbEBsaXN0cy5idWZm
-ZXJibG9hdC5uZXQsCj4gICAgIGNlcm93cnQtZGV2ZWwgPGNlcm93cnQtZGV2ZWxAbGlzdHMuYnVm
-ZmVyYmxvYXQubmV0PiwKPiAgICAgYmxvYXQgPGJsb2F0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4K
-PiBTdWJqZWN0OiBSZTogW0Nha2VdIFtNYWtlLXdpZmktZmFzdF0gW1N0YXJsaW5rXSBbQ2Vyb3dy
-dC1kZXZlbF0gRHVlIEF1ZyAyOgo+ICAgICBJbnRlcm5ldCBRdWFsaXR5IHdvcmtzaG9wIENGUCBm
-b3IgdGhlIGludGVybmV0IGFyY2hpdGVjdHVyZSBib2FyZAo+IAo+IFRoZSBkaXN0YW5jZSBtYXRy
-aXggZGVmaW5lcyBzaWduYWwgYXR0ZW51YXRpb25zL2xvc3MgYmV0d2VlbiBwYWlycy4gIEl0J3MK
-PiBzdHJhaWdodGZvcndhcmQgdG8gY3JlYXRlIGEgZGlzdGFuY2UgbWF0cml4IHRoYXQgaGFzIGhp
-ZGRlbiBub2RlcyBiZWNhdXNlCj4gYWxsICJzaWduYWwgIGxvc3MiIGJldHdlZW4gcGFpcnMgaXMg
-ZGVmaW5lZC4gIExldCdzIHNheSBhIDEyMGRCCmF0dGVudWF0aW9uCj4gcGF0aCB3aWxsIGNhdXNl
-IGEgbm9kZSB0byBiZSBoaWRkZW4gYXMgYW4gZXhhbXBsZS4KPgo+ICAgICBBICAgIEIgICAgIEMg
-ICAgRAo+IEEgICAtICAgMzUgICAxMjAgICA2NQo+IEIgICAgICAgICAtICAgICAgNjUgICA2NQo+
-IEMgICAgICAgICAgICAgICAtICAgICAgIDY1Cj4gRCAgICAgICAgICAgICAgICAgICAgICAgICAt
-Cj4KPiBTbyBpbiB0aGUgYWJvdmUsIEFDIGFyZSBoaWRkZW4gZnJvbSBlYWNoIG90aGVyIGJ1dCBu
-b2JvZHkgZWxzZSBpcy4gSXQgZG9lcwo+IGFzc3VtZSBzeW1tZXRyeSBiZXR3ZWVuIHBhaXJzIGJ1
-dCB0aGF0J3MgdHlwaWNhbGx5IHRydWUuCj4KPiBUaGUgUkYgZGV2aWNlIHRha2VzIHRoZXNlIGRp
-c3RhbmNlIG1hdHJpY2VzIGFzIHNldHRpbmdzIGFuZCBjYWxjdWxhdGVzIHRoZQo+IGZpdmUgYnJh
-bmNoIHRyZWUgdmFsdWVzIChhcyBkZW1vbnN0cmF0ZWQgaW4gdGhlIHZpZGVvKS4gVGhlcmUgYXJl
-Cj4gbGltaXRhdGlvbnMgdG8gc29sdXRpb25zIHRob3VnaCBidXQgSSd2ZSBmb3VuZCB0aG9zZSBu
-b3QgdG8gYmUgYW4gaXNzdWUgdG8KPiBkYXRlLiBJJ3ZlIGJlZW4gYWJsZSB0byBwcm9kdWNlIGhp
-ZGRlbiBub2RlcyBxdWl0ZSByZWFkaWx5LiBBZGQgdGhlIHBoYXNlCj4gc2hpZnRlcnMgYW5kIHNw
-YXRpYWwgc3RyZWFtIHBvd2VycyBjYW4gYWxzbyBiZSBhZmZlY3RlZCwgYnV0IHRoaXMgaXNuJ3QK
-PiBzaG93biBpbiB0aGlzIHNpbXBsZSBleGFtcGxlLgo+Cj4gQm9iCj4KPiBPbiBNb24sIEF1ZyAy
-LCAyMDIxIGF0IDg6MTIgUE0gRGF2aWQgTGFuZyA8ZGF2aWRAbGFuZy5obT4gd3JvdGU6Cj4KPj4g
-SSBndWVzcyBpdCBkZXBlbmRzIG9uIHdoYXQgeW91IGFyZSBpbnRlbmRpbmcgdG8gdGVzdC4gSWYg
-eW91IGFyZSBub3QKZ29pbmcKPj4gdG8KPj4gdGlua2VyIHdpdGggYW55IG9mIHRoZSBvdmVyLXRo
-ZS1haXIgc2V0dGluZ3MgKGluY2x1ZGluZyB0aGUgbnVtYmVyIG9mCj4+IHBhY2tldHMKPj4gdHJh
-bnNtaXR0ZWQgaW4gb25lIGFnZ3JlZ2F0ZSksIHRoZSBkZXRhaWxzIG9mIHdoYXQgaGFwcGVuIG92
-ZXIgdGhlIGFpcgo+PiBkb24ndAo+PiBtYXR0ZXIgbXVjaC4KPj4KPj4gQnV0IGlmIHlvdSBhcmUg
-Z29pbmcgdG8gYmUgZG9pbmcgYW55IHRpbmtlcmluZyB3aXRoIHdoYXQgaXMgZ2V0dGluZyBzZW50
-LAo+PiBhbmQKPj4geW91IGlnbm9yZSB0aGUgaGlkZGVuIHRyYW5zbWl0dGVyIHR5cGUgcHJvYmxl
-bXMsIHlvdSB3aWxsIGNyZWF0ZSBhCj4+IHNvbHV0aW9uIHRoYXQKPj4gc2VlbXMgdG8gd29yayBy
-ZWFsbHkgd2VsbCBpbiB0aGUgbGFiIGFuZCBmYWxscyBvbiBpdCdzIGZhY2Ugb3V0IGluIHRoZQo+
-PiB3aWxkCj4+IHdoZXJlIHNwZWN0cnVtIG92ZXJsb2FkIGFuZCBoaWRkZW4gdHJhbnNtaXR0ZXJz
-IGFyZSB0aGUgbm9ybSAoYXQgbGVhc3QgaW4KPj4gdXJiYW4KPj4gYXJlYXMpLCBub3QgcmFyZSBj
-b3JuZXIgY2FzZXMuCj4+Cj4+IHlvdSBkb24ndCBuZWVkIHRvIGluY2x1ZGUgdGhlbSBpbiBldmVy
-eSB0ZXN0LCBidXQgeW91IG5lZWQgdG8gaGF2ZSBhIHdheQo+PiB0bwo+PiBjb25maWd1cmUgeW91
-ciBsYWIgdG8gaW5jbHVkZSB0aGVtIGJlZm9yZSB5b3UgY29uc2lkZXIgYW55Cj4+IHNldHRpbmdz
-L2FsZ29yaXRobQo+PiByZWFkeSB0byB0cnkgaW4gdGhlIHdpbGQuCj4+Cj4+IERhdmlkIExhbmcK
-Pj4KPj4gT24gTW9uLCAyIEF1ZyAyMDIxLCBCb2IgTWNNYWhvbiB3cm90ZToKPj4KPj4+IFdlIGZp
-bmQgZm91ciBub2RlcywgYSBwcmltYXJ5IEJTUyBhbmQgYW4gYWRqdW5jdCBvbmUgcXVpdGUgZ29v
-ZCBmb3IgbG90cwo+PiBvZgo+Pj4gdGVzdGluZy4gIFRoZSBzaXggbm9kZXMgYWxsb3dzIGZvciBh
-IHByaW1hcnkgQlNTIGFuZCB0d28gYWRqYWNlbnQgb25lcy4KPj4gV2UKPj4+IHdhbnQgdG8gbWlu
-aW1pemUgY29tcGxleGl0eSB0byBuZWNlc3NhcnkgYW5kIHN1ZmZpY2llbnQuCj4+Pgo+Pj4gVGhl
-IGNoYWxsZW5nZSB3ZSBmaW5kIGlzIGhhdmluZyB2YXJpYWJpbGl0eSAoZS5nLiBtb250ZWNhcmxv
-cykgdGhhdCdzCj4+PiByZXByb2R1Y2libGUgYW5kIGhhcyByZWxldmFudCBpbmZvcm1hdGlvbi4g
-QmFzaWNhbGx5LCB0aGUgZGlzdGFuY2UKPj4gbWF0cmljZXMKPj4+IGhhdmUgaC1tYXRyaWNlcyBh
-cyB0aGVpciBlbGVtZW50cy4gT3VyIGNoaXBzIGNhbiBwcm92aWRlIHRoZXNlCj4+IGgtbWF0cmlj
-ZXMuCj4+Pgo+Pj4gVGhlIHBhcnRzIGZvciBzb2xpZCBzdGF0ZSBwcm9ncmFtbWFibGUgYXR0ZW51
-YXRvcnMgYW5kIHBoYXNlIHNoaWZ0ZXJzCj4+PiBhcmVuJ3QgdmVyeSBleHBlbnNpdmUuIEEgZGV2
-aWNlIHRoYXQgc3VwcG9ydHMgYSBmaXZlIGJyYW5jaCB0cmVlIGFuZCAyeDIKPj4+IE1JTU8gc2Vl
-bXMgYSB2ZXJ5IGdvb2Qgc3RhcnRpbmcgcG9pbnQuCj4+Pgo+Pj4gQm9iCj4+Pgo+Pj4gT24gTW9u
-LCBBdWcgMiwgMjAyMSBhdCA0OjU1IFBNIEJlbiBHcmVlYXIgPGdyZWVhcmJAY2FuZGVsYXRlY2gu
-Y29tPgo+PiB3cm90ZToKPj4+Cj4+Pj4gT24gOC8yLzIxIDQ6MTYgUE0sIERhdmlkIExhbmcgd3Jv
-dGU6Cj4+Pj4+IElmIHlvdSBhcmUgZ29pbmcgdG8gc2V0dXAgYSB0ZXN0IGVudmlyb25tZW50IGZv
-ciB3aWZpLCB5b3UgbmVlZCB0bwo+Pj4+IGluY2x1ZGUgdGhlIGFiaWxpdHkgdG8gbWFrZSBhIGZl
-IGNhc2VzIHRoYXQgb25seSBoYXBwZW4gd2l0aCBSRiwgbm90Cj4+IHdpdGgKPj4+PiB3aXJlZCBu
-ZXR3b3JrcyBhbmQKPj4+Pj4gYXJlIGNvbW1vbmx5IG92ZXJsb29rZWQKPj4+Pj4KPj4+Pj4gMS4g
-c3RhdGlvbiBBIGNhbiBoZWFyIHN0YXRpb24gQiBhbmQgQyBidXQgdGhleSBjYW5ub3QgaGVhciBl
-YWNoIG90aGVyCj4+Pj4+IDIuIHN0YXRpb24gQSBjYW4gaGVhciBzdGF0aW9uIEIgYnV0IHN0YXRp
-b24gQiBjYW5ub3QgaGVhciBzdGF0aW9uIEEgMy4KPj4+PiBzdGF0aW9uIEEgY2FuIGhlYXIgdGhh
-dCBzdGF0aW9uIEIgaXMgdHJhbnNtaXR0aW5nLCBidXQgbm90IHdpdGggYQpzdHJvbmcKPj4+PiBl
-bm91Z2ggc2lnbmFsIHRvCj4+Pj4+IGRlY29kZSB0aGUgc2lnbmFsICh5ZXMgaW4gdGhlb3J5IHlv
-dSBjYW4gd29yayBhcm91bmQgaW50ZXJmZXJlbmNlLCBidXQKPj4+PiBpbiBwcmFjdGljZSBpbnRl
-cmZlcmVuY2UgaXMgc3RpbGwgYSByZWFsIHRoaW5nKQo+Pj4+Pgo+Pj4+PiBEYXZpZCBMYW5nCj4+
-Pj4+Cj4+Pj4KPj4+PiBUbyBhZGQgdG8gdGhpcywgSSB0aGluayB5b3UgbmVlZCBsb3RzIG9mIGRp
-ZmZlcmVudCBzdGF0aW9uIGRldmljZXMsCj4+Pj4gZGlmZmVyZW50IGNhcGFiaWxpdGllcyAoL24s
-IC9hYywgL2F4LCBldGMpCj4+Pj4gZGlmZmVyZW50IG51bWJlcnMgb2Ygc3BhdGlhbCBzdHJlYW1z
-LCBhbmQgZGlmZmVyZW50IGRpc3RhbmNlcyBmcm9tIHRoZQo+Pj4+IEFQLiAgRnJvbSBkb3dubG9h
-ZCBxdWV1ZWluZyBwZXJzcGVjdGl2ZSwgY2hhbmdpbmcKPj4+PiB0aGUgY2FwYWJpbGl0aWVzIG1h
-eSBiZSBzdWZmaWNpZW50IHdoaWxlIGtlZXBpbmcgYWxsIHN0YXRpb25zIGF0IHNhbWUKPj4+PiBk
-aXN0YW5jZS4gIFRoaXMgYXNzdW1lcyB5b3UgYXJlIG5vdAo+Pj4+IGFjdHVhbGx5IHRlc3Rpbmcg
-dGhlIHdpZmkgcmF0ZS1jdHJsIGFsZy4gaXRzZWxmLCBzbyBkaWZmZXJlbnQKdGhyb3VnaHB1dAo+
-Pj4+IGxldmVscyBmb3IgZGlmZmVyZW50IHN0YXRpb25zIHdvdWxkIGJlIGVub3VnaC4KPj4+Pgo+
-Pj4+IFNvLCBhIGdvb2Qgc3RhdGlvbiBlbXVsYXRvciBzZXR1cCAoYW5kL29yIHBpbGUgb2YgcmVh
-bCBzdGF0aW9ucykgYW5kIGEKPj4gZmV3Cj4+Pj4gUkYgY2hhbWJlcnMgYW5kCj4+Pj4gcHJvZ3Jh
-bW1hYmxlIGF0dGVudWF0b3JzIGFuZCB5b3UgY2FuIHRlc3QgdGhhdCBzZXR1cC4uLgo+Pj4+Cj4+
-Pj4gIEZyb20gdXBsb2FkIHBlcnNwZWN0aXZlLCBJIGd1ZXNzIHNhbWUgc2V0dXAgd291bGQgZG8g
-dGhlIGpvYi4KPj4+PiBRdWV1aW5nL2ZhaXJuZXNzIG1pZ2h0IGRlcGVuZCBhIGJpdCBtb3JlIG9u
-IHRoZQo+Pj4+IHN0YXRpb24gZGV2aWNlcywgZW11bGF0ZWQgb3Igb3RoZXJ3aXNlLCBidXQgSSBn
-dWVzcyBhIGNsZXZlciBBUCBjb3VsZAo+Pj4+IGVuZm9yY2UgZmFpcm5lc3MgaW4gdXBzdHJlYW0g
-ZGlyZWN0aW9uCj4+Pj4gdG9vIGJ5IGltcGxlbWVudGluZyBwZXItc3RhIHF1ZXVlcy4KPj4+Pgo+
-Pj4+IFRoYW5rcywKPj4+PiBCZW4KPj4+Pgo+Pj4+IC0tCj4+Pj4gQmVuIEdyZWVhciA8Z3JlZWFy
-YkBjYW5kZWxhdGVjaC5jb20+Cj4+Pj4gQ2FuZGVsYSBUZWNobm9sb2dpZXMgSW5jICBodHRwOi8v
-d3d3LmNhbmRlbGF0ZWNoLmNvbQo+Pj4+Cj4+Pgo+Pj4KPj4KPgo+Cl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fClN0YXJsaW5rIG1haWxpbmcgbGlzdApTdGFy
-bGlua0BsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQv
-bGlzdGluZm8vc3RhcmxpbmsKCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0
-dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+This is a multi-part message in MIME format.
+
+--===============7358063256306577006==
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_0416_01D78BD8.2B4FDD10"
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0416_01D78BD8.2B4FDD10
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
+
+ 
+
+ 
+
+  _____  
+
+From: Starlink [mailto:starlink-bounces@lists.bufferbloat.net] On Behalf Of
+Bob McMahon
+Sent: Monday, August 2, 2021 8:23 PM
+To: David Lang
+Cc: starlink@lists.bufferbloat.net; Make-Wifi-fast; Cake List;
+codel@lists.bufferbloat.net; cerowrt-devel; bloat
+Subject: Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2:
+Internet Quality workshop CFP for the internet architecture board
+
+ 
+
+The distance matrix defines signal attenuations/loss between pairs.  
+
+[RR] Which makes it a path loss matrix rather than a distance matrix
+actually.
+
+It's straightforward to create a distance matrix that has hidden nodes
+because all "signal  loss" between pairs is defined.  Let's say a 120dB
+attenuation path will cause a node to be hidden as an example.
+
+     A    B     C    D 
+
+A   -   35   120   65
+
+B         -      65   65
+
+C               -       65
+
+D                         -
+
+So in the above, AC are hidden from each other but nobody else is. It does
+assume symmetry between pairs but that's typically true.
+
+[RR] I'm guessing you really mean reciprocal rather than symmetric. An RF
+channel is reciprocal if the loss when A is transmitting to B is the same as
+that when B is transmitting to A. When the tx powers and rx sensitivities
+are such that when combined with the path loss(es) the "link budget" is  the
+same in both directions, the links are balanced and therefore have the same
+capacity. 
+
+
+
+The RF device takes these distance matrices as settings and calculates the
+five branch tree values (as demonstrated in the video). 
+
+There are limitations to solutions though but I've found those not to be an
+issue to date. I've been able to produce hidden nodes quite readily. Add the
+phase shifters and spatial stream powers can also be affected, but this
+isn't shown in this simple example.
+
+Bob
+
+ 
+
+On Mon, Aug 2, 2021 at 8:12 PM David Lang <david@lang.hm> wrote:
+
+I guess it depends on what you are intending to test. If you are not going
+to 
+tinker with any of the over-the-air settings (including the number of
+packets 
+transmitted in one aggregate), the details of what happen over the air don't
+
+matter much.
+
+But if you are going to be doing any tinkering with what is getting sent,
+and 
+you ignore the hidden transmitter type problems, you will create a solution
+that 
+seems to work really well in the lab and falls on it's face out in the wild 
+where spectrum overload and hidden transmitters are the norm (at least in
+urban 
+areas), not rare corner cases.
+
+you don't need to include them in every test, but you need to have a way to 
+configure your lab to include them before you consider any
+settings/algorithm 
+ready to try in the wild.
+
+David Lang
+
+On Mon, 2 Aug 2021, Bob McMahon wrote:
+
+> We find four nodes, a primary BSS and an adjunct one quite good for lots
+of
+> testing.  The six nodes allows for a primary BSS and two adjacent ones. We
+> want to minimize complexity to necessary and sufficient.
+>
+> The challenge we find is having variability (e.g. montecarlos) that's
+> reproducible and has relevant information. Basically, the distance
+matrices
+> have h-matrices as their elements. Our chips can provide these h-matrices.
+>
+> The parts for solid state programmable attenuators and phase shifters
+> aren't very expensive. A device that supports a five branch tree and 2x2
+> MIMO seems a very good starting point.
+>
+> Bob
+>
+> On Mon, Aug 2, 2021 at 4:55 PM Ben Greear <greearb@candelatech.com> wrote:
+>
+>> On 8/2/21 4:16 PM, David Lang wrote:
+>>> If you are going to setup a test environment for wifi, you need to
+>> include the ability to make a fe cases that only happen with RF, not with
+>> wired networks and
+>>> are commonly overlooked
+>>>
+>>> 1. station A can hear station B and C but they cannot hear each other
+>>> 2. station A can hear station B but station B cannot hear station A 3.
+>> station A can hear that station B is transmitting, but not with a strong
+>> enough signal to
+>>> decode the signal (yes in theory you can work around interference, but
+>> in practice interference is still a real thing)
+>>>
+>>> David Lang
+>>>
+>>
+>> To add to this, I think you need lots of different station devices,
+>> different capabilities (/n, /ac, /ax, etc)
+>> different numbers of spatial streams, and different distances from the
+>> AP.  From download queueing perspective, changing
+>> the capabilities may be sufficient while keeping all stations at same
+>> distance.  This assumes you are not
+>> actually testing the wifi rate-ctrl alg. itself, so different throughput
+>> levels for different stations would be enough.
+>>
+>> So, a good station emulator setup (and/or pile of real stations) and a
+few
+>> RF chambers and
+>> programmable attenuators and you can test that setup...
+>>
+>>  From upload perspective, I guess same setup would do the job.
+>> Queuing/fairness might depend a bit more on the
+>> station devices, emulated or otherwise, but I guess a clever AP could
+>> enforce fairness in upstream direction
+>> too by implementing per-sta queues.
+>>
+>> Thanks,
+>> Ben
+>>
+>> --
+>> Ben Greear <greearb@candelatech.com>
+>> Candela Technologies Inc  http://www.candelatech.com
+>>
+>
+>
+
+
+This electronic communication and the information and any files transmitted
+with it, or attached to it, are confidential and are intended solely for the
+use of the individual or entity to whom it is addressed and may contain
+information that is confidential, legally privileged, protected by privacy
+laws, or otherwise restricted from disclosure to anyone else. If you are not
+the intended recipient or the person responsible for delivering the e-mail
+to the intended recipient, you are hereby notified that any use, copying,
+distributing, dissemination, forwarding, printing, or copying of this e-mail
+is strictly prohibited. If you received this e-mail in error, please return
+the e-mail to the sender, delete it from your computer, and destroy any
+printed copy of it.
+
+
+------=_NextPart_000_0416_01D78BD8.2B4FDD10
+Content-Type: text/html;
+	charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
+
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns=3D"http://www.w3.org/TR/REC-html40">
+
+<head>
+<meta http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii">
+<meta name=3DGenerator content=3D"Microsoft Word 11 (filtered medium)">
+<!--[if !mso]>
+<style>
+v\:* {behavior:url(#default#VML);}
+o\:* {behavior:url(#default#VML);}
+w\:* {behavior:url(#default#VML);}
+.shape {behavior:url(#default#VML);}
+</style>
+<![endif]-->
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:"MS Mincho";
+	panose-1:2 2 6 9 4 2 5 8 3 4;}
+@font-face
+	{font-family:Tahoma;
+	panose-1:2 11 6 4 3 5 4 4 2 4;}
+@font-face
+	{font-family:"\@MS Mincho";
+	panose-1:0 0 0 0 0 0 0 0 0 0;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	margin-bottom:.0001pt;
+	font-size:12.0pt;
+	font-family:"Times New Roman";}
+a:link, span.MsoHyperlink
+	{color:blue;
+	text-decoration:underline;}
+a:visited, span.MsoHyperlinkFollowed
+	{color:blue;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-reply;
+	font-family:Arial;
+	color:navy;}
+@page Section1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.25in 1.0in 1.25in;}
+div.Section1
+	{page:Section1;}
+-->
+</style>
+
+</head>
+
+<body lang=3DEN-US link=3Dblue vlink=3Dblue>
+
+<div class=3DSection1>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<div>
+
+<div class=3DMsoNormal align=3Dcenter style=3D'text-align:center'><font =
+size=3D3
+face=3D"Times New Roman"><span style=3D'font-size:12.0pt'>
+
+<hr size=3D3 width=3D"100%" align=3Dcenter tabindex=3D-1>
+
+</span></font></div>
+
+<p class=3DMsoNormal><b><font size=3D2 face=3DTahoma><span =
+style=3D'font-size:10.0pt;
+font-family:Tahoma;font-weight:bold'>From:</span></font></b><font =
+size=3D2
+face=3DTahoma><span style=3D'font-size:10.0pt;font-family:Tahoma'> =
+Starlink
+[mailto:starlink-bounces@lists.bufferbloat.net] <b><span =
+style=3D'font-weight:
+bold'>On Behalf Of </span></b>Bob McMahon<br>
+<b><span style=3D'font-weight:bold'>Sent:</span></b> Monday, August 2, =
+2021 8:23
+PM<br>
+<b><span style=3D'font-weight:bold'>To:</span></b> David Lang<br>
+<b><span style=3D'font-weight:bold'>Cc:</span></b>
+starlink@lists.bufferbloat.net; Make-Wifi-fast; Cake List;
+codel@lists.bufferbloat.net; cerowrt-devel; bloat<br>
+<b><span style=3D'font-weight:bold'>Subject:</span></b> Re: [Starlink] =
+[Cake]
+[Make-wifi-fast] [Cerowrt-devel] Due Aug 2: Internet Quality workshop =
+CFP for
+the internet architecture board</span></font><o:p></o:p></p>
+
+</div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<div>
+
+<p class=3DMsoNormal style=3D'margin-bottom:12.0pt'><font size=3D3
+face=3D"Times New Roman"><span style=3D'font-size:12.0pt'>The distance =
+matrix
+defines signal attenuations/loss between pairs.&nbsp; <font =
+color=3Dnavy><span
+style=3D'color:navy'><o:p></o:p></span></font></span></font></p>
+
+<p class=3DMsoNormal style=3D'margin-bottom:12.0pt'><b><i><font size=3D2 =
+color=3Dnavy
+face=3DArial><span =
+style=3D'font-size:10.0pt;font-family:Arial;color:navy;
+font-weight:bold;font-style:italic'>[RR] Which makes it a path loss =
+matrix
+rather than a distance matrix =
+actually.<o:p></o:p></span></font></i></b></p>
+
+<p class=3DMsoNormal style=3D'margin-bottom:12.0pt'><font size=3D3
+face=3D"Times New Roman"><span style=3D'font-size:12.0pt'>It's =
+straightforward to
+create a distance matrix that has hidden nodes because all =
+&quot;signal&nbsp;
+loss&quot;&nbsp;between&nbsp;pairs is defined.&nbsp; Let's say a 120dB
+attenuation path will cause a node to be hidden as an =
+example.<o:p></o:p></span></font></p>
+
+<div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>&nbsp; &nbsp; &nbsp;A&nbsp; &nbsp; B&nbsp; &nbsp; &nbsp;C&nbsp; =
+&nbsp;
+D&nbsp;<o:p></o:p></span></font></p>
+
+</div>
+
+<div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>A&nbsp; &nbsp;-&nbsp; &nbsp;35&nbsp; &nbsp;120&nbsp; =
+&nbsp;65<o:p></o:p></span></font></p>
+
+</div>
+
+<div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>B&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&nbsp; &nbsp; &nbsp; =
+65&nbsp;
+&nbsp;65<o:p></o:p></span></font></p>
+
+</div>
+
+<div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>C&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;-&nbsp; =
+&nbsp;
+&nbsp; &nbsp;65<o:p></o:p></span></font></p>
+
+</div>
+
+<div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>D&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; =
+&nbsp;
+&nbsp; &nbsp; &nbsp;-<br>
+<br>
+So in the above, AC are hidden from each other&nbsp;but nobody else is. =
+It does
+assume symmetry between&nbsp;pairs but that's typically true.<font =
+color=3Dnavy><span
+style=3D'color:navy'><o:p></o:p></span></font></span></font></p>
+
+<p class=3DMsoNormal><b><i><font size=3D2 color=3Dnavy =
+face=3DArial><span
+style=3D'font-size:10.0pt;font-family:Arial;color:navy;font-weight:bold;
+font-style:italic'>[RR] I&#8217;m guessing you really mean reciprocal =
+rather than
+symmetric. An RF channel is reciprocal if the loss when A is =
+transmitting to B
+is the same as that when B is transmitting to A. When the tx powers and =
+rx sensitivities
+are such that when combined with the path loss(es) the &#8220;link =
+budget&#8221;
+is &nbsp;the same in both directions, the links are balanced and =
+therefore have
+the same capacity. <o:p></o:p></span></font></i></b></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'><br>
+<br>
+The RF device takes these distance matrices&nbsp;as settings and =
+calculates the
+five branch tree values (as demonstrated in the video). <font =
+color=3Dnavy><span
+style=3D'color:navy'><o:p></o:p></span></font></span></font></p>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>There are limitations&nbsp;to solutions&nbsp;though but I've =
+found
+those not to be an issue to date. I've been able to produce hidden nodes =
+quite
+readily. Add the phase shifters&nbsp;and spatial stream powers can also =
+be
+affected, but this isn't shown in this simple example.<br>
+<br>
+Bob<o:p></o:p></span></font></p>
+
+</div>
+
+</div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+<div>
+
+<div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>On Mon, Aug 2, 2021 at 8:12 PM David Lang &lt;<a
+href=3D"mailto:david@lang.hm">david@lang.hm</a>&gt; =
+wrote:<o:p></o:p></span></font></p>
+
+</div>
+
+<blockquote style=3D'border:none;border-left:solid #CCCCCC =
+1.0pt;padding:0in 0in 0in 6.0pt;
+margin-left:4.8pt;margin-right:0in'>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'>I guess it depends on what you are intending to test. If you are =
+not
+going to <br>
+tinker with any of the over-the-air settings (including the number of =
+packets <br>
+transmitted in one aggregate), the details of what happen over the air =
+don't <br>
+matter much.<br>
+<br>
+But if you are going to be doing any tinkering with what is getting =
+sent, and <br>
+you ignore the hidden transmitter type problems, you will create a =
+solution
+that <br>
+seems to work really well in the lab and falls on it's face out in the =
+wild <br>
+where spectrum overload and hidden transmitters are the norm (at least =
+in urban
+<br>
+areas), not rare corner cases.<br>
+<br>
+you don't need to include them in every test, but you need to have a way =
+to <br>
+configure your lab to include them before you consider any =
+settings/algorithm <br>
+ready to try in the wild.<br>
+<br>
+David Lang<br>
+<br>
+On Mon, 2 Aug 2021, Bob McMahon wrote:<br>
+<br>
+&gt; We find four nodes, a primary BSS and an adjunct one quite good for =
+lots
+of<br>
+&gt; testing.&nbsp; The six nodes allows for a primary BSS and two =
+adjacent
+ones. We<br>
+&gt; want to minimize complexity to necessary and sufficient.<br>
+&gt;<br>
+&gt; The challenge we find is having variability (e.g. montecarlos) =
+that's<br>
+&gt; reproducible and has relevant information. Basically, the distance
+matrices<br>
+&gt; have h-matrices as their elements. Our chips can provide these =
+h-matrices.<br>
+&gt;<br>
+&gt; The parts for solid state programmable attenuators and phase =
+shifters<br>
+&gt; aren't very expensive. A device that supports a five branch tree =
+and 2x2<br>
+&gt; MIMO seems a very good starting point.<br>
+&gt;<br>
+&gt; Bob<br>
+&gt;<br>
+&gt; On Mon, Aug 2, 2021 at 4:55 PM Ben Greear &lt;<a
+href=3D"mailto:greearb@candelatech.com" =
+target=3D"_blank">greearb@candelatech.com</a>&gt;
+wrote:<br>
+&gt;<br>
+&gt;&gt; On 8/2/21 4:16 PM, David Lang wrote:<br>
+&gt;&gt;&gt; If you are going to setup a test environment for wifi, you =
+need to<br>
+&gt;&gt; include the ability to make a fe cases that only happen with =
+RF, not
+with<br>
+&gt;&gt; wired networks and<br>
+&gt;&gt;&gt; are commonly overlooked<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt; 1. station A can hear station B and C but they cannot hear =
+each
+other<br>
+&gt;&gt;&gt; 2. station A can hear station B but station B cannot hear =
+station
+A 3.<br>
+&gt;&gt; station A can hear that station B is transmitting, but not with =
+a
+strong<br>
+&gt;&gt; enough signal to<br>
+&gt;&gt;&gt; decode the signal (yes in theory you can work around =
+interference,
+but<br>
+&gt;&gt; in practice interference is still a real thing)<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;&gt; David Lang<br>
+&gt;&gt;&gt;<br>
+&gt;&gt;<br>
+&gt;&gt; To add to this, I think you need lots of different station =
+devices,<br>
+&gt;&gt; different capabilities (/n, /ac, /ax, etc)<br>
+&gt;&gt; different numbers of spatial streams, and different distances =
+from the<br>
+&gt;&gt; AP.&nbsp; From download queueing perspective, changing<br>
+&gt;&gt; the capabilities may be sufficient while keeping all stations =
+at same<br>
+&gt;&gt; distance.&nbsp; This assumes you are not<br>
+&gt;&gt; actually testing the wifi rate-ctrl alg. itself, so different
+throughput<br>
+&gt;&gt; levels for different stations would be enough.<br>
+&gt;&gt;<br>
+&gt;&gt; So, a good station emulator setup (and/or pile of real =
+stations) and a
+few<br>
+&gt;&gt; RF chambers and<br>
+&gt;&gt; programmable attenuators and you can test that setup...<br>
+&gt;&gt;<br>
+&gt;&gt;&nbsp; From upload perspective, I guess same setup would do the =
+job.<br>
+&gt;&gt; Queuing/fairness might depend a bit more on the<br>
+&gt;&gt; station devices, emulated or otherwise, but I guess a clever AP =
+could<br>
+&gt;&gt; enforce fairness in upstream direction<br>
+&gt;&gt; too by implementing per-sta queues.<br>
+&gt;&gt;<br>
+&gt;&gt; Thanks,<br>
+&gt;&gt; Ben<br>
+&gt;&gt;<br>
+&gt;&gt; --<br>
+&gt;&gt; Ben Greear &lt;<a href=3D"mailto:greearb@candelatech.com" =
+target=3D"_blank">greearb@candelatech.com</a>&gt;<br>
+&gt;&gt; Candela Technologies Inc&nbsp; <a =
+href=3D"http://www.candelatech.com"
+target=3D"_blank">http://www.candelatech.com</a><br>
+&gt;&gt;<br>
+&gt;<br>
+&gt;<o:p></o:p></span></font></p>
+
+</blockquote>
+
+</div>
+
+<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
+style=3D'font-size:
+12.0pt'><br>
+</span></font><font size=3D2><span =
+style=3D'font-size:10.0pt;background:white'>This
+electronic communication and the information and any files transmitted =
+with it,
+or attached to it, are confidential and are intended solely for the use =
+of the
+individual or entity to whom it is addressed and may contain information =
+that is
+confidential, legally privileged, protected by privacy laws, or =
+otherwise
+restricted from disclosure to anyone else. If you are not the intended
+recipient or the person responsible for delivering the e-mail to the =
+intended
+recipient, you are hereby notified that any use, copying, distributing,
+dissemination, forwarding, printing, or copying of this e-mail is =
+strictly
+prohibited. If you received this e-mail in error, please return the =
+e-mail to
+the sender, delete it from your computer, and destroy any printed copy =
+of it.</span></font><o:p></o:p></p>
+
+</div>
+
+</body>
+
+</html>
+
+------=_NextPart_000_0416_01D78BD8.2B4FDD10--
+
+
+--===============7358063256306577006==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============7358063256306577006==--
+
