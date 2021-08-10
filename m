@@ -2,63 +2,62 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9BC563E8554
-	for <lists+cake@lfdr.de>; Tue, 10 Aug 2021 23:33:29 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B2DD3E8555
+	for <lists+cake@lfdr.de>; Tue, 10 Aug 2021 23:33:31 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id E62FD3CB58;
-	Tue, 10 Aug 2021 17:33:26 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 136073CB62;
+	Tue, 10 Aug 2021 17:33:27 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1628631206;
-	bh=2tVyaHNIHCzmPemjXHLqTuqxz5NCuwfBbEYp3O7tRs0=;
+	d=lists.bufferbloat.net; s=201610; t=1628631207;
+	bh=h8uxLKUQOYuOhXy43Iu/xwG0hDd8rYrGipLAQ9lVFI8=;
 	h=From:To:References:In-Reply-To:Date:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
 	 Reply-To:Cc:From;
-	b=kxfd8Mh7Bfux+RhNppOeX0kv3dgsexv91E0n2QU3ntfu8+3CYx+M4OmaqQIyXHF1W
-	 a78JEAEs5hqVGGn1GK5PVSUwX5s5ix9add3qpnh7B1PpFA3IZUdLacZ41rb18GzjM3
-	 QpCGyQkQfizDEh1TncU71hGW91F5eFkn+jbBZjsPDryAn5R/Am3jsusx+qZG4o9p0g
-	 ggEhF2nuZUO6GWuRKt7MYkzPST1kHE7iKWtfhVS70Sx1kn5XWCk3+d/OIxMP2qPaej
-	 jh9AmrBg3egr3lFiUNXzXTMGh9m2nyy5R1MBVh7SW/79A6hzxuezJMTkDCHuq5oTdq
-	 9Vq+TgeE1LQvQ==
+	b=g9fCQnfmdwHpudd0EuwBBndiI/0eQR8yfVSDG8oPahz+6ifCLC/JiBALRiy+LQ+os
+	 YEhF/C7m33nxOKT1GVkN/G42EAuuvRl/kqIm5oQbj9FLlVMfsckQzCT+q7sk6r0yzJ
+	 alKEa5xcI2k9RBIdlzBo555jX4sGZzFHkYcb3rqby+E//bDyIJrxkqBihnvC2hRxdg
+	 iujWtthgCvIKUBzs390WxPMBL6XiCNeRyOd+PVZDeNW/Xgc6OD+KwOqnDlZbaUilo4
+	 JfRGBLBe2Qs7sxajyAnPcalCfPZDO8YhYt6hOJy22JT/xnk03zxHujvfmbQz85tBLq
+	 sRTgy5/hp2NmA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from bosmailout05.eigbox.net (bosmailout05.eigbox.net [66.96.186.5])
+Received: from bosmailout01.eigbox.net (bosmailout01.eigbox.net [66.96.190.1])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
  bits)) (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 2C6403B2A4;
- Tue, 10 Aug 2021 13:56:52 -0400 (EDT)
-Received: from bosmailscan10.eigbox.net ([10.20.15.10])
- by bosmailout05.eigbox.net with esmtp (Exim)
- id 1mDVzf-0004y5-NV; Tue, 10 Aug 2021 13:56:51 -0400
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 393163B2A4;
+ Tue, 10 Aug 2021 14:11:17 -0400 (EDT)
+Received: from bosmailscan02.eigbox.net ([10.20.15.2])
+ by bosmailout01.eigbox.net with esmtp (Exim)
+ id 1mDWDc-0002eQ-PF; Tue, 10 Aug 2021 14:11:16 -0400
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
  d=alum.mit.edu; s=dkim; h=Sender:Content-Type:MIME-Version:Message-ID:Date:
  Subject:In-Reply-To:References:Cc:To:From:Reply-To:Content-Transfer-Encoding:
  Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
  Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
  List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=CdEbYj3BzrqXfBoVkr2Ja0z6I4XCJf0y+Nu3m2itwAY=; b=qzzGp6sHI5cFmn56g+C4XWUyms
- fZXmX1+i9XGmycXWT87q44qBeQWSzkGbr49qm5KaLbfaLF4iRg5BSNAJoC8B2mNOQrDQwMrnOW48G
- wzJ4wMOMPWDNOLY9SsvPOtC0rpBCVvLx9cKUtPrBwUHAX5QWGfHrjk2ruQr7WwSAGLrxVVA6/rzGj
- YnNIoE4BLb08yxBDYN4KbvShNitx1MfsUs2SM4tx+/4RJDnahY9c6lttetEyKWSomdx2+QczySpeo
- pAs+7/SwGWN9l7itS3yiBUYkpLrKFIwxAQjjvZuHnYGXUBjBeICCFmwC+YWDSsyrHKTgbFQKe2hw9
- VNUH+kAA==;
-Received: from [10.115.3.34] (helo=bosimpout04)
- by bosmailscan10.eigbox.net with esmtp (Exim)
- id 1mDVzf-0000Xi-Ec; Tue, 10 Aug 2021 13:56:51 -0400
+ bh=Jg7pXFDk9PcCJwokilS9KGdkM1VkD9GVlWIQ7ickvtk=; b=Aea9535b/GVFn71Ql0yUC4DW16
+ WRzPU8DrqLflHtyycgG73DwMl29CwXHiM0PqLfZyvl0vCxVYsAvGHMF99MbrRYNCNSOEECGpEDb1P
+ lOMtPu76555QovIj0MsfoXPvcEeA3M4EiRrCriz4rRD2obhJyRnDOA7g8TJ7q7wy+xnygFbAYFcAD
+ gCEZ/k44l3YDInXxShJip0hvFJucWRqG9BdcF7FHd2D3JxGJzirIIQFH3BPoDE0gt0nHzf4S+ClJe
+ BkBdxqZ8rGYRx7iRKqPgF8TbqeSbaGogQrKEWYNzdFFo97GTXxFrsFq/1R1yyKLq/TP2JxCTBHCoy
+ +dKfBRlw==;
+Received: from [10.115.3.33] (helo=bosimpout13)
+ by bosmailscan02.eigbox.net with esmtp (Exim)
+ id 1mDWDc-0007Yj-H5; Tue, 10 Aug 2021 14:11:16 -0400
 Received: from bosauthsmtp17.yourhostingaccount.com ([10.20.18.17])
- by bosimpout04 with 
- id ftwo250060N5uqq01twr6W; Tue, 10 Aug 2021 13:56:51 -0400
-X-Authority-Analysis: v=2.1 cv=RJw9HuS+ c=1 sm=1 tr=0
+ by bosimpout13 with 
+ id fuBD250090N5uqq01uBGbh; Tue, 10 Aug 2021 14:11:16 -0400
+X-Authority-Analysis: v=2.3 cv=RNUo47q+ c=1 sm=1 tr=0
  a=f4kFLigMKr8AH7rIJ//qJA==:117 a=x+7tlP9+fMpTIVJEmcsKvw==:17
- a=L9H7d07YOLsA:10 a=9cW_t1CCXrUA:10 a=s5jvgZ67dGcA:10 a=MhDmnRu9jo8A:10
- a=Wo7qeYC63mUA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=Q-fNiiVtAAAA:8 a=kurRqvosAAAA:8
- a=Zu4GJTUZAAAA:20 a=uYVGJH5IAAAA:8 a=fQyf-teQbTITjx-0wPgA:9 a=CjuIK1q_8ugA:10
- a=KE_Xhenx_AQA:10 a=SSmOFEACAAAA:8 a=di9ROJzFMXmQyWqxjHcA:9
- a=puiLy-0-qCJzNoe1:21 a=gKO2Hq4RSVkA:10 a=UiCQ7L4-1S4A:10 a=hTZeC7Yk6K0A:10
+ a=MhDmnRu9jo8A:10 a=Wo7qeYC63mUA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=Q-fNiiVtAAAA:8
+ a=kurRqvosAAAA:8 a=Zu4GJTUZAAAA:20 a=uYVGJH5IAAAA:8 a=8tvf-SdAA0IipvzWoF4A:9
+ a=CjuIK1q_8ugA:10 a=KE_Xhenx_AQA:10 a=SSmOFEACAAAA:8 a=Ii-s9XEj5K0M5zjezRYA:9
+ a=DukgDfwEwm3TPbS7:21 a=gKO2Hq4RSVkA:10 a=UiCQ7L4-1S4A:10 a=hTZeC7Yk6K0A:10
  a=frz4AuCg-hUA:10 a=0pNmr27YDSQA:10 a=Fp8MccfUoT0GBdDC_Lng:22
  a=kbxRQ_lfPIoQnHsAj2-A:22 a=ZkEWZNUrOYKkpCLSUeX7:22
-Received: from c-73-222-32-85.hsd1.ca.comcast.net ([73.222.32.85]:55403
+Received: from c-73-222-32-85.hsd1.ca.comcast.net ([73.222.32.85]:55557
  helo=SRA6) by bosauthsmtp17.eigbox.net with esmtpa (Exim)
- id 1mDVzb-0006c5-Li; Tue, 10 Aug 2021 13:56:48 -0400
+ id 1mDWDY-0002Fl-NT; Tue, 10 Aug 2021 14:11:13 -0400
 From: "Dick Roy" <dickroy@alum.mit.edu>
 To: "'Bob McMahon'" <bob.mcmahon@broadcom.com>
 References: <CAHb6LvqfRxKU0BW04ypRcPDpCcWymnS6qzb3gneQSbBrAbRhHQ@mail.gmail.com>
@@ -66,12 +65,12 @@ References: <CAHb6LvqfRxKU0BW04ypRcPDpCcWymnS6qzb3gneQSbBrAbRhHQ@mail.gmail.com>
  <5AF5551E2A7041168E7071FDA0F6B8EC@SRA6>
  <CAHb6LvpAmUKgsMAoZGrbAvS01DF=yWyJj56ox+FrDM_tEc=0Ng@mail.gmail.com>
 In-Reply-To: <CAHb6LvpAmUKgsMAoZGrbAvS01DF=yWyJj56ox+FrDM_tEc=0Ng@mail.gmail.com>
-Date: Tue, 10 Aug 2021 10:56:37 -0700
+Date: Tue, 10 Aug 2021 11:11:02 -0700
 Organization: SRA
-Message-ID: <B15C19B9F1C7473089029B4DE06D2725@SRA6>
+Message-ID: <03CA2CDA3EC5415DA229F835BE039994@SRA6>
 MIME-Version: 1.0
 X-Mailer: Microsoft Office Outlook 11
-Thread-Index: AdeOCiREC1nZa7lXS/OzTdHTG7wUJwAAzx7A
+Thread-Index: AdeOCiREC1nZa7lXS/OzTdHTG7wUJwAB0P8g
 X-MimeOLE: Produced By Microsoft MimeOLE
 X-EN-UserInfo: f809475445fb8041985048e338e1a001:931c98230c6409dcc37fa7e93b490c27
 X-EN-AuthUser: dickroy@intellicommunications.com
@@ -99,63 +98,47 @@ Cc: starlink@lists.bufferbloat.net,
  'cerowrt-devel' <cerowrt-devel@lists.bufferbloat.net>,
  'bloat' <bloat@lists.bufferbloat.net>,
  "'Rodney W. Grimes'" <starlink@gndrsh.dnsmgr.net>
-Content-Type: multipart/mixed; boundary="===============6849162040428236792=="
+Content-Type: multipart/mixed; boundary="===============1453910487289327862=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
 This is a multi-part message in MIME format.
 
---===============6849162040428236792==
+--===============1453910487289327862==
 Content-Type: multipart/alternative;
-	boundary="----=_NextPart_000_0251_01D78DD6.6A6E72E0"
+	boundary="----=_NextPart_000_0271_01D78DD8.6E0BABF0"
 
 This is a multi-part message in MIME format.
 
-------=_NextPart_000_0251_01D78DD6.6A6E72E0
+------=_NextPart_000_0271_01D78DD8.6E0BABF0
 Content-Type: text/plain;
 	charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-You can approximate the H-matrix as containing only complex numbers or
-complex frequency responses as below, however the truth is that in the real
-world, in general, the entries in the H-matrix are Green's functions, aka
-impulse response functions derivable from Maxwell's equations and all the
-surrounding boundary conditions (and yes they are time-varying) which give
-the output (at the receiver) due to an input impulse (from the transmitter).
-"You bang on the box and see what comes out!"  For "narrowband", nearly
-"time-invariant" systems, these complex transfer functions can be
-approximated by complex numbers  For non-narrowband, yet still (slowly)
-time-varying systems, the H-matrix can be approximated (as shown below) by a
-time-invariant transfer (Green's) function whose Fourier transform (aka the
-spectrum) can be calculated (and plotted as shown below . although as noted
-the phase is missing!)  Each point in the spectral domain is actually a
-complex number (amplitude and phase as a function of frequency if you will)
-again as noted below.  FWIW, the understanding that the ability to quickly
-and accurately obtain estimates of the entries of the H-matrix (aka the
-spectral response) under these "almost time-invariant" assumptions is
-crucially important to achieving anything near channel capacity is what
-makes the choice of an OFDM PHY "optimal" (aka really good . and there is
-the issue of "water-pouring", but that's another story for another day).  
+To add a bit more, as is easily seen below, the amplitudes of each of the
+transfer functions between the three transmit and three receive antennas are
+extremely similar.  This is to be expected, of course, since the "aperture"
+of each array is very small compared to the distance between them.  What is
+much more interesting and revealing is the relative phases.  Obviously this
+requires coherent receivers, and ultimately if you want to control the
+spatial distribution of power (aka SDMA (or MIMO in some circles) coherent
+transmitters. It turns out that just knowing the amplitude of the transfer
+functions is not really all that useful for anything other than detecting a
+broken solder joint:^)))
 
  
 
-That said, it is really important to remember that a (relatively) stationary
-STA and AP does NOT mean that the channel is time-invariant.  It's not.  The
-magnitude of the variations depend on how fast the environment around them
-is changing (remember Maxwell's equations and the boundary conditions)!
-This really matters in the vehicular (aka transportation) environment.  The
-ability of a pedestrian in a cross-walk to connect to an AP in the
-Starbuck's on the other side of the street depends on how many cars are in
-the vicinity and how fast they are moving!
+Also, do not forget that depending how these experiments were conducted, the
+estimates are either of the RF channel itself (aka path loss),or of the RF
+channel in combination with the transfer functions of the transmitters
+and//or receivers.  What this means is the CALIBRATION is CRUCIAL!  Those
+who do not calibrate, are doomed to fail!!!!   I suspect that it is in
+calibration where the major difference in performance between vendors''
+products can be found :^))))
 
  
 
-As for using expensive phase-shifters cabled together to make Butler
-matrices at $2.5k per pop, I guess I'm in the wrong business:^)))))
-
- 
-
-RR
+It's complicated . 
 
  
 
@@ -434,7 +417,7 @@ the e-mail to the sender, delete it from your computer, and destroy any
 printed copy of it.
 
 
-------=_NextPart_000_0251_01D78DD6.6A6E72E0
+------=_NextPart_000_0271_01D78DD8.6E0BABF0
 Content-Type: text/html;
 	charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
@@ -517,90 +500,54 @@ div.Section1
 
 <p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
 style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'>You can approximate the H-matrix as
-containing only complex numbers or complex frequency responses as below,
-however the truth is that in the real world, in general, the entries in =
-the H-matrix
-are Green&#8217;s functions, aka impulse response functions derivable =
-from
-Maxwell&#8217;s equations and all the surrounding boundary conditions =
-(and yes
-they are time-varying) which give the output (at the receiver) due to an =
-input
-impulse (from the transmitter). &nbsp;&#8220;You bang on the box and see =
-what
-comes out!&#8221;&nbsp; For &#8220;narrowband&#8221;, nearly =
-&#8220;time-invariant&#8221;
-systems, these complex transfer functions can be approximated by complex
-numbers&nbsp; For non-narrowband, yet still (slowly) time-varying =
-systems, the
-H-matrix can be approximated (as shown below) by a time-invariant =
-transfer (Green&#8217;s)
-function whose Fourier transform (aka the spectrum) can be calculated =
-(and
-plotted as shown below &#8230; although as noted the phase is missing!) =
-&nbsp;Each
-point in the spectral domain is actually a complex number (amplitude and =
-phase as
-a function of frequency if you will) again as noted below.&nbsp; FWIW, =
-the
-understanding that the ability to quickly and accurately obtain =
-estimates of
-the entries of the H-matrix (aka the spectral response) under these =
-&#8220;almost
-time-invariant&#8221; assumptions is crucially important to achieving =
-anything
-near channel capacity is what makes the choice of an OFDM PHY =
-&#8220;optimal&#8221;
-(aka really good &#8230; and there is the issue of =
-&#8220;water-pouring&#8221;,
-but that&#8217;s another story for another day).&nbsp; =
+10.0pt;font-family:Arial;color:navy'>To add a bit more, as is easily =
+seen
+below, the amplitudes of each of the transfer functions between the =
+three
+transmit and three receive antennas are extremely similar. &nbsp;This is =
+to be
+expected, of course, since the &#8220;aperture&#8221; of each array is =
+very
+small compared to the distance between them. &nbsp;What is much more
+interesting and revealing is the relative phases. &nbsp;Obviously this =
+requires
+coherent receivers, and ultimately if you want to control the spatial
+distribution of power (aka SDMA (or MIMO in some circles) coherent
+transmitters. It turns out that just knowing the amplitude of the =
+transfer functions
+is not really all that useful for anything other than detecting a broken =
+solder
+joint:^)))<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'>Also, do not forget that depending =
+how
+these experiments were conducted, the estimates are either of the RF =
+channel itself
+(aka path loss),or of the RF channel in combination with the transfer =
+functions
+of the transmitters and//or receivers.&nbsp; What this means is the =
+CALIBRATION
+is CRUCIAL!&nbsp; Those who do not calibrate, are doomed to fail!!!! =
+&nbsp;&nbsp;I
+suspect that it is in calibration where the major difference in =
+performance
+between vendors&#8217;&#8217; products can be found =
+:^))))<o:p></o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+
+<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
+style=3D'font-size:
+10.0pt;font-family:Arial;color:navy'>It&#8217;s complicated &#8230; =
 <o:p></o:p></span></font></p>
-
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
-
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'>That said, it is really important =
-to
-remember that a (relatively) stationary STA and AP does NOT mean that =
-the
-channel is time-invariant. &nbsp;It&#8217;s not.&nbsp; The magnitude of =
-the
-variations depend on how fast the environment around them is changing =
-(remember
-Maxwell&#8217;s equations and the boundary conditions)! &nbsp;This =
-really
-matters in the vehicular (aka transportation) environment.&nbsp; The =
-ability of
-a pedestrian in a cross-walk to connect to an AP in the Starbuck&#8217;s =
-on the
-other side of the street depends on how many cars are in the vicinity =
-and how
-fast they are moving!<o:p></o:p></span></font></p>
-
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
-
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'>As for using expensive =
-phase-shifters cabled
-together to make <st1:City w:st=3D"on"><st1:place =
-w:st=3D"on">Butler</st1:place></st1:City>
-matrices at $2.5k per pop, I guess I&#8217;m in the wrong =
-business:^)))))<o:p></o:p></span></font></p>
-
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
-
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'>RR<o:p></o:p></span></font></p>
 
 <p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
 style=3D'font-size:
@@ -633,10 +580,10 @@ Cake List;
 Make-Wifi-fast; starlink@lists.bufferbloat.net; codel; cerowrt-devel; =
 bloat<br>
 <b><span style=3D'font-weight:bold'>Subject:</span></b> Re: [Starlink] =
-[Cake] [Make-wifi-fast]
-[Cerowrt-devel] Due Aug 2: Internet Quality workshop CFP for the =
-internet
-architecture board</span></font><o:p></o:p></p>
+[Cake]
+[Make-wifi-fast] [Cerowrt-devel] Due Aug 2: Internet Quality workshop =
+CFP for
+the internet architecture board</span></font><o:p></o:p></p>
 
 </div>
 
@@ -986,15 +933,16 @@ but<br>
 station
 devices,<br>
 &gt; &gt; &gt;&gt; different capabilities (/n, /ac, /ax, etc)<br>
-&gt; &gt; &gt;&gt; different numbers of spatial streams, and different
-distances from<br>
+&gt; &gt; &gt;&gt; different numbers of spatial streams, and different =
+distances
+from<br>
 the<br>
 &gt; &gt; &gt;&gt; AP.&nbsp; From download queueing perspective, =
 changing<br>
 &gt; &gt; &gt;&gt; the capabilities may be sufficient while keeping all
 stations at same<br>
 &gt; &gt; &gt;&gt; distance.&nbsp; This assumes you are not<br>
-&gt; &gt; &gt;&gt; actually testing the wifi rate-ctrl alg. itself, so
+&gt; &gt; &gt;&gt; actually testing the wifi rate-ctrl alg. itself, so =
 different<br>
 throughput<br>
 &gt; &gt; &gt;&gt; levels for different stations would be enough.<br>
@@ -1109,10 +1057,10 @@ of it.</span></font><o:p></o:p></p>
 
 </html>
 
-------=_NextPart_000_0251_01D78DD6.6A6E72E0--
+------=_NextPart_000_0271_01D78DD8.6E0BABF0--
 
 
---===============6849162040428236792==
+--===============1453910487289327862==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -1122,5 +1070,5 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============6849162040428236792==--
+--===============1453910487289327862==--
 
