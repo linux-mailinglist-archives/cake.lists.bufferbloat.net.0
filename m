@@ -2,64 +2,66 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 710B53E7DF7
-	for <lists+cake@lfdr.de>; Tue, 10 Aug 2021 19:07:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 301643E838D
+	for <lists+cake@lfdr.de>; Tue, 10 Aug 2021 21:21:18 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 130793CB40;
-	Tue, 10 Aug 2021 13:07:02 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 5EC473CB40;
+	Tue, 10 Aug 2021 15:21:16 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1628615222;
-	bh=Oi//SsPRQk4X4Y8/iOnoarulsEeuV2Hx6IiHkGgANIA=;
+	d=lists.bufferbloat.net; s=201610; t=1628623276;
+	bh=2Ltxip4VT3bZZCy1JL0rzSv8GtMWWde3b88hjWDO5gU=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=HMkvvnRCuJCBEDGE9c2Th4pfsLQeGZWwGiF0qAWRlivvmB/JHs6JW/A7IOilLTshm
-	 u4pVcIoEcKUBjlkwx+EHQFgARN6K4SW/Kre3HAHWuJWRsOhmxyVkHpMFQgn77uOJv3
-	 AoVbnp+5ygUnacCcY0Bj85/S+IMuxOIb/ndKKW+in+EK61V2rwYrXrcdWC74HC72Ej
-	 oPjVIffDmdkp4bvPsLnCiT1nkVziA+vxH9Smq9jhFrh8Rn0DkPLMHjTuZbwupA1dIj
-	 xaON/dPP28xw0mL/XmXfpkoGwoIZkH0AF79j/vzh3t8CuCF+RgeZa/+ZJ1Yecxi3TQ
-	 Cz5kmBaHDt4Dg==
+	b=mRxAV9tPWCkce8BMMGCp7pM24gix2PbFp9E5ryS9Q5luxs5cTSs9u0Z+6EM67iQ+N
+	 xd+8/v0rjMZr9gJswjeh/FP2XSOjw5Z27JVvDjKBo0yw6hEs3AvaGQ2Asq67t3af3l
+	 sVEFNvmJVsr7VqPuXGUSXIag+hEwNR2S1Ya5AORYeB9y15QCDG5jnF7bUBK5WfdxhC
+	 xudNib9f1fG+YNEBMSgcrLeSby9m5N/OrumFIttvfPHZpXvKOKcVxrtu4PPPoBDQNz
+	 +Xu0cKvPE0x/2S9zHzzM6TRbU7PbKxk9OcOXu6NkjMY8vXfruxq/A9RawHbyDgo0cl
+	 QwAMWc6XWiPWA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ej1-x62f.google.com (mail-ej1-x62f.google.com
- [IPv6:2a00:1450:4864:20::62f])
+Received: from mail-ej1-x629.google.com (mail-ej1-x629.google.com
+ [IPv6:2a00:1450:4864:20::629])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id D63313CB38
- for <cake@lists.bufferbloat.net>; Tue, 10 Aug 2021 13:07:00 -0400 (EDT)
-Received: by mail-ej1-x62f.google.com with SMTP id gs8so36657579ejc.13
- for <cake@lists.bufferbloat.net>; Tue, 10 Aug 2021 10:07:00 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 927813CB37
+ for <cake@lists.bufferbloat.net>; Tue, 10 Aug 2021 15:21:14 -0400 (EDT)
+Received: by mail-ej1-x629.google.com with SMTP id oz16so21239656ejc.7
+ for <cake@lists.bufferbloat.net>; Tue, 10 Aug 2021 12:21:14 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=OSTIik8s1W6sanu+Y5/vXPMBdb4CP/0gCP+uwYNs3U8=;
- b=HcqaVopyppkUt+fT6tc7wMPyz3eulGB9d8Vjzb9gGgmZgLKoOrBAKpm0SNt1DceVd1
- xsMl08BBuqVq94EK5yUKOi/2/WsEi41VHvnoWcIcFWfuZZ1ci19SYnABrtNuKAKk10NB
- bTIKe3WhTd4TtKBsqUZk7ynnnDEnUv08r2ANw=
+ :cc; bh=21WNl86p9H0loS/GqSopiP9wlnnfWqCSLL3CXcmmx/c=;
+ b=PXUOkIfuHkdKavqi2rk1s90xE37DyjACEL3p0EBjKg9skpOj5uQ8jwg9qVdRbf8K+e
+ Sf3e2FnAcxyRMekbYAJmL6NVp+MZo34X7zbZDs6hw5z4aiWvyImIPhS9KMblrvES4HYN
+ Y5UBwKZlFwb0pyS8QK0WSftXge0egDJwIcN7o=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20161025;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=OSTIik8s1W6sanu+Y5/vXPMBdb4CP/0gCP+uwYNs3U8=;
- b=JMtp7AEgh3W+mAfpvuuRQJ211mUa1lqGu5x0hT6D6wqv5Rbhyblsmv0ZS97G1Tkhvh
- Gs3N6DcNhiXasbswvGT2M2Lcbu1cHiGYbgVSMtk8uuyKVFbl4/q+BMxKUxPJwVAmF/QG
- JDg1vyqKQudmSxcLFx6qiuYFOaJJ0bFf8aqJheSvttuJRo6iCbRhLBoIEbAkZXlmkDe5
- sfEWlb6rCk5DnwFR69LWTcTOuWms8D8lV/csFPosl0A+Nrdg2fLmtOhX/Xm85K6fWzfM
- Tbc2ZSBizOTDs7eXTj9zXmdznB/EOt76Ntsw/xVuJDil6PTxY1yJa7a6TFSBhqoF0AnJ
- PIAQ==
-X-Gm-Message-State: AOAM531kWKMKnzK4VWluhL70gr+PgpDatG677kLcMna3dJIogqyj4e1t
- qiP0QgUCoswTm3RafKN/P/dWnMLp4uuJESBri6wNCRj9TKT5GBnfDdYVvcXIXyQV9Oba7wZZVz0
- 5o+NaaD0dm1p/ruptbu1By7jvRwF+
-X-Google-Smtp-Source: ABdhPJzsshWP3RR3VZ1NYrrvIhfJf5+bKhRxKYLMESI2WFZqXm6HIGid2DOT3GnIUl917Jbe9PETlGRhcFUoJeZGsIM=
-X-Received: by 2002:a17:906:1cc9:: with SMTP id
- i9mr9223403ejh.345.1628615218493; 
- Tue, 10 Aug 2021 10:06:58 -0700 (PDT)
+ bh=21WNl86p9H0loS/GqSopiP9wlnnfWqCSLL3CXcmmx/c=;
+ b=c6Z5hQiitzc41gIMUkZMy2Nf7EOxUUP9tANPIJoPJCEKQjY620TF8XeT8vrSgvvZaP
+ 1Td8gPgRWdoGjUerDROp4EiYpDNw7T5HA3HbAnzqHOFwnOuSXki00HN7R44TzI2xSCOR
+ ktm8nkz3Dlfb/BW34btmBG/EcP34/u4JQGpnaMEnL8Nabib3Q8lmluLrgKiySYglCvon
+ ST5KN2df9HbDArJPKMP+dG8dJ5aSfM1AmNU25mH7eY0Kg7zJzZa4SkP+x9/lZV1CvebJ
+ S+FEciXQ+ZBUa7fCr/Hj5BfGA54v/V4cVmCpt9E//0jLxHu+rtO4a7Tk5sX8P7yTZ6t4
+ cjSA==
+X-Gm-Message-State: AOAM532NWtcVuMGx1cuiqBqjF/A6h0G7bCIwRVOKaBKomwsAgr8X4YRk
+ slT+/wnF7xFQpTolurqOI+qEfr7W7fFu31AddeBsS7+rhOA4LA2GdNkw8DVk4Bytl2nJrnf68Hk
+ x85XfTZnZNnLQLTa7hbLKvlpQzZeh
+X-Google-Smtp-Source: ABdhPJy7G0fodo1ePC5PV/oNzzgB8fcT4UpMtUNXIWXTkHoLnpciXrN/lrbBndD6ceVKc2NVW4ez2pb47GVYVLxEeTg=
+X-Received: by 2002:a17:906:a04f:: with SMTP id
+ bg15mr45595ejb.417.1628623273066; 
+ Tue, 10 Aug 2021 12:21:13 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAHb6LvqfRxKU0BW04ypRcPDpCcWymnS6qzb3gneQSbBrAbRhHQ@mail.gmail.com>
  <202108101410.17AEAR4w075939@gndrsh.dnsmgr.net>
  <5AF5551E2A7041168E7071FDA0F6B8EC@SRA6>
-In-Reply-To: <5AF5551E2A7041168E7071FDA0F6B8EC@SRA6>
-Date: Tue, 10 Aug 2021 10:06:47 -0700
-Message-ID: <CAHb6LvpAmUKgsMAoZGrbAvS01DF=yWyJj56ox+FrDM_tEc=0Ng@mail.gmail.com>
+ <CAHb6LvpAmUKgsMAoZGrbAvS01DF=yWyJj56ox+FrDM_tEc=0Ng@mail.gmail.com>
+ <03CA2CDA3EC5415DA229F835BE039994@SRA6>
+In-Reply-To: <03CA2CDA3EC5415DA229F835BE039994@SRA6>
+Date: Tue, 10 Aug 2021 12:21:00 -0700
+Message-ID: <CAHb6LvoiVZq91m-C3iJFC95fYLPHCY3zQo6O0XTUDAJquu5KbQ@mail.gmail.com>
 To: dickroy@alum.mit.edu
 Subject: Re: [Cake] [Starlink] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2:
  Internet Quality workshop CFP for the internet architecture board
@@ -82,41 +84,127 @@ Cc: starlink@lists.bufferbloat.net,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>,
  "Rodney W. Grimes" <starlink@gndrsh.dnsmgr.net>
-Content-Type: multipart/mixed; boundary="===============7343521462315695583=="
+Content-Type: multipart/mixed; boundary="===============8465821427963854104=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============7343521462315695583==
+--===============8465821427963854104==
 Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000a8808305c9378713"
+	boundary="000000000000b2fc2a05c939676c"
 
---000000000000a8808305c9378713
-Content-Type: multipart/alternative; boundary="00000000000094453605c93787ca"
+--000000000000b2fc2a05c939676c
+Content-Type: multipart/alternative; boundary="000000000000aaaccb05c93967e4"
 
---00000000000094453605c93787ca
+--000000000000aaaccb05c93967e4
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-The slides show that for WiFi every transmission produces a complex
-frequency response, aka the h-matrix. This is valid for that one
-transmission only.  The slides show an amplitude plot for a 3 radio device
-hence the 9 elements per the h-matrix. It's assumed that the WiFi STA/AP is
-stationary such that doppler effects aren't a consideration. WiFi isn't a
-car trying to connect to a cell tower.  The plot doesn't show the phase
-effects but they are included as the output of the channel estimate is a
-complex frequency response. Each RX produces the h-matrix ahead of the MAC.
-These may not be symmetric in the real world but that's ok as
-transmission and reception is one way only, i.e. the treating them as
-repcripocol and the matrix as hollows symmetric isn't going to be a "test
-blocker" as the goal is to be able to use software and programmable devices
-to change them in near real time. The current approach used by many using
-butler matrices to produce off-diagonal effects  is woefully inadequate.
-And we're paying about $2.5K per each butler.
+This amplitude only channel estimate shown was taken from radios connected
+using conducted equipment or cables. It illustrates how non-ideal conducted
+equipment based testing is, i.e. our signal processing and MCS rate
+selection engineers aren't being sufficiently challenged!
+
+The cost of $2.5K for a butler matrix is just one component. Each antenna
+is connected to a programmable attenuator. Then the shielded cabling. Then
+one of these per engineer and tens to low hundreds per each automated test
+engineer. This doesn't include the cost of programmers to write the code.
+The expenses grow quickly. Hence the idea to amortize a better design
+across the industry (if viable.)
+
+Modeling the distance matrix (suggestions for a better name?) and realizing
+D1 path loss using a five branch tree and programmable attenuators has
+proven to work for testing things like hidden nodes and for TX op
+arbitrations. The next missing piece is to realize the mixing, the h(n,n)
+below with programmability and at a reasonable price. That's where the
+programmable phase shifters come in. Our chips will dump their chan
+estimates relatively quickly so we can run monte carlos and calibrate the
+equipment, producing the spatial stream eigen values or condition numbers
+as well. Early prototyping showed that phase shifters will affect spatial
+stream powers per the algorithms and this should work. Being able to affect
+both the path loss and mixing within 10 ms of a command seems a reasonable
+ask if using solid state parts. No need for roombas.
+
+
+[image: CodeCogsEqn (2).png]
+
+Of course, all of these RF effects affect network availability and, hence,
+queueing too. We've done a lot of work with iperf 2 around latencies to
+help qualify that. That's released as open source.
+
+Complex indeed,
 
 Bob
 
+On Tue, Aug 10, 2021 at 11:11 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 
-On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
-
+> To add a bit more, as is easily seen below, the amplitudes of each of the
+> transfer functions between the three transmit and three receive antennas
+> are extremely similar.  This is to be expected, of course, since the
+> =E2=80=9Caperture=E2=80=9D of each array is very small compared to the di=
+stance between
+> them.  What is much more interesting and revealing is the relative phases=
+.
+> Obviously this requires coherent receivers, and ultimately if you want to
+> control the spatial distribution of power (aka SDMA (or MIMO in some
+> circles) coherent transmitters. It turns out that just knowing the
+> amplitude of the transfer functions is not really all that useful for
+> anything other than detecting a broken solder joint:^)))
+>
+>
+>
+> Also, do not forget that depending how these experiments were conducted,
+> the estimates are either of the RF channel itself (aka path loss),or of t=
+he
+> RF channel in combination with the transfer functions of the transmitters
+> and//or receivers.  What this means is the CALIBRATION is CRUCIAL!  Those
+> who do not calibrate, are doomed to fail!!!!   I suspect that it is in
+> calibration where the major difference in performance between vendors=E2=
+=80=99=E2=80=99
+> products can be found :^))))
+>
+>
+>
+> It=E2=80=99s complicated =E2=80=A6
+>
+>
+> ------------------------------
+>
+> *From:* Bob McMahon [mailto:bob.mcmahon@broadcom.com]
+> *Sent:* Tuesday, August 10, 2021 10:07 AM
+> *To:* dickroy@alum.mit.edu
+> *Cc:* Rodney W. Grimes; Cake List; Make-Wifi-fast;
+> starlink@lists.bufferbloat.net; codel; cerowrt-devel; bloat
+> *Subject:* Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due Aug
+> 2: Internet Quality workshop CFP for the internet architecture board
+>
+>
+>
+> The slides show that for WiFi every transmission produces a complex
+> frequency response, aka the h-matrix. This is valid for that one
+> transmission only.  The slides show an amplitude plot for a 3 radio devic=
+e
+> hence the 9 elements per the h-matrix. It's assumed that the WiFi STA/AP =
+is
+> stationary such that doppler effects aren't a consideration. WiFi isn't a
+> car trying to connect to a cell tower.  The plot doesn't show the phase
+> effects but they are included as the output of the channel estimate is a
+> complex frequency response. Each RX produces the h-matrix ahead of the MA=
+C.
+> These may not be symmetric in the real world but that's ok as
+> transmission and reception is one way only, i.e. the treating them as
+> repcripocol and the matrix as hollows symmetric isn't going to be a "test
+> blocker" as the goal is to be able to use software and programmable devic=
+es
+> to change them in near real time. The current approach used by many using
+> butler matrices to produce off-diagonal effects  is woefully inadequate.
+> And we're paying about $2.5K per each butler.
+>
+> Bob
+>
+>
+>
+> On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
+>
 > Well, I hesitate to drag this out, however Maxwell's equations and the
 > invariance of the laws of physics ensure that all path loss matrices are
 > reciprocal.  What that means is that at any for any given set of fixed
@@ -130,35 +218,43 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 >
 > Very importantly, path loss is NOT the same as the link loss (aka link
 > budget) which involves tx power and rx noise figure (and in the case of
-> smart antennas, there is a link per spatial stream and how those links are
+> smart antennas, there is a link per spatial stream and how those links ar=
+e
 > managed/controlled really matters, but let's just keep it simple for this
-> discussion) and these generally are different on both ends of a link for a
+> discussion) and these generally are different on both ends of a link for =
+a
 > variety of reasons. The other very important issue is that of the
 > ""measurement plane", or "where tx power and rx noise figure are being
 > measured/referenced to and how well the interface at that plane is
 > "matched".  We generally assume that the matching is perfect, however it
-> never is. All of these effects contribute to the link loss which determines
+> never is. All of these effects contribute to the link loss which determin=
+es
 > the strength of the signal coming out of the receiver (not the receive
 > antenna, the receiver) for a given signal strength coming out of the
 > transmitter (not the transmit antenna, the tx output port).
 >
-> In the real world, things change.  Sources and sinks move as do many of the
+> In the real world, things change.  Sources and sinks move as do many of t=
+he
 > objects around them.  This creates a time-varying RF environment, and now
 > the path loss matrix is a function of time and a few others things, so it
-> matters WHEN something is transmitted, and WHEN it is received, and the two
+> matters WHEN something is transmitted, and WHEN it is received, and the t=
+wo
 > WHEN's are generally separated by "the speed of light" which is a ft/ns
 > roughly. As important is the fact that it's no longer really a path loss
 > matrix containing a single scalar because among other things, the time
 > varying environment induces change in the transmitted waveform on its way
 > to
 > the receiver most commonly referred to as the Doppler effect which means
-> there is a frequency translation/shift for each (multi-)path of which there
-> are in general an uncountably infinite number because this is a continuous
+> there is a frequency translation/shift for each (multi-)path of which the=
+re
+> are in general an uncountably infinite number because this is a continuou=
+s
 > world in which we live (the space quantization experiment being conducted
 > in
 > the central US aside:^)). As a consequence of these physical laws, the
 > entries in the path loss matrix become complex functions of a number of
-> variables including time. These functions are quite often characterized in
+> variables including time. These functions are quite often characterized i=
+n
 > terms of Doppler and delay-spread, terms used to describe in just a few
 > parameters the amount of "distortion" a complex function causes.
 >
@@ -173,11 +269,14 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > To: Bob McMahon
 > Cc: Cake List; Make-Wifi-fast; starlink@lists.bufferbloat.net;
 > codel@lists.bufferbloat.net; cerowrt-devel; bloat
-> Subject: Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2:
+> Subject: Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2=
+:
 > Internet Quality workshop CFP for the internet architecture board
 >
-> > The distance matrix defines signal attenuations/loss between pairs.  It's
-> > straightforward to create a distance matrix that has hidden nodes because
+> > The distance matrix defines signal attenuations/loss between pairs.  It=
+'s
+> > straightforward to create a distance matrix that has hidden nodes becau=
+se
 > > all "signal  loss" between pairs is defined.  Let's say a 120dB
 > attenuation
 > > path will cause a node to be hidden as an example.
@@ -203,7 +302,8 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > > five branch tree values (as demonstrated in the video). There are
 > > limitations to solutions though but I've found those not to be an issue
 > to
-> > date. I've been able to produce hidden nodes quite readily. Add the phase
+> > date. I've been able to produce hidden nodes quite readily. Add the pha=
+se
 > > shifters and spatial stream powers can also be affected, but this isn't
 > > shown in this simple example.
 > >
@@ -216,7 +316,8 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > > > to
 > > > tinker with any of the over-the-air settings (including the number of
 > > > packets
-> > > transmitted in one aggregate), the details of what happen over the air
+> > > transmitted in one aggregate), the details of what happen over the ai=
+r
 > > > don't
 > > > matter much.
 > > >
@@ -225,9 +326,11 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > > > and
 > > > you ignore the hidden transmitter type problems, you will create a
 > > > solution that
-> > > seems to work really well in the lab and falls on it's face out in the
+> > > seems to work really well in the lab and falls on it's face out in th=
+e
 > > > wild
-> > > where spectrum overload and hidden transmitters are the norm (at least
+> > > where spectrum overload and hidden transmitters are the norm (at leas=
+t
 > in
 > > > urban
 > > > areas), not rare corner cases.
@@ -251,14 +354,17 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > > > We
 > > > > want to minimize complexity to necessary and sufficient.
 > > > >
-> > > > The challenge we find is having variability (e.g. montecarlos) that's
+> > > > The challenge we find is having variability (e.g. montecarlos) that=
+'s
 > > > > reproducible and has relevant information. Basically, the distance
 > > > matrices
 > > > > have h-matrices as their elements. Our chips can provide these
 > > > h-matrices.
 > > > >
-> > > > The parts for solid state programmable attenuators and phase shifters
-> > > > aren't very expensive. A device that supports a five branch tree and
+> > > > The parts for solid state programmable attenuators and phase shifte=
+rs
+> > > > aren't very expensive. A device that supports a five branch tree an=
+d
 > 2x2
 > > > > MIMO seems a very good starting point.
 > > > >
@@ -268,27 +374,32 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > > > wrote:
 > > > >
 > > > >> On 8/2/21 4:16 PM, David Lang wrote:
-> > > >>> If you are going to setup a test environment for wifi, you need to
-> > > >> include the ability to make a fe cases that only happen with RF, not
+> > > >>> If you are going to setup a test environment for wifi, you need t=
+o
+> > > >> include the ability to make a fe cases that only happen with RF, n=
+ot
 > > > with
 > > > >> wired networks and
 > > > >>> are commonly overlooked
 > > > >>>
 > > > >>> 1. station A can hear station B and C but they cannot hear each
 > other
-> > > >>> 2. station A can hear station B but station B cannot hear station A
+> > > >>> 2. station A can hear station B but station B cannot hear station=
+ A
 > 3.
 > > > >> station A can hear that station B is transmitting, but not with a
 > strong
 > > > >> enough signal to
-> > > >>> decode the signal (yes in theory you can work around interference,
+> > > >>> decode the signal (yes in theory you can work around interference=
+,
 > but
 > > > >> in practice interference is still a real thing)
 > > > >>>
 > > > >>> David Lang
 > > > >>>
 > > > >>
-> > > >> To add to this, I think you need lots of different station devices,
+> > > >> To add to this, I think you need lots of different station devices=
+,
 > > > >> different capabilities (/n, /ac, /ax, etc)
 > > > >> different numbers of spatial streams, and different distances from
 > the
@@ -300,7 +411,8 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > throughput
 > > > >> levels for different stations would be enough.
 > > > >>
-> > > >> So, a good station emulator setup (and/or pile of real stations) and
+> > > >> So, a good station emulator setup (and/or pile of real stations) a=
+nd
 > a
 > > > few
 > > > >> RF chambers and
@@ -327,13 +439,15 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > > --
 > > This electronic communication and the information and any files
 > transmitted
-> > with it, or attached to it, are confidential and are intended solely for
+> > with it, or attached to it, are confidential and are intended solely fo=
+r
 > > the use of the individual or entity to whom it is addressed and may
 > contain
 > > information that is confidential, legally privileged, protected by
 > privacy
 >
-> > laws, or otherwise restricted from disclosure to anyone else. If you are
+> > laws, or otherwise restricted from disclosure to anyone else. If you ar=
+e
 > > not the intended recipient or the person responsible for delivering the
 > > e-mail to the intended recipient, you are hereby notified that any use,
 > > copying, distributing, dissemination, forwarding, printing, or copying
@@ -356,49 +470,247 @@ On Tue, Aug 10, 2021 at 9:13 AM Dick Roy <dickroy@alum.mit.edu> wrote:
 > https://lists.bufferbloat.net/listinfo/starlink
 >
 >
+> This electronic communication and the information and any files
+> transmitted with it, or attached to it, are confidential and are intended
+> solely for the use of the individual or entity to whom it is addressed an=
+d
+> may contain information that is confidential, legally privileged, protect=
+ed
+> by privacy laws, or otherwise restricted from disclosure to anyone else. =
+If
+> you are not the intended recipient or the person responsible for deliveri=
+ng
+> the e-mail to the intended recipient, you are hereby notified that any us=
+e,
+> copying, distributing, dissemination, forwarding, printing, or copying of
+> this e-mail is strictly prohibited. If you received this e-mail in error,
+> please return the e-mail to the sender, delete it from your computer, and
+> destroy any printed copy of it.
+>
 
--- 
-This electronic communication and the information and any files transmitted 
-with it, or attached to it, are confidential and are intended solely for 
-the use of the individual or entity to whom it is addressed and may contain 
-information that is confidential, legally privileged, protected by privacy 
-laws, or otherwise restricted from disclosure to anyone else. If you are 
-not the intended recipient or the person responsible for delivering the 
-e-mail to the intended recipient, you are hereby notified that any use, 
-copying, distributing, dissemination, forwarding, printing, or copying of 
-this e-mail is strictly prohibited. If you received this e-mail in error, 
-please return the e-mail to the sender, delete it from your computer, and 
+--=20
+This electronic communication and the information and any files transmitted=
+=20
+with it, or attached to it, are confidential and are intended solely for=20
+the use of the individual or entity to whom it is addressed and may contain=
+=20
+information that is confidential, legally privileged, protected by privacy=
+=20
+laws, or otherwise restricted from disclosure to anyone else. If you are=20
+not the intended recipient or the person responsible for delivering the=20
+e-mail to the intended recipient, you are hereby notified that any use,=20
+copying, distributing, dissemination, forwarding, printing, or copying of=
+=20
+this e-mail is strictly prohibited. If you received this e-mail in error,=
+=20
+please return the e-mail to the sender, delete it from your computer, and=
+=20
 destroy any printed copy of it.
 
---00000000000094453605c93787ca
+--000000000000aaaccb05c93967e4
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">The slides show that for WiFi every transmission produces =
-a complex frequency=C2=A0response, aka the h-matrix. This is valid for that=
- one transmission only.=C2=A0 The slides show an amplitude plot for a 3 rad=
-io device hence the 9 elements per the h-matrix. It&#39;s assumed that the =
-WiFi STA/AP is stationary such that doppler effects aren&#39;t a considerat=
-ion. WiFi isn&#39;t a car trying to connect to a cell tower.=C2=A0 The plot=
- doesn&#39;t show the phase effects but they are included as the output of =
-the channel estimate is a complex frequency response. Each RX produces the =
-h-matrix ahead of the MAC. These may not be symmetric in the real world but=
- that&#39;s ok as transmission=C2=A0and reception is one way only, i.e. the=
- treating them as repcripocol and the matrix as hollows symmetric isn&#39;t=
- going to be a &quot;test blocker&quot; as the goal is to be able to use so=
-ftware and programmable devices to change them in near real time. The curre=
-nt approach used by many using butler matrices to produce off-diagonal=C2=
-=A0effects=C2=A0 is woefully inadequate. And we&#39;re paying about $2.5K p=
-er each butler.<br><span id=3D"gmail-docs-internal-guid-c23f4170-7fff-947a-=
-4651-888888f0a88e"><img width=3D"535px;" height=3D"401px;" src=3D"https://l=
-h3.googleusercontent.com/WqWMFHFPo3ltkxkpoyvgPxgdFxmnZpVvpw0NcCTFhGiOTjolvK=
-bP4NugcE-vw1Q3vk9Z7R04YA1k3kQMvyiR5RhcHOjbXbsRMfjLBY-RYML2tFxovzMpTwww5UZiu=
-0Xgxzhi8fFru_g"><br></span>Bob<br><br></div><br><div class=3D"gmail_quote">=
-<div dir=3D"ltr" class=3D"gmail_attr">On Tue, Aug 10, 2021 at 9:13 AM Dick =
-Roy &lt;<a href=3D"mailto:dickroy@alum.mit.edu">dickroy@alum.mit.edu</a>&gt=
-; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
- 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">Well, I=
- hesitate to drag this out, however Maxwell&#39;s equations and the<br>
+<div dir=3D"ltr">This amplitude only channel estimate shown was taken from =
+radios connected using conducted equipment or cables. It illustrates how no=
+n-ideal conducted equipment based testing is, i.e. our signal processing an=
+d MCS rate selection engineers aren&#39;t being sufficiently challenged!<br=
+><br>The cost of $2.5K for a butler matrix is just one component. Each ante=
+nna is connected to a programmable attenuator. Then the shielded cabling. T=
+hen one of these per engineer and tens to low hundreds per each automated t=
+est engineer. This doesn&#39;t include the cost of programmers to write the=
+ code. The=C2=A0expenses grow quickly. Hence the idea to amortize a better =
+design across the industry (if viable.)=C2=A0<br><br>Modeling the distance =
+matrix (suggestions for a better name?) and realizing D1 path loss using a =
+five branch tree=C2=A0and programmable attenuators has proven to work for t=
+esting things like hidden nodes and for TX op arbitrations. The next missin=
+g piece is to realize the mixing, the h(n,n) below with programmability and=
+ at a reasonable price. That&#39;s where the programmable=C2=A0phase shifte=
+rs come in. Our chips will dump their chan estimates relatively quickly so =
+we can run monte carlos and calibrate the equipment, producing the spatial =
+stream eigen values or condition numbers as well. Early prototyping showed =
+that phase shifters will affect spatial stream powers per the algorithms an=
+d this should work. Being able to affect both the path loss and mixing with=
+in 10 ms of a command seems a reasonable ask if using solid state parts. No=
+ need for roombas.<br><br>=C2=A0<br><span id=3D"gmail-docs-internal-guid-60=
+93be35-7fff-d623-ce80-989d0c9ced32"><img width=3D"624px;" height=3D"127px;"=
+ src=3D"https://lh4.googleusercontent.com/SgberCoevZhLxFlOyM7YIaslA2xepHoU2=
+4ShoBBZe0mxshu-waj5uMWdoz3yloAPhDFit3hFV_SRRlWNjIjnXINqTM_xIuFQlM0IEBpEgNMt=
+LZtRzKXWIfD_4g2SI8_tH0fy-nzPknw" alt=3D"CodeCogsEqn (2).png"></span><br><br=
+><div>Of course, all of these RF effects affect network availability and, h=
+ence, queueing too. We&#39;ve done a lot of work with iperf 2 around latenc=
+ies to help qualify that. That&#39;s released as open source.<br><br>Comple=
+x indeed,</div><div><br></div><div>Bob</div></div><br><div class=3D"gmail_q=
+uote"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Aug 10, 2021 at 11:11 A=
+M Dick Roy &lt;<a href=3D"mailto:dickroy@alum.mit.edu">dickroy@alum.mit.edu=
+</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:=
+0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
+
+
+
+
+<u></u>
+<u></u>
+<u></u>
+<u></u>
+
+
+
+
+
+<div lang=3D"EN-US">
+
+<div class=3D"gmail-m_-2322868340610693853Section1">
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy">To add a bit more, a=
+s is easily seen
+below, the amplitudes of each of the transfer functions between the three
+transmit and three receive antennas are extremely similar.=C2=A0 This is to=
+ be
+expected, of course, since the =E2=80=9Caperture=E2=80=9D of each array is =
+very
+small compared to the distance between them.=C2=A0 What is much more
+interesting and revealing is the relative phases.=C2=A0 Obviously this requ=
+ires
+coherent receivers, and ultimately if you want to control the spatial
+distribution of power (aka SDMA (or MIMO in some circles) coherent
+transmitters. It turns out that just knowing the amplitude of the transfer =
+functions
+is not really all that useful for anything other than detecting a broken so=
+lder
+joint:^)))<u></u><u></u></span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
+</span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy">Also, do not forget =
+that depending how
+these experiments were conducted, the estimates are either of the RF channe=
+l itself
+(aka path loss),or of the RF channel in combination with the transfer funct=
+ions
+of the transmitters and//or receivers.=C2=A0 What this means is the CALIBRA=
+TION
+is CRUCIAL!=C2=A0 Those who do not calibrate, are doomed to fail!!!! =C2=A0=
+=C2=A0I
+suspect that it is in calibration where the major difference in performance
+between vendors=E2=80=99=E2=80=99 products can be found :^))))<u></u><u></u=
+></span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
+</span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy">It=E2=80=99s complic=
+ated =E2=80=A6 <u></u><u></u></span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
+</span></font></p>
+
+<div>
+
+<div class=3D"MsoNormal" align=3D"center" style=3D"text-align:center"><font=
+ size=3D"3" face=3D"Times New Roman"><span style=3D"font-size:12pt">
+
+<hr size=3D"3" width=3D"100%" align=3D"center">
+
+</span></font></div>
+
+<p class=3D"MsoNormal"><b><font size=3D"2" face=3D"Tahoma"><span style=3D"f=
+ont-size:10pt;font-family:Tahoma;font-weight:bold">From:</span></font></b><=
+font size=3D"2" face=3D"Tahoma"><span style=3D"font-size:10pt;font-family:T=
+ahoma"> Bob McMahon
+[mailto:<a href=3D"mailto:bob.mcmahon@broadcom.com" target=3D"_blank">bob.m=
+cmahon@broadcom.com</a>] <br>
+<b><span style=3D"font-weight:bold">Sent:</span></b> Tuesday, August 10, 20=
+21
+10:07 AM<br>
+<b><span style=3D"font-weight:bold">To:</span></b> <u></u><a href=3D"mailto=
+:dickroy@alum.mit.edu" target=3D"_blank">dickroy@alum.mit.edu</a><u></u><br=
+>
+<b><span style=3D"font-weight:bold">Cc:</span></b> Rodney W. Grimes; Cake L=
+ist;
+Make-Wifi-fast; <a href=3D"mailto:starlink@lists.bufferbloat.net" target=3D=
+"_blank">starlink@lists.bufferbloat.net</a>; codel; cerowrt-devel; bloat<br=
+>
+<b><span style=3D"font-weight:bold">Subject:</span></b> Re: [Starlink] [Cak=
+e]
+[Make-wifi-fast] [Cerowrt-devel] Due Aug 2: Internet Quality workshop CFP f=
+or
+the internet architecture board</span></font><u></u><u></u></p>
+
+</div>
+
+<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
+e=3D"font-size:12pt"><u></u>=C2=A0<u></u></span></font></p>
+
+<div>
+
+<p class=3D"MsoNormal" style=3D"margin-bottom:12pt"><font size=3D"3" face=
+=3D"Times New Roman"><span style=3D"font-size:12pt">The slides show that fo=
+r
+WiFi every transmission produces a complex frequency=C2=A0response, aka the
+h-matrix. This is valid for that one transmission only.=C2=A0 The slides sh=
+ow
+an amplitude plot for a 3 radio device hence the 9 elements per the h-matri=
+x.
+It&#39;s assumed that the WiFi STA/AP is stationary such that doppler effec=
+ts
+aren&#39;t a consideration. WiFi isn&#39;t a car trying to connect to a cel=
+l
+tower.=C2=A0 The plot doesn&#39;t show the phase effects but they are inclu=
+ded as
+the output of the channel estimate is a complex frequency response. Each RX
+produces the h-matrix ahead of the MAC. These may not be symmetric in the r=
+eal
+world but that&#39;s ok as transmission=C2=A0and reception is one way only,=
+ i.e.
+the treating them as repcripocol and the matrix as hollows symmetric isn&#3=
+9;t
+going to be a &quot;test blocker&quot; as the goal is to be able to use
+software and programmable devices to change them in near real time. The cur=
+rent
+approach used by many using butler matrices to produce
+off-diagonal=C2=A0effects=C2=A0 is woefully inadequate. And we&#39;re payin=
+g about
+$2.5K per each butler.<br>
+<span id=3D"gmail-m_-2322868340610693853gmail-docs-internal-guid-c23f4170-7=
+fff-947a-4651-888888f0a88e"><img width=3D"1200" height=3D"900" id=3D"gmail-=
+m_-2322868340610693853_x0000_i1025" src=3D"https://lh3.googleusercontent.co=
+m/WqWMFHFPo3ltkxkpoyvgPxgdFxmnZpVvpw0NcCTFhGiOTjolvKbP4NugcE-vw1Q3vk9Z7R04Y=
+A1k3kQMvyiR5RhcHOjbXbsRMfjLBY-RYML2tFxovzMpTwww5UZiu0Xgxzhi8fFru_g"><br>
+</span>Bob<u></u><u></u></span></font></p>
+
+</div>
+
+<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
+e=3D"font-size:12pt"><u></u>=C2=A0<u></u></span></font></p>
+
+<div>
+
+<div>
+
+<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
+e=3D"font-size:12pt">On Tue, Aug 10, 2021 at 9:13 AM Dick <u></u><u></u>Roy=
+<u></u><u></u> &lt;<a href=3D"mailto:dickroy@alum.mit.edu" target=3D"_blank=
+">dickroy@alum.mit.edu</a>&gt;
+wrote:<u></u><u></u></span></font></p>
+
+</div>
+
+<blockquote style=3D"border-top:none;border-right:none;border-bottom:none;b=
+order-left:1pt solid rgb(204,204,204);padding:0in 0in 0in 6pt;margin-left:4=
+.8pt;margin-right:0in">
+
+<p class=3D"MsoNormal" style=3D"margin-bottom:12pt"><font size=3D"3" face=
+=3D"Times New Roman"><span style=3D"font-size:12pt">Well, I hesitate to dra=
+g
+this out, however Maxwell&#39;s equations and the<br>
 invariance of the laws of physics ensure that all path loss matrices are<br=
 >
 reciprocal.=C2=A0 What that means is that at any for any given set of fixed=
@@ -421,11 +733,12 @@ is<br>
 discussion) and these generally are different on both ends of a link for a<=
 br>
 variety of reasons. The other very important issue is that of the<br>
-&quot;&quot;measurement plane&quot;, or &quot;where tx power and rx noise f=
-igure are being<br>
+&quot;&quot;measurement plane&quot;, or &quot;where tx power and rx noise
+figure are being<br>
 measured/referenced to and how well the interface at that plane is<br>
 &quot;matched&quot;.=C2=A0 We generally assume that the matching is perfect=
-, however it<br>
+,
+however it<br>
 never is. All of these effects contribute to the link loss which determines=
 <br>
 the strength of the signal coming out of the receiver (not the receive<br>
@@ -434,7 +747,8 @@ transmitter (not the transmit antenna, the tx output port).=C2=A0 =C2=A0<br=
 >
 <br>
 In the real world, things change.=C2=A0 Sources and sinks move as do many o=
-f the<br>
+f
+the<br>
 objects around them.=C2=A0 This creates a time-varying RF environment, and =
 now<br>
 the path loss matrix is a function of time and a few others things, so it<b=
@@ -442,7 +756,8 @@ r>
 matters WHEN something is transmitted, and WHEN it is received, and the two=
 <br>
 WHEN&#39;s are generally separated by &quot;the speed of light&quot; which =
-is a ft/ns<br>
+is a
+ft/ns<br>
 roughly. As important is the fact that it&#39;s no longer really a path los=
 s<br>
 matrix containing a single scalar because among other things, the time<br>
@@ -456,7 +771,8 @@ are in general an uncountably infinite number because this is a continuous<=
 br>
 world in which we live (the space quantization experiment being conducted i=
 n<br>
-the central US aside:^)). As a consequence of these physical laws, the<br>
+the central <u></u><u></u>US<u></u><u></u>
+aside:^)). As a consequence of these physical laws, the<br>
 entries in the path loss matrix become complex functions of a number of<br>
 variables including time. These functions are quite often characterized in<=
 br>
@@ -478,17 +794,20 @@ To: Bob McMahon<br>
 Cc: Cake List; Make-Wifi-fast; <a href=3D"mailto:starlink@lists.bufferbloat=
 .net" target=3D"_blank">starlink@lists.bufferbloat.net</a>;<br>
 <a href=3D"mailto:codel@lists.bufferbloat.net" target=3D"_blank">codel@list=
-s.bufferbloat.net</a>; cerowrt-devel; bloat<br>
+s.bufferbloat.net</a>;
+cerowrt-devel; bloat<br>
 Subject: Re: [Starlink] [Cake] [Make-wifi-fast] [Cerowrt-devel] Due Aug 2:<=
 br>
 Internet Quality workshop CFP for the internet architecture board<br>
 <br>
 &gt; The distance matrix defines signal attenuations/loss between pairs.=C2=
-=A0 It&#39;s<br>
+=A0
+It&#39;s<br>
 &gt; straightforward to create a distance matrix that has hidden nodes beca=
 use<br>
 &gt; all &quot;signal=C2=A0 loss&quot; between pairs is defined.=C2=A0 Let&=
-#39;s say a 120dB<br>
+#39;s
+say a 120dB<br>
 attenuation<br>
 &gt; path will cause a node to be hidden as an example.<br>
 &gt; <br>
@@ -497,10 +816,10 @@ attenuation<br>
 &gt; A=C2=A0 =C2=A0-=C2=A0 =C2=A035=C2=A0 =C2=A0120=C2=A0 =C2=A065<br>
 &gt; B=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0-=C2=A0 =C2=A0 =C2=A0 65=C2=A0 =C2=
 =A065<br>
-&gt; C=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0-=C2=A0 =C2=A0=
- =C2=A0 =C2=A065<br>
-&gt; D=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0-<br>
+&gt; C=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0-=C2=A0 =C2=A0
+=C2=A0 =C2=A065<br>
+&gt; D=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0
+=C2=A0 =C2=A0 =C2=A0-<br>
 &gt; <br>
 &gt; So in the above, AC are hidden from each other but nobody else is. It =
 does<br>
@@ -508,9 +827,10 @@ does<br>
 <br>
 That is not correct, symmetry in the RF world, especially wifi, is rare<br>
 due to topology issues.=C2=A0 A high transmitter, A,=C2=A0 and a low receiv=
-er, B,<br>
-has a good path A - &gt; B, but a very weak path B -&gt; A.=C2=A0 =C2=A0Mul=
-tipathing<br>
+er,
+B,<br>
+has a good path A - &gt; B, but a very weak path B -&gt; A.=C2=A0
+=C2=A0Multipathing<br>
 is another major issue that causes assymtry.<br>
 <br>
 &gt; <br>
@@ -538,7 +858,8 @@ going<br>
 r of<br>
 &gt; &gt; packets<br>
 &gt; &gt; transmitted in one aggregate), the details of what happen over th=
-e air<br>
+e
+air<br>
 &gt; &gt; don&#39;t<br>
 &gt; &gt; matter much.<br>
 &gt; &gt;<br>
@@ -550,16 +871,18 @@ sent,<br>
 a<br>
 &gt; &gt; solution that<br>
 &gt; &gt; seems to work really well in the lab and falls on it&#39;s face o=
-ut in the<br>
+ut in
+the<br>
 &gt; &gt; wild<br>
-&gt; &gt; where spectrum overload and hidden transmitters are the norm (at =
+&gt; &gt; where spectrum overload and hidden transmitters are the norm (at
 least<br>
 in<br>
 &gt; &gt; urban<br>
 &gt; &gt; areas), not rare corner cases.<br>
 &gt; &gt;<br>
 &gt; &gt; you don&#39;t need to include them in every test, but you need to=
- have a way<br>
+ have a
+way<br>
 &gt; &gt; to<br>
 &gt; &gt; configure your lab to include them before you consider any<br>
 &gt; &gt; settings/algorithm<br>
@@ -570,28 +893,32 @@ in<br>
 &gt; &gt; On Mon, 2 Aug 2021, Bob McMahon wrote:<br>
 &gt; &gt;<br>
 &gt; &gt; &gt; We find four nodes, a primary BSS and an adjunct one quite g=
-ood for<br>
+ood
+for<br>
 lots<br>
 &gt; &gt; of<br>
 &gt; &gt; &gt; testing.=C2=A0 The six nodes allows for a primary BSS and tw=
-o adjacent<br>
+o
+adjacent<br>
 ones.<br>
 &gt; &gt; We<br>
 &gt; &gt; &gt; want to minimize complexity to necessary and sufficient.<br>
 &gt; &gt; &gt;<br>
 &gt; &gt; &gt; The challenge we find is having variability (e.g. montecarlo=
-s) that&#39;s<br>
-&gt; &gt; &gt; reproducible and has relevant information. Basically, the di=
-stance<br>
+s)
+that&#39;s<br>
+&gt; &gt; &gt; reproducible and has relevant information. Basically, the
+distance<br>
 &gt; &gt; matrices<br>
 &gt; &gt; &gt; have h-matrices as their elements. Our chips can provide the=
 se<br>
 &gt; &gt; h-matrices.<br>
 &gt; &gt; &gt;<br>
-&gt; &gt; &gt; The parts for solid state programmable attenuators and phase=
- shifters<br>
+&gt; &gt; &gt; The parts for solid state programmable attenuators and phase
+shifters<br>
 &gt; &gt; &gt; aren&#39;t very expensive. A device that supports a five bra=
-nch tree and<br>
+nch tree
+and<br>
 2x2<br>
 &gt; &gt; &gt; MIMO seems a very good starting point.<br>
 &gt; &gt; &gt;<br>
@@ -604,25 +931,29 @@ gt;<br>
 &gt; &gt; &gt;<br>
 &gt; &gt; &gt;&gt; On 8/2/21 4:16 PM, David Lang wrote:<br>
 &gt; &gt; &gt;&gt;&gt; If you are going to setup a test environment for wif=
-i, you need to<br>
+i,
+you need to<br>
 &gt; &gt; &gt;&gt; include the ability to make a fe cases that only happen =
-with RF, not<br>
+with
+RF, not<br>
 &gt; &gt; with<br>
 &gt; &gt; &gt;&gt; wired networks and<br>
 &gt; &gt; &gt;&gt;&gt; are commonly overlooked<br>
 &gt; &gt; &gt;&gt;&gt;<br>
 &gt; &gt; &gt;&gt;&gt; 1. station A can hear station B and C but they canno=
-t hear each<br>
+t
+hear each<br>
 other<br>
-&gt; &gt; &gt;&gt;&gt; 2. station A can hear station B but station B cannot=
- hear station A<br>
+&gt; &gt; &gt;&gt;&gt; 2. station A can hear station B but station B cannot
+hear station A<br>
 3.<br>
 &gt; &gt; &gt;&gt; station A can hear that station B is transmitting, but n=
-ot with a<br>
+ot
+with a<br>
 strong<br>
 &gt; &gt; &gt;&gt; enough signal to<br>
-&gt; &gt; &gt;&gt;&gt; decode the signal (yes in theory you can work around=
- interference,<br>
+&gt; &gt; &gt;&gt;&gt; decode the signal (yes in theory you can work around
+interference,<br>
 but<br>
 &gt; &gt; &gt;&gt; in practice interference is still a real thing)<br>
 &gt; &gt; &gt;&gt;&gt;<br>
@@ -630,23 +961,25 @@ but<br>
 &gt; &gt; &gt;&gt;&gt;<br>
 &gt; &gt; &gt;&gt;<br>
 &gt; &gt; &gt;&gt; To add to this, I think you need lots of different stati=
-on devices,<br>
+on
+devices,<br>
 &gt; &gt; &gt;&gt; different capabilities (/n, /ac, /ax, etc)<br>
 &gt; &gt; &gt;&gt; different numbers of spatial streams, and different dist=
-ances from<br>
+ances
+from<br>
 the<br>
 &gt; &gt; &gt;&gt; AP.=C2=A0 From download queueing perspective, changing<b=
 r>
-&gt; &gt; &gt;&gt; the capabilities may be sufficient while keeping all sta=
-tions at same<br>
+&gt; &gt; &gt;&gt; the capabilities may be sufficient while keeping all
+stations at same<br>
 &gt; &gt; &gt;&gt; distance.=C2=A0 This assumes you are not<br>
 &gt; &gt; &gt;&gt; actually testing the wifi rate-ctrl alg. itself, so diff=
 erent<br>
 throughput<br>
 &gt; &gt; &gt;&gt; levels for different stations would be enough.<br>
 &gt; &gt; &gt;&gt;<br>
-&gt; &gt; &gt;&gt; So, a good station emulator setup (and/or pile of real s=
-tations) and<br>
+&gt; &gt; &gt;&gt; So, a good station emulator setup (and/or pile of real
+stations) and<br>
 a<br>
 &gt; &gt; few<br>
 &gt; &gt; &gt;&gt; RF chambers and<br>
@@ -654,10 +987,12 @@ a<br>
 br>
 &gt; &gt; &gt;&gt;<br>
 &gt; &gt; &gt;&gt;=C2=A0 From upload perspective, I guess same setup would =
-do the job.<br>
+do
+the job.<br>
 &gt; &gt; &gt;&gt; Queuing/fairness might depend a bit more on the<br>
 &gt; &gt; &gt;&gt; station devices, emulated or otherwise, but I guess a cl=
-ever AP could<br>
+ever
+AP could<br>
 &gt; &gt; &gt;&gt; enforce fairness in upstream direction<br>
 &gt; &gt; &gt;&gt; too by implementing per-sta queues.<br>
 &gt; &gt; &gt;&gt;<br>
@@ -668,8 +1003,7 @@ ever AP could<br>
 &gt; &gt; &gt;&gt; Ben Greear &lt;<a href=3D"mailto:greearb@candelatech.com=
 " target=3D"_blank">greearb@candelatech.com</a>&gt;<br>
 &gt; &gt; &gt;&gt; Candela Technologies Inc=C2=A0 <a href=3D"http://www.can=
-delatech.com" rel=3D"noreferrer" target=3D"_blank">http://www.candelatech.c=
-om</a><br>
+delatech.com" target=3D"_blank">http://www.candelatech.com</a><br>
 &gt; &gt; &gt;&gt;<br>
 &gt; &gt; &gt;<br>
 &gt; &gt; &gt;<br>
@@ -705,18 +1039,48 @@ and <br>
 &gt; Starlink mailing list<br>
 &gt; <a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">St=
 arlink@lists.bufferbloat.net</a><br>
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"nor=
-eferrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink<=
-/a><br>
+&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/starlink" target=3D"=
+_blank">https://lists.bufferbloat.net/listinfo/starlink</a><br>
 &gt; <br>
 _______________________________________________<br>
 Starlink mailing list<br>
 <a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">Starlin=
 k@lists.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"noreferr=
-er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
-r>
-<br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" target=3D"_blan=
+k">https://lists.bufferbloat.net/listinfo/starlink</a><u></u><u></u></span>=
+</font></p>
+
+</blockquote>
+
+</div>
+
+<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
+e=3D"font-size:12pt"><br>
+</span></font><font size=3D"2"><span style=3D"font-size:10pt;background:whi=
+te">This
+electronic communication and the information and any files transmitted with=
+ it,
+or attached to it, are confidential and are intended solely for the use of =
+the
+individual or entity to whom it is addressed and may contain information th=
+at
+is confidential, legally privileged, protected by privacy laws, or otherwis=
+e
+restricted from disclosure to anyone else. If you are not the intended
+recipient or the person responsible for delivering the e-mail to the intend=
+ed
+recipient, you are hereby notified that any use, copying, distributing,
+dissemination, forwarding, printing, or copying of this e-mail is strictly
+prohibited. If you received this e-mail in error, please return the e-mail =
+to
+the sender, delete it from your computer, and destroy any printed copy of i=
+t.</span></font><u></u><u></u></p>
+
+</div>
+
+</div>
+
+
 </blockquote></div>
 
 <br>
@@ -732,9 +1096,9 @@ uting, dissemination, forwarding, printing, or copying of this e-mail is st=
 rictly prohibited. If you received this e-mail in error, please return the =
 e-mail to the sender, delete it from your computer, and destroy any printed=
  copy of it.</font></span>
---00000000000094453605c93787ca--
+--000000000000aaaccb05c93967e4--
 
---000000000000a8808305c9378713
+--000000000000b2fc2a05c939676c
 Content-Type: application/pkcs7-signature; name="smime.p7s"
 Content-Transfer-Encoding: base64
 Content-Disposition: attachment; filename="smime.p7s"
@@ -805,18 +1169,18 @@ bPF1uuJM+dGLJLheUizCr5J/OBEdENg+DSmrqoZ+kZd76iRaF2CkhboR2394Ft8lFlKQiU0q8lnR
 9/kdZ0F0iCcUfhaLaGYWujW7N0LZ+rQuTfuPGLx9zZNeNMWSZi/Pc8vdCO7EnlIxggJtMIICaQIB
 ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
 bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwYS+5PXokx35blu9EwDQYJ
-YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIDhA3kTUYnm5j+3vafEQ5iFlQx6am7H/CpBd
-79xRlekkMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDgxMDE3
-MDY1OVowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
+YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIFqefVAQ2275jItSeiweWBHYDLZXAYyQXZsW
+lQbCKGNBMBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIxMDgxMDE5
+MjExM1owaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
 AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
-BgkqhkiG9w0BAQEFAASCAQBYT/MTPyeUON3WnHy5Qym5kdAFwHcRWk26nlElzwf7wHiX5mxPIbW5
-RnCTCA1z3xtg97aeWVcKFZlZMZKJTx1NIkTK0doBURNWXj7x8nTmn7N9jhhyza3hAKB4/mf+Lo4F
-KUNEin5ZI9MrlfnTheMFounzwbn/k0u6dE3GyDuJBkhAZqEO8b6VWfrtDYfK9QsfgSKwrHFa55z9
-So0phWiTbQ/HNIqqLcZ+oHTkLNEaamiYML3/R7UZXaHqN5CXKbpoMP0Ak0/6oHcrlko1cZ24zjbU
-wn4jaFGQiP8IJUUPuAwOuvzyOpPI5DpFdxEr1SLmoE9AG7olehUirHAfe6IA
---000000000000a8808305c9378713--
+BgkqhkiG9w0BAQEFAASCAQBo3i6VLtqpDkx3ezq6ucyt1wnqPh7eExUA6kk9XOtOTIHhqnFGmLDv
+eF1UZYDMKhhcQ9D/rBlq6ne+IXgF9cCWQAag0Ux2wJCmsZh+UlIIWwO30+PCPQ6k8hG4m4yvF3Q9
+cWQT6cdp3cs3vxwnWaWmWxhvwXkPK46iyKw/ipcn/dcofFM1EPMwX4iAdz3YkdWk+wxr0yAu96Sg
+s/tpIKJ9qXpBKyyKZsiL7zMwfnefgCb7HzHoq6Xd3eu6fnfTsAOTJYy9nqGNGEPcnOtlpXKTJutt
+BevxNb/uIRvrPI9K7lFkFfj3a/OBDVtrCsC5OkC0jafxNXk7CritDishnaUA
+--000000000000b2fc2a05c939676c--
 
---===============7343521462315695583==
+--===============8465821427963854104==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -826,4 +1190,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============7343521462315695583==--
+--===============8465821427963854104==--
