@@ -2,84 +2,73 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 43FFD3E8556
-	for <lists+cake@lfdr.de>; Tue, 10 Aug 2021 23:33:32 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 767573E8557
+	for <lists+cake@lfdr.de>; Tue, 10 Aug 2021 23:33:33 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 322353CB42;
+	by lists.bufferbloat.net (Postfix) with ESMTP id 4EFA93CB6C;
 	Tue, 10 Aug 2021 17:33:27 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1628631207;
-	bh=qvmTN/Eopnh+/lpJ7LAV1yC+ZY52Qcyji4C6M0VNNG0=;
-	h=From:To:References:In-Reply-To:Date:Subject:List-Id:
+	bh=Xkho1iYT4snQumQ69drXRF0oombJgB/uWY3a+waM2Rk=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Reply-To:Cc:From;
-	b=GdbG8laTv8z0yUK4/ORtWbzVfwL/QhfRZ43P1DjxvNRYtXvTHnMSDttFQal9O+WOj
-	 L3Qp+cxVg/aOYySUfkDXUBHX3+wlLZbe9pdxkoiGyzoqWY1/m69ounL3JFFro27fp6
-	 8GWCw9lOtx44A/8PnxXdlV1WA+13bV/zJB4lil233Du/3iGSicRdZe2aBdElfSgm/D
-	 aMa+dzD0xHBc65JgG8Zu7sjYeB9PfLMsGBZEe9YE3AG+u56WMcdSKdOO+pdUevJC+1
-	 Hrl7hjqqHzqRm4wyXU4gz7JlH38wJl0j2Tf8RIRhHQsU9WLUBsOzc9q7PA+3xdqEWE
-	 ntYAlspO5pJ/Q==
+	 Cc:From;
+	b=LjQ000qW4GiYB4uBjVMrEoK408JHirlWLx02/cLkFDy2tanj7/pubErFAXTJh2jWH
+	 LylIoZRalUjBJOO7vrMR3bWBJL0rKjI3zcdknpxyaSNazgtoYNLTReiUY5pf7k9yKv
+	 /VTLaufdyqzSlxk9jVWr/K953yElyi4+uf9SvfeZIrwLz6KD/qhoSz7/fR+Bc+4mBd
+	 A2G+GnGNAtvP13sjiea+XD2NUtw1IZgsBp/nYUNe9uecia+u1cJ38qBY7SHYFTC4f5
+	 dExpeGvZVKkiHENRUr7Gna+eXF2/AglO9dD/Z3mv6fADC8wTSdHNfimssg9YaZXvfT
+	 jV5mNBJ5arugA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from bosmailout03.eigbox.net (bosmailout03.eigbox.net [66.96.185.3])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256
- bits)) (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 89BAA3B2A4;
- Tue, 10 Aug 2021 16:16:20 -0400 (EDT)
-Received: from bosmailscan02.eigbox.net ([10.20.15.2])
- by bosmailout03.eigbox.net with esmtp (Exim)
- id 1mDYAe-0001mp-4G; Tue, 10 Aug 2021 16:16:20 -0400
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
- d=alum.mit.edu; s=dkim; h=Sender:Content-Type:MIME-Version:Message-ID:Date:
- Subject:In-Reply-To:References:Cc:To:From:Reply-To:Content-Transfer-Encoding:
- Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
- Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
- List-Subscribe:List-Post:List-Owner:List-Archive;
- bh=VwSSSEl/t3LhzdPG81tDhwwpISqXxgVxf1VBHcwJNrE=; b=L5TfceIF7tCUzaRofXGU2BJQas
- t54nE8ns9ih9b3Sj0QRSmNK+I+kjTZbqv7G+GkqkWCg4s2aDKVXUhGdrIvP52yYOUU2Z2kzGxV2cj
- RuqhDmWKHLL5RLaArYZl6ejiLf0on54ITAKoMj79dMhXNNhhM4bgKNVFbGwZQeXEWt5hwzOSDGIDu
- 34d6Qhw+LTwPcaimDUwLn89dewhMTI06wr2dqyCOwB+tQicwLYKEIIhyMH3nqtCv/x/voLG7CipzH
- XUyIz2NlPzHeZ9RdBb4d4cp2DTlvPDhNMfTETPFlbY3UZvccZM+H6SgB5fj9SOedWxEXOpt8Z3UdA
- ZY7Hpkjw==;
-Received: from [10.115.3.34] (helo=bosimpout04)
- by bosmailscan02.eigbox.net with esmtp (Exim)
- id 1mDYAd-0006fp-S2; Tue, 10 Aug 2021 16:16:19 -0400
-Received: from bosauthsmtp17.yourhostingaccount.com ([10.20.18.17])
- by bosimpout04 with 
- id fwGG2500B0N5uqq01wGKKB; Tue, 10 Aug 2021 16:16:19 -0400
-X-Authority-Analysis: v=2.1 cv=asA8CEpV c=1 sm=1 tr=0
- a=f4kFLigMKr8AH7rIJ//qJA==:117 a=x+7tlP9+fMpTIVJEmcsKvw==:17
- a=L9H7d07YOLsA:10 a=9cW_t1CCXrUA:10 a=s5jvgZ67dGcA:10 a=MhDmnRu9jo8A:10
- a=Wo7qeYC63mUA:10 a=r77TgQKjGQsHNAKrUKIA:9 a=hPoJL0YCAAAA:8
- a=NNP_xJrmPD_ohMxKK8QA:9 a=CjuIK1q_8ugA:10 a=SSmOFEACAAAA:8
- a=QdQXN5mmsqSB4wWReGcA:9 a=6sKWoUBcLqHEHAFD:21 a=gKO2Hq4RSVkA:10
- a=UiCQ7L4-1S4A:10 a=hTZeC7Yk6K0A:10 a=frz4AuCg-hUA:10
-Received: from c-73-222-32-85.hsd1.ca.comcast.net ([73.222.32.85]:57781
- helo=SRA6) by bosauthsmtp17.eigbox.net with esmtpa (Exim)
- id 1mDYAa-0004RF-BX; Tue, 10 Aug 2021 16:16:16 -0400
-From: "Dick Roy" <dickroy@alum.mit.edu>
-To: "'Bob McMahon'" <bob.mcmahon@broadcom.com>
+Received: from mail-pj1-x102f.google.com (mail-pj1-x102f.google.com
+ [IPv6:2607:f8b0:4864:20::102f])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+ (No client certificate requested)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id DEF2B3CB38
+ for <cake@lists.bufferbloat.net>; Tue, 10 Aug 2021 16:33:25 -0400 (EDT)
+Received: by mail-pj1-x102f.google.com with SMTP id
+ g12-20020a17090a7d0cb0290178f80de3d8so829317pjl.2
+ for <cake@lists.bufferbloat.net>; Tue, 10 Aug 2021 13:33:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=aterlo.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=DZqTksaTFYUnZR6SKgfL/hpeyuzNiPsPMw1Vdg2LDd0=;
+ b=yt6YmIZazkob1nBxuGY2M/ubQLYo/246sILYRuH8tCblIVSitWYWovzJmYtufzCzPn
+ xamxOZkmwnntsWcwyA2qHG6iUf9EJYrIJKeSbJQZDXlunp4iFIDj8cKrkjNyPAFQgLG6
+ a6OdUS2o9Y2FoRZGYOsm555J9tIROhaC3CrzE=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20161025;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=DZqTksaTFYUnZR6SKgfL/hpeyuzNiPsPMw1Vdg2LDd0=;
+ b=uQ/jSwB5+j1pR+8Re+SSNn2GL2NBOnJ9s9X/bGxM9ENEb08SN4wzIHcW8p4DYja3Qp
+ BwTlD5B1j3EmqUUw29Vznd527a1e7kdIfkGtz3FbWpwnALgIXr0hqtJHfcs33g0cqaoA
+ QyLvhLeMskZWsBCN1P9sr/ob/WjI1SJpcSef9CiRMDrBYoEwdfvM9euadxJuMd3tfu2t
+ JAj/Jv9jnBCmFVhm/Wiw9Vl+wYtlI+j1hkF6dbV6oHkvmNzh26KatHiDDQ37HYiIEVWZ
+ Dbz20wn01CtG11K1TTpiaj2QD18Y2qVpFYiYS8HP999HnQpb2zLyebLx4tuXqrZqfjMr
+ 7iYA==
+X-Gm-Message-State: AOAM531dBICvFCN6/c96JLnwmgjZiJ4KnwfBc0eEVaNsSqcb4VbxJ0AG
+ wlV4s2JOLsFiPYpc+4Yrn137spJCDedr9lO5qoYB9Q==
+X-Google-Smtp-Source: ABdhPJxauuGNX+aPNSDtwCFrytkAjqprQyNGPTF9iI8LxvlBt25nmDNuUi9ppvK26Nhn7M5BdEDGQp6yB0hyMRJ5uao=
+X-Received: by 2002:a17:902:7208:b029:12c:9c9d:e0bb with SMTP id
+ ba8-20020a1709027208b029012c9c9de0bbmr1277549plb.44.1628627604940; Tue, 10
+ Aug 2021 13:33:24 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAHb6LvqfRxKU0BW04ypRcPDpCcWymnS6qzb3gneQSbBrAbRhHQ@mail.gmail.com>
  <202108101410.17AEAR4w075939@gndrsh.dnsmgr.net>
  <5AF5551E2A7041168E7071FDA0F6B8EC@SRA6>
  <CAHb6LvpAmUKgsMAoZGrbAvS01DF=yWyJj56ox+FrDM_tEc=0Ng@mail.gmail.com>
  <03CA2CDA3EC5415DA229F835BE039994@SRA6>
  <CAHb6LvoiVZq91m-C3iJFC95fYLPHCY3zQo6O0XTUDAJquu5KbQ@mail.gmail.com>
-In-Reply-To: <CAHb6LvoiVZq91m-C3iJFC95fYLPHCY3zQo6O0XTUDAJquu5KbQ@mail.gmail.com>
-Date: Tue, 10 Aug 2021 13:16:05 -0700
-Organization: SRA
-Message-ID: <92A399A23FEE4C52ADFC1734E6840756@SRA6>
-MIME-Version: 1.0
-X-Mailer: Microsoft Office Outlook 11
-Thread-Index: AdeOHOTTGFCx3Ls7RHKZxN6fDRBwQQAB2MsA
-X-MimeOLE: Produced By Microsoft MimeOLE
-X-EN-UserInfo: f809475445fb8041985048e338e1a001:931c98230c6409dcc37fa7e93b490c27
-X-EN-AuthUser: dickroy@intellicommunications.com
-X-EN-OrigIP: 73.222.32.85
-X-EN-OrigHost: c-73-222-32-85.hsd1.ca.comcast.net
+ <92A399A23FEE4C52ADFC1734E6840756@SRA6>
+In-Reply-To: <92A399A23FEE4C52ADFC1734E6840756@SRA6>
+From: Jeremy Austin <jeremy@aterlo.com>
+Date: Tue, 10 Aug 2021 12:33:11 -0800
+Message-ID: <CACw=56K_Sj24FAO17cY4vDYhe1-gAXW_fQKLSBKSMqSE0kCRmA@mail.gmail.com>
+To: dickroy@alum.mit.edu
 X-Mailman-Approved-At: Tue, 10 Aug 2021 17:33:25 -0400
-Subject: [Cake] Anhyone have a spare couple a hundred million ... Elon may
-	need to start a go-fund-me page!
+Subject: Re: [Cake] [Starlink] Anhyone have a spare couple a hundred million
+ ... Elon may need to start a go-fund-me page!
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -91,149 +80,176 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Reply-To: dickroy@alum.mit.edu
-Cc: starlink@lists.bufferbloat.net,
- 'Make-Wifi-fast' <make-wifi-fast@lists.bufferbloat.net>,
- 'Cake List' <cake@lists.bufferbloat.net>,
- 'codel' <codel@lists.bufferbloat.net>,
- 'cerowrt-devel' <cerowrt-devel@lists.bufferbloat.net>,
- 'bloat' <bloat@lists.bufferbloat.net>,
- "'Rodney W. Grimes'" <starlink@gndrsh.dnsmgr.net>
-Content-Type: multipart/mixed; boundary="===============1948029750821885166=="
+Cc: Cake List <cake@lists.bufferbloat.net>,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ Bob McMahon <bob.mcmahon@broadcom.com>, starlink@lists.bufferbloat.net,
+ codel <codel@lists.bufferbloat.net>,
+ cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============5545935058255628616=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-This is a multi-part message in MIME format.
+--===============5545935058255628616==
+Content-Type: multipart/alternative; boundary="000000000000dd3d0505c93a6975"
 
---===============1948029750821885166==
-Content-Type: multipart/alternative;
-	boundary="----=_NextPart_000_02B2_01D78DE9.E6968700"
-
-This is a multi-part message in MIME format.
-
-------=_NextPart_000_02B2_01D78DE9.E6968700
-Content-Type: text/plain;
-	charset="us-ascii"
-Content-Transfer-Encoding: 7bit
-
-You may find this of some relevance!
-
- 
-
-https://arstechnica.com/tech-policy/2021/07/ajit-pai-apparently-mismanaged-9
--billion-fund-new-fcc-boss-starts-cleanup/
-
- 
-
-Cheers (or whatever!),
-
- 
-
-RR
-
- 
-
-
-------=_NextPart_000_02B2_01D78DE9.E6968700
-Content-Type: text/html;
-	charset="us-ascii"
+--000000000000dd3d0505c93a6975
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<html xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
-xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
-xmlns=3D"http://www.w3.org/TR/REC-html40">
+A 5.7% reduction in funded locations for StarLink is=E2=80=A6 not dramatic.=
+ If the
+project falls on that basis, they've got bigger problems. Much of that
+discrepancy falls squarely on the shoulders of the FCC and incumbent ISPs
+filing form 477, as well as the RDOF auction being held before improving
+mapping =E2=80=94 as Rosenworcel pointed out. The state of broadband mappin=
+g is
+still dire.
 
-<head>
-<META HTTP-EQUIV=3D"Content-Type" CONTENT=3D"text/html; =
-charset=3Dus-ascii">
-<meta name=3DGenerator content=3D"Microsoft Word 11 (filtered medium)">
-<style>
-<!--
- /* Font Definitions */
- @font-face
-	{font-family:"MS Mincho";
-	panose-1:2 2 6 9 4 2 5 8 3 4;}
-@font-face
-	{font-family:"\@MS Mincho";
-	panose-1:0 0 0 0 0 0 0 0 0 0;}
- /* Style Definitions */
- p.MsoNormal, li.MsoNormal, div.MsoNormal
-	{margin:0in;
-	margin-bottom:.0001pt;
-	font-size:12.0pt;
-	font-family:"Times New Roman";}
-a:link, span.MsoHyperlink
-	{color:blue;
-	text-decoration:underline;}
-a:visited, span.MsoHyperlinkFollowed
-	{color:blue;
-	text-decoration:underline;}
-span.EmailStyle17
-	{mso-style-type:personal-reply;
-	font-family:Arial;
-	color:navy;}
-@page Section1
-	{size:8.5in 11.0in;
-	margin:1.0in 1.25in 1.0in 1.25in;}
-div.Section1
-	{page:Section1;}
--->
-</style>
+If I felt like the reallocation of funds would be 100% guaranteed to
+benefit the end Internet user=E2=80=A6 I'd cheer too.
 
-</head>
+If.
 
-<body lang=3DEN-US link=3Dblue vlink=3Dblue>
+JHA
 
-<div class=3DSection1>
+On Tue, Aug 10, 2021 at 12:16 PM Dick Roy <dickroy@alum.mit.edu> wrote:
 
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'>You may find this of some =
-relevance!<o:p></o:p></span></font></p>
+> You may find this of some relevance!
+>
+>
+>
+>
+> https://arstechnica.com/tech-policy/2021/07/ajit-pai-apparently-mismanage=
+d-9-billion-fund-new-fcc-boss-starts-cleanup/
+>
+>
+>
+> Cheers (or whatever!),
+>
+>
+>
+> RR
+>
+>
+> _______________________________________________
+> Starlink mailing list
+> Starlink@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/starlink
+>
 
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
 
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'><a
-href=3D"https://arstechnica.com/tech-policy/2021/07/ajit-pai-apparently-m=
-ismanaged-9-billion-fund-new-fcc-boss-starts-cleanup/">https://arstechnic=
-a.com/tech-policy/2021/07/ajit-pai-apparently-mismanaged-9-billion-fund-n=
-ew-fcc-boss-starts-cleanup/</a><o:p></o:p></span></font></p>
+--=20
+--
+Jeremy Austin
+Sr. Product Manager
+Preseem | Aterlo Networks
+preseem.com
 
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+Book a Call: https://app.hubspot.com/meetings/jeremy548
+Phone: 1-833-733-7336 x718
+Email: jeremy@preseem.com
 
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'>Cheers (or =
-whatever!),<o:p></o:p></span></font></p>
+Stay Connected with Newsletters & More:
+*https://preseem.com/stay-connected/* <https://preseem.com/stay-connected/>
 
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'><o:p>&nbsp;</o:p></span></font></p>
+--000000000000dd3d0505c93a6975
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-<p class=3DMsoNormal><font size=3D2 color=3Dnavy face=3DArial><span =
-style=3D'font-size:
-10.0pt;font-family:Arial;color:navy'>RR<o:p></o:p></span></font></p>
+<div dir=3D"ltr">A 5.7% reduction in funded locations for StarLink is=E2=80=
+=A6 not dramatic. If the project falls on that basis, they&#39;ve got bigge=
+r problems. Much of that discrepancy falls squarely on the shoulders of the=
+ FCC and incumbent ISPs filing form 477, as well as the RDOF auction being =
+held before improving mapping =E2=80=94 as Rosenworcel pointed out. The sta=
+te of broadband mapping is still dire.<div><br></div><div>If I felt like th=
+e reallocation of funds would be 100% guaranteed to benefit the end Interne=
+t user=E2=80=A6 I&#39;d cheer too.=C2=A0</div><div><br></div><div>If.</div>=
+<div><br></div><div>JHA</div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">On Tue, Aug 10, 2021 at 12:16 PM Dick Roy &lt=
+;<a href=3D"mailto:dickroy@alum.mit.edu">dickroy@alum.mit.edu</a>&gt; wrote=
+:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.=
+8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">
 
-<p class=3DMsoNormal><font size=3D3 face=3D"Times New Roman"><span =
-style=3D'font-size:
-12.0pt'><o:p>&nbsp;</o:p></span></font></p>
+
+
+
+
+
+
+
+<div lang=3D"EN-US">
+
+<div class=3D"gmail-m_-2170359048779548105Section1">
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy">You may find this of=
+ some relevance!<u></u><u></u></span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
+</span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy"><a href=3D"https://a=
+rstechnica.com/tech-policy/2021/07/ajit-pai-apparently-mismanaged-9-billion=
+-fund-new-fcc-boss-starts-cleanup/" target=3D"_blank">https://arstechnica.c=
+om/tech-policy/2021/07/ajit-pai-apparently-mismanaged-9-billion-fund-new-fc=
+c-boss-starts-cleanup/</a><u></u><u></u></span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
+</span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy">Cheers (or whatever!=
+),<u></u><u></u></span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy"><u></u>=C2=A0<u></u>=
+</span></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"2" color=3D"navy" face=3D"Arial"><span=
+ style=3D"font-size:10pt;font-family:Arial;color:navy">RR<u></u><u></u></sp=
+an></font></p>
+
+<p class=3D"MsoNormal"><font size=3D"3" face=3D"Times New Roman"><span styl=
+e=3D"font-size:12pt"><u></u>=C2=A0<u></u></span></font></p>
 
 </div>
 
-</body>
-
-</html>
-
-------=_NextPart_000_02B2_01D78DE9.E6968700--
+</div>
 
 
---===============1948029750821885166==
+_______________________________________________<br>
+Starlink mailing list<br>
+<a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">Starlin=
+k@lists.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"noreferr=
+er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
+r>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+ class=3D"gmail_signature"><div dir=3D"ltr"><div>--</div><div>Jeremy Austin=
+</div><div>Sr. Product Manager</div><div>Preseem | Aterlo Networks</div><di=
+v><a href=3D"http://preseem.com" target=3D"_blank">preseem.com</a></div><di=
+v><br></div><div>Book a Call: <a href=3D"https://app.hubspot.com/meetings/j=
+eremy548" target=3D"_blank">https://app.hubspot.com/meetings/jeremy548</a><=
+/div><div>Phone: 1-833-733-7336 x718</div><div>Email: <a href=3D"mailto:jer=
+emy@preseem.com" target=3D"_blank">jeremy@preseem.com</a></div><div><br></d=
+iv><div><span style=3D"color:rgb(23,43,77);font-family:-apple-system,system=
+-ui,&quot;Segoe UI&quot;,Roboto,&quot;Noto Sans&quot;,Ubuntu,&quot;Droid Sa=
+ns&quot;,&quot;Helvetica Neue&quot;,sans-serif;font-size:16px;letter-spacin=
+g:-0.08px;white-space:pre-wrap">Stay Connected with Newsletters &amp; More:=
+=C2=A0</span><a href=3D"https://preseem.com/stay-connected/" title=3D"https=
+://preseem.com/stay-connected/" style=3D"color:rgb(0,82,204);font-family:-a=
+pple-system,system-ui,&quot;Segoe UI&quot;,Roboto,&quot;Noto Sans&quot;,Ubu=
+ntu,&quot;Droid Sans&quot;,&quot;Helvetica Neue&quot;,sans-serif;font-size:=
+16px;letter-spacing:-0.08px;white-space:pre-wrap" target=3D"_blank"><u>http=
+s://preseem.com/stay-connected/</u></a><br></div></div></div>
+
+--000000000000dd3d0505c93a6975--
+
+--===============5545935058255628616==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -243,5 +259,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============1948029750821885166==--
-
+--===============5545935058255628616==--
