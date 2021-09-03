@@ -2,73 +2,73 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7FD04400274
-	for <lists+cake@lfdr.de>; Fri,  3 Sep 2021 17:38:27 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3783740034B
+	for <lists+cake@lfdr.de>; Fri,  3 Sep 2021 18:29:35 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id D72F33CB41;
-	Fri,  3 Sep 2021 11:38:25 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id B4DA93CB42;
+	Fri,  3 Sep 2021 12:29:33 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1630683505;
-	bh=IO9wrYptqL+je5gLHQHtcMIVJBgS8yhZ8vyYHxfnhu8=;
-	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1630686573;
+	bh=cL+/ULVFtzQwtiXVvNHobZMf5O3murEosvUDvA5To3A=;
+	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=fVMZmv61Yc5dmjkk1v/+HW+aJ4d7kze1N+NNeTVeg+tcXda18ak/Qt0jAm4EzR0z3
-	 F0ApLVc0fNiniEbBLx1CkaeuPWEZu8Z7+g8uG8mChACeNF5HbSrkqeN+FBoTSin0GW
-	 CI5IqpgScyY+hMbwxHxLY/N82q22WXFVidbjLsA3+OFqMGoGn7HK5MBiJwMgpkynxf
-	 UIE87HURouTdkh9ssPsNqAhILTIuG+I5XskOUry7eZEcXkW+Jqtrduxwe/i8ibqpvX
-	 neBuPWyNDBCRZ+chAk8jlJ5ULvQtP0q16JDyHX+vmLcPIRbl09HQe0PKPEj6lP4GuX
-	 PRzbKHX7PuNNA==
+	 From;
+	b=p4KoZilQbOej4V8S7cKUSH2SGFfMWtzdmgrH0HF8nsQGQz09om9HN2HFE1L2VUWAH
+	 3jYFKhKHYxBXBNJRX4uX/mBfeL+VOyGVguSL1Km/p1VYQz7IJ814na5jfQT1xVRb1X
+	 E99CmsZLP8PVew2kpIy7Z4Wu5CA5ZlPr7lsouNRBYj9JU7RK8z2P3ryTVQ3wh9a7YB
+	 WYBNstmiKSDTXBANF/RNGQd4TyDvUt6qlHR4o73/owmAjJr12n2vv7rFel4sBBCEqT
+	 LGtanFscfBqNzNiCm9ZGnXmRo92rgdM7JFZ1uAvyA5/jQEEJGHbH9xEWwAg4X9f4/e
+	 KkgWt74KXrveA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x136.google.com (mail-lf1-x136.google.com
- [IPv6:2a00:1450:4864:20::136])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 40B193B29E
- for <cake@lists.bufferbloat.net>; Fri,  3 Sep 2021 11:38:24 -0400 (EDT)
-Received: by mail-lf1-x136.google.com with SMTP id f18so12498933lfk.12
- for <cake@lists.bufferbloat.net>; Fri, 03 Sep 2021 08:38:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=bzqPZmxT395QOJFQiwSb6IbqIGaBIwr/8xCH6sqNK7M=;
- b=mp9DoctFFAltv5PX55MY+K5kNygHrD1lJpIjKHaVTC5BMubtTqu4wFfYed168MHlNX
- PNJO7n5lCE+0TZwdyg63DdI6bAWJagfmW4chkpLaOW2D3Wun7LpTi5k4NHZ7rMlGIjdB
- 5mVV0f3FWd7DSs+vvK33O06Ix0OYMz5yxHNlq4+uVZgwUv3s8Yce9BMcYV6oOjBHIm7Y
- U5OKYYD9nEFzh8bFrbXa8QcP/NBUylTDKBEjtn0lBYguEuzwALmtyMvRWRcX76IZF0fK
- Sc0RHsSsis9zQPhwgYETfTU5ewprtUqc0pKnT5d3Ju/+jVvgWibh6nb4cWmxYS32QB2k
- mxIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20161025;
- h=x-gm-message-state:mime-version:subject:from:in-reply-to:date:cc
- :content-transfer-encoding:message-id:references:to;
- bh=bzqPZmxT395QOJFQiwSb6IbqIGaBIwr/8xCH6sqNK7M=;
- b=iellbeY9kZleb51vFXYySxxJUqDHxqol8qyWFNQ2vsJtLWlvnSpqFBGrx0eLzRWqgY
- fE+c4G6lUkC8H/SvL3mIff6wL63zOtyBleryQqeCsbFqJD6Q7JIummyyVN3BaqJGF4sn
- udXhImv0121DowLAm+cpIQftKvkL9w0bRL4c+fN+KXQQCumjwvthAfDztq4omEL/0+vU
- zF1tESorvxl/oQ6nfUbVnMS8i2G/lSVR+LPCIuzp84PjVs3BxGqqQoH9o9xyxEy0BcgX
- C+d2A/mnIw8kh3Ww9hv/ws3FLIm1CWa1Ckns7tVOPhHZ33nEQ/fgOoSyfK3GTqm1yMOi
- LZuA==
-X-Gm-Message-State: AOAM533iGpg/eOFDuA9JhPluiN4ZB4sRPo3b4JjzkXFwiHUDZSzzcAty
- 5OXWtscXlXzAJikeQIma7uA=
-X-Google-Smtp-Source: ABdhPJyiumPZl4oH00opXlULXrCDx27as52rm4kSdLMrUx3hWhW4S6Wi/hRoJ6DisvQmSiONNxpZsg==
-X-Received: by 2002:a19:7406:: with SMTP id v6mr828606lfe.669.1630683502924;
- Fri, 03 Sep 2021 08:38:22 -0700 (PDT)
-Received: from smtpclient.apple (178-55-70-16.bb.dnainternet.fi.
- [178.55.70.16])
- by smtp.gmail.com with ESMTPSA id i6sm584436lja.112.2021.09.03.08.38.22
- (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
- Fri, 03 Sep 2021 08:38:22 -0700 (PDT)
-Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.100.0.2.22\))
-From: Jonathan Morton <chromatix99@gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 355CC3B29E
+ for <cake@lists.bufferbloat.net>; Fri,  3 Sep 2021 12:29:32 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1630686544;
+ bh=aXHfslRPTunbLzKCah1AFaOFtpZ4r+wJR4XC896tch4=;
+ h=X-UI-Sender-Class:Date:From:To:Subject:In-Reply-To:References;
+ b=Q3yQkI3bly8+7v3tr8r36XyHEglHqFMRIQTidALr+4sua/ZM38AEbCuUiSC6obdgy
+ B/7wEtXMKcmXmKBBUz7ax8EKXZlHecAoTSODSZEgSKc6EPHBq1P23WtlZdsHYri6WD
+ exC9UyAUV3bDQxke1xIAPkoZ0VYaiUmiAde8pVro=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [127.0.0.1] ([77.3.23.232]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mgeo8-1muQwu2teW-00h8Hy; Fri, 03
+ Sep 2021 18:29:04 +0200
+Date: Fri, 03 Sep 2021 18:29:02 +0200
+From: Sebastian Moeller <moeller0@gmx.de>
+To: cake@lists.bufferbloat.net, Dave Taht <dave.taht@gmail.com>,
+ Marco Gaiarin <gaio@sv.lnf.it>, Cake List <cake@lists.bufferbloat.net>
+User-Agent: K-9 Mail for Android
 In-Reply-To: <CAA93jw7ArNURJ0HyiD-PFXF6LFGWjtxWbe1F30z4MVGSksuZSw@mail.gmail.com>
-Date: Fri, 3 Sep 2021 18:38:19 +0300
-Message-Id: <448DD4B4-2CBB-40DD-B947-4DCAA7446437@gmail.com>
 References: <20210903135710.GH3638@sv.lnf.it>
  <CAA93jw7ArNURJ0HyiD-PFXF6LFGWjtxWbe1F30z4MVGSksuZSw@mail.gmail.com>
-To: Dave Taht <dave.taht@gmail.com>
-X-Mailer: Apple Mail (2.3654.100.0.2.22)
+Message-ID: <5228B44C-4CF3-44E3-B5AE-E7F6E22C1AB5@gmx.de>
+MIME-Version: 1.0
+X-Provags-ID: V03:K1:WS0gvnvcvjY7QpcFqDsvZCQqcDU8osb8oy8lN2dLob5QNcOPMYh
+ mqS8YcOTG3UMEPpS/j4Ouy9135tvDWTS9X+IsJXMhhQmLUplao02xbkJDZuZq2gsv5ScNQz
+ Up38uTPUWOaivYb9W6SZPQVa8jtVngYCQUPJUYlGWCiNqQf/KCmkVXLfexDVVk+NqIL9yDo
+ tvtkOW8Mwi1XGHNxB0veg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:85+Sm/VIVEk=:QUojobYxkg7j6Vq14KX6DH
+ javxjQCxgsYTQcHGNRvnQrtI9ERWFqqNqeB01xw6I7TfHJ/Rl4dHwpcjvM0k9AATeQf21fi9r
+ pDTwb6Eja992MvXUymiZCZP1JPMLJIFS6zCGNzmjfvS0Taz6svVMCFan7BOlLMHTHtiSbwzu7
+ Z3mCwp+YaYqFzVRQ0H7P8v/DJGu/uIdXlBih7dqjldfoMZeJZJ7qb9gVt4BuTmdM7C0Fs5b+Z
+ AULYYQ2y4ShJezycUaaWCoHNHXy5i9QkBUeWqOgmZAkV9wDrYG4tvRcIV2wJGsyNEIJCPpOpC
+ goOkcWJNsQxy+GniFWa4ofKFnmJzHPXy4u3nQ0btDnpJK1amtBnZbhxRgZQyOF4FccRUR5g3H
+ MsNaaNb2DGjtlKhKVZq9oHMEbImaGQi5Xna8h5ATa82HDmKcThmxIIyJrYavYSbDfcsdmbXNo
+ Si4+86TKkuO3em/1jvfhZksyDwI8OvbhYVORC47JZ/dUE8U0XdBQlke4Q+nbmlHzxs9+tjwkm
+ 7WmVqPyh3vX9udlhmQ8IzvI0zBNrROCC2514tNaCgdc9ySJj6haVFL64fTHZWvmRt4qUG7S72
+ ZOA2v9TqUhaf3ScPopQCdofFGVYVJAExmh8F/6xn0CAwaQ16PKNHh4oUiu0WhSQjspnDlOL7u
+ IsP2CcfQf7hj9zI1fVDfTOdr7nn20+pTpD+8e4LMYDZTUwiE70sVCMZRmb0Wl6fLIL6KliPpK
+ CCQw6cZ7vlcWGffKAX8SlJVFAGu+YOROIdNr4HX6T8mSZZ/kXsHAnq7hif5VXaWINafHDrkd9
+ FatS8qiI+2LXuw2rRcJkgsqPBmpSZ1ZjnBBhwQ8t5x/zFRHVXll6woQ5z+I2/7J9kBIuSDuj/
+ x9DX0p4NIWeRveyxEw1YQLPGeNjGw3ieVDd35CFErPiJwgY0sMiABNRLEP5zuJrEI8svByu5m
+ 8VgEEZVBzzLjFlIuj+dxFD21Rzh19HvxoWmsRc2K6VATbVuh3TIhfGsGVEApTDKLP/p2as/QH
+ 09jWWrgBJ34Pkr+wWgq626S9o4TZK1EXVs59x7D16s/vCfyjY//sDf/AdNdsII8DMWt3I3O2J
+ teRbwvpfXbEV0oNpZnNA4Jq8BYinEsAiy1t
 Subject: Re: [Cake] Cake: how know 'framing compensation'?
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -81,28 +81,139 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>, Marco Gaiarin <gaio@sv.lnf.it>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============7869637554444007390=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-PiBPbiAzIFNlcCwgMjAyMSwgYXQgNjoxNiBwbSwgRGF2ZSBUYWh0IDxkYXZlLnRhaHRAZ21haWwu
-Y29tPiB3cm90ZToKPiAKPiB0aGUgY2FrZSBtYWlsaW5nIGxpc3QgY29udGFpbnMgYW5zd2VycyB0
-byB5b3VyIHF1ZXN0aW9ucy4KPiAKPiBPbiBGcmksIFNlcCAzLCAyMDIxIGF0IDc6MDUgQU0gTWFy
-Y28gR2FpYXJpbiA8Z2Fpb0Bzdi5sbmYuaXQ+IHdyb3RlOgo+PiAKPj4gCj4+IEknbSB0aGlua2lu
-ZyBhYm91dCBnaXZlIENha2UgYSB0cnk6Cj4+IAo+PiAgICAgICAgaHR0cHM6Ly93d3cuYnVmZmVy
-YmxvYXQubmV0L3Byb2plY3RzL2NvZGVsL3dpa2kvQ2FrZS8KPj4gCj4+IAo+PiBIb3cgY2FuIGkg
-ZGV0ZXJtaW5lIG15ICdmcmFtaW5nIGNvbXBlbnNhdGlvbic/IEknbSB1c2luZyBub3cgYW4KPj4g
-d2lyZWxlc3MgbGluaywgdGVybWluYXRpbmcgdGhlIFBQUG9FIGxpbmsgZGlyZWN0bHkgb24gbXkg
-bGludXggcm91dGVyLAo+PiB2aWEgUFBQRC9QUFBPRS4KPj4gCj4+IFNvLCBpJ20gc3VyZWx5IHVz
-aW5nIFBQUG9FLCBidXQgcHBwb2UtdmNtdXggb3IgcHBwb2UtbGxjc25hcD8gSG93Cj4+IGRldGVy
-bWluZSBpdD8KCkluIGdlbmVyYWwsIHlvdSBuZWVkIHRvIHNldCB0aGUgZnJhbWluZyBjb21wZW5z
-YXRpb24gYWNjb3JkaW5nIHRvIHRoZSBib3R0bGVuZWNrIGxpbmsuICBJZiB5b3VyIHdpcmVsZXNz
-IGxpbmsgaXMgdHlwaWNhbGx5IGZhc3RlciB0aGFuIHlvdXIgQURTTCBsaW5lLCB0aGVuIHRoZSBB
-RFNMIGlzIHRoZSByaWdodCBmb2N1cy4KClRoaXMgaXMgcHJvYmFibHkgaGVscGZ1bCB0byBtb3N0
-IEFEU0wgdXNlcnMgaW4gZmlndXJpbmcgb3V0IHRoZWlyIGZyYW1pbmcgdHlwZToKCglodHRwczov
-L3d3dy5yb3V0ZXJ0ZWNoLm9yZy9ndWlkZXMvaW5mby9zZXR0aW5ncy1ieS1jb3VudHJ5LwoKIC0g
-Sm9uYXRoYW4gTW9ydG9uCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBz
-Oi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+--===============7869637554444007390==
+Content-Type: multipart/alternative;
+ boundary=----2XCVFGWNLMGP2TBYQ7WE2WNUZ7COXK
+Content-Transfer-Encoding: 7bit
+
+------2XCVFGWNLMGP2TBYQ7WE2WNUZ7COXK
+Content-Type: text/plain;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+Hi Marco,
+
+Cpuld you elaborate a bit on youur access link, please?
+
+Are you using a DSL modem anywhere at all and then a wireless link you ope=
+rate yourself between modem and router? If this is true, can you share info=
+rmation about the dsl link, like its upload and download speeds?
+
+Or does your ISP supply your internet via a wireless link directly to your=
+ router?
+
+Best Regards
+         Sebastian
+
+On 3 September 2021 17:16:39 CEST, Dave Taht <dave=2Etaht@gmail=2Ecom> wro=
+te:
+>the cake mailing list contains answers to your questions=2E
+>
+>On Fri, Sep 3, 2021 at 7:05 AM Marco Gaiarin <gaio@sv=2Elnf=2Eit> wrote:
+>>
+>>
+>> I'm thinking about give Cake a try:
+>>
+>>         https://www=2Ebufferbloat=2Enet/projects/codel/wiki/Cake/
+>>
+>>
+>> How can i determine my 'framing compensation'? I'm using now an
+>> wireless link, terminating the PPPoE link directly on my linux router,
+>> via PPPD/PPPOE=2E
+>>
+>> So, i'm surely using PPPoE, but pppoe-vcmux or pppoe-llcsnap? How
+>> determine it?
+>>
+>>
+>> Thanks=2E
+>>
+>> --
+>> dott=2E Marco Gaiarin                                     GNUPG Key ID:=
+ 240A3D66
+>>   Associazione ``La Nostra Famiglia''          http://www=2Elanostrafam=
+iglia=2Eit/
+>>   Polo FVG   -   Via della Bont=C3=A0, 7 - 33078   -   San Vito al Tagl=
+iamento (PN)
+>>   marco=2Egaiarin(at)lanostrafamiglia=2Eit   t +39-0434-842711   f +39-=
+0434-842797
+>>
+>>                 Dona il 5 PER MILLE a LA NOSTRA FAMIGLIA!
+>>       http://www=2Elanostrafamiglia=2Eit/index=2Ephp/it/sostienici/5x10=
+00
+>>         (cf 00307430132, categoria ONLUS oppure RICERCA SANITARIA)
+>
+>
+>
+>--=20
+>Fixing Starlink's Latencies: https://www=2Eyoutube=2Ecom/watch?v=3Dc9gLo6=
+Xrwgw
+>
+>Dave T=C3=A4ht CEO, TekLibre, LLC
+>_______________________________________________
+>Cake mailing list
+>Cake@lists=2Ebufferbloat=2Enet
+>https://lists=2Ebufferbloat=2Enet/listinfo/cake
+
+--=20
+Sent from my Android device with K-9 Mail=2E Please excuse my brevity=2E
+------2XCVFGWNLMGP2TBYQ7WE2WNUZ7COXK
+Content-Type: text/html;
+ charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+<html><head></head><body>Hi Marco,<br><br>Cpuld you elaborate a bit on youu=
+r access link, please?<br><br>Are you using a DSL modem anywhere at all and=
+ then a wireless link you operate yourself between modem and router? If thi=
+s is true, can you share information about the dsl link, like its upload an=
+d download speeds?<br><br>Or does your ISP supply your internet via a wirel=
+ess link directly to your router?<br><br>Best Regards<br>         Sebastian=
+<br><br><div class=3D"gmail_quote">On 3 September 2021 17:16:39 CEST, Dave =
+Taht &lt;dave=2Etaht@gmail=2Ecom&gt; wrote:<blockquote class=3D"gmail_quote=
+" style=3D"margin: 0pt 0pt 0pt 0=2E8ex; border-left: 1px solid rgb(204, 204=
+, 204); padding-left: 1ex;">
+<pre dir=3D"auto" class=3D"k9mail">the cake mailing list contains answers =
+to your questions=2E<br><br>On Fri, Sep 3, 2021 at 7:05 AM Marco Gaiarin &l=
+t;gaio@sv=2Elnf=2Eit&gt; wrote:<br><blockquote class=3D"gmail_quote" style=
+=3D"margin: 0pt 0pt 1ex 0=2E8ex; border-left: 1px solid #729fcf; padding-le=
+ft: 1ex;"><br><br>I'm thinking about give Cake a try:<br><br>        <a hre=
+f=3D"https://www=2Ebufferbloat=2Enet/projects/codel/wiki/Cake/">https://www=
+=2Ebufferbloat=2Enet/projects/codel/wiki/Cake/</a><br><br><br>How can i det=
+ermine my 'framing compensation'? I'm using now an<br>wireless link, termin=
+ating the PPPoE link directly on my linux router,<br>via PPPD/PPPOE=2E<br><=
+br>So, i'm surely using PPPoE, but pppoe-vcmux or pppoe-llcsnap? How<br>det=
+ermine it?<br><br><br>Thanks=2E<br><br>--<br>dott=2E Marco Gaiarin         =
+                            GNUPG Key ID: 240A3D66<br>  Associazione ``La N=
+ostra Famiglia''          <a href=3D"http://www=2Elanostrafamiglia=2Eit/">h=
+ttp://www=2Elanostrafamiglia=2Eit/</a><br>  Polo FVG   -   Via della Bont=
+=C3=A0, 7 - 33078   -   San Vito al Tagliamento (PN)<br>  marco=2Egaiarin(a=
+t)lanostrafamiglia=2Eit   t +39-0434-842711   f +39-0434-842797<br><br>    =
+            Dona il 5 PER MILLE a LA NOSTRA FAMIGLIA!<br>      <a href=3D"h=
+ttp://www=2Elanostrafamiglia=2Eit/index=2Ephp/it/sostienici/5x1000">http://=
+www=2Elanostrafamiglia=2Eit/index=2Ephp/it/sostienici/5x1000</a><br>       =
+ (cf 00307430132, categoria ONLUS oppure RICERCA SANITARIA)<br></blockquote=
+><br><br><br><div class=3D"k9mail-signature">-- <br>Fixing Starlink's Laten=
+cies: <a href=3D"https://www=2Eyoutube=2Ecom/watch?v=3Dc9gLo6Xrwgw">https:/=
+/www=2Eyoutube=2Ecom/watch?v=3Dc9gLo6Xrwgw</a><br><br>Dave T=C3=A4ht CEO, T=
+ekLibre, LLC<hr>Cake mailing list<br>Cake@lists=2Ebufferbloat=2Enet<br><a h=
+ref=3D"https://lists=2Ebufferbloat=2Enet/listinfo/cake">https://lists=2Ebuf=
+ferbloat=2Enet/listinfo/cake</a><br></div></pre></blockquote></div><div sty=
+le=3D'white-space: pre-wrap'><div class=3D'k9mail-signature'>-- <br>Sent fr=
+om my Android device with K-9 Mail=2E Please excuse my brevity=2E</div></di=
+v></body></html>
+------2XCVFGWNLMGP2TBYQ7WE2WNUZ7COXK--
+
+--===============7869637554444007390==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============7869637554444007390==--
