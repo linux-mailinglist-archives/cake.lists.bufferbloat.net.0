@@ -2,69 +2,78 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E0332412859
-	for <lists+cake@lfdr.de>; Mon, 20 Sep 2021 23:44:10 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BBF1341316B
+	for <lists+cake@lfdr.de>; Tue, 21 Sep 2021 12:22:18 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 862703CB41;
-	Mon, 20 Sep 2021 17:44:09 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 65BB93CB44;
+	Tue, 21 Sep 2021 06:22:17 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1632174249;
-	bh=Mm39a6BHVd7441Hp6MpArk6Vgx+lGgldAsKFMjLma3U=;
-	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=T4oVhZX7YNoVhqMKGY7+xo0j8GSxT75LtFgV9qwUdHG4mADH0JXKBpt5ERNAmpSaZ
-	 kKuITvNrTBG37M/QjhLsIYdtQJt8fT9jnRe+TOwSHr2LAcXkAnJRoRENHE+kKkJfJ5
-	 9YjtvlDzRfV9vSPJ8F6zWANyoJIMpk2kBeLypvDjhB0k1jZj1Snxp/47aoAgYla7rF
-	 jkCPiA0nQeQao095VOoWAWXBkz9baARM1OZTlkqCzg/d2RsOqnJHDgCA3kVP6RL5fy
-	 Ewp7t/tKmMaUzFQ/on5eIHHhcvQlPlpaXT1YEGOHnLU/PWTzAtQioYlEU40hzs2Ity
-	 oEBG3RHxN3KFw==
+	d=lists.bufferbloat.net; s=201610; t=1632219737;
+	bh=SsFbpEcV0dHSWWszaZ2kObaHfkFX7CO/24rI8ePEQbE=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	 From;
+	b=OWZ3w0RQIHRIowbxcQpyrqSPwr7MtslSPHhF48h+Kz3uCD+XzWPIW4Va9HFpMJLC8
+	 GBIAGcO87ZRApylLSzsTfRb4Uco2Ak6qrA+CXiRPe1VtDk7oji8SFoP8jeU00mf5NO
+	 zqVv6KGHIKkvKL/SWHqKlW4aYaKoLbn83BRMAhW1aYudXdHph6XNiNEQl0LjMkNdo6
+	 NSx4oZZ9p6dwmVQXyLxcOOYkUy4rL1/xnSwTTOj+JIUB04vtR4/qYjCoARfEdJFbvk
+	 zt/Pg1Ftfdr++dFIqkM/bYUEJDv6ojHLttz4iUkHSbAPEDcBINM06YzFgp0Di/7fB1
+	 aUIL0uSESa+BA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp75.iad3a.emailsrvr.com (smtp75.iad3a.emailsrvr.com
- [173.203.187.75])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mail-wr1-x42e.google.com (mail-wr1-x42e.google.com
+ [IPv6:2a00:1450:4864:20::42e])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 540233B2A4;
- Mon, 20 Sep 2021 17:44:08 -0400 (EDT)
-Received: from app2.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp18.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id C3FE423A2D;
- Mon, 20 Sep 2021 17:44:07 -0400 (EDT)
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app2.wa-webapps.iad3a (Postfix) with ESMTP id AFD41A17E6;
- Mon, 20 Sep 2021 17:44:07 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Mon, 20 Sep 2021 17:44:07 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Mon, 20 Sep 2021 17:44:07 -0400 (EDT)
-From: "David P. Reed" <dpreed@deepplum.com>
-To: "David P. Reed" <dpreed@deepplum.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 643AD3CB40
+ for <cake@lists.bufferbloat.net>; Mon, 20 Sep 2021 22:40:17 -0400 (EDT)
+Received: by mail-wr1-x42e.google.com with SMTP id w17so26735367wrv.10
+ for <cake@lists.bufferbloat.net>; Mon, 20 Sep 2021 19:40:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=1oIerjvhTpV1iiiIk+6Ft9cMiiCc6cnQlWO5xYPq+jY=;
+ b=Ja3WHSbv8jKA3AKHIq/YgRALS2UIXEtBdCo6w4QI9ePTEgXPlDFLQIxx6e6C9qXVls
+ iVaPZNcNQjaZST9y8GXRdALzAkEwEYT4+UA6f9NX2KGpkY3WBJLLDyNW0IRNMoPPF3vJ
+ LSBRebRCl3yGyhQl6HNdjoWsB5wwfGolzsng34cXz2DPlrFRyk5ALg2rLE5rg2SZVTkw
+ ntLPRhJEMIPpMH1aI1H2TIR+zopf3h6K64Tr8VIpmHdOKk88fuaMGgcD2kkIbfFT94Xy
+ ThfGOz1Uo0Zd88luan9dkfCjFdVBDl34nOUaY0JqT+/9n9etrtF7F7BK+WyIOkzHPvyL
+ n0aQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=1oIerjvhTpV1iiiIk+6Ft9cMiiCc6cnQlWO5xYPq+jY=;
+ b=3NUOJTSHYIElGIGtTKut2g9fNsFJ7pfZnmnpG46eeEnin/xUZHg4SUGHkJtY//nPJr
+ S/9QNiJLuKBC6rVg322Mg9JSdgiwjAw3gAI1xZNW0+Dpe2AEcIdNVm4cbgI0AIbnc0GP
+ v7eYZsSbFtJZh5HLXPcjnZjafZ8mWwfs1xww+l/bow4pIelEuusTMPSiQqnXIirau4PX
+ lGAbExiyvbJlZvw9tGUm51xGdtWU/vgs5zz49hGTgxDSNufhLtsyWGg7xF0FloYaknp1
+ kZ9Ymo5UU7hI/fQMBDVzhyrqx9KA7Cf6l8Og+eNLAtPrQXsWuon/RsVX4IQqQPBHK33x
+ 8gww==
+X-Gm-Message-State: AOAM532+uGwcwB15J/LmD8xCRfsggxYbs23uZSHcUoZ0GYxoSZJYZUs9
+ S6Z6XH4gH8vbuX2e3haIditceDvxP7d8y5RLx/QMeQ==
+X-Google-Smtp-Source: ABdhPJwdKyEjiJ/Qmv+/CvUc0yTKhtfZt1lrBYtfg3eYpbYkMY++gnUYLHyAxi7NTFzSm1IVi82vgpiw1JX2hPn/Qy0=
+X-Received: by 2002:adf:f890:: with SMTP id u16mr31052376wrp.388.1632192016174; 
+ Mon, 20 Sep 2021 19:40:16 -0700 (PDT)
 MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <1632173429.589822691@apps.rackspace.com>
-References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com> 
- <1625188609.32718319@apps.rackspace.com>  
- <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>  
- <CAHb6LvrjgKnfe_jaGgx7_B1VDTkZfTmP0OyTmxL9ojWoxogrsA@mail.gmail.com>  
- <989de0c1-e06c-cda9-ebe6-1f33df8a4c24@candelatech.com>  
- <1625773080.94974089@apps.rackspace.com>  
- <FDF5C7A7-47A6-4123-A948-352C07C35F02@cs.ucla.edu>  
- <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com>  
- <1625859083.09751240@apps.rackspace.com>  
- <CAA93jw5QyH4SqKT07hP+skijfimZ0GU=AgLJtkVOQGzKrAkazg@mail.gmail.com>  
- <257851.1632110422@turing-police>  
- <2760o61s-408q-4613-r840-3sq96s8q1s1@ynat.uz> 
- <1632173429.589822691@apps.rackspace.com>
-X-Client-IP: 209.6.168.128
-Message-ID: <1632174247.7178061@apps.rackspace.com>
-X-Mailer: webmail/19.0.12-RC
-X-Classification-ID: 140fe02b-b848-4f4e-9ea4-3cd9682b92c1-1-1
-Subject: Re: [Cake] [Bloat] [Cerowrt-devel] Little's Law mea culpa,
-	but not invalidating my main point
+References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
+ <1625188609.32718319@apps.rackspace.com>
+ <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>
+ <CAHb6LvrjgKnfe_jaGgx7_B1VDTkZfTmP0OyTmxL9ojWoxogrsA@mail.gmail.com>
+ <989de0c1-e06c-cda9-ebe6-1f33df8a4c24@candelatech.com>
+ <1625773080.94974089@apps.rackspace.com>
+ <FDF5C7A7-47A6-4123-A948-352C07C35F02@cs.ucla.edu>
+ <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com>
+ <1625859083.09751240@apps.rackspace.com>
+ <CAA93jw5QyH4SqKT07hP+skijfimZ0GU=AgLJtkVOQGzKrAkazg@mail.gmail.com>
+ <257851.1632110422@turing-police>
+ <CABf5zv+yq_oJ7O7YqVeSbZ2Qns3C4hESzNA2V0zNb0L1Zg-mgw@mail.gmail.com>
+In-Reply-To: <CABf5zv+yq_oJ7O7YqVeSbZ2Qns3C4hESzNA2V0zNb0L1Zg-mgw@mail.gmail.com>
+Date: Mon, 20 Sep 2021 22:40:04 -0400
+Message-ID: <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com>
+To: Steve Crocker <steve@shinkuro.com>
+X-Mailman-Approved-At: Tue, 21 Sep 2021 06:22:16 -0400
+Subject: Re: [Cake] [Starlink] [Cerowrt-devel] [Bloat] Little's Law mea
+ culpa, but not invalidating my main point
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -76,259 +85,194 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
+From: Vint Cerf via Cake <cake@lists.bufferbloat.net>
+Reply-To: Vint Cerf <vint@google.com>
 Cc: Cake List <cake@lists.bufferbloat.net>,
- =?utf-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
+ =?UTF-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Leonard Kleinrock <lk@cs.ucla.edu>, Bob McMahon <bob.mcmahon@broadcom.com>,
- starlink@lists.bufferbloat.net, codel@lists.bufferbloat.net,
+ Bob McMahon <bob.mcmahon@broadcom.com>, starlink@lists.bufferbloat.net,
+ codel@lists.bufferbloat.net,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>, Ben Greear <greearb@candelatech.com>
-Content-Type: multipart/mixed; boundary="===============4749668792527835540=="
+ bloat <bloat@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============5938920889959085488=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============4749668792527835540==
-Content-Type: multipart/alternative;boundary="----=_20210920174407000000_14326"
+--===============5938920889959085488==
+Content-Type: multipart/alternative; boundary="00000000000054a53c05cc785120"
 
-------=_20210920174407000000_14326
+--00000000000054a53c05cc785120
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-=0AThe top posting may be confusing, but "the example" here is the example =
-of the > 100 TCP destinations and dozens of DNS queries that are needed (un=
-less cached) to display the front page of CNN today.=0AThat's "one website"=
- home page. If you look at the JavaScript resource loading code, and now th=
-e "service worker" javascript code, the idea that it is like fetching a fil=
-e using FTP is just wrong. Do NANOG members understand this? I doubt it.=0A=
- =0AOn Monday, September 20, 2021 5:30pm, "David P. Reed" <dpreed@deepplum.=
-com> said:=0A=0A=0A=0AI use the example all the time, but not for interview=
-ing. What's sad is that the answers seem to be quoting from some set of tex=
-tbooks or popular explanations of the Internet that really have got it all =
-wrong, but which many professionals seem to believe is true.=0A =0AThe same=
- phenomenon appears in the various subfields of the design of radio communi=
-cations at the physical and front end electronics level. The examples of me=
-ntal models that are truly broken that are repeated by "experts" are truly =
-incredible, and cover all fields. Two or three:=0A =0A1. why do the AM comm=
-ercial broadcast band (540-1600 kHz) signals you receive in your home trave=
-l farther than VHF band TV signals and UHF band TV signals?  How does this =
-explanation relate to the fact that we can see stars a million light-years =
-away using receivers that respond to 500 Terahertz radio (visible light ant=
-ennas)?=0A =0A2. What is the "aperture" of an antenna system? Does it depen=
-d on frequency of the radiation? How does this relate to the idea of the si=
-ze of an RF photon, and the mass of an RF photon? How big must a cellphone =
-be to contain the antenna needed to receive and transmit signals in the 3G =
-phone frequencies?=0A =0A3. We can digitize the entire FM broadcast frequen=
-cy band into a sequence of 14-bit digital samples at the Nyquist sampling r=
-ate of about 40 Mega-samples per second, which covers the 20 Mhz bandwidth =
-of the FM band. Does this allow a receiver to use a digital receiver to tun=
-e into any FM station that can be received with an "analog FM radio" using =
-the same antenna? Why or why not?=0A =0AI'm sure Dick Roy understands all t=
-hree of these questions, and what is going on. But I'm equally sure that th=
-e designers of WiFi radios or broadcast radios or even the base stations of=
- cellular data systems include few who understand.=0A =0AAnd literally no o=
-ne at the FCC or CTIA understand how to answer these questions.  But the pr=
-oblem is that they are *confident* that they know the answers, and that the=
-y are right.=0A =0AThe same is true about the packet layers and routing lay=
-ers of the Internet. Very few engineers, much less lay people realize that =
-what they have been told by "experts" is like how Einstein explained how ra=
-dio works to a teenaged kid:=0A =0A  "Imagine a cat whose tail is in New Yo=
-rk and his head is in Los Angeles. If you pinch his tail in NY, he howls in=
- Los Angeles. Except there is no cat."=0A =0AThough others have missed it, =
-Einstein was not making a joke. The non-cat is the laws of quantum electrod=
-ynamics (or classically, the laws of Maxwell's Equations). The "cat" would =
-be all the stories people talk about how radio works - beams of energy (or =
-puffs of energy), modulated by some analog waveform, bouncing off of hard m=
-aterials, going through less dense materials, "hugging the ground", "far fi=
-eld" and "near field" effects, etc.=0A =0AEinstein's point was that there i=
-s no cat - that is, all the metaphors and models aren't accurate or equival=
-ent to how radio actually works. But the underlying physical phenomenon sup=
-porting radio is real, and scientists do understand it pretty deeply.=0A =
-=0ASame with how packet networks work. There are no "streams" that behave l=
-ike water in pipes, the connection you have to a shared network has no "spe=
-ed" in megabits per second built in to it, A "website" isn't coming from on=
-e place in the world, and bits don't have inherent meaning.=0A =0AThere is =
-NO CAT (not even a metaphorical one that behaves like the Internet actually=
- works).=0A =0ABut in the case of the Internet, unlike radio communications=
-, there is no deep mystery that requires new discoveries to understand it, =
-because it's been built by humans. We don't need metaphors like "streams of=
- water" or "sites in a place". We do it a disservice by making up these met=
-aphors, which are only apt in a narrow context.=0A =0AFor example, congesti=
-on in a shared network is just unnecessary queuing delay caused by multiple=
-xing the capacity of a particular link among different users. It can be cur=
-ed by slowing down all the different packet sources in some more or less fa=
-ir way. The simplest approach is just to discard from the queue excess pack=
-ets that make that queue longer than can fit through the link Then there ca=
-n't be any congestion. However, telling the sources to slow down somehow wo=
-uld be an improvement, hopefully before any discards are needed.=0A =0ATher=
-e is no "back pressure", because there is no "pressure" at all in a packet =
-network. There are just queues and links that empty queues of packets at a =
-certain rate. Thinking about back pressure comes from thinking about sessio=
-ns and pipes. But 90% of the Internet has no sessions and no pipes. Just as=
- there is "no cat" in real radio systems.=0A =0AOn Monday, September 20, 20=
-21 12:09am, "David Lang" <david@lang.hm> said:=0A=0A=0A=0A> On Mon, 20 Sep =
-2021, Valdis Kl=C4=93tnieks wrote:=0A> =0A> > On Sun, 19 Sep 2021 18:21:56 =
--0700, Dave Taht said:=0A> >> what actually happens during a web page load,=
-=0A> >=0A> > I'm pretty sure that nobody actually understands that anymore,=
- in any=0A> > more than handwaving levels.=0A> =0A> This is my favorite int=
-erview question, it's amazing and saddning at the answers=0A> that I get, e=
-ven from supposedly senior security and networking people.=0A> =0A> David L=
-ang_______________________________________________=0A> Bloat mailing list=
-=0A> Bloat@lists.bufferbloat.net=0A> https://lists.bufferbloat.net/listinfo=
-/bloat=0A>
-------=_20210920174407000000_14326
+see https://mediatrust.com/
+v
+
+
+On Mon, Sep 20, 2021 at 10:28 AM Steve Crocker <steve@shinkuro.com> wrote:
+
+> Related but slightly different: Attached is a slide some of my colleagues
+> put together a decade ago showing the number of DNS lookups involved in
+> displaying CNN's front page.
+>
+> Steve
+>
+>
+> On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=93tnieks <valdis.kletnieks@v=
+t.edu>
+> wrote:
+>
+>> On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:
+>> > what actually happens during a web page load,
+>>
+>> I'm pretty sure that nobody actually understands that anymore, in any
+>> more than handwaving levels.
+>>
+>> I have a nice Chrome extension called IPvFoo that actually tracks the IP
+>> addresses contacted during the load of the displayed page. I'll let you
+>> make
+>> a guess as to how many unique IP addresses were contacted during a load
+>> of https://www.cnn.com
+>>
+>> ...
+>>
+>>
+>> ...
+>>
+>>
+>> ...
+>>
+>>
+>> 145, at least half of which appeared to be analytics.  And that's only t=
+he
+>> hosts that were contacted by my laptop for HTTP, and doesn't count DNS, =
+or
+>> load-balancing front ends, or all the back-end boxes.  As I commented
+>> over on
+>> NANOG, we've gotten to a point similar to that of AT&T long distance,
+>> where 60%
+>> of the effort of connecting a long distance phone call was the cost of
+>> accounting and billing for the call.
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>>
+>> _______________________________________________
+>> Starlink mailing list
+>> Starlink@lists.bufferbloat.net
+>> https://lists.bufferbloat.net/listinfo/starlink
+>>
+> _______________________________________________
+> Starlink mailing list
+> Starlink@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/starlink
+>
+
+
+--=20
+Please send any postal/overnight deliveries to:
+Vint Cerf
+1435 Woodhurst Blvd
+McLean, VA 22102
+703-448-0965
+
+until further notice
+
+--00000000000054a53c05cc785120
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 10pt; overflow-wrap: break-word;">The top posting may be=
- confusing, but "the example" here is the example of the &gt; 100 TCP desti=
-nations and dozens of DNS queries that are needed (unless cached) to displa=
-y the front page of CNN today.</p>=0A<p style=3D"margin:0;padding:0;font-fa=
-mily: arial; font-size: 10pt; overflow-wrap: break-word;">That's "one websi=
-te" home page. If you look at the JavaScript resource loading code, and now=
- the "service worker" javascript code, the idea that it is like fetching a =
-file using FTP is just wrong. Do NANOG members understand this? I doubt it.=
-</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; =
-overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;fon=
-t-family: arial; font-size: 10pt; overflow-wrap: break-word;">On Monday, Se=
-ptember 20, 2021 5:30pm, "David P. Reed" &lt;dpreed@deepplum.com&gt; said:<=
-br /><br /></p>=0A<div id=3D"SafeStyles1632173948">=0A<p style=3D"margin:0;=
-padding:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; overf=
-low-wrap: break-word;">I use the example all the time, but not for intervie=
-wing. What's sad is that the answers seem to be quoting from some set of te=
-xtbooks or popular explanations of the Internet that really have got it all=
- wrong, but which many professionals seem to believe is true.</p>=0A<p styl=
-e=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial; font-siz=
-e: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padd=
-ing:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; overflow-=
-wrap: break-word;">The same phenomenon appears in the various subfields of =
-the design of radio communications at the physical and front end electronic=
-s level. The examples of mental models that are truly broken that are repea=
-ted by "experts" are truly incredible, and cover all fields. Two or three:<=
-/p>=0A<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: ar=
-ial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"=
-margin:0;padding:0;margin: 0; padding: 0; font-family: arial; font-size: 10=
-pt; overflow-wrap: break-word;">1. why do the AM commercial broadcast band =
-(540-1600 kHz) signals you receive in your home travel farther than VHF ban=
-d TV signals and UHF band TV signals?&nbsp; How does this explanation relat=
-e to the fact that we can see stars a million light-years away using receiv=
-ers that respond to 500 Terahertz radio (visible light antennas)?</p>=0A<p =
-style=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial; font=
--size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;=
-padding:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; overf=
-low-wrap: break-word;">2. What is the "aperture" of an antenna system? Does=
- it depend on frequency of the radiation? How does this relate to the idea =
-of the size of an RF photon, and the mass of an RF photon? How big must a c=
-ellphone be to contain the antenna needed to receive and transmit signals i=
-n the 3G phone frequencies?</p>=0A<p style=3D"margin:0;padding:0;margin: 0;=
- padding: 0; font-family: arial; font-size: 10pt; overflow-wrap: break-word=
-;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-=
-family: arial; font-size: 10pt; overflow-wrap: break-word;">3. We can digit=
-ize the entire FM broadcast frequency band into a sequence of 14-bit digita=
-l samples at the Nyquist sampling rate of about 40 Mega-samples per second,=
- which covers the 20 Mhz bandwidth of the FM band. Does this allow a receiv=
-er to use a digital receiver to tune into any FM station that can be receiv=
-ed with an "analog FM radio" using the same antenna? Why or why not?</p>=0A=
-<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial; f=
-ont-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin=
-:0;padding:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; ov=
-erflow-wrap: break-word;">I'm sure Dick Roy understands all three of these =
-questions, and what is going on. But I'm equally sure that the designers of=
- WiFi radios or broadcast radios or even the base stations of cellular data=
- systems include few who understand.</p>=0A<p style=3D"margin:0;padding:0;m=
-argin: 0; padding: 0; font-family: arial; font-size: 10pt; overflow-wrap: b=
-reak-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;margin: 0; padding:=
- 0; font-family: arial; font-size: 10pt; overflow-wrap: break-word;">And li=
-terally no one at the FCC or CTIA understand how to answer these questions.=
-&nbsp; But the problem is that they are *confident* that they know the answ=
-ers, and that they are right.</p>=0A<p style=3D"margin:0;padding:0;margin: =
-0; padding: 0; font-family: arial; font-size: 10pt; overflow-wrap: break-wo=
-rd;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;margin: 0; padding: 0; fon=
-t-family: arial; font-size: 10pt; overflow-wrap: break-word;">The same is t=
-rue about the packet layers and routing layers of the Internet. Very few en=
-gineers, much less lay people realize that what they have been told by "exp=
-erts" is like how Einstein explained how radio works to a teenaged kid:</p>=
-=0A<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial=
-; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"mar=
-gin:0;padding:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt;=
- overflow-wrap: break-word;">&nbsp; "Imagine a cat whose tail is in New Yor=
-k and his head is in Los Angeles. If you pinch his tail in NY, he howls in =
-Los Angeles. Except there is no cat."</p>=0A<p style=3D"margin:0;padding:0;=
-margin: 0; padding: 0; font-family: arial; font-size: 10pt; overflow-wrap: =
-break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;margin: 0; padding=
-: 0; font-family: arial; font-size: 10pt; overflow-wrap: break-word;">Thoug=
-h others have missed it, Einstein was not making a joke. The non-cat is the=
- laws of quantum electrodynamics (or classically, the laws of Maxwell's Equ=
-ations). The "cat" would be all the stories people talk about how radio wor=
-ks - beams of energy (or puffs of energy), modulated by some analog wavefor=
-m, bouncing off of hard materials, going through less dense materials, "hug=
-ging the ground", "far field" and "near field" effects, etc.</p>=0A<p style=
-=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial; font-size=
-: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;paddi=
-ng:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; overflow-w=
-rap: break-word;">Einstein's point was that there is no cat - that is, all =
-the metaphors and models aren't accurate or equivalent to how radio actuall=
-y works. But the underlying physical phenomenon supporting radio is real, a=
-nd scientists do understand it pretty deeply.</p>=0A<p style=3D"margin:0;pa=
-dding:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; overflo=
-w-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;margin: 0;=
- padding: 0; font-family: arial; font-size: 10pt; overflow-wrap: break-word=
-;">Same with how packet networks work. There are no "streams" that behave l=
-ike water in pipes, the connection you have to a shared network has no "spe=
-ed" in megabits per second built in to it, A "website" isn't coming from on=
-e place in the world, and bits don't have inherent meaning.</p>=0A<p style=
-=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial; font-size=
-: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;paddi=
-ng:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; overflow-w=
-rap: break-word;">There is NO CAT (not even a metaphorical one that behaves=
- like the Internet actually works).</p>=0A<p style=3D"margin:0;padding:0;ma=
-rgin: 0; padding: 0; font-family: arial; font-size: 10pt; overflow-wrap: br=
-eak-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;margin: 0; padding: =
-0; font-family: arial; font-size: 10pt; overflow-wrap: break-word;">But in =
-the case of the Internet, unlike radio communications, there is no deep mys=
-tery that requires new discoveries to understand it, because it's been buil=
-t by humans. We don't need metaphors like "streams of water" or "sites in a=
- place". We do it a disservice by making up these metaphors, which are only=
- apt in a narrow context.</p>=0A<p style=3D"margin:0;padding:0;margin: 0; p=
-adding: 0; font-family: arial; font-size: 10pt; overflow-wrap: break-word;"=
->&nbsp;</p>=0A<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-fa=
-mily: arial; font-size: 10pt; overflow-wrap: break-word;">For example, cong=
-estion in a shared network is just unnecessary queuing delay caused by mult=
-iplexing the capacity of a particular link among different users. It can be=
- cured by slowing down all the different packet sources in some more or les=
-s fair way. The simplest approach is just to discard from the queue excess =
-packets that make that queue longer than can fit through the link Then ther=
-e can't be any congestion. However, telling the sources to slow down someho=
-w would be an improvement, hopefully before any discards are needed.</p>=0A=
-<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial; f=
-ont-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin=
-:0;padding:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt; ov=
-erflow-wrap: break-word;">There is no "back pressure", because there is no =
-"pressure" at all in a packet network. There are just queues and links that=
- empty queues of packets at a certain rate. Thinking about back pressure co=
-mes from thinking about sessions and pipes. But 90% of the Internet has no =
-sessions and no pipes. Just as there is "no cat" in real radio systems.</p>=
-=0A<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-family: arial=
-; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"mar=
-gin:0;padding:0;margin: 0; padding: 0; font-family: arial; font-size: 10pt;=
- overflow-wrap: break-word;">On Monday, September 20, 2021 12:09am, "David =
-Lang" &lt;david@lang.hm&gt; said:<br /><br /></p>=0A<div id=3D"SafeStyles16=
-32170324">=0A<p style=3D"margin:0;padding:0;margin: 0; padding: 0; font-fam=
-ily: arial; font-size: 10pt; overflow-wrap: break-word;">&gt; On Mon, 20 Se=
-p 2021, Valdis Kl=C4=93tnieks wrote:<br />&gt; <br />&gt; &gt; On Sun, 19 S=
-ep 2021 18:21:56 -0700, Dave Taht said:<br />&gt; &gt;&gt; what actually ha=
-ppens during a web page load,<br />&gt; &gt;<br />&gt; &gt; I'm pretty sure=
- that nobody actually understands that anymore, in any<br />&gt; &gt; more =
-than handwaving levels.<br />&gt; <br />&gt; This is my favorite interview =
-question, it's amazing and saddning at the answers<br />&gt; that I get, ev=
-en from supposedly senior security and networking people.<br />&gt; <br />&=
-gt; David Lang_______________________________________________<br />&gt; Blo=
-at mailing list<br />&gt; Bloat@lists.bufferbloat.net<br />&gt; https://lis=
-ts.bufferbloat.net/listinfo/bloat<br />&gt;</p>=0A</div>=0A</div></font>
-------=_20210920174407000000_14326--
+<div dir=3D"ltr">see <a href=3D"https://mediatrust.com/">https://mediatrust=
+.com/</a><div>v</div><div><br></div></div><br><div class=3D"gmail_quote"><d=
+iv dir=3D"ltr" class=3D"gmail_attr">On Mon, Sep 20, 2021 at 10:28 AM Steve =
+Crocker &lt;<a href=3D"mailto:steve@shinkuro.com">steve@shinkuro.com</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
+r=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:arial,sans-seri=
+f;font-size:small;color:rgb(0,0,0)">Related but slightly different: Attache=
+d is a slide some of my colleagues put together a decade ago showing the nu=
+mber of DNS lookups involved in displaying CNN&#39;s front page.</div><div =
+class=3D"gmail_default" style=3D"font-family:arial,sans-serif;font-size:sma=
+ll;color:rgb(0,0,0)"><br></div><div class=3D"gmail_default" style=3D"font-f=
+amily:arial,sans-serif;font-size:small;color:rgb(0,0,0)">Steve</div><div cl=
+ass=3D"gmail_default" style=3D"font-family:arial,sans-serif;font-size:small=
+;color:rgb(0,0,0)"><br></div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=
+=93tnieks &lt;<a href=3D"mailto:valdis.kletnieks@vt.edu" target=3D"_blank">=
+valdis.kletnieks@vt.edu</a>&gt; wrote:<br></div><blockquote class=3D"gmail_=
+quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,=
+204);padding-left:1ex">On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:<=
+br>
+&gt; what actually happens during a web page load,<br>
+<br>
+I&#39;m pretty sure that nobody actually understands that anymore, in any<b=
+r>
+more than handwaving levels.<br>
+<br>
+I have a nice Chrome extension called IPvFoo that actually tracks the IP<br=
+>
+addresses contacted during the load of the displayed page. I&#39;ll let you=
+ make<br>
+a guess as to how many unique IP addresses were contacted during a load<br>
+of <a href=3D"https://www.cnn.com" rel=3D"noreferrer" target=3D"_blank">htt=
+ps://www.cnn.com</a><br>
+<br>
+...<br>
+<br>
+<br>
+...<br>
+<br>
+<br>
+...<br>
+<br>
+<br>
+145, at least half of which appeared to be analytics.=C2=A0 And that&#39;s =
+only the<br>
+hosts that were contacted by my laptop for HTTP, and doesn&#39;t count DNS,=
+ or<br>
+load-balancing front ends, or all the back-end boxes.=C2=A0 As I commented =
+over on<br>
+NANOG, we&#39;ve gotten to a point similar to that of AT&amp;T long distanc=
+e, where 60%<br>
+of the effort of connecting a long distance phone call was the cost of<br>
+accounting and billing for the call.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+_______________________________________________<br>
+Starlink mailing list<br>
+<a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">Starlin=
+k@lists.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"noreferr=
+er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
+r>
+</blockquote></div>
+_______________________________________________<br>
+Starlink mailing list<br>
+<a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">Starlin=
+k@lists.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"noreferr=
+er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
+r>
+</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
+ class=3D"gmail_signature"><div dir=3D"ltr"><div>Please send any postal/ove=
+rnight deliveries to:</div><div>Vint Cerf</div><div>1435 Woodhurst Blvd=C2=
+=A0</div><div>McLean, VA 22102</div><div>703-448-0965</div><div><br></div><=
+div>until further notice</div><div><br></div><div><br></div><div><br></div>=
+</div></div>
 
+--00000000000054a53c05cc785120--
 
---===============4749668792527835540==
+--===============5938920889959085488==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -338,5 +282,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============4749668792527835540==--
-
+--===============5938920889959085488==--
