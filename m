@@ -2,58 +2,57 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BBF1341316B
-	for <lists+cake@lfdr.de>; Tue, 21 Sep 2021 12:22:18 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1CA744164A1
+	for <lists+cake@lfdr.de>; Thu, 23 Sep 2021 19:47:03 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 65BB93CB44;
-	Tue, 21 Sep 2021 06:22:17 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 54E5B3CB42;
+	Thu, 23 Sep 2021 13:47:01 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1632219737;
-	bh=SsFbpEcV0dHSWWszaZ2kObaHfkFX7CO/24rI8ePEQbE=;
+	d=lists.bufferbloat.net; s=201610; t=1632419221;
+	bh=aebn6oODzp9FQEBUkuMkOqoVI1JitXwmW3QhfvxWOY8=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=OWZ3w0RQIHRIowbxcQpyrqSPwr7MtslSPHhF48h+Kz3uCD+XzWPIW4Va9HFpMJLC8
-	 GBIAGcO87ZRApylLSzsTfRb4Uco2Ak6qrA+CXiRPe1VtDk7oji8SFoP8jeU00mf5NO
-	 zqVv6KGHIKkvKL/SWHqKlW4aYaKoLbn83BRMAhW1aYudXdHph6XNiNEQl0LjMkNdo6
-	 NSx4oZZ9p6dwmVQXyLxcOOYkUy4rL1/xnSwTTOj+JIUB04vtR4/qYjCoARfEdJFbvk
-	 zt/Pg1Ftfdr++dFIqkM/bYUEJDv6ojHLttz4iUkHSbAPEDcBINM06YzFgp0Di/7fB1
-	 aUIL0uSESa+BA==
+	b=iy14fqPy67kXrBWoBUYIbZFsDZh+JxRWZP7hkSWLarElUUh37bP28g8WSrbbgFsxA
+	 V5S4pee75Qk8xRuAROCWEIJKnt8A7qRhXWT4Rn9N4hJRZwNTLUNzWqSnr6caE5lAnQ
+	 4bLNZHACicexKaVaPK6N3ELSmes4VwIea8KZIRKdp9brDIHk0qSPNA2WzMJstouUxI
+	 rK5/BFrDaV5y880qlmkAN4HbVd2tWRjWCtLCdxp86pgaNKNbA6rYkH+0byVtNmFn7A
+	 jW+yI9EuURWuhgL9wQTvaTOLNlRq4rZTjDdMQ1BYFCaDOqBKB3U+VfVUj+G5UD/pcO
+	 6Gnq/97MtcdGw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-wr1-x42e.google.com (mail-wr1-x42e.google.com
- [IPv6:2a00:1450:4864:20::42e])
+Received: from mail-ed1-x536.google.com (mail-ed1-x536.google.com
+ [IPv6:2a00:1450:4864:20::536])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 643AD3CB40
- for <cake@lists.bufferbloat.net>; Mon, 20 Sep 2021 22:40:17 -0400 (EDT)
-Received: by mail-wr1-x42e.google.com with SMTP id w17so26735367wrv.10
- for <cake@lists.bufferbloat.net>; Mon, 20 Sep 2021 19:40:17 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com; s=20210112;
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 577E93B2A4
+ for <cake@lists.bufferbloat.net>; Thu, 23 Sep 2021 13:47:00 -0400 (EDT)
+Received: by mail-ed1-x536.google.com with SMTP id c21so25435207edj.0
+ for <cake@lists.bufferbloat.net>; Thu, 23 Sep 2021 10:47:00 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
  h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=1oIerjvhTpV1iiiIk+6Ft9cMiiCc6cnQlWO5xYPq+jY=;
- b=Ja3WHSbv8jKA3AKHIq/YgRALS2UIXEtBdCo6w4QI9ePTEgXPlDFLQIxx6e6C9qXVls
- iVaPZNcNQjaZST9y8GXRdALzAkEwEYT4+UA6f9NX2KGpkY3WBJLLDyNW0IRNMoPPF3vJ
- LSBRebRCl3yGyhQl6HNdjoWsB5wwfGolzsng34cXz2DPlrFRyk5ALg2rLE5rg2SZVTkw
- ntLPRhJEMIPpMH1aI1H2TIR+zopf3h6K64Tr8VIpmHdOKk88fuaMGgcD2kkIbfFT94Xy
- ThfGOz1Uo0Zd88luan9dkfCjFdVBDl34nOUaY0JqT+/9n9etrtF7F7BK+WyIOkzHPvyL
- n0aQ==
+ :cc; bh=S4qV5Q0jO++wKxAxtWFCt0NsoPPeCGHBmx9yskT/hF4=;
+ b=GUEwatmnKUZ2ae3OzT/DlcLkzAQ7U9p9HnQhz/o2k8FlPpppMtykJveAcpy9FPNpH0
+ 6C6eqpWz5ofGDEsIBE5Npqeu2U6urjviQkJXHDigx8sVwkxh+dgWFX4QCDpgXsZo0HFN
+ knDX6Z/iVxo4YPZjJgiHo8Kal+3TSEKIYa18w=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
  :message-id:subject:to:cc;
- bh=1oIerjvhTpV1iiiIk+6Ft9cMiiCc6cnQlWO5xYPq+jY=;
- b=3NUOJTSHYIElGIGtTKut2g9fNsFJ7pfZnmnpG46eeEnin/xUZHg4SUGHkJtY//nPJr
- S/9QNiJLuKBC6rVg322Mg9JSdgiwjAw3gAI1xZNW0+Dpe2AEcIdNVm4cbgI0AIbnc0GP
- v7eYZsSbFtJZh5HLXPcjnZjafZ8mWwfs1xww+l/bow4pIelEuusTMPSiQqnXIirau4PX
- lGAbExiyvbJlZvw9tGUm51xGdtWU/vgs5zz49hGTgxDSNufhLtsyWGg7xF0FloYaknp1
- kZ9Ymo5UU7hI/fQMBDVzhyrqx9KA7Cf6l8Og+eNLAtPrQXsWuon/RsVX4IQqQPBHK33x
- 8gww==
-X-Gm-Message-State: AOAM532+uGwcwB15J/LmD8xCRfsggxYbs23uZSHcUoZ0GYxoSZJYZUs9
- S6Z6XH4gH8vbuX2e3haIditceDvxP7d8y5RLx/QMeQ==
-X-Google-Smtp-Source: ABdhPJwdKyEjiJ/Qmv+/CvUc0yTKhtfZt1lrBYtfg3eYpbYkMY++gnUYLHyAxi7NTFzSm1IVi82vgpiw1JX2hPn/Qy0=
-X-Received: by 2002:adf:f890:: with SMTP id u16mr31052376wrp.388.1632192016174; 
- Mon, 20 Sep 2021 19:40:16 -0700 (PDT)
+ bh=S4qV5Q0jO++wKxAxtWFCt0NsoPPeCGHBmx9yskT/hF4=;
+ b=OLzIGJE+Joh/J+8DVJCOcG+uam4NJvF034mH5lKIWE5DfOevGDALIRd08Cxu3jXQBO
+ 7/jL7PgvoSy/fGsy7i7vGdMuq7XUSjanrH0QLXtUtnuemGqGBAHjJRfcnLIPs9RH6U17
+ 7hhAa6EUf4FTNgpDJi4It/iHBKvNDxgA+UDU/oWSXIqlJ/4nTfGc082bKBs2Z4NZT91G
+ ksFAN7386kvdY6ZG/E/cttAi8pxaIpZtdZ+Z59gTC71yBGoKryK/Q92uZe/9DQdQo7wc
+ mroi02QUWaYn3apOOl2wED1lmwRYX6BNTWdvJ2YEqm/MH+MHhTlWXFZv+HxMsUj4YqaP
+ 5VCw==
+X-Gm-Message-State: AOAM531bfPDQsYEPIbC7+mXP2xcWVC0aNAdWMjMHvqW2jN9cbYggvoTQ
+ 6FiViDS3Uh/0HK648hGBVlyPEAqVuKo5GTBZNF+D+wpVCoGnng52HCnc8ew6mKG5mh51eVhVVFJ
+ fUI0QPjPSRzTjj1hiZHmsQaixiqcJ
+X-Google-Smtp-Source: ABdhPJwY0teGh0HvdsXQwcXECmTbaC0Sj4NQzrD5UO8RAe76cgIhU3U27ELuebIw96q73ed35I0sQTSNh8qNfmUoS0I=
+X-Received: by 2002:a17:906:4093:: with SMTP id
+ u19mr6638990ejj.110.1632419218858; 
+ Thu, 23 Sep 2021 10:46:58 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
@@ -67,11 +66,11 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <CAA93jw5QyH4SqKT07hP+skijfimZ0GU=AgLJtkVOQGzKrAkazg@mail.gmail.com>
  <257851.1632110422@turing-police>
  <CABf5zv+yq_oJ7O7YqVeSbZ2Qns3C4hESzNA2V0zNb0L1Zg-mgw@mail.gmail.com>
-In-Reply-To: <CABf5zv+yq_oJ7O7YqVeSbZ2Qns3C4hESzNA2V0zNb0L1Zg-mgw@mail.gmail.com>
-Date: Mon, 20 Sep 2021 22:40:04 -0400
-Message-ID: <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com>
-To: Steve Crocker <steve@shinkuro.com>
-X-Mailman-Approved-At: Tue, 21 Sep 2021 06:22:16 -0400
+ <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com>
+In-Reply-To: <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com>
+Date: Thu, 23 Sep 2021 10:46:48 -0700
+Message-ID: <CAHb6Lvp86iw=DQMN8Z+f7yUJu-5pmVUxsM1_1Jw8RJb2XRcMcg@mail.gmail.com>
+To: Vint Cerf <vint@google.com>
 Subject: Re: [Cake] [Starlink] [Cerowrt-devel] [Bloat] Little's Law mea
  culpa, but not invalidating my main point
 X-BeenThere: cake@lists.bufferbloat.net
@@ -85,128 +84,239 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Vint Cerf via Cake <cake@lists.bufferbloat.net>
-Reply-To: Vint Cerf <vint@google.com>
+From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
+Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
 Cc: Cake List <cake@lists.bufferbloat.net>,
  =?UTF-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Bob McMahon <bob.mcmahon@broadcom.com>, starlink@lists.bufferbloat.net,
- codel@lists.bufferbloat.net,
+ starlink@lists.bufferbloat.net, codel <codel@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============5938920889959085488=="
+ bloat <bloat@lists.bufferbloat.net>, Steve Crocker <steve@shinkuro.com>
+Content-Type: multipart/mixed; boundary="===============0604251551425126556=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============5938920889959085488==
-Content-Type: multipart/alternative; boundary="00000000000054a53c05cc785120"
+--===============0604251551425126556==
+Content-Type: multipart/alternative; boundary="000000000000aade5605ccad37d6"
 
---00000000000054a53c05cc785120
+--000000000000aade5605ccad37d6
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-see https://mediatrust.com/
-v
+Hi All,
 
+I do appreciate this thread as well. As a test & measurement guy here are
+my conclusions around network performance. Thanks in advance for any
+comments.
 
-On Mon, Sep 20, 2021 at 10:28 AM Steve Crocker <steve@shinkuro.com> wrote:
+Congestion can be mitigated the following ways
+o) Size queues properly to minimize/negate bloat (easier said than done
+with tech like WiFi)
+o) Use faster links on the service side such that a queues' service rates
+exceeds the arrival rate, no congestion even in bursts, if possible
+o) Drop entries during oversubscribed states (queue processing can't "speed
+up" like water flow through a constricted pipe, must drop)
+o) Identify aggressor flows per congestion if possible
+o) Forwarding planes can signal back the the sources "earlier" to minimize
+queue build ups per a "control loop request" asking sources to pace their
+writes
+o) transport layers use techniques a la BBR
+o) Use "home gateways" that support tech like FQ_CODEL
 
-> Related but slightly different: Attached is a slide some of my colleagues
-> put together a decade ago showing the number of DNS lookups involved in
-> displaying CNN's front page.
+Latency can be mitigated the following ways
+o) Mitigate or eliminate congestion, particularly around queueing delays
+o) End host apps can use TCP_NOTSENT_LOWAT along with write()/select() to
+reduce host sends of "better never than late" messages
+o) Move servers closer to the clients per fundamental limit of the speed of
+light (i.e. propagation delay of energy over the wave guides), a la CDNs
+(Except if you're a HFT, separate servers across geography and make sure to
+have exclusive user rights over the lowest latency links)
+
+Transport control loop(s)
+o) Transport layer control loops are non linear systems so network tooling
+will struggle to emulate "end user experience"
+o) 1/2 RTT does not equal OWD used to compute the bandwidth delay product,
+imbalance and effects need to be measured
+o) forwarding planes signaling congestion to sources wasn't designed in TCP
+originally but the industry trend seems to be to moving towards this per
+things like L4S
+
+Photons, radio & antenna design
+o) Find experts who have experience & knowledge, e.g. many do here
+o) Photons don't really have mass nor size, at least per my limited
+understanding of particle physics and QED though, I must admit, came from
+reading things on the internet
+
+Bob
+
+On Mon, Sep 20, 2021 at 7:40 PM Vint Cerf <vint@google.com> wrote:
+
+> see https://mediatrust.com/
+> v
 >
-> Steve
 >
+> On Mon, Sep 20, 2021 at 10:28 AM Steve Crocker <steve@shinkuro.com> wrote=
+:
 >
-> On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=93tnieks <valdis.kletnieks@v=
-t.edu>
-> wrote:
->
->> On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:
->> > what actually happens during a web page load,
+>> Related but slightly different: Attached is a slide some of my colleague=
+s
+>> put together a decade ago showing the number of DNS lookups involved in
+>> displaying CNN's front page.
 >>
->> I'm pretty sure that nobody actually understands that anymore, in any
->> more than handwaving levels.
->>
->> I have a nice Chrome extension called IPvFoo that actually tracks the IP
->> addresses contacted during the load of the displayed page. I'll let you
->> make
->> a guess as to how many unique IP addresses were contacted during a load
->> of https://www.cnn.com
->>
->> ...
+>> Steve
 >>
 >>
->> ...
+>> On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=93tnieks <valdis.kletnieks@=
+vt.edu>
+>> wrote:
 >>
->>
->> ...
->>
->>
->> 145, at least half of which appeared to be analytics.  And that's only t=
-he
->> hosts that were contacted by my laptop for HTTP, and doesn't count DNS, =
-or
->> load-balancing front ends, or all the back-end boxes.  As I commented
->> over on
->> NANOG, we've gotten to a point similar to that of AT&T long distance,
->> where 60%
->> of the effort of connecting a long distance phone call was the cost of
->> accounting and billing for the call.
->>
->>
->>
->>
->>
->>
->>
->>
+>>> On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:
+>>> > what actually happens during a web page load,
+>>>
+>>> I'm pretty sure that nobody actually understands that anymore, in any
+>>> more than handwaving levels.
+>>>
+>>> I have a nice Chrome extension called IPvFoo that actually tracks the I=
+P
+>>> addresses contacted during the load of the displayed page. I'll let you
+>>> make
+>>> a guess as to how many unique IP addresses were contacted during a load
+>>> of https://www.cnn.com
+>>>
+>>> ...
+>>>
+>>>
+>>> ...
+>>>
+>>>
+>>> ...
+>>>
+>>>
+>>> 145, at least half of which appeared to be analytics.  And that's only
+>>> the
+>>> hosts that were contacted by my laptop for HTTP, and doesn't count DNS,
+>>> or
+>>> load-balancing front ends, or all the back-end boxes.  As I commented
+>>> over on
+>>> NANOG, we've gotten to a point similar to that of AT&T long distance,
+>>> where 60%
+>>> of the effort of connecting a long distance phone call was the cost of
+>>> accounting and billing for the call.
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>>
+>>> _______________________________________________
+>>> Starlink mailing list
+>>> Starlink@lists.bufferbloat.net
+>>> https://lists.bufferbloat.net/listinfo/starlink
+>>>
 >> _______________________________________________
 >> Starlink mailing list
 >> Starlink@lists.bufferbloat.net
 >> https://lists.bufferbloat.net/listinfo/starlink
 >>
-> _______________________________________________
-> Starlink mailing list
-> Starlink@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/starlink
+>
+>
+> --
+> Please send any postal/overnight deliveries to:
+> Vint Cerf
+> 1435 Woodhurst Blvd
+> McLean, VA 22102
+> 703-448-0965
+>
+> until further notice
+>
+>
+>
 >
 
-
 --=20
-Please send any postal/overnight deliveries to:
-Vint Cerf
-1435 Woodhurst Blvd
-McLean, VA 22102
-703-448-0965
+This electronic communication and the information and any files transmitted=
+=20
+with it, or attached to it, are confidential and are intended solely for=20
+the use of the individual or entity to whom it is addressed and may contain=
+=20
+information that is confidential, legally privileged, protected by privacy=
+=20
+laws, or otherwise restricted from disclosure to anyone else. If you are=20
+not the intended recipient or the person responsible for delivering the=20
+e-mail to the intended recipient, you are hereby notified that any use,=20
+copying, distributing, dissemination, forwarding, printing, or copying of=
+=20
+this e-mail is strictly prohibited. If you received this e-mail in error,=
+=20
+please return the e-mail to the sender, delete it from your computer, and=
+=20
+destroy any printed copy of it.
 
-until further notice
-
---00000000000054a53c05cc785120
+--000000000000aade5605ccad37d6
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">see <a href=3D"https://mediatrust.com/">https://mediatrust=
-.com/</a><div>v</div><div><br></div></div><br><div class=3D"gmail_quote"><d=
-iv dir=3D"ltr" class=3D"gmail_attr">On Mon, Sep 20, 2021 at 10:28 AM Steve =
-Crocker &lt;<a href=3D"mailto:steve@shinkuro.com">steve@shinkuro.com</a>&gt=
-; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
- 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div di=
-r=3D"ltr"><div class=3D"gmail_default" style=3D"font-family:arial,sans-seri=
-f;font-size:small;color:rgb(0,0,0)">Related but slightly different: Attache=
-d is a slide some of my colleagues put together a decade ago showing the nu=
-mber of DNS lookups involved in displaying CNN&#39;s front page.</div><div =
-class=3D"gmail_default" style=3D"font-family:arial,sans-serif;font-size:sma=
-ll;color:rgb(0,0,0)"><br></div><div class=3D"gmail_default" style=3D"font-f=
-amily:arial,sans-serif;font-size:small;color:rgb(0,0,0)">Steve</div><div cl=
-ass=3D"gmail_default" style=3D"font-family:arial,sans-serif;font-size:small=
-;color:rgb(0,0,0)"><br></div></div><br><div class=3D"gmail_quote"><div dir=
-=3D"ltr" class=3D"gmail_attr">On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=
-=93tnieks &lt;<a href=3D"mailto:valdis.kletnieks@vt.edu" target=3D"_blank">=
-valdis.kletnieks@vt.edu</a>&gt; wrote:<br></div><blockquote class=3D"gmail_=
-quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,=
-204);padding-left:1ex">On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:<=
-br>
+<div dir=3D"ltr">Hi All,<div><br></div><div>I do appreciate this thread as =
+well. As a test &amp; measurement guy here are my conclusions around networ=
+k performance. Thanks in advance for any comments.<br><br>Congestion can be=
+ mitigated the following=C2=A0ways</div><div>o) Size queues properly to min=
+imize/negate bloat (easier said than done with tech like WiFi)</div><div>o)=
+ Use faster links on the service side such that a queues&#39; service rates=
+ exceeds=C2=A0the arrival rate, no congestion=C2=A0even in bursts, if possi=
+ble<br>o) Drop entries during oversubscribed states (queue processing can&#=
+39;t &quot;speed up&quot; like water flow through a constricted pipe, must =
+drop)</div><div>o) Identify aggressor=C2=A0flows per congestion if possible=
+</div><div>o) Forwarding planes can signal back the the sources &quot;earli=
+er&quot; to minimize queue build ups per a &quot;control loop=C2=A0request&=
+quot; asking sources to pace their writes</div><div>o) transport layers use=
+ techniques a la BBR</div><div>o) Use &quot;home gateways&quot; that suppor=
+t tech like FQ_CODEL</div><div><br></div><div>Latency can be mitigated the =
+following=C2=A0ways</div><div>o) Mitigate or eliminate congestion, particul=
+arly around=C2=A0queueing delays</div><div>o) End host apps can use TCP_NOT=
+SENT_LOWAT along with write()/select() to reduce host sends of &quot;better=
+ never than late&quot; messages=C2=A0<br>o) Move servers closer to the clie=
+nts per fundamental limit of the speed of light (i.e. propagation=C2=A0dela=
+y of energy over the wave guides), a la CDNs</div><div>(Except if you&#39;r=
+e a HFT, separate servers across geography=C2=A0and make sure to have exclu=
+sive user rights over the lowest latency links)<br><br>Transport control lo=
+op(s)</div><div>o) Transport layer control loops are non linear systems so =
+network tooling will struggle to emulate &quot;end user experience&quot;<br=
+></div><div>o) 1/2 RTT does not equal=C2=A0OWD used to compute the bandwidt=
+h delay product, imbalance and effects need to be measured</div><div>o) for=
+warding planes signaling congestion to sources wasn&#39;t designed in TCP o=
+riginally but the industry trend seems to be to moving towards this per thi=
+ngs like L4S</div><div><br></div><div>Photons, radio &amp; antenna design<b=
+r>o) Find experts who have experience &amp; knowledge, e.g. many do here<br=
+>o) Photons don&#39;t really have mass nor size, at least=C2=A0per my limit=
+ed understanding of particle physics and QED though, I must admit, came fro=
+m reading things on the internet=C2=A0<br><br>Bob</div></div><br><div class=
+=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Sep 20, 2021=
+ at 7:40 PM Vint Cerf &lt;<a href=3D"mailto:vint@google.com" target=3D"_bla=
+nk">vint@google.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
+e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
+;padding-left:1ex"><div dir=3D"ltr">see <a href=3D"https://mediatrust.com/"=
+ target=3D"_blank">https://mediatrust.com/</a><div>v</div><div><br></div></=
+div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On=
+ Mon, Sep 20, 2021 at 10:28 AM Steve Crocker &lt;<a href=3D"mailto:steve@sh=
+inkuro.com" target=3D"_blank">steve@shinkuro.com</a>&gt; wrote:<br></div><b=
+lockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-le=
+ft:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div class=
+=3D"gmail_default" style=3D"font-family:arial,sans-serif;font-size:small;co=
+lor:rgb(0,0,0)">Related but slightly different: Attached is a slide some of=
+ my colleagues put together a decade ago showing the number of DNS lookups =
+involved in displaying CNN&#39;s front page.</div><div class=3D"gmail_defau=
+lt" style=3D"font-family:arial,sans-serif;font-size:small;color:rgb(0,0,0)"=
+><br></div><div class=3D"gmail_default" style=3D"font-family:arial,sans-ser=
+if;font-size:small;color:rgb(0,0,0)">Steve</div><div class=3D"gmail_default=
+" style=3D"font-family:arial,sans-serif;font-size:small;color:rgb(0,0,0)"><=
+br></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gma=
+il_attr">On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=93tnieks &lt;<a href=
+=3D"mailto:valdis.kletnieks@vt.edu" target=3D"_blank">valdis.kletnieks@vt.e=
+du</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
+n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
+">On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:<br>
 &gt; what actually happens during a web page load,<br>
 <br>
 I&#39;m pretty sure that nobody actually understands that anymore, in any<b=
@@ -264,15 +374,28 @@ k@lists.bufferbloat.net</a><br>
 er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
 r>
 </blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
- class=3D"gmail_signature"><div dir=3D"ltr"><div>Please send any postal/ove=
-rnight deliveries to:</div><div>Vint Cerf</div><div>1435 Woodhurst Blvd=C2=
-=A0</div><div>McLean, VA 22102</div><div>703-448-0965</div><div><br></div><=
-div>until further notice</div><div><br></div><div><br></div><div><br></div>=
-</div></div>
+><div dir=3D"ltr"><div>Please send any postal/overnight deliveries to:</div=
+><div>Vint Cerf</div><div>1435 Woodhurst Blvd=C2=A0</div><div>McLean, VA 22=
+102</div><div>703-448-0965</div><div><br></div><div>until further notice</d=
+iv><div><br></div><div><br></div><div><br></div></div></div>
+</blockquote></div>
 
---00000000000054a53c05cc785120--
+<br>
+<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
+ctronic communication and the information and any files transmitted with it=
+, or attached to it, are confidential and are intended solely for the use o=
+f the individual or entity to whom it is addressed and may contain informat=
+ion that is confidential, legally privileged, protected by privacy laws, or=
+ otherwise restricted from disclosure to anyone else. If you are not the in=
+tended recipient or the person responsible for delivering the e-mail to the=
+ intended recipient, you are hereby notified that any use, copying, distrib=
+uting, dissemination, forwarding, printing, or copying of this e-mail is st=
+rictly prohibited. If you received this e-mail in error, please return the =
+e-mail to the sender, delete it from your computer, and destroy any printed=
+ copy of it.</font></span>
+--000000000000aade5605ccad37d6--
 
---===============5938920889959085488==
+--===============0604251551425126556==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -282,4 +405,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============5938920889959085488==--
+--===============0604251551425126556==--
