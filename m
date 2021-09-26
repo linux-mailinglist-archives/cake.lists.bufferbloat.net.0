@@ -2,77 +2,70 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 1CA744164A1
-	for <lists+cake@lfdr.de>; Thu, 23 Sep 2021 19:47:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2FABC418A7F
+	for <lists+cake@lfdr.de>; Sun, 26 Sep 2021 20:24:13 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 54E5B3CB42;
-	Thu, 23 Sep 2021 13:47:01 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 91A563CB4E;
+	Sun, 26 Sep 2021 14:24:04 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1632419221;
-	bh=aebn6oODzp9FQEBUkuMkOqoVI1JitXwmW3QhfvxWOY8=;
-	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
-	 From;
-	b=iy14fqPy67kXrBWoBUYIbZFsDZh+JxRWZP7hkSWLarElUUh37bP28g8WSrbbgFsxA
-	 V5S4pee75Qk8xRuAROCWEIJKnt8A7qRhXWT4Rn9N4hJRZwNTLUNzWqSnr6caE5lAnQ
-	 4bLNZHACicexKaVaPK6N3ELSmes4VwIea8KZIRKdp9brDIHk0qSPNA2WzMJstouUxI
-	 rK5/BFrDaV5y880qlmkAN4HbVd2tWRjWCtLCdxp86pgaNKNbA6rYkH+0byVtNmFn7A
-	 jW+yI9EuURWuhgL9wQTvaTOLNlRq4rZTjDdMQ1BYFCaDOqBKB3U+VfVUj+G5UD/pcO
-	 6Gnq/97MtcdGw==
+	d=lists.bufferbloat.net; s=201610; t=1632680644;
+	bh=uJ5+EsMu2wmpu85jLmWbBgBgtJkd9BDOJh93JHJb8qU=;
+	h=Date:From:To:In-Reply-To:References:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=M+GgQMPWinYxEoUwx+fbVWK150iRw4qsZIzKKZ/ppWw6j8Sf/rEMRQphxKkfEPn7p
+	 kEpd44rGzv4LnQsOKBplYhfGRwFIQuPkkQSG+RdlCHWPHd0P1QtMZUy80xlPF+8uc3
+	 TswPcBRZF9s/ON4yk3hDxDl3DTfJ4R1gkONAyytgnopUeHsd+GDVSQ/tExTpX/eCRO
+	 BnXT/DeQ/q++zLu0S71UV/zLHigH3WlRw6ZzR5uud/pYN/doDnThBn8fcs77dpltUA
+	 lH5DPQHoIRNmFDjixcAxi0CsDRg4sxXrgdkOYUv59uypcvS0jpmOXd+s42qE38Fovq
+	 dH76fQZzmA7bQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ed1-x536.google.com (mail-ed1-x536.google.com
- [IPv6:2a00:1450:4864:20::536])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from smtp73.iad3a.emailsrvr.com (smtp73.iad3a.emailsrvr.com
+ [173.203.187.73])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 577E93B2A4
- for <cake@lists.bufferbloat.net>; Thu, 23 Sep 2021 13:47:00 -0400 (EDT)
-Received: by mail-ed1-x536.google.com with SMTP id c21so25435207edj.0
- for <cake@lists.bufferbloat.net>; Thu, 23 Sep 2021 10:47:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:to
- :cc; bh=S4qV5Q0jO++wKxAxtWFCt0NsoPPeCGHBmx9yskT/hF4=;
- b=GUEwatmnKUZ2ae3OzT/DlcLkzAQ7U9p9HnQhz/o2k8FlPpppMtykJveAcpy9FPNpH0
- 6C6eqpWz5ofGDEsIBE5Npqeu2U6urjviQkJXHDigx8sVwkxh+dgWFX4QCDpgXsZo0HFN
- knDX6Z/iVxo4YPZjJgiHo8Kal+3TSEKIYa18w=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:to:cc;
- bh=S4qV5Q0jO++wKxAxtWFCt0NsoPPeCGHBmx9yskT/hF4=;
- b=OLzIGJE+Joh/J+8DVJCOcG+uam4NJvF034mH5lKIWE5DfOevGDALIRd08Cxu3jXQBO
- 7/jL7PgvoSy/fGsy7i7vGdMuq7XUSjanrH0QLXtUtnuemGqGBAHjJRfcnLIPs9RH6U17
- 7hhAa6EUf4FTNgpDJi4It/iHBKvNDxgA+UDU/oWSXIqlJ/4nTfGc082bKBs2Z4NZT91G
- ksFAN7386kvdY6ZG/E/cttAi8pxaIpZtdZ+Z59gTC71yBGoKryK/Q92uZe/9DQdQo7wc
- mroi02QUWaYn3apOOl2wED1lmwRYX6BNTWdvJ2YEqm/MH+MHhTlWXFZv+HxMsUj4YqaP
- 5VCw==
-X-Gm-Message-State: AOAM531bfPDQsYEPIbC7+mXP2xcWVC0aNAdWMjMHvqW2jN9cbYggvoTQ
- 6FiViDS3Uh/0HK648hGBVlyPEAqVuKo5GTBZNF+D+wpVCoGnng52HCnc8ew6mKG5mh51eVhVVFJ
- fUI0QPjPSRzTjj1hiZHmsQaixiqcJ
-X-Google-Smtp-Source: ABdhPJwY0teGh0HvdsXQwcXECmTbaC0Sj4NQzrD5UO8RAe76cgIhU3U27ELuebIw96q73ed35I0sQTSNh8qNfmUoS0I=
-X-Received: by 2002:a17:906:4093:: with SMTP id
- u19mr6638990ejj.110.1632419218858; 
- Thu, 23 Sep 2021 10:46:58 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 7F6B93CB38;
+ Sun, 26 Sep 2021 14:24:03 -0400 (EDT)
+Received: from app64.wa-webapps.iad3a (relay-webapps.rsapps.net
+ [172.27.255.140])
+ by smtp18.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id E8D5120D35;
+ Sun, 26 Sep 2021 14:24:02 -0400 (EDT)
+Received: from deepplum.com (localhost.localdomain [127.0.0.1])
+ by app64.wa-webapps.iad3a (Postfix) with ESMTP id D5558618D5;
+ Sun, 26 Sep 2021 14:24:02 -0400 (EDT)
+Received: by apps.rackspace.com
+ (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
+ with HTTP; Sun, 26 Sep 2021 14:24:02 -0400 (EDT)
+X-Auth-ID: dpreed@deepplum.com
+Date: Sun, 26 Sep 2021 14:24:02 -0400 (EDT)
+From: "David P. Reed" <dpreed@deepplum.com>
+To: "Bob McMahon" <bob.mcmahon@broadcom.com>
 MIME-Version: 1.0
-References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
- <1625188609.32718319@apps.rackspace.com>
- <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>
- <CAHb6LvrjgKnfe_jaGgx7_B1VDTkZfTmP0OyTmxL9ojWoxogrsA@mail.gmail.com>
- <989de0c1-e06c-cda9-ebe6-1f33df8a4c24@candelatech.com>
- <1625773080.94974089@apps.rackspace.com>
- <FDF5C7A7-47A6-4123-A948-352C07C35F02@cs.ucla.edu>
- <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com>
- <1625859083.09751240@apps.rackspace.com>
- <CAA93jw5QyH4SqKT07hP+skijfimZ0GU=AgLJtkVOQGzKrAkazg@mail.gmail.com>
- <257851.1632110422@turing-police>
- <CABf5zv+yq_oJ7O7YqVeSbZ2Qns3C4hESzNA2V0zNb0L1Zg-mgw@mail.gmail.com>
- <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com>
-In-Reply-To: <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com>
-Date: Thu, 23 Sep 2021 10:46:48 -0700
-Message-ID: <CAHb6Lvp86iw=DQMN8Z+f7yUJu-5pmVUxsM1_1Jw8RJb2XRcMcg@mail.gmail.com>
-To: Vint Cerf <vint@google.com>
+Importance: Normal
+X-Priority: 3 (Normal)
+X-Type: html
+In-Reply-To: <CAHb6Lvp86iw=DQMN8Z+f7yUJu-5pmVUxsM1_1Jw8RJb2XRcMcg@mail.gmail.com>
+References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com> 
+ <1625188609.32718319@apps.rackspace.com> 
+ <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com> 
+ <CAHb6LvrjgKnfe_jaGgx7_B1VDTkZfTmP0OyTmxL9ojWoxogrsA@mail.gmail.com> 
+ <989de0c1-e06c-cda9-ebe6-1f33df8a4c24@candelatech.com> 
+ <1625773080.94974089@apps.rackspace.com> 
+ <FDF5C7A7-47A6-4123-A948-352C07C35F02@cs.ucla.edu> 
+ <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com> 
+ <1625859083.09751240@apps.rackspace.com> 
+ <CAA93jw5QyH4SqKT07hP+skijfimZ0GU=AgLJtkVOQGzKrAkazg@mail.gmail.com> 
+ <257851.1632110422@turing-police> 
+ <CABf5zv+yq_oJ7O7YqVeSbZ2Qns3C4hESzNA2V0zNb0L1Zg-mgw@mail.gmail.com> 
+ <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com> 
+ <CAHb6Lvp86iw=DQMN8Z+f7yUJu-5pmVUxsM1_1Jw8RJb2XRcMcg@mail.gmail.com>
+X-Client-IP: 209.6.168.128
+Message-ID: <1632680642.869711321@apps.rackspace.com>
+X-Mailer: webmail/19.0.13-RC
+X-Classification-ID: 3b0fcce3-004d-4787-8e2e-1093ec843d11-1-1
 Subject: Re: [Cake] [Starlink] [Cerowrt-devel] [Bloat] Little's Law mea
- culpa, but not invalidating my main point
+	culpa, but not invalidating my main point
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -84,318 +77,293 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
-Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
 Cc: Cake List <cake@lists.bufferbloat.net>,
- =?UTF-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
+ =?utf-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
  starlink@lists.bufferbloat.net, codel <codel@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>, Steve Crocker <steve@shinkuro.com>
-Content-Type: multipart/mixed; boundary="===============0604251551425126556=="
+ bloat <bloat@lists.bufferbloat.net>, Steve Crocker <steve@shinkuro.com>,
+ Vint Cerf <vint@google.com>
+Content-Type: multipart/mixed; boundary="===============2657585976690727745=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============0604251551425126556==
-Content-Type: multipart/alternative; boundary="000000000000aade5605ccad37d6"
+--===============2657585976690727745==
+Content-Type: multipart/alternative;boundary="----=_20210926142402000000_22541"
 
---000000000000aade5605ccad37d6
+------=_20210926142402000000_22541
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Hi All,
-
-I do appreciate this thread as well. As a test & measurement guy here are
-my conclusions around network performance. Thanks in advance for any
-comments.
-
-Congestion can be mitigated the following ways
-o) Size queues properly to minimize/negate bloat (easier said than done
-with tech like WiFi)
-o) Use faster links on the service side such that a queues' service rates
-exceeds the arrival rate, no congestion even in bursts, if possible
-o) Drop entries during oversubscribed states (queue processing can't "speed
-up" like water flow through a constricted pipe, must drop)
-o) Identify aggressor flows per congestion if possible
-o) Forwarding planes can signal back the the sources "earlier" to minimize
-queue build ups per a "control loop request" asking sources to pace their
-writes
-o) transport layers use techniques a la BBR
-o) Use "home gateways" that support tech like FQ_CODEL
-
-Latency can be mitigated the following ways
-o) Mitigate or eliminate congestion, particularly around queueing delays
-o) End host apps can use TCP_NOTSENT_LOWAT along with write()/select() to
-reduce host sends of "better never than late" messages
-o) Move servers closer to the clients per fundamental limit of the speed of
-light (i.e. propagation delay of energy over the wave guides), a la CDNs
-(Except if you're a HFT, separate servers across geography and make sure to
-have exclusive user rights over the lowest latency links)
-
-Transport control loop(s)
-o) Transport layer control loops are non linear systems so network tooling
-will struggle to emulate "end user experience"
-o) 1/2 RTT does not equal OWD used to compute the bandwidth delay product,
-imbalance and effects need to be measured
-o) forwarding planes signaling congestion to sources wasn't designed in TCP
-originally but the industry trend seems to be to moving towards this per
-things like L4S
-
-Photons, radio & antenna design
-o) Find experts who have experience & knowledge, e.g. many do here
-o) Photons don't really have mass nor size, at least per my limited
-understanding of particle physics and QED though, I must admit, came from
-reading things on the internet
-
-Bob
-
-On Mon, Sep 20, 2021 at 7:40 PM Vint Cerf <vint@google.com> wrote:
-
-> see https://mediatrust.com/
-> v
->
->
-> On Mon, Sep 20, 2021 at 10:28 AM Steve Crocker <steve@shinkuro.com> wrote=
-:
->
->> Related but slightly different: Attached is a slide some of my colleague=
-s
->> put together a decade ago showing the number of DNS lookups involved in
->> displaying CNN's front page.
->>
->> Steve
->>
->>
->> On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=93tnieks <valdis.kletnieks@=
-vt.edu>
->> wrote:
->>
->>> On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:
->>> > what actually happens during a web page load,
->>>
->>> I'm pretty sure that nobody actually understands that anymore, in any
->>> more than handwaving levels.
->>>
->>> I have a nice Chrome extension called IPvFoo that actually tracks the I=
-P
->>> addresses contacted during the load of the displayed page. I'll let you
->>> make
->>> a guess as to how many unique IP addresses were contacted during a load
->>> of https://www.cnn.com
->>>
->>> ...
->>>
->>>
->>> ...
->>>
->>>
->>> ...
->>>
->>>
->>> 145, at least half of which appeared to be analytics.  And that's only
->>> the
->>> hosts that were contacted by my laptop for HTTP, and doesn't count DNS,
->>> or
->>> load-balancing front ends, or all the back-end boxes.  As I commented
->>> over on
->>> NANOG, we've gotten to a point similar to that of AT&T long distance,
->>> where 60%
->>> of the effort of connecting a long distance phone call was the cost of
->>> accounting and billing for the call.
->>>
->>>
->>>
->>>
->>>
->>>
->>>
->>>
->>> _______________________________________________
->>> Starlink mailing list
->>> Starlink@lists.bufferbloat.net
->>> https://lists.bufferbloat.net/listinfo/starlink
->>>
->> _______________________________________________
->> Starlink mailing list
->> Starlink@lists.bufferbloat.net
->> https://lists.bufferbloat.net/listinfo/starlink
->>
->
->
-> --
-> Please send any postal/overnight deliveries to:
-> Vint Cerf
-> 1435 Woodhurst Blvd
-> McLean, VA 22102
-> 703-448-0965
->
-> until further notice
->
->
->
->
-
---=20
-This electronic communication and the information and any files transmitted=
-=20
-with it, or attached to it, are confidential and are intended solely for=20
-the use of the individual or entity to whom it is addressed and may contain=
-=20
-information that is confidential, legally privileged, protected by privacy=
-=20
-laws, or otherwise restricted from disclosure to anyone else. If you are=20
-not the intended recipient or the person responsible for delivering the=20
-e-mail to the intended recipient, you are hereby notified that any use,=20
-copying, distributing, dissemination, forwarding, printing, or copying of=
-=20
-this e-mail is strictly prohibited. If you received this e-mail in error,=
-=20
-please return the e-mail to the sender, delete it from your computer, and=
-=20
-destroy any printed copy of it.
-
---000000000000aade5605ccad37d6
+=0APretty good list, thanks for putting this together.=0A =0AThe only thing=
+ I'd add, and I'm not able to formulate it very elegantly, is this personal=
+ insight: One that I would research, because it can be a LOT more useful in=
+ the end-to-end control loop than stuff like ECN, L4S, RED, ...=0A =0AFact:=
+ Detecting congestion by allowing a queue to build up is a very lagging ind=
+icator of incipient congestion in the forwarding system. The delay added to=
+ all paths by that queue buildup slows down the control loop's ability to r=
+espond by slowing the sources. It's the control loop delay that creates bot=
+h instability and continued congestion growth.=0AObservation: current forwa=
+rders forget what they have forwarded as soon as it is transmitted. This lo=
+ses all the information about incipient congestion and "fairness" among mul=
+tiple sources. Yet, there is no need to forget recent history at all after =
+the packets have been transmitted.=0A =0AAn idea I keep proposing is the id=
+ea of remembering the last K seconds of packets, their flow ids (source and=
+ destination), the arrival time and departure time, and their channel occup=
+ancy on the outbound shared link. Then using this information to reflect in=
+cipient congestion information to the flows that need controlling, to be us=
+ed in their control loops.=0A =0ASo far, no one has taken me up on doing th=
+e research to try this in the field. Note: the signalling can be simple (se=
+nding ECN flags on all flows that transit the queue, even though there is n=
+o backlog, yet, when the queue is empty but transient overload seems likely=
+), but the key thing is that we already assume that  recent history of pack=
+ets is predictive of future overflow.=0AThis can be implemented locally on =
+any routing path that tends to be a bottleneck link. Such as the uplink of =
+a home network. It should work with TCP as is if the signalling causes wind=
+ow reduction (at first, just signal by dropping packets prematurely, but if=
+ TCP will handle ECN aggressively - a single ECN mark causing window reduct=
+ion, then it will help that, too).=0A =0AThe insight is that from an "infor=
+mation and control theory" perspective, the packets that have already been =
+forwarded are incredibly valuable for congestion prediction.=0A =0APlease, =
+if possible, if anyone actually works on this and publishes, give me credit=
+ for suggesting this.=0AJust because I've been suggesting it for about 15 y=
+ears now, and being ignored. It would be a mitzvah.=0A =0A =0AOn Thursday, =
+September 23, 2021 1:46pm, "Bob McMahon" <bob.mcmahon@broadcom.com> said:=
+=0A=0A=0A=0AHi All,=0AI do appreciate this thread as well. As a test & meas=
+urement guy here are my conclusions around network performance. Thanks in a=
+dvance for any comments.=0A=0ACongestion can be mitigated the following way=
+s=0Ao) Size queues properly to minimize/negate bloat (easier said than done=
+ with tech like WiFi)=0Ao) Use faster links on the service side such that a=
+ queues' service rates exceeds the arrival rate, no congestion even in burs=
+ts, if possible=0Ao) Drop entries during oversubscribed states (queue proce=
+ssing can't "speed up" like water flow through a constricted pipe, must dro=
+p)=0Ao) Identify aggressor flows per congestion if possible=0Ao) Forwarding=
+ planes can signal back the the sources "earlier" to minimize queue build u=
+ps per a "control loop request" asking sources to pace their writes=0Ao) tr=
+ansport layers use techniques a la BBR=0Ao) Use "home gateways" that suppor=
+t tech like FQ_CODEL=0ALatency can be mitigated the following ways=0Ao) Mit=
+igate or eliminate congestion, particularly around queueing delays=0Ao) End=
+ host apps can use TCP_NOTSENT_LOWAT along with write()/select() to reduce =
+host sends of "better never than late" messages =0Ao) Move servers closer t=
+o the clients per fundamental limit of the speed of light (i.e. propagation=
+ delay of energy over the wave guides), a la CDNs=0A(Except if you're a HFT=
+, separate servers across geography and make sure to have exclusive user ri=
+ghts over the lowest latency links)=0A=0ATransport control loop(s)=0Ao) Tra=
+nsport layer control loops are non linear systems so network tooling will s=
+truggle to emulate "end user experience"=0Ao) 1/2 RTT does not equal OWD us=
+ed to compute the bandwidth delay product, imbalance and effects need to be=
+ measured=0Ao) forwarding planes signaling congestion to sources wasn't des=
+igned in TCP originally but the industry trend seems to be to moving toward=
+s this per things like L4S=0APhotons, radio & antenna design=0Ao) Find expe=
+rts who have experience & knowledge, e.g. many do here=0Ao) Photons don't r=
+eally have mass nor size, at least per my limited understanding of particle=
+ physics and QED though, I must admit, came from reading things on the inte=
+rnet =0A=0ABob=0A=0A=0AOn Mon, Sep 20, 2021 at 7:40 PM Vint Cerf <[ vint@go=
+ogle.com ]( mailto:vint@google.com )> wrote:=0Asee [ https://mediatrust.com=
+/ ]( https://mediatrust.com/ )=0Av=0A=0A=0AOn Mon, Sep 20, 2021 at 10:28 AM=
+ Steve Crocker <[ steve@shinkuro.com ]( mailto:steve@shinkuro.com )> wrote:=
+=0A=0ARelated but slightly different: Attached is a slide some of my collea=
+gues put together a decade ago showing the number of DNS lookups involved i=
+n displaying CNN's front page.=0ASteve=0A=0A=0AOn Mon, Sep 20, 2021 at 8:18=
+ AM Valdis Kl=C4=93tnieks <[ valdis.kletnieks@vt.edu ]( mailto:valdis.kletn=
+ieks@vt.edu )> wrote:On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:=0A=
+ > what actually happens during a web page load,=0A=0A I'm pretty sure that=
+ nobody actually understands that anymore, in any=0A more than handwaving l=
+evels.=0A=0A I have a nice Chrome extension called IPvFoo that actually tra=
+cks the IP=0A addresses contacted during the load of the displayed page. I'=
+ll let you make=0A a guess as to how many unique IP addresses were contacte=
+d during a load=0A of [ https://www.cnn.com ]( https://www.cnn.com )=0A=0A =
+...=0A=0A=0A ...=0A=0A=0A ...=0A=0A=0A 145, at least half of which appeared=
+ to be analytics.  And that's only the=0A hosts that were contacted by my l=
+aptop for HTTP, and doesn't count DNS, or=0A load-balancing front ends, or =
+all the back-end boxes.  As I commented over on=0A NANOG, we've gotten to a=
+ point similar to that of AT&T long distance, where 60%=0A of the effort of=
+ connecting a long distance phone call was the cost of=0A accounting and bi=
+lling for the call.=0A=0A=0A=0A=0A=0A=0A=0A=0A ____________________________=
+___________________=0A Starlink mailing list=0A[ Starlink@lists.bufferbloat=
+.net ]( mailto:Starlink@lists.bufferbloat.net )=0A[ https://lists.bufferblo=
+at.net/listinfo/starlink ]( https://lists.bufferbloat.net/listinfo/starlink=
+ )_______________________________________________=0A Starlink mailing list=
+=0A[ Starlink@lists.bufferbloat.net ]( mailto:Starlink@lists.bufferbloat.ne=
+t )=0A[ https://lists.bufferbloat.net/listinfo/starlink ]( https://lists.bu=
+fferbloat.net/listinfo/starlink )=0A-- =0A=0A=0A=0APlease send any postal/o=
+vernight deliveries to:=0AVint Cerf=0A1435 Woodhurst Blvd =0AMcLean, VA 221=
+02=0A703-448-0965=0Auntil further notice=0AThis electronic communication an=
+d the information and any files transmitted with it, or attached to it, are=
+ confidential and are intended solely for the use of the individual or enti=
+ty to whom it is addressed and may contain information that is confidential=
+, legally privileged, protected by privacy laws, or otherwise restricted fr=
+om disclosure to anyone else. If you are not the intended recipient or the =
+person responsible for delivering the e-mail to the intended recipient, you=
+ are hereby notified that any use, copying, distributing, dissemination, fo=
+rwarding, printing, or copying of this e-mail is strictly prohibited. If yo=
+u received this e-mail in error, please return the e-mail to the sender, de=
+lete it from your computer, and destroy any printed copy of it.
+------=_20210926142402000000_22541
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">Hi All,<div><br></div><div>I do appreciate this thread as =
-well. As a test &amp; measurement guy here are my conclusions around networ=
-k performance. Thanks in advance for any comments.<br><br>Congestion can be=
- mitigated the following=C2=A0ways</div><div>o) Size queues properly to min=
-imize/negate bloat (easier said than done with tech like WiFi)</div><div>o)=
- Use faster links on the service side such that a queues&#39; service rates=
- exceeds=C2=A0the arrival rate, no congestion=C2=A0even in bursts, if possi=
-ble<br>o) Drop entries during oversubscribed states (queue processing can&#=
-39;t &quot;speed up&quot; like water flow through a constricted pipe, must =
-drop)</div><div>o) Identify aggressor=C2=A0flows per congestion if possible=
-</div><div>o) Forwarding planes can signal back the the sources &quot;earli=
-er&quot; to minimize queue build ups per a &quot;control loop=C2=A0request&=
-quot; asking sources to pace their writes</div><div>o) transport layers use=
- techniques a la BBR</div><div>o) Use &quot;home gateways&quot; that suppor=
-t tech like FQ_CODEL</div><div><br></div><div>Latency can be mitigated the =
-following=C2=A0ways</div><div>o) Mitigate or eliminate congestion, particul=
-arly around=C2=A0queueing delays</div><div>o) End host apps can use TCP_NOT=
-SENT_LOWAT along with write()/select() to reduce host sends of &quot;better=
- never than late&quot; messages=C2=A0<br>o) Move servers closer to the clie=
-nts per fundamental limit of the speed of light (i.e. propagation=C2=A0dela=
-y of energy over the wave guides), a la CDNs</div><div>(Except if you&#39;r=
-e a HFT, separate servers across geography=C2=A0and make sure to have exclu=
-sive user rights over the lowest latency links)<br><br>Transport control lo=
-op(s)</div><div>o) Transport layer control loops are non linear systems so =
-network tooling will struggle to emulate &quot;end user experience&quot;<br=
-></div><div>o) 1/2 RTT does not equal=C2=A0OWD used to compute the bandwidt=
-h delay product, imbalance and effects need to be measured</div><div>o) for=
-warding planes signaling congestion to sources wasn&#39;t designed in TCP o=
-riginally but the industry trend seems to be to moving towards this per thi=
-ngs like L4S</div><div><br></div><div>Photons, radio &amp; antenna design<b=
-r>o) Find experts who have experience &amp; knowledge, e.g. many do here<br=
->o) Photons don&#39;t really have mass nor size, at least=C2=A0per my limit=
-ed understanding of particle physics and QED though, I must admit, came fro=
-m reading things on the internet=C2=A0<br><br>Bob</div></div><br><div class=
-=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Sep 20, 2021=
- at 7:40 PM Vint Cerf &lt;<a href=3D"mailto:vint@google.com" target=3D"_bla=
-nk">vint@google.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
-e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
-;padding-left:1ex"><div dir=3D"ltr">see <a href=3D"https://mediatrust.com/"=
- target=3D"_blank">https://mediatrust.com/</a><div>v</div><div><br></div></=
-div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On=
- Mon, Sep 20, 2021 at 10:28 AM Steve Crocker &lt;<a href=3D"mailto:steve@sh=
-inkuro.com" target=3D"_blank">steve@shinkuro.com</a>&gt; wrote:<br></div><b=
-lockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-le=
-ft:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div class=
-=3D"gmail_default" style=3D"font-family:arial,sans-serif;font-size:small;co=
-lor:rgb(0,0,0)">Related but slightly different: Attached is a slide some of=
- my colleagues put together a decade ago showing the number of DNS lookups =
-involved in displaying CNN&#39;s front page.</div><div class=3D"gmail_defau=
-lt" style=3D"font-family:arial,sans-serif;font-size:small;color:rgb(0,0,0)"=
-><br></div><div class=3D"gmail_default" style=3D"font-family:arial,sans-ser=
-if;font-size:small;color:rgb(0,0,0)">Steve</div><div class=3D"gmail_default=
-" style=3D"font-family:arial,sans-serif;font-size:small;color:rgb(0,0,0)"><=
-br></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gma=
-il_attr">On Mon, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=93tnieks &lt;<a href=
-=3D"mailto:valdis.kletnieks@vt.edu" target=3D"_blank">valdis.kletnieks@vt.e=
-du</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
-n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
-">On Sun, 19 Sep 2021 18:21:56 -0700, Dave Taht said:<br>
-&gt; what actually happens during a web page load,<br>
-<br>
-I&#39;m pretty sure that nobody actually understands that anymore, in any<b=
-r>
-more than handwaving levels.<br>
-<br>
-I have a nice Chrome extension called IPvFoo that actually tracks the IP<br=
->
-addresses contacted during the load of the displayed page. I&#39;ll let you=
- make<br>
-a guess as to how many unique IP addresses were contacted during a load<br>
-of <a href=3D"https://www.cnn.com" rel=3D"noreferrer" target=3D"_blank">htt=
-ps://www.cnn.com</a><br>
-<br>
-...<br>
-<br>
-<br>
-...<br>
-<br>
-<br>
-...<br>
-<br>
-<br>
-145, at least half of which appeared to be analytics.=C2=A0 And that&#39;s =
-only the<br>
-hosts that were contacted by my laptop for HTTP, and doesn&#39;t count DNS,=
- or<br>
-load-balancing front ends, or all the back-end boxes.=C2=A0 As I commented =
-over on<br>
-NANOG, we&#39;ve gotten to a point similar to that of AT&amp;T long distanc=
-e, where 60%<br>
-of the effort of connecting a long distance phone call was the cost of<br>
-accounting and billing for the call.<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-_______________________________________________<br>
-Starlink mailing list<br>
-<a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">Starlin=
-k@lists.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"noreferr=
-er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
-r>
-</blockquote></div>
-_______________________________________________<br>
-Starlink mailing list<br>
-<a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">Starlin=
-k@lists.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"noreferr=
-er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
-r>
-</blockquote></div><br clear=3D"all"><div><br></div>-- <br><div dir=3D"ltr"=
-><div dir=3D"ltr"><div>Please send any postal/overnight deliveries to:</div=
-><div>Vint Cerf</div><div>1435 Woodhurst Blvd=C2=A0</div><div>McLean, VA 22=
-102</div><div>703-448-0965</div><div><br></div><div>until further notice</d=
-iv><div><br></div><div><br></div><div><br></div></div></div>
-</blockquote></div>
+<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
+ arial; font-size: 10pt; overflow-wrap: break-word;">Pretty good list, than=
+ks for putting this together.</p>=0A<p style=3D"margin:0;padding:0;font-fam=
+ily: arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p st=
+yle=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wra=
+p: break-word;">The only thing I'd add, and I'm not able to formulate it ve=
+ry elegantly, is this personal insight: One that I would research, because =
+it can be a LOT more useful in the end-to-end control loop than stuff like =
+ECN, L4S, RED, ...</p>=0A<p style=3D"margin:0;padding:0;font-family: arial;=
+ font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"marg=
+in:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-wo=
+rd;">Fact: Detecting congestion by allowing a queue to build up is a very l=
+agging indicator of incipient congestion in the forwarding system. The dela=
+y added to all paths by that queue buildup slows down the control loop's ab=
+ility to respond by slowing the sources. It's the control loop delay that c=
+reates both instability and continued congestion growth.</p>=0A<p style=3D"=
+margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: brea=
+k-word;">Observation: current forwarders forget what they have forwarded as=
+ soon as it is transmitted. This loses all the information about incipient =
+congestion and "fairness" among multiple sources. Yet, there is no need to =
+forget recent history at all after the packets have been transmitted.</p>=
+=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; over=
+flow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-fa=
+mily: arial; font-size: 10pt; overflow-wrap: break-word;">An idea I keep pr=
+oposing is the idea of remembering the last K seconds of packets, their flo=
+w ids (source and destination), the arrival time and departure time, and th=
+eir channel occupancy on the outbound shared link. Then using this informat=
+ion to reflect incipient congestion information to the flows that need cont=
+rolling, to be used in their control loops.</p>=0A<p style=3D"margin:0;padd=
+ing:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">&nbs=
+p;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt=
+; overflow-wrap: break-word;">So far, no one has taken me up on doing the r=
+esearch to try this in the field. Note: the signalling can be simple (sendi=
+ng ECN flags on all flows that transit the queue, even though there is no b=
+acklog, yet, when the queue is empty but transient overload seems likely), =
+but the key thing is that we already assume that&nbsp; recent history of pa=
+ckets is predictive of future overflow.</p>=0A<p style=3D"margin:0;padding:=
+0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">This can=
+ be implemented locally on any routing path that tends to be a bottleneck l=
+ink. Such as the uplink of a home network. It should work with TCP as is if=
+ the signalling causes window reduction (at first, just signal by dropping =
+packets prematurely, but if TCP will handle ECN aggressively - a single ECN=
+ mark causing window reduction, then it will help that, too).</p>=0A<p styl=
+e=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap:=
+ break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: aria=
+l; font-size: 10pt; overflow-wrap: break-word;">The insight is that from an=
+ "information and control theory" perspective, the packets that have alread=
+y been forwarded are incredibly valuable for congestion prediction.</p>=0A<=
+p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow=
+-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family=
+: arial; font-size: 10pt; overflow-wrap: break-word;">Please, if possible, =
+if anyone actually works on this and publishes, give me credit for suggesti=
+ng this.</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size=
+: 10pt; overflow-wrap: break-word;">Just because I've been suggesting it fo=
+r about 15 years now, and being ignored. It would be a mitzvah.</p>=0A<p st=
+yle=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wra=
+p: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: ar=
+ial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"=
+margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: brea=
+k-word;">On Thursday, September 23, 2021 1:46pm, "Bob McMahon" &lt;bob.mcma=
+hon@broadcom.com&gt; said:<br /><br /></p>=0A<div id=3D"SafeStyles163268062=
+2">=0A<div dir=3D"ltr">Hi All,=0A<div>I do appreciate this thread as well. =
+As a test &amp; measurement guy here are my conclusions around network perf=
+ormance. Thanks in advance for any comments.<br /><br />Congestion can be m=
+itigated the following&nbsp;ways</div>=0A<div>o) Size queues properly to mi=
+nimize/negate bloat (easier said than done with tech like WiFi)</div>=0A<di=
+v>o) Use faster links on the service side such that a queues' service rates=
+ exceeds&nbsp;the arrival rate, no congestion&nbsp;even in bursts, if possi=
+ble<br />o) Drop entries during oversubscribed states (queue processing can=
+'t "speed up" like water flow through a constricted pipe, must drop)</div>=
+=0A<div>o) Identify aggressor&nbsp;flows per congestion if possible</div>=
+=0A<div>o) Forwarding planes can signal back the the sources "earlier" to m=
+inimize queue build ups per a "control loop&nbsp;request" asking sources to=
+ pace their writes</div>=0A<div>o) transport layers use techniques a la BBR=
+</div>=0A<div>o) Use "home gateways" that support tech like FQ_CODEL</div>=
+=0A<div>Latency can be mitigated the following&nbsp;ways</div>=0A<div>o) Mi=
+tigate or eliminate congestion, particularly around&nbsp;queueing delays</d=
+iv>=0A<div>o) End host apps can use TCP_NOTSENT_LOWAT along with write()/se=
+lect() to reduce host sends of "better never than late" messages&nbsp;<br /=
+>o) Move servers closer to the clients per fundamental limit of the speed o=
+f light (i.e. propagation&nbsp;delay of energy over the wave guides), a la =
+CDNs</div>=0A<div>(Except if you're a HFT, separate servers across geograph=
+y&nbsp;and make sure to have exclusive user rights over the lowest latency =
+links)<br /><br />Transport control loop(s)</div>=0A<div>o) Transport layer=
+ control loops are non linear systems so network tooling will struggle to e=
+mulate "end user experience"</div>=0A<div>o) 1/2 RTT does not equal&nbsp;OW=
+D used to compute the bandwidth delay product, imbalance and effects need t=
+o be measured</div>=0A<div>o) forwarding planes signaling congestion to sou=
+rces wasn't designed in TCP originally but the industry trend seems to be t=
+o moving towards this per things like L4S</div>=0A<div>Photons, radio &amp;=
+ antenna design<br />o) Find experts who have experience &amp; knowledge, e=
+.g. many do here<br />o) Photons don't really have mass nor size, at least&=
+nbsp;per my limited understanding of particle physics and QED though, I mus=
+t admit, came from reading things on the internet&nbsp;<br /><br />Bob</div=
+>=0A</div>=0A<br />=0A<div class=3D"gmail_quote">=0A<div class=3D"gmail_att=
+r" dir=3D"ltr">On Mon, Sep 20, 2021 at 7:40 PM Vint Cerf &lt;<a href=3D"mai=
+lto:vint@google.com" target=3D"_blank">vint@google.com</a>&gt; wrote:</div>=
+=0A<blockquote class=3D"gmail_quote" style=3D"margin: 0px 0px 0px 0.8ex; bo=
+rder-left: 1px solid #cccccc; padding-left: 1ex;">=0A<div dir=3D"ltr">see <=
+a href=3D"https://mediatrust.com/" target=3D"_blank">https://mediatrust.com=
+/</a>=0A<div>v</div>=0A</div>=0A<br />=0A<div class=3D"gmail_quote">=0A<div=
+ class=3D"gmail_attr" dir=3D"ltr">On Mon, Sep 20, 2021 at 10:28 AM Steve Cr=
+ocker &lt;<a href=3D"mailto:steve@shinkuro.com" target=3D"_blank">steve@shi=
+nkuro.com</a>&gt; wrote:</div>=0A<blockquote class=3D"gmail_quote" style=3D=
+"margin: 0px 0px 0px 0.8ex; border-left: 1px solid #cccccc; padding-left: 1=
+ex;">=0A<div dir=3D"ltr">=0A<div class=3D"gmail_default" style=3D"font-fami=
+ly: arial,sans-serif; font-size: small; color: #000000;">Related but slight=
+ly different: Attached is a slide some of my colleagues put together a deca=
+de ago showing the number of DNS lookups involved in displaying CNN's front=
+ page.</div>=0A<div class=3D"gmail_default" style=3D"font-family: arial,san=
+s-serif; font-size: small; color: #000000;">Steve</div>=0A</div>=0A<br />=
+=0A<div class=3D"gmail_quote">=0A<div class=3D"gmail_attr" dir=3D"ltr">On M=
+on, Sep 20, 2021 at 8:18 AM Valdis Kl=C4=93tnieks &lt;<a href=3D"mailto:val=
+dis.kletnieks@vt.edu" target=3D"_blank">valdis.kletnieks@vt.edu</a>&gt; wro=
+te:</div>=0A<blockquote class=3D"gmail_quote" style=3D"margin: 0px 0px 0px =
+0.8ex; border-left: 1px solid #cccccc; padding-left: 1ex;">On Sun, 19 Sep 2=
+021 18:21:56 -0700, Dave Taht said:<br /> &gt; what actually happens during=
+ a web page load,<br /><br /> I'm pretty sure that nobody actually understa=
+nds that anymore, in any<br /> more than handwaving levels.<br /><br /> I h=
+ave a nice Chrome extension called IPvFoo that actually tracks the IP<br />=
+ addresses contacted during the load of the displayed page. I'll let you ma=
+ke<br /> a guess as to how many unique IP addresses were contacted during a=
+ load<br /> of <a rel=3D"noreferrer" href=3D"https://www.cnn.com" target=3D=
+"_blank">https://www.cnn.com</a><br /><br /> ...<br /><br /><br /> ...<br /=
+><br /><br /> ...<br /><br /><br /> 145, at least half of which appeared to=
+ be analytics.&nbsp; And that's only the<br /> hosts that were contacted by=
+ my laptop for HTTP, and doesn't count DNS, or<br /> load-balancing front e=
+nds, or all the back-end boxes.&nbsp; As I commented over on<br /> NANOG, w=
+e've gotten to a point similar to that of AT&amp;T long distance, where 60%=
+<br /> of the effort of connecting a long distance phone call was the cost =
+of<br /> accounting and billing for the call.<br /><br /><br /><br /><br />=
+<br /><br /><br /><br /> _______________________________________________<br=
+ /> Starlink mailing list<br /><a href=3D"mailto:Starlink@lists.bufferbloat=
+.net" target=3D"_blank">Starlink@lists.bufferbloat.net</a><br /><a rel=3D"n=
+oreferrer" href=3D"https://lists.bufferbloat.net/listinfo/starlink" target=
+=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a></blockquote=
+>=0A</div>=0A_______________________________________________<br /> Starlink=
+ mailing list<br /><a href=3D"mailto:Starlink@lists.bufferbloat.net" target=
+=3D"_blank">Starlink@lists.bufferbloat.net</a><br /><a rel=3D"noreferrer" h=
+ref=3D"https://lists.bufferbloat.net/listinfo/starlink" target=3D"_blank">h=
+ttps://lists.bufferbloat.net/listinfo/starlink</a></blockquote>=0A</div>=0A=
+<br />-- <br />=0A<div dir=3D"ltr">=0A<div dir=3D"ltr">=0A<div>Please send =
+any postal/overnight deliveries to:</div>=0A<div>Vint Cerf</div>=0A<div>143=
+5 Woodhurst Blvd&nbsp;</div>=0A<div>McLean, VA 22102</div>=0A<div>703-448-0=
+965</div>=0A<div>until further notice</div>=0A</div>=0A</div>=0A</blockquot=
+e>=0A</div>=0A<br /><span style=3D"background-color: #ffffff;"><span style=
+=3D"font-size: small;">This electronic communication and the information an=
+d any files transmitted with it, or attached to it, are confidential and ar=
+e intended solely for the use of the individual or entity to whom it is add=
+ressed and may contain information that is confidential, legally privileged=
+, protected by privacy laws, or otherwise restricted from disclosure to any=
+one else. If you are not the intended recipient or the person responsible f=
+or delivering the e-mail to the intended recipient, you are hereby notified=
+ that any use, copying, distributing, dissemination, forwarding, printing, =
+or copying of this e-mail is strictly prohibited. If you received this e-ma=
+il in error, please return the e-mail to the sender, delete it from your co=
+mputer, and destroy any printed copy of it.</span></span></div></font>
+------=_20210926142402000000_22541--
 
-<br>
-<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
-ctronic communication and the information and any files transmitted with it=
-, or attached to it, are confidential and are intended solely for the use o=
-f the individual or entity to whom it is addressed and may contain informat=
-ion that is confidential, legally privileged, protected by privacy laws, or=
- otherwise restricted from disclosure to anyone else. If you are not the in=
-tended recipient or the person responsible for delivering the e-mail to the=
- intended recipient, you are hereby notified that any use, copying, distrib=
-uting, dissemination, forwarding, printing, or copying of this e-mail is st=
-rictly prohibited. If you received this e-mail in error, please return the =
-e-mail to the sender, delete it from your computer, and destroy any printed=
- copy of it.</font></span>
---000000000000aade5605ccad37d6--
 
---===============0604251551425126556==
+--===============2657585976690727745==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -405,4 +373,5 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============0604251551425126556==--
+--===============2657585976690727745==--
+
