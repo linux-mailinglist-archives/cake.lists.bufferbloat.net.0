@@ -2,69 +2,71 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C9EDD42E417
-	for <lists+cake@lfdr.de>; Fri, 15 Oct 2021 00:18:59 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BBB0242E43D
+	for <lists+cake@lfdr.de>; Fri, 15 Oct 2021 00:33:20 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id E6B733CB53;
-	Thu, 14 Oct 2021 18:18:58 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 16CE53CB56;
+	Thu, 14 Oct 2021 18:33:19 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1634249938;
-	bh=6E2yXb4ElzxN27VbQS1JQK2i+c1p7PvXfVpInBKr3gg=;
-	h=References:In-Reply-To:From:Date:Cc:Subject:List-Id:
+	d=lists.bufferbloat.net; s=201610; t=1634250799;
+	bh=7yLkEDPJgvy935vEziZRMAoyFg03D/cqPXN0SRx5BSE=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
 	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 From;
-	b=HTo5YrxJSHr8WPFlKP2zUssP9iIEIgpV8G3T7k/zytLBX0rnoP2rgWHihTkBgRy4d
-	 zrBRfMDyArYYZOj6t8K6P3LO019hxSAozJokZC7vJrChiKmsOxvosr7mnk4wi79uww
-	 +Si0KjO+QYWL07yMVoPfsFHnoLBIo4gOlXqaFPKbasd1ayqMA35Uaoy6glGDGVI4ic
-	 w8RH5x7iVt4eD+KlWUjR7cQBVdPR2iCKKNN06RmqqSZfVYGauce1eVWWXXjnUXR3jz
-	 Nb2KJHqfw6PFxDe5LHPml2dER24K0z3laLWHTkIHa9b2z0JweSOgW/VdON8JfOkRcN
-	 NH0kpcNR2Qx/g==
+	 Cc:From;
+	b=GbFtied1rFGYUZiO4RQ/q8htIHkkSuiMRKgQM0B+zN9xBDXVStQuzQC5LIQLSLHDH
+	 YwjyzDytJuES0n+kwsXmEXFDZgzPGw7l2Dorf2Id/oCfs4IZ5Sm5NKdqcQg9Q6Vpo7
+	 njaDnmBfShdfG4aUiXHEAgzlybqZD+QqOKQlzRhJrmI6topsiLqAcDKksAldlXDpX+
+	 vr7qJ3FvNRpHmnX6pCvihmirWIyKDWer60mpPzZobHjtRqzwxD/1KaMRaVO/pbmxQF
+	 JHrd3JUDR7QRv95m7Rstvl+BTFappexQRJge7O7OameJ0jNrfxeTtsymMmR69e5N8s
+	 qH8D2ikxtFcgw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x134.google.com (mail-lf1-x134.google.com
- [IPv6:2a00:1450:4864:20::134])
+Received: from mail-io1-xd2b.google.com (mail-io1-xd2b.google.com
+ [IPv6:2607:f8b0:4864:20::d2b])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 68B163B29E
- for <cake@lists.bufferbloat.net>; Thu, 14 Oct 2021 18:18:57 -0400 (EDT)
-Received: by mail-lf1-x134.google.com with SMTP id r19so32074271lfe.10
- for <cake@lists.bufferbloat.net>; Thu, 14 Oct 2021 15:18:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=lostcreek-tech.20210112.gappssmtp.com; s=20210112;
- h=mime-version:references:in-reply-to:from:date:message-id:subject:cc;
- bh=LUS7tipQ1ObqLUiQSjGxC7SW7chkKrSRf8B8+o1M33U=;
- b=R3d5gxCaqOwOHCuntCbenSY8HomhA3SEoqaMuMx/e7z06tDo+BD1FdZoN4DXghGzQ4
- A8wSOfBu2qUGSlCn/vXauGRm3jlIeiDzc6cseVxOQPukXAk4uNMsU+CrWeHWZ4E7T5U9
- iN6K+J0WyHONMrhs40dKvdSd2SJAIjWN6D/3ob1WCszB2+jXOQAWcoJ4Sc3A2ISTLZvR
- l0SdcVppbsi5PEQdevUvyIRMu/7LhqKyn5Dow2srtMv2UHqsYyo1H8V7Ofubl37ODmx0
- yoySnkCAxjBt6wOTOSACFE9dV6glO5VamzoUVc3idzu+mntVy0k5bUkquo6Hw/ScLdC7
- Bn+w==
+ by lists.bufferbloat.net (Postfix) with ESMTPS id E33C63B29E
+ for <cake@lists.bufferbloat.net>; Thu, 14 Oct 2021 18:33:17 -0400 (EDT)
+Received: by mail-io1-xd2b.google.com with SMTP id s17so5551587ioa.13
+ for <cake@lists.bufferbloat.net>; Thu, 14 Oct 2021 15:33:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=wOWXAUy0O6Emq5vgAuJkFBDrqvBLrXvls/yBBi2cf9k=;
+ b=dgYzwvPpj9PMuqt3H9PvzQ0m1EBf7aUy/x1ByhJ3+1nhwe/LTJlp6cj5yacFrAMcJV
+ 7Ve7JMWH22eH2THBxUM92K3B1jOkqa985ek2fRvyjxUN0SGmVwTMWj/oYhRKYzJsIy9m
+ O8f5LMQDX5oaOY6IJ7tKOQiQoyywh9oqr0dMhlGxKbb4Pzwr1YKz3WYvEII/+UFXMhyh
+ OnW1VdxM42MDlg8RijYjfdnZvIb5ATdKKVUzC1nHHKCGWr5V5hIPkHul0K7vtUw9uh4S
+ 9Lq23cCLDrWPoLdDfQa53QMpOmeowysVvICTJz1EtNbGcO1qSQH1/yrVUIdiim/gXwPI
+ fLTw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
  h=x-gm-message-state:mime-version:references:in-reply-to:from:date
- :message-id:subject:cc;
- bh=LUS7tipQ1ObqLUiQSjGxC7SW7chkKrSRf8B8+o1M33U=;
- b=xBkxYWC3333XJztLOHIQ8h0lijlBWz6LJNGnMTbDR9UTyL3EAVSU1f4y2SLjLzL6lx
- p0Wzyp2MB2hUS8gMoU4IHhg6fwx2umJHR27S1nTwZXtDaKoVZkssKytY4Ho6tStFNP5+
- Y0/gkfteek9nfeFo0T3lpuAF2kA58T3nRM0ZrRvx3LoTpO4ZYxRF2mtYMcn7SVAh73EC
- WLWOLSsPoZB5gxXNDW+Mz8Rv4JGv4JM7zr5h7Eynd08b7vdHoAnrVzzWKQd2aNhvXGz6
- EunEfxGT1x/k3whLXh2s7qc/SfGvM8j+me5O63szGm4aet31qtCz63gA4QQAI9keHXp9
- g5qw==
-X-Gm-Message-State: AOAM533Y32TAC7cuErCutSB7WhbgGR//+vwPeRrFnIpEIj0S+u9BqBpo
- v9R+0d5sE42NIXNMS2cNm8FjBB/sJkfDpE9opOqzS105LTY=
-X-Google-Smtp-Source: ABdhPJw+4Ev8b+T05+Cx4aJpYUtfN6u1JTT4yaJWr9mPciFIKparykxqbuxbMe/XN19GuTJN3uax4bp0tNjTKHioOp4=
-X-Received: by 2002:a2e:a585:: with SMTP id m5mr5641369ljp.51.1634249935773;
- Thu, 14 Oct 2021 15:18:55 -0700 (PDT)
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=wOWXAUy0O6Emq5vgAuJkFBDrqvBLrXvls/yBBi2cf9k=;
+ b=MLtn3+bBy1lbBbAWhTYdEGMOaLBeaYISNIPr1IoktBNr/3ay0xaXIywJY5l6YN0sPH
+ Yn/mVkEs0hFBpz5AmjeHAhDwvedrb+qelZ1k3Hio8u60xS8ir/asNi9cUhllaWdaVx+h
+ JXtnqpANj2llmVjf4ltL/9n3GogtR9Yk+chM7y7YHLB3qVUhi+1VKWgNZaNQfZ2nyjkp
+ CtgcCY8stYJfK2Z4vQJAbWFZXR7T/siC1sWRrlmzrrcnTDXYcqsjRZQ4/WngGdWeaalq
+ MaIbvcCRt6ssM41LXThFcu4/0zaqawlbGLUhRyvCx17l6fS2bz2fKqUH+Ig2f9+8U4Mw
+ Yb8A==
+X-Gm-Message-State: AOAM531ysC1FgEXTEfd/c4n+BSotdELwi5y3iXyVcRGnxPPh7VMtx4K4
+ +9o8NhlWXf7rUbgIEsArmXT8TdVqIQqK2PEPIyORpRRe2Bs=
+X-Google-Smtp-Source: ABdhPJzkIHVCCVYDceDDRYWiaAIYM+VSbGmOUrWV/o2AkWP6xE68gBV0o3DZ38TrbtXUa5ouCKyFub0w+B+xYEV4DnQ=
+X-Received: by 2002:a05:6638:1607:: with SMTP id
+ x7mr5048228jas.128.1634250796948; 
+ Thu, 14 Oct 2021 15:33:16 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw7YkMv-F6cYj2PZ9pGiS1yapO5wpLJWmuje6p0fc54eEA@mail.gmail.com>
  <003001d7bdf0$97282430$c5786c90$@inacomptc.com>
  <CAA93jw5dJ_=5OzPrcQYmFQtKLXJcfb7TWUW-jKMqfxZCpD3cZQ@mail.gmail.com>
  <006001d7c129$2de82f10$89b88d30$@inacomptc.com>
-In-Reply-To: <006001d7c129$2de82f10$89b88d30$@inacomptc.com>
-From: Thomas Croghan <tcroghan@lostcreek.tech>
-Date: Thu, 14 Oct 2021 15:18:44 -0700
-Message-ID: <CADmwGqttPcq+iCgyhJTQTspuZdCPopKsRW=bfiDrEo_FEnBT=Q@mail.gmail.com>
-Cc: Cake List <cake@lists.bufferbloat.net>
+ <CADmwGqttPcq+iCgyhJTQTspuZdCPopKsRW=bfiDrEo_FEnBT=Q@mail.gmail.com>
+In-Reply-To: <CADmwGqttPcq+iCgyhJTQTspuZdCPopKsRW=bfiDrEo_FEnBT=Q@mail.gmail.com>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Thu, 14 Oct 2021 15:33:04 -0700
+Message-ID: <CAA93jw7b-Os+w9_GsUg6JPGYDFZ_NeKfpqUwTq_7QO+qsEgQ-A@mail.gmail.com>
+To: Thomas Croghan <tcroghan@lostcreek.tech>
 Subject: Re: [Cake] [Bloat] some mikrotik comments
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -77,303 +79,116 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============1340323015788920174=="
+Cc: Cake List <cake@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============1340323015788920174==
-Content-Type: multipart/alternative; boundary="000000000000e577c005ce577689"
-
---000000000000e577c005ce577689
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Ya, I've got access to most of their CCR line, and I have a smattering of
-their RB line. TBH, the only places I think you will see interesting data
-is with the 1072 (72 tile core 1 GHz) and the 2004 (4 core 1.7 GHz ARM64).
-
-I'm also with The Brother's WISP, so if Dave wants to do a cast I can set
-that up with the other guys. I'm pretty sure there was some conversation
-about trying to get Dave on a while back.
-
-
-On Thu, Oct 14, 2021, 11:27 AM Jordan Szuch via Cake <
-cake@lists.bufferbloat.net> wrote:
-
-> Awesome, thanks! I went and subscribed to that topic so I'll get
-> notifications when people reply. Hope to jump in once I'm less busy with =
-my
-> day to day work.
->
-> Regarding more powerful hardware, I think someone replied to the mailing
-> list earlier offering to run some tests. Sounded like he might have some
-> bigger hardware to test out. Thomas Croghan back on Monday morning it loo=
-ks
-> like.
->
-> Might also be worth reaching out to these guys to do some testing or
-> evangelizing at least: https://thebrotherswisp.com/ They run a podcast
-> with a rotating cast of network operators, WISPS, etc. And they seem pret=
-ty
-> clued into the MIkrotik world specifically. I recall that you've jumped
-> onto a podcast or two recently so that's why I bring it up.
->
-> Anyway, I listen from time to time and one of the hosts brought up being
-> very interested in using fq_codel and CAKE in a Multi Dwelling Unit
-> scenario (mentioned here after a 3-4 minutes
-> https://www.youtube.com/watch?v=3DyFKG_cXGPrE&t=3D4444s). Actually, I thi=
-nk
-> they even name check you in an earlier episode (found it:
-> https://www.youtube.com/watch?v=3DQ1QitymNZTo&t=3D4285s), although one ho=
-st
-> was a bit skeptical of everything.
->
-> -----Original Message-----
-> From: Dave Taht <dave.taht@gmail.com>
-> Sent: Thursday, October 14, 2021 1:09 PM
-> To: Jordan Szuch <jordan@inacomptc.com>
-> Cc: Cake List <cake@lists.bufferbloat.net>; bloat <
-> bloat@lists.bufferbloat.net>
-> Subject: Re: [Bloat] some mikrotik comments
->
-> Thx. I put the discussion and plots over here:
->
-> https://forum.mikrotik.com/viewtopic.php?t=3D179307
->
-> I might - should I feel like expounding more later this week - go back to
-> the flent.gz files to discuss other features. Ironically the chromebook I
-> have in front of me doesn't want to let me download a file via email and
-> make it visible in the real filesystem. I'm vm'd off from myself for some
-> reason.
->
-> But my big goal, honestly, was to get some mikrotik users to test their
-> bigger iron...
->
-> On Sun, Oct 10, 2021 at 9:05 AM Jordan Szuch via Bloat <
-> bloat@lists.bufferbloat.net> wrote:
-> >
-> > Hi Dave,
-> >
-> > Interesting that you should send this out; I recently picked up a unit
-> (this one specifically: https://mikrotik.com/product/hap_ac2) to do some
-> testing of the v7 firmware. Nothing super high end but enough to do a
-> little testing. I have CAKE set to do some shaping and so far seems
-> functional. At least the bufferbloat speed tests from DSLReports and
-> WaveForm indicate some shaping is happening. If you'd like any informatio=
-n
-> about the unit, the v7 firmware, or particular tests run then I'd be happ=
-y
-> to help out.
-> >
-> > Jordan
-> >
-> > -----Original Message-----
-> > From: Bloat <bloat-bounces@lists.bufferbloat.net> On Behalf Of Dave
-> > Taht
-> > Sent: Sunday, October 10, 2021 11:39 AM
-> > To: Cake List <cake@lists.bufferbloat.net>; bloat
-> > <bloat@lists.bufferbloat.net>
-> > Subject: [Bloat] some mikrotik comments
-> >
-> > the v7 beta gained doc and more os support for fq_codel and cake
-> > recently
-> >
-> > https://forum.mikrotik.com/viewtopic.php?p=3D885000#p885000
-> >
-> > anyone out there actively testing mikrotik?
-> >
-> > --
-> > Fixing Starlink's Latencies:
-> > https://www.youtube.com/watch?v=3Dc9gLo6Xrwgw
-> >
-> > Dave T=C3=A4ht CEO, TekLibre, LLC
-> > _______________________________________________
-> > Bloat mailing list
-> > Bloat@lists.bufferbloat.net
-> > https://lists.bufferbloat.net/listinfo/bloat
-> >
-> > _______________________________________________
-> > Bloat mailing list
-> > Bloat@lists.bufferbloat.net
-> > https://lists.bufferbloat.net/listinfo/bloat
->
->
->
-> --
-> Fixing Starlink's Latencies: https://www.youtube.com/watch?v=3Dc9gLo6Xrwg=
-w
->
-> Dave T=C3=A4ht CEO, TekLibre, LLC
->
-> _______________________________________________
-> Cake mailing list
-> Cake@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/cake
->
-
---000000000000e577c005ce577689
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"auto">Ya, I&#39;ve got access to most of their CCR line, and I =
-have a smattering of their RB line. TBH, the only places I think you will s=
-ee interesting data is with the 1072 (72 tile core 1 GHz) and the 2004 (4 c=
-ore 1.7 GHz ARM64).=C2=A0<div dir=3D"auto"><br></div><div dir=3D"auto">I&#3=
-9;m also with The Brother&#39;s WISP, so if Dave wants to do a cast I can s=
-et that up with the other guys. I&#39;m pretty sure there was some conversa=
-tion about trying to get Dave on a while back.</div><br><br><div class=3D"g=
-mail_quote" dir=3D"auto"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, Oct =
-14, 2021, 11:27 AM Jordan Szuch via Cake &lt;<a href=3D"mailto:cake@lists.b=
-ufferbloat.net" target=3D"_blank" rel=3D"noreferrer">cake@lists.bufferbloat=
-.net</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"mar=
-gin:0 0 0 .8ex;border-left:1px #ccc solid;padding-left:1ex">Awesome, thanks=
-! I went and subscribed to that topic so I&#39;ll get notifications when pe=
-ople reply. Hope to jump in once I&#39;m less busy with my day to day work.=
-<br>
-<br>
-Regarding more powerful hardware, I think someone replied to the mailing li=
-st earlier offering to run some tests. Sounded like he might have some bigg=
-er hardware to test out. Thomas Croghan back on Monday morning it looks lik=
-e.<br>
-<br>
-Might also be worth reaching out to these guys to do some testing or evange=
-lizing at least: <a href=3D"https://thebrotherswisp.com/" rel=3D"noreferrer=
- noreferrer noreferrer" target=3D"_blank">https://thebrotherswisp.com/</a> =
-They run a podcast with a rotating cast of network operators, WISPS, etc. A=
-nd they seem pretty clued into the MIkrotik world specifically. I recall th=
-at you&#39;ve jumped onto a podcast or two recently so that&#39;s why I bri=
-ng it up.<br>
-<br>
-Anyway, I listen from time to time and one of the hosts brought up being ve=
-ry interested in using fq_codel and CAKE in a Multi Dwelling Unit scenario =
-(mentioned here after a 3-4 minutes <a href=3D"https://www.youtube.com/watc=
-h?v=3DyFKG_cXGPrE&amp;t=3D4444s" rel=3D"noreferrer noreferrer noreferrer" t=
-arget=3D"_blank">https://www.youtube.com/watch?v=3DyFKG_cXGPrE&amp;t=3D4444=
-s</a>). Actually, I think they even name check you in an earlier episode (f=
-ound it: <a href=3D"https://www.youtube.com/watch?v=3DQ1QitymNZTo&amp;t=3D4=
-285s" rel=3D"noreferrer noreferrer noreferrer" target=3D"_blank">https://ww=
-w.youtube.com/watch?v=3DQ1QitymNZTo&amp;t=3D4285s</a>), although one host w=
-as a bit skeptical of everything.<br>
-<br>
------Original Message-----<br>
-From: Dave Taht &lt;<a href=3D"mailto:dave.taht@gmail.com" rel=3D"noreferre=
-r noreferrer" target=3D"_blank">dave.taht@gmail.com</a>&gt; <br>
-Sent: Thursday, October 14, 2021 1:09 PM<br>
-To: Jordan Szuch &lt;<a href=3D"mailto:jordan@inacomptc.com" rel=3D"norefer=
-rer noreferrer" target=3D"_blank">jordan@inacomptc.com</a>&gt;<br>
-Cc: Cake List &lt;<a href=3D"mailto:cake@lists.bufferbloat.net" rel=3D"nore=
-ferrer noreferrer" target=3D"_blank">cake@lists.bufferbloat.net</a>&gt;; bl=
-oat &lt;<a href=3D"mailto:bloat@lists.bufferbloat.net" rel=3D"noreferrer no=
-referrer" target=3D"_blank">bloat@lists.bufferbloat.net</a>&gt;<br>
-Subject: Re: [Bloat] some mikrotik comments<br>
-<br>
-Thx. I put the discussion and plots over here:<br>
-<br>
-<a href=3D"https://forum.mikrotik.com/viewtopic.php?t=3D179307" rel=3D"nore=
-ferrer noreferrer noreferrer" target=3D"_blank">https://forum.mikrotik.com/=
-viewtopic.php?t=3D179307</a><br>
-<br>
-I might - should I feel like expounding more later this week - go back to t=
-he flent.gz files to discuss other features. Ironically the chromebook I ha=
-ve in front of me doesn&#39;t want to let me download a file via email and =
-make it visible in the real filesystem. I&#39;m vm&#39;d off from myself fo=
-r some reason.<br>
-<br>
-But my big goal, honestly, was to get some mikrotik users to test their big=
-ger iron...<br>
-<br>
-On Sun, Oct 10, 2021 at 9:05 AM Jordan Szuch via Bloat &lt;<a href=3D"mailt=
-o:bloat@lists.bufferbloat.net" rel=3D"noreferrer noreferrer" target=3D"_bla=
-nk">bloat@lists.bufferbloat.net</a>&gt; wrote:<br>
-&gt;<br>
-&gt; Hi Dave,<br>
-&gt;<br>
-&gt; Interesting that you should send this out; I recently picked up a unit=
- (this one specifically: <a href=3D"https://mikrotik.com/product/hap_ac2" r=
-el=3D"noreferrer noreferrer noreferrer" target=3D"_blank">https://mikrotik.=
-com/product/hap_ac2</a>) to do some testing of the v7 firmware. Nothing sup=
-er high end but enough to do a little testing. I have CAKE set to do some s=
-haping and so far seems functional. At least the bufferbloat speed tests fr=
-om DSLReports and WaveForm indicate some shaping is happening. If you&#39;d=
- like any information about the unit, the v7 firmware, or particular tests =
-run then I&#39;d be happy to help out.<br>
-&gt;<br>
-&gt; Jordan<br>
-&gt;<br>
-&gt; -----Original Message-----<br>
-&gt; From: Bloat &lt;<a href=3D"mailto:bloat-bounces@lists.bufferbloat.net"=
- rel=3D"noreferrer noreferrer" target=3D"_blank">bloat-bounces@lists.buffer=
-bloat.net</a>&gt; On Behalf Of Dave <br>
-&gt; Taht<br>
-&gt; Sent: Sunday, October 10, 2021 11:39 AM<br>
-&gt; To: Cake List &lt;<a href=3D"mailto:cake@lists.bufferbloat.net" rel=3D=
-"noreferrer noreferrer" target=3D"_blank">cake@lists.bufferbloat.net</a>&gt=
-;; bloat <br>
-&gt; &lt;<a href=3D"mailto:bloat@lists.bufferbloat.net" rel=3D"noreferrer n=
-oreferrer" target=3D"_blank">bloat@lists.bufferbloat.net</a>&gt;<br>
-&gt; Subject: [Bloat] some mikrotik comments<br>
-&gt;<br>
-&gt; the v7 beta gained doc and more os support for fq_codel and cake <br>
-&gt; recently<br>
-&gt;<br>
-&gt; <a href=3D"https://forum.mikrotik.com/viewtopic.php?p=3D885000#p885000=
-" rel=3D"noreferrer noreferrer noreferrer" target=3D"_blank">https://forum.=
-mikrotik.com/viewtopic.php?p=3D885000#p885000</a><br>
-&gt;<br>
-&gt; anyone out there actively testing mikrotik?<br>
-&gt;<br>
-&gt; --<br>
-&gt; Fixing Starlink&#39;s Latencies: <br>
-&gt; <a href=3D"https://www.youtube.com/watch?v=3Dc9gLo6Xrwgw" rel=3D"noref=
-errer noreferrer noreferrer" target=3D"_blank">https://www.youtube.com/watc=
-h?v=3Dc9gLo6Xrwgw</a><br>
-&gt;<br>
-&gt; Dave T=C3=A4ht CEO, TekLibre, LLC<br>
-&gt; _______________________________________________<br>
-&gt; Bloat mailing list<br>
-&gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" rel=3D"noreferrer noref=
-errer" target=3D"_blank">Bloat@lists.bufferbloat.net</a><br>
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" rel=3D"norefe=
-rrer noreferrer noreferrer" target=3D"_blank">https://lists.bufferbloat.net=
-/listinfo/bloat</a><br>
-&gt;<br>
-&gt; _______________________________________________<br>
-&gt; Bloat mailing list<br>
-&gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" rel=3D"noreferrer noref=
-errer" target=3D"_blank">Bloat@lists.bufferbloat.net</a><br>
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" rel=3D"norefe=
-rrer noreferrer noreferrer" target=3D"_blank">https://lists.bufferbloat.net=
-/listinfo/bloat</a><br>
-<br>
-<br>
-<br>
---<br>
-Fixing Starlink&#39;s Latencies: <a href=3D"https://www.youtube.com/watch?v=
-=3Dc9gLo6Xrwgw" rel=3D"noreferrer noreferrer noreferrer" target=3D"_blank">=
-https://www.youtube.com/watch?v=3Dc9gLo6Xrwgw</a><br>
-<br>
-Dave T=C3=A4ht CEO, TekLibre, LLC<br>
-<br>
-_______________________________________________<br>
-Cake mailing list<br>
-<a href=3D"mailto:Cake@lists.bufferbloat.net" rel=3D"noreferrer noreferrer"=
- target=3D"_blank">Cake@lists.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/cake" rel=3D"noreferrer n=
-oreferrer noreferrer" target=3D"_blank">https://lists.bufferbloat.net/listi=
-nfo/cake</a><br>
-</blockquote></div>
-</div>
-
---000000000000e577c005ce577689--
-
---===============1340323015788920174==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============1340323015788920174==--
+T24gVGh1LCBPY3QgMTQsIDIwMjEgYXQgMzoxOCBQTSBUaG9tYXMgQ3JvZ2hhbiA8dGNyb2doYW5A
+bG9zdGNyZWVrLnRlY2g+IHdyb3RlOgo+Cj4gWWEsIEkndmUgZ290IGFjY2VzcyB0byBtb3N0IG9m
+IHRoZWlyIENDUiBsaW5lLCBhbmQgSSBoYXZlIGEgc21hdHRlcmluZyBvZiB0aGVpciBSQiBsaW5l
+LiBUQkgsIHRoZSBvbmx5IHBsYWNlcyBJIHRoaW5rIHlvdSB3aWxsIHNlZSBpbnRlcmVzdGluZyBk
+YXRhIGlzIHdpdGggdGhlIDEwNzIgKDcyIHRpbGUgY29yZSAxIEdIeikgYW5kIHRoZSAyMDA0ICg0
+IGNvcmUgMS43IEdIeiBBUk02NCkuCgpUaGUgZm9ybWVyIHdvdWxkIGJlIGV4Y2l0aW5nLiBXZSBo
+YXZlIHdyZXN0bGVkIHdpdGggdGhlIGh0YiBxZGlzYyBsb2NrCmEgbG90LCBJJ20gZ2xhZCB0aGUg
+ZWJwZiB2ZXJzaW9uIGlzIHNjYWxpbmcgd2VsbCBpbiBsaWJyZXFvcywgYnV0CkknZCBzdGlsbCBz
+dXNwZWN0IHRoYXQgbnVtYmVyIG9mIGNvcmVzIHRvIGJlIHJlYWxseSBoYXJkIHRvIHV0aWxpemUu
+Cgo+IEknbSBhbHNvIHdpdGggVGhlIEJyb3RoZXIncyBXSVNQLCBzbyBpZiBEYXZlIHdhbnRzIHRv
+IGRvIGEgY2FzdCBJIGNhbiBzZXQgdGhhdCB1cCB3aXRoIHRoZSBvdGhlciBndXlzLiBJJ20gcHJl
+dHR5IHN1cmUgdGhlcmUgd2FzIHNvbWUgY29udmVyc2F0aW9uIGFib3V0IHRyeWluZyB0byBnZXQg
+RGF2ZSBvbiBhIHdoaWxlIGJhY2suCgpJIHdhcyBvbiBhbHJlYWR5IHdpdGggZGFuISBIb3cgcXVp
+Y2tseSB3ZSBmb3JnZXQhIQoKaHR0cHM6Ly93d3cubW9kZW0uc2hvdy9wb3N0L3MwMWUwNy8KCmlz
+IHRoYXQgbm90IHRoZSBicm90aGVycyB3aXNwPyBhbiBhZmZpbGlhdGVkIHNob3c/CgpJIEFNIHRy
+eWluZyB0byBkbyBzb21lIGZvcm0gb2Ygb3V0cmVhY2gsIG1vbnRobHksIGJ1dCB3YXMgaG9waW5n
+IHRoYXQKdGhlIGFwcGxlIGZvbGsgd291bGQgc3RlcCB1cCB0byB0YWxrIGFib3V0IHRoZSBycG0g
+aWRlYS4KCkFmdGVyIGJhcmluZyBteSBzb3VsIHJlZ2FyZGluZyB0aGUgbDRzIGRlYmF0ZSBvbiBy
+ZWFsaXR5IDIuMCBJJ2Qga2luZApvZiBoYWQgaXQgZm9yIGEgd2hpbGUgLSBJJ2QgcnVuIG91dCBv
+ZiBnb29kIGpva2VzIC0gSSBzYWlkIHRvIG15c2VsZgphZnRlciB0aGF0IC0gLi4uICJpZiAod2hl
+bj8pIHN0YXJsaW5rIGltcGxlbWVudHMgY2FrZSBvbiB0aGUgZGlzaHksCnBlcmhhcHMgam9lIHJv
+Z2FuIHdpbGwgKmZpbmFsbHkqIGNhbGwsIGFuZCBJIGNhbiBkaXZlcnQgdGhlIGNvbnZvIGZyb20K
+YnVmZmVyYmxvYXQgdG8gbmVhciBlYXJ0aCBhc3Rlcm9pZCBleHBsb3JhdGlvbiBvdmVyIGEgZG9v
+YmllLiIKCnNvIGZhciwgaGUgaGFzbid0IGNhbGxlZC4KCkJUVyEhISBpdCdzIGEgZ29vZCBxdWFy
+dGVyIGZvciBhc3Rlcm9pZCBleHBsb3JhdGlvbiAtIHNlZSB0aGUgcHN5Y2hlCm1pc3Npb24sIGFu
+ZCB0aGlzOiBodHRwczovL3d3dy5uYXNhLmdvdi9wbGFuZXRhcnlkZWZlbnNlL2RhcnQKClNvLCBh
+bnl3YXksIGlmIGFueW9uZSAqZWxzZSogaGVyZSBsaWtlcyB0aGUgaWRlYSBvZiBnb2luZyBvbiBh
+IHBvZGNhc3QKb24gdGhlIGJsb2F0IGZyb250IHBsZWFzZSBsZXQgbWUga25vdywgSSBkaWQgbGV0
+IGEgY291cGxlCm9wcG9ydHVuaXRpZXMgc2xpcCBieSBsYXN0IG1vbnRoLiBPciBpZiBJIG11c3Qg
+Z28gb24sIEkgY291bGQgdXNlIHNvbWUKbmV3IGpva2VzIGFuZCBhbmFsb2dpZXMuLi4uCgo+Cj4K
+PiBPbiBUaHUsIE9jdCAxNCwgMjAyMSwgMTE6MjcgQU0gSm9yZGFuIFN6dWNoIHZpYSBDYWtlIDxj
+YWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4gd3JvdGU6Cj4+Cj4+IEF3ZXNvbWUsIHRoYW5rcyEg
+SSB3ZW50IGFuZCBzdWJzY3JpYmVkIHRvIHRoYXQgdG9waWMgc28gSSdsbCBnZXQgbm90aWZpY2F0
+aW9ucyB3aGVuIHBlb3BsZSByZXBseS4gSG9wZSB0byBqdW1wIGluIG9uY2UgSSdtIGxlc3MgYnVz
+eSB3aXRoIG15IGRheSB0byBkYXkgd29yay4KPj4KPj4gUmVnYXJkaW5nIG1vcmUgcG93ZXJmdWwg
+aGFyZHdhcmUsIEkgdGhpbmsgc29tZW9uZSByZXBsaWVkIHRvIHRoZSBtYWlsaW5nIGxpc3QgZWFy
+bGllciBvZmZlcmluZyB0byBydW4gc29tZSB0ZXN0cy4gU291bmRlZCBsaWtlIGhlIG1pZ2h0IGhh
+dmUgc29tZSBiaWdnZXIgaGFyZHdhcmUgdG8gdGVzdCBvdXQuIFRob21hcyBDcm9naGFuIGJhY2sg
+b24gTW9uZGF5IG1vcm5pbmcgaXQgbG9va3MgbGlrZS4KPj4KPj4gTWlnaHQgYWxzbyBiZSB3b3J0
+aCByZWFjaGluZyBvdXQgdG8gdGhlc2UgZ3V5cyB0byBkbyBzb21lIHRlc3Rpbmcgb3IgZXZhbmdl
+bGl6aW5nIGF0IGxlYXN0OiBodHRwczovL3RoZWJyb3RoZXJzd2lzcC5jb20vIFRoZXkgcnVuIGEg
+cG9kY2FzdCB3aXRoIGEgcm90YXRpbmcgY2FzdCBvZiBuZXR3b3JrIG9wZXJhdG9ycywgV0lTUFMs
+IGV0Yy4gQW5kIHRoZXkgc2VlbSBwcmV0dHkgY2x1ZWQgaW50byB0aGUgTUlrcm90aWsgd29ybGQg
+c3BlY2lmaWNhbGx5LiBJIHJlY2FsbCB0aGF0IHlvdSd2ZSBqdW1wZWQgb250byBhIHBvZGNhc3Qg
+b3IgdHdvIHJlY2VudGx5IHNvIHRoYXQncyB3aHkgSSBicmluZyBpdCB1cC4KPj4KPj4gQW55d2F5
+LCBJIGxpc3RlbiBmcm9tIHRpbWUgdG8gdGltZSBhbmQgb25lIG9mIHRoZSBob3N0cyBicm91Z2h0
+IHVwIGJlaW5nIHZlcnkgaW50ZXJlc3RlZCBpbiB1c2luZyBmcV9jb2RlbCBhbmQgQ0FLRSBpbiBh
+IE11bHRpIER3ZWxsaW5nIFVuaXQgc2NlbmFyaW8gKG1lbnRpb25lZCBoZXJlIGFmdGVyIGEgMy00
+IG1pbnV0ZXMgaHR0cHM6Ly93d3cueW91dHViZS5jb20vd2F0Y2g/dj15RktHX2NYR1ByRSZ0PTQ0
+NDRzKS4gQWN0dWFsbHksIEkgdGhpbmsgdGhleSBldmVuIG5hbWUgY2hlY2sgeW91IGluIGFuIGVh
+cmxpZXIgZXBpc29kZSAoZm91bmQgaXQ6IGh0dHBzOi8vd3d3LnlvdXR1YmUuY29tL3dhdGNoP3Y9
+UTFRaXR5bU5aVG8mdD00Mjg1cyksIGFsdGhvdWdoIG9uZSBob3N0IHdhcyBhIGJpdCBza2VwdGlj
+YWwgb2YgZXZlcnl0aGluZy4KPj4KPj4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0KPj4gRnJv
+bTogRGF2ZSBUYWh0IDxkYXZlLnRhaHRAZ21haWwuY29tPgo+PiBTZW50OiBUaHVyc2RheSwgT2N0
+b2JlciAxNCwgMjAyMSAxOjA5IFBNCj4+IFRvOiBKb3JkYW4gU3p1Y2ggPGpvcmRhbkBpbmFjb21w
+dGMuY29tPgo+PiBDYzogQ2FrZSBMaXN0IDxjYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD47IGJs
+b2F0IDxibG9hdEBsaXN0cy5idWZmZXJibG9hdC5uZXQ+Cj4+IFN1YmplY3Q6IFJlOiBbQmxvYXRd
+IHNvbWUgbWlrcm90aWsgY29tbWVudHMKPj4KPj4gVGh4LiBJIHB1dCB0aGUgZGlzY3Vzc2lvbiBh
+bmQgcGxvdHMgb3ZlciBoZXJlOgo+Pgo+PiBodHRwczovL2ZvcnVtLm1pa3JvdGlrLmNvbS92aWV3
+dG9waWMucGhwP3Q9MTc5MzA3Cj4+Cj4+IEkgbWlnaHQgLSBzaG91bGQgSSBmZWVsIGxpa2UgZXhw
+b3VuZGluZyBtb3JlIGxhdGVyIHRoaXMgd2VlayAtIGdvIGJhY2sgdG8gdGhlIGZsZW50Lmd6IGZp
+bGVzIHRvIGRpc2N1c3Mgb3RoZXIgZmVhdHVyZXMuIElyb25pY2FsbHkgdGhlIGNocm9tZWJvb2sg
+SSBoYXZlIGluIGZyb250IG9mIG1lIGRvZXNuJ3Qgd2FudCB0byBsZXQgbWUgZG93bmxvYWQgYSBm
+aWxlIHZpYSBlbWFpbCBhbmQgbWFrZSBpdCB2aXNpYmxlIGluIHRoZSByZWFsIGZpbGVzeXN0ZW0u
+IEknbSB2bSdkIG9mZiBmcm9tIG15c2VsZiBmb3Igc29tZSByZWFzb24uCj4+Cj4+IEJ1dCBteSBi
+aWcgZ29hbCwgaG9uZXN0bHksIHdhcyB0byBnZXQgc29tZSBtaWtyb3RpayB1c2VycyB0byB0ZXN0
+IHRoZWlyIGJpZ2dlciBpcm9uLi4uCj4+Cj4+IE9uIFN1biwgT2N0IDEwLCAyMDIxIGF0IDk6MDUg
+QU0gSm9yZGFuIFN6dWNoIHZpYSBCbG9hdCA8YmxvYXRAbGlzdHMuYnVmZmVyYmxvYXQubmV0PiB3
+cm90ZToKPj4gPgo+PiA+IEhpIERhdmUsCj4+ID4KPj4gPiBJbnRlcmVzdGluZyB0aGF0IHlvdSBz
+aG91bGQgc2VuZCB0aGlzIG91dDsgSSByZWNlbnRseSBwaWNrZWQgdXAgYSB1bml0ICh0aGlzIG9u
+ZSBzcGVjaWZpY2FsbHk6IGh0dHBzOi8vbWlrcm90aWsuY29tL3Byb2R1Y3QvaGFwX2FjMikgdG8g
+ZG8gc29tZSB0ZXN0aW5nIG9mIHRoZSB2NyBmaXJtd2FyZS4gTm90aGluZyBzdXBlciBoaWdoIGVu
+ZCBidXQgZW5vdWdoIHRvIGRvIGEgbGl0dGxlIHRlc3RpbmcuIEkgaGF2ZSBDQUtFIHNldCB0byBk
+byBzb21lIHNoYXBpbmcgYW5kIHNvIGZhciBzZWVtcyBmdW5jdGlvbmFsLiBBdCBsZWFzdCB0aGUg
+YnVmZmVyYmxvYXQgc3BlZWQgdGVzdHMgZnJvbSBEU0xSZXBvcnRzIGFuZCBXYXZlRm9ybSBpbmRp
+Y2F0ZSBzb21lIHNoYXBpbmcgaXMgaGFwcGVuaW5nLiBJZiB5b3UnZCBsaWtlIGFueSBpbmZvcm1h
+dGlvbiBhYm91dCB0aGUgdW5pdCwgdGhlIHY3IGZpcm13YXJlLCBvciBwYXJ0aWN1bGFyIHRlc3Rz
+IHJ1biB0aGVuIEknZCBiZSBoYXBweSB0byBoZWxwIG91dC4KPj4gPgo+PiA+IEpvcmRhbgo+PiA+
+Cj4+ID4gLS0tLS1PcmlnaW5hbCBNZXNzYWdlLS0tLS0KPj4gPiBGcm9tOiBCbG9hdCA8YmxvYXQt
+Ym91bmNlc0BsaXN0cy5idWZmZXJibG9hdC5uZXQ+IE9uIEJlaGFsZiBPZiBEYXZlCj4+ID4gVGFo
+dAo+PiA+IFNlbnQ6IFN1bmRheSwgT2N0b2JlciAxMCwgMjAyMSAxMTozOSBBTQo+PiA+IFRvOiBD
+YWtlIExpc3QgPGNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0PjsgYmxvYXQKPj4gPiA8YmxvYXRA
+bGlzdHMuYnVmZmVyYmxvYXQubmV0Pgo+PiA+IFN1YmplY3Q6IFtCbG9hdF0gc29tZSBtaWtyb3Rp
+ayBjb21tZW50cwo+PiA+Cj4+ID4gdGhlIHY3IGJldGEgZ2FpbmVkIGRvYyBhbmQgbW9yZSBvcyBz
+dXBwb3J0IGZvciBmcV9jb2RlbCBhbmQgY2FrZQo+PiA+IHJlY2VudGx5Cj4+ID4KPj4gPiBodHRw
+czovL2ZvcnVtLm1pa3JvdGlrLmNvbS92aWV3dG9waWMucGhwP3A9ODg1MDAwI3A4ODUwMDAKPj4g
+Pgo+PiA+IGFueW9uZSBvdXQgdGhlcmUgYWN0aXZlbHkgdGVzdGluZyBtaWtyb3Rpaz8KPj4gPgo+
+PiA+IC0tCj4+ID4gRml4aW5nIFN0YXJsaW5rJ3MgTGF0ZW5jaWVzOgo+PiA+IGh0dHBzOi8vd3d3
+LnlvdXR1YmUuY29tL3dhdGNoP3Y9YzlnTG82WHJ3Z3cKPj4gPgo+PiA+IERhdmUgVMOkaHQgQ0VP
+LCBUZWtMaWJyZSwgTExDCj4+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX18KPj4gPiBCbG9hdCBtYWlsaW5nIGxpc3QKPj4gPiBCbG9hdEBsaXN0cy5idWZm
+ZXJibG9hdC5uZXQKPj4gPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9i
+bG9hdAo+PiA+Cj4+ID4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX18KPj4gPiBCbG9hdCBtYWlsaW5nIGxpc3QKPj4gPiBCbG9hdEBsaXN0cy5idWZmZXJibG9h
+dC5uZXQKPj4gPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9ibG9hdAo+
+Pgo+Pgo+Pgo+PiAtLQo+PiBGaXhpbmcgU3RhcmxpbmsncyBMYXRlbmNpZXM6IGh0dHBzOi8vd3d3
+LnlvdXR1YmUuY29tL3dhdGNoP3Y9YzlnTG82WHJ3Z3cKPj4KPj4gRGF2ZSBUw6RodCBDRU8sIFRl
+a0xpYnJlLCBMTEMKPj4KPj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KPj4gQ2FrZSBtYWlsaW5nIGxpc3QKPj4gQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5u
+ZXQKPj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo+Cj4gX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBDYWtlIG1haWxp
+bmcgbGlzdAo+IENha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4gaHR0cHM6Ly9saXN0cy5idWZm
+ZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQoKCgotLSAKRml4aW5nIFN0YXJsaW5rJ3MgTGF0ZW5j
+aWVzOiBodHRwczovL3d3dy55b3V0dWJlLmNvbS93YXRjaD92PWM5Z0xvNlhyd2d3CgpEYXZlIFTD
+pGh0IENFTywgVGVrTGlicmUsIExMQwpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5l
+dApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
