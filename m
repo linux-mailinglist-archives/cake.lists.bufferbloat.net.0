@@ -2,45 +2,62 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E02B04318D2
-	for <lists+cake@lfdr.de>; Mon, 18 Oct 2021 14:18:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 73CE74318D6
+	for <lists+cake@lfdr.de>; Mon, 18 Oct 2021 14:18:37 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id F04213CB46;
-	Mon, 18 Oct 2021 08:18:33 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 155EF3CB5F;
+	Mon, 18 Oct 2021 08:18:34 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1634559513;
-	bh=zVvzZfXl+fPByE8c3WgYn61l7QkVqq13SFD8kr7xP0I=;
-	h=From:In-Reply-To:To:Date:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:Cc:From;
-	b=NOPgA+IuactijD/JuZ+LvZuykmf2k+nrl3saiUGEPrnk88cyMHpZsl04JjwUTV4FJ
-	 VNPfdwyIRpuwUNGSvDzxAbT7sKy67nRtFsFzcqiX1HFHppmCzVHVsIf8dQDO5lVjoH
-	 n3Wfm+E4NaqIEfnL/kAPq1wlTS7f639djp4BCym2iGipn/rLsxVGkzGivRQChqmD0z
-	 2eT8r6W8SyGmzz9ys5+BhkYcJ+q6rblvoNEXrwdK59vNECiiZcezx7DmLgrLitxmZ7
-	 jPr8VB4QCF8K5gL+WOEk+2kvEhEs0p8RQfUJtakFIqn1EOVFTbeP9qq6jiXS1GfG0+
-	 3Z4uty5Y4vTJw==
+	d=lists.bufferbloat.net; s=201610; t=1634559514;
+	bh=4+PMcyNWfNcpwYxwOy4it7q0VYGvXCmeb4pRYPd8WPQ=;
+	h=From:To:In-Reply-To:References:Date:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=D5BraP8Wd9UB6NyCVsTmxMqUQAB1AH+nP08SKcDm42Mqap+5HNNZbUYd3030a14yI
+	 wgxS7WS5N5uMNqS/7cPlWibyI1KvYJlq7h5QJxCNu0N/8givPblsLPpO38oeVcupzJ
+	 Sk4CbKIwxNgX+RL7EJ26meWKVE3viONHe7Y8ok9MrnnWv+yEbAUSVOVicjzuoRxMWf
+	 1i1bJrVdDIAsdMQR3bSdLKBi2VKCQPJI4e0Te04oBle8MBQ1Zuv4Pmh8BU6NO81prm
+	 YUW48NPpmZ7MY5sXfidrlephDd9dWKZo1CsMoptWc6yqqlzynC19m1M/vygPxQb4P8
+	 +eXFyIykNCVuQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from gndrsh.dnsmgr.net (br1.CN84in.dnsmgr.net [69.59.192.140])
- (using TLSv1 with cipher DHE-RSA-AES256-SHA (256/256 bits))
+Received: from tuna.sandelman.ca (tuna.sandelman.ca [209.87.249.19])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id CEF653B29D;
- Sat, 16 Oct 2021 12:58:17 -0400 (EDT)
-Received: from gndrsh.dnsmgr.net (localhost [127.0.0.1])
- by gndrsh.dnsmgr.net (8.13.3/8.13.3) with ESMTP id 19GGwFeZ051662;
- Sat, 16 Oct 2021 09:58:15 -0700 (PDT)
- (envelope-from 4bone@gndrsh.dnsmgr.net)
-Received: (from 4bone@localhost)
- by gndrsh.dnsmgr.net (8.13.3/8.13.3/Submit) id 19GGwEm2051661;
- Sat, 16 Oct 2021 09:58:14 -0700 (PDT) (envelope-from 4bone)
-From: "Rodney W. Grimes" <4bone@gndrsh.dnsmgr.net>
-Message-Id: <202110161658.19GGwEm2051661@gndrsh.dnsmgr.net>
-In-Reply-To: <95231AF9-DCCA-4D41-9BF4-8F55307F45F6@gmail.com>
-To: Jonathan Morton <chromatix99@gmail.com>
-Date: Sat, 16 Oct 2021 09:58:14 -0700 (PDT)
-X-Mailer: ELM [version 2.4ME+ PL121h (25)]
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 459AE3B29D;
+ Sat, 16 Oct 2021 19:57:04 -0400 (EDT)
+Received: from localhost (localhost [127.0.0.1])
+ by tuna.sandelman.ca (Postfix) with ESMTP id 5509718286;
+ Sat, 16 Oct 2021 19:57:30 -0400 (EDT)
+Received: from tuna.sandelman.ca ([127.0.0.1])
+ by localhost (localhost [127.0.0.1]) (amavisd-new, port 10024)
+ with LMTP id 7XCpD_S5AJ8s; Sat, 16 Oct 2021 19:57:30 -0400 (EDT)
+Received: from sandelman.ca (obiwan.sandelman.ca [IPv6:2607:f0b0:f:2::247])
+ by tuna.sandelman.ca (Postfix) with ESMTP id F330118050;
+ Sat, 16 Oct 2021 19:57:29 -0400 (EDT)
+Received: from localhost (localhost [IPv6:::1])
+ by sandelman.ca (Postfix) with ESMTP id 3C7011C6;
+ Sat, 16 Oct 2021 19:57:03 -0400 (EDT)
+From: Michael Richardson <mcr+ietf@sandelman.ca>
+To: Dave Taht <dave.taht@gmail.com>
+In-Reply-To: <CAA93jw7kwCc9HmfA7X4BzSCS+9UgngXj31d3gb7Aw=XQtQHZMA@mail.gmail.com>
+References: <CAA93jw43C7CB-4Jv7h9NvvzjROdO5p2rVbPSZnmSJf0JAaCyaQ@mail.gmail.com>
+ <CBBD435B-5A6F-408D-B17C-B28F326B49AC@gmx.de>
+ <CAA93jw48afWujaJm8Sn+J-uEHb7iKLx57p7e5d=Qw9QyX=Csqg@mail.gmail.com>
+ <87sfx31dt5.fsf@toke.dk>
+ <CAA93jw43kC8a4_8YL3dobgvpkLO5UPbOm8yeFvwhh0dgV9eiuw@mail.gmail.com>
+ <87pms71cmr.fsf@toke.dk>
+ <CAA93jw7VVX_6UxyqczSZ3YoDRo9QvRZTqWqY9+0PC=rOB7FjeQ@mail.gmail.com>
+ <CAA93jw7kwCc9HmfA7X4BzSCS+9UgngXj31d3gb7Aw=XQtQHZMA@mail.gmail.com>
+X-Mailer: MH-E 8.6+git; nmh 1.7+dev; GNU Emacs 26.1
+X-Face: $\n1pF)h^`}$H>Hk{L"x@)JS7<%Az}5RyS@k9X%29-lHB$Ti.V>2bi.~ehC0;
+ <'$9xN5Ub#
+ z!G,p`nR&p7Fz@^UXIn156S8.~^@MJ*mMsD7=QFeq%AL4m<nPbLgmtKK-5dC@#:k
 MIME-Version: 1.0
+Date: Sat, 16 Oct 2021 19:57:03 -0400
+Message-ID: <8788.1634428623@localhost>
 X-Mailman-Approved-At: Mon, 18 Oct 2021 08:18:32 -0400
-Subject: Re: [Cake] [Ecn-sane]    l4s kernel submission
+Subject: Re: [Cake] [Ecn-sane]  l4s kernel submission
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -54,52 +71,68 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 Cc: Cake List <cake@lists.bufferbloat.net>,
  ECN-Sane <ecn-sane@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6485950859867674709=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-Sm9uYXRoYW4sIGV0YywKCkkgd2VudCBmaXNoaW5nIGRvd24gdGhlIHJhYmJpdCBob2xlIGFuZCB0
-aGluayBJIHNlZQpob3cgdGhlIG1hc3NlcyBoYXZlIGJlZW4gYnJhaW53YXNoZWQgYWJvdXQgTDRT
-LCBhdApsZWFzdCBwYXJ0aWFsbHkuICBJdCBtaWdodCBiZSB3b3J0aCBzcGVuZGluZyBzb21lCmVm
-Zm9ydCB0byAiZGVidW5rIiB0aGUgY2xhaW1zIGluIHRoZSBwYXBlcjoKCWh0dHBzOi8vYm9iYnJp
-c2NvZS5uZXQvcHJvamVjdHMvbGF0ZW5jeS9kY3R0aF9qb3VybmFsX2RyYWZ0MjAxOTA3MjYucGRm
-CgpJIGFtIEVYVFJFQU1MWSBjb25jZXJuZWQgYWJvdXQgdGhlIGZvbGxvd2luZyBtaXNzIGxlYWRp
-bmcKYXNzZXJ0aW9ucyBieSB0aGUgYXV0aG9yczoKCSIKQkVHSU4tUVVPVEUKVi4gIERFUExPWU1F
-TlRDT05TSURFUkFUSU9OUwogIEEuICBTdGFuZGFyZGl6YXRpb24gUmVxdWlyZW1lbnRzCiAgICBU
-aGUgSUVURiBoYXMgdGFrZW4gb24gTDRTIHN0YW5kYXJkaXphdGlvbiB3b3JrIFsxM10uIFsxOV0K
-ICAgIGNvbnNpZGVycyB0aGUgcHJvcyBhbmQgY29ucyBvZiB2YXJpb3VzIGNhbmRpZGF0ZSBpZGVu
-dGlmaWVycyBmb3IKICAgIEw0UyAgYW5kICBmaW5kcyAgdGhhdCAgbm9uZSAgYXJlICB3aXRob3V0
-ICBwcm9ibGVtcywgIGJ1dCAgcHJvcG9zZXMKICAgIEVDVCgxKSAgYXMgIHRoZSAgbGVhc3QgIHdv
-cnN0LiAgQXMgIGEgIGNvbnNlcXVlbmNlLCAgdGhlICBJRVRGICBoYXMKICAgIHVwZGF0ZWQgdGhl
-IEVDTiBzdGFuZGFyZCBhdCB0aGUgSVAgbGF5ZXIgKHY0IGFuZCB2NikgdG8gbWFrZQogICAgdGhl
-IEVDVCgxKSBjb2RlcG9pbnQgYXZhaWxhYmxlIGZvciBleHBlcmltZW50YXRpb24gWzddLgoKIFs3
-XSAgIEJMQUNLLCBELiAgIFJlbGF4aW5nICBSZXN0cmljdGlvbnMgIG9uICBFeHBsaWNpdCAgQ29u
-Z2VzdGlvbiAgTm90aWZpY2F0aW9uCiAgICAgIChFQ04pIEV4cGVyaW1lbnRhdGlvbi4gIFJlcXVl
-c3QgZm9yIENvbW1lbnRzIFJGQzgzMTEsIFJGQyBFZGl0b3IsSmFuLiAyMDE4CkVORC1RVU9URQoK
-Ck15IHByb2JsZW0gd2l0aCB0aGlzICJjbGFpbSIgaXMgdGhhdCBpdCBpcyBtYWRlIGluIHRoZSBu
-YW1lIG9mCnRoZSBJRVRGLCB3aGljaCBpcyBub3QgdHJ1ZS4gIEJvYiBCcmlzY29lIGFuZCBvdGhl
-cnMgYXJlIHdobwphcmUgbWFraW5nIHRoZXNlIGNsYWltcywgdGhlIElFVEYgaGFzIE5PVCB5ZXQg
-c3Bva2VuIGZvcm1hbGx5Cm9uIEw0Uy4KClRob3VnaCBSRkM4MzExIERPRVMgcmVsYXggdGhlIHJl
-c3RyaWN0aW9ucywgQm9iIGV0YyBhbCwgbWFrZSBpdApzb3VuZCBhcyBpZiBMNFMgaXMgYSBkb25l
-IGRlYWwuCgpSZWdhcmRzLApSb2QKCj4gPiBPbiAxNSBPY3QsIDIwMjEsIGF0IDE6MTcgYW0sIERh
-dmUgVGFodCA8ZGF2ZS50YWh0QGdtYWlsLmNvbT4gd3JvdGU6Cj4gPiAKPiA+PiBZb3UgY2FuIGFs
-c28gc3Vic2NyaWJlIHRvIExpbnV4IGxpc3RzIGJ5IGltcG9ydGluZyB0aGUgbWFpbHMgZnJvbSBM
-b3JlLAo+ID4+IGFzIG9uZSBvZiB0aGUgcmVwbGllcyBpbiB0aGUgdGhyZWFkIGFib3ZlIHBvaW50
-ZWQgb3V0LiBCZWVuIG1lYW5pbmcgdG8KPiA+PiBzd2l0Y2ggdG8gdGhhdCBteXNlbGYsIGJ1dCBo
-YXZlbid0IGdvdHRlbiBhcm91bmQgdG8gaXQgeWV0Li4uCj4gPiAKPiA+IEkgYXR0ZW1wdGVkIHRv
-IHN1YnNjcmliZSBhZ2Fpbiwgbm90aGluZyBoYXBwZW5lZC4KPiA+IAo+ID4gZmlndXJpbmcgb3V0
-IGxvcmUuLi4gaXMgdG9vIG11Y2ggd29yayBmb3IgdG9kYXkuIEknZCByYXRoZXIgaGFtbWVyCj4g
-PiBzbWFsbCB0aGluZ3MgaW50byBvYmxpdmlvbiBvbiBteSBib2F0Lgo+ID4gCj4gPiBwbGVhc2Ug
-ZmVlbCBmcmVlIHRvIHBhc3MgYWxvbmcgbXkgY29tbWVudHMgYW5kIHRoZSBzY2UgdGVhbXMgZmlu
-ZGluZ3MKPiA+IGludG8gdGhhdCB0aHJlYWQuCj4gCj4gaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcv
-YWxsLzMwOEM4OEM2LUQ0NjUtNEQ1MC04MDM4LTQxNjExOUEzNTM1Q0BnbWFpbC5jb20vCj4gCj4g
-SSBoYXZlbid0IHlldCBwb3N0ZWQgYSBsaW5rIHRvIHRoZSBXR0xDIE9iamVjdGlvbnMgZG9jdW1l
-bnQuICBJIHdpbGwgaWYgaXQgc2VlbSBzIG5lY2Vzc2FyeSB0byBkbyBzby4KPiAKPiAgLSBKb25h
-dGhhbiBNb3J0b24KPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwo+IEVjbi1zYW5lIG1haWxpbmcgbGlzdAo+IEVjbi1zYW5lQGxpc3RzLmJ1ZmZlcmJsb2F0
-Lm5ldAo+IGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Vjbi1zYW5lCj4g
-Cj4gCgotLSAKUm9kIEdyaW1lcyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgICAgICByZ3JpbWVzQGZyZWVic2Qub3JnCl9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVy
-YmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+--===============6485950859867674709==
+Content-Type: multipart/signed; boundary="=-=-=";
+	micalg=pgp-sha512; protocol="application/pgp-signature"
+
+--=-=-=
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
+
+
+Dave Taht <dave.taht@gmail.com> wrote:
+    > What happens when a GSO packet is marked? Do all the packets get the
+    > marking, or just the first?
+
+Having done no work in this area for over a decade.... I think that the GSO
+marking is in the skb (which is a Linux-ism, obviously), which goes down in=
+to
+the device-specific driver, who then loads the single packet into the device
+queue, and marks the packet for GSO in a device-specific way in the ring
+descriptor.
+
+The device does the Segment Offload.  There is no marking relevant in the
+packet itself. There aren't multiple skb's for the packet.
+
+So I think that the answer is "mu"
+
+=2D-
+Michael Richardson <mcr+IETF@sandelman.ca>   . o O ( IPv6 I=C3=B8T consulti=
+ng )
+           Sandelman Software Works Inc, Ottawa and Worldwide
+
+
+
+
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCgAdFiEEbsyLEzg/qUTA43uogItw+93Q3WUFAmFrZs4ACgkQgItw+93Q
+3WUL9Qf+IEB2shpXpB5TsjRPhhLnoj2AgccAqL8u5x8cATn8Zt4IF77ONgVQYCnW
+Fkj1li6KVnf2vwXPM3zISU11/L187RM7D5II1KNBsDLLdjuAdHuB6/MRvNtSR6AY
+0yssUR/ud5VjWv0eJxCkGI0IC1ZRb/MsP14C5OTAXsD2LyJitfoagLQs/+vhSQEQ
++vWFs5ShRdrU+thQwExfUnyakLTF1R0RthBQ2k9LXx9YzC5dcgTiCyns8dVkG7iy
+MSA9Ocj2W2onqwAfJjHaPy5QXbjmFQNoBFeGCqQbdiXffuf0bczT8HLkP3Kzv4I+
+WBnj5dGDoa0a1QRmpR8P5CsDI+gspQ==
+=Zyqe
+-----END PGP SIGNATURE-----
+--=-=-=--
+
+--===============6485950859867674709==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============6485950859867674709==--
