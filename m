@@ -2,68 +2,57 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3252643AB1A
-	for <lists+cake@lfdr.de>; Tue, 26 Oct 2021 06:24:11 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 8042A43ABB8
+	for <lists+cake@lfdr.de>; Tue, 26 Oct 2021 07:32:52 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 3A21B3CB48;
-	Tue, 26 Oct 2021 00:24:05 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id E8FFB3CB53;
+	Tue, 26 Oct 2021 01:32:46 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1635222245;
-	bh=9muD+86C2cfS9BWbC7ULNAj5NZem4YpgJFPMgp2Npc0=;
-	h=To:References:From:Date:In-Reply-To:Subject:List-Id:
-	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
-	 Cc:From;
-	b=XXwGlmPYcHbcXw2xZgPvPaxgh6yL/LsBembhjVHcPpsrYsWKBpxG4YxOr+KnXIdWX
-	 ay+JlIX79b/eXf+t0eL5YE0XtlM+Tkm0+u5BVsRA2DdvDLXzx/mrO2qdX5w3G1/K2U
-	 fG4r0RnI9RFwfFPabESAWl7isIqSkr2Go2do9D70OMrSWo7HdtHGp3MsZbINg0S/+3
-	 pgxdWXsdaGTbz0g1dPow4IsmlrG62smWUojoJXgjKdyA6iMGKSXzLxz9sslvRvjRxI
-	 HkUHy8AiO3705xX6l/PTAga8EHR48egz4sVkPw71D0ih0oMRnL2cLagQADxazIq2nX
-	 aGoVA71ueKv9A==
+	d=lists.bufferbloat.net; s=201610; t=1635226367;
+	bh=G/upbwdh57drEDxYe/sIK3jOqYHT1+FV+zINm5hM/ps=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	 From;
+	b=HCuqYN/tSy48OYSbYU2yYtch92ZqMWcgQWAe26PDT48IgfM4TPlQStOAZgJP25c0I
+	 l65ZSEAI4BoYD8EKi49BHGoE0N9yk4tsMqx6mtf+neKrnxBbB1C4RsEQnLbYvZKAg8
+	 dto5DP2Qt1qIXud6VJpK2b0BoSuprB3ycccDapg63t8x4cdg2Es/gtt0JvbPk4knVy
+	 sxQEU8bvd6Ng/PgzRZV+1iCLQ+tGpqmTInWssNKvlJhvpXbpNTUOERqSZ04aaF7WPA
+	 UowOf0RYRJadP4ZhEXVH22gvRUxaETfm5lWIZJxm5C/4AVLVdw+rIAfFANcLJUCqsw
+	 5kJtNiDbM4Rmg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-pg1-x52b.google.com (mail-pg1-x52b.google.com
- [IPv6:2607:f8b0:4864:20::52b])
+Received: from mail-ed1-x52c.google.com (mail-ed1-x52c.google.com
+ [IPv6:2a00:1450:4864:20::52c])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id E4B683B2A4;
- Tue, 26 Oct 2021 00:24:03 -0400 (EDT)
-Received: by mail-pg1-x52b.google.com with SMTP id e65so12846733pgc.5;
- Mon, 25 Oct 2021 21:24:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=subject:to:cc:references:from:message-id:date:user-agent
- :mime-version:in-reply-to:content-language:content-transfer-encoding;
- bh=PKb7UU1QSgRHi5jYJKikFlYHRXkEGpsBiEsJ2fQnE30=;
- b=PL01X5O9yz8rAexDpkpxxpmYnwuiPzKDsNP180RoMDJ9bcNczxaWYls+UalMCIULQg
- H68azVecPYIxyTIvAROgyztXp+uJDpcDE5Pn8IbK6sOsLztxjQi4+Sg018iCgwzDC6M8
- F+YS+97OTIgsrh5oFrXPWSuTnhzAorhvO0O3hebCqBW2h4fCPYOn1Qpo3JgCRK4qm3kY
- l1e+4tK5LexVwAMRIrJIUU4g+Jnrq25MeK/C3Kk9YNL5e0MhM3SFc476cMfFW9ZTsjL1
- SzedyLvsAvxiLUuGxYvJxjzPI1paVwSf0dZrMIrtBeaHu036Irw+Y/bKVgijhPTlD2Uf
- 2ipA==
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 2EEDD3CB43
+ for <cake@lists.bufferbloat.net>; Tue, 26 Oct 2021 01:32:45 -0400 (EDT)
+Received: by mail-ed1-x52c.google.com with SMTP id u13so8769547edy.10
+ for <cake@lists.bufferbloat.net>; Mon, 25 Oct 2021 22:32:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=zCTwOPC56dpu+BV1YyiAmCoPyY87GZkCo947IKDaePw=;
+ b=UbYB0wSNhzGIDEQ3pSJEJsSLKS7oVHnrx3YeipfoQd54iWcteL/goZQXxXvNb12vFu
+ MZVqPU9f4vtin2VM0iu8fZjgxWxZl2h589fF0iKM4de40VyjuAwEcHdriJYWTNPlMjOa
+ 9s31NWwj23KI8lN1EySY0H444UhS/H1TSIs34=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:subject:to:cc:references:from:message-id:date
- :user-agent:mime-version:in-reply-to:content-language
- :content-transfer-encoding;
- bh=PKb7UU1QSgRHi5jYJKikFlYHRXkEGpsBiEsJ2fQnE30=;
- b=e+PWhcTxFtzLEW+yLp7Ss2df1npgn9oTLWC8ZGvboSr5AmM+p8sCygAHSwbCCVdOvs
- RN4HMpzEmL2ZVIJ/zQxVZruqwzL7obRE4Bjj3WvqCwupR7ObN1GPyJg5pPtJxDhjIXmk
- 8ICF2j6D+wk2aXYVrNCdC/bAIkxffmoQieQQ1tDx8RLICy3xU+6a2kyPO8sEYDCDeal/
- IMslqkvW9z+Cv/XpsdJzxI5uJ764denQCpu2DOoVWq2NVk4epIBNcY3FWndVzRGEJFGh
- 4gXy+V8JxULTj1Kkm8E6X4ihaRQo7VwX445NMrI4aK4EINSOhvFLd+AFbfiurqR7OdDD
- uAkQ==
-X-Gm-Message-State: AOAM533hLjprr3ml2k5q8iDYk/CemcUY6UcOGX+hHrYoy0wVluAfzvOd
- OfVSrlbDty8C1yJmkW/vD90=
-X-Google-Smtp-Source: ABdhPJz/UOqdqlhGynStBjdV7Gt+qvrR0RNstSiDSHlpdvElGsLOKWc7608LOAVw0P758IoiIwbT6w==
-X-Received: by 2002:a62:e901:0:b0:47b:f1bc:55e4 with SMTP id
- j1-20020a62e901000000b0047bf1bc55e4mr9934159pfh.0.1635222242926; 
- Mon, 25 Oct 2021 21:24:02 -0700 (PDT)
-Received: from [192.168.86.235] (c-73-241-150-58.hsd1.ca.comcast.net.
- [73.241.150.58])
- by smtp.gmail.com with ESMTPSA id k14sm20577188pji.45.2021.10.25.21.24.01
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Mon, 25 Oct 2021 21:24:02 -0700 (PDT)
-To: Stuart Cheshire <cheshire@apple.com>,
- Bob McMahon <bob.mcmahon@broadcom.com>
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=zCTwOPC56dpu+BV1YyiAmCoPyY87GZkCo947IKDaePw=;
+ b=S3kQl9QDwSScBwb0wEi9eBnHH1oSsjv6QqeJvvoe0fpNfO2Pcg4hIIJx0yDEJmUiGa
+ bl58R2zD2SSGG6oKmtp5YCO9WL9SFNIvmQzoxvhGhXEHwAnoffAKsSZ9v9sSyoBf9mG2
+ C9fO8EakmrW3sMJ9rRoTiVeZzed2DldAdn2+wdamG4pdfzXw24CSNLvvD/bteerNeF2R
+ sfUQIfk5qN5T8w7f7hI9x/X7gxaFkqQNL+V/ZqNVfEqYbTTvaSDBtcH6pynEStxN7W6R
+ u4w4keYQ1Z4XQbhMwObl81qYTyL90xol2kGLchxNh5islcOH5rJU6O7oQQf8RUtIA9AD
+ R6lw==
+X-Gm-Message-State: AOAM5304D0k2VYfr84hutBVq9me0LPoSIL86SF7LXrpb45FtpFM2J3gS
+ 1qUdxajamzcwH2EqxszOJaQg1R5MZGEMs3ZpXrPx5Bccug4Q7X1Ky9BUez/zCiZEeDRxmblhwTg
+ 4dPBr65GUTBgCfV2ilV12DoFzL0lm
+X-Google-Smtp-Source: ABdhPJyTPmkDDQuTMXf/GNb/YD1ZiX02IhisrOUfyydL8+Zj3gKbftgtgiIZ2Kp6qLC+wIn8aXXtska+l5dLtVoRfUc=
+X-Received: by 2002:aa7:d5c2:: with SMTP id d2mr2095622eds.56.1635226363935;
+ Mon, 25 Oct 2021 22:32:43 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1625188609.32718319@apps.rackspace.com>
  <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>
@@ -81,16 +70,12 @@ References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
  <1632680642.869711321@apps.rackspace.com>
  <CAHb6Lvp1dxnbuCNiE5FKC-yRyD6HGkb0H1ZQAm_nSxANwJg2pA@mail.gmail.com>
  <E3373586-EF4C-40DF-885B-0D6134E6EAF1@apple.com>
-From: Eric Dumazet <eric.dumazet@gmail.com>
-Message-ID: <0e29e225-9f55-4392-640a-2d27c4c26116@gmail.com>
-Date: Mon, 25 Oct 2021 21:24:00 -0700
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101
- Thunderbird/78.14.0
-MIME-Version: 1.0
 In-Reply-To: <E3373586-EF4C-40DF-885B-0D6134E6EAF1@apple.com>
-Content-Language: en-US
-Subject: Re: [Cake] [Bloat] [Make-wifi-fast] TCP_NOTSENT_LOWAT applied to
- e2e TCP msg latency
+Date: Mon, 25 Oct 2021 22:32:33 -0700
+Message-ID: <CAHb6Lvomc+2y++qOm9v3OzYCdmWDUEROJb+unybj0Mir0faXQQ@mail.gmail.com>
+To: Stuart Cheshire <cheshire@apple.com>
+Subject: Re: [Cake] [Make-wifi-fast] TCP_NOTSENT_LOWAT applied to e2e TCP
+	msg latency
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -102,82 +87,250 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Cc: Cake List <cake@lists.bufferbloat.net>,
- =?UTF-8?Q?Valdis_Kl=c4=93tnieks?= <valdis.kletnieks@vt.edu>,
+From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
+Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
+Cc: starlink@lists.bufferbloat.net,
+ =?UTF-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- starlink@lists.bufferbloat.net, codel <codel@lists.bufferbloat.net>,
+ Cake List <cake@lists.bufferbloat.net>, codel <codel@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>, Steve Crocker <steve@shinkuro.com>,
- Vint Cerf <vint@google.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+ Vint Cerf <vint@google.com>, Neal Cardwell <ncardwell@google.com>
+Content-Type: multipart/mixed; boundary="===============8601861774664891575=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-CgpPbiAxMC8yNS8yMSA4OjExIFBNLCBTdHVhcnQgQ2hlc2hpcmUgdmlhIEJsb2F0IHdyb3RlOgo+
-IE9uIDIxIE9jdCAyMDIxLCBhdCAxNzo1MSwgQm9iIE1jTWFob24gdmlhIE1ha2Utd2lmaS1mYXN0
-IDxtYWtlLXdpZmktZmFzdEBsaXN0cy5idWZmZXJibG9hdC5uZXQ+IHdyb3RlOgo+IAo+PiBIaSBB
-bGwsCj4+Cj4+IFNvcnJ5IGZvciB0aGUgc3BhbS4gSSdtIHRyeWluZyB0byBzdXBwb3J0IGEgbWVh
-bmluZ2Z1bCBUQ1AgbWVzc2FnZSBsYXRlbmN5IHcvaXBlcmYgMiBmcm9tIHRoZSBzZW5kZXIgc2lk
-ZSB3L28gcmVxdWlyaW5nIGUyZSBjbG9jayBzeW5jaHJvbml6YXRpb24uIEkgdGhvdWdodCBJJ2Qg
-dHJ5IHRvIHVzZSB0aGUgVENQX05PVFNFTlRfTE9XQVQgZXZlbnQgdG8gaGVscCB3aXRoIHRoaXMu
-IEl0IHNlZW1zIHRoYXQgdGhpcyBldmVudCBnb2VzIG9mZiB3aGVuIHRoZSBieXRlcyBhcmUgaW4g
-ZmxpZ2h0IHZzIGhhdmUgcmVhY2hlZCB0aGUgZGVzdGluYXRpb24gbmV0d29yayBzdGFjay4gSWYg
-dGhhdCdzIHRoZSBjYXNlLCB0aGVuIGlwZXJmIDIgY2xpZW50IChzZW5kZXIpIG1heSBiZSBhYmxl
-IHRvIHByb2R1Y2UgdGhlIG1lc3NhZ2UgbGF0ZW5jeSBieSBhZGRpbmcgdGhlIGRyYWluIHRpbWUg
-KHdyaXRlIHN0YXJ0IHRvIFRDUF9OT1RTRU5UX0xPV0FUKSBhbmQgdGhlIHNhbXBsZWQgUlRULgo+
-Pgo+PiBEb2VzIHRoaXMgc2VlbSByZWFzb25hYmxlPwo+IAo+IEnigJltIG5vdCAxMDAlIHN1cmUg
-d2hhdCB5b3XigJlyZSBhc2tpbmcsIGJ1dCBJIHdpbGwgdHJ5IHRvIGhlbHAuCj4gCj4gV2hlbiB5
-b3Ugc2V0IFRDUF9OT1RTRU5UX0xPV0FULCB0aGUgVENQIGltcGxlbWVudGF0aW9uIHdvbuKAmXQg
-cmVwb3J0IHlvdXIgZW5kcG9pbnQgYXMgd3JpdGFibGUgKGUuZy4sIHZpYSBrcXVldWUgb3IgZXBv
-bGwpIHVudGlsIGxlc3MgdGhhbiB0aGF0IHRocmVzaG9sZCBvZiBkYXRhIHJlbWFpbnMgdW5zZW50
-LiBJdCB3b27igJl0IHN0b3AgeW91IHdyaXRpbmcgbW9yZSBieXRlcyBpZiB5b3Ugd2FudCB0bywg
-dXAgdG8gdGhlIHNvY2tldCBzZW5kIGJ1ZmZlciBzaXplLCBidXQgaXQgd29u4oCZdCAqYXNrKiB5
-b3UgZm9yIG1vcmUgZGF0YSB1bnRpbCB0aGUgVENQX05PVFNFTlRfTE9XQVQgdGhyZXNob2xkIGlz
-IHJlYWNoZWQuCgoKV2hlbiBJIGltcGxlbWVudGVkIFRDUF9OT1RTRU5UX0xPV0FUIGJhY2sgaW4g
-MjAxMyBbMV0sIEkgbWFkZSBzdXJlIHRoYXQgc2VuZG1zZygpIHdvdWxkIGFjdHVhbGx5CnN0b3Ag
-ZmVlZGluZyBtb3JlIGJ5dGVzIGluIFRDUCB0cmFuc21pdCBxdWV1ZSBpZiB0aGUgY3VycmVudCBh
-bW91bnQgb2YgdW5zZW50IGJ5dGVzCndhcyBhYm92ZSB0aGUgdGhyZXNob2xkLgoKU28gaXQgbG9v
-a3MgbGlrZSBBcHBsZSBpbXBsZW1lbnRhdGlvbiBpcyBkaWZmZXJlbnQsIGJhc2VkIG9uIHlvdXIg
-ZGVzY3JpcHRpb24gPwoKWzFdIGh0dHBzOi8vZ2l0Lmtlcm5lbC5vcmcvcHViL3NjbS9saW51eC9r
-ZXJuZWwvZ2l0L25ldGRldi9uZXQuZ2l0L2NvbW1pdC8/aWQ9YzliZWUzYjdmZGVjYjBjMWQwNzBj
-N2I1NDExM2IzYmRmYjlhM2QzNgoKbmV0cGVyZiBkb2VzIG5vdCB1c2UgZXBvbGwoKSwgYnV0IHJh
-dGhlciBhIGxvb3Agb3ZlciBzZW5kbXNnKCkuCgpPbmUgb2YgdGhlIHBvaW50IG9mIFRDUF9OT1RT
-RU5UX0xPV0FUIGZvciBHb29nbGUgd2FzIHRvIGJlIGFibGUgdG8gY29uc2lkZXJhYmx5IGluY3Jl
-YXNlCm1heCBudW1iZXIgb2YgYnl0ZXMgaW4gdHJhbnNtaXQgcXVldWVzICgzcmQgY29sdW1uIG9m
-IC9wcm9jL3N5cy9uZXQvaXB2NC90Y3Bfd21lbSkKYnkgMTB4LCBhbGxvd2luZyBmb3IgYXV0b3R1
-bmUgdG8gaW5jcmVhc2UgQkRQIGZvciBiaWcgUlRUIGZsb3dzLCB0aGlzIHdpdGhvdXQKaW5jcmVh
-c2luZyBtZW1vcnkgbmVlZHMgZm9yIGZsb3dzIHdpdGggc21hbGwgUlRULgoKIEluIG90aGVyIHdv
-cmRzLCB0aGUgVENQIGltcGxlbWVudGF0aW9uIGF0dGVtcHRzIHRvIGtlZXAgQkRQIGJ5dGVzIGlu
-IGZsaWdodCArIFRDUF9OT1RTRU5UX0xPV0FUIGJ5dGVzIGJ1ZmZlcmVkIGFuZCByZWFkeSB0byBn
-by4gVGhlIEJEUCBvZiBieXRlcyBpbiBmbGlnaHQgaXMgbmVjZXNzYXJ5IHRvIGZpbGwgdGhlIG5l
-dHdvcmsgcGlwZSBhbmQgZ2V0IGdvb2QgdGhyb3VnaHB1dC4gVGhlIFRDUF9OT1RTRU5UX0xPV0FU
-IG9mIGJ5dGVzIGJ1ZmZlcmVkIGFuZCByZWFkeSB0byBnbyBpcyBwcm92aWRlZCB0byBnaXZlIHRo
-ZSBzb3VyY2Ugc29mdHdhcmUgc29tZSBhZHZhbmNlIG5vdGljZSB0aGF0IHRoZSBUQ1AgaW1wbGVt
-ZW50YXRpb24gd2lsbCBzb29uIGJlIGxvb2tpbmcgZm9yIG1vcmUgYnl0ZXMgdG8gc2VuZCwgc28g
-dGhhdCB0aGUgYnVmZmVyIGRvZXNu4oCZdCBydW4gZHJ5LCB0aGVyZWJ5IGxvd2VyaW5nIHRocm91
-Z2hwdXQuIChUaGUgb2xkIFNPX1NOREJVRiBvcHRpb24gY29uZmxhdGVzIGJvdGgg4oCcYnl0ZXMg
-aW4gZmxpZ2h04oCdIGFuZCDigJxieXRlcyBidWZmZXJlZCBhbmQgcmVhZHkgdG8gZ2/igJ0gaW50
-byB0aGUgc2FtZSBudW1iZXIuKQo+IAo+IElmIHlvdSB3YWl0IGZvciB0aGUgVENQX05PVFNFTlRf
-TE9XQVQgbm90aWZpY2F0aW9uLCB3cml0ZSBhIGNodW5rIG9mIG4gYnl0ZXMgb2YgZGF0YSwgYW5k
-IHRoZW4gd2FpdCBmb3IgdGhlIG5leHQgVENQX05PVFNFTlRfTE9XQVQgbm90aWZpY2F0aW9uLCB0
-aGF0IHdpbGwgdGVsbCB5b3Ugcm91Z2hseSBob3cgbG9uZyBpdCB0b29rIG4gYnl0ZXMgdG8gZGVw
-YXJ0IHRoZSBtYWNoaW5lLiBZb3Ugd29u4oCZdCBrbm93IHdoeSwgdGhvdWdoLiBUaGUgYnl0ZXMg
-Y291bGQgZGVwYXJ0IHRoZSBtYWNoaW5lIGluIHJlc3BvbnNlIGZvciBhY2tzIGluZGljYXRpbmcg
-dGhhdCB0aGUgc2FtZSBudW1iZXIgb2YgYnl0ZXMgaGF2ZSBiZWVuIGFjY2VwdGVkIGF0IHRoZSBy
-ZWNlaXZlci4gQnV0IHRoZSBieXRlcyBjYW4gYWxzbyBkZXBhcnQgdGhlIG1hY2hpbmUgYmVjYXVz
-ZSBDV05EIGlzIGdyb3dpbmcuIE9mIGNvdXJzZSwgYm90aCBvZiB0aG9zZSB0aGluZ3MgYXJlIHVz
-dWFsbHkgaGFwcGVuaW5nIGF0IHRoZSBzYW1lIHRpbWUuCj4gCj4gSG93IHRvIHVzZSBUQ1BfTk9U
-U0VOVF9MT1dBVCBpcyBleHBsYWluZWQgaW4gdGhpcyB2aWRlbzoKPiAKPiA8aHR0cHM6Ly9kZXZl
-bG9wZXIuYXBwbGUuY29tL3ZpZGVvcy9wbGF5L3d3ZGMyMDE1LzcxOS8/dGltZT0yMTk5Pgo+IAo+
-IExhdGVyIGluIHRoZSBzYW1lIHZpZGVvIGlzIGEgdHdvLW1pbnV0ZSBkZW1vICh0aW1lIG9mZnNl
-dCA0MjowMCB0byB0aW1lIG9mZnNldCA0NDowMCkgc2hvd2luZyBhIOKAnGJlZm9yZSBhbmQgYWZ0
-ZXLigJ0gZGVtbyBpbGx1c3RyYXRpbmcgdGhlIGRyYW1hdGljIGRpZmZlcmVuY2UgdGhpcyBtYWtl
-cyBmb3Igc2NyZWVuIHNoYXJpbmcgcmVzcG9uc2l2ZW5lc3MuCj4gCj4gPGh0dHBzOi8vZGV2ZWxv
-cGVyLmFwcGxlLmNvbS92aWRlb3MvcGxheS93d2RjMjAxNS83MTkvP3RpbWU9MjUyMD4KPiAKPiBT
-dHVhcnQgQ2hlc2hpcmUKPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fXwo+IEJsb2F0IG1haWxpbmcgbGlzdAo+IEJsb2F0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5l
-dAo+IGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Jsb2F0Cj4gCl9fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBs
-aXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQu
-bmV0L2xpc3RpbmZvL2Nha2UK
+--===============8601861774664891575==
+Content-Type: multipart/alternative; boundary="0000000000008d845105cf3ace31"
+
+--0000000000008d845105cf3ace31
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Thanks Stuart this is helpful. I'm measuring the time just before the first
+write() (of potentially a burst of writes to achieve a burst size) per a
+socket fd's select event occurring when TCP_NOT_SENT_LOWAT being set to a
+small value, then sampling the RTT and CWND and providing histograms for
+all three, all on that event. I'm not sure the correctness of RTT and CWND
+at this sample point. This is a controlled test over 802.11ax and OFDMA
+where the TCP acks per the WiFi clients are being scheduled by the AP using
+802.11ax trigger frames so the AP is affecting the end/end BDP per
+scheduling the transmits and the acks. The AP can grow the BDP or shrink it
+based on these scheduling decisions.  From there we're trying to maximize
+network power (throughput/delay) for elephant flows and just latency for
+mouse flows. (We also plan some RF frequency stuff to per OFDMA) Anyway,
+the AP based scheduling along with aggregation and OFDMA makes WiFi
+scheduling optimums non-obvious - at least to me - and I'm trying to
+provide insights into how an AP is affecting end/end performance.
+
+The more direct approach for e2e TCP latency and network power has been to
+measure first write() to final read() and compute the e2e delay. This
+requires clock sync on the ends. (We're using ptp4l with GPS OCXO
+atomic references for that but this is typically only available in some
+labs.)
+
+Bob
+
+
+On Mon, Oct 25, 2021 at 8:11 PM Stuart Cheshire <cheshire@apple.com> wrote:
+
+> On 21 Oct 2021, at 17:51, Bob McMahon via Make-wifi-fast <
+> make-wifi-fast@lists.bufferbloat.net> wrote:
+>
+> > Hi All,
+> >
+> > Sorry for the spam. I'm trying to support a meaningful TCP message
+> latency w/iperf 2 from the sender side w/o requiring e2e clock
+> synchronization. I thought I'd try to use the TCP_NOTSENT_LOWAT event to
+> help with this. It seems that this event goes off when the bytes are in
+> flight vs have reached the destination network stack. If that's the case,
+> then iperf 2 client (sender) may be able to produce the message latency b=
+y
+> adding the drain time (write start to TCP_NOTSENT_LOWAT) and the sampled
+> RTT.
+> >
+> > Does this seem reasonable?
+>
+> I=E2=80=99m not 100% sure what you=E2=80=99re asking, but I will try to h=
+elp.
+>
+> When you set TCP_NOTSENT_LOWAT, the TCP implementation won=E2=80=99t repo=
+rt your
+> endpoint as writable (e.g., via kqueue or epoll) until less than that
+> threshold of data remains unsent. It won=E2=80=99t stop you writing more =
+bytes if
+> you want to, up to the socket send buffer size, but it won=E2=80=99t *ask=
+* you for
+> more data until the TCP_NOTSENT_LOWAT threshold is reached. In other word=
+s,
+> the TCP implementation attempts to keep BDP bytes in flight +
+> TCP_NOTSENT_LOWAT bytes buffered and ready to go. The BDP of bytes in
+> flight is necessary to fill the network pipe and get good throughput. The
+> TCP_NOTSENT_LOWAT of bytes buffered and ready to go is provided to give t=
+he
+> source software some advance notice that the TCP implementation will soon
+> be looking for more bytes to send, so that the buffer doesn=E2=80=99t run=
+ dry,
+> thereby lowering throughput. (The old SO_SNDBUF option conflates both
+> =E2=80=9Cbytes in flight=E2=80=9D and =E2=80=9Cbytes buffered and ready t=
+o go=E2=80=9D into the same
+> number.)
+>
+> If you wait for the TCP_NOTSENT_LOWAT notification, write a chunk of n
+> bytes of data, and then wait for the next TCP_NOTSENT_LOWAT notification,
+> that will tell you roughly how long it took n bytes to depart the machine=
+.
+> You won=E2=80=99t know why, though. The bytes could depart the machine in=
+ response
+> for acks indicating that the same number of bytes have been accepted at t=
+he
+> receiver. But the bytes can also depart the machine because CWND is
+> growing. Of course, both of those things are usually happening at the sam=
+e
+> time.
+>
+> How to use TCP_NOTSENT_LOWAT is explained in this video:
+>
+> <https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2199>
+>
+> Later in the same video is a two-minute demo (time offset 42:00 to time
+> offset 44:00) showing a =E2=80=9Cbefore and after=E2=80=9D demo illustrat=
+ing the dramatic
+> difference this makes for screen sharing responsiveness.
+>
+> <https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2520>
+>
+> Stuart Cheshire
+
+--=20
+This electronic communication and the information and any files transmitted=
+=20
+with it, or attached to it, are confidential and are intended solely for=20
+the use of the individual or entity to whom it is addressed and may contain=
+=20
+information that is confidential, legally privileged, protected by privacy=
+=20
+laws, or otherwise restricted from disclosure to anyone else. If you are=20
+not the intended recipient or the person responsible for delivering the=20
+e-mail to the intended recipient, you are hereby notified that any use,=20
+copying, distributing, dissemination, forwarding, printing, or copying of=
+=20
+this e-mail is strictly prohibited. If you received this e-mail in error,=
+=20
+please return the e-mail to the sender, delete it from your computer, and=
+=20
+destroy any printed copy of it.
+
+--0000000000008d845105cf3ace31
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Thanks Stuart this is helpful. I&#39;m measuring=C2=A0the =
+time just before the first write() (of potentially a burst of writes to ach=
+ieve a burst size) per a socket fd&#39;s select event occurring when TCP_NO=
+T_SENT_LOWAT being set to a small value, then sampling the RTT and CWND and=
+ providing histograms for all three, all on that event. I&#39;m not sure th=
+e correctness of RTT and CWND at this sample point. This is a controlled te=
+st over 802.11ax and OFDMA where the TCP acks per the WiFi clients are bein=
+g scheduled by the AP using 802.11ax trigger frames so the AP is affecting =
+the end/end BDP per scheduling the transmits and the acks. The AP can grow =
+the BDP or shrink it based on these scheduling decisions.=C2=A0 From there =
+we&#39;re trying to maximize network power (throughput/delay) for elephant =
+flows and just latency for mouse flows. (We also plan some RF frequency stu=
+ff to per OFDMA) Anyway, the AP based scheduling along with aggregation=C2=
+=A0and OFDMA makes WiFi scheduling optimums non-obvious - at least to me - =
+and I&#39;m trying to provide insights into how an AP is affecting end/end =
+performance.<br><br>The more direct approach for e2e TCP latency and networ=
+k power has been to measure first write() to final read() and compute the e=
+2e delay. This requires clock sync on the ends. (We&#39;re using ptp4l with=
+ GPS OCXO atomic=C2=A0references=C2=A0for that but this is typically only a=
+vailable in some labs.)=C2=A0<br><br>Bob<br><div>=C2=A0</div></div><br><div=
+ class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Oct 25=
+, 2021 at 8:11 PM Stuart Cheshire &lt;<a href=3D"mailto:cheshire@apple.com"=
+>cheshire@apple.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quot=
+e" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204)=
+;padding-left:1ex">On 21 Oct 2021, at 17:51, Bob McMahon via Make-wifi-fast=
+ &lt;<a href=3D"mailto:make-wifi-fast@lists.bufferbloat.net" target=3D"_bla=
+nk">make-wifi-fast@lists.bufferbloat.net</a>&gt; wrote:<br>
+<br>
+&gt; Hi All,<br>
+&gt; <br>
+&gt; Sorry for the spam. I&#39;m trying to support a meaningful TCP message=
+ latency w/iperf 2 from the sender side w/o requiring e2e clock synchroniza=
+tion. I thought I&#39;d try to use the TCP_NOTSENT_LOWAT event to help with=
+ this. It seems that this event goes off when the bytes are in flight vs ha=
+ve reached the destination network stack. If that&#39;s the case, then iper=
+f 2 client (sender) may be able to produce the message latency by adding th=
+e drain time (write start to TCP_NOTSENT_LOWAT) and the sampled RTT.<br>
+&gt; <br>
+&gt; Does this seem reasonable?<br>
+<br>
+I=E2=80=99m not 100% sure what you=E2=80=99re asking, but I will try to hel=
+p.<br>
+<br>
+When you set TCP_NOTSENT_LOWAT, the TCP implementation won=E2=80=99t report=
+ your endpoint as writable (e.g., via kqueue or epoll) until less than that=
+ threshold of data remains unsent. It won=E2=80=99t stop you writing more b=
+ytes if you want to, up to the socket send buffer size, but it won=E2=80=99=
+t *ask* you for more data until the TCP_NOTSENT_LOWAT threshold is reached.=
+ In other words, the TCP implementation attempts to keep BDP bytes in fligh=
+t + TCP_NOTSENT_LOWAT bytes buffered and ready to go. The BDP of bytes in f=
+light is necessary to fill the network pipe and get good throughput. The TC=
+P_NOTSENT_LOWAT of bytes buffered and ready to go is provided to give the s=
+ource software some advance notice that the TCP implementation will soon be=
+ looking for more bytes to send, so that the buffer doesn=E2=80=99t run dry=
+, thereby lowering throughput. (The old SO_SNDBUF option conflates both =E2=
+=80=9Cbytes in flight=E2=80=9D and =E2=80=9Cbytes buffered and ready to go=
+=E2=80=9D into the same number.)<br>
+<br>
+If you wait for the TCP_NOTSENT_LOWAT notification, write a chunk of n byte=
+s of data, and then wait for the next TCP_NOTSENT_LOWAT notification, that =
+will tell you roughly how long it took n bytes to depart the machine. You w=
+on=E2=80=99t know why, though. The bytes could depart the machine in respon=
+se for acks indicating that the same number of bytes have been accepted at =
+the receiver. But the bytes can also depart the machine because CWND is gro=
+wing. Of course, both of those things are usually happening at the same tim=
+e.<br>
+<br>
+How to use TCP_NOTSENT_LOWAT is explained in this video:<br>
+<br>
+&lt;<a href=3D"https://developer.apple.com/videos/play/wwdc2015/719/?time=
+=3D2199" rel=3D"noreferrer" target=3D"_blank">https://developer.apple.com/v=
+ideos/play/wwdc2015/719/?time=3D2199</a>&gt;<br>
+<br>
+Later in the same video is a two-minute demo (time offset 42:00 to time off=
+set 44:00) showing a =E2=80=9Cbefore and after=E2=80=9D demo illustrating t=
+he dramatic difference this makes for screen sharing responsiveness.<br>
+<br>
+&lt;<a href=3D"https://developer.apple.com/videos/play/wwdc2015/719/?time=
+=3D2520" rel=3D"noreferrer" target=3D"_blank">https://developer.apple.com/v=
+ideos/play/wwdc2015/719/?time=3D2520</a>&gt;<br>
+<br>
+Stuart Cheshire</blockquote></div>
+
+<br>
+<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
+ctronic communication and the information and any files transmitted with it=
+, or attached to it, are confidential and are intended solely for the use o=
+f the individual or entity to whom it is addressed and may contain informat=
+ion that is confidential, legally privileged, protected by privacy laws, or=
+ otherwise restricted from disclosure to anyone else. If you are not the in=
+tended recipient or the person responsible for delivering the e-mail to the=
+ intended recipient, you are hereby notified that any use, copying, distrib=
+uting, dissemination, forwarding, printing, or copying of this e-mail is st=
+rictly prohibited. If you received this e-mail in error, please return the =
+e-mail to the sender, delete it from your computer, and destroy any printed=
+ copy of it.</font></span>
+--0000000000008d845105cf3ace31--
+
+--===============8601861774664891575==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============8601861774664891575==--
