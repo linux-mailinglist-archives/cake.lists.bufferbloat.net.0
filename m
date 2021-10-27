@@ -2,92 +2,91 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 91CD543C8CC
-	for <lists+cake@lfdr.de>; Wed, 27 Oct 2021 13:43:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5AE9A43CC3F
+	for <lists+cake@lfdr.de>; Wed, 27 Oct 2021 16:29:23 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1CBBE3CBC3;
-	Wed, 27 Oct 2021 07:43:02 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 0081D3CB67;
+	Wed, 27 Oct 2021 10:29:17 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1635334982;
-	bh=RwE1mfHX9G3gHv1d1nJsarF4u+VnC05+6dz8/YKXIC4=;
-	h=Date:In-reply-to:To:References:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
-	 From;
-	b=PDxALzCqPGKlC2zix0SdORaExiCnbEBYbVOM74XU9cV9CwG6M2WqMSBNOv+K70aKF
-	 n53eXWdCDClroZz+iU/2/kTsk1UFZQ/lJMKoHbwj9CVR69WN/sc1kAbNCa4LxTNWuC
-	 dYa9l3iP2kIgPSPNPMRSv04pry+Fyx1VxsSPqw90T60dCJGYIjp53SL+dPvv6KEdBt
-	 nv0O313mSPpZ7hA7jeIGWzN4B1VCiw46IfyK5qt8/ZdoV2btDqya2/3ZvjzV6qrwZb
-	 NCybHiDqLq3uEkG7F2crURb/LXcZ1lGUZHcPoRORjNXW4U9zuWmvXvEJfOTM+JbxXI
-	 oxeCLuvSGd4DQ==
+	d=lists.bufferbloat.net; s=201610; t=1635344957;
+	bh=fWC7q/1lf6w00lj5f8VcpfawFPfsUgFPviVij1lHtPo=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=K9KxeGoFHA8kIEfMi4oYp2RKCi23WdXHm82vPOIINkyR2yanZzHkml2fs4uAfa+mk
+	 ZoGTg3uCe165KeDZW2plpp9b4BCRLwEb80fX9sSumWniOAXTT7nKwm2acTDAgkBgVi
+	 zxIm0aHHb98gW9uhlpt73ngXV+0hODpjhswgXcP54+hXy2aXxU+u+ijjZpQ2LER8uG
+	 XOa66a5kuzZuPReRn62oiIY+X/YnulMYTOKfUOJfFXkoK0Rbj/2azXzGhQBYr6oFci
+	 FxK4qAnQG00YLA/NhiHB1gMv8qjodvKWLT93Yhnn/WT7zazOy1qqWn+bTRLKBcCuwh
+	 ZLVfnxyKcBwqQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from rn-mailsvcp-ppex-lapp15.apple.com
- (rn-mailsvcp-ppex-lapp15.rno.apple.com [17.179.253.34])
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.18])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 0031D3CB41;
- Tue, 26 Oct 2021 19:38:22 -0400 (EDT)
-Received: from pps.filterd (rn-mailsvcp-ppex-lapp15.rno.apple.com [127.0.0.1])
- by rn-mailsvcp-ppex-lapp15.rno.apple.com (8.16.1.2/8.16.1.2) with
- SMTP id 19QNaohB016325; Tue, 26 Oct 2021 16:38:16 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=apple.com;
- h=from : message-id :
- content-type : mime-version : subject : date : in-reply-to : cc : to :
- references; s=20180706; bh=MBESeU41Ec8hGPzc95seTwWgHoXP96QV/0kjYzxIWn8=;
- b=Z+P/ChNvTK2KO1uZsT/Qhw0Hc0ePOxt5sTs1ZORMLMKHITOAze3Tas8IanyevJ4SCbLI
- 3NNDLUP03itcK0J00swgu3Kw8gSmgHxR4zNP2P7ZOXi06dWgytwiYicpSqxzoXUK97Gd
- NO24do5ZPH9wZCnrX6u/VfjNLZz78nKH8z9ZnCTxr6CnumEIoq47kuUybwqO+VSNU9G1
- mHzcG0rK7S9nZVo77+aRjtKs9iGYkNHttRibCE8egDtoTtBFjZrWBtFvKVgJGiWJejmj
- TIY37HuarmbL0soMXmL9laeLaPDjyD545Mj54OLwNonTOwWM/sUfvEuUEby43Vmz0A9W eQ== 
-Received: from rn-mailsvcp-mta-lapp01.rno.apple.com
- (rn-mailsvcp-mta-lapp01.rno.apple.com [10.225.203.149])
- by rn-mailsvcp-ppex-lapp15.rno.apple.com with ESMTP id 3bx4f3fu01-2
- (version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NO);
- Tue, 26 Oct 2021 16:38:16 -0700
-Received: from rn-mailsvcp-mmp-lapp02.rno.apple.com
- (rn-mailsvcp-mmp-lapp02.rno.apple.com [17.179.253.15])
- by rn-mailsvcp-mta-lapp01.rno.apple.com
- (Oracle Communications Messaging Server 8.1.0.12.20210903 64bit (built Sep 3
- 2021)) with ESMTPS id <0R1L00WPZYZRGP70@rn-mailsvcp-mta-lapp01.rno.apple.com>; 
- Tue, 26 Oct 2021 16:38:15 -0700 (PDT)
-Received: from process_milters-daemon.rn-mailsvcp-mmp-lapp02.rno.apple.com by
- rn-mailsvcp-mmp-lapp02.rno.apple.com
- (Oracle Communications Messaging Server 8.1.0.12.20210903 64bit (built Sep 3
- 2021)) id <0R1L00R00YVN1100@rn-mailsvcp-mmp-lapp02.rno.apple.com>; Tue,
- 26 Oct 2021 16:38:15 -0700 (PDT)
-X-Va-A: 
-X-Va-T-CD: 095fc62c348ed25dc0c10f0adec69295
-X-Va-E-CD: e6061580a21389ade45530f31e4ff121
-X-Va-R-CD: 8bbe4467100e83bb797086b9816f35d5
-X-Va-CD: 0
-X-Va-ID: 5f56f518-c058-4950-b7de-08656c4dcae9
-X-V-A: 
-X-V-T-CD: 095fc62c348ed25dc0c10f0adec69295
-X-V-E-CD: e6061580a21389ade45530f31e4ff121
-X-V-R-CD: 8bbe4467100e83bb797086b9816f35d5
-X-V-CD: 0
-X-V-ID: 70d5d5ae-7a7f-4278-ab35-bddef9ea2625
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.425, 18.0.790
- definitions=2021-10-26_07:2021-10-26,
- 2021-10-26 signatures=0
-Received: from smtpclient.apple ([17.192.155.152])
- by rn-mailsvcp-mmp-lapp02.rno.apple.com
- (Oracle Communications Messaging Server 8.1.0.12.20210903 64bit (built Sep 3
- 2021))
- with ESMTPSA id <0R1L00EFTYZRPH00@rn-mailsvcp-mmp-lapp02.rno.apple.com>; Tue,
- 26 Oct 2021 16:38:15 -0700 (PDT)
-Message-id: <6D6492CF-BD6D-45BF-BD40-FA49166F6DA4@apple.com>
-MIME-version: 1.0 (Mac OS X Mail 15.0 \(3693.20.0.1.32\))
-Date: Tue, 26 Oct 2021 16:38:15 -0700
-In-reply-to: <CAHb6LvosV921NSpYXpzgRScuJDFNemCsUGqLfOm5NsOyt+TOVA@mail.gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 35B243CB4E;
+ Wed, 27 Oct 2021 10:29:15 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1635344952;
+ bh=S9v2XEB5kRZFzx+hD8JK4hcWbqqj6Ai9w8pCzh29Nfc=;
+ h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
+ b=L+8SzuQxo47ohoPEpJtS1Gc36XCYCVUIaN5ZcLwiig657pKIyZNTPv6v0iqk7swMq
+ WBd/CcRIvEW4LSApgoCbkIU/SFRp58bZH2HUIKbNEBOBQiT2cLJOmM4q9j9Gv6T++A
+ mpELZdB1KRfNefp6SZMuXvDh+bFb0IfK46AXhiSg=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [192.168.250.101] ([134.76.241.253]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MgeoI-1n9bcq1Kkm-00hA1K; Wed, 27
+ Oct 2021 16:29:12 +0200
+Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.7\))
+From: Sebastian Moeller <moeller0@gmx.de>
+In-Reply-To: <CAHb6LvpUBKFGUTnuafGxQAJBfNEO=zS20SvxTJ88e6VJAP54=g@mail.gmail.com>
+Date: Wed, 27 Oct 2021 16:29:11 +0200
+Message-Id: <77662A26-2CDC-4201-8148-6C0702702447@gmx.de>
+References: <CAA93jw7ZFWRWsBK-R1See9jRCASHd1U8ZFawyDXOT8fh2pLTag@mail.gmail.com>
+ <1625188609.32718319@apps.rackspace.com>
+ <CAA93jw5wQ5PYL08hWcdUucUYWt-n=uKDAbF23Pp3t5u9dEDEng@mail.gmail.com>
+ <CAHb6LvrjgKnfe_jaGgx7_B1VDTkZfTmP0OyTmxL9ojWoxogrsA@mail.gmail.com>
+ <989de0c1-e06c-cda9-ebe6-1f33df8a4c24@candelatech.com>
+ <1625773080.94974089@apps.rackspace.com>
+ <FDF5C7A7-47A6-4123-A948-352C07C35F02@cs.ucla.edu>
+ <CAH8sseShtJHZ1mZWu-hhKYsDLG_LC9GBpX9XRrj68yyzQLPcAg@mail.gmail.com>
+ <1625859083.09751240@apps.rackspace.com>
+ <CAA93jw5QyH4SqKT07hP+skijfimZ0GU=AgLJtkVOQGzKrAkazg@mail.gmail.com>
+ <257851.1632110422@turing-police>
+ <CABf5zv+yq_oJ7O7YqVeSbZ2Qns3C4hESzNA2V0zNb0L1Zg-mgw@mail.gmail.com>
+ <CAHxHggd-4rZ5Nc4raaoRUjjL17MVh8UsNu_5eL8eiLJ=R_68wA@mail.gmail.com>
+ <CAHb6Lvp86iw=DQMN8Z+f7yUJu-5pmVUxsM1_1Jw8RJb2XRcMcg@mail.gmail.com>
+ <1632680642.869711321@apps.rackspace.com>
+ <CAHb6Lvp1dxnbuCNiE5FKC-yRyD6HGkb0H1ZQAm_nSxANwJg2pA@mail.gmail.com>
+ <E3373586-EF4C-40DF-885B-0D6134E6EAF1@apple.com>
+ <CAHb6Lvomc+2y++qOm9v3OzYCdmWDUEROJb+unybj0Mir0faXQQ@mail.gmail.com>
+ <CAKf5G6JpeaxRkbwhuNE5zUb7tX3H4eo0HOuX+C0DCSrcg4Byhg@mail.gmail.com>
+ <CAHb6LvpUBKFGUTnuafGxQAJBfNEO=zS20SvxTJ88e6VJAP54=g@mail.gmail.com>
 To: Bob McMahon <bob.mcmahon@broadcom.com>
-References: <CAHb6LvosV921NSpYXpzgRScuJDFNemCsUGqLfOm5NsOyt+TOVA@mail.gmail.com>
-X-Mailer: Apple Mail (2.3693.20.0.1.32)
-X-Proofpoint-Virus-Version: vendor=fsecure engine=2.50.10434:6.0.425, 18.0.790
- definitions=2021-10-26_07:2021-10-26,
- 2021-10-26 signatures=0
-X-Mailman-Approved-At: Wed, 27 Oct 2021 07:43:01 -0400
-Subject: Re: [Cake] [Bloat] [Make-wifi-fast] TCP_NOTSENT_LOWAT applied to
+X-Mailer: Apple Mail (2.3608.120.23.2.7)
+X-Provags-ID: V03:K1:Qiv7NbnFNULUk5q49x8w3a1PYo11Io5AtSSXfN6LwzE8EkRCVks
+ 7ZikZmjnrczeOKPBEaR8hvvHfeshQ/jDykQ67oNmEed3lBghPuUMDmpXAnbdEqEq1hirJjj
+ SZOPuoYhVFGsYwnebIk+LovG/g74ZVpst1m1SGcIQ8DRI4MkHYzK5GcCe3W5GVENJg+NQtr
+ oWwdmpTLpEPz2ayO3m+aQ==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:9eWLBeDTwvg=:XOIOn+4xMW00Si7GENNtEx
+ mIiAvxa/Jro/flsHsaQc8B23pXdOUE6oOGv/hk8nGaiuaihAThSsGtqDdf+/qEDJc/EdNOvM9
+ UYiEDxvLFrc1dp5xS0q2TG0PG/M+hX80teB1JbYGMMPvFnElA1FXRHPGsC47XDhwHDyJ5Z2/9
+ LaQJjWOIt/BgO933Lwl67fzUWipWvSSM3M+bEOYQm7r/jTuwPeoKIG4ZxJjZ50SSPU/w8OTNj
+ 3Ez4+PSqGYdSM79yCJELasS/t00fKqmLIlTv9uYXs70RdQmRszml5bO8c1kuf/QJzUHdHHfc3
+ GA3ncMn0kwMkTA60rfh61Oqwkm41MMooi+KpHSv8QijUnZuBuh5EWoUo2PYzQB4ZFndBy1wxf
+ 31eDyzSN448N6JGOHGCPpPy8+qDwjkkut5Jt0nkZXvkVwQ97eXDsqKdQmCqDyBmU+bVtJn4aW
+ BrmpWeQx5pDAMa1u3wgafs8kvoqhkMpqKudMElcJ7KJPk96iI+lqX7BFLPFCmmNM8mFIMyNWU
+ IKtQ9kHQ8z2PlV1ZJhm3T9/FGckZYSf7YUAfv9F3CrdN8/C3GD3XIhkwDg4Yt4n/OILNqCQD4
+ WhgSGk/5hqXrQimnZ55GIPPPEcJZ9kGFQs+agX8DfDNQ4z2S0kgFS8bW/0aW5h6DMHOBAFgn6
+ nZi+gP0KpGegjbn54Lxye3dLJX/1kIgn/J1XQxERbexQaxQ+xv5w1QnjkOtVgynn8HnKOXHHF
+ 61c8k09axuWJ0u9Lv7zh9jS0GsW9t6SkFVknKkIQOliQ+du7v7zq/eEBkKqf2ZmlIgHPyjRNp
+ Xv8lR+PN3xZqPZAdShrbbSHPF6v72961DGQ8zwb6JeL4m+H1Q9467cJjtNzRPEvRWGF7DX4gc
+ WxpdKb1owFp4uKjTaRSscrbc7J1p9m/qK1IXZxYhz+gHaElaWS6w1F0l71ljCWGpHPsZAnZpF
+ Q/bFQTIoHhZlc51PpGWdr7os5sB5vOlM5mSvkBDeIzmCGGLf8jgX/Woc/+tL7H+tA7srnHUOF
+ ZaAdloSascPB3Qdf3gSxtUOx0Xd4EmIr99up0GgduaYhFa6Sevxic8yC37ymWCivbaIn0QeqB
+ t2DmrCHusbEyIY=
+Subject: Re: [Cake] [Make-wifi-fast] [Starlink] TCP_NOTSENT_LOWAT applied to
  e2e TCP msg latency
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -100,753 +99,177 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Christoph Paasch via Cake <cake@lists.bufferbloat.net>
-Reply-To: Christoph Paasch <cpaasch@apple.com>
-Cc: Stuart Cheshire <cheshire@apple.com>, starlink@lists.bufferbloat.net,
- =?utf-8?Q?Valdis_Kl=C4=93tnieks?= <valdis.kletnieks@vt.edu>,
- Eric Dumazet <eric.dumazet@gmail.com>,
+Cc: starlink@lists.bufferbloat.net,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ =?utf-8?Q?Bj=C3=B8rn_Ivar_Teigen?= <bjorn@domos.no>,
  Cake List <cake@lists.bufferbloat.net>, codel <codel@lists.bufferbloat.net>,
  cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>, Steve Crocker <steve@shinkuro.com>,
- Vint Cerf <vint@google.com>
-Content-Type: multipart/mixed; boundary="===============2022350350660225216=="
+ bloat <bloat@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-
---===============2022350350660225216==
-Content-type: multipart/alternative;
- boundary="Apple-Mail=_5B6C999B-0D21-421A-A02F-0DD3D50C4B92"
-
-
---Apple-Mail=_5B6C999B-0D21-421A-A02F-0DD3D50C4B92
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain;
-	charset=utf-8
-
-Hi Bob,
-
-> On Oct 26, 2021, at 4:23 PM, Bob McMahon <bob.mcmahon@broadcom.com> =
-wrote:
-> I'm confused. I don't see any blocking nor partial writes per the =
-write() at the app level with TCP_NOTSENT_LOWAT set at 4 bytes. The =
-burst is 40K, the write size is 4K and the watermark is 4 bytes. There =
-are ten writes per burst.
-
-You are on Linux here, right?
-
-AFAICS, Linux will still accept whatever fits in an skb. And that is =
-likely more than 4K (with GSO on by default).
-
-However, do you go back to select() after each write() or do you loop =
-over the write() calls?
-
-
-Christoph
-
-> The S8 histograms are the times waiting on the select().  The first =
-value is the bin number (multiplied by 100usec bin width) and second the =
-bin count. The worst case time is at the end and is timestamped per unix =
-epoch.
->=20
-> The second run is over a controlled WiFi link where a 99.7% point of =
-4-8ms for a WiFi TX op arbitration win is in the ballpark. The first is =
-1G wired and is in the 600 usec range. (No media arbitration there.)
->=20
->  [root@localhost iperf2-code]# src/iperf -c 10.19.87.9 --trip-times -i =
-1 -e --tcp-write-prefetch 4 -l 4K --burst-size=3D40K --histograms
-> WARN: option of --burst-size without --burst-period defaults =
---burst-period to 1 second
-> ------------------------------------------------------------
-> Client connecting to 10.19.87.9, TCP port 5001 with pid 2124 (1 flows)
-> Write buffer size: 4096 Byte
-> Bursting: 40.0 KByte every 1.00 seconds
-> TCP window size: 85.0 KByte (default)
-> Event based writes (pending queue watermark at 4 bytes)
-> Enabled select histograms bin-width=3D0.100 ms, bins=3D10000
-> ------------------------------------------------------------
-> [  1] local 10.19.87.10%eth0 port 33166 connected with 10.19.87.9 port =
-5001 (MSS=3D1448) (prefetch=3D4) (trip-times) (sock=3D3) (ct=3D0.54 ms) =
-on 2021-10-26 16:07:33 (PDT)
-> [ ID] Interval        Transfer    Bandwidth       Write/Err  Rtry     =
-Cwnd/RTT        NetPwr
-> [  1] 0.00-1.00 sec  40.1 KBytes   329 Kbits/sec  11/0          0      =
- 14K/5368 us  8
-> [  1] 0.00-1.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:1,2:5,3:2,4:1,11:=
-1 (5.00/95.00/99.7%=3D1/11/11,Outliers=3D0,obl/obu=3D0/0) (1.089 =
-ms/1635289653.928360)
-> [  1] 1.00-2.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/569 us  72
-> [  1] 1.00-2.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,2:1,3:4,4:1,7:1,8:1 =
-(5.00/95.00/99.7%=3D1/8/8,Outliers=3D0,obl/obu=3D0/0) (0.736 =
-ms/1635289654.928088)
-> [  1] 2.00-3.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/312 us  131
-> [  1] 2.00-3.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,2:2,3:2,5:2,6:1=
- (5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.548 =
-ms/1635289655.927776)
-> [  1] 3.00-4.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/302 us  136
-> [  1] 3.00-4.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:2,2:2,3:5,6:1 =
-(5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.584 =
-ms/1635289656.927814)
-> [  1] 4.00-5.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/316 us  130
-> [  1] 4.00-5.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,3:2,4:2,5:2,6:1=
- (5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.572 =
-ms/1635289657.927810)
-> [  1] 5.00-6.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/253 us  162
-> [  1] 5.00-6.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,2:2,3:4,5:1 =
-(5.00/95.00/99.7%=3D1/5/5,Outliers=3D0,obl/obu=3D0/0) (0.417 =
-ms/1635289658.927630)
-> [  1] 6.00-7.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/290 us  141
-> [  1] 6.00-7.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,3:3,4:3,6:1 =
-(5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.573 =
-ms/1635289659.927771)
-> [  1] 7.00-8.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/359 us  114
-> [  1] 7.00-8.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:2,3:4,4:3,6:1 =
-(5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.570 =
-ms/1635289660.927753)
-> [  1] 8.00-9.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/349 us  117
-> [  1] 8.00-9.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,3:5,4:1,7:1 =
-(5.00/95.00/99.7%=3D1/7/7,Outliers=3D0,obl/obu=3D0/0) (0.608 =
-ms/1635289661.927843)
-> [  1] 9.00-10.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0     =
-  14K/347 us  118
-> [  1] 9.00-10.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,2:1,3:5,8:1 =
-(5.00/95.00/99.7%=3D1/8/8,Outliers=3D0,obl/obu=3D0/0) (0.725 =
-ms/1635289662.927861)
-> [  1] 0.00-10.01 sec   400 KBytes   327 Kbits/sec  102/0          0    =
-   14K/1519 us  27
-> [  1] 0.00-10.01 sec S8(f)-PDF: =
-bin(w=3D100us):cnt(100)=3D1:25,2:13,3:36,4:11,5:5,6:5,7:2,8:2,11:1 =
-(5.00/95.00/99.7%=3D1/7/11,Outliers=3D0,obl/obu=3D0/0) (1.089 =
-ms/1635289653.928360)
->=20
-> [root@localhost iperf2-code]# src/iperf -c 192.168.1.1 --trip-times -i =
-1 -e --tcp-write-prefetch 4 -l 4K --burst-size=3D40K --histograms
-> WARN: option of --burst-size without --burst-period defaults =
---burst-period to 1 second
-> ------------------------------------------------------------
-> Client connecting to 192.168.1.1, TCP port 5001 with pid 2131 (1 =
-flows)
-> Write buffer size: 4096 Byte
-> Bursting: 40.0 KByte every 1.00 seconds
-> TCP window size: 85.0 KByte (default)
-> Event based writes (pending queue watermark at 4 bytes)
-> Enabled select histograms bin-width=3D0.100 ms, bins=3D10000
-> ------------------------------------------------------------
-> [  1] local 192.168.1.4%eth1 port 45518 connected with 192.168.1.1 =
-port 5001 (MSS=3D1448) (prefetch=3D4) (trip-times) (sock=3D3) (ct=3D5.48 =
-ms) on 2021-10-26 16:07:56 (PDT)
-> [ ID] Interval        Transfer    Bandwidth       Write/Err  Rtry     =
-Cwnd/RTT        NetPwr
-> [  1] 0.00-1.00 sec  40.1 KBytes   329 Kbits/sec  11/0          0      =
- 14K/10339 us  4
-> [  1] 0.00-1.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:1,40:1,47:1,49:2,50:3,51:1,60:1 =
-(5.00/95.00/99.7%=3D1/60/60,Outliers=3D0,obl/obu=3D0/0) (5.990 =
-ms/1635289676.802143)
-> [  1] 1.00-2.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/4853 us  8
-> [  1] 1.00-2.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,38:1,39:1,44:1,45:1,49:1,51:1,52:1,60:1 =
-(5.00/95.00/99.7%=3D1/60/60,Outliers=3D0,obl/obu=3D0/0) (5.937 =
-ms/1635289677.802274)
-> [  1] 2.00-3.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/4991 us  8
-> [  1] 2.00-3.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,48:1,49:2,50:2,51:1,60:1,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.307 =
-ms/1635289678.794326)
-> [  1] 3.00-4.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/4610 us  9
-> [  1] 3.00-4.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,49:3,50:3,56:1,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.362 =
-ms/1635289679.794335)
-> [  1] 4.00-5.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/5028 us  8
-> [  1] 4.00-5.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:2,49:6,59:1,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.367 =
-ms/1635289680.794399)
-> [  1] 5.00-6.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/5113 us  8
-> [  1] 5.00-6.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,49:3,50:2,58:1,60:1,65:1 =
-(5.00/95.00/99.7%=3D1/65/65,Outliers=3D0,obl/obu=3D0/0) (6.442 =
-ms/1635289681.794392)
-> [  1] 6.00-7.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/5054 us  8
-> [  1] 6.00-7.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,39:1,49:3,51:1,60:2,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.374 =
-ms/1635289682.794335)
-> [  1] 7.00-8.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/5138 us  8
-> [  1] 7.00-8.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,39:2,40:1,49:2,50:1,60:1,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.396 =
-ms/1635289683.794338)
-> [  1] 8.00-9.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0      =
- 14K/5329 us  8
-> [  1] 8.00-9.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,38:1,45:2,49:1,50:3,63:1 =
-(5.00/95.00/99.7%=3D1/63/63,Outliers=3D0,obl/obu=3D0/0) (6.292 =
-ms/1635289684.794262)
-> [  1] 9.00-10.00 sec  40.0 KBytes   328 Kbits/sec  10/0          0     =
-  14K/5329 us  8
-> [  1] 9.00-10.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,39:1,49:3,50:3,84:1 =
-(5.00/95.00/99.7%=3D1/84/84,Outliers=3D0,obl/obu=3D0/0) (8.306 =
-ms/1635289685.796315)
-> [  1] 0.00-10.01 sec   400 KBytes   327 Kbits/sec  102/0          0    =
-   14K/6331 us  6
-> [  1] 0.00-10.01 sec S8(f)-PDF: =
-bin(w=3D100us):cnt(100)=3D1:19,38:2,39:5,40:2,44:1,45:3,47:1,48:1,49:26,50=
-:17,51:4,52:1,56:1,58:1,59:1,60:7,63:1,64:5,65:1,84:1 =
-(5.00/95.00/99.7%=3D1/64/84,Outliers=3D0,obl/obu=3D0/0) (8.306 =
-ms/1635289685.796315)
->=20
-> Bob
->=20
-> On Tue, Oct 26, 2021 at 11:45 AM Christoph Paasch <cpaasch@apple.com =
-<mailto:cpaasch@apple.com>> wrote:
-> Hello,
->=20
-> > On Oct 25, 2021, at 9:24 PM, Eric Dumazet <eric.dumazet@gmail.com =
-<mailto:eric.dumazet@gmail.com>> wrote:
-> >=20
-> >=20
-> >=20
-> > On 10/25/21 8:11 PM, Stuart Cheshire via Bloat wrote:
-> >> On 21 Oct 2021, at 17:51, Bob McMahon via Make-wifi-fast =
-<make-wifi-fast@lists.bufferbloat.net =
-<mailto:make-wifi-fast@lists.bufferbloat.net>> wrote:
-> >>=20
-> >>> Hi All,
-> >>>=20
-> >>> Sorry for the spam. I'm trying to support a meaningful TCP message =
-latency w/iperf 2 from the sender side w/o requiring e2e clock =
-synchronization. I thought I'd try to use the TCP_NOTSENT_LOWAT event to =
-help with this. It seems that this event goes off when the bytes are in =
-flight vs have reached the destination network stack. If that's the =
-case, then iperf 2 client (sender) may be able to produce the message =
-latency by adding the drain time (write start to TCP_NOTSENT_LOWAT) and =
-the sampled RTT.
-> >>>=20
-> >>> Does this seem reasonable?
-> >>=20
-> >> I=E2=80=99m not 100% sure what you=E2=80=99re asking, but I will =
-try to help.
-> >>=20
-> >> When you set TCP_NOTSENT_LOWAT, the TCP implementation won=E2=80=99t =
-report your endpoint as writable (e.g., via kqueue or epoll) until less =
-than that threshold of data remains unsent. It won=E2=80=99t stop you =
-writing more bytes if you want to, up to the socket send buffer size, =
-but it won=E2=80=99t *ask* you for more data until the TCP_NOTSENT_LOWAT =
-threshold is reached.
-> >=20
-> >=20
-> > When I implemented TCP_NOTSENT_LOWAT back in 2013 [1], I made sure =
-that sendmsg() would actually
-> > stop feeding more bytes in TCP transmit queue if the current amount =
-of unsent bytes
-> > was above the threshold.
-> >=20
-> > So it looks like Apple implementation is different, based on your =
-description ?
->=20
-> Yes, TCP_NOTSENT_LOWAT only impacts the wakeup on iOS/macOS/...
->=20
-> An app can still fill the send-buffer if it does a sendmsg() with a =
-large buffer or does repeated calls to sendmsg().
->=20
-> Fur Apple, the goal of TCP_NOTSENT_LOWAT was to allow an app to =
-quickly change the data it "scheduled" to send. And thus allow the app =
-to write the smallest "logical unit" it has. If that unit is 512KB =
-large, the app is allowed to send that.
-> For example, in case of video-streaming one may want to skip ahead in =
-the video. In that case the app still needs to transmit the remaining =
-parts of the previous frame anyways, before it can send the new video =
-frame.
-> That's the reason why the Apple implementation allows one to write =
-more than just the lowat threshold.
->=20
->=20
-> That being said, I do think that Linux's way allows for an easier API =
-because the app does not need to be careful at how much data it sends =
-after an epoll/kqueue wakeup. So, the latency-benefits will be easier to =
-get.
->=20
->=20
-> Christoph
->=20
->=20
->=20
-> > [1] =
-https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=3D=
-c9bee3b7fdecb0c1d070c7b54113b3bdfb9a3d36 =
-<https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/commit/?id=
-=3Dc9bee3b7fdecb0c1d070c7b54113b3bdfb9a3d36>
-> >=20
-> > netperf does not use epoll(), but rather a loop over sendmsg().
-> >=20
-> > One of the point of TCP_NOTSENT_LOWAT for Google was to be able to =
-considerably increase
-> > max number of bytes in transmit queues (3rd column of =
-/proc/sys/net/ipv4/tcp_wmem)
-> > by 10x, allowing for autotune to increase BDP for big RTT flows, =
-this without
-> > increasing memory needs for flows with small RTT.
-> >=20
-> > In other words, the TCP implementation attempts to keep BDP bytes in =
-flight + TCP_NOTSENT_LOWAT bytes buffered and ready to go. The BDP of =
-bytes in flight is necessary to fill the network pipe and get good =
-throughput. The TCP_NOTSENT_LOWAT of bytes buffered and ready to go is =
-provided to give the source software some advance notice that the TCP =
-implementation will soon be looking for more bytes to send, so that the =
-buffer doesn=E2=80=99t run dry, thereby lowering throughput. (The old =
-SO_SNDBUF option conflates both =E2=80=9Cbytes in flight=E2=80=9D and =
-=E2=80=9Cbytes buffered and ready to go=E2=80=9D into the same number.)
-> >>=20
-> >> If you wait for the TCP_NOTSENT_LOWAT notification, write a chunk =
-of n bytes of data, and then wait for the next TCP_NOTSENT_LOWAT =
-notification, that will tell you roughly how long it took n bytes to =
-depart the machine. You won=E2=80=99t know why, though. The bytes could =
-depart the machine in response for acks indicating that the same number =
-of bytes have been accepted at the receiver. But the bytes can also =
-depart the machine because CWND is growing. Of course, both of those =
-things are usually happening at the same time.
-> >>=20
-> >> How to use TCP_NOTSENT_LOWAT is explained in this video:
-> >>=20
-> >> <https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2199 =
-<https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2199>>
-> >>=20
-> >> Later in the same video is a two-minute demo (time offset 42:00 to =
-time offset 44:00) showing a =E2=80=9Cbefore and after=E2=80=9D demo =
-illustrating the dramatic difference this makes for screen sharing =
-responsiveness.
-> >>=20
-> >> <https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2520 =
-<https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2520>>
-> >>=20
-> >> Stuart Cheshire
-> >> _______________________________________________
-> >> Bloat mailing list
-> >> Bloat@lists.bufferbloat.net <mailto:Bloat@lists.bufferbloat.net>
-> >> https://lists.bufferbloat.net/listinfo/bloat =
-<https://lists.bufferbloat.net/listinfo/bloat>
-> >>=20
-> > _______________________________________________
-> > Bloat mailing list
-> > Bloat@lists.bufferbloat.net <mailto:Bloat@lists.bufferbloat.net>
-> > https://lists.bufferbloat.net/listinfo/bloat =
-<https://lists.bufferbloat.net/listinfo/bloat>
->=20
->=20
-> This electronic communication and the information and any files =
-transmitted with it, or attached to it, are confidential and are =
-intended solely for the use of the individual or entity to whom it is =
-addressed and may contain information that is confidential, legally =
-privileged, protected by privacy laws, or otherwise restricted from =
-disclosure to anyone else. If you are not the intended recipient or the =
-person responsible for delivering the e-mail to the intended recipient, =
-you are hereby notified that any use, copying, distributing, =
-dissemination, forwarding, printing, or copying of this e-mail is =
-strictly prohibited. If you received this e-mail in error, please return =
-the e-mail to the sender, delete it from your computer, and destroy any =
-printed copy of it.
-
---Apple-Mail=_5B6C999B-0D21-421A-A02F-0DD3D50C4B92
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/html;
-	charset=utf-8
-
-<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
-charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
--webkit-nbsp-mode: space; line-break: after-white-space;" class=3D""><meta=
- http-equiv=3D"content-type" content=3D"text/html; charset=3Dutf-8" =
-class=3D""><div dir=3D"auto" class=3D""><div dir=3D"ltr" =
-class=3D""></div><div dir=3D"ltr" class=3D"">Hi Bob,</div><div dir=3D"ltr"=
- class=3D""><br class=3D""><blockquote type=3D"cite" class=3D"">On Oct =
-26, 2021, at 4:23 PM, Bob McMahon &lt;<a =
-href=3D"mailto:bob.mcmahon@broadcom.com" =
-class=3D"">bob.mcmahon@broadcom.com</a>&gt; wrote:<br =
-class=3D""></blockquote></div><blockquote type=3D"cite" class=3D""><div =
-dir=3D"ltr" class=3D""><div dir=3D"ltr" class=3D"">I'm confused. I don't =
-see any blocking nor partial writes per the write() at the app level =
-with TCP_NOTSENT_LOWAT set at 4 bytes. The burst is 40K, the write size =
-is 4K and the watermark is 4 bytes. There are ten writes per burst.<br =
-class=3D""></div></div></blockquote><div class=3D""><br =
-class=3D""></div><div class=3D"">You are on Linux here, right?</div><div =
-class=3D""><br class=3D""></div><div class=3D"">AFAICS, Linux will still =
-accept whatever fits in an skb. And that is likely more than 4K (with =
-GSO on by default).</div><div class=3D""><br class=3D""></div><div =
-class=3D"">However, do you go back to select() after each write() or do =
-you loop over the write() calls?</div><div class=3D""><br =
-class=3D""></div><div class=3D""><br class=3D""></div><div =
-class=3D"">Christoph</div><br class=3D""><blockquote type=3D"cite" =
-class=3D""><div dir=3D"ltr" class=3D""><div dir=3D"ltr" class=3D"">The =
-S8 histograms are the times waiting on the select().&nbsp; The first =
-value is the bin number (multiplied by 100usec&nbsp;bin width) and =
-second the bin count. The worst case time is at the end and is =
-timestamped per unix epoch.<div class=3D""><br class=3D""><div =
-class=3D"">The second run is over a controlled WiFi link where a 99.7% =
-point of 4-8ms for a WiFi TX op arbitration win is in the ballpark. The =
-first is 1G wired and is in&nbsp;the&nbsp;600 usec range. (No =
-media&nbsp;arbitration&nbsp;there.)<br class=3D""><br =
-class=3D"">&nbsp;[root@localhost iperf2-code]# src/iperf -c 10.19.87.9 =
---trip-times -i 1 -e --tcp-write-prefetch 4 -l 4K --burst-size=3D40K =
---histograms<br class=3D"">WARN: option of --burst-size without =
---burst-period defaults --burst-period to 1 second<br =
-class=3D"">------------------------------------------------------------<br=
- class=3D"">Client connecting to 10.19.87.9, TCP port 5001 with pid 2124 =
-(1 flows)<br class=3D"">Write buffer size: 4096 Byte<br =
-class=3D"">Bursting: 40.0 KByte every 1.00 seconds<br class=3D"">TCP =
-window size: 85.0 KByte (default)<br class=3D"">Event based writes =
-(pending queue watermark at 4 bytes)<br class=3D"">Enabled select =
-histograms bin-width=3D0.100 ms, bins=3D10000<br =
-class=3D"">------------------------------------------------------------<br=
- class=3D"">[ &nbsp;1] local 10.19.87.10%eth0 port 33166 connected with =
-10.19.87.9 port 5001 (MSS=3D1448) (prefetch=3D4) (trip-times) (sock=3D3) =
-(ct=3D0.54 ms) on 2021-10-26 16:07:33 (PDT)<br class=3D"">[ ID] Interval =
-&nbsp; &nbsp; &nbsp; &nbsp;Transfer &nbsp; &nbsp;Bandwidth &nbsp; &nbsp; =
-&nbsp; Write/Err &nbsp;Rtry &nbsp; &nbsp; Cwnd/RTT &nbsp; &nbsp; &nbsp; =
-&nbsp;NetPwr<br class=3D"">[ &nbsp;1] 0.00-1.00 sec &nbsp;40.1 KBytes =
-&nbsp; 329 Kbits/sec &nbsp;11/0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 =
-&nbsp; &nbsp; &nbsp; 14K/5368 us &nbsp;8<br class=3D"">[ &nbsp;1] =
-0.00-1.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:1,2:5,3:2,4:1,11:1 =
-(5.00/95.00/99.7%=3D1/11/11,Outliers=3D0,obl/obu=3D0/0) (1.089 =
-ms/1635289653.928360)<br class=3D"">[ &nbsp;1] 1.00-2.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/569 us &nbsp;72<br class=3D"">[ =
-&nbsp;1] 1.00-2.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,2:1,3:4,4:1,7:1,8:1 =
-(5.00/95.00/99.7%=3D1/8/8,Outliers=3D0,obl/obu=3D0/0) (0.736 =
-ms/1635289654.928088)<br class=3D"">[ &nbsp;1] 2.00-3.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/312 us &nbsp;131<br class=3D"">[ =
-&nbsp;1] 2.00-3.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,2:2,3:2,5:2,6:=
-1 (5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.548 =
-ms/1635289655.927776)<br class=3D"">[ &nbsp;1] 3.00-4.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/302 us &nbsp;136<br class=3D"">[ =
-&nbsp;1] 3.00-4.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:2,2:2,3:5,6:1 =
-(5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.584 =
-ms/1635289656.927814)<br class=3D"">[ &nbsp;1] 4.00-5.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/316 us &nbsp;130<br class=3D"">[ =
-&nbsp;1] 4.00-5.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,3:2,4:2,5:2,6:=
-1 (5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.572 =
-ms/1635289657.927810)<br class=3D"">[ &nbsp;1] 5.00-6.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/253 us &nbsp;162<br class=3D"">[ =
-&nbsp;1] 5.00-6.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,2:2,3:4,5:1 =
-(5.00/95.00/99.7%=3D1/5/5,Outliers=3D0,obl/obu=3D0/0) (0.417 =
-ms/1635289658.927630)<br class=3D"">[ &nbsp;1] 6.00-7.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/290 us &nbsp;141<br class=3D"">[ =
-&nbsp;1] 6.00-7.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,3:3,4:3,6:1 =
-(5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.573 =
-ms/1635289659.927771)<br class=3D"">[ &nbsp;1] 7.00-8.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/359 us &nbsp;114<br class=3D"">[ =
-&nbsp;1] 7.00-8.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:2,3:4,4:3,6:1 =
-(5.00/95.00/99.7%=3D1/6/6,Outliers=3D0,obl/obu=3D0/0) (0.570 =
-ms/1635289660.927753)<br class=3D"">[ &nbsp;1] 8.00-9.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/349 us &nbsp;117<br class=3D"">[ =
-&nbsp;1] 8.00-9.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,3:5,4:1,7:1 =
-(5.00/95.00/99.7%=3D1/7/7,Outliers=3D0,obl/obu=3D0/0) (0.608 =
-ms/1635289661.927843)<br class=3D"">[ &nbsp;1] 9.00-10.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/347 us &nbsp;118<br class=3D"">[ =
-&nbsp;1] 9.00-10.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:3,2:1,3:5,8:1 =
-(5.00/95.00/99.7%=3D1/8/8,Outliers=3D0,obl/obu=3D0/0) (0.725 =
-ms/1635289662.927861)<br class=3D"">[ &nbsp;1] 0.00-10.01 sec &nbsp; 400 =
-KBytes &nbsp; 327 Kbits/sec &nbsp;102/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/1519 us &nbsp;27<br class=3D"">[ =
-&nbsp;1] 0.00-10.01 sec S8(f)-PDF: =
-bin(w=3D100us):cnt(100)=3D1:25,2:13,3:36,4:11,5:5,6:5,7:2,8:2,11:1 =
-(5.00/95.00/99.7%=3D1/7/11,Outliers=3D0,obl/obu=3D0/0) (1.089 =
-ms/1635289653.928360)<br class=3D""><br class=3D"">[root@localhost =
-iperf2-code]# src/iperf -c 192.168.1.1 --trip-times -i 1 -e =
---tcp-write-prefetch 4 -l 4K --burst-size=3D40K --histograms<br =
-class=3D"">WARN: option of --burst-size without --burst-period defaults =
---burst-period to 1 second<br =
-class=3D"">------------------------------------------------------------<br=
- class=3D"">Client connecting to 192.168.1.1, TCP port 5001 with pid =
-2131 (1 flows)<br class=3D"">Write buffer size: 4096 Byte<br =
-class=3D"">Bursting: 40.0 KByte every 1.00 seconds<br class=3D"">TCP =
-window size: 85.0 KByte (default)<br class=3D"">Event based writes =
-(pending queue watermark at 4 bytes)<br class=3D"">Enabled select =
-histograms bin-width=3D0.100 ms, bins=3D10000<br =
-class=3D"">------------------------------------------------------------<br=
- class=3D"">[ &nbsp;1] local 192.168.1.4%eth1 port 45518 connected with =
-192.168.1.1 port 5001 (MSS=3D1448) (prefetch=3D4) (trip-times) (sock=3D3) =
-(ct=3D5.48 ms) on 2021-10-26 16:07:56 (PDT)<br class=3D"">[ ID] Interval =
-&nbsp; &nbsp; &nbsp; &nbsp;Transfer &nbsp; &nbsp;Bandwidth &nbsp; &nbsp; =
-&nbsp; Write/Err &nbsp;Rtry &nbsp; &nbsp; Cwnd/RTT &nbsp; &nbsp; &nbsp; =
-&nbsp;NetPwr<br class=3D"">[ &nbsp;1] 0.00-1.00 sec &nbsp;40.1 KBytes =
-&nbsp; 329 Kbits/sec &nbsp;11/0 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;0 =
-&nbsp; &nbsp; &nbsp; 14K/10339 us &nbsp;4<br class=3D"">[ &nbsp;1] =
-0.00-1.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:1,40:1,47:1,49:2,50:3,51:1,60:1 =
-(5.00/95.00/99.7%=3D1/60/60,Outliers=3D0,obl/obu=3D0/0) (5.990 =
-ms/1635289676.802143)<br class=3D"">[ &nbsp;1] 1.00-2.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/4853 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 1.00-2.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,38:1,39:1,44:1,45:1,49:1,51:1,52:1,60:1 =
-(5.00/95.00/99.7%=3D1/60/60,Outliers=3D0,obl/obu=3D0/0) (5.937 =
-ms/1635289677.802274)<br class=3D"">[ &nbsp;1] 2.00-3.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/4991 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 2.00-3.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,48:1,49:2,50:2,51:1,60:1,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.307 =
-ms/1635289678.794326)<br class=3D"">[ &nbsp;1] 3.00-4.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/4610 us &nbsp;9<br class=3D"">[ =
-&nbsp;1] 3.00-4.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,49:3,50:3,56:1,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.362 =
-ms/1635289679.794335)<br class=3D"">[ &nbsp;1] 4.00-5.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/5028 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 4.00-5.00 sec S8-PDF: bin(w=3D100us):cnt(10)=3D1:2,49:6,59:1,64:1=
- (5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.367 =
-ms/1635289680.794399)<br class=3D"">[ &nbsp;1] 5.00-6.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/5113 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 5.00-6.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,49:3,50:2,58:1,60:1,65:1 =
-(5.00/95.00/99.7%=3D1/65/65,Outliers=3D0,obl/obu=3D0/0) (6.442 =
-ms/1635289681.794392)<br class=3D"">[ &nbsp;1] 6.00-7.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/5054 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 6.00-7.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,39:1,49:3,51:1,60:2,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.374 =
-ms/1635289682.794335)<br class=3D"">[ &nbsp;1] 7.00-8.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/5138 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 7.00-8.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,39:2,40:1,49:2,50:1,60:1,64:1 =
-(5.00/95.00/99.7%=3D1/64/64,Outliers=3D0,obl/obu=3D0/0) (6.396 =
-ms/1635289683.794338)<br class=3D"">[ &nbsp;1] 8.00-9.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/5329 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 8.00-9.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,38:1,45:2,49:1,50:3,63:1 =
-(5.00/95.00/99.7%=3D1/63/63,Outliers=3D0,obl/obu=3D0/0) (6.292 =
-ms/1635289684.794262)<br class=3D"">[ &nbsp;1] 9.00-10.00 sec &nbsp;40.0 =
-KBytes &nbsp; 328 Kbits/sec &nbsp;10/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/5329 us &nbsp;8<br class=3D"">[ =
-&nbsp;1] 9.00-10.00 sec S8-PDF: =
-bin(w=3D100us):cnt(10)=3D1:2,39:1,49:3,50:3,84:1 =
-(5.00/95.00/99.7%=3D1/84/84,Outliers=3D0,obl/obu=3D0/0) (8.306 =
-ms/1635289685.796315)<br class=3D"">[ &nbsp;1] 0.00-10.01 sec &nbsp; 400 =
-KBytes &nbsp; 327 Kbits/sec &nbsp;102/0 &nbsp; &nbsp; &nbsp; &nbsp; =
-&nbsp;0 &nbsp; &nbsp; &nbsp; 14K/6331 us &nbsp;6<br class=3D"">[ =
-&nbsp;1] 0.00-10.01 sec S8(f)-PDF: =
-bin(w=3D100us):cnt(100)=3D1:19,38:2,39:5,40:2,44:1,45:3,47:1,48:1,49:26,50=
-:17,51:4,52:1,56:1,58:1,59:1,60:7,63:1,64:5,65:1,84:1 =
-(5.00/95.00/99.7%=3D1/64/84,Outliers=3D0,obl/obu=3D0/0) (8.306 =
-ms/1635289685.796315)<br class=3D""><br =
-class=3D"">Bob</div></div></div><br class=3D""><div =
-class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Oct =
-26, 2021 at 11:45 AM Christoph Paasch &lt;<a =
-href=3D"mailto:cpaasch@apple.com" class=3D"">cpaasch@apple.com</a>&gt; =
-wrote:<br class=3D""></div><blockquote class=3D"gmail_quote" =
-style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid =
-rgb(204,204,204);padding-left:1ex">Hello,<br class=3D"">
-<br class=3D"">
-&gt; On Oct 25, 2021, at 9:24 PM, Eric Dumazet &lt;<a =
-href=3D"mailto:eric.dumazet@gmail.com" target=3D"_blank" =
-class=3D"">eric.dumazet@gmail.com</a>&gt; wrote:<br class=3D"">
-&gt; <br class=3D"">
-&gt; <br class=3D"">
-&gt; <br class=3D"">
-&gt; On 10/25/21 8:11 PM, Stuart Cheshire via Bloat wrote:<br class=3D"">
-&gt;&gt; On 21 Oct 2021, at 17:51, Bob McMahon via Make-wifi-fast &lt;<a =
-href=3D"mailto:make-wifi-fast@lists.bufferbloat.net" target=3D"_blank" =
-class=3D"">make-wifi-fast@lists.bufferbloat.net</a>&gt; wrote:<br =
-class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt;&gt; Hi All,<br class=3D"">
-&gt;&gt;&gt; <br class=3D"">
-&gt;&gt;&gt; Sorry for the spam. I'm trying to support a meaningful TCP =
-message latency w/iperf 2 from the sender side w/o requiring e2e clock =
-synchronization. I thought I'd try to use the TCP_NOTSENT_LOWAT event to =
-help with this. It seems that this event goes off when the bytes are in =
-flight vs have reached the destination network stack. If that's the =
-case, then iperf 2 client (sender) may be able to produce the message =
-latency by adding the drain time (write start to TCP_NOTSENT_LOWAT) and =
-the sampled RTT.<br class=3D"">
-&gt;&gt;&gt; <br class=3D"">
-&gt;&gt;&gt; Does this seem reasonable?<br class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; I=E2=80=99m not 100% sure what you=E2=80=99re asking, but I =
-will try to help.<br class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; When you set TCP_NOTSENT_LOWAT, the TCP implementation won=E2=80=99=
-t report your endpoint as writable (e.g., via kqueue or epoll) until =
-less than that threshold of data remains unsent. It won=E2=80=99t stop =
-you writing more bytes if you want to, up to the socket send buffer =
-size, but it won=E2=80=99t *ask* you for more data until the =
-TCP_NOTSENT_LOWAT threshold is reached.<br class=3D"">
-&gt; <br class=3D"">
-&gt; <br class=3D"">
-&gt; When I implemented TCP_NOTSENT_LOWAT back in 2013 [1], I made sure =
-that sendmsg() would actually<br class=3D"">
-&gt; stop feeding more bytes in TCP transmit queue if the current amount =
-of unsent bytes<br class=3D"">
-&gt; was above the threshold.<br class=3D"">
-&gt; <br class=3D"">
-&gt; So it looks like Apple implementation is different, based on your =
-description ?<br class=3D"">
-<br class=3D"">
-Yes, TCP_NOTSENT_LOWAT only impacts the wakeup on iOS/macOS/...<br =
-class=3D"">
-<br class=3D"">
-An app can still fill the send-buffer if it does a sendmsg() with a =
-large buffer or does repeated calls to sendmsg().<br class=3D"">
-<br class=3D"">
-Fur Apple, the goal of TCP_NOTSENT_LOWAT was to allow an app to quickly =
-change the data it "scheduled" to send. And thus allow the app to write =
-the smallest "logical unit" it has. If that unit is 512KB large, the app =
-is allowed to send that.<br class=3D"">
-For example, in case of video-streaming one may want to skip ahead in =
-the video. In that case the app still needs to transmit the remaining =
-parts of the previous frame anyways, before it can send the new video =
-frame.<br class=3D"">
-That's the reason why the Apple implementation allows one to write more =
-than just the lowat threshold.<br class=3D"">
-<br class=3D"">
-<br class=3D"">
-That being said, I do think that Linux's way allows for an easier API =
-because the app does not need to be careful at how much data it sends =
-after an epoll/kqueue wakeup. So, the latency-benefits will be easier to =
-get.<br class=3D"">
-<br class=3D"">
-<br class=3D"">
-Christoph<br class=3D"">
-<br class=3D"">
-<br class=3D"">
-<br class=3D"">
-&gt; [1] <a =
-href=3D"https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/com=
-mit/?id=3Dc9bee3b7fdecb0c1d070c7b54113b3bdfb9a3d36" rel=3D"noreferrer" =
-target=3D"_blank" =
-class=3D"">https://git.kernel.org/pub/scm/linux/kernel/git/netdev/net.git/=
-commit/?id=3Dc9bee3b7fdecb0c1d070c7b54113b3bdfb9a3d36</a><br class=3D"">
-&gt; <br class=3D"">
-&gt; netperf does not use epoll(), but rather a loop over sendmsg().<br =
-class=3D"">
-&gt; <br class=3D"">
-&gt; One of the point of TCP_NOTSENT_LOWAT for Google was to be able to =
-considerably increase<br class=3D"">
-&gt; max number of bytes in transmit queues (3rd column of =
-/proc/sys/net/ipv4/tcp_wmem)<br class=3D"">
-&gt; by 10x, allowing for autotune to increase BDP for big RTT flows, =
-this without<br class=3D"">
-&gt; increasing memory needs for flows with small RTT.<br class=3D"">
-&gt; <br class=3D"">
-&gt; In other words, the TCP implementation attempts to keep BDP bytes =
-in flight + TCP_NOTSENT_LOWAT bytes buffered and ready to go. The BDP of =
-bytes in flight is necessary to fill the network pipe and get good =
-throughput. The TCP_NOTSENT_LOWAT of bytes buffered and ready to go is =
-provided to give the source software some advance notice that the TCP =
-implementation will soon be looking for more bytes to send, so that the =
-buffer doesn=E2=80=99t run dry, thereby lowering throughput. (The old =
-SO_SNDBUF option conflates both =E2=80=9Cbytes in flight=E2=80=9D and =
-=E2=80=9Cbytes buffered and ready to go=E2=80=9D into the same =
-number.)<br class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; If you wait for the TCP_NOTSENT_LOWAT notification, write a =
-chunk of n bytes of data, and then wait for the next TCP_NOTSENT_LOWAT =
-notification, that will tell you roughly how long it took n bytes to =
-depart the machine. You won=E2=80=99t know why, though. The bytes could =
-depart the machine in response for acks indicating that the same number =
-of bytes have been accepted at the receiver. But the bytes can also =
-depart the machine because CWND is growing. Of course, both of those =
-things are usually happening at the same time.<br class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; How to use TCP_NOTSENT_LOWAT is explained in this video:<br =
-class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; &lt;<a =
-href=3D"https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2199"=
- rel=3D"noreferrer" target=3D"_blank" =
-class=3D"">https://developer.apple.com/videos/play/wwdc2015/719/?time=3D21=
-99</a>&gt;<br class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; Later in the same video is a two-minute demo (time offset 42:00 =
-to time offset 44:00) showing a =E2=80=9Cbefore and after=E2=80=9D demo =
-illustrating the dramatic difference this makes for screen sharing =
-responsiveness.<br class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; &lt;<a =
-href=3D"https://developer.apple.com/videos/play/wwdc2015/719/?time=3D2520"=
- rel=3D"noreferrer" target=3D"_blank" =
-class=3D"">https://developer.apple.com/videos/play/wwdc2015/719/?time=3D25=
-20</a>&gt;<br class=3D"">
-&gt;&gt; <br class=3D"">
-&gt;&gt; Stuart Cheshire<br class=3D"">
-&gt;&gt; _______________________________________________<br class=3D"">
-&gt;&gt; Bloat mailing list<br class=3D"">
-&gt;&gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"_blank" =
-class=3D"">Bloat@lists.bufferbloat.net</a><br class=3D"">
-&gt;&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" =
-rel=3D"noreferrer" target=3D"_blank" =
-class=3D"">https://lists.bufferbloat.net/listinfo/bloat</a><br class=3D"">=
-
-&gt;&gt; <br class=3D"">
-&gt; _______________________________________________<br class=3D"">
-&gt; Bloat mailing list<br class=3D"">
-&gt; <a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"_blank" =
-class=3D"">Bloat@lists.bufferbloat.net</a><br class=3D"">
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/bloat" =
-rel=3D"noreferrer" target=3D"_blank" =
-class=3D"">https://lists.bufferbloat.net/listinfo/bloat</a><br class=3D"">=
-
-<br class=3D"">
-</blockquote></div>
-
-<br class=3D"">
-<span style=3D"background-color:rgb(255,255,255)" class=3D""><font =
-size=3D"2" class=3D"">This electronic communication and the information =
-and any files transmitted with it, or attached to it, are confidential =
-and are intended solely for the use of the individual or entity to whom =
-it is addressed and may contain information that is confidential, =
-legally privileged, protected by privacy laws, or otherwise restricted =
-from disclosure to anyone else. If you are not the intended recipient or =
-the person responsible for delivering the e-mail to the intended =
-recipient, you are hereby notified that any use, copying, distributing, =
-dissemination, forwarding, printing, or copying of this e-mail is =
-strictly prohibited. If you received this e-mail in error, please return =
-the e-mail to the sender, delete it from your computer, and destroy any =
-printed copy of it.</font></span></div></blockquote></div></body></html>=
-
---Apple-Mail=_5B6C999B-0D21-421A-A02F-0DD3D50C4B92--
-
---===============2022350350660225216==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============2022350350660225216==--
+SGkgQm9iLAoKT1dEICE9IFJUVC8yIHNlZW1zIGdlbmVyaWNhbGx5IHRvIGJlIHRoZSBydWxlIG9u
+IHRoZSBpbnRlcm5ldCBub3QgdGhlIGV4Y2VwdGlvbiwgZXZlbiB3aXRoIHBlcmZlY3RseSAgc3lt
+bWV0cmljIGFjY2VzcyBsaW5rcy4gUm91dGluZyBiZXR3ZWVuIEFTIG9mdGVuIGlzIGFzeW1tZXRy
+aWMgaW4gaXQgc2VsZiAoaG90IHBvdGF0byByb3V0aW5nLCB3aGVyZSBlYWNoIEFTIGhhbmRzIG92
+ZXIgcGFja2V0cyBkZXN0aW5lZCB0byBvdGhlcnMgYXMgZWFybHkgYXMgcG9zc2libGUsIG1lYW5z
+IHRoYXQgZm9yd2FyZCBhbmQgYmFja3dhcmQgcGF0aCBhcmUgb2Z0ZW4gbm90aWNlYWJseSBkaWZm
+ZXJlbnQ7IG9yIHJhdGhlciB0aGV5IGFyZSBkaWZmZXJlbnQgYnV0IHRoYXQgaXMgaGFyZCB0byBu
+b3RpY2UgdW5sZXNzIG9uZSBjYW4gZ2V0IHBhdGggbWVhc3VyZW1lbnRzIGxpa2UgdHJhY2Vyb3V0
+ZXMgZnJvbSBib3RoIGRpcmVjdGlvbnMpLiBUaGF0IGxhc3QgcG9pbnQgaXMgd2hhdCBtYWtlcyBt
+ZSBiZWxpZXZlIHRoYXQgaW50ZXJuZXQgc3BlZWR0ZXN0cywgc2hvdWxkIGFsd2F5cyBhbHNvIGlu
+Y2x1ZGUgdHJhY2Vyb3V0ZXMgZnJvbSBzZXJ2ZXIgdG8gY2xpZW50IGFuZCBmcm9tIGNsaWVudCB0
+byBzZXJ2ZXIgc28gb25lIGF0IGxlYXN0IGhhcyBhIHJvdWdoIGlkZWEgd2hlcmUgdGhlIHBhY2tl
+dHMgYXJlIGdvaW5nLCBidXQgSSBkaWdyZXNzLi4uCgpSZWdhcmRzCglTZWJhc3RpYW4KCgoKPiBP
+biBPY3QgMjYsIDIwMjEsIGF0IDE5OjIzLCBCb2IgTWNNYWhvbiB2aWEgTWFrZS13aWZpLWZhc3Qg
+PG1ha2Utd2lmaS1mYXN0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4gd3JvdGU6Cj4gCj4gSGkgQmrD
+uHJuLAo+IAo+IEkgZmluZCwgd2hlbiBwb3NzaWJsZSwgaXQncyBwcmVmZXJyZWQgdG8gdGFrZSB0
+ZWxlbWV0cnkgZGF0YSBvZiBhY3R1YWwgdHJhZmZpYyAob3IgcmVhZHMgYW5kIHdyaXRlcykgdnMg
+YSBwcm94eS4gV2UgaGFkIGEgY2FzZSB3aGVyZSBUQ1AgQkUgd2FzIG91dHBlcmZvcm1pbmcgVENQ
+IHcvVkkgYmVjYXVzZSBCRSBoYWQgdGhlIG1vc3QgZW5naW5lZXJpbmcgcmVzb3VyY2VzIGFzc2ln
+bmVkIHRvIGl0IGFuZCBlbmdpbmVlcnMgZGlkIGEgYmV0dGVyIGpvYiB3aXRoIEJFLiBVc2luZyBh
+IHByb3h5IHByb3RvY29sIHdvdWxkbid0IGhhdmUgZXhlcmNpc2VkIHRoZSBzYW1lIGxvZ2ljIHBh
+dGhzIChpbiB0aGlzIGNhc2UgaXQgd2FzIGluIHRoZSBMMiBkcml2ZXIpIGFzIFRDUCBkaWQuIEhl
+bmNlLCBtZWFzdXJpbmcgYWN0dWFsIFRDUCB0cmFmZmljIChvciBzb2NrZXQgcmVhZHMgYW5kIHNv
+Y2tldCB3cml0ZXMpIHdhcyBuZWVkZWQgdG8gZmx1c2ggb3V0IHRoZSBwcm9ibGVtLiBOb3RlOiBJ
+IGFsc28gZmluZCB0aGF0IG5ldHdvcmsgZW5naW5lZXJzIHRlbmQgdG8gZm9jdXMgb24gdGhlIHN0
+YWNrIGJ1dCBpdCdzIHRoZSBlMmUgYXQgdGhlIGFwcGxpY2F0aW9uIGxldmVsIHRoYXQgaW1wYWN0
+cyB1c2VyIGV4cGVyaWVuY2UuIFNlbmQgc2lkZSBibG9hdCBjYW4gZHJpdmUgdGhlIE9XRCB3aGls
+ZSB0aGUgVENQIHN0YWNrJ3MgUlRUIG1heSBsb29rIGZpbmUuIEZvciBXaUZpIHRlc3QgJiBtZWFz
+dXJlbWVudHMsIHdlJ3ZlIGRlY2lkZWQgbW9zdCB0ZXN0aW5nIHNob3VsZCBiZSB1c2luZyBUQ1Bf
+Tk9TRU5UX0xPV0FUIGJlY2F1c2UgaXQgaGVscHMgbWl0aWdhdGUgc2VuZCBzaWRlIGJsb2F0IHdo
+aWNoIFdpRmkgZW5naW5lZXJpbmcgZG9lc24ndCBmb2N1cyBvbiBwZXIgbGFjayBvZiBhYmlsaXR5
+IHRvIGltcGFjdC4KPiAKPiBBbHNvLCBJIHRoaW5rIE9XRCBpcyB1bmRlciB0ZXN0ZWQgYW5kIHR3
+byB3YXkgYmFzZWQgdGVzdGluZyBjYW4gZ2l2ZSBpbmNvbXBsZXRlIGFuZCBpbmFjY3VyYXRlIGlu
+Zm9ybWF0aW9uLCBwYXJ0aWN1bGFybHkgd2l0aCByZXNwZWN0IHRvIHRoaW5ncyBsaWtlIGFuIGUy
+ZSB0cmFuc3BvcnQncyBjb250cm9sIGxvb3AuICBBIG1vc3Qgb2J2aW91cyBleGFtcGxlIGlzIGFz
+c3VtaW5nIDEvMiBSVFQgaXMgdGhlIHNhbWUgYXMgT1dEIHRvL2Zyby4gRm9yIFdpRmkgdGhpcyBh
+c3N1bXB0aW9uIGlzIG1vc3QgYWx3YXlzIGZhbHNlLiBJdCBhbHNvIGZhbHNlIGZvciBtYW55IHJl
+c2lkZW50aWFsIGludGVybmV0IGNvbm5lY3Rpb25zIHdoZXJlIE9XRCBhc3ltbWV0cnkgaXMgZGVz
+aWduZWQgaW4uCj4gCj4gQm9iCj4gCj4gCj4gT24gVHVlLCBPY3QgMjYsIDIwMjEgYXQgMzowNCBB
+TSBCasO4cm4gSXZhciBUZWlnZW4gPGJqb3JuQGRvbW9zLm5vPiB3cm90ZToKPiBIaSBCb2IsCj4g
+Cj4gTXkgbmFtZSBpcyBCasO4cm4gSXZhciBUZWlnZW4gYW5kIEknbSB3b3JraW5nIG9uIG1vZGVs
+aW5nIGFuZCBtZWFzdXJpbmcgV2lGaSBNQUMtbGF5ZXIgcHJvdG9jb2wgcGVyZm9ybWFuY2UgZm9y
+IG15IFBoRC4KPiAKPiBJcyBpdCBuZWNlc3NhcnkgdG8gbWVhc3VyZSB0aGUgbGF0ZW5jeSB1c2lu
+ZyB0aGUgVENQIHN0cmVhbSBpdHNlbGY/IEkgaGFkIGEgc2ltaWxhciBwcm9ibGVtIGluIHRoZSBw
+YXN0LCBhbmQgc29sdmVkIGl0IGJ5IGRvaW5nIHRoZSBsYXRlbmN5IG1lYXN1cmVtZW50cyB1c2lu
+ZyBUV0FNUCBydW5uaW5nIGFsb25nc2lkZSB0aGUgVENQIHRyYWZmaWMuIFRoZSByZXF1aXJlbWVu
+dCBmb3IgdGhpcyB0byB3b3JrIGlzIHRoYXQgdGhlIFRXQU1QIHBhY2tldHMgYXJlIHBsYWNlZCBp
+biB0aGUgc2FtZSBxdWV1ZShzKSBhcyB0aGUgVENQIHRyYWZmaWMsIGFuZCB0aGF0IHRoZSBpbXBh
+Y3Qgb2YgbWVhc3VyZW1lbnQgdHJhZmZpYyBpcyBzbWFsbCBlbm91Z2ggc28gYXMgbm90IHRvIGlu
+dGVyZmVyZSB0b28gbXVjaCB3aXRoIHlvdXIgVENQIHJlc3VsdHMuCj4gSnVzdCBteSB0d28gY2Vu
+dHMsIGhvcGUgaXQncyBoZWxwZnVsLgo+IAo+IEJqw7hybgo+IAo+IE9uIFR1ZSwgMjYgT2N0IDIw
+MjEgYXQgMDY6MzIsIEJvYiBNY01haG9uIDxib2IubWNtYWhvbkBicm9hZGNvbS5jb20+IHdyb3Rl
+Ogo+IFRoYW5rcyBTdHVhcnQgdGhpcyBpcyBoZWxwZnVsLiBJJ20gbWVhc3VyaW5nIHRoZSB0aW1l
+IGp1c3QgYmVmb3JlIHRoZSBmaXJzdCB3cml0ZSgpIChvZiBwb3RlbnRpYWxseSBhIGJ1cnN0IG9m
+IHdyaXRlcyB0byBhY2hpZXZlIGEgYnVyc3Qgc2l6ZSkgcGVyIGEgc29ja2V0IGZkJ3Mgc2VsZWN0
+IGV2ZW50IG9jY3VycmluZyB3aGVuIFRDUF9OT1RfU0VOVF9MT1dBVCBiZWluZyBzZXQgdG8gYSBz
+bWFsbCB2YWx1ZSwgdGhlbiBzYW1wbGluZyB0aGUgUlRUIGFuZCBDV05EIGFuZCBwcm92aWRpbmcg
+aGlzdG9ncmFtcyBmb3IgYWxsIHRocmVlLCBhbGwgb24gdGhhdCBldmVudC4gSSdtIG5vdCBzdXJl
+IHRoZSBjb3JyZWN0bmVzcyBvZiBSVFQgYW5kIENXTkQgYXQgdGhpcyBzYW1wbGUgcG9pbnQuIFRo
+aXMgaXMgYSBjb250cm9sbGVkIHRlc3Qgb3ZlciA4MDIuMTFheCBhbmQgT0ZETUEgd2hlcmUgdGhl
+IFRDUCBhY2tzIHBlciB0aGUgV2lGaSBjbGllbnRzIGFyZSBiZWluZyBzY2hlZHVsZWQgYnkgdGhl
+IEFQIHVzaW5nIDgwMi4xMWF4IHRyaWdnZXIgZnJhbWVzIHNvIHRoZSBBUCBpcyBhZmZlY3Rpbmcg
+dGhlIGVuZC9lbmQgQkRQIHBlciBzY2hlZHVsaW5nIHRoZSB0cmFuc21pdHMgYW5kIHRoZSBhY2tz
+LiBUaGUgQVAgY2FuIGdyb3cgdGhlIEJEUCBvciBzaHJpbmsgaXQgYmFzZWQgb24gdGhlc2Ugc2No
+ZWR1bGluZyBkZWNpc2lvbnMuICBGcm9tIHRoZXJlIHdlJ3JlIHRyeWluZyB0byBtYXhpbWl6ZSBu
+ZXR3b3JrIHBvd2VyICh0aHJvdWdocHV0L2RlbGF5KSBmb3IgZWxlcGhhbnQgZmxvd3MgYW5kIGp1
+c3QgbGF0ZW5jeSBmb3IgbW91c2UgZmxvd3MuIChXZSBhbHNvIHBsYW4gc29tZSBSRiBmcmVxdWVu
+Y3kgc3R1ZmYgdG8gcGVyIE9GRE1BKSBBbnl3YXksIHRoZSBBUCBiYXNlZCBzY2hlZHVsaW5nIGFs
+b25nIHdpdGggYWdncmVnYXRpb24gYW5kIE9GRE1BIG1ha2VzIFdpRmkgc2NoZWR1bGluZyBvcHRp
+bXVtcyBub24tb2J2aW91cyAtIGF0IGxlYXN0IHRvIG1lIC0gYW5kIEknbSB0cnlpbmcgdG8gcHJv
+dmlkZSBpbnNpZ2h0cyBpbnRvIGhvdyBhbiBBUCBpcyBhZmZlY3RpbmcgZW5kL2VuZCBwZXJmb3Jt
+YW5jZS4KPiAKPiBUaGUgbW9yZSBkaXJlY3QgYXBwcm9hY2ggZm9yIGUyZSBUQ1AgbGF0ZW5jeSBh
+bmQgbmV0d29yayBwb3dlciBoYXMgYmVlbiB0byBtZWFzdXJlIGZpcnN0IHdyaXRlKCkgdG8gZmlu
+YWwgcmVhZCgpIGFuZCBjb21wdXRlIHRoZSBlMmUgZGVsYXkuIFRoaXMgcmVxdWlyZXMgY2xvY2sg
+c3luYyBvbiB0aGUgZW5kcy4gKFdlJ3JlIHVzaW5nIHB0cDRsIHdpdGggR1BTIE9DWE8gYXRvbWlj
+IHJlZmVyZW5jZXMgZm9yIHRoYXQgYnV0IHRoaXMgaXMgdHlwaWNhbGx5IG9ubHkgYXZhaWxhYmxl
+IGluIHNvbWUgbGFicy4pIAo+IAo+IEJvYgo+ICAKPiAKPiBPbiBNb24sIE9jdCAyNSwgMjAyMSBh
+dCA4OjExIFBNIFN0dWFydCBDaGVzaGlyZSA8Y2hlc2hpcmVAYXBwbGUuY29tPiB3cm90ZToKPiBP
+biAyMSBPY3QgMjAyMSwgYXQgMTc6NTEsIEJvYiBNY01haG9uIHZpYSBNYWtlLXdpZmktZmFzdCA8
+bWFrZS13aWZpLWZhc3RAbGlzdHMuYnVmZmVyYmxvYXQubmV0PiB3cm90ZToKPiAKPiA+IEhpIEFs
+bCwKPiA+IAo+ID4gU29ycnkgZm9yIHRoZSBzcGFtLiBJJ20gdHJ5aW5nIHRvIHN1cHBvcnQgYSBt
+ZWFuaW5nZnVsIFRDUCBtZXNzYWdlIGxhdGVuY3kgdy9pcGVyZiAyIGZyb20gdGhlIHNlbmRlciBz
+aWRlIHcvbyByZXF1aXJpbmcgZTJlIGNsb2NrIHN5bmNocm9uaXphdGlvbi4gSSB0aG91Z2h0IEkn
+ZCB0cnkgdG8gdXNlIHRoZSBUQ1BfTk9UU0VOVF9MT1dBVCBldmVudCB0byBoZWxwIHdpdGggdGhp
+cy4gSXQgc2VlbXMgdGhhdCB0aGlzIGV2ZW50IGdvZXMgb2ZmIHdoZW4gdGhlIGJ5dGVzIGFyZSBp
+biBmbGlnaHQgdnMgaGF2ZSByZWFjaGVkIHRoZSBkZXN0aW5hdGlvbiBuZXR3b3JrIHN0YWNrLiBJ
+ZiB0aGF0J3MgdGhlIGNhc2UsIHRoZW4gaXBlcmYgMiBjbGllbnQgKHNlbmRlcikgbWF5IGJlIGFi
+bGUgdG8gcHJvZHVjZSB0aGUgbWVzc2FnZSBsYXRlbmN5IGJ5IGFkZGluZyB0aGUgZHJhaW4gdGlt
+ZSAod3JpdGUgc3RhcnQgdG8gVENQX05PVFNFTlRfTE9XQVQpIGFuZCB0aGUgc2FtcGxlZCBSVFQu
+Cj4gPiAKPiA+IERvZXMgdGhpcyBzZWVtIHJlYXNvbmFibGU/Cj4gCj4gSeKAmW0gbm90IDEwMCUg
+c3VyZSB3aGF0IHlvdeKAmXJlIGFza2luZywgYnV0IEkgd2lsbCB0cnkgdG8gaGVscC4KPiAKPiBX
+aGVuIHlvdSBzZXQgVENQX05PVFNFTlRfTE9XQVQsIHRoZSBUQ1AgaW1wbGVtZW50YXRpb24gd29u
+4oCZdCByZXBvcnQgeW91ciBlbmRwb2ludCBhcyB3cml0YWJsZSAoZS5nLiwgdmlhIGtxdWV1ZSBv
+ciBlcG9sbCkgdW50aWwgbGVzcyB0aGFuIHRoYXQgdGhyZXNob2xkIG9mIGRhdGEgcmVtYWlucyB1
+bnNlbnQuIEl0IHdvbuKAmXQgc3RvcCB5b3Ugd3JpdGluZyBtb3JlIGJ5dGVzIGlmIHlvdSB3YW50
+IHRvLCB1cCB0byB0aGUgc29ja2V0IHNlbmQgYnVmZmVyIHNpemUsIGJ1dCBpdCB3b27igJl0ICph
+c2sqIHlvdSBmb3IgbW9yZSBkYXRhIHVudGlsIHRoZSBUQ1BfTk9UU0VOVF9MT1dBVCB0aHJlc2hv
+bGQgaXMgcmVhY2hlZC4gSW4gb3RoZXIgd29yZHMsIHRoZSBUQ1AgaW1wbGVtZW50YXRpb24gYXR0
+ZW1wdHMgdG8ga2VlcCBCRFAgYnl0ZXMgaW4gZmxpZ2h0ICsgVENQX05PVFNFTlRfTE9XQVQgYnl0
+ZXMgYnVmZmVyZWQgYW5kIHJlYWR5IHRvIGdvLiBUaGUgQkRQIG9mIGJ5dGVzIGluIGZsaWdodCBp
+cyBuZWNlc3NhcnkgdG8gZmlsbCB0aGUgbmV0d29yayBwaXBlIGFuZCBnZXQgZ29vZCB0aHJvdWdo
+cHV0LiBUaGUgVENQX05PVFNFTlRfTE9XQVQgb2YgYnl0ZXMgYnVmZmVyZWQgYW5kIHJlYWR5IHRv
+IGdvIGlzIHByb3ZpZGVkIHRvIGdpdmUgdGhlIHNvdXJjZSBzb2Z0d2FyZSBzb21lIGFkdmFuY2Ug
+bm90aWNlIHRoYXQgdGhlIFRDUCBpbXBsZW1lbnRhdGlvbiB3aWxsIHNvb24gYmUgbG9va2luZyBm
+b3IgbW9yZSBieXRlcyB0byBzZW5kLCBzbyB0aGF0IHRoZSBidWZmZXIgZG9lc27igJl0IHJ1biBk
+cnksIHRoZXJlYnkgbG93ZXJpbmcgdGhyb3VnaHB1dC4gKFRoZSBvbGQgU09fU05EQlVGIG9wdGlv
+biBjb25mbGF0ZXMgYm90aCDigJxieXRlcyBpbiBmbGlnaHTigJ0gYW5kIOKAnGJ5dGVzIGJ1ZmZl
+cmVkIGFuZCByZWFkeSB0byBnb+KAnSBpbnRvIHRoZSBzYW1lIG51bWJlci4pCj4gCj4gSWYgeW91
+IHdhaXQgZm9yIHRoZSBUQ1BfTk9UU0VOVF9MT1dBVCBub3RpZmljYXRpb24sIHdyaXRlIGEgY2h1
+bmsgb2YgbiBieXRlcyBvZiBkYXRhLCBhbmQgdGhlbiB3YWl0IGZvciB0aGUgbmV4dCBUQ1BfTk9U
+U0VOVF9MT1dBVCBub3RpZmljYXRpb24sIHRoYXQgd2lsbCB0ZWxsIHlvdSByb3VnaGx5IGhvdyBs
+b25nIGl0IHRvb2sgbiBieXRlcyB0byBkZXBhcnQgdGhlIG1hY2hpbmUuIFlvdSB3b27igJl0IGtu
+b3cgd2h5LCB0aG91Z2guIFRoZSBieXRlcyBjb3VsZCBkZXBhcnQgdGhlIG1hY2hpbmUgaW4gcmVz
+cG9uc2UgZm9yIGFja3MgaW5kaWNhdGluZyB0aGF0IHRoZSBzYW1lIG51bWJlciBvZiBieXRlcyBo
+YXZlIGJlZW4gYWNjZXB0ZWQgYXQgdGhlIHJlY2VpdmVyLiBCdXQgdGhlIGJ5dGVzIGNhbiBhbHNv
+IGRlcGFydCB0aGUgbWFjaGluZSBiZWNhdXNlIENXTkQgaXMgZ3Jvd2luZy4gT2YgY291cnNlLCBi
+b3RoIG9mIHRob3NlIHRoaW5ncyBhcmUgdXN1YWxseSBoYXBwZW5pbmcgYXQgdGhlIHNhbWUgdGlt
+ZS4KPiAKPiBIb3cgdG8gdXNlIFRDUF9OT1RTRU5UX0xPV0FUIGlzIGV4cGxhaW5lZCBpbiB0aGlz
+IHZpZGVvOgo+IAo+IDxodHRwczovL2RldmVsb3Blci5hcHBsZS5jb20vdmlkZW9zL3BsYXkvd3dk
+YzIwMTUvNzE5Lz90aW1lPTIxOTk+Cj4gCj4gTGF0ZXIgaW4gdGhlIHNhbWUgdmlkZW8gaXMgYSB0
+d28tbWludXRlIGRlbW8gKHRpbWUgb2Zmc2V0IDQyOjAwIHRvIHRpbWUgb2Zmc2V0IDQ0OjAwKSBz
+aG93aW5nIGEg4oCcYmVmb3JlIGFuZCBhZnRlcuKAnSBkZW1vIGlsbHVzdHJhdGluZyB0aGUgZHJh
+bWF0aWMgZGlmZmVyZW5jZSB0aGlzIG1ha2VzIGZvciBzY3JlZW4gc2hhcmluZyByZXNwb25zaXZl
+bmVzcy4KPiAKPiA8aHR0cHM6Ly9kZXZlbG9wZXIuYXBwbGUuY29tL3ZpZGVvcy9wbGF5L3d3ZGMy
+MDE1LzcxOS8/dGltZT0yNTIwPgo+IAo+IFN0dWFydCBDaGVzaGlyZQo+IAo+IFRoaXMgZWxlY3Ry
+b25pYyBjb21tdW5pY2F0aW9uIGFuZCB0aGUgaW5mb3JtYXRpb24gYW5kIGFueSBmaWxlcyB0cmFu
+c21pdHRlZCB3aXRoIGl0LCBvciBhdHRhY2hlZCB0byBpdCwgYXJlIGNvbmZpZGVudGlhbCBhbmQg
+YXJlIGludGVuZGVkIHNvbGVseSBmb3IgdGhlIHVzZSBvZiB0aGUgaW5kaXZpZHVhbCBvciBlbnRp
+dHkgdG8gd2hvbSBpdCBpcyBhZGRyZXNzZWQgYW5kIG1heSBjb250YWluIGluZm9ybWF0aW9uIHRo
+YXQgaXMgY29uZmlkZW50aWFsLCBsZWdhbGx5IHByaXZpbGVnZWQsIHByb3RlY3RlZCBieSBwcml2
+YWN5IGxhd3MsIG9yIG90aGVyd2lzZSByZXN0cmljdGVkIGZyb20gZGlzY2xvc3VyZSB0byBhbnlv
+bmUgZWxzZS4gSWYgeW91IGFyZSBub3QgdGhlIGludGVuZGVkIHJlY2lwaWVudCBvciB0aGUgcGVy
+c29uIHJlc3BvbnNpYmxlIGZvciBkZWxpdmVyaW5nIHRoZSBlLW1haWwgdG8gdGhlIGludGVuZGVk
+IHJlY2lwaWVudCwgeW91IGFyZSBoZXJlYnkgbm90aWZpZWQgdGhhdCBhbnkgdXNlLCBjb3B5aW5n
+LCBkaXN0cmlidXRpbmcsIGRpc3NlbWluYXRpb24sIGZvcndhcmRpbmcsIHByaW50aW5nLCBvciBj
+b3B5aW5nIG9mIHRoaXMgZS1tYWlsIGlzIHN0cmljdGx5IHByb2hpYml0ZWQuIElmIHlvdSByZWNl
+aXZlZCB0aGlzIGUtbWFpbCBpbiBlcnJvciwgcGxlYXNlIHJldHVybiB0aGUgZS1tYWlsIHRvIHRo
+ZSBzZW5kZXIsIGRlbGV0ZSBpdCBmcm9tIHlvdXIgY29tcHV0ZXIsIGFuZCBkZXN0cm95IGFueSBw
+cmludGVkIGNvcHkgb2YgaXQuX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX18KPiBTdGFybGluayBtYWlsaW5nIGxpc3QKPiBTdGFybGlua0BsaXN0cy5idWZmZXJi
+bG9hdC5uZXQKPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9zdGFybGlu
+awo+IAo+IAo+IC0tIAo+IEJqw7hybiBJdmFyIFRlaWdlbgo+IEhlYWQgb2YgUmVzZWFyY2gKPiAr
+NDcgNDczMzU5NTIgfCBiam9ybkBkb21vcy5ubyB8IHd3dy5kb21vcy5ubwo+IFdpRmkgU2xpY2lu
+ZyBieSBEb21vcwo+IAo+IFRoaXMgZWxlY3Ryb25pYyBjb21tdW5pY2F0aW9uIGFuZCB0aGUgaW5m
+b3JtYXRpb24gYW5kIGFueSBmaWxlcyB0cmFuc21pdHRlZCB3aXRoIGl0LCBvciBhdHRhY2hlZCB0
+byBpdCwgYXJlIGNvbmZpZGVudGlhbCBhbmQgYXJlIGludGVuZGVkIHNvbGVseSBmb3IgdGhlIHVz
+ZSBvZiB0aGUgaW5kaXZpZHVhbCBvciBlbnRpdHkgdG8gd2hvbSBpdCBpcyBhZGRyZXNzZWQgYW5k
+IG1heSBjb250YWluIGluZm9ybWF0aW9uIHRoYXQgaXMgY29uZmlkZW50aWFsLCBsZWdhbGx5IHBy
+aXZpbGVnZWQsIHByb3RlY3RlZCBieSBwcml2YWN5IGxhd3MsIG9yIG90aGVyd2lzZSByZXN0cmlj
+dGVkIGZyb20gZGlzY2xvc3VyZSB0byBhbnlvbmUgZWxzZS4gSWYgeW91IGFyZSBub3QgdGhlIGlu
+dGVuZGVkIHJlY2lwaWVudCBvciB0aGUgcGVyc29uIHJlc3BvbnNpYmxlIGZvciBkZWxpdmVyaW5n
+IHRoZSBlLW1haWwgdG8gdGhlIGludGVuZGVkIHJlY2lwaWVudCwgeW91IGFyZSBoZXJlYnkgbm90
+aWZpZWQgdGhhdCBhbnkgdXNlLCBjb3B5aW5nLCBkaXN0cmlidXRpbmcsIGRpc3NlbWluYXRpb24s
+IGZvcndhcmRpbmcsIHByaW50aW5nLCBvciBjb3B5aW5nIG9mIHRoaXMgZS1tYWlsIGlzIHN0cmlj
+dGx5IHByb2hpYml0ZWQuIElmIHlvdSByZWNlaXZlZCB0aGlzIGUtbWFpbCBpbiBlcnJvciwgcGxl
+YXNlIHJldHVybiB0aGUgZS1tYWlsIHRvIHRoZSBzZW5kZXIsIGRlbGV0ZSBpdCBmcm9tIHlvdXIg
+Y29tcHV0ZXIsIGFuZCBkZXN0cm95IGFueSBwcmludGVkIGNvcHkgb2YgaXQuX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPiBNYWtlLXdpZmktZmFzdCBtYWls
+aW5nIGxpc3QKPiBNYWtlLXdpZmktZmFzdEBsaXN0cy5idWZmZXJibG9hdC5uZXQKPiBodHRwczov
+L2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9tYWtlLXdpZmktZmFzdAoKX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QK
+Q2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQv
+bGlzdGluZm8vY2FrZQo=
