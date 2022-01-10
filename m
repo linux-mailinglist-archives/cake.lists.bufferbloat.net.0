@@ -2,65 +2,66 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id CF715489F19
-	for <lists+cake@lfdr.de>; Mon, 10 Jan 2022 19:21:23 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C2A6348A1F7
+	for <lists+cake@lfdr.de>; Mon, 10 Jan 2022 22:31:47 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 8E2023CB46;
-	Mon, 10 Jan 2022 13:21:17 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 5D93C3CB48;
+	Mon, 10 Jan 2022 16:31:41 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1641838877;
-	bh=MU1UVyFO+u1rEiX4Esq1ENNjSt4Al9WXlZg1ouwObew=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=Z6vyQIrsSMME0Kg2Jc9LX2br37OUmGEjAQfIThoCEAR0Q1JGMXz1IB3nRqvZj38N/
-	 LUGXbSBSC1ZzcYh4N6ahvYft8//xHNOKUDQQyG5NtsIUlIYApu3OgbaBMRCexAt9nJ
-	 NC/347YVwV5Yg/mc4GIDmSAd4iZeHzgUrFvpl0ImHvUvhgAA2F6OhKE1xBv3XxJ5UT
-	 FlbsiABYPH4joTQ80wWU7s5ltUBs2M8RmAXPzNNS0+mvroAX2EVQRnKivHRUuAQJtO
-	 ov3nhFR6HLlMu/GXQXG8524WmW7d+GBjLZ4v6yJzmZmaIbNIfWH4tAi5CSWoSfGlAf
-	 lKmskS09ecLQg==
+	d=lists.bufferbloat.net; s=201610; t=1641850301;
+	bh=KSaSBwB6mS7XGCWcutPzen23jOW9mcUUU219TIWOw7c=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=gk1gIDHZf/Wbo7xnlfk/GTct16zzOUSZEsJyJ9RsH3QH5c3bX7tkymBMPkRA7TnLS
+	 KKQZs9wEF4jGK8AF5HWvQEFLGaz9Zlg6V+Od6qULkQ5nRS3ek2gevg4TSPLui1do/e
+	 GPzI+Ai9R63mOl5uEG16u/DLtSy5pNz3aUtdsCnlT5Eq7l+6OY8FYhY4lZS58tke6U
+	 gkb+xAiMIQnvKE793B1hJedEOJBciIcYsWFIeqnoE2z4cMGlI/yIyINS9+Us43T2DI
+	 UhhNE3PH+zfxPAfxF6cJu8NRsV/18+0U6NBBCDZskkqQi+1aVrU4RRG442o9+ncgzu
+	 A7aD9P8gw6zew==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ed1-x533.google.com (mail-ed1-x533.google.com
- [IPv6:2a00:1450:4864:20::533])
+Received: from mail-ua1-x933.google.com (mail-ua1-x933.google.com
+ [IPv6:2607:f8b0:4864:20::933])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 1DEA53B29E;
- Mon, 10 Jan 2022 13:21:16 -0500 (EST)
-Received: by mail-ed1-x533.google.com with SMTP id z22so12011987edd.12;
- Mon, 10 Jan 2022 10:21:16 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 1BA593CB41;
+ Mon, 10 Jan 2022 16:31:40 -0500 (EST)
+Received: by mail-ua1-x933.google.com with SMTP id l15so14662119uai.11;
+ Mon, 10 Jan 2022 13:31:40 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=pLzUt6Ii1JKhSdYzGCw7q6K7rERUgevyr+0kOe+32Gk=;
- b=Q/KHSkRe2TCtRkygx3I88vdMVW2OGlMnwocC+FQJOa1QpWtP3dVCL3ZqhveUk/1bV3
- UaMP153F06VIH24wRfN7Gcdl3wNeNmP4WrsbE3RsNHmtD23/YNkccm2e2R/PZIwaTYcV
- cLqLONSog31Jc+IEYRmZLoRNUfrimybcLGnLn5YtXRt8EUIxOn9kkVTjBysQvyFTKphe
- wTfeYVFXk+jpJ66WHvLEEVdjnDnGo7uCm+0WmRBP5bPAU0RGOUZIpwC4z59SuR6G9i4S
- aTd23dVidpg6DI0wo9nhj2brFyQ1JtJ3wQtqwsCZiUpZtogjjZfo/5pPVUtabWqeFbBq
- t72Q==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc; bh=fu5OZHNsfosVhWyFCoFhpLwPof3yz4YTtP+vLGNqb4w=;
+ b=Ie5MbSXc6w5B0L28OSF/FKZyzkAZ+xvZ2zSnGTNdiTW34vYGcus3tuTJ0Z8S8RfIMm
+ UKFhDDbkVFnPKej2cyFrQLfoxWUBb28ZIECryxGGRBVg6fdsu3qedrsXLG1qQBxHoy01
+ 9ASq71XWMYiHHC+rZ+zbq9jXVT5L1UjXyhYGnKUnnZZubWr4PlNAR5LE1PXwHZOpqzzG
+ nf9q0rs4V0z9dAD5TpQRcqCL/0lni3AaTHo8bwQfrvDmPPfiEN1eXYnW9FW6mOblTSc+
+ GIR4uxdMAumfJoX9SPYNIAx/C8DKWq7k0V5IQjMuQiYn1QHRkRKwKeMbD67M94TS6ND5
+ Yf/Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=pLzUt6Ii1JKhSdYzGCw7q6K7rERUgevyr+0kOe+32Gk=;
- b=LIORcvbEw8hU0+/7F2l03B+YEYsQjmzRRM8emX4RPAQjBUdQSUfGUJcaRr5k5hXGVL
- RYYpViYhUKviokOf7FGH2Q7Itf+RmcX12Sbuplhi98RnK2PtbImyycHlbNBqqmLyrtVJ
- 0e7Exy5dYmteolUVLQ2F+c+3IAgo9Ltz/Pot3wWD8vePeejYJ0gQG4mYyPbmV0VmI1fb
- nHFtOnjtn4mgvuVI+mFW3oSUUPRNgdUK0eCGs8uRc4kZm7OxYVWS92fPj+GzzLLSbmgF
- xCClLw9DLVJc5EHcwGhHLJMZazUD+Db4FE3cY3JBMFQ3hQILAj2yfon47Wmk93/RgQr5
- /WFg==
-X-Gm-Message-State: AOAM531Ro2gqCoXFfoOUrGss5gVAaxAmeeglNYyhK5A/1VOizGz4CT1y
- c90rpYjvYDBK6jC3oxS6ox8PUpt5NBoTkGqeNhu4gB5ndMA=
-X-Google-Smtp-Source: ABdhPJy421EdnPYdHCa68sSjY29P5KOHLlqUOoQ6wtA4udTdmLI34YiPSKXL0BO29EIFy8qmCAq7UNE4lfsODsY6qqA=
-X-Received: by 2002:a05:6402:d07:: with SMTP id
- eb7mr849313edb.183.1641838874159; 
- Mon, 10 Jan 2022 10:21:14 -0800 (PST)
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc;
+ bh=fu5OZHNsfosVhWyFCoFhpLwPof3yz4YTtP+vLGNqb4w=;
+ b=IXNtWVr1VJ0yvaBzqyP4dEDEroOUukS2pTmmdE54RQP+OcnG1V45Zf25aTJPDKlWGd
+ emaqj9hkFQDZSA37RYkMio/sjTSxgEHFGsTXDINlW/5n94hytyfZILL4GqdPnLi1O1+q
+ RQhS+/W61Bwi05cH2/DdTVgoNltgFQz4cy0jgvOxkQYuK0FtqlU1YNw8Szkxx49iJ5UM
+ 6MZof5KGUex0Wt1GF3xR/5bmWkdZekhLVbqjPuD/HWUtCkgbPAinhXNqFO6igRd74nDs
+ UHrlgb3t2iTboTwZUQHuES4FuE8l1JNgfPDvC8NBZ72ubsnBTiQ8Z06LtxZP3VgE3Rn/
+ eg4Q==
+X-Gm-Message-State: AOAM530cNtIY1sRO+Gs+8/5BCSxi/Hp+2y1bt+c/hr471UdoqQP39sCK
+ jJXGzCJtcKne+odrhCrLleeNKdN1+2mk8A4tph8=
+X-Google-Smtp-Source: ABdhPJz3DFW08hlXdzNuGGiI3DyxhRL2VK5isGOjMOFmzj8ZMVAWJn6SePiwCKgFopyLbf1ESx+u36RwSnW9nQrMguA=
+X-Received: by 2002:ab0:6558:: with SMTP id x24mr783404uap.107.1641850299504; 
+ Mon, 10 Jan 2022 13:31:39 -0800 (PST)
 MIME-Version: 1.0
-From: Dave Taht <dave.taht@gmail.com>
-Date: Mon, 10 Jan 2022 10:21:02 -0800
-Message-ID: <CAA93jw7B0y3Voj_fTTS1WMPkCi_mn8ckVbKKU10feR7id-Vefw@mail.gmail.com>
-To: Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
-Subject: [Cake] cake + mpls?
+References: <CAA93jw7B0y3Voj_fTTS1WMPkCi_mn8ckVbKKU10feR7id-Vefw@mail.gmail.com>
+In-Reply-To: <CAA93jw7B0y3Voj_fTTS1WMPkCi_mn8ckVbKKU10feR7id-Vefw@mail.gmail.com>
+From: =?UTF-8?Q?Jonas_M=C3=A5rtensson?= <martensson.jonas@gmail.com>
+Date: Mon, 10 Jan 2022 22:31:56 +0100
+Message-ID: <CAM9iV=LxEffEgDaAofBOa-emt5aJ18kh-Z3Vx_QQr2gbCyvnHA@mail.gmail.com>
+To: Dave Taht <dave.taht@gmail.com>
+Subject: Re: [Cake] [Bloat] cake + mpls?
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -72,22 +73,120 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Cc: Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============0042631143314888992=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SSBub3RpY2VkIHRoYXQgc29tZXRpbWUgaW4gdGhlIHBhc3QgOCB5ZWFycyB0aGUgZmxvd19kaXNz
-ZWN0b3IgZ2FpbmVkCnN1cHBvcnQgZm9yIGRpc3NlY3RpbmcgbXBscyBwYWNrZXRzLiBJIGRvbid0
-IGtub3cgaG93IGRlZXAgdGhhdCByYWJiaXQKaG9sZQpnb2VzLgoKT3ZlciBoZXJlIG9uIHRoaXMg
-bWlrcm90aWsgdGhlYWQKaHR0cHM6Ly9mb3J1bS5taWtyb3Rpay5jb20vdmlld3RvcGljLnBocD9w
-PTkwNDQyMiNwOTA0NDIyIHRoZSBxdWVzdGlvbgp3YXMgYXNrZWQgYWJvdXQgY2FrZSwgdGhlIGV4
-cCBiaXRzLCBhbmQgbXBscy4KCkluIGxvb2tpbmcgb3ZlciB0aGlzLCB3b3VsZCB3ZSBzbGFtIGNh
-a2Ugb250byB0aGUgdnJmPyBvcj8KCmh0dHBzOi8vYmxvZy5zd2luZXNvbi5tZS9lbi91c2UtbGlu
-dXgtYXMtYW4tbXBscy1yb3V0ZXIvCgpJIGhhdmUgcHJlY2lzZWx5IHplcm8gZXhwZXJpZW5jZSB3
-aXRoIG1wbHMuIElzIHRoZXJlIGFuIG1wbHMgZXhwZXJ0IGluCnRoZSBob3VzZT8KCi0tIApJIHRy
-aWVkIHRvIGJ1aWxkIGEgYmV0dGVyIGZ1dHVyZSwgYSBmZXcgdGltZXM6Cmh0dHBzOi8vd2F5Zm9y
-d2FyZC5hcmNoaXZlLm9yZy8/c2l0ZT1odHRwcyUzQSUyRiUyRnd3dy5pY2VpLm9yZwoKRGF2ZSBU
-w6RodCBDRU8sIFRla0xpYnJlLCBMTEMKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5u
-ZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+--===============0042631143314888992==
+Content-Type: multipart/alternative; boundary="000000000000e05c7d05d5410f38"
+
+--000000000000e05c7d05d5410f38
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+If you just want to use cake with priority tins based on the MPLS "Traffic
+Class" (TC) field (i.e. the renamed original "EXP" field, see RFC5462), I
+think you can use a tc flower filter (
+https://man7.org/linux/man-pages/man8/tc-flower.8.html) matching on mpls_tc
+values. See here for some examples:
+
+https://www.redhat.com/sysadmin/mpls-tc-linux-kernel
+
+/Jonas
+
+On Mon, Jan 10, 2022 at 7:21 PM Dave Taht <dave.taht@gmail.com> wrote:
+
+> I noticed that sometime in the past 8 years the flow_dissector gained
+> support for dissecting mpls packets. I don't know how deep that rabbit
+> hole
+> goes.
+>
+> Over here on this mikrotik thead
+> https://forum.mikrotik.com/viewtopic.php?p=3D904422#p904422 the question
+> was asked about cake, the exp bits, and mpls.
+>
+> In looking over this, would we slam cake onto the vrf? or?
+>
+> https://blog.swineson.me/en/use-linux-as-an-mpls-router/
+>
+> I have precisely zero experience with mpls. Is there an mpls expert in
+> the house?
+>
+> --
+> I tried to build a better future, a few times:
+> https://wayforward.archive.org/?site=3Dhttps%3A%2F%2Fwww.icei.org
+>
+> Dave T=C3=A4ht CEO, TekLibre, LLC
+> _______________________________________________
+> Bloat mailing list
+> Bloat@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/bloat
+>
+
+--000000000000e05c7d05d5410f38
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">If you just want to use cake with priority tins based on t=
+he MPLS &quot;Traffic Class&quot; (TC) field (i.e. the renamed original &qu=
+ot;EXP&quot; field, see RFC5462), I think you can use a tc flower filter (<=
+a href=3D"https://man7.org/linux/man-pages/man8/tc-flower.8.html">https://m=
+an7.org/linux/man-pages/man8/tc-flower.8.html</a>) matching on=C2=A0mpls_tc=
+ values. See here for some examples:<div><br></div><div><a href=3D"https://=
+www.redhat.com/sysadmin/mpls-tc-linux-kernel">https://www.redhat.com/sysadm=
+in/mpls-tc-linux-kernel</a><br></div><div><br></div><div>/Jonas</div></div>=
+<br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon=
+, Jan 10, 2022 at 7:21 PM Dave Taht &lt;<a href=3D"mailto:dave.taht@gmail.c=
+om">dave.taht@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_=
+quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,=
+204);padding-left:1ex">I noticed that sometime in the past 8 years the flow=
+_dissector gained<br>
+support for dissecting mpls packets. I don&#39;t know how deep that rabbit<=
+br>
+hole<br>
+goes.<br>
+<br>
+Over here on this mikrotik thead<br>
+<a href=3D"https://forum.mikrotik.com/viewtopic.php?p=3D904422#p904422" rel=
+=3D"noreferrer" target=3D"_blank">https://forum.mikrotik.com/viewtopic.php?=
+p=3D904422#p904422</a> the question<br>
+was asked about cake, the exp bits, and mpls.<br>
+<br>
+In looking over this, would we slam cake onto the vrf? or?<br>
+<br>
+<a href=3D"https://blog.swineson.me/en/use-linux-as-an-mpls-router/" rel=3D=
+"noreferrer" target=3D"_blank">https://blog.swineson.me/en/use-linux-as-an-=
+mpls-router/</a><br>
+<br>
+I have precisely zero experience with mpls. Is there an mpls expert in<br>
+the house?<br>
+<br>
+-- <br>
+I tried to build a better future, a few times:<br>
+<a href=3D"https://wayforward.archive.org/?site=3Dhttps%3A%2F%2Fwww.icei.or=
+g" rel=3D"noreferrer" target=3D"_blank">https://wayforward.archive.org/?sit=
+e=3Dhttps%3A%2F%2Fwww.icei.org</a><br>
+<br>
+Dave T=C3=A4ht CEO, TekLibre, LLC<br>
+_______________________________________________<br>
+Bloat mailing list<br>
+<a href=3D"mailto:Bloat@lists.bufferbloat.net" target=3D"_blank">Bloat@list=
+s.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/bloat" rel=3D"noreferrer"=
+ target=3D"_blank">https://lists.bufferbloat.net/listinfo/bloat</a><br>
+</blockquote></div>
+
+--000000000000e05c7d05d5410f38--
+
+--===============0042631143314888992==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============0042631143314888992==--
