@@ -2,52 +2,73 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C986A49E691
-	for <lists+cake@lfdr.de>; Thu, 27 Jan 2022 16:47:31 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5D74C49E6D4
+	for <lists+cake@lfdr.de>; Thu, 27 Jan 2022 17:01:14 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 294E83CB45;
-	Thu, 27 Jan 2022 10:47:30 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 443CB3CB41;
+	Thu, 27 Jan 2022 11:01:13 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1643298450;
-	bh=6pGxLs/8PZYWPrSi4Sr67ogIsT0ewEsRkyGQL2f0Mgw=;
-	h=In-Reply-To:Date:References:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
-	 From;
-	b=invqYD6sfsbRv7veyOt4u+Nc7dI0d8KLIym87Sxszt0m2wfYHoJworyHYN+ZDKHsX
-	 n8U73K42Mz69UaR/8Ax/h/Gj0vcIF8yAgCpuUujGAvCkFDgNqgguH1BImVjYQMm8P3
-	 WAiT4zK3HcVt1R8RIRlIndp6BfeYfGGFL8zJJwqTEa4tXMwR3liuLlv37NW24bdkYZ
-	 ann9KTMOV7MCeyVGhmmd8A1/mS7VvHDurdBkskjyJTnZApT1XInYwcJAYVYgHbpEr4
-	 6aDI+pZCKhkkY9Rartxl3/gTxh6sUe0UpUE4eMpiuBQPj07WHv7M6+6UxNmdfHxGwX
-	 YBPNKSeCXboTw==
+	d=lists.bufferbloat.net; s=201610; t=1643299273;
+	bh=HEn/kSztEd1k49AbD7Jykb36XV7/i9Gv0JnJQP/+kow=;
+	h=From:In-Reply-To:Date:References:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=Qwm/uyvqCKVs6womgTkAA+9MduDqJuq070tdPsIKe0C9pl6gIKWEP8uuUpKRdFr3R
+	 iM5E+2wqEUFbtX13ItvtxFsz5W7mH95JBR6kkv9acp75UOL7+DmWxC0aHoNKyJHO2n
+	 6bwAOxDk+fE2uTwjaaE3FqUZ9y5FY4nIMeF18dIAzecIY+lXjYQa/WLHk4iZr6wAh9
+	 DAzPY4FuP2yCVn1MT9C/OHoe5X36n1GMgy3sNPmu9nH03250+HOS9fhhGZr28dFbEl
+	 5HdAAHkQqMbSWjMs+Che5jR2PwGP4g3Me+iE8W2v31QtEiBYPca2G30kx2Jtwgfmqq
+	 TK6CLSNRC0Fgw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mr85p00im-hyfv06021401.me.com (mr85p00im-hyfv06021401.me.com
- [17.58.23.190])
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.20])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id C8DF93B29E
- for <cake@lists.bufferbloat.net>; Thu, 27 Jan 2022 04:00:19 -0500 (EST)
-Received: from smtpclient.apple (97e56e08.skybroadband.com [151.229.110.8])
- by mr85p00im-hyfv06021401.me.com (Postfix) with ESMTPSA id BE37B3038A54;
- Thu, 27 Jan 2022 09:00:17 +0000 (UTC)
-Mime-Version: 1.0 (Mac OS X Mail 15.0 \(3693.40.0.1.81\))
-In-Reply-To: <87r18w3wvq.fsf@toke.dk>
-Date: Thu, 27 Jan 2022 09:00:14 +0000
-Message-Id: <177DD195-A9B2-4502-8DA8-7CC659EBBF3B@darbyshire-bryant.me.uk>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 579CC3CB35
+ for <cake@lists.bufferbloat.net>; Thu, 27 Jan 2022 11:01:12 -0500 (EST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1643299256;
+ bh=Bt8OqLgnOxynRLY4b2b2o4iqKvPISP4pVOnQlE40P0Q=;
+ h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
+ b=TmRhxbZnjdLWeK8AtacEJ8cY2Wjxnwhyk2/DWgDYS0FiGHFnsU3dI6u+Ozsbtgk3m
+ ne87gvT76DJUbIYDeXb6O3bliXHP7jBuJTUm2eAmNKkPaSNyW+m3pA7I1p4BJ5WZKW
+ Pik3thMZt62P2MzfQpUM7wE3eFfVN4cJnE6h1GbM=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from smtpclient.apple ([77.8.117.92]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1MRCKC-1msAZQ329s-00N8nl; Thu, 27
+ Jan 2022 17:00:56 +0100
+Mime-Version: 1.0 (Mac OS X Mail 14.0 \(3654.120.0.1.13\))
+From: Sebastian Moeller <moeller0@gmx.de>
+In-Reply-To: <db81c2b5bd1fb2fb6410ce0d04e577bbff61ee1e.camel@codeconstruct.com.au>
+Date: Thu, 27 Jan 2022 17:00:54 +0100
+Message-Id: <82BBD116-4A04-4E19-9833-0DCB5134C73C@gmx.de>
 References: <20220125060410.2691029-1-matt@codeconstruct.com.au>
- <87r18w3wvq.fsf@toke.dk>
-To: =?utf-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
-X-Mailer: Apple Mail (2.3693.40.0.1.81)
-X-Proofpoint-Virus-Version: =?UTF-8?Q?vendor=3Dfsecure_engine=3D1.1.170-22c6f66c430a71ce266a39bfe25bc?=
- =?UTF-8?Q?2903e8d5c8f:6.0.425,18.0.572,17.0.605.474.0000000_definitions?=
- =?UTF-8?Q?=3D2022-01-14=5F01:2022-01-14=5F01,2020-02-14=5F11,2020-01-23?=
- =?UTF-8?Q?=5F02_signatures=3D0?=
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 bulkscore=0
- mlxlogscore=999
- adultscore=0 malwarescore=0 spamscore=0 mlxscore=0 phishscore=0
- suspectscore=0 clxscore=1030 classifier=spam adjust=0 reason=mlx
- scancount=1 engine=8.12.0-2009150000 definitions=main-2201270053
-X-Mailman-Approved-At: Thu, 27 Jan 2022 10:47:28 -0500
+ <87r18w3wvq.fsf@toke.dk> <242985FC-238B-442D-8D86-A49449FF963E@gmx.de>
+ <db81c2b5bd1fb2fb6410ce0d04e577bbff61ee1e.camel@codeconstruct.com.au>
+To: Matt Johnston <matt@codeconstruct.com.au>
+X-Mailer: Apple Mail (2.3654.120.0.1.13)
+X-Provags-ID: V03:K1:mHn1nyR0QjM3nDrP4h2GaDb4oo0n5u506IeJLiHOZX7NSGb6ujf
+ vgUx78oY2I5h3cUmqeQx1W9OljmlDlQYgdzB3jBOawcYyExtnamDErbuwWxFKHePT+7q9JV
+ Oisc33pcwrwTd5B3QEp+/7kgyo+vMmB9atwUekM8Vf6jVrWn1UwGPgAZfrxiSChE4bvF26d
+ CjoIHKhzyU/mdyeZc3igg==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:TZMT8aeK80E=:dr9EtUL9ZOEnRAKO83tyhI
+ larrGUABQmYtEnKrCyVlVvbV5hbiBIthnUxqhFFtek7RIHujSPLTJEKl8hxuxj1ciqBpeMta7
+ i5KE1ijuismryE27Um3wOpPf8RsXha0YWNsV3l1r6dI/am2MLek7qQEnDK01Fugl22yuo6tkr
+ f9i8u2azpC76lA64DmPE2RolbOrGRGlgLZNcNsWacWMoxW7tvA3NQJecFHTXvziQYyrTapHHu
+ 67Glhapok8bjudoJ1iHOW1jU0gMsPfBfArKS4pbU322UV6+/588cMqeQZB4RteFsnY3fWHu/F
+ T6/VcA3yB/1GYvE62gs0c3PqP1GcRobuOhAZX904ToLhDxBfadMTwQUGLlZZQ9Hd+VIlUJffJ
+ d033wmmqAIFkVhI8s6ZPMU4QWXj0mVXowi3JSCDPHXqA2FAO0FvcvzugNvOXQ8b152rVqxtXL
+ Svf0f7m2+WUv7k/dwUCMGTay17vOm5wcgr4zwhLUUFTyzI9GMR/z+BsAAPPZxIS2anN7ZGXd6
+ BSYxmE5kE12/JFyDv8XHsFIs372tIjW8rDoKWX59iA2VJkxYIyU6egPUX+WbppNG/Y76pt7S4
+ BjCXSpGDYhv/6xkojRiy/l4au+HhvMtYbIUmcgQsYdXUdTZhdTQpAU+Kn+8hj5XCIeh+NwyJ6
+ ly9isr0T+DiMwNAh1JHiXr0VvkM23EbN0mkR2inUHCGDUWzcKL9ZzQOZP/ybS7/PiMi1bQlrV
+ 7PDriMcM0SccBOEPRMWLyQzo3srnxCalxCtoYhvuMJd61R1P4ZKdgZu2sVsQ44JkYmGlvZcjR
+ v2H12MApYPgkC4K+YM9mBf55nx3efPf++r7kI5iEtBDCagrRLYuN/pTrck5yhfWrAjzfDEHoW
+ PmLs1Kp0YL/R3wuZ+sEBYAt1EAlGgkgHcHo7SbVkLe/S3spuidr2DURDXiiCDfFXlqv1Diwgz
+ FTp4CMppt7L6s1s1x2V/Tv/uXrWfsEe72fVZOhphdOG2ruJoaWICY6yaojZhSAeYiAx17rhFZ
+ aU14re3uV2MeuLxAR75E+lOXiEfOw3Li2H7KzfoQki7RN3AjetldwbIETrrH+J3BZMdU7asRF
+ 2c8s2gJBxQj9bg=
 Subject: Re: [Cake] [PATCH net] sch_cake: diffserv8 CS1 should be bulk
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -60,101 +81,35 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Kevin 'ldir' Darbyshire-Bryant via Cake <cake@lists.bufferbloat.net>
-Reply-To: Kevin 'ldir' Darbyshire-Bryant <ldir@darbyshire-bryant.me.uk>
-Cc: cake@lists.bufferbloat.net, Jakub Kicinski <kuba@kernel.org>,
- Matt Johnston <matt@codeconstruct.com.au>,
- "David S . Miller" <davem@davemloft.net>, netdev@vger.kernel.org
-Content-Type: multipart/mixed; boundary="===============2498884220950338855=="
+Cc: netdev@vger.kernel.org,
+ =?utf-8?Q?Toke_H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+ cake@lists.bufferbloat.net,
+ Kevin Darbyshire-Bryant <ldir@darbyshire-bryant.me.uk>,
+ Jakub Kicinski <kuba@kernel.org>, "David S . Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-
---===============2498884220950338855==
-Content-Type: multipart/signed;
-	boundary="Apple-Mail=_23930681-77CB-4129-A6DC-7F40F4DFE44C";
-	protocol="application/pgp-signature";
-	micalg=pgp-sha256
-
-
---Apple-Mail=_23930681-77CB-4129-A6DC-7F40F4DFE44C
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain;
-	charset=utf-8
-
-
-
-> On 25 Jan 2022, at 10:58, Toke H=C3=B8iland-J=C3=B8rgensen =
-<toke@redhat.com> wrote:
->=20
-> Matt Johnston <matt@codeconstruct.com.au> writes:
->=20
->> The CS1 priority (index 0x08) was changed from 0 to 1 when LE (index
->> 0x01) was added. This looks unintentional, it doesn't match the
->> docs and CS1 shouldn't be the same tin as AF1x
->=20
-> Hmm, Kevin, any comments?
->=20
-> -Toke
->=20
-
-I=E2=80=99ll have to find my thinking head & time machine :-)
-This would be a lot easier if we had =E2=80=98diffserv9=E2=80=99, LE =
-could have simply
-been added as the =E2=80=98if you=E2=80=99ve really nothing better to =
-do=E2=80=99 class that it
-is.  And it=E2=80=99s why I=E2=80=99ve personally argued for a =
-diffserv5: lowest;low;normal;high;highest
-moving on.
-
-I think I screwed up when LE was added to diffserv8 - Matt the CS1 =
-change from 0 to 1 IS intentional
-and IIRC I tried to bump everything else up 1 to compensate.. I may have =
-missed some things though.
-
-
-Cheers,
-
-Kevin D-B
-
-gpg: 012C ACB2 28C6 C53E 9775  9123 B3A2 389B 9DE2 334A
-
-
---Apple-Mail=_23930681-77CB-4129-A6DC-7F40F4DFE44C
-Content-Transfer-Encoding: 7bit
-Content-Disposition: attachment;
-	filename=signature.asc
-Content-Type: application/pgp-signature;
-	name=signature.asc
-Content-Description: Message signed with OpenPGP
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAEBCAAdFiEEASyssijGxT6XdZEjs6I4m53iM0oFAmHyXx4ACgkQs6I4m53i
-M0qLmg//Zn/zu6gDtBF+S98hlUO6x5Ab3gXpbZ4GuC2X2VdZG3vi/zdPs4Lc4CD4
-V0kQKky9cyHqm0q4UjpvKIXMWQKlhi9JLHNWCXHK04tWKoivnyWmu3xDur5Pxeb6
-U8j9lF2iQiPCXS9VsLcD7kpl3SKpx0Bdm2vLVFFNBQ2mhFMORJ3dW6PwxW8JY3eW
-mPmjTOfJ0txLuAw2VwPvRo0gCGIquuMzMGuJfXzkUs2gnY9qrBXfOZu1TuCDIlP4
-DWtyDAx/zY20cicd6twp68Qyda6sLN1RQdMtbYBmRx/+opCnnBtYznbwaXCnH2vf
-5UKprnKURu/1NaXbzqMDA9BVUAs2JNGVI7cl7OmpWQLyEDcpisecnBdH4c8H/Vll
-8/0cga+dmgTP1bn6P7e31LdJYP+TlEswFRK7EDbSvtjw/eAmw47UlsJdupS7NhN6
-mFS81F7xoOkn0WuHh71vnK7M1vJ1vRAb80/IsOVACHT9teeFXKDf7AGKw361vNRj
-5z/K3XA3M7XR/Al2PBZqP8JueLETz2r0ztrXoWi4Uv5cXmZalRWBLN6kd7typg9s
-HdAoPc76N5MvGM/NP4naBtWLpIqllSlYIQ62QcxNGHzDTCPaawqw2jS8dvl5XNtd
-Tqlpc7URkR3VFz0YP2G3C5EsIC+kJlc7SYCCKUODZ0rvv4YjahI=
-=LwXr
------END PGP SIGNATURE-----
-
---Apple-Mail=_23930681-77CB-4129-A6DC-7F40F4DFE44C--
-
---===============2498884220950338855==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============2498884220950338855==--
+SGkgTWF0dCwKCgo+IE9uIEphbiAyNywgMjAyMiwgYXQgMDQ6MTQsIE1hdHQgSm9obnN0b24gPG1h
+dHRAY29kZWNvbnN0cnVjdC5jb20uYXU+IHdyb3RlOgo+IAo+IE9uIFR1ZSwgMjAyMi0wMS0yNSBh
+dCAxMjo1NCArMDEwMCwgU2ViYXN0aWFuIE1vZWxsZXIgd3JvdGU6Cj4+IAo+PiBMRSgxKSBpcyB0
+aW4gMCB0aGUgbG93ZXN0Cj4+IENTMSg4KSBpcyAxIHNsaWdodGx5IGFib3ZlIExFCj4+IENTMC9C
+RSgwKSBpcyAyCj4+IEFGMXggKDEwLCAxMiwgMTQpIGFyZSBhbGwgaW4gdGluIDEgYXMgaXMgQ1Mx
+Cj4gLi4uCj4+IEp1c3QgYXMgZG9jdW1lbnRlZCBpbiB0aGUgY29kZToKPj4gCj4+ICoJCUJvZyBT
+dGFuZGFyZCAgICAgICAgICAgICAoQ1MwIGV0Yy4pCj4+ICoJCUhpZ2ggVGhyb3VnaHB1dCAgICAg
+ICAgICAoQUYxeCwgVE9TMikKPj4gKgkJQmFja2dyb3VuZCBUcmFmZmljICAgICAgIChDUzEsIExF
+KQo+IAo+IFRoZSBkb2N1bWVudGF0aW9uIGRvZXNuJ3QgbWF0Y2ggdGhlIGNvZGUgdGhvdWdoLgoK
+CVNpbmNlIEkgZGlkIG5vdCBzZWUgeW91ciBvcmlnaW5hbCBtYWlsLCBvbmx5IFRva2UncyByZXNw
+b25zZSwgd2hpY2ggZG9jdW1lbnRhdGlvbiBpcyB3cm9uZyBoZXJlPwoKCj4gQWxtb3N0LCBidXQg
+aXQncyBvZmYgYnkgb25lLgoKCUkgZnVsbHkgYmVsaWV2ZSB5b3UsIGJ1dCBjb3VsZCB5b3Ugc3Bl
+bGwgaXQgb3V0IGJ5IHNob3dpbmcgdGhlIGxpbmUgb2YgY29kZSBhbmQgdGhlIGxpbmUgb2YgZG9j
+dW1lbnRhdGlvbiB0aGF0IGFyZSBvZmY/CgoKPiBJIGNhbiBzdWJtaXQgYSBwYXRjaCBpbnN0ZWFk
+IHRvIGNoYW5nZSB0aGUgZG9jcywgdGhvdWdoIGl0J3Mgbm90IGNsZWFyIHRoZQo+IGRpdmVyZ2Vu
+Y2UgYmV0d2VlbiBjb2RlIGFuZCBkb2NzIHdhcyBpbnRlbmRlZCBpbiB0aGUgZmlyc3QgcGxhY2Uu
+Cj4gCj4gKGRpZmZzZXJ2OCBhbHNvIG5lZWRzIGEgZGVzY3JpcHRpb24gaW4gdGhlIGNha2UgbWFu
+cGFnZSwgSSdsbCBzZW5kIGEgcGF0Y2gKPiBmb3IgdGhhdCBvbmNlIHRoZSBvcmRlciBpcyBjbGFy
+aWZpZWQpCgoKUmVnYXJkcwoJU2ViYXN0aWFuCj4gCj4gQ2hlZXJzLAo+IE1hdHQKPiAKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBs
+aXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQu
+bmV0L2xpc3RpbmZvL2Nha2UK
