@@ -2,73 +2,68 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2912B5267DB
-	for <lists+cake@lfdr.de>; Fri, 13 May 2022 19:04:15 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 251C25267E2
+	for <lists+cake@lfdr.de>; Fri, 13 May 2022 19:07:08 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id B01EE3CB38;
-	Fri, 13 May 2022 13:04:13 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 09FAB3CB38;
+	Fri, 13 May 2022 13:07:07 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1652461453;
-	bh=Uc//+dvTerhOov+e7Hr1ZpqyDYjuQe/7w7BtxAs7QuY=;
-	h=From:Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:
-	 List-Post:List-Help:List-Subscribe:From;
-	b=XKKtlZS9J3Nvm+TbU1t+mjCLGcLn8ZHPlKiBGOyo9StBpI8079G3cvbg9OCL3ghsb
-	 SytSoZYitS+G6YF260gHlJbdDvol3CSQ8sbTaOyf1lGFhVbfjKVbdCdpzi9Ut91+jA
-	 c1OPND/7PtmmiKA6NnIt9ImMXB3IXfouG1ttYFFn405l21kJhk78PL16uUabCm7Pyr
-	 1Nw/Rlv1J7oi9OFf3NJiWXJ8Cawwz6SoY/6Qwjo3T35EMVYJa/Jer27nNEmgPWUqzm
-	 sBYyjVi8RNH5o9XbwLlsnBV3WOuXz0xgc9kd03at2nKbm/XQND8u+g0cMMYmudWKb0
-	 Uo+i/dgO4y/pA==
+	d=lists.bufferbloat.net; s=201610; t=1652461627;
+	bh=9XzQzbDyZlJczd4lxqcBM7QKwHz99gviVTPoSyjvobY=;
+	h=References:In-Reply-To:From:Date:To:Subject:List-Id:
+	 List-Unsubscribe:List-Archive:List-Post:List-Help:List-Subscribe:
+	 Cc:From;
+	b=MfVjwYokordIE5DR7Py7UB2Fw6k22nTGCB7c4Rup7PYh21O+jKSiuq1FENVjAZHl2
+	 6JXhgayG3myZCdaPjPCdH1O4HrZmp3cA0mvvxkTXaE7MmaeQJfsZrmFYLwCsvue6wk
+	 3hADTVpea0b3QbTvcIJJlEje5BBTlaixTe2lreWh/RpDn6bo6BLxu4g6bOK08JeJ6O
+	 AavgR6XlZa0osfLdSkmKolwVC5X1YnP+w3wDchJbNnAImDWNZiz+YeUtLwrSBEWKqQ
+	 +ftW7b/IWzm0whrEI+T47aQRSKpTBMHBB35BeTt34ghu+kEnWCCv3Y7L2fxO6samce
+	 5Bg9kHg2QK64A==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-oa1-x31.google.com (mail-oa1-x31.google.com
- [IPv6:2001:4860:4864:20::31])
+Received: from mail-ed1-x52e.google.com (mail-ed1-x52e.google.com
+ [IPv6:2a00:1450:4864:20::52e])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id A5B053B29D
- for <cake@lists.bufferbloat.net>; Sun,  8 May 2022 10:31:29 -0400 (EDT)
-Received: by mail-oa1-x31.google.com with SMTP id
- 586e51a60fabf-e93bbb54f9so12046782fac.12
- for <cake@lists.bufferbloat.net>; Sun, 08 May 2022 07:31:29 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id E190F3B29E
+ for <cake@lists.bufferbloat.net>; Fri, 13 May 2022 13:07:05 -0400 (EDT)
+Received: by mail-ed1-x52e.google.com with SMTP id a21so10724323edb.1
+ for <cake@lists.bufferbloat.net>; Fri, 13 May 2022 10:07:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=content-transfer-encoding:from:mime-version:date:subject:message-id
- :to; bh=LMh6EIHhquSenAZTwB39q1LOTV0Fasmoxt26qypM8pw=;
- b=mLLhqy38I8Odr6clMAO3zvExcjZ5bX7IeUaD8uLCrbeGIw7cyagErwr2yjErvT4ClZ
- yjO9v2ndyQCVagMQPw8A2zR1QkjhAaaGB6/yCiKZovkoJhpLbK3oX01Xl2wneAxy/Vjx
- bxo4jyX17AN/DVN+8f0tJn97oiHn4Uc89nLSwjJJW4fYTlG8r7+kQPGVTIgWpL4uomqI
- fCpIP0gvqW0KA+AoEAD5KY7LTZBfdKDzP3gBRkgVfnanRYcvHU4y+6oNqK+P2uR3BBN0
- k2fSEh34qhyg8qFRkFX9l+vfq7ExIbauXTHyGz+MkMKFC+RDNoxZ168fSS8ZDjKKYXp2
- SXWg==
+ h=mime-version:references:in-reply-to:from:date:message-id:subject:to
+ :cc:content-transfer-encoding;
+ bh=1THAl1D7Gc7zyj8ie/kKFkUKsmtcTutpvKtHgbNWbXk=;
+ b=TDqJf8jj0kZPRGhGuYMeSPfChiZtj37RQX0Bme2thBLA1hJjRFIRH8h2bjHAPdTdMi
+ 8eW+T+EnvnTEyIiSNmI+K7icAZB/XIgzZXdcaP0RAR6HWxXYsP76YNgHqVad0Z7+Iohy
+ i5tTLlW+sK6iwgLHC20njfPoldaeGyxFBJyzVN1mAkRV5uvYbwnUkYMlKYP2IXwRQiB4
+ RYa8JFUWJg9OGb1CpMb8Ha0csAy1Hn0kXnC5S70UoNZkueIDUdT6S+nZvJDn1yKMyC/o
+ EL7Nc93c5i0PoedsAEwRjoQMV3mbNfLVTDaX+ywimEOdKVrylvuERTdItFpq1hsIbCCa
+ GRSw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:content-transfer-encoding:from:mime-version:date
- :subject:message-id:to;
- bh=LMh6EIHhquSenAZTwB39q1LOTV0Fasmoxt26qypM8pw=;
- b=dA1OzYC2+5JWpGThljQqRYZ9AnE0VkpbA/9ex1Etv/G03K8caLm4VYe/PkvVDJicTl
- 4Pe7bMtSxWeay0ndyD35ivZbvscvG46Ie8s/xR5JF2UZt7GWJ1KUXftRPSKnFlLh3Evh
- wRP+ajkOYTT4M/ixlWR1fEZdlihzwEtvw1b/rxoXZSOSG0F4zEkDa6ESQ8sR93kd1Wpq
- buaQgg9VcdDni62eUXMOwCgi8FfvYzDjP9c3nsDJwwtKn3SpQnKEMyVL2umQ5f2erik6
- pTGJlegugvrOHZcMPTUlACIFaRhyZqWLLaR7AAlC7pKVzYnKVj9h05MOO5xizNw69dcB
- vUwQ==
-X-Gm-Message-State: AOAM532MngWbzXLOKghlhIuXtlLN1C3EZmXvTHEbQ82a8WeupS6XQ3Sj
- Xlon1D/UogYD07SyGCTzT8ovwu0a7VInSg==
-X-Google-Smtp-Source: ABdhPJz0Ogn3L0Z6U8xzxQHskfSq+9x3OuGdrxmWzEARBG2/Wx9JCfDJt/bXVwV+JAvZbuSaregjRw==
-X-Received: by 2002:a05:6870:f146:b0:e9:2116:41e2 with SMTP id
- l6-20020a056870f14600b000e9211641e2mr7792277oac.162.1652020288720; 
- Sun, 08 May 2022 07:31:28 -0700 (PDT)
-Received: from smtpclient.apple ([2604:3d40:ff00:0:fc08:882e:4aad:9836])
- by smtp.gmail.com with ESMTPSA id
- e18-20020a9d6e12000000b006060322125fsm3801671otr.47.2022.05.08.07.31.28
- for <cake@lists.bufferbloat.net>
- (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
- Sun, 08 May 2022 07:31:28 -0700 (PDT)
-From: Jarad Olson <brotherdust@gmail.com>
-Mime-Version: 1.0 (1.0)
-Date: Sun, 8 May 2022 08:31:27 -0600
-Message-Id: <1FEEA029-B564-4C46-99A7-50B5F747F619@gmail.com>
-To: cake@lists.bufferbloat.net
-X-Mailer: iPhone Mail (19E258)
-X-Mailman-Approved-At: Fri, 13 May 2022 13:04:12 -0400
-Subject: [Cake] Latency Testing Using iOAM
+ h=x-gm-message-state:mime-version:references:in-reply-to:from:date
+ :message-id:subject:to:cc:content-transfer-encoding;
+ bh=1THAl1D7Gc7zyj8ie/kKFkUKsmtcTutpvKtHgbNWbXk=;
+ b=wv7/v6xiUqTkaeRymaryVtL3Bqpe+/BXwZuTm8lnG4ksF3MrEzkJBS2cJKps8i2O0+
+ it8otUXJxCC/5WsBOVQJXBzIk+7/3xtBaNKitmdRWuP92eC6hilqftJtrotiMIUp29Q7
+ 0472lhf0vrc+PTWlEq4VnAEBmMzfzSyuht1txfQ4tSQhO4eaJ0QD9w3uiZhbLg8QDBTx
+ iO14frHKoBOjs6aD2No/0jRUWaim8LhXL6/m++pRn0DQwUwlSTqD4u5NvAjmYjqZj+wm
+ xQpHJy6DjU/M6cn9A1TNsJzvfLueR3LUQ+ylzelDEZa1s6TyeefsBPJ6ZWXvgHlJe8O1
+ Z/kg==
+X-Gm-Message-State: AOAM531F1BJdXYcO1i90edbhhWtM/dLj5o3MMotxd12OKNVelVbhti6g
+ DXetNFOtZooWmW03SDFdMHPOB+lgORK/S/V/phQ31yPm
+X-Google-Smtp-Source: ABdhPJyReQWVMQQWYcKFicJPj6eZZXHqHIgFDB9WTmZpKZREZLLSYk2thM4v1akgclH+drNimTgyZGY8JBveBQgy3TA=
+X-Received: by 2002:a05:6402:51d2:b0:428:48d0:5d05 with SMTP id
+ r18-20020a05640251d200b0042848d05d05mr41859498edd.28.1652461624825; Fri, 13
+ May 2022 10:07:04 -0700 (PDT)
+MIME-Version: 1.0
+References: <1FEEA029-B564-4C46-99A7-50B5F747F619@gmail.com>
+In-Reply-To: <1FEEA029-B564-4C46-99A7-50B5F747F619@gmail.com>
+From: Dave Taht <dave.taht@gmail.com>
+Date: Fri, 13 May 2022 10:06:51 -0700
+Message-ID: <CAA93jw4S2wfp4hrPoZQEZ-bZ0m2HiWfqmseyLoVhhgBTQruOjA@mail.gmail.com>
+To: Jarad Olson <brotherdust@gmail.com>
+Subject: Re: [Cake] Latency Testing Using iOAM
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -80,61 +75,29 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-Content-Type: multipart/mixed; boundary="===============2123718954064016050=="
+Cc: Cake List <cake@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-
---===============2123718954064016050==
-Content-Type: multipart/alternative; boundary=Apple-Mail-8EF8A75C-ACBA-4F31-9379-5370A81C200A
-Content-Transfer-Encoding: 7bit
-
-
---Apple-Mail-8EF8A75C-ACBA-4F31-9379-5370A81C200A
-Content-Type: text/plain;
-	charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-Hello!
-Has anyone ever tried using in-situ OAM for testing latency? It would seem t=
-o me that the protocol is ideal for this purpose: it adds metadata to actual=
- user packets. The Linux kernel has support for it as of 5.15, Cisco and Jun=
-iper have implemented it as well.
-
-Here=E2=80=99s an article on the Linux kernel implementation: https://legacy=
-.netdevconf.info/0x14/pub/papers/32/0x14-paper32-talk-paper.pdf
-
-If anyone has tried this, how did it turn out?
-
-Thanks much!=
-
---Apple-Mail-8EF8A75C-ACBA-4F31-9379-5370A81C200A
-Content-Type: text/html;
-	charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-<html><head><meta http-equiv=3D"content-type" content=3D"text/html; charset=3D=
-utf-8"></head><body dir=3D"auto">Hello!<div>Has anyone ever tried using in-s=
-itu OAM for testing latency? It would seem to me that the protocol is ideal f=
-or this purpose: it adds metadata to actual user packets. The Linux kernel h=
-as support for it as of 5.15, Cisco and Juniper have implemented it as well.=
-</div><div><br></div><div>Here=E2=80=99s an article on the Linux kernel impl=
-ementation:&nbsp;<a href=3D"https://legacy.netdevconf.info/0x14/pub/papers/3=
-2/0x14-paper32-talk-paper.pdf">https://legacy.netdevconf.info/0x14/pub/paper=
-s/32/0x14-paper32-talk-paper.pdf</a></div><div><br></div><div>If anyone has t=
-ried this, how did it turn out?</div><div><br></div><div>Thanks much!</div><=
-/body></html>=
-
---Apple-Mail-8EF8A75C-ACBA-4F31-9379-5370A81C200A--
-
---===============2123718954064016050==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============2123718954064016050==--
+SSdkIGJlZW4gdHJhY2tpbmcgdGhhdCB3b3JrLCBidXQgaGFkIG1pc3NlZCBpdCBhY3R1YWxseSBl
+bnRlcmluZyB0aGUKa2VybmVsLiBpdCB3b3VsZCBiZSBjb29sIGlmIG9wZW53cnQgZ290IG9uIGl0
+LCBidXQgaXQgaXMgcHJlc2VudGx5CjUuMTAgYmFzZWQuCgpPbiBGcmksIE1heSAxMywgMjAyMiBh
+dCAxMDowNCBBTSBKYXJhZCBPbHNvbiA8YnJvdGhlcmR1c3RAZ21haWwuY29tPiB3cm90ZToKPgo+
+IEhlbGxvIQo+IEhhcyBhbnlvbmUgZXZlciB0cmllZCB1c2luZyBpbi1zaXR1IE9BTSBmb3IgdGVz
+dGluZyBsYXRlbmN5PyBJdCB3b3VsZCBzZWVtIHRvIG1lIHRoYXQgdGhlIHByb3RvY29sIGlzIGlk
+ZWFsIGZvciB0aGlzIHB1cnBvc2U6IGl0IGFkZHMgbWV0YWRhdGEgdG8gYWN0dWFsIHVzZXIgcGFj
+a2V0cy4gVGhlIExpbnV4IGtlcm5lbCBoYXMgc3VwcG9ydCBmb3IgaXQgYXMgb2YgNS4xNSwgQ2lz
+Y28gYW5kIEp1bmlwZXIgaGF2ZSBpbXBsZW1lbnRlZCBpdCBhcyB3ZWxsLgo+Cj4gSGVyZeKAmXMg
+YW4gYXJ0aWNsZSBvbiB0aGUgTGludXgga2VybmVsIGltcGxlbWVudGF0aW9uOiBodHRwczovL2xl
+Z2FjeS5uZXRkZXZjb25mLmluZm8vMHgxNC9wdWIvcGFwZXJzLzMyLzB4MTQtcGFwZXIzMi10YWxr
+LXBhcGVyLnBkZgo+Cj4gSWYgYW55b25lIGhhcyB0cmllZCB0aGlzLCBob3cgZGlkIGl0IHR1cm4g
+b3V0Pwo+Cj4gVGhhbmtzIG11Y2ghCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KPiBDYWtlIG1haWxpbmcgbGlzdAo+IENha2VAbGlzdHMuYnVmZmVyYmxv
+YXQubmV0Cj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQoKCgot
+LSAKRlEgV29ybGQgRG9taW5hdGlvbiBwZW5kaW5nOiBodHRwczovL2Jsb2cuY2Vyb3dydC5vcmcv
+cG9zdC9zdGF0ZV9vZl9mcV9jb2RlbC8KRGF2ZSBUw6RodCBDRU8sIFRla0xpYnJlLCBMTEMKX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5n
+IGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9h
+dC5uZXQvbGlzdGluZm8vY2FrZQo=
