@@ -2,66 +2,65 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 04B2E588521
-	for <lists+cake@lfdr.de>; Wed,  3 Aug 2022 02:25:34 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 5240458CEB4
+	for <lists+cake@lfdr.de>; Mon,  8 Aug 2022 21:45:30 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 08A573CB42;
-	Tue,  2 Aug 2022 20:25:31 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 386FA3CB39;
+	Mon,  8 Aug 2022 15:45:28 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1659486331;
-	bh=tAy03NaPb+bem3otxPFg8HhEKJVpvuVvGCah9nmdQ7s=;
+	d=lists.bufferbloat.net; s=201610; t=1659987928;
+	bh=dw03nOQAyx+MPh7TXcUZqZB1TxN0aCCAHP3DP1FtIeg=;
 	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
 	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=ivvv4MIXVmnHd5Y9gEuZNdvD1u7Te0SMdaVQKNFdvx/OZa8nUEyNARL+vqf0eg785
-	 mrFxdhS27SZQTKu6F9r1brzLZQ37lQReFiknUE87d9CcJWCfiMZOjkOTTIkNe1E6Z1
-	 3KXjOXlbtwydUH/Rg3Lb+q6fl1xSKUlMCsE+kiz+bv+RWtkQmufpOnC6pa6ws/YMdP
-	 QPcJipuOFofGHWTQw9T9E2nJ7BWWyxp/WtVrfzejFnVa/U+RlR8YZdCtUMnPKwKFGS
-	 xSmGdLPdm7pavk+M0i6igHbCSzVStu/o4fJM5LkzS307QD4CiDWcb9pvoIS5/qsskW
-	 N9txO7dh0azFA==
+	b=caAE5kGrhO96Ee6EAXgwfIr22eJ8HC7XmWk7tNlh7FQyIfY0/YFOVjdN7lM0EAcOa
+	 On5kjhT+KMonZDjIRb4mUoc6fMoQzgeRh8Gd5JNMpsMPa7wIwj1jpHw29aHYfL1iRe
+	 FK/1JZUMjqxN+m3NCLszD4vgeebSYnuBcHArzx1dz3P8/zJQjaPRGVn1xeemXHOMb1
+	 a1IHc6OJXuBZO3YgjiCb7f9gf/8hSY4mAL9OsxWeVwWTUGNLdF5NA2Hdx5+tf3f2wR
+	 FaAeokQ7IzuTh3kAs8FqNJGUEaxjxNNzi+BG83f4Emr94tj0x6EdnKLObCpN5v9Pdl
+	 +UW1QUhSmGWXA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-wr1-x436.google.com (mail-wr1-x436.google.com
- [IPv6:2a00:1450:4864:20::436])
+Received: from mail-wr1-x434.google.com (mail-wr1-x434.google.com
+ [IPv6:2a00:1450:4864:20::434])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 9043A3B2A4;
- Tue,  2 Aug 2022 20:25:29 -0400 (EDT)
-Received: by mail-wr1-x436.google.com with SMTP id z16so19623254wrh.12;
- Tue, 02 Aug 2022 17:25:29 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 743D33B2A4;
+ Mon,  8 Aug 2022 15:45:26 -0400 (EDT)
+Received: by mail-wr1-x434.google.com with SMTP id j7so12045234wrh.3;
+ Mon, 08 Aug 2022 12:45:26 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
- h=mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=pzUR17ua/4GuxmErw9pN/l+aLiU3YCYqU4g3kAyg47s=;
- b=JTF+ZxjWbLsm0UsBsi1J4LFaF5GLeVJBGpyT3fiStCdWeIt269DnoS1gMZxv08FUKo
- M3DT499dDohJVH65RzKzViLgI+fV6bayGvcFs7f/h43XG3O87Ta80V47nieXHYKYssUx
- uQCtI5APyPHl6o8Xy3LfvRvbHYJ9D+mMuo83T1PqdUH9GF0c1FeZsotovkmM87xIJlQ5
- ET3XqaibN70fsmsOYa3v9wQCe56Pf1eCjh1vVVerpT8IIv/4J5g6bMKU8aWv511FkfBD
- J7hQ3vqzAafRexo0eShbbm7RMi1dA70JraRlCR5t/loYe6JvgEEaxOGmp2DZc2DChHzh
- TnWg==
+ h=content-transfer-encoding:to:subject:message-id:date:from
+ :mime-version:from:to:cc;
+ bh=YOtRQ0Fvg3UO+7hmujt7xH4LjB8KyU1fLp+WpU/FRg8=;
+ b=Sw7nQd3twrDbyFicQWlNSPO5GcqrHhHTgjoC6VyS+j5nqaJ36Z+dg1LUwYihi/53a8
+ uwqQ2/AnqfbmORfuWETtJzT5nEQE981CDWyiA2BdIhYi9bScvGAHeqxoW98BP22P2vGi
+ l7XAf1rjXZsRuNrew7/YNi6THMzrj7QBLvvLtFL+/iwF9D4oZvDyN470dRt0+K++3uOc
+ V+wWUsV9beaOKnXqNT3y3zREVuf7SGGrvjp+CrzjiVBE9NnbQq+JvB5ZjRQbaceaByWQ
+ uH1CNEp23U+Q2MVUZng69mIRw6m0IpRhELBFwJUYZbrUpySaIJtWpEduCfhN0Fxi8awZ
+ YKgg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
  d=1e100.net; s=20210112;
- h=x-gm-message-state:mime-version:from:date:message-id:subject:to
- :content-transfer-encoding;
- bh=pzUR17ua/4GuxmErw9pN/l+aLiU3YCYqU4g3kAyg47s=;
- b=uugykVplY0HZ7sCEBtRsmb3caoI7X1N+SfQCUGs69/IXPN1qbMGeDhBCmT/muuHnjO
- jna6/tpvKdzmlZSg5r7rGCG/mFZH26vMCdMfVNmWOTiXxQjqP20wZ2zD7vVw+/j4aCHu
- sY/tQFopkusvw2xOsScqVzz9lpwICRMctCn/FY5FqsDI8Mk1OxLuVLh979WM8GxqK1Vn
- ZRRwz3p2o3Y/Ey5L8dBc8zQnGxdNyHHHjvMl5hRCmTQPjKFenZDinFc5yeUxHd26YzPm
- XeLcJQuTNq4Dkhl7rSxS6vjCV9CPHKiHoNMTjT/MGsB03jcTJd+RemvV72DNn4j7RiNl
- LxXg==
-X-Gm-Message-State: ACgBeo2DhanNG5guJBabcF6L2lZiKGYg93v7DsGd0FLx5egQWrvJkC+l
- GEqSehmotMm0VkPRB0MZmoLyFsFsT4azfRXwPo0wVyvJrzg=
-X-Google-Smtp-Source: AA6agR7dwWp0C457y3oT6DFAJroJEp+HXZt/hOq9/GkP+KPGdypTpG0saYPGmmFuBeXr3Vho1ElGNS1ABB0zo3Nc+dw=
+ h=content-transfer-encoding:to:subject:message-id:date:from
+ :mime-version:x-gm-message-state:from:to:cc;
+ bh=YOtRQ0Fvg3UO+7hmujt7xH4LjB8KyU1fLp+WpU/FRg8=;
+ b=K4YnBq/bwIVYwSF2utkZ3UhsezYhFojQCvMXw3wqHLkIStLJC0FiALrhDSWXVsWvV/
+ n9tYbKXCgXykJgZvXT4SwArZOtpGkxrxyVL18wB7DNzmR3vFpPpTUL2LygFidtEm8ZHj
+ SDq1NY+oLd3c+UUeZ2KARGXPfWywLuOHjEUIFWt37TgKH27FPq+7p+LJEaI7XCMwhWOs
+ BLNoa+1BNr1S4xF2K2hx7oomUAZ95/7/b7WhtRMOpzouLOv1mAtVtFkYhSEVKyFFAk41
+ H1s6+/++QtoAb0dKoMeoWnhjCE5I7vfCrHjlEyCdCoAwNUXoXIep0wI12R4fH4avn3fH
+ xsxA==
+X-Gm-Message-State: ACgBeo01UgbyOoxpQggkWOeojLYYWo0olXl5CvjjWFAbyse83jFFgHrS
+ s7fww70HU2EKerqghbw9AcyazS/Ix8Eri8eGu1ZTUy4giTI=
+X-Google-Smtp-Source: AA6agR7rCcFLHaH9THtdn+QwXLNMM6hy+MkqBS0eJogOBsWGX4uLvPj2VfO/pi6OWklP6TiZT5qV2DGGzu9hozHK5Vg=
 X-Received: by 2002:a5d:488a:0:b0:21e:d477:6555 with SMTP id
- g10-20020a5d488a000000b0021ed4776555mr14798740wrq.380.1659486327914; Tue, 02
- Aug 2022 17:25:27 -0700 (PDT)
+ g10-20020a5d488a000000b0021ed4776555mr12360224wrq.380.1659987925112; Mon, 08
+ Aug 2022 12:45:25 -0700 (PDT)
 MIME-Version: 1.0
-Date: Tue, 2 Aug 2022 17:25:15 -0700
-Message-ID: <CAA93jw5sAM9MiSsV6HMyQdJPox4HWvSp8HK592UMSL1BMHg8Wg@mail.gmail.com>
-To: cerowrt-devel <cerowrt-devel@lists.bufferbloat.net>, 
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>, 
- Cake List <cake@lists.bufferbloat.net>
-Subject: [Cake] openwrt-22-03-rc6 released
+Date: Mon, 8 Aug 2022 12:45:12 -0700
+Message-ID: <CAA93jw7R755rwjZfRCoVcWSdhNrw=PhknD47PP++R+pHzZo2Dw@mail.gmail.com>
+To: bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>
+Subject: [Cake] paper: Testbed based analysis of Linux queue disciplines
+ over Internet traffic mix
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -80,14 +79,16 @@ Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SXQncyBteSBob3BlIHRoYXQgdGhlIGxhc3Qgb2YgdGhlIG1ham9yIHdpZmkgYnVncyBwbGFndWlu
-ZyBvcGVud3J0CmhhdmUgYmVlbiBxdWFzaGVkLiBQbGVhc2UgdGVzdC4KCmh0dHBzOi8vZm9ydW0u
-b3BlbndydC5vcmcvdC9vcGVud3J0LTIyLTAzLTAtcmM2LXNpeHRoLXJlbGVhc2UtY2FuZGlkYXRl
-LzEzMzY3MwoKRXNwZWNpYWxseSBpZiB5b3UgYXJlIHVzaW5nIHRoZSBhdGgxMGssIDlrLCBvciBt
-dDc2IGNoaXBzLiBGb3Igc29tZQpzdWdnZXN0ZWQgdGVzdHMgc2VlOgoKaHR0cHM6Ly9mb3J1bS5v
-cGVud3J0Lm9yZy90L2FxbC1hbmQtdGhlLWF0aDEway1pcy1sb3ZlbHkvNTkwMDIvODMwCgotLSAK
-RlEgV29ybGQgRG9taW5hdGlvbiBwZW5kaW5nOiBodHRwczovL2Jsb2cuY2Vyb3dydC5vcmcvcG9z
-dC9zdGF0ZV9vZl9mcV9jb2RlbC8KRGF2ZSBUw6RodCBDRU8sIFRla0xpYnJlLCBMTEMKX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxp
-c3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5u
-ZXQvbGlzdGluZm8vY2FrZQo=
+VGhpcyBwYXBlciBkZXRhaWxzIHRoZSBtb2RlbGxpbmcgb2YgYSBtaXhlZCB0cmFmZmljIHRlc3Ri
+ZWQgZGVzaWduZWQKaW4gYWNjb3JkYW5jZSB3aXRoIFJGQyA3OTgyLCBhbmQgYXR0ZW1wdHMgdG8g
+c3R1ZHkgdGhlIHBlcmZvcm1hbmNlIG9mCnBpZS9jb2RlbC9SRUQvZnEtcGllL2ZxLWNvZGVsL2Nh
+a2UuIEl0J3MgdmVyeSB0aG9yb3VnaCwgYnV0IG9ubHkgdGVzdHMKMTBNYml0IGFuZCAxMDBNYml0
+IGxpbmtzLiBDYWtlIHdpbnMgb24gbW9zdCBvZiB0aGUgYmVuY2htYXJrcywgZnEtcGllCndpbnMg
+b24gb3RoZXJzLiBSZWFsbHkgZ3JlYXQgTU9TIGZvciB2b2lwIHRyYWZmaWMgZm9yIGZxLSouCgpo
+dHRwczovL3d3dy5zY2llbmNlZGlyZWN0LmNvbS9zY2llbmNlL2FydGljbGUvYWJzL3BpaS9TMTU2
+OTE5MFgyMjAwMDg0MwoKSWYgeW91IGRvbid0IGhhdmUgYWNjZXNzIHZpYSB5b3VyIGluc3RpdHV0
+aW9uLCBwbHMgZHJvcCBtZSBhIGxpbmUgcHJpdmF0ZWx5LgoKLS0gCkZRIFdvcmxkIERvbWluYXRp
+b24gcGVuZGluZzogaHR0cHM6Ly9ibG9nLmNlcm93cnQub3JnL3Bvc3Qvc3RhdGVfb2ZfZnFfY29k
+ZWwvCkRhdmUgVMOkaHQgQ0VPLCBUZWtMaWJyZSwgTExDCl9fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVm
+ZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
