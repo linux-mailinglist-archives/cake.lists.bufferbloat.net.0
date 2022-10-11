@@ -2,80 +2,81 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 18C235FB18C
-	for <lists+cake@lfdr.de>; Tue, 11 Oct 2022 13:35:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 982265FB3F9
+	for <lists+cake@lfdr.de>; Tue, 11 Oct 2022 15:57:46 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 018A83CB39;
-	Tue, 11 Oct 2022 07:34:56 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id B5CF03CB43;
+	Tue, 11 Oct 2022 09:57:43 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1665488096;
-	bh=eaI4fpvwhc3E7uMYE8tbhbrcztNtM8oMwv1eTfO0Nu4=;
-	h=To:Date:References:In-Reply-To:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1665496663;
+	bh=thkM5qE9OvUuI7BYHY827mVCJtNL3cmkIiF3tDjvD1U=;
+	h=Date:In-Reply-To:To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=V33GgWOV733qrB0aMYpEQyY5PUZ/Nc2KWVmu4j97KBQmkH0i7nwqoAPbzVMi++ilJ
-	 JSrNYqutS19pxoAMJVA3Xw3/tZHwt/0gBBRLDrzmz6FiOMQPH53tQfEcVPcAiI1HJR
-	 l6qif/qbLmh48oFHX6LIX3ft5UopTHUu6SQIDWRpjIN5YwGI2ZAQVXICzXoFTmcPm+
-	 G5KM62+PJ9AfBpMIEiLL4ne8RqzmBkobqn9aQ7nZGb/+wq9/EXghjhKou4Z/pacXlP
-	 noEaDJCAdWCtJC06zjBkEyhd2nk7zson7v879UzqyP++SPsHlBp+n07nt4kQRB9Xyx
-	 LlIbEJ8jwCw1g==
+	b=bkHTIV0C4VpndFGbu+D7blrhLlXFwf6mVSetF2cyNB6Th5f9BPm5VtMpjJF5XQ2Sj
+	 Vtvj+zpu9XZo3afQ/zRMT86A0UKD7laZLa0UM44TLw1hvtq/Md1iQU7PNfp4P/Z8av
+	 o5F4Uad8z6pPCqa3qTHZEtb5QL1Ld7f9D9/mhwFsXBKHHIGvhCph7i1xxvN6ZCkgZg
+	 qJYWhfHkTzXG2F+2XQplVcp4r6Evynv99VndfdrflQ3s6SsbB3NA8eVQuwvOXf+QOe
+	 p4RtylqLVaOvyYcKrCJA0EQ/GP5iNZfCgpVKUnh3gWeIkNDoqPhy6biWan1uopwe2i
+	 6bkquxc2TzK/A==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from tn-mailgw-03.telenor.no (tn-mailgw-03.telenor.no [153.110.76.6])
- (using TLSv1.2 with cipher DHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-qv1-xf30.google.com (mail-qv1-xf30.google.com
+ [IPv6:2607:f8b0:4864:20::f30])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 1BC833B2A4;
- Tue, 11 Oct 2022 07:34:54 -0400 (EDT)
-X-IronPort-AV: E=Sophos;i="5.95,176,1661817600"; d="scan'208";a="128018346"
-Received: from tns-sko-24-202.corp.telenor.no ([10.179.59.70])
- by tn-mailgw-03.corp.telenor.no with ESMTP; 11 Oct 2022 11:34:52 +0000
-Received: from TNS-SKO-24-205.corp.telenor.no (10.179.59.73) by
- TNS-SKO-24-202.corp.telenor.no (10.179.59.70) with Microsoft SMTP Server
- (TLS) id 15.0.1497.38; Tue, 11 Oct 2022 13:34:52 +0200
-Received: from outlook.telenor.no (10.179.127.61) by
- TNS-SKO-24-205.corp.telenor.no (10.179.59.73) with Microsoft SMTP Server
- (TLS) id 15.0.1497.38 via Frontend Transport; Tue, 11 Oct 2022 13:34:52 +0200
-Received: from pwpvn2209ex001.nxvp.net (10.149.139.134) by
- pwpvn2209ex002.nxvp.net (10.149.139.135) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.12; Tue, 11 Oct 2022 13:34:49 +0200
-Received: from pwpvn2209ex001.nxvp.net ([10.149.139.134]) by
- pwpvn2209ex001.nxvp.net ([10.149.139.134]) with mapi id 15.01.2507.012; Tue,
- 11 Oct 2022 13:34:49 +0200
-To: Dave Taht <dave.taht@gmail.com>, Sebastian Moeller <moeller0@gmx.de>
-Thread-Topic: [Bloat] [Cake] The most wonderful video ever about bufferbloat
-Thread-Index: AQHY3TwNKKpB1v9mPkiTNAKH+Q66b64JEHcA
-Date: Tue, 11 Oct 2022 11:34:48 +0000
-Message-ID: <846803D7-48E7-44E8-8A54-B5490D0BB421@telenor.no>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 76B383B2A4;
+ Tue, 11 Oct 2022 09:57:41 -0400 (EDT)
+Received: by mail-qv1-xf30.google.com with SMTP id i12so8986346qvs.2;
+ Tue, 11 Oct 2022 06:57:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmail.com; s=20210112;
+ h=references:to:cc:in-reply-to:date:subject:mime-version:message-id
+ :from:from:to:cc:subject:date:message-id:reply-to;
+ bh=OHOTprnXylxQKy+tSkTP/nU3Tgrp5u6iCIgf8ZUvfAk=;
+ b=Y+gOgQXAjhVSvFEZ2FQ2Z27zMGEW7ucDjbPxnqN4ixMeab7cDjSTJlGGqR3royEqJd
+ Hp5tFx/fAYSH3qiEbIvUeiuSCPi1VE3GJxfDJXHMdpDKgP0wSwzM3PE3Qi2l0w7FI3Tg
+ X5SX2KYiIeag9OQfE2UwMJn5DF0cyAdyNM8g8ZCynHPAjZWXjNaj1zLN6y7lM9DExVjL
+ KhR4V1NPDyDgN8RMfzwbD0ZTlvuFALbsxvYcRYKdKmxi9T4LgJG0AyuSNl28BY6aS+Bt
+ CrCSeSQmAuznrqxtgWGF716098IWAgp3SQru7cCG7WO9426Wu20HyI4tI4bfVkvf++g5
+ mvEw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=references:to:cc:in-reply-to:date:subject:mime-version:message-id
+ :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=OHOTprnXylxQKy+tSkTP/nU3Tgrp5u6iCIgf8ZUvfAk=;
+ b=UymjILqkYLmRdDJi8PzEt6xzae3entPpTP3B4RbCOwHRgyAx7ZCVpx1u799iamEmTl
+ 1q/784NGDACORKi8Zjj4CHE3ORIR3A4vittNhiO4qwEjZGXWn5FJJDUk3KIkxeIrP3Lm
+ Gp6o1THqrvn3PDhCAMUTUIr2dscNaGXRrSsN1CC3KCnTOF8yY6Jrsx4FckVeM3UU+UEs
+ awcoBq+e+AalMJZqUZScOUG44I+c+kImSRbYvuL6aXRw9dR8EwVKLCXAgQYHZfpjPsSw
+ pTOfQtBmoC2cpRNkJetjHfB3xIQJ9UrV/YPoCao7nOiNJcDJbsdEm3CAUh99sPHg7m/R
+ KNeA==
+X-Gm-Message-State: ACrzQf0WdOWlodpVh9wYrQQ+Q80kqFsULS21AMMs5NbfSQefEQCH5wjX
+ tmPoRgltu9NmoQ9+ef4dmVU=
+X-Google-Smtp-Source: AMsMyM4j7v673wyRXsjfYzYjZZ3GEgAoG7mQKazcesY5DJuWUvNpQ7txquWrFnxHKhICExPya4ZE0Q==
+X-Received: by 2002:a0c:a711:0:b0:4b1:8816:4168 with SMTP id
+ u17-20020a0ca711000000b004b188164168mr18626878qva.46.1665496660803; 
+ Tue, 11 Oct 2022 06:57:40 -0700 (PDT)
+Received: from [192.168.253.116] ([198.55.239.10])
+ by smtp.gmail.com with ESMTPSA id
+ 1-20020ac85741000000b003998bb7b83asm5684892qtx.90.2022.10.11.06.57.39
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 11 Oct 2022 06:57:40 -0700 (PDT)
+Message-Id: <D0D4490C-061A-46DA-9592-51C3D210772F@gmail.com>
+Mime-Version: 1.0 (Mac OS X Mail 13.4 \(3608.120.23.2.7\))
+Date: Tue, 11 Oct 2022 09:57:39 -0400
+In-Reply-To: <CAHb6Lvqbj0MDhWvLaEk8Hbr_vZwDs1NdCj1X9Xvxp+x+Mbs0Vw@mail.gmail.com>
+To: Bob McMahon <bob.mcmahon@broadcom.com>
 References: <CAA93jw77h=ztEOzyADriH2PnswUDQiyNvBdsuFi+K5EexpoxUQ@mail.gmail.com>
  <CE784DAD-5012-4FD3-9E2D-B931CBF1EBF8@telenor.no>
  <E615B656-9AAA-4AD4-8507-C461659846C5@gmx.de>
  <BB4CAEC2-669B-4595-BE6A-26D365B70535@telenor.no>
  <72674884-9E0D-4645-B5F5-C593CC45A8F0@gmx.de>
- <8FD1A16D-F886-4504-A089-62CD3A8D2CF2@telenor.no>
- <2601A81B-4E21-454C-9959-EDD725547E9E@gmx.de>
- <100AC711-2C3E-4FE4-A1A3-65BC759B9530@telenor.no>
- <E667667F-DFC0-4C2E-866E-ACE4C4DE24D8@gmx.de>
- <CAA93jw7Rvx6aBeQAbG5QNm4S6MTqW=Sm3zK5NC6LEEqz-dz-QA@mail.gmail.com>
-In-Reply-To: <CAA93jw7Rvx6aBeQAbG5QNm4S6MTqW=Sm3zK5NC6LEEqz-dz-QA@mail.gmail.com>
-Accept-Language: nb-NO, en-US
-Content-Language: en-GB
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Microsoft-MacOutlook/16.65.22091101
-msip_labels: MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_Enabled=true;
- MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_SiteId=1676489c-5c72-46b7-ba63-9ab90c4aad44;
- MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_Enabled=true;
- MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_Method=Standard;
- MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_ActionId=28685d9f-981f-4a40-b125-36c6e1bf044c;
- MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_ContentBits=0;
- MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_Name=Internal;
- MSIP_Label_f604d2c9-1577-460e-b668-57374a0216c3_SetDate=2022-10-11T11:18:32Z; 
-x-originating-ip: [10.149.139.246]
-X-TM-SNTS-SMTP: A8102ED4D229715E53D413241A70E68A14937C06FF99470152E7D4A18FC9F47E2000:8
-Content-ID: <D87035D49A57A544995F49BFDC908D3E@nxvp.net>
-MIME-Version: 1.0
-Subject: Re: [Cake] [Bloat] The most wonderful video ever about bufferbloat
+ <CAHb6LvqHNv_R2Asn944Kx91Cud5J3XSM-c+PcK8Bz19uaMDynw@mail.gmail.com>
+ <q06231q2-n7qn-345s-np6r-p5717713q3po@ynat.uz>
+ <CAHb6Lvqbj0MDhWvLaEk8Hbr_vZwDs1NdCj1X9Xvxp+x+Mbs0Vw@mail.gmail.com>
+X-Mailer: Apple Mail (2.3608.120.23.2.7)
+Subject: Re: [Cake] [Rpm] [Bloat] [Make-wifi-fast] The most wonderful video
+ ever about bufferbloat
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -87,26 +88,114 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Taraldsen Erik via Cake <cake@lists.bufferbloat.net>
-Reply-To: Taraldsen Erik <erik.taraldsen@telenor.no>
-Cc: Rpm <rpm@lists.bufferbloat.net>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Rich Brown via Cake <cake@lists.bufferbloat.net>
+Reply-To: Rich Brown <richb.hanover@gmail.com>
+Cc: Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>,
+ Rpm <rpm@lists.bufferbloat.net>,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============8243323133182925158=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-Tm8gd2UgZG9uJ3QuICBJIHRoaW5rIHNvbWVvbmUgd2l0aG91dCBhbGwgdGhlIGxlZ2FjeSBpbXBv
-c2VkIG9uIGFuIG9sZCBJU1AgYXMgVGVsZW5vciBuZWVkcyB0byBnbyBmb3IgdGhhdCBtYXJrZXQu
-DQoNCkFuZCB3aGVuIEkgc2VlIGhvdyBkaWZmaWN1bHQgaXQgaXMgdG8gZ2V0IGN1c3RvbWVyIHRv
-IHN3YXAgZGV2aWNlcyBldmVuIHdoZW4gd2UgZ2l2ZSBpdCB0byB0aGVtIGZvciBmcmVlIC0gSSBk
-b24ndCBzZWUgYSB2aWFibGUgYnVzaW5lc3MgbWFkZSBmcm9tIHNlbGxpbmcgQ1BFcyB3aGVuIG5v
-dCBiYWNrZWQgYnkgdGhlIHN1YnNpZHkgb2YgdGhlIGFjY2VzcyBwcm9kdWN0LiANCg0KLUVyaWsN
-Cg0KDQoNCu+7v09uIDExLzEwLzIwMjIsIDA4OjM4LCAiRGF2ZSBUYWh0IiA8ZGF2ZS50YWh0QGdt
-YWlsLmNvbT4gd3JvdGU6DQoNCiAgICBJIGd1ZXNzIG15IHF1ZXN0aW9uIGlzLCBlcmlrLCBkbyB5
-b3Ugc2VsbCB0aGVzZSByb3V0ZXJzIGNvbW1lcmNpYWxseT8NCiAgICBUaGVyZSBpcyBhIGh1Z2Ug
-bGF0ZW50IG1hcmtldCBpbiB0aGUgVVMgdGhhdCBjb3VsZCB1c2UgdXBncmFkZXMuLi4uLg0KDQpf
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxp
-bmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJs
-b2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+
+--===============8243323133182925158==
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_6C8B5947-C335-4550-BF61-C04404B5DD6A"
+
+
+--Apple-Mail=_6C8B5947-C335-4550-BF61-C04404B5DD6A
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=us-ascii
+
+
+
+> On Oct 10, 2022, at 8:05 PM, Bob McMahon via Rpm =
+<rpm@lists.bufferbloat.net> wrote:
+>=20
+> > I think conflating bufferbloat with latency misses the subtle point =
+in that
+> > bufferbloat is a measurement in memory units more than a measurement =
+in
+> > time units.
+
+Yes, but... I am going to praise this video, even as I encourage all the =
+techies to be sure that they have the units correct.
+
+I've been yammering about the evils of latency/excess queueing for 10 =
+years on my blog, in forums, etc. I have not achieved anywhere near the =
+notoriety of this video (almost a third of a million views).
+
+I am delighted that there's an engaging, mass-market Youtube video that =
+makes the case that bufferbloat even exists.=20
+
+Rich=
+
+--Apple-Mail=_6C8B5947-C335-4550-BF61-C04404B5DD6A
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=us-ascii
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dus-ascii"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" class=3D""><br =
+class=3D""><div><br class=3D""><blockquote type=3D"cite" class=3D""><div =
+class=3D"">On Oct 10, 2022, at 8:05 PM, Bob McMahon via Rpm &lt;<a =
+href=3D"mailto:rpm@lists.bufferbloat.net" =
+class=3D"">rpm@lists.bufferbloat.net</a>&gt; wrote:</div><br =
+class=3D"Apple-interchange-newline"><div class=3D""><span =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Helvetica; font-size: =
+12px; font-style: normal; font-variant-caps: normal; font-weight: =
+normal; letter-spacing: normal; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; float: none; =
+display: inline !important;" class=3D"">&gt; I think conflating =
+bufferbloat with latency misses the subtle point in that</span><br =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Helvetica; font-size: =
+12px; font-style: normal; font-variant-caps: normal; font-weight: =
+normal; letter-spacing: normal; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><span =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Helvetica; font-size: =
+12px; font-style: normal; font-variant-caps: normal; font-weight: =
+normal; letter-spacing: normal; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; float: none; =
+display: inline !important;" class=3D"">&gt; bufferbloat is a =
+measurement in memory units more than a measurement in</span><br =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Helvetica; font-size: =
+12px; font-style: normal; font-variant-caps: normal; font-weight: =
+normal; letter-spacing: normal; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D""><span =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Helvetica; font-size: =
+12px; font-style: normal; font-variant-caps: normal; font-weight: =
+normal; letter-spacing: normal; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; word-spacing: 0px; =
+-webkit-text-stroke-width: 0px; text-decoration: none; float: none; =
+display: inline !important;" class=3D"">&gt; time =
+units.</span></div></blockquote></div><br class=3D""><div class=3D"">Yes, =
+but... I am going to praise this video, even as I encourage all the =
+techies to be sure that they have the units correct.</div><div =
+class=3D""><br class=3D""></div><div class=3D"">I've been yammering =
+about the evils of latency/excess queueing for 10 years on my blog, in =
+forums, etc. I have not achieved anywhere near the notoriety of this =
+video (almost a third of a million views).</div><div class=3D""><br =
+class=3D""></div><div class=3D"">I am delighted that there's an =
+engaging, mass-market Youtube video that makes the case that bufferbloat =
+even exists.&nbsp;</div><div class=3D""><br class=3D""></div><div =
+class=3D"">Rich</div></body></html>=
+
+--Apple-Mail=_6C8B5947-C335-4550-BF61-C04404B5DD6A--
+
+--===============8243323133182925158==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============8243323133182925158==--
