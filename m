@@ -2,78 +2,69 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id EDFE85FC9FA
-	for <lists+cake@lfdr.de>; Wed, 12 Oct 2022 19:39:56 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7CF495FCD72
+	for <lists+cake@lfdr.de>; Wed, 12 Oct 2022 23:44:31 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 573843CB49;
-	Wed, 12 Oct 2022 13:39:48 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 7BFA93CB4E;
+	Wed, 12 Oct 2022 17:44:22 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1665596388;
-	bh=FgXhITMGTaehNbHkRL+iicrRAJDegDFT4FJ3+SPZ6Hw=;
-	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1665611062;
+	bh=ZAKq6k1SqSvCCjV9wWbN2TSpCHai6eTn2eFUbbH/u5Q=;
+	h=Date:To:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=iv6ffKyir/Bthg7u4bybOct584TfRqiz8WhixJ6655OBMFvaCI1e3NDMU/2jUPhfE
-	 FQ3UWuvUEQmIagvxNF7BCB7GXclVJ0pxbOOj2dbt2wASzoaXasYoRdNcpiTEZEuwAj
-	 XcUwNWrhF8b25rC1G8+GiUXcQf+cUoRlhXnnvTMRY99VkDCDHA3IlFQNI0Y5WeYfUl
-	 GL2TmyWcMWkTNBf1Fd/VZuluqIp15nu4e+NAxBa46azdyHSBAY+nmfTPHOu7KRxc6e
-	 UluJwbWAI1KKa6/Ci0WVDR9+y/oaJDz9bmKNZkGyg9EISZrHo6s/9ukFdOfb8mK33J
-	 Acqi50PcNZChg==
+	b=pe+TVdOlerG4k1qhknrwS49Hp3qRWaRzFBkpNhVS+J0DoYgO06uXTNwrEL1lLhck/
+	 +c+Yd7lB7ld+EqivgFAnDuUMKGh4OwPDOJ6rHJiqjQxeSqN6MYegow+svOkai4osLc
+	 it5BU8bLM/P2R0SBmrEN3uQvvrOvF7om1LC2DqogLlriv8o6MT/CYMV2vJASp8MJf4
+	 ei/0x3ccI6HPwgo09zSnUw9LAehXxyApUunVRapTHNqF0IrYC5/XlwMgGd0weVC3G1
+	 Ys+p3LtPSiRTWF0qzBY/LLbbTpYMGsVyi8NX8bRL1DZ6VFi+vZzhdURgla4259GY7/
+	 wx2j/KavZwlTQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x12a.google.com (mail-lf1-x12a.google.com
- [IPv6:2a00:1450:4864:20::12a])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from smtp126.iad3a.emailsrvr.com (smtp126.iad3a.emailsrvr.com
+ [173.203.187.126])
+ (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id BE5F13CB39
- for <cake@lists.bufferbloat.net>; Wed, 12 Oct 2022 13:39:46 -0400 (EDT)
-Received: by mail-lf1-x12a.google.com with SMTP id g1so26786874lfu.12
- for <cake@lists.bufferbloat.net>; Wed, 12 Oct 2022 10:39:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:from:to:cc:subject:date:message-id:reply-to;
- bh=A80DM3DaydkczzUakCvYsg4SK1O7fkTh64J2O2GC/iA=;
- b=IE5feGa68zTeZFGTmD7Jy3FtEk7MGX/d63sMrV5ZqWmYH+4/N9OgNkP0DD9VNiVFhj
- 81SOVye/Y/O8YPRnrjtDW18d/dXdZrvPa0mIhCDJHrUrfxaHBp/okE5kba6KATGTz09m
- W/EYZA9b0eHgp7C0E6SL2OeP7HXSAu4Vdi4wI=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=A80DM3DaydkczzUakCvYsg4SK1O7fkTh64J2O2GC/iA=;
- b=VVzpssmaNs08BqqoRBkZdG4PEAfBewVtUWHekHT44gTQUtvwC6nFTXu0i+D6R402D2
- Jl/kPr9/6U8iIRuC0tikbIaZpoPwJ3ir42lqi5c9HvaBSQHggbW4h3jhy46ahO0trVKH
- NelBcRkdfyyiAiBVZbi5xaMtY7dhk1YEGo0intNLgvMYpUqZru4MncZwYonINtm1kAWD
- csSXCOFlmAL4i7GTbQUr9JNaXSfZv6PKT0QVfGCjqGM4YTU5vOa7bpfX58qdLB5KQ9ge
- rHrw6T075zebyVd1Z+QqYd1asJKPfHQfBPe9TsY7m8FFrvj7J6hvA30TQUzJUHSyvXQx
- 0zIg==
-X-Gm-Message-State: ACrzQf1n+iORzmZEYas8Ti5GuOrPgMzHc6gPkRfCJ+EwwUGmMgAVNYPz
- YVLVlW3YoFahrYScs61GfHLuMDmhrpBvHMiWoZFPgZXqzW+u6vMpaBM0MYMkR1aszTHX1yijZH1
- wdlrHsGwHT2rYcJgMUZ70ZS0hwpop
-X-Google-Smtp-Source: AMsMyM54wJruT9dP6NEKuccfWcS+6J4o3FJJaQpxgsCwrEZHKckUalUwrRjcCStlNwLqNEapaFHu29G88kFi3eONDcA=
-X-Received: by 2002:a05:6512:318d:b0:4a2:515c:6195 with SMTP id
- i13-20020a056512318d00b004a2515c6195mr10122405lfe.249.1665596384961; Wed, 12
- Oct 2022 10:39:44 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 73D213CB37;
+ Wed, 12 Oct 2022 17:44:20 -0400 (EDT)
+Received: from app7.wa-webapps.iad3a (relay-webapps.rsapps.net
+ [172.27.255.140])
+ by smtp24.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 7DD2523AFC;
+ Wed, 12 Oct 2022 17:44:19 -0400 (EDT)
+Received: from deepplum.com (localhost.localdomain [127.0.0.1])
+ by app7.wa-webapps.iad3a (Postfix) with ESMTP id 67A67600C5;
+ Wed, 12 Oct 2022 17:44:19 -0400 (EDT)
+Received: by apps.rackspace.com
+ (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
+ with HTTP; Wed, 12 Oct 2022 17:44:19 -0400 (EDT)
+X-Auth-ID: dpreed@deepplum.com
+Date: Wed, 12 Oct 2022 17:44:19 -0400 (EDT)
+To: "Bob McMahon" <bob.mcmahon@broadcom.com>
 MIME-Version: 1.0
-References: <CAA93jw77h=ztEOzyADriH2PnswUDQiyNvBdsuFi+K5EexpoxUQ@mail.gmail.com>
- <CE784DAD-5012-4FD3-9E2D-B931CBF1EBF8@telenor.no>
- <E615B656-9AAA-4AD4-8507-C461659846C5@gmx.de>
- <BB4CAEC2-669B-4595-BE6A-26D365B70535@telenor.no>
- <72674884-9E0D-4645-B5F5-C593CC45A8F0@gmx.de>
- <CAHb6LvqHNv_R2Asn944Kx91Cud5J3XSM-c+PcK8Bz19uaMDynw@mail.gmail.com>
- <q06231q2-n7qn-345s-np6r-p5717713q3po@ynat.uz>
- <CAHb6Lvqbj0MDhWvLaEk8Hbr_vZwDs1NdCj1X9Xvxp+x+Mbs0Vw@mail.gmail.com>
- <D0D4490C-061A-46DA-9592-51C3D210772F@gmail.com>
- <CAHb6Lvr-JST083ZAyyxCOS8GrhH5xoa_d+SkkB9aPEr1ijcjUQ@mail.gmail.com>
- <F5B10A7A-7722-442A-B58E-2D2C004D93FD@gmail.com>
- <CAA93jw5z2gfvRmsp7t1LFKBO_8Oe_dDYUDE58XRL0ga9parkhQ@mail.gmail.com>
-In-Reply-To: <CAA93jw5z2gfvRmsp7t1LFKBO_8Oe_dDYUDE58XRL0ga9parkhQ@mail.gmail.com>
-Date: Wed, 12 Oct 2022 10:39:32 -0700
-Message-ID: <CAHb6Lvq4MGWn-wy6PeaHpeBYRjBqkf78a=tedj3RZdA91L9OdA@mail.gmail.com>
-To: Dave Taht <dave.taht@gmail.com>
+Content-Type: multipart/mixed;boundary="----=_20221012174419000000_76352"
+Importance: Normal
+X-Priority: 3 (Normal)
+X-Type: html
+In-Reply-To: <CAHb6Lvq4MGWn-wy6PeaHpeBYRjBqkf78a=tedj3RZdA91L9OdA@mail.gmail.com>
+References: <CAA93jw77h=ztEOzyADriH2PnswUDQiyNvBdsuFi+K5EexpoxUQ@mail.gmail.com> 
+ <CE784DAD-5012-4FD3-9E2D-B931CBF1EBF8@telenor.no> 
+ <E615B656-9AAA-4AD4-8507-C461659846C5@gmx.de> 
+ <BB4CAEC2-669B-4595-BE6A-26D365B70535@telenor.no> 
+ <72674884-9E0D-4645-B5F5-C593CC45A8F0@gmx.de> 
+ <CAHb6LvqHNv_R2Asn944Kx91Cud5J3XSM-c+PcK8Bz19uaMDynw@mail.gmail.com> 
+ <q06231q2-n7qn-345s-np6r-p5717713q3po@ynat.uz> 
+ <CAHb6Lvqbj0MDhWvLaEk8Hbr_vZwDs1NdCj1X9Xvxp+x+Mbs0Vw@mail.gmail.com> 
+ <D0D4490C-061A-46DA-9592-51C3D210772F@gmail.com> 
+ <CAHb6Lvr-JST083ZAyyxCOS8GrhH5xoa_d+SkkB9aPEr1ijcjUQ@mail.gmail.com> 
+ <F5B10A7A-7722-442A-B58E-2D2C004D93FD@gmail.com> 
+ <CAA93jw5z2gfvRmsp7t1LFKBO_8Oe_dDYUDE58XRL0ga9parkhQ@mail.gmail.com> 
+ <CAHb6Lvq4MGWn-wy6PeaHpeBYRjBqkf78a=tedj3RZdA91L9OdA@mail.gmail.com>
+X-Client-IP: 209.6.168.128
+Message-ID: <1665611059.421316679@apps.rackspace.com>
+X-Mailer: webmail/19.0.21-RC
+X-Classification-ID: fdc9c590-30c3-4294-a500-39a263413e75-1-1
 Subject: Re: [Cake] [Rpm] [Bloat] [Make-wifi-fast] The most wonderful video
- ever about bufferbloat
+	ever about bufferbloat
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -85,447 +76,242 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
-Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
+From: "David P. Reed via Cake" <cake@lists.bufferbloat.net>
+Reply-To: "David P. Reed" <dpreed@deepplum.com>
 Cc: Rich Brown <richb.hanover@gmail.com>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
  Cake List <cake@lists.bufferbloat.net>, Rpm <rpm@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============7171342837882844463=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============7171342837882844463==
-Content-Type: multipart/related; boundary="000000000000ddb75c05ead9e0ca"
-
---000000000000ddb75c05ead9e0ca
-Content-Type: multipart/alternative; boundary="000000000000ddb75a05ead9e0c9"
-
---000000000000ddb75a05ead9e0c9
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-With full respect to open source projects like OpenWRT, I think from an
-energy, performance & going forward perspective the AP forwarding plane
-will be realized by "transistor engineers." This makes the awareness around
-bloat by network engineers needed even more because those design cycles
-take awhile. A tape out <https://anysilicon.com/tapeout/> is very different
-from a sw compile. The driving force for ASIC & CMOS radio features
-typically will come from IAPs or enterprise customers, mostly per revenues
-adds to their businesses. Customer complaints are years down the road from
-such design decisions so bloat mitigation or elimination needs to be
-designed in from the get-go.
-
-Bob
-
-PS. As a side note, data center switch architecture addressed latency &
-bloat with things like AFD & DPP
-<https://www.cisco.com/c/en/us/products/collateral/switches/nexus-9000-seri=
-es-switches/white-paper-c11-738488.html>
-as
-described per a Cisco Nexus 9000. Notice their formula for queue size can
-be defined by a math calculation. A challenge with WiFi is that the phy
-rates are dynamic and have a large range so such tables aren't so
-straightforward and C cannot be so simply defined. In many ways the data
-center architects had an easier problem than we in the shared RF, battery
-powered, no waveguides, etc. have.
-
-The needed buffer size is the bandwidth delay product value divided by the
-square root of the number of flows:
-
-[image: white-paper-c11-738488_16.jpg]
-<https://www.cisco.com/c/dam/en/us/products/collateral/switches/nexus-9000-=
-series-switches/white-paper-c11-738488.docx/_jcr_content/renditions/white-p=
-aper-c11-738488_16.jpg>
-
-Here, C is the link bandwidth, RTT is round-trip time, and N is the number
-of long-lived flows (see reference 6 at the end of this document).
-
-Using an average RTT of 100 microseconds in a data center network, Figure
-11 shows the buffer size for different link speeds and various numbers of
-flows. Note that the buffer size decreases rapidly as the number of flows
-increases. For instance, on a 100-Gbps link with 2500 flows, only a 25-KB
-buffer is needed.
-Figure 11.    Buffer Sizing for Different Link Speeds and Numbers of Flows
-[image: image.png]
-
-
-
-On Tue, Oct 11, 2022 at 3:24 PM Dave Taht <dave.taht@gmail.com> wrote:
-
-> Well, we've all been yammering for many years, and the message is
-> getting through. Yes, at this point, changing the message to be more
-> directed at engineers than users would help, and to this day, I don't
-> know how to get to anyone in the
-> C suite, except through the complaints of their kids. Jim got on this
-> problem because of his kids. The guy that did dslreports, also. "my"
-> kids are
->
-> At the risk of burying the lede, our very own dave reed just did a
-> podcast on different stuff:
-> https://twit.tv/shows/floss-weekly/episodes/701?autostart=3Dfalse
->
-> Sometimes my own (shared with most of you) motivations tend to leak
-> through. I really encourage the independent growth of user created and
-> owned software, running on their own routers, and I'm very pleased to
-> see the level of activity on the openwrt forums showing how healthy
-> that part of our culture is. It would be a very different world if
-> we'd decided to settle for whatever an ISP was willing to give us, and
-> for things as they were, and I'm probably difficult to employ because
-> of my
-> fervent beliefs in anti-patenting, free and open source, and the right
-> to repair...
->
-> ... but I wouldn't have my world any other way. I might die broke, but
-> I'll die free.
->
-> On Tue, Oct 11, 2022 at 11:44 AM Rich Brown via Rpm
-> <rpm@lists.bufferbloat.net> wrote:
-> >
-> >
-> >
-> >
-> > On Oct 11, 2022, at 1:05 PM, Bob McMahon <bob.mcmahon@broadcom.com>
-> wrote:
-> >
-> > I agree that bufferbloat awareness is a good thing. The issue I have is
-> the approach - ask consumers to "detect it" and replace a device with a n=
-ew
-> one, that may or may not, meet all the needs of the users.
-> >
-> >
-> > Better is that network engineers "design bloat out" from the beginning
-> starting by properly sizing queues to service jitter, and for WiFi, to al=
-so
-> enable aggregation techniques that minimize TXOP consumption.
-> >
-> >
-> > The Yes, but... part of my answer emphasizes awareness. How are the
-> network engineers going to know it's worth the (minor) effort of creating
-> properly-sized queues?
-> >
-> > There are two fronts to attack:
-> >
-> > - Manufacturers - This video is a start on getting their customers to
-> use these responsiveness test tools and call the support lines.
-> >
-> > - Hardware (especially router) reviewers - It kills me that there is
-> radio silence whenever I ask a reviewer if they have ever measured
-> latency/responsiveness.  (BTW: Has anyone heard from Ben Moskowitz from
-> Consumer Reports? We had a very encouraging phone call about a year ago,
-> and they were going to get back to us...)
-> >
-> > Rich
-> >
-> >
-> > Bob
-> >
-> > On Tue, Oct 11, 2022 at 6:57 AM Rich Brown <richb.hanover@gmail.com>
-> wrote:
-> >>
-> >>
-> >>
-> >> On Oct 10, 2022, at 8:05 PM, Bob McMahon via Rpm <
-> rpm@lists.bufferbloat.net> wrote:
-> >>
-> >> > I think conflating bufferbloat with latency misses the subtle point
-> in that
-> >> > bufferbloat is a measurement in memory units more than a measurement
-> in
-> >> > time units.
-> >>
-> >>
-> >> Yes, but... I am going to praise this video, even as I encourage all
-> the techies to be sure that they have the units correct.
-> >>
-> >> I've been yammering about the evils of latency/excess queueing for 10
-> years on my blog, in forums, etc. I have not achieved anywhere near the
-> notoriety of this video (almost a third of a million views).
-> >>
-> >> I am delighted that there's an engaging, mass-market Youtube video tha=
-t
-> makes the case that bufferbloat even exists.
-> >>
-> >> Rich
-> >
-> >
-> > This electronic communication and the information and any files
-> transmitted with it, or attached to it, are confidential and are intended
-> solely for the use of the individual or entity to whom it is addressed an=
-d
-> may contain information that is confidential, legally privileged, protect=
-ed
-> by privacy laws, or otherwise restricted from disclosure to anyone else. =
-If
-> you are not the intended recipient or the person responsible for deliveri=
-ng
-> the e-mail to the intended recipient, you are hereby notified that any us=
-e,
-> copying, distributing, dissemination, forwarding, printing, or copying of
-> this e-mail is strictly prohibited. If you received this e-mail in error,
-> please return the e-mail to the sender, delete it from your computer, and
-> destroy any printed copy of it.
-> >
-> >
-> > _______________________________________________
-> > Rpm mailing list
-> > Rpm@lists.bufferbloat.net
-> > https://lists.bufferbloat.net/listinfo/rpm
->
->
->
-> --
-> This song goes out to all the folk that thought Stadia would work:
->
-> https://www.linkedin.com/posts/dtaht_the-mushroom-song-activity-698136666=
-5607352320-FXtz
-> Dave T=C3=A4ht CEO, TekLibre, LLC
->
-
---=20
-This electronic communication and the information and any files transmitted=
-=20
-with it, or attached to it, are confidential and are intended solely for=20
-the use of the individual or entity to whom it is addressed and may contain=
-=20
-information that is confidential, legally privileged, protected by privacy=
-=20
-laws, or otherwise restricted from disclosure to anyone else. If you are=20
-not the intended recipient or the person responsible for delivering the=20
-e-mail to the intended recipient, you are hereby notified that any use,=20
-copying, distributing, dissemination, forwarding, printing, or copying of=
-=20
-this e-mail is strictly prohibited. If you received this e-mail in error,=
-=20
-please return the e-mail to the sender, delete it from your computer, and=
-=20
-destroy any printed copy of it.
-
---000000000000ddb75a05ead9e0c9
+------=_20221012174419000000_76352
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">With full respect to open source=C2=A0projects like OpenWR=
-T, I think from an energy, performance &amp; going forward perspective the =
-AP forwarding plane will be realized by &quot;transistor engineers.&quot; T=
-his makes the awareness around bloat by network engineers needed even more =
-because those design cycles take awhile. A <a href=3D"https://anysilicon.co=
-m/tapeout/">tape out</a> is very different from a sw compile. The driving f=
-orce for ASIC &amp; CMOS radio features typically will come from IAPs or en=
-terprise customers, mostly per revenues adds=C2=A0to their businesses. Cust=
-omer complaints are years down the road from such design decisions so bloat=
- mitigation or elimination needs to be designed in from the get-go.<br><br>=
-Bob<br><br>PS. As=C2=A0a side note, data center switch architecture address=
-ed latency &amp; bloat with=C2=A0<a href=3D"https://www.cisco.com/c/en/us/p=
-roducts/collateral/switches/nexus-9000-series-switches/white-paper-c11-7384=
-88.html">things like AFD &amp; DPP</a>=C2=A0as described per a Cisco Nexus =
-9000. Notice their formula for queue size can be defined=C2=A0by a math cal=
-culation. A challenge with WiFi is that the phy rates are dynamic and have =
-a large range so such tables aren&#39;t so straightforward and C cannot be =
-so simply defined. In many ways the data center architects had an easier pr=
-oblem than we in the shared RF, battery powered, no waveguides, etc. have.<=
-br><br><blockquote style=3D"margin:0 0 0 40px;border:none;padding:0px"><div=
-><p class=3D"gmail-pCMTBody" style=3D"margin:1px 0em 0.5em;padding:0px;bord=
-er:0px;font-variant-numeric:normal;font-variant-east-asian:normal;font-stre=
-tch:inherit;font-size:14px;line-height:1.25;font-family:CiscoSans,Arial,san=
-s-serif;vertical-align:baseline;color:rgb(82,82,82);text-align:justify;over=
-flow:visible;break-before:page"><span style=3D"margin:0px;padding:0px;borde=
-r:0px;font-style:inherit;font-variant:inherit;font-weight:inherit;font-stre=
-tch:inherit;font-size:9pt;line-height:inherit;font-family:Arial,&quot;sans-=
-serif&quot;;vertical-align:baseline;overflow:visible">The needed buffer siz=
-e is the bandwidth delay product value divided by the square root of the nu=
-mber of flows:</span></p></div><div><p class=3D"gmail-pBody" style=3D"margi=
-n:5pt 0em 0.5em;padding:0px;border:0px;font-variant-numeric:normal;font-var=
-iant-east-asian:normal;font-stretch:inherit;font-size:14px;line-height:1.25=
-;font-family:CiscoSans,Arial,sans-serif;vertical-align:baseline;color:rgb(8=
-2,82,82);overflow:visible"><a href=3D"https://www.cisco.com/c/dam/en/us/pro=
-ducts/collateral/switches/nexus-9000-series-switches/white-paper-c11-738488=
-.docx/_jcr_content/renditions/white-paper-c11-738488_16.jpg" class=3D"gmail=
--show-image-alone" title=3D"white-paper-c11-738488_16.jpg" style=3D"margin:=
-0px;padding:0px;border:0px;font-style:inherit;font-variant:inherit;font-str=
-etch:inherit;line-height:inherit;vertical-align:baseline;color:rgb(0,80,115=
-);overflow:visible;word-break:break-word"><img border=3D"0" width=3D"192" h=
-eight=3D"40" id=3D"gmail-Picture 46" src=3D"https://www.cisco.com/c/dam/en/=
-us/products/collateral/switches/nexus-9000-series-switches/white-paper-c11-=
-738488.docx/_jcr_content/renditions/white-paper-c11-738488_16.jpg" alt=3D"w=
-hite-paper-c11-738488_16.jpg" style=3D"margin: 0px; padding: 0px; border: 0=
-px; font-style: inherit; font-variant: inherit; font-weight: inherit; font-=
-stretch: inherit; line-height: inherit; vertical-align: baseline; overflow:=
- visible; max-width: 98%;"></a></p></div><div><p class=3D"gmail-pBody" styl=
-e=3D"margin:1px 0em 0.5em;padding:0px;border:0px;font-variant-numeric:norma=
-l;font-variant-east-asian:normal;font-stretch:inherit;font-size:14px;line-h=
-eight:1.25;font-family:CiscoSans,Arial,sans-serif;vertical-align:baseline;c=
-olor:rgb(82,82,82);overflow:visible">Here, C is the link bandwidth, RTT is =
-round-trip time, and N is the number of long-lived flows (see reference 6 a=
-t the end of this document).</p></div><div><p class=3D"gmail-pBody" style=
-=3D"margin:1px 0em 0.5em;padding:0px;border:0px;font-variant-numeric:normal=
-;font-variant-east-asian:normal;font-stretch:inherit;font-size:14px;line-he=
-ight:1.25;font-family:CiscoSans,Arial,sans-serif;vertical-align:baseline;co=
-lor:rgb(82,82,82);overflow:visible">Using an average RTT of 100 microsecond=
-s in a data center network, Figure 11 shows the buffer size for different l=
-ink speeds and various numbers of flows. Note that the buffer size decrease=
-s rapidly as the number of flows increases. For instance, on a 100-Gbps lin=
-k with 2500 flows, only a 25-KB buffer is needed.</p><div class=3D"gmail-pD=
-efault" style=3D"margin:12pt 0pt 6pt 0px;padding:1px 0px 0px;border:0px;fon=
-t-variant-numeric:normal;font-variant-east-asian:normal;font-stretch:inheri=
-t;font-size:14px;line-height:inherit;font-family:CiscoSans,Arial,sans-serif=
-;vertical-align:baseline;overflow:visible;color:rgb(82,82,82)"><span style=
-=3D"margin:0px;padding:0px;border:0px;font-style:inherit;font-variant:inher=
-it;font-weight:700;font-stretch:inherit;line-height:inherit;vertical-align:=
-baseline;overflow:visible">Figure 11.=C2=A0=C2=A0<span style=3D"margin:0px;=
-padding:0px;border:0px;font-variant-numeric:normal;font-variant-east-asian:=
-normal;font-weight:normal;font-stretch:normal;font-size:7pt;line-height:nor=
-mal;font-family:&quot;Times New Roman&quot;;vertical-align:baseline;overflo=
-w:visible">=C2=A0=C2=A0</span></span>Buffer Sizing for Different Link Speed=
-s and Numbers of Flows</div><img src=3D"cid:ii_l95wqjui1" alt=3D"image.png"=
- width=3D"336" height=3D"184"><p class=3D"gmail-pBody" style=3D"margin:1px =
-0em 0.5em;padding:0px;border:0px;font-variant-numeric:normal;font-variant-e=
-ast-asian:normal;font-stretch:inherit;font-size:14px;line-height:1.25;font-=
-family:CiscoSans,Arial,sans-serif;vertical-align:baseline;color:rgb(82,82,8=
-2);overflow:visible"><br></p></div></blockquote></div><br><div class=3D"gma=
-il_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Oct 11, 2022 at 3:2=
-4 PM Dave Taht &lt;<a href=3D"mailto:dave.taht@gmail.com">dave.taht@gmail.c=
-om</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
-n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
-">Well, we&#39;ve all been yammering for many years, and the message is<br>
-getting through. Yes, at this point, changing the message to be more<br>
-directed at engineers than users would help, and to this day, I don&#39;t<b=
-r>
-know how to get to anyone in the<br>
-C suite, except through the complaints of their kids. Jim got on this<br>
-problem because of his kids. The guy that did dslreports, also. &quot;my&qu=
-ot;<br>
-kids are<br>
-<br>
-At the risk of burying the lede, our very own dave reed just did a<br>
-podcast on different stuff:<br>
-<a href=3D"https://twit.tv/shows/floss-weekly/episodes/701?autostart=3Dfals=
-e" rel=3D"noreferrer" target=3D"_blank">https://twit.tv/shows/floss-weekly/=
-episodes/701?autostart=3Dfalse</a><br>
-<br>
-Sometimes my own (shared with most of you) motivations tend to leak<br>
-through. I really encourage the independent growth of user created and<br>
-owned software, running on their own routers, and I&#39;m very pleased to<b=
-r>
-see the level of activity on the openwrt forums showing how healthy<br>
-that part of our culture is. It would be a very different world if<br>
-we&#39;d decided to settle for whatever an ISP was willing to give us, and<=
-br>
-for things as they were, and I&#39;m probably difficult to employ because<b=
-r>
-of my<br>
-fervent beliefs in anti-patenting, free and open source, and the right<br>
-to repair...<br>
-<br>
-... but I wouldn&#39;t have my world any other way. I might die broke, but<=
-br>
-I&#39;ll die free.<br>
-<br>
-On Tue, Oct 11, 2022 at 11:44 AM Rich Brown via Rpm<br>
-&lt;<a href=3D"mailto:rpm@lists.bufferbloat.net" target=3D"_blank">rpm@list=
-s.bufferbloat.net</a>&gt; wrote:<br>
-&gt;<br>
-&gt;<br>
-&gt;<br>
-&gt;<br>
-&gt; On Oct 11, 2022, at 1:05 PM, Bob McMahon &lt;<a href=3D"mailto:bob.mcm=
-ahon@broadcom.com" target=3D"_blank">bob.mcmahon@broadcom.com</a>&gt; wrote=
-:<br>
-&gt;<br>
-&gt; I agree that bufferbloat awareness is a good thing. The issue I have i=
-s the approach - ask consumers to &quot;detect it&quot; and replace a devic=
-e with a new one, that may or may not, meet all the needs of the users.<br>
-&gt;<br>
-&gt;<br>
-&gt; Better is that network engineers &quot;design bloat out&quot; from the=
- beginning starting by properly sizing queues to service jitter, and for Wi=
-Fi, to also enable aggregation techniques that minimize TXOP consumption.<b=
-r>
-&gt;<br>
-&gt;<br>
-&gt; The Yes, but... part of my answer emphasizes awareness. How are the ne=
-twork engineers going to know it&#39;s worth the (minor) effort of creating=
- properly-sized queues?<br>
-&gt;<br>
-&gt; There are two fronts to attack:<br>
-&gt;<br>
-&gt; - Manufacturers - This video is a start on getting their customers to =
-use these responsiveness test tools and call the support lines.<br>
-&gt;<br>
-&gt; - Hardware (especially router) reviewers - It kills me that there is r=
-adio silence whenever I ask a reviewer if they have ever measured latency/r=
-esponsiveness.=C2=A0 (BTW: Has anyone heard from Ben Moskowitz from Consume=
-r Reports? We had a very encouraging phone call about a year ago, and they =
-were going to get back to us...)<br>
-&gt;<br>
-&gt; Rich<br>
-&gt;<br>
-&gt;<br>
-&gt; Bob<br>
-&gt;<br>
-&gt; On Tue, Oct 11, 2022 at 6:57 AM Rich Brown &lt;<a href=3D"mailto:richb=
-.hanover@gmail.com" target=3D"_blank">richb.hanover@gmail.com</a>&gt; wrote=
-:<br>
-&gt;&gt;<br>
-&gt;&gt;<br>
-&gt;&gt;<br>
-&gt;&gt; On Oct 10, 2022, at 8:05 PM, Bob McMahon via Rpm &lt;<a href=3D"ma=
-ilto:rpm@lists.bufferbloat.net" target=3D"_blank">rpm@lists.bufferbloat.net=
-</a>&gt; wrote:<br>
-&gt;&gt;<br>
-&gt;&gt; &gt; I think conflating bufferbloat with latency misses the subtle=
- point in that<br>
-&gt;&gt; &gt; bufferbloat is a measurement in memory units more than a meas=
-urement in<br>
-&gt;&gt; &gt; time units.<br>
-&gt;&gt;<br>
-&gt;&gt;<br>
-&gt;&gt; Yes, but... I am going to praise this video, even as I encourage a=
-ll the techies to be sure that they have the units correct.<br>
-&gt;&gt;<br>
-&gt;&gt; I&#39;ve been yammering about the evils of latency/excess queueing=
- for 10 years on my blog, in forums, etc. I have not achieved anywhere near=
- the notoriety of this video (almost a third of a million views).<br>
-&gt;&gt;<br>
-&gt;&gt; I am delighted that there&#39;s an engaging, mass-market Youtube v=
-ideo that makes the case that bufferbloat even exists.<br>
-&gt;&gt;<br>
-&gt;&gt; Rich<br>
-&gt;<br>
-&gt;<br>
-&gt; This electronic communication and the information and any files transm=
-itted with it, or attached to it, are confidential and are intended solely =
-for the use of the individual or entity to whom it is addressed and may con=
-tain information that is confidential, legally privileged, protected by pri=
-vacy laws, or otherwise restricted from disclosure to anyone else. If you a=
-re not the intended recipient or the person responsible for delivering the =
-e-mail to the intended recipient, you are hereby notified that any use, cop=
-ying, distributing, dissemination, forwarding, printing, or copying of this=
- e-mail is strictly prohibited. If you received this e-mail in error, pleas=
-e return the e-mail to the sender, delete it from your computer, and destro=
-y any printed copy of it.<br>
-&gt;<br>
-&gt;<br>
-&gt; _______________________________________________<br>
-&gt; Rpm mailing list<br>
-&gt; <a href=3D"mailto:Rpm@lists.bufferbloat.net" target=3D"_blank">Rpm@lis=
-ts.bufferbloat.net</a><br>
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/rpm" rel=3D"noreferr=
-er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/rpm</a><br>
-<br>
-<br>
-<br>
--- <br>
-This song goes out to all the folk that thought Stadia would work:<br>
-<a href=3D"https://www.linkedin.com/posts/dtaht_the-mushroom-song-activity-=
-6981366665607352320-FXtz" rel=3D"noreferrer" target=3D"_blank">https://www.=
-linkedin.com/posts/dtaht_the-mushroom-song-activity-6981366665607352320-FXt=
-z</a><br>
-Dave T=C3=A4ht CEO, TekLibre, LLC<br>
-</blockquote></div>
-
-<br>
-<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
+<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
+ arial; font-size: 10pt; overflow-wrap: break-word;">Bob -</p>=0A<p style=
+=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: =
+break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial=
+; font-size: 10pt; overflow-wrap: break-word;">I think it is great that Cis=
+co has been looking at controlling buffer size in datacenters. However, I'm=
+ actually quite skeptical of the analysis here.</p>=0A<p style=3D"margin:0;=
+padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">=
+&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: =
+10pt; overflow-wrap: break-word;">I think what is going on is that operatin=
+g system scheduling delays (typical Linux scheduling of ACK packet generati=
+on for the TCP stack is very sloow compared to what the hardware is capable=
+ of doing if TCP were better implemented) are slowing the TCP connection.</=
+p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; ov=
+erflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-=
+family: arial; font-size: 10pt; overflow-wrap: break-word;">Why would there=
+ need to be more than one packet of buffering if there is one flow over a l=
+ink? That's the simple test case.</p>=0A<p style=3D"margin:0;padding:0;font=
+-family: arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<=
+p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow=
+-wrap: break-word;">So I think this is a "hotrodding" focused paper that is=
+ trying to get more throughput on a single TCP flow, where the bottleneck i=
+sn't in the link, but in the OS's crappy code design.</p>=0A<p style=3D"mar=
+gin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-w=
+ord;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-=
+size: 10pt; overflow-wrap: break-word;">Now Linux's stack does just fine wh=
+en the end-to-end rate is 1 Gb/s. Then on a typical server, the stack can p=
+ass work between the hardware interrupt handlers, through the thread schedu=
+ler, scheduling multiple different threads per packet arrival, which of cou=
+rse also adds to latency unnecessarily.</p>=0A<p style=3D"margin:0;padding:=
+0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</=
+p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; ov=
+erflow-wrap: break-word;">But when a 1500 byte packet (12K bits) transits a=
+ 10 Gb/sec link, the latency between ends is around 1 microsecond.&nbsp; A =
+processor on the send and receive side can get down to 1 packet (12k bits) =
+of buffering in the network in a well-thought out high-performance TCP, ach=
+ieving under 10 microsecond user-space to user-space delivery. (not 100 mic=
+rosecond).</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-si=
+ze: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;pad=
+ding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">So,=
+ BAD Linux design for datacenter TCP.</p>=0A<p style=3D"margin:0;padding:0;=
+font-family: arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=
+=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; over=
+flow-wrap: break-word;">I'm very familiar with datacenter 10 and 40 Gb/s et=
+hernet protocols in the kernel my company built. We use UDP now, and actual=
+ly only because some datacenters require an IP header. We do RTT's with "on=
+e flow" using UDP that involve our appiication logic&nbsp;over a 10 GigE sw=
+itch in around 50 microseconds out and back. And we haven't even tried sque=
+ezing that down. And we fill the 10 Gb/s link without needing 125 KB of "bu=
+ffering".</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-siz=
+e: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padd=
+ing:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">The =
+buffer sizes in the table aren't the lowest latency achievable, nor the low=
+est latency achievable for a flow-controlled link with full throughput.</p>=
+=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; over=
+flow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-fa=
+mily: arial; font-size: 10pt; overflow-wrap: break-word;">If you need a Cis=
+co 9000 to correct for bad OS software by buffering too MUCH, then OK.</p>=
+=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; over=
+flow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-fa=
+mily: arial; font-size: 10pt; overflow-wrap: break-word;">But TCP implement=
+ations should ACK quicker than they do. Because we dont want such big buffe=
+rs building up when UDP is flowing over the net, and the protocol on top of=
+ UDP can respond the way TCP is NOT responding. That just hurts UDP latency=
+ for those sharing these overbuffered links.</p>=0A<p style=3D"margin:0;pad=
+ding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">&nb=
+sp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10p=
+t; overflow-wrap: break-word;">Basically, the buffering in the link should =
+be in the network is one max Ethernet packet per active flow. No more. And =
+even packet per source is already inside a typical (not cut-through) ethern=
+et switch. Competing flows from the same source will block happily because =
+Ethernet hardware doesn't admit another packet until the packet has been fo=
+rwarded, so any buffering related to the end-machine applications is in the=
+ RAM of the end machine.</p>=0A<p style=3D"margin:0;padding:0;font-family: =
+arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=
+=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: =
+break-word;">On Wednesday, October 12, 2022 1:39pm, "Bob McMahon via Cake" =
+&lt;cake@lists.bufferbloat.net&gt; said:<br /><br /></p>=0A<div id=3D"SafeS=
+tyles1665609470">=0A<div dir=3D"ltr">With full respect to open source&nbsp;=
+projects like OpenWRT, I think from an energy, performance &amp; going forw=
+ard perspective the AP forwarding plane will be realized by "transistor eng=
+ineers." This makes the awareness around bloat by network engineers needed =
+even more because those design cycles take awhile. A <a href=3D"https://any=
+silicon.com/tapeout/">tape out</a> is very different from a sw compile. The=
+ driving force for ASIC &amp; CMOS radio features typically will come from =
+IAPs or enterprise customers, mostly per revenues adds&nbsp;to their busine=
+sses. Customer complaints are years down the road from such design decision=
+s so bloat mitigation or elimination needs to be designed in from the get-g=
+o.<br /><br />Bob<br /><br />PS. As&nbsp;a side note, data center switch ar=
+chitecture addressed latency &amp; bloat with&nbsp;<a href=3D"https://www.c=
+isco.com/c/en/us/products/collateral/switches/nexus-9000-series-switches/wh=
+ite-paper-c11-738488.html">things like AFD &amp; DPP</a>&nbsp;as described =
+per a Cisco Nexus 9000. Notice their formula for queue size can be defined&=
+nbsp;by a math calculation. A challenge with WiFi is that the phy rates are=
+ dynamic and have a large range so such tables aren't so straightforward an=
+d C cannot be so simply defined. In many ways the data center architects ha=
+d an easier problem than we in the shared RF, battery powered, no waveguide=
+s, etc. have.<br /><br />=0A<blockquote style=3D"margin: 0 0 0 40px; border=
+: none; padding: 0px;">=0A<div>=0A<p class=3D"gmail-pCMTBody" style=3D"marg=
+in:0;padding:0;margin: 1px 0em 0.5em; padding: 0px; border: 0px; font-varia=
+nt-numeric: normal; font-variant-east-asian: normal; font-stretch: inherit;=
+ font-size: 14px; line-height: 1.25; font-family: CiscoSans,Arial,sans-seri=
+f; vertical-align: baseline; color: #525252; text-align: justify; overflow:=
+ visible; break-before: page;"><span style=3D"margin: 0px; padding: 0px; bo=
+rder: 0px; font-style: inherit; font-variant: inherit; font-weight: inherit=
+; font-stretch: inherit; font-size: 9pt; line-height: inherit; font-family:=
+ Arial,'sans-serif'; vertical-align: baseline; overflow: visible;">The need=
+ed buffer size is the bandwidth delay product value divided by the square r=
+oot of the number of flows:</span></p>=0A</div>=0A<div>=0A<p class=3D"gmail=
+-pBody" style=3D"margin:0;padding:0;margin: 5pt 0em 0.5em; padding: 0px; bo=
+rder: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; f=
+ont-stretch: inherit; font-size: 14px; line-height: 1.25; font-family: Cisc=
+oSans,Arial,sans-serif; vertical-align: baseline; color: #525252; overflow:=
+ visible;"><a class=3D"gmail-show-image-alone" style=3D"margin: 0px; paddin=
+g: 0px; border: 0px; font-style: inherit; font-variant: inherit; font-stret=
+ch: inherit; line-height: inherit; vertical-align: baseline; color: #005073=
+; overflow: visible; word-break: break-word;" title=3D"white-paper-c11-7384=
+88_16.jpg" href=3D"https://www.cisco.com/c/dam/en/us/products/collateral/sw=
+itches/nexus-9000-series-switches/white-paper-c11-738488.docx/_jcr_content/=
+renditions/white-paper-c11-738488_16.jpg"><img id=3D"gmail-Picture 46" styl=
+e=3D"margin: 0px; padding: 0px; border: 0px; font-style: inherit; font-vari=
+ant: inherit; font-weight: inherit; font-stretch: inherit; line-height: inh=
+erit; vertical-align: baseline; overflow: visible; max-width: 98%;" src=3D"=
+https://www.cisco.com/c/dam/en/us/products/collateral/switches/nexus-9000-s=
+eries-switches/white-paper-c11-738488.docx/_jcr_content/renditions/white-pa=
+per-c11-738488_16.jpg" border=3D"0" alt=3D"white-paper-c11-738488_16.jpg" w=
+idth=3D"192" height=3D"40" /></a></p>=0A</div>=0A<div>=0A<p class=3D"gmail-=
+pBody" style=3D"margin:0;padding:0;margin: 1px 0em 0.5em; padding: 0px; bor=
+der: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; fo=
+nt-stretch: inherit; font-size: 14px; line-height: 1.25; font-family: Cisco=
+Sans,Arial,sans-serif; vertical-align: baseline; color: #525252; overflow: =
+visible;">Here, C is the link bandwidth, RTT is round-trip time, and N is t=
+he number of long-lived flows (see reference 6 at the end of this document)=
+.</p>=0A</div>=0A<div>=0A<p class=3D"gmail-pBody" style=3D"margin:0;padding=
+:0;margin: 1px 0em 0.5em; padding: 0px; border: 0px; font-variant-numeric: =
+normal; font-variant-east-asian: normal; font-stretch: inherit; font-size: =
+14px; line-height: 1.25; font-family: CiscoSans,Arial,sans-serif; vertical-=
+align: baseline; color: #525252; overflow: visible;">Using an average RTT o=
+f 100 microseconds in a data center network, Figure 11 shows the buffer siz=
+e for different link speeds and various numbers of flows. Note that the buf=
+fer size decreases rapidly as the number of flows increases. For instance, =
+on a 100-Gbps link with 2500 flows, only a 25-KB buffer is needed.</p>=0A<d=
+iv class=3D"gmail-pDefault" style=3D"margin: 12pt 0pt 6pt 0px; padding: 1px=
+ 0px 0px; border: 0px; font-variant-numeric: normal; font-variant-east-asia=
+n: normal; font-stretch: inherit; font-size: 14px; line-height: inherit; fo=
+nt-family: CiscoSans,Arial,sans-serif; vertical-align: baseline; overflow: =
+visible; color: #525252;"><span style=3D"margin: 0px; padding: 0px; border:=
+ 0px; font-style: inherit; font-variant: inherit; font-weight: bold; font-s=
+tretch: inherit; line-height: inherit; vertical-align: baseline; overflow: =
+visible;">Figure 11.&nbsp;&nbsp;<span style=3D"margin: 0px; padding: 0px; b=
+order: 0px; font-variant-numeric: normal; font-variant-east-asian: normal; =
+font-weight: normal; font-stretch: normal; font-size: 7pt; line-height: nor=
+mal; font-family: 'Times New Roman'; vertical-align: baseline; overflow: vi=
+sible;">&nbsp;&nbsp;</span></span>Buffer Sizing for Different Link Speeds a=
+nd Numbers of Flows</div>=0A<img src=3D"cid:@ii_l95wqjui1" alt=3D"image.png=
+">=0A<p class=3D"gmail-pBody" style=3D"margin:0;padding:0;margin: 1px 0em 0=
+.5em; padding: 0px; border: 0px; font-variant-numeric: normal; font-variant=
+-east-asian: normal; font-stretch: inherit; font-size: 14px; line-height: 1=
+.25; font-family: CiscoSans,Arial,sans-serif; vertical-align: baseline; col=
+or: #525252; overflow: visible;">&nbsp;</p>=0A</div>=0A</blockquote>=0A</di=
+v>=0A<br />=0A<div class=3D"gmail_quote">=0A<div class=3D"gmail_attr" dir=
+=3D"ltr">On Tue, Oct 11, 2022 at 3:24 PM Dave Taht &lt;<a href=3D"mailto:da=
+ve.taht@gmail.com">dave.taht@gmail.com</a>&gt; wrote:</div>=0A<blockquote c=
+lass=3D"gmail_quote" style=3D"margin: 0px 0px 0px 0.8ex; border-left: 1px s=
+olid #cccccc; padding-left: 1ex;">Well, we've all been yammering for many y=
+ears, and the message is<br /> getting through. Yes, at this point, changin=
+g the message to be more<br /> directed at engineers than users would help,=
+ and to this day, I don't<br /> know how to get to anyone in the<br /> C su=
+ite, except through the complaints of their kids. Jim got on this<br /> pro=
+blem because of his kids. The guy that did dslreports, also. "my"<br /> kid=
+s are<br /><br /> At the risk of burying the lede, our very own dave reed j=
+ust did a<br /> podcast on different stuff:<br /><a rel=3D"noreferrer" href=
+=3D"https://twit.tv/shows/floss-weekly/episodes/701?autostart=3Dfalse" targ=
+et=3D"_blank">https://twit.tv/shows/floss-weekly/episodes/701?autostart=3Df=
+alse</a><br /><br /> Sometimes my own (shared with most of you) motivations=
+ tend to leak<br /> through. I really encourage the independent growth of u=
+ser created and<br /> owned software, running on their own routers, and I'm=
+ very pleased to<br /> see the level of activity on the openwrt forums show=
+ing how healthy<br /> that part of our culture is. It would be a very diffe=
+rent world if<br /> we'd decided to settle for whatever an ISP was willing =
+to give us, and<br /> for things as they were, and I'm probably difficult t=
+o employ because<br /> of my<br /> fervent beliefs in anti-patenting, free =
+and open source, and the right<br /> to repair...<br /><br /> ... but I wou=
+ldn't have my world any other way. I might die broke, but<br /> I'll die fr=
+ee.<br /><br /> On Tue, Oct 11, 2022 at 11:44 AM Rich Brown via Rpm<br /> &=
+lt;<a href=3D"mailto:rpm@lists.bufferbloat.net" target=3D"_blank">rpm@lists=
+.bufferbloat.net</a>&gt; wrote:<br /> &gt;<br /> &gt;<br /> &gt;<br /> &gt;=
+<br /> &gt; On Oct 11, 2022, at 1:05 PM, Bob McMahon &lt;<a href=3D"mailto:=
+bob.mcmahon@broadcom.com" target=3D"_blank">bob.mcmahon@broadcom.com</a>&gt=
+; wrote:<br /> &gt;<br /> &gt; I agree that bufferbloat awareness is a good=
+ thing. The issue I have is the approach - ask consumers to "detect it" and=
+ replace a device with a new one, that may or may not, meet all the needs o=
+f the users.<br /> &gt;<br /> &gt;<br /> &gt; Better is that network engine=
+ers "design bloat out" from the beginning starting by properly sizing queue=
+s to service jitter, and for WiFi, to also enable aggregation techniques th=
+at minimize TXOP consumption.<br /> &gt;<br /> &gt;<br /> &gt; The Yes, but=
+... part of my answer emphasizes awareness. How are the network engineers g=
+oing to know it's worth the (minor) effort of creating properly-sized queue=
+s?<br /> &gt;<br /> &gt; There are two fronts to attack:<br /> &gt;<br /> &=
+gt; - Manufacturers - This video is a start on getting their customers to u=
+se these responsiveness test tools and call the support lines.<br /> &gt;<b=
+r /> &gt; - Hardware (especially router) reviewers - It kills me that there=
+ is radio silence whenever I ask a reviewer if they have ever measured late=
+ncy/responsiveness.&nbsp; (BTW: Has anyone heard from Ben Moskowitz from Co=
+nsumer Reports? We had a very encouraging phone call about a year ago, and =
+they were going to get back to us...)<br /> &gt;<br /> &gt; Rich<br /> &gt;=
+<br /> &gt;<br /> &gt; Bob<br /> &gt;<br /> &gt; On Tue, Oct 11, 2022 at 6:=
+57 AM Rich Brown &lt;<a href=3D"mailto:richb.hanover@gmail.com" target=3D"_=
+blank">richb.hanover@gmail.com</a>&gt; wrote:<br /> &gt;&gt;<br /> &gt;&gt;=
+<br /> &gt;&gt;<br /> &gt;&gt; On Oct 10, 2022, at 8:05 PM, Bob McMahon via=
+ Rpm &lt;<a href=3D"mailto:rpm@lists.bufferbloat.net" target=3D"_blank">rpm=
+@lists.bufferbloat.net</a>&gt; wrote:<br /> &gt;&gt;<br /> &gt;&gt; &gt; I =
+think conflating bufferbloat with latency misses the subtle point in that<b=
+r /> &gt;&gt; &gt; bufferbloat is a measurement in memory units more than a=
+ measurement in<br /> &gt;&gt; &gt; time units.<br /> &gt;&gt;<br /> &gt;&g=
+t;<br /> &gt;&gt; Yes, but... I am going to praise this video, even as I en=
+courage all the techies to be sure that they have the units correct.<br /> =
+&gt;&gt;<br /> &gt;&gt; I've been yammering about the evils of latency/exce=
+ss queueing for 10 years on my blog, in forums, etc. I have not achieved an=
+ywhere near the notoriety of this video (almost a third of a million views)=
+.<br /> &gt;&gt;<br /> &gt;&gt; I am delighted that there's an engaging, ma=
+ss-market Youtube video that makes the case that bufferbloat even exists.<b=
+r /> &gt;&gt;<br /> &gt;&gt; Rich<br /> &gt;<br /> &gt;<br /> &gt; This ele=
 ctronic communication and the information and any files transmitted with it=
 , or attached to it, are confidential and are intended solely for the use o=
 f the individual or entity to whom it is addressed and may contain informat=
@@ -536,15 +322,34 @@ tended recipient or the person responsible for delivering the e-mail to the=
 uting, dissemination, forwarding, printing, or copying of this e-mail is st=
 rictly prohibited. If you received this e-mail in error, please return the =
 e-mail to the sender, delete it from your computer, and destroy any printed=
- copy of it.</font></span>
---000000000000ddb75a05ead9e0c9--
-
---000000000000ddb75c05ead9e0ca
-Content-Type: image/png; name="image.png"
-Content-Disposition: inline; filename="image.png"
+ copy of it.<br /> &gt;<br /> &gt;<br /> &gt; _____________________________=
+__________________<br /> &gt; Rpm mailing list<br /> &gt; <a href=3D"mailto=
+:Rpm@lists.bufferbloat.net" target=3D"_blank">Rpm@lists.bufferbloat.net</a>=
+<br /> &gt; <a rel=3D"noreferrer" href=3D"https://lists.bufferbloat.net/lis=
+tinfo/rpm" target=3D"_blank">https://lists.bufferbloat.net/listinfo/rpm</a>=
+<br /><br /><br /><br /> -- <br /> This song goes out to all the folk that =
+thought Stadia would work:<br /><a rel=3D"noreferrer" href=3D"https://www.l=
+inkedin.com/posts/dtaht_the-mushroom-song-activity-6981366665607352320-FXtz=
+" target=3D"_blank">https://www.linkedin.com/posts/dtaht_the-mushroom-song-=
+activity-6981366665607352320-FXtz</a><br /> Dave T=C3=A4ht CEO, TekLibre, L=
+LC</blockquote>=0A</div>=0A<br /><span style=3D"background-color: #ffffff;"=
+><span style=3D"font-size: small;">This electronic communication and the in=
+formation and any files transmitted with it, or attached to it, are confide=
+ntial and are intended solely for the use of the individual or entity to wh=
+om it is addressed and may contain information that is confidential, legall=
+y privileged, protected by privacy laws, or otherwise restricted from discl=
+osure to anyone else. If you are not the intended recipient or the person r=
+esponsible for delivering the e-mail to the intended recipient, you are her=
+eby notified that any use, copying, distributing, dissemination, forwarding=
+, printing, or copying of this e-mail is strictly prohibited. If you receiv=
+ed this e-mail in error, please return the e-mail to the sender, delete it =
+from your computer, and destroy any printed copy of it.</span></span></div>=
+</font>
+------=_20221012174419000000_76352
+Content-Type: image/png;name="img-1.png"
 Content-Transfer-Encoding: base64
-Content-ID: <ii_l95wqjui1>
-X-Attachment-Id: ii_l95wqjui1
+Content-ID: <@ii_l95wqjui1>
+Content-Disposition: inline; filename="img-1.png"
 
 iVBORw0KGgoAAAANSUhEUgAAAVAAAAC4CAIAAAA66iPVAAABXWlDQ1BJQ0MgUHJvZmlsZQAAKJFt
 kL1LA0EQxV80EpTgB2gjEa6IIBpFLgathBhBBIsjUfCjumxiIlwu696J+j/YKlgIFlZWFmmMjWBj
@@ -1755,9 +1560,7 @@ DAyKhl/Lirohuipe0RftY3TY/nlZqI/6OeDEBBJk44AY3AE3Uw6Ewc+jrorydpOxWcVB1837hyd4
 FvAMChTEwDGDMkYHtUgvVA/b2iMjeAiDHkcIAUTOYU4ArdnSQbjY7JX/hGcHdd9BIEDhmmBEZpFI
 +8K/KMQuufxTaOBBMMCYQB1gBnv0ie4B+0x+0PlBffJP4TqtAGxaxDdoRutknley/T8F8CwYDotv
 tIIhY74E05AuoSnQj2bapTCr8Fc4+f8A750S1nfy9GIAAAAASUVORK5CYII=
---000000000000ddb75c05ead9e0ca--
-
---===============7171342837882844463==
+------=_20221012174419000000_76352
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -1767,4 +1570,6 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============7171342837882844463==--
+------=_20221012174419000000_76352--
+
+
