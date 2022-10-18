@@ -2,70 +2,81 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id DE47760314A
-	for <lists+cake@lfdr.de>; Tue, 18 Oct 2022 19:03:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 78F086031FD
+	for <lists+cake@lfdr.de>; Tue, 18 Oct 2022 20:08:04 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 8D4123CB39;
-	Tue, 18 Oct 2022 13:03:37 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id DF3E43CB47;
+	Tue, 18 Oct 2022 14:07:56 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1666112617;
-	bh=ZBW16q4/A2AYU/hV3hlUsTYIlGRezMnksSzICwQ4nDQ=;
-	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1666116476;
+	bh=EJNVpJ/+oYoRTx5KmjAaZ0gf0G9857grZ40QHAYeJK8=;
+	h=Date:To:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=FzOuqMdjtMON/BA8OtZT5ZwUdQlWlDjPSGny3r4dlUj9KrbGTF4cuJD7vnZ1YEE3X
-	 g1gfOmnzCmgk+bKw4ncpaU3fnYMVQyIqNB5KDkHkSFUoE6UA+IajDJnAfiq7U+dol1
-	 Ocfxbn8P6HIlaDrTCopt+KvKbQ/dzm5d6uHCAjitE//ClR2Ir1vxcKSM07tphL8uSd
-	 UgGfY1r8TGeaJNGXC0vxiLpKX9KqKryXpRFN4kmvfXPVdDc5R4U0rgdXAPL14YqVRv
-	 0F/B+vhtbnqG6B80ao9/SOFf8lz+KNsmdC31UOLyIVyZZn7MuxdUknbh8/ER1Nv7nH
-	 fuuZqGvApc3wg==
+	b=Vkl1HoP7yI7OQ8aVTVNbLdlTPhKqm20WoLpwP+5UHz/WCP+GRZ2h1HM0UW7/Zi++s
+	 R+sVF+Kmv6MnMNRE87LBsB8wrNyVl+Ym6xMVJWvhydnWEx67yeYObwgTaL9shacqhi
+	 2EOgEzaD3yEPpBPQww35IF//xS3ifd39KcTRT5/XHpWwJEmhBt103nw5RjZPrrgjHr
+	 zjhhEpV0/75D2OAs/vwksYYW/3fgP9jgk+OfbSb3PUXq1iGu+xix2VWWUvu295P6Mz
+	 eGGrRmPJhTrmZoWJacpZZ18gKa69iw1MXUvYnIEmtrXnGiK27j5wDmsJuibRbXRnTW
+	 X5TXgarj5MN5w==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x12a.google.com (mail-lf1-x12a.google.com
- [IPv6:2a00:1450:4864:20::12a])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 6BE5B3CB39
- for <cake@lists.bufferbloat.net>; Tue, 18 Oct 2022 13:03:36 -0400 (EDT)
-Received: by mail-lf1-x12a.google.com with SMTP id g1so23624923lfu.12
- for <cake@lists.bufferbloat.net>; Tue, 18 Oct 2022 10:03:36 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:from:to:cc:subject:date:message-id:reply-to;
- bh=cmZmaPeNyV4VLRDBix3Fw5BirUSq3UlGzvkqGyv0lv0=;
- b=PBOk/OZatltiWUegUZF2KZpuloyyZB7QNFd0sF5PswIHyKmdjQn3u1bZ+IzDoaDT7C
- QUu50FQmIhYaEGe47dBkR3fMGdyOcUEvyJkjPPTLnNwYsz9Qi1pvwiEuGDtwmbG/1JBn
- +OaqnjC4EC1IFN3Njhi/59mp6Hul+vxmr+mck=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20210112;
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=cmZmaPeNyV4VLRDBix3Fw5BirUSq3UlGzvkqGyv0lv0=;
- b=AeJ9+P4ieZk9dWnQaiNg+wK9jmxVcLiW5l6rbKxTWNtiMiSvYPMQN8/5SS4AFXriR7
- F13+ll9M215BVaKWSWckf+ZM8z1pLZVyKA6kQy37Hq3X8Hcoa3jC7kTEnL+d799VNwKg
- zPuY39Uk8/hrHFuTRjIm1ZtA/r4p87l9gICtGKAOxxmugeE/UEysu2ahuVX8LNW2ox11
- zG1xPBRWRNBxXdCmZbiHdqTJ3Gqx2t/8Fr3GryLEDTB8VyTGCcJosPPpVZ4Dm3wKhP1y
- chntUY23rHHr3ZjEyiICX6Zrb30ZNp7tYqySWTc/CrmFrsgkivdN/Hgmv//oDuKUkPFr
- kEZg==
-X-Gm-Message-State: ACrzQf2udJEqLJv6LT9erwHZDjofpqFZfRvEV7Jxkk9dYE7F+9IwFdSV
- cN3vhPYrShHV/gDhVMUnasbyhy2i9AVq8LWUub7Ar+hxwt3mho4nDX9tGdKZ/j9GZeu0hVg2dmA
- Hbtk/yEAyw58gY0jh9UDHGBhBzoxu
-X-Google-Smtp-Source: AMsMyM6ydoUMvIPzf1JU0Il95ia1EiYhyX1oTcXc4GkAaNIdOGrIecMsdJbxDXfEV7jXnC0QmhuWwVBc1kdYAO1gZzA=
-X-Received: by 2002:a05:6512:533:b0:4a2:f36:bba5 with SMTP id
- o19-20020a056512053300b004a20f36bba5mr1287896lfc.224.1666112614871; Tue, 18
- Oct 2022 10:03:34 -0700 (PDT)
-MIME-Version: 1.0
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 670B53B29E;
+ Tue, 18 Oct 2022 14:07:55 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
+ s=badeba3b8450; t=1666116461;
+ bh=taqeBvt73pRYOXtTqZBFxS8s/fZssAY3W4XBy4+71+c=;
+ h=X-UI-Sender-Class:Date:From:To:CC:Subject:In-Reply-To:References;
+ b=KwgIIBaPZr06QhuWKO7gnkgCdOb6CGMiFwXVKR7SMKsBWCrr6UMgPRr4L7kmIEyzv
+ PPq7+rWIHaMTloxHzbHtC602IYswqHozE3XlSQGWXzMDmf2vqBFxUKgDvNDLh5439p
+ uMVGMB1L9REZvHUdcfH5ISi5q14diYClpWEwymvM=
+X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
+Received: from [127.0.0.1] ([79.234.22.28]) by mail.gmx.net (mrgmx104
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1M89L1-1oozap1MaB-005I3i; Tue, 18
+ Oct 2022 20:07:41 +0200
+Date: Tue, 18 Oct 2022 20:07:19 +0200
+To: Stuart Cheshire <cheshire@apple.com>,
+ Stuart Cheshire via Bloat <bloat@lists.bufferbloat.net>,
+ =?ISO-8859-1?Q?Dave_T=E4ht?= <dave.taht@gmail.com>
+User-Agent: K-9 Mail for Android
+In-Reply-To: <938D9D45-DADA-4291-BD8A-84E4257CEE49@apple.com>
 References: <CAA93jw77h=ztEOzyADriH2PnswUDQiyNvBdsuFi+K5EexpoxUQ@mail.gmail.com>
  <938D9D45-DADA-4291-BD8A-84E4257CEE49@apple.com>
- <CAA93jw4KOkgdfT2LunCtPYPjXL+=OtTrouJgPjM7U1bHKtErnw@mail.gmail.com>
- <6710sq51-1151-s739-qq87-0r5264qrs9q8@ynat.uz>
-In-Reply-To: <6710sq51-1151-s739-qq87-0r5264qrs9q8@ynat.uz>
-Date: Tue, 18 Oct 2022 10:03:21 -0700
-Message-ID: <CAHb6LvoUr9cqzKQo0K-9BUJLepiWSHvWuEna3sOfF1oXk-yquw@mail.gmail.com>
-To: David Lang <david@lang.hm>
-Subject: Re: [Cake] [Make-wifi-fast] [Bloat] The most wonderful video ever
-	about bufferbloat
+Message-ID: <D7F57F8D-FE52-4B6B-9048-6D0F4DCA076E@gmx.de>
+MIME-Version: 1.0
+X-Provags-ID: V03:K1:SoiUufa/1xz5KVi1yovAgJtv/qIeGQd02QwpnqsibOvaUnLQQXt
+ 8AbXor/8jfN+jZ+9CRGOMzzcCQ+EgbUdjPj8L1K3NEZDi/3cB3de3Nox6jxy0d/jQEneF3I
+ y15L3gx0efRmF15zuiNzvUyQF5ojwdk8AV1Bs2pxDYqiYreQkF7bKuqXxGuiAsx0AzPyyJw
+ T3LkI1CWwdJTgstUHJ5wA==
+X-Spam-Flag: NO
+X-UI-Out-Filterresults: notjunk:1;V03:K0:1T3AmEx6hW8=:P9spaqK2cmj4EbxUbdeccM
+ JIy52ohLmWCCJZCAn7OqLTPOEWQDa8CdQAi3ytAd/MVykYaWqS2kZT8lEhlNhklIm1onojCw0
+ lAWJJTdI2XmDR2Mka+Qcn5GTdbxU5A64fcfREc52Ii5VXmovYFsQrvkFQ1iibWZSoQRuF0NPW
+ 43p5wEYTXX8lu/ARvypgPc7f7I5lLfRb8p3J/UHgkItmH6hnZMwAP+QjnxsLqiX7quzLenI5x
+ lm07EUWgYZ+IGTCwiJZlp+nWRMY77FpQ1l0k44JmxX26SAKqrsNYOIJ1U+Tfh3vrtJv3LJh9H
+ D1XZp9wzTWs4XbY7i7JJbh1c9jlzZEh4KAjSCiKyirjvSy9rVydpLo4VLY6Ircnj5pRg/G1Ms
+ D030Wz+IVSFVN9zBfDVZ3DemxVGKPfievX+18W+H/+4Pv7Ux5Eqzcxj5BOzRpDfw0QDI7Hy94
+ zDV7okKJFH4W0xo4me9b/qk5yHp8ERtHCBu45JNVZqZIIvkqZNDTqcxVjri3jHTzfPx8RzoQ4
+ HpT/Xt/jog48G7KsOmSdXU3rYwayX8auERT3ivPWS1EexQZiRGVB24fN1oJkvKRLbEGAerLjq
+ Lp87mbVLRqfJhlMjXzq8bJrCugb36dzkASF34gA/jvJcC/Uj41aDBVYSXZjmFJh9e/Xh2HR4O
+ rELw5AjA4anWbE+XkBPq716jnP5DzRDiqPt7zPvW52L7kCYejvWEqNHLGb1dNkm/2+KLVGq63
+ OUuTLqiCa67V1RSfQAKVnQuj+uHHyAn/JnmNiL2pEATclxLQs6L4v5AoUsl3I4XyEivdb6HcK
+ qxRMBOOnuqSSr1CXbjconDnmqcZaWeyuV1xnkgd5TitgOTPZkhpkoAWgeF3er0nEtTtZqtoie
+ 2pWvW/p49Mdbz8BX8ebXcJbYOtT/CliOf1cJJREDJhWufUq16GqTo+emzumzILzDZiM2/VkNW
+ Snb8R+2BSsxeA09vG7JWXJEnTLtzJEJMMFhMpxpPFR6aD4TT5ewe9l3lEbHbL6iJhnnZR53wb
+ SuG8O4+H/vH2YLv/N+uCUU6JK9GEWRGJAkAzlQq7XseXxLEQCzYOo7ktAiG1cgtIe9GWFGZVO
+ 7lj6OYIv22xNwH/JV75JIuNVF0rfVE+vmMQjToqd0bk5bYEQKjZdgGP+ctcVDk8q6JbOo+TC8
+ YIeH/aPbh+lzU2lIKwQFK/kCnOYtXnqHOcGo14CpdYHV//87BCerUwajx/kFCQnS4NbRxJ9ZS
+ L/Rrz5tpmPJxR8gc+PhqAK0aVne681ssb6jdbNnu2N4YYzqy6GofBLb13eo7PktfEwJZ0JctX
+ NPf8kNlWY7oK3/fsWgHvwcWVhE1TzHFnSCkDPckrzeHyfy/bQIhmmZRcfeHtIvzc8EFrsnSv+
+ 7CichxD6X1qfc7+xENHT9ZirsZB+ZE/QnOXcBqw29Pv+AYcLBeggg3g52nr/ie9/4VJkjFiYM
+ OgnSHmMxVFvp2QqL1SjYmyJetymqSdzk2arIFd/dOitqXiwYBLAwCIMbVBgGTIf046GmO+KMr
+ EYb7X2njJQzWAZqEIAHmR6My1mI7cRL8KDEescFvXCGLV
+Subject: Re: [Cake] [Bloat] [Make-wifi-fast] The most wonderful video ever
+	about	bufferbloat
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -77,203 +88,85 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
-Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
-Cc: Rpm <rpm@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
+From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
+Reply-To: Sebastian Moeller <moeller0@gmx.de>
+Cc: Rpm <rpm@lists.bufferbloat.net>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============5646182227713089332=="
+ Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============5646182227713089332==
-Content-Type: multipart/alternative; boundary="00000000000090d96205eb521240"
-
---00000000000090d96205eb521240
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-I agree with Stuart that there is no reason for shared lines in the first
-place. It seems like a design flaw to have a common queue that congests in
-a way that impacts the one transmit unit as the atomic forwarding plane
-unit.  The goal of virtual output queueing
-<https://en.wikipedia.org/wiki/Virtual_output_queueing> is to eliminate
-head of line blocking, every egress transmit unit gets its own cashier with
-no competition.  The VOQ queue depths should support one transmit unit and
-any jitter through the switching subsystem - jitter for the case of
-non-bloat and where a faster VOQ service rate can drain the VOQ.  If the
-VOQ can't be drained per a faster service rate, then it's just one
-transmit unit as the queue is now just a standing queue w/delay and no
-benefit.
-
-Many network engineers typically, though incorrectly, perceive a transmit
-unit as one ethernet packet. With WiFi it's one Mu transmission or one Su
-transmission, with aggregation(s), which is a lot more than one ethernet
-packet but it depends on things like MCS, spatial stream powers, Mu peers,
-etc. and is variable. Some data center designs have optimized the
-forwarding plane for flow completion times so their equivalent transmit
-unit is a mouse flow.
-
-I perceive applying AQM to shared queue congestion as a mitigation
-technique to a poorly designed forwarding plane. The hope is that
-transistor engineers don't do this and "design out the lines" from the
-beginning. Better switching engineering vs queue management applied
-afterwards as a mitigation technique.
-
-Bob
-
-On Mon, Oct 17, 2022 at 7:58 PM David Lang via Make-wifi-fast <
-make-wifi-fast@lists.bufferbloat.net> wrote:
-
-> On Mon, 17 Oct 2022, Dave Taht via Bloat wrote:
->
-> > On Mon, Oct 17, 2022 at 5:02 PM Stuart Cheshire <cheshire@apple.com>
-> wrote:
-> >>
-> >> On 9 Oct 2022, at 06:14, Dave Taht via Make-wifi-fast <
-> make-wifi-fast@lists.bufferbloat.net> wrote:
-> >>
-> >> > This was so massively well done, I cried. Does anyone know how to ge=
-t
-> in touch with the ifxit folk?
-> >> >
-> >> > https://www.youtube.com/watch?v=3DUICh3ScfNWI
-> >>
-> >> I=E2=80=99m surprised that you liked this video. It seems to me that i=
-t repeats
-> all the standard misinformation. The analogy they use is the standard
-> terrible example of waiting in a long line at a grocery store, and the
-> =E2=80=9Csolution=E2=80=9D is letting certain traffic =E2=80=9Cjump the l=
-ine, angering everyone
-> behind them=E2=80=9D.
-> >
-> > Accuracy be damned. The analogy to common experience resonates more.
->
-> actually, fair queueing is more like the '15 items or less' lanes to spee=
-d
-> through the people doing simple things rather than having them wait behin=
-d
-> the
-> mother of 7 doing their monthly shopping.
->
-> David Lang_______________________________________________
-> Make-wifi-fast mailing list
-> Make-wifi-fast@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/make-wifi-fast
-
---=20
-This electronic communication and the information and any files transmitted=
-=20
-with it, or attached to it, are confidential and are intended solely for=20
-the use of the individual or entity to whom it is addressed and may contain=
-=20
-information that is confidential, legally privileged, protected by privacy=
-=20
-laws, or otherwise restricted from disclosure to anyone else. If you are=20
-not the intended recipient or the person responsible for delivering the=20
-e-mail to the intended recipient, you are hereby notified that any use,=20
-copying, distributing, dissemination, forwarding, printing, or copying of=
-=20
-this e-mail is strictly prohibited. If you received this e-mail in error,=
-=20
-please return the e-mail to the sender, delete it from your computer, and=
-=20
-destroy any printed copy of it.
-
---00000000000090d96205eb521240
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr">I agree with Stuart that there is no reason for shared lin=
-es in the first place. It seems like a design flaw to have a common queue t=
-hat congests in a way that impacts the one transmit unit as the atomic forw=
-arding plane unit.=C2=A0=C2=A0The goal of=C2=A0<a href=3D"https://en.wikipe=
-dia.org/wiki/Virtual_output_queueing">virtual output queueing</a>=C2=A0is t=
-o eliminate head of line blocking, every egress transmit unit gets its own =
-cashier with no competition.=C2=A0 The VOQ queue depths should support one =
-transmit unit and any jitter through the switching subsystem - jitter for t=
-he case of non-bloat and where a faster=C2=A0VOQ service rate can drain the=
- VOQ.=C2=A0 If the VOQ can&#39;t be drained per a faster service rate, then=
- it&#39;s just one transmit=C2=A0unit as the queue is now just a standing q=
-ueue w/delay and no benefit.<br><br>Many network engineers typically, thoug=
-h incorrectly, perceive a transmit unit as one ethernet packet. With WiFi i=
-t&#39;s one Mu transmission or one Su transmission, with aggregation(s), wh=
-ich is a lot more than one ethernet packet but it depends on things like MC=
-S, spatial stream powers, Mu peers, etc. and is variable. Some data center =
-designs have optimized the forwarding plane for flow completion times so th=
-eir equivalent transmit unit is a mouse flow.<br><br>I perceive applying AQ=
-M to shared queue congestion as a mitigation technique to a poorly designed=
- forwarding plane. The hope is that transistor engineers don&#39;t do this =
-and &quot;design out the lines&quot; from the beginning. Better switching e=
-ngineering vs queue=C2=A0management applied afterwards as a mitigation tech=
-nique.<br><br>Bob</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" clas=
-s=3D"gmail_attr">On Mon, Oct 17, 2022 at 7:58 PM David Lang via Make-wifi-f=
-ast &lt;<a href=3D"mailto:make-wifi-fast@lists.bufferbloat.net">make-wifi-f=
-ast@lists.bufferbloat.net</a>&gt; wrote:<br></div><blockquote class=3D"gmai=
-l_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,20=
-4,204);padding-left:1ex">On Mon, 17 Oct 2022, Dave Taht via Bloat wrote:<br=
->
-<br>
-&gt; On Mon, Oct 17, 2022 at 5:02 PM Stuart Cheshire &lt;<a href=3D"mailto:=
-cheshire@apple.com" target=3D"_blank">cheshire@apple.com</a>&gt; wrote:<br>
-&gt;&gt;<br>
-&gt;&gt; On 9 Oct 2022, at 06:14, Dave Taht via Make-wifi-fast &lt;<a href=
-=3D"mailto:make-wifi-fast@lists.bufferbloat.net" target=3D"_blank">make-wif=
-i-fast@lists.bufferbloat.net</a>&gt; wrote:<br>
-&gt;&gt;<br>
-&gt;&gt; &gt; This was so massively well done, I cried. Does anyone know ho=
-w to get in touch with the ifxit folk?<br>
-&gt;&gt; &gt;<br>
-&gt;&gt; &gt; <a href=3D"https://www.youtube.com/watch?v=3DUICh3ScfNWI" rel=
-=3D"noreferrer" target=3D"_blank">https://www.youtube.com/watch?v=3DUICh3Sc=
-fNWI</a><br>
-&gt;&gt;<br>
-&gt;&gt; I=E2=80=99m surprised that you liked this video. It seems to me th=
-at it repeats all the standard misinformation. The analogy they use is the =
-standard terrible example of waiting in a long line at a grocery store, and=
- the =E2=80=9Csolution=E2=80=9D is letting certain traffic =E2=80=9Cjump th=
-e line, angering everyone behind them=E2=80=9D.<br>
-&gt;<br>
-&gt; Accuracy be damned. The analogy to common experience resonates more.<b=
-r>
-<br>
-actually, fair queueing is more like the &#39;15 items or less&#39; lanes t=
-o speed <br>
-through the people doing simple things rather than having them wait behind =
-the <br>
-mother of 7 doing their monthly shopping.<br>
-<br>
-David Lang_______________________________________________<br>
-Make-wifi-fast mailing list<br>
-<a href=3D"mailto:Make-wifi-fast@lists.bufferbloat.net" target=3D"_blank">M=
-ake-wifi-fast@lists.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/make-wifi-fast" rel=3D"no=
-referrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/make-wif=
-i-fast</a></blockquote></div>
-
-<br>
-<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
-ctronic communication and the information and any files transmitted with it=
-, or attached to it, are confidential and are intended solely for the use o=
-f the individual or entity to whom it is addressed and may contain informat=
-ion that is confidential, legally privileged, protected by privacy laws, or=
- otherwise restricted from disclosure to anyone else. If you are not the in=
-tended recipient or the person responsible for delivering the e-mail to the=
- intended recipient, you are hereby notified that any use, copying, distrib=
-uting, dissemination, forwarding, printing, or copying of this e-mail is st=
-rictly prohibited. If you received this e-mail in error, please return the =
-e-mail to the sender, delete it from your computer, and destroy any printed=
- copy of it.</font></span>
---00000000000090d96205eb521240--
-
---===============5646182227713089332==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============5646182227713089332==--
+SGkgU3R1YXJ0LAoKT24gMTggT2N0b2JlciAyMDIyIDAyOjAyOjAxIENFU1QsIFN0dWFydCBDaGVz
+aGlyZSB2aWEgQmxvYXQgPGJsb2F0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4gd3JvdGU6Cj5PbiA5
+IE9jdCAyMDIyLCBhdCAwNjoxNCwgRGF2ZSBUYWh0IHZpYSBNYWtlLXdpZmktZmFzdCA8bWFrZS13
+aWZpLWZhc3RAbGlzdHMuYnVmZmVyYmxvYXQubmV0PiB3cm90ZToKPgo+PiBUaGlzIHdhcyBzbyBt
+YXNzaXZlbHkgd2VsbCBkb25lLCBJIGNyaWVkLiBEb2VzIGFueW9uZSBrbm93IGhvdyB0byBnZXQg
+aW4gdG91Y2ggd2l0aCB0aGUgaWZ4aXQgZm9saz8KPj4gCj4+IGh0dHBzOi8vd3d3LnlvdXR1YmUu
+Y29tL3dhdGNoP3Y9VUlDaDNTY2ZOV0kKPgo+SeKAmW0gc3VycHJpc2VkIHRoYXQgeW91IGxpa2Vk
+IHRoaXMgdmlkZW8uIEl0IHNlZW1zIHRvIG1lIHRoYXQgaXQgcmVwZWF0cyBhbGwgdGhlIHN0YW5k
+YXJkIG1pc2luZm9ybWF0aW9uLiBUaGUgYW5hbG9neSB0aGV5IHVzZSBpcyB0aGUgc3RhbmRhcmQg
+dGVycmlibGUgZXhhbXBsZSBvZiB3YWl0aW5nIGluIGEgbG9uZyBsaW5lIGF0IGEgZ3JvY2VyeSBz
+dG9yZSwgYW5kIHRoZSDigJxzb2x1dGlvbuKAnSBpcyBsZXR0aW5nIGNlcnRhaW4gdHJhZmZpYyDi
+gJxqdW1wIHRoZSBsaW5lLCBhbmdlcmluZyBldmVyeW9uZSBiZWhpbmQgdGhlbeKAnS4KPgo+U29t
+ZSBxdW90ZXMgZnJvbSB0aGUgdmlkZW86Cj4KPj4gaXQgd291bGQgYmUgc28gbXVjaCBtb3JlIGVm
+ZmljaWVudCBmb3IgdGhlbSB0byBsZXQgeW91IHNraXAgdGhlIGxpbmUgYW5kIGp1c3QgY2hlY2sg
+b3V0LCBlc3BlY2lhbGx5IHNpbmNlIHlvdeKAmXJlIGluIGEgaHVycnksIGJ1dCB0aGV54oCZcmUg
+cnVkZWx5IHJlZnVzaW5nCj4KPj4gdG8gZ28gYmFjayB0byBvdXIgZ3JvY2VyeSBzdG9yZSBhbmFs
+b2d5IHRoaXMgd291bGQgYmUgbGlrZSBpZiBhIHdvcmtlciBzYXcgeW91IHN0YW5kaW5nIGF0IHRo
+ZSBiYWNrIC4uLiBhbmQgZWl0aGVyIGxldCB5b3Ugc2tpcCB0byB0aGUgZnJvbnQgb2YgdGhlIGxp
+bmUgb3Igb3BlbnMgdXAgYW4gZXhwcmVzcyBsYW5lIGp1c3QgZm9yIHlvdQo+Cj5UaGUgdmlkZW8g
+ZGVzY3JpYmVzIHRoZSBwcm9ibGVtIG9mIGJ1ZmZlcmJsb2F0LCBhbmQgdGhlbiBkZXNjcmliZXMg
+dGhlIHNhbWUgZmFpbGVkIHNvbHV0aW9uIHRoYXQgaGFzbuKAmXQgd29ya2VkIGZvciB0aGUgbGFz
+dCB0aHJlZSBkZWNhZGVzLiBEZXNjcmliaW5nIHRoZSBvYnZpb3VzIHNpbXBsZS1taW5kZWQgKHdy
+b25nKSBzb2x1dGlvbiB0aGF0IGFueSBub3JtYWwgcGVyc29uIHdvdWxkIHRoaW5rIG9mIGJhc2Vk
+IG9uIHRoZWlyIHBlcnNvbmFsIGh1bWFuIGV4cGVyaWVuY2Ugd2FpdGluZyBpbiBncm9jZXJ5IHN0
+b3JlcyBhbmQgYWlycG9ydHMsIGlzIG5vdCBkZXNjcmliaW5nIHRoZSBzb2x1dGlvbiB0byBidWZm
+ZXJibG9hdC4gVGhlIHNvbHV0aW9uIHRvIGJ1ZmZlcmJsb2F0IGlzIG5vdCB0aGF0IGlmIHlvdSBh
+cmUgcHJpdmlsZWdlZCB0aGVuIHlvdSBnZXQgdG8g4oCcc2tpcCB0byB0aGUgZnJvbnQgb2YgdGhl
+IGxpbmXigJ0uIFRoZSBzb2x1dGlvbiB0byBidWZmZXJibG9hdCBpcyB0aGF0IHRoZXJlIGlzIG5v
+IGxpbmUhCgoKW1NNXSBTaG9ydCBvZiBhbiBvcmFjbGUgYXQgYWxsIGVuZHBvaW50cyB0aGF0IHNl
+ZW1zIGFzIHdvcnRoeSBhIGdvYWwgYXMgaW1wb3NzaWJsZSB0byBhY2hpZXZlLiBJTUhPIHRoZSBl
+bmdpbmVlcmluZyBzaG91bGQgZm9jdXMgbW9yZSBvbiB0aGUgJ2Zhc3Rlc3QgcG9zc2libGUgd2l0
+aG91dCBhbnkgY29uZ2VzdGlvbicgdG8gYWNjZXB0YWJsZSBwZXJmb3JtYW5jZSAodGhyb3VnaHB1
+dCBhbmQgbGF0ZW5jeSkgaW4gZnVsbCBhbmQgbmVhciBzYXR1cmF0aW9uIGNvbmRpdGlvbnMuIFRo
+YXQgaXMgYXNzdW1lIHRoYXQsIGluIHNwaXRlIG9mIGJlc3QgZWZmb3J0cyB0byBhdm9pZCBhIGxp
+bmUgYnVpbGRpbmcsIHlvdSBuZWVkIHJvYnVzdCBhbmQgcmVsaWFibGUgbWVhbnMgdG8gZGVhbCB3
+aXRoIGxpbmVzIHRoYXQgd2lsbCBzb29uZXIgb3IgbGF0ZXIgYXBwZWFyLiAKCj4KPldpdGggZ3Jv
+Y2VyeSBzdG9yZXMgYW5kIGFpcnBvcnRzIHBlb3BsZeKAmXMgYXJyaXZhbHMgYXJlIGluZGVwZW5k
+ZW50IGFuZCBub3QgY29udHJvbGxlZC4gVGhlcmUgaXMgbm8gd2F5IGZvciBhIGdyb2Nlcnkgc3Rv
+cmUgb3IgYWlycG9ydCB0byBnZW5lcmF0ZSBiYWNrcHJlc3N1cmUgdG8gdGVsbCBwZW9wbGUgdG8g
+d2FpdCBhdCBob21lIHdoZW4gYSBxdWV1ZSBiZWdpbnMgdG8gZm9ybS4gVGhlIGtleSB0byBzb2x2
+aW5nIGJ1ZmZlcmJsb2F0IGlzIGdlbmVyYXRpbmcgdGltZWx5IGJhY2twcmVzc3VyZSB0byBwcmV2
+ZW50IHRoZSBxdWV1ZSBmb3JtaW5nIGluIHRoZSBmaXJzdCBwbGFjZSwgCgpbU01dIFNlZW1zIHNv
+bWV3aGF0IGhhcmQgZm9yIG15IHJvdXRlciBvbiB0aGUgYm90dGxlbmVjayB0byB0cmFuc21pdCBi
+YWNrcHJlc3N1cmUgdG8gdGhlIHNlbmRpbmcgYXBwbGljYXRpb25zIGluIGxlc3MgdGhhbiAxLzIg
+UlRUIGF0IGJlc3QsIGR1cmluZyB0aGF0IHRpbWUgc2VuZGluZyByYXRlIGFuZCBhY2NlcHRhYmxl
+IGNhcGFjaXR5IHNoYXJlIHdpbGwgbm90IGJlIG1hdGNoZWQuLi4uIEw0UyB0eXBlIHNpZ25hbGxp
+bmcgd2lsbCBvbmx5IHJlYWxseSBoZWxwIGlmIHRoZSBib3R0bGVuZWNrJ3MgcmF0ZSBmbHVjdHVh
+dGlvbiBpcyBvbiBhIHNsb3dlciB0aW1lZnJhbWUgdGhhbiB0aGUgc2lnbmFsaW5nIGRlbGF5LiBJ
+biBzaG9ydCBhaW1pbmcgZm9yIG5vL2xvdyBxdWV1ZSBpcyBmaW5lLCBidXQgYmV0dGVyIGNhcnJ5
+IGEgYmlnIHN0aWNrIGFzIHdlbGwgZm9yIHdoZW4gdGhlIHF1ZXVlIGJ1aWxkcyB1cC4KCgpub3Qg
+YWNjZXB0aW5nIGEgaHVnZSBxdWV1ZSBhbmQgdGhlbiBkZWNpZGluZyB3aG8gZGVzZXJ2ZXMgc3Bl
+Y2lhbCB0cmVhdG1lbnQgdG8gZ2V0IGJldHRlciBzZXJ2aWNlIHRoYW4gYWxsIHRoZSBvdGhlciBw
+ZW9ucyB3aG8gc3RpbGwgaGF2ZSB0byB3YWl0IGluIGEgbG9uZyBxdWV1ZSwganVzdCBsaWtlIGJl
+Zm9yZS4KCltTTV0gVGhpcyBpcyB3aGVyZSBhIGZsb3cgc2NoZWR1bGVyIGluIHByYWN0aXNlIGhl
+bHBzIGEgdG9uLi4uIGFzIGl0CmEpIGF2b2lkcyBzdGFydmluZyBpbmRpdmlkdWFsIGZsb3dzIGFz
+IHdlbGwgYXMgcG9zc2libGUgd2l0aCBtaW5pbWFsIGluZm9ybWF0aW9uCmIpIGl0IHRlbmRzIHRv
+IHJlc3RyaWN0IHRoZSBmYWxsLW91dCBvZiB1bmRlci1yZXNwb25zaXZlIGZsb3dzIHRvIHRob3Nl
+IGZsb3dzIHRoZW1zZWx2ZXMgKG9yIHRvIHRoZWlyIGhhc2ggYmlucykuCgpJbiBhIHNlbnNlIHRo
+aXMgaXMgdGhlIG9wcG9zaXRlIG9mIHNwZWNpYWwgdHJlYXRtZW50IGFzIGFsbCBmbG93cyBhcmUg
+dHJlYXRlZCB3aXRoIHRoZSBzYW1lIGdvYWwgaW4gbWluZC4uLi4KCkkgYW0gbm90IHJlYWxseSBq
+b3VzdGluZyBmb3IgdGhlIHZpZGVvIGhlcmUsIGJ1dCBJIHdhbnQgdG8gaGlnaGxpZ2h0IHRoYXQg
+YW55IHNob3J0IHN1bW1hcnkgb2YgYSBjb21wbGV4IHByb2JsZW0gd2lsbCBoYXZlIHRvIGdsb3Nz
+IG92ZXIgc29tZSBjb21wbGV4aXR5IChJIGV4cGVjdCB5b3UgZnVsbHkgdW5kZXJzdG9vZCB0aGUg
+cG9pbnRzIEkgbWFrZSBhYm92ZSwgYnV0IG9taXR0ZWQgZGlzY3Vzc2luZyB0aGVtIGZvciBicmV2
+aXR5KS4KClJlZ2FyZHMKICAgICAgICAgIFNlYmFzdGlhbgoKCj4KPlN0dWFydCBDaGVzaGlyZQo+
+Cj5fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+QmxvYXQg
+bWFpbGluZyBsaXN0Cj5CbG9hdEBsaXN0cy5idWZmZXJibG9hdC5uZXQKPmh0dHBzOi8vbGlzdHMu
+YnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Jsb2F0CgotLSAKU2VudCBmcm9tIG15IEFuZHJvaWQg
+ZGV2aWNlIHdpdGggSy05IE1haWwuIFBsZWFzZSBleGN1c2UgbXkgYnJldml0eS4KX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QK
+Q2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQv
+bGlzdGluZm8vY2FrZQo=
