@@ -2,46 +2,50 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 09792605203
-	for <lists+cake@lfdr.de>; Wed, 19 Oct 2022 23:33:36 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id BD6DD605215
+	for <lists+cake@lfdr.de>; Wed, 19 Oct 2022 23:37:49 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1ADE73CB48;
-	Wed, 19 Oct 2022 17:33:31 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 1449A3CB49;
+	Wed, 19 Oct 2022 17:37:45 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1666215211;
-	bh=CAd7jSVRF+uPUQ521GG8vAlwl7g/pHoDWe/Lw0XjD34=;
+	d=lists.bufferbloat.net; s=201610; t=1666215465;
+	bh=aE0PZ3A+0kKvRxZRTdwvMc+Pd25rhftuvvd5GQUchYU=;
 	h=Date:To:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=BV2uCzYNHuQNowsafPZo6gV2yHEcsdsqNyNN2HIywCnTyfxDTzyyA+RVa7MN42zCT
-	 2WgEy41iK0vsIOS/0CGAY+Ptg+4BPtQ/EO7bR9JqTzxRds9m2LiuWupXvezgnhCJ2R
-	 6DC9M/hIkw0eCba/Jkd+USeusigQ6JFihncoyjt72dYPx7wGsH9Hlv2iF2RWOh5p5q
-	 ngC6/qrMtCu8R5wJhc6z7ldLpuVgs58UH+b+K6a2deKo4u0k1l6W4u2q7McKNYxORx
-	 PUfrGbsa0uW51tsbr5SwSpYMp6C3lHqz3wj6rlxeuREs2NKPEfEJL8cnjqG8lk+QcS
-	 4RTjf1cD1YiLw==
+	b=UdrhOeecqv1WkZutMpk4gMIJeeaMeQSzqJuyplUbo8z//TE7aHMNR6Y4/I1474anN
+	 CAmWbepqM6d3HRsKBA80SdGN2PmjoOWWmJGtvLngFIAmR1Sec4VpwP4RCqP66rviNs
+	 n44Yha0gTXt+2v8/f1yQf3kHJzbGNMcfU9MLTMCKBIHJgCR28Ur2gQ0f8co9wwdhcE
+	 OudYoZRTJvK6EFvbsHGFv1M+N7J6YtumgPBOUYzO4B2VNjCgxd6TAXUCy+YdXNLbm8
+	 KyNolflBUlkTKyu5tSIQEY8XkDFYICoD/5hB/x7owzaT32DjNhHOwzguVY+ALuptKc
+	 jpm6E5LZQKWqQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
 Received: from mail.lang.hm (unknown [66.167.227.145])
  (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 0C45D3B29D;
- Wed, 19 Oct 2022 17:33:30 -0400 (EDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id A4F013B29D;
+ Wed, 19 Oct 2022 17:37:43 -0400 (EDT)
 Received: from dlang-mobile (unknown [10.2.2.70])
- by mail.lang.hm (Postfix) with ESMTP id DD7AA1513B8;
- Wed, 19 Oct 2022 14:33:28 -0700 (PDT)
-Date: Wed, 19 Oct 2022 14:33:28 -0700 (PDT)
-To: Stuart Cheshire <cheshire@apple.com>
-In-Reply-To: <BD3CEB48-E45E-49DB-AAFC-80C539BB4169@apple.com>
-Message-ID: <45so9803-49n7-q176-4or6-o188873243s0@ynat.uz>
+ by mail.lang.hm (Postfix) with ESMTP id D2F691513C0;
+ Wed, 19 Oct 2022 14:37:42 -0700 (PDT)
+Date: Wed, 19 Oct 2022 14:37:42 -0700 (PDT)
+To: "David P. Reed" <dpreed@deepplum.com>
+In-Reply-To: <1666214791.81584918@apps.rackspace.com>
+Message-ID: <308q0740-sro8-nn32-sn5o-337n631r86o0@ynat.uz>
 References: <CAA93jw77h=ztEOzyADriH2PnswUDQiyNvBdsuFi+K5EexpoxUQ@mail.gmail.com>
  <938D9D45-DADA-4291-BD8A-84E4257CEE49@apple.com>
  <CAA93jw4KOkgdfT2LunCtPYPjXL+=OtTrouJgPjM7U1bHKtErnw@mail.gmail.com>
- <BD3CEB48-E45E-49DB-AAFC-80C539BB4169@apple.com>
+ <6710sq51-1151-s739-qq87-0r5264qrs9q8@ynat.uz> 
+ <CAHb6LvoUr9cqzKQo0K-9BUJLepiWSHvWuEna3sOfF1oXk-yquw@mail.gmail.com>
+ <BBA547E7-7061-451D-8EA1-22C282E11234@gmx.de>
+ <6697ss38-s3nr-99n3-8q5o-p24q6q7923np@ynat.uz>
+ <CAHb6LvrXkayhCb1GjZMgaw155dZr0Orj_Q-SGhgo1P6bSA-M-Q@mail.gmail.com> 
+ <qss576pn-2r55-84s9-s5ro-750570702685@ynat.uz>
+ <1666214791.81584918@apps.rackspace.com>
 MIME-Version: 1.0
-Content-Type: multipart/mixed;
- boundary="228850167-1586617520-1666215208=:15285"
-Subject: Re: [Cake] [Bloat] [Make-wifi-fast] The most wonderful video ever
- about bufferbloat
+Subject: Re: [Cake] [Rpm] [Make-wifi-fast] [Bloat] The most wonderful video
+ ever about bufferbloat
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -55,94 +59,79 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 From: David Lang via Cake <cake@lists.bufferbloat.net>
 Reply-To: David Lang <david@lang.hm>
-Cc: Rpm <rpm@lists.bufferbloat.net>,
+Cc: Bob McMahon via Rpm <rpm@lists.bufferbloat.net>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
+ Bob McMahon <bob.mcmahon@broadcom.com>, Cake List <cake@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-  This message is in MIME format.  The first part should be readable text,
-  while the remaining parts are likely unreadable without MIME-aware tools.
-
---228850167-1586617520-1666215208=:15285
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Transfer-Encoding: 8BIT
-
-On Wed, 19 Oct 2022, Stuart Cheshire via Bloat wrote:
-
-> On Mon, Oct 17, 2022 at 5:02 PM Stuart Cheshire <cheshire@apple.com> wrote:
->
->> Accuracy be damned. The analogy to common experience resonates more.
->
-> I feel it is not an especially profound insight to observe that, “people don’t like waiting in line.” The conclusion, “therefore privileged people should get to go to the front,” describes an airport first class checkin counter, Disney Fastpass, and countless other analogies from everyday life, all of which are the wrong solution for packets in a network.
-
-the 'privileged go first' is traditional QoS, and it can work to some extent, 
-but is a nightmare to maintain and gets the wrong result most of the time.
-
-AQM (fw_codel and cake) are more the 'cash only line' and '15 items or less' 
-line, they speed up the things that can be fast a LOT, while not significantly 
-slowing down the people with a full baskets (but in the process, it shortens the 
-lines for those people with full baskets)
-
->> I think the person with the cheetos pulling out a gun and shooting everyone in front of him (AQM) would not go down well.
->
-> Which is why starting with a bad analogy (people waiting in a grocery store) inevitably leads to bad conclusions.
->
-> If we want to struggle to make the grocery store analogy work, perhaps we show 
-> people checking some grocery store app on their smartphone before they leave 
-> home, and if they see that a long line is beginning to form they wait until 
-> later, when the line is shorter. The challenge is not how to deal with a long 
-> queue when it’s there, it is how to avoid a long queue in the first place.
-
-only somewhat, you aren't going to have people deciding not to click on a link 
-because the network is busy, and if you did try to go that direction, I would 
-fight you. the prioritization is happening at a much lower level, which is hard 
-to put into an analogy
-
-even with the 'slowing' of bulk traffic, no traffic is prevented, it's just that 
-they aren't allowed to monopolize the links.
-
-This is where the grocery store analogy is weak, the reality would be more like 
-'the cashier will only process 30 items before you have to step aside and let 
-someone else in', but since no store operates that way, it would be a bad 
-analogy.
-
->> Actually that analogy is fairly close to fair queuing. The multiple checker analogy is one of the most common analogies in queue theory itself.
->
-> I disagree. You are describing the “FQ” part of FQ_CoDel. It’s the “CoDel” 
-> part of FQ_CoDel that solves bufferbloat. FQ has been around for a long time, 
-> and at best it partially masked the effects of bufferbloat. Having more queues 
-> does not solve bufferbloat. Managing the queue(s) better solves bufferbloat.
->
->> I like the idea of a guru floating above a grocery cart with a better string of explanations, explaining
->>
->>   - "no, grasshopper, the solution to bufferbloat is no line... at all".
->
-> That is the kind of thing I had in mind. Or a similar quote from The Matrix. 
-> While everyone is debating ways to live with long queues, the guru asks, “What 
-> if there were no queues?” That is the “mind blown” realization.
-
-In a world where there is no universal scheduler (and no universal knowlege to 
-base any scheduling decisions on), and where you are going to have malicious 
-actors trying to get more than their fair share, you can't rely on voluntary 
-actions to eliminate the lines.
-
-There are data transportation apps that work by starting up a large number of 
-connections in parallel for the highest transfer speeds (shortening slow start, 
-reducing the impact of lost packets as they only affect one connection, etc). 
-This isn't even malicious actors, but places like Hollywood studios sending 
-the raw movie footage around over dedicated leased lines and wanting to get 
-every bps of bandwidth that they are paying for used.
-
-David Lang
---228850167-1586617520-1666215208=:15285
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---228850167-1586617520-1666215208=:15285--
+VGhhbmtzLCBhbmQgaG93IGxvbmcgZG9lcyBpdCB0YWtlIHRvIHRyYW5zbWl0IHRoZSB3aWZpIGhl
+YWRlciAoYXQgMU1iL3MgYW5kIGF0IAoxMU1iL3MpPyBUaGF0J3MgYWxzbyBhaXJ0aW1lIHRoYXQn
+cyBub3QgYXZhaWxhbGJlIHRvIHRyYW5zbWl0IHVzZXIgZGF0YS4KCkFuZCB0aGVuIGNvbXBhcmUg
+dGhhdCB0byB0aGUgdGltZSBpdCB0YWtlcyB0byB0cmFuc21pdCBhIDE1MDAgYnl0ZSBldGhlcm5l
+dCAKcGFja2V0IHdvcnRoIG9mIGRhdGEgb3ZlciBhIDE2ME1IeiB3aWRlIGNoYW5uZWwKCkdvaW5n
+IGJhY2sgdG8gU00ncyBxdWVzdGlvbiwgdGhlcmUgaXMgcGVyLXRyYW5zbWlzc2lvbiBvdmVyaGVh
+ZCB0aGF0IHlvdSB3YW50IHRvIAphbWF0b3JpemUgYWNyb3NzIG11bHRpcGxlIGV0aGVybmV0IHBh
+Y2tldHMsIG5vdCBwYXkgZm9yIGVhY2ggcGFja2V0LgoKRGF2aWQgTGFuZwoKT24gV2VkLCAxOSBP
+Y3QgMjAyMiwgRGF2aWQgUC4gUmVlZCB3cm90ZToKCj4gNCBtaWNyb3NlY29uZHMhCj4gCj4gT24g
+V2VkbmVzZGF5LCBPY3RvYmVyIDE5LCAyMDIyIDM6MjNwbSwgIkRhdmlkIExhbmcgdmlhIENha2Ui
+IDxjYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4gc2FpZDoKPgo+Cj4KPj4geW91IGhhdmUgdG8g
+bGlzdGVuIGFuZCBoZWFyIG5vdGhpbmcgZm9yIHNvbWUgdGltZWZyYW1lIGJlZm9yZSB5b3UgdHJh
+bnNtaXQsIHRoYXQKPj4gbGlzdGVuaW5nIHRpbWUgaXMgZGVmaW5lIGluIHRoZSBzdGFuZGFyZC4g
+KGlzbid0IGl0Pz8pCj4+IAo+PiBEYXZpZCBMYW5nCj4+IAo+PiBPbiBXZWQsIDE5IE9jdCAyMDIy
+LCBCb2IgTWNNYWhvbiB3cm90ZToKPj4gCj4+ID4gSSdtIG5vdCBzdXJlIHdoZXJlIHRoZSBnYXAg
+aW4gbWlsbGlzZWNvbmRzIGlzIGNvbWluZyBmcm9tLiBFRENBIGdhcHMgYXJlCj4+ID4gbW9zdGx5
+IGRyaXZlbiBieSBwcm9iYWJpbGl0aWVzCj4+ID4gPGh0dHBzOi8vbGluay5zcHJpbmdlci5jb20v
+YXJ0aWNsZS8xMC4xMDA3L3MxMDI3MC0wMjAtMDA4MTctMj4uIElmCj4+ID4gZW5lcmd5IGRldGVj
+dCAoRUQpIGluZGljYXRlcyB0aGUgbWVkaXVtIGlzIGF2YWlsYWJsZSB0aGVuIHRoZSBnYXAgcHJp
+b3IgdG8KPj4gPiB0cmFuc21pdCwgYXNzdW1pbmcgbm8gb3RoZXJzIGNvbXBldGluZyAmIHdpbm5p
+bmcgYXQgdGhhdCBtb21lbnQgaW4gdGltZSwgaXMKPj4gPiBkcml2ZW4gYnkgQUlGUyBhbmQgdGhl
+IENXTUlOIC0gQ1dNQVggYmFjayBvZmZzIHdoaWNoIGFyZSBzaW1wbGUgcHJvYmFiaWxpdHkKPj4g
+PiBkaXN0cmlidXRpb25zLiBUaGluZ3MgY2hhbmdlIGEgYml0IHdpdGggODAyLjExYXggYW5kIHRy
+aWdnZXIgZnJhbWVzIGJ1dCB0aGUKPj4gPiBnYXAgaXMgc3RpbGwgZGV0ZXJtaW5lZCBieSB0aGUg
+YmFja29mZiBhbmQgc2hvdWxkIGJlIGxlc3MgdGhhbiBtaWxsaXNlY29uZHMKPj4gPiBwZXIgdGhh
+dC4gVGhpbmdzIGxpa2UgTkFWcyB3aWxsIGltcGFjdCB0aGUgZ2FwIHRvbyBidXQgdGhhdCBoYXBw
+ZW5zIHdoZW4KPj4gPiBhbm90aGVyIGlzIHRyYW5zbWl0dGluZy4KPj4gPgo+PiA+Cj4+ID4gW2lt
+YWdlOiBpbWFnZS5wbmddCj4+ID4KPj4gPiBBZ3JlZWQgdGhhdCB0aGUgUExDUCBwcmVhbWJsZSBp
+cyBhdCBsb3cgTUNTIGFuZCB0aGUgcGF5bG9hZCBjYW4gYmUgb3JkZXJzCj4+ID4gb2YgbWFnbml0
+dWRlIGdyZWF0ZXIgKHBlciBkaWZmZXJlbnQgUUFNIGVuY29kaW5ncyBhbmQgb3RoZXIgc2lnbmFs
+Cj4+ID4gcHJvY2Vzc2luZyB0ZWNobmlxdWVzLikKPj4gPgo+PiA+IEJvYgo+PiA+Cj4+ID4gT24g
+V2VkLCBPY3QgMTksIDIwMjIgYXQgMTI6MDkgQU0gRGF2aWQgTGFuZyA8ZGF2aWRAbGFuZy5obT4g
+d3JvdGU6Cj4+ID4KPj4gPj4gT24gVHVlLCAxOCBPY3QgMjAyMiwgU2ViYXN0aWFuIE1vZWxsZXIg
+d3JvdGU6Cj4+ID4+PiBIaSBCb2IsCj4+ID4+Pgo+PiA+Pj4+IE1hbnkgbmV0d29yayBlbmdpbmVl
+cnMgdHlwaWNhbGx5LCB0aG91Z2ggaW5jb3JyZWN0bHksIHBlcmNlaXZlIGEKPj4gPj4gdHJhbnNt
+aXQKPj4gPj4+PiB1bml0IGFzIG9uZSBldGhlcm5ldCBwYWNrZXQuIFdpdGggV2lGaSBpdCdzIG9u
+ZSBNdSB0cmFuc21pc3Npb24KPj4gb3Igb25lCj4+ID4+IFN1Cj4+ID4+Pj4gdHJhbnNtaXNzaW9u
+LCB3aXRoIGFnZ3JlZ2F0aW9uKHMpLCB3aGljaCBpcyBhIGxvdCBtb3JlIHRoYW4gb25lCj4+IGV0
+aGVybmV0Cj4+ID4+Pj4gcGFja2V0IGJ1dCBpdCBkZXBlbmRzIG9uIHRoaW5ncyBsaWtlIE1DUywg
+c3BhdGlhbCBzdHJlYW0gcG93ZXJzLAo+PiBNdQo+PiA+PiBwZWVycywKPj4gPj4+PiBldGMuIGFu
+ZCBpcyB2YXJpYWJsZS4gU29tZSBkYXRhIGNlbnRlciBkZXNpZ25zIGhhdmUgb3B0aW1pemVkIHRo
+ZQo+PiA+Pj4+IGZvcndhcmRpbmcgcGxhbmUgZm9yIGZsb3cgY29tcGxldGlvbiB0aW1lcyBzbyB0
+aGVpciBlcXVpdmFsZW50Cj4+IHRyYW5zbWl0Cj4+ID4+Pj4gdW5pdCBpcyBhIG1vdXNlIGZsb3cu
+Cj4+ID4+Pgo+PiA+Pj4gW1NNXSBJcyB0aGlzIGRyaXZlbiBtb3JlIGJ5IHRoZSBuZWVkIHRvIGFn
+Z3JlZ2F0ZSBwYWNrZXRzIHRvIGFtb3J0aXplCj4+ID4+IHNvbWUgY29zdCBvdmVyIGEgbGFyZ2Vy
+IHBheWxvYWQgb3IgdG8gcmVkdWNlIHRoZSBzY2hlZHVsaW5nIG92ZXJoZWFkIG9yCj4+IHRvCj4+
+ID4+IHJlZ3VsYXJpemUgdGhpbmdzIChhcyBpbiBmaXhlZCBzaXplIERUVXMgdXNlZCBpbiBEU0wg
+d2l0aCBHLklOUAo+PiA+PiByZXRyYW5zbWlzc2lvbnMpPwo+PiA+Pgo+PiA+PiBpdCdzIHRvIGFt
+b3J0aXplIGNvc3RzIG92ZXIgYSBsYXJnZXIgcGF5bG9hZC4KPj4gPj4KPj4gPj4gdGhlIGdhcCBi
+ZXR3ZWVuIHRyYW5zbWlzc2lvbnMgaXMgaW4gbXMsIGFuZCB0aGUgdHJhbnNtaXNzaW9uIGhlYWRl
+ciBpcwo+PiA+PiB0cmFuc21pdHRlZCBhdCBhIHNsb3cgZGF0YSByYXRlIChib3RoIGZvciBiYWNr
+d2FyZHMgY29tcGF0aWJpbGl0eSB3aXRoCj4+ID4+IG9sZGVyCj4+ID4+IGVxdWlwbWVudCB0aGF0
+IGRvZXNuJ3Qga25vdyBhYm91dCB0aGUgaGlnaGVyIGRhdGEgcmF0ZSBtb2R1bGF0aW9ucykKPj4g
+Pj4KPj4gPj4gRm9yIGEgbG9uZyB0aW1lLCB0aGUgdHJhbnNtaXNzaW9uIGhlYWRlciB3YXMgdHJh
+bnNtaXR0ZWQgYXQgMU1iICh3aGljaCBpcwo+PiA+PiBzdGlsbAo+PiA+PiB0aGUgZGVmYXVsdCBp
+biBtb3N0IGVxdWlwbWVudCksIGJ1dCB0aGVyZSBpcyBub3cgYW4gb3B0aW9uIHRvIG5vIGxvbmdl
+cgo+PiA+PiBzdXBwb3J0Cj4+ID4+IDgwMi4xMWIgZXF1aXBtZW50LCB3aGljaCByYWlzZXMgdGhl
+IGhlYWRlciB0cmFuc21pc3Npb24gdGltZSB0byAxMU1iLgo+PiA+Pgo+PiA+PiBUaGVzZSBmYWN0
+b3JzIGFyZSBzbyBpbWJhbGFuY2VkIGNvbXBhcmVkIHRvIHRoZSB0b3AgZGF0YSByYXRlcyBhdmFp
+bGFibGUKPj4gPj4gdGhhdAo+PiA+PiB5b3UgbmVlZCB0byB0cmFuc21pdCBzZXZlcmFsIE1CIG9m
+IGRhdGEgdG8gaGF2ZSBhY3R1YWwgZGF0YSB1c2UgNTAlIG9mCj4+IHRoZQo+PiA+PiBhaXJ0aW1l
+Lgo+PiA+Pgo+PiA+PiBEYXZpZCBMYW5nCj4+ID4+Cj4+ID4KPj4gPgo+PiBfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+PiBDYWtlIG1haWxpbmcgbGlzdAo+
+PiBDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+PiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0
+Lm5ldC9saXN0aW5mby9jYWtlCj4+Cl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0
+Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
