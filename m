@@ -2,81 +2,72 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id AF436605B4E
-	for <lists+cake@lfdr.de>; Thu, 20 Oct 2022 11:37:04 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 9FA8560689A
+	for <lists+cake@lfdr.de>; Thu, 20 Oct 2022 21:05:01 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1A7C33CB50;
-	Thu, 20 Oct 2022 05:36:59 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id DC0F23CB52;
+	Thu, 20 Oct 2022 15:04:53 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1666258619;
-	bh=ZPgSrfPB2PGM9/addHhStFLbfwDi7Ckkdr+zriSjV9c=;
-	h=In-Reply-To:Date:References:To:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1666292693;
+	bh=YruEXzphEIa7ZD3o9KbbqdVlmQDOpg1nO6WbcJq2UNs=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=F7sP0CLEV3aJq3KVfU7VIzTFWBNc84ybAYAepPr4GIICNIUJ6THQhm5phSM68xoT4
-	 8GxFZ5IgHzYXZJ/UqDJDQRPicKf34jddz2CaTz/3+ZvA5RRnWFT89k1R3aFxaqW55B
-	 trhWfj/txQMBCj9oopOzW6o1Wjozn9v6Z7spXVu/dtg0qIlvubXprl98DpLKB2WjHK
-	 IjvMNxXVJz4CPqN8eZJsSG9kS8vCA1IcwTu951xpUxYKrXMngh5fqj099z8Js2v09X
-	 Zk9EoRHFNexg0mgrwJvpQKXuGFNe1Sd/fxVwwiz/RInmJH9lm0p9YPf6iUqOT9zK0D
-	 XX4v/ij+7QUrw==
+	b=orwXlFNC4CQKM1rCd/rMP+eyPN6Yg4za1XmEvys77nvuGbE9zp9agF9XvtmVLIcEi
+	 x55+OqOu/bbuPKuSJ0RLHkntGG8/YKDR76Ih61rtq7V5iaYGdacK3XpInBhS4EYgf4
+	 K94Uv/YL4eWcTIs8EnfQWU/bZGRHO8T1PaotLteiMq2vEtoDqE/fy2vC8qzh4JXRLK
+	 laqJ7XsbUtC89Fdd8lY5iqa27e0fCPmatLaK8D3WlYAoY34LN1I1W9yf64RPTEHPD5
+	 T3fmq/Kmr+cXJTZ5USSR4mKeAI0dxux8nFUwBE6IfCyNCIZ6MW0PveRZ9fDoDxPFcP
+	 eHnxNZWgJnEHw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-lj1-x22a.google.com (mail-lj1-x22a.google.com
+ [IPv6:2a00:1450:4864:20::22a])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 359AC3B29D;
- Thu, 20 Oct 2022 05:36:57 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.net;
- s=badeba3b8450; t=1666258602;
- bh=iz+vZ7L8gRCgW12GWh+pwzD+Z2/u6rm16IlnR/DSc1c=;
- h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
- b=Y+ETj86PaIZlFAy/+IwBn2bsTT1LXl9LHvf1ATSwSY6TRd3npIKTBh79xAXWXmSdF
- 2doaAiNjOUKYpHLMrhbdF+fmhEwz8PEm0y6KdfR78V0aXtNG5rsUwRrwDJXa7xC39h
- dCr1aAonMb3zWRoTwnSav8FeOEvW1YXSXks2UGrM=
-X-UI-Sender-Class: 01bb95c1-4bf8-414a-932a-4f6e2808ef9c
-Received: from smtpclient.apple ([79.234.22.28]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mnpru-1pRxSa00yo-00pJDa; Thu, 20
- Oct 2022 11:36:42 +0200
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
-In-Reply-To: <BD3CEB48-E45E-49DB-AAFC-80C539BB4169@apple.com>
-Date: Thu, 20 Oct 2022 11:36:41 +0200
-Message-Id: <9989D2F5-3A6A-454E-ABB8-71A29F3AAC0D@gmx.de>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id DB3873CB39
+ for <cake@lists.bufferbloat.net>; Thu, 20 Oct 2022 15:04:51 -0400 (EDT)
+Received: by mail-lj1-x22a.google.com with SMTP id r22so611115ljn.10
+ for <cake@lists.bufferbloat.net>; Thu, 20 Oct 2022 12:04:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=broadcom.com; s=google;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=541LstUVQWwL9wgqwf49/sa1fQBwglIr2d8GGehfRN4=;
+ b=Llfp5s9Gfya6xTY83RdfVabploz9qDbueSpzV7DeiFwVgIxy5TXsh7XcfU6BTXlTXC
+ EyHrMWxQfSYsSOX7cC5quY/qtMgOwkLXwLesBZF8pdDrIYnUx0RZSh5mNDl1EtqSKGR9
+ AjeQ1Kvmu/TcSZ//VrC519aVUMMWbzq4L5J7A=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=541LstUVQWwL9wgqwf49/sa1fQBwglIr2d8GGehfRN4=;
+ b=KpINESNWwYw0QCFZA009PgJLbmApLsiMQY7/SkmbRT6IGEpsquUAO6yUX3OBqLocmh
+ w0839wnM4t+Ei7qcWeG5K/6DVLLODi2BqJMNBfvC5T0AKFD+PEX3qOMXrxMeBNkelnrL
+ AF66GDNhxdp3WeE+6RMGjTRLdt7VKNSc1SZifeydAufOVlSU+wwxmqi22N5kmtMfkG9B
+ XYcGsnPYAX7OhQSc8F+EhZGOuC7UpgTlmYCvfWk/aggAcrfaNXk37Ny6qPCkWvREH0Zr
+ xIEJBY7KZ2h+H8GPX2kzp8K2qNfPy2PR0ZKJJaQiC462kynQrUFcM4dDKSA2EmtUgn84
+ 45pQ==
+X-Gm-Message-State: ACrzQf3n5I8F9pFbA3Xsc9ZBCW/PT3tpbKIwXFrR0p6Y0iIdzsdYzvvP
+ jX6yuztRsEwwRFkwWiJk6YFOZkyjUa6ZNnlMu7q/9aCMjD+3alPOYd23JXEOehk89dHf1HE+YH+
+ zc7bDINgXoX3yD5BQHPydY9b+50en
+X-Google-Smtp-Source: AMsMyM68VARguAcfsiexJfd/yv+5xLoZ1dV8IKo4kzkx+GSrfigbE8enBkI9NW/Is2D2ItKT/vWwSy0zPldEpePEK6Y=
+X-Received: by 2002:a2e:860d:0:b0:26f:c230:b61c with SMTP id
+ a13-20020a2e860d000000b0026fc230b61cmr5010599lji.107.1666292690221; Thu, 20
+ Oct 2022 12:04:50 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAA93jw77h=ztEOzyADriH2PnswUDQiyNvBdsuFi+K5EexpoxUQ@mail.gmail.com>
  <938D9D45-DADA-4291-BD8A-84E4257CEE49@apple.com>
  <CAA93jw4KOkgdfT2LunCtPYPjXL+=OtTrouJgPjM7U1bHKtErnw@mail.gmail.com>
  <BD3CEB48-E45E-49DB-AAFC-80C539BB4169@apple.com>
+ <9989D2F5-3A6A-454E-ABB8-71A29F3AAC0D@gmx.de>
+ <4BE88889-45A9-41E4-91F6-4910530A6B4C@apple.com>
+In-Reply-To: <4BE88889-45A9-41E4-91F6-4910530A6B4C@apple.com>
+Date: Thu, 20 Oct 2022 12:04:37 -0700
+Message-ID: <CAHb6Lvq4NMXDQJPB-Tjo2Bg7BERRGwb4OLbHbbXGa4ZOcJ45dg@mail.gmail.com>
 To: Stuart Cheshire <cheshire@apple.com>
-X-Mailer: Apple Mail (2.3696.120.41.1.1)
-X-Provags-ID: V03:K1:7RCXhoHP4IQHWZlt2QThMFjQWi+tifEIgIiyVpiY7Nh/f+DnjL/
- sYBkgGvIF8eM3Del40g0RGLin+4+dHr0EjZnq2AN9GFzJ+AUwjagCXSdkgBTvj4h1IVy5fR
- bfMwsEvVKoB1G5Zj7yu9m3TWXPJOfTL7dn/YJbXWYvFCoXbI4u6wEyrVOECjQplu1PkyD7S
- fEpWrXTmYaryFcoYsMZMQ==
-X-Spam-Flag: NO
-X-UI-Out-Filterresults: notjunk:1;V03:K0:F3T3gZFbWaY=:CZosSm2kr14tp/PvzQrAUR
- ThRuhcqwrfkRCN0DxGvm14pHOVrD/0CKLSJvZPdvWyu/sDXfPi+tKPvCtBuL1a8JagFOQRqF9
- xeBdlC2nI5Mo1D1YIjGLf6j/DnADdAltpMQONzv83VCkDKruARRuopptma5VcSyfrm1LdIps5
- Hc6N3RWrGbVLB8xzbWBsmQs/nq3z4Xxvh2daLIeA2KncvDiDYpR4ws3N05mHI1uVRZH73imcS
- la+9bwxMWsqfd0JEK2DDNd0ogQaF3163FgwyX+KAfklIVMcQgeN6l8TqR67K1kDRqIEEMaRrp
- xLGvW0r43DcXkpDCJoG/sTLp5ZmtWO/OBJlQebcEoUqTeD8vpGYXzefVC6/b/pn7S16C4WDG+
- 8Dbj19zIw02FG5q6ACr3E/iaDaQ8/SmghVJ1dUC/NJ66Yq8L1br233fYiVlJTNzYDqHYB6BtN
- +KJp0G5Uk8RLv406So08aaEMHyM6uHbHjtxjh2wk/E289aTtIiUvSd5stQVHpMhbZmMFlfAQz
- KgQjosTdwe+x0BpTyo0JEOO9Eo38VQdqlyFZT3iqF+vfs/2X9A+++gT2oYbZ7ON/B2oWS6zlK
- iyaYeMhdZYx7DGux+JGbIhFnK5QrtqqxrMembSl4ruYjSmUg8uXJtUxVjSFdpJOD3RorbisXl
- IfGoRpTf90+2G3HN771OfUILOIdq7uU5WSSguYI4S1Kkey/0XZvWXKFK3932KCYShdi4mhVTc
- HB5fkWyzIMhQc2Tip5Fe/otxjc2HeDUWoQKyad2GdYCjdCXxRPCjFGOUl2BP1cI9wvGypC8jj
- a+/QOVsbc3LcHdSUfH3GnKXOL597o1YqrHkQx+hy9fEroRX7Z2aRL8FiRoru5scOBabYCJB/F
- n715b6jNj93y1dmIVg/6ADUxzTjAUTaGoWleSAGVXVIh5TVKBUn1dBqt6Ilzb7/TO4HbSEmw9
- v+fxYh5CrOC4rHzMOM38qhz/FdiqMPLFCNLI+rOa92mLheUtoP1hNDYFqABOPWxAa2llN6WB4
- wfS+iNkzRh8COngmRJ4afe4betGQjtEAPZFHhCTxqUEXahJ+Bkb++yHrE2GYGZ7TR7Rc+6cMX
- ja5MgGjNzDLOnhw5Xv594pHRPlOzTanJ3aWx0BUWeiiJYceQdC2W7yrVkxvGjbDQQKHW5jGBz
- Sjl7JpUbPagXj1kixFZkI5LAXSeIyEYVM/Rq2SZHY3FQ+KfJRcbAY+wgHTcpammeTFme9r2v4
- Y7Kz3D/hdmn4XXXtKuAFKbQHLIhIL31Gr9CxyMFJYNZS16SxckdPFgHxT5iItt0hflxkWY2oq
- 89DjjXefeYuNlhlcYjxkxIe/UNGkq7haHaRJgCAt4tzu1cgEZy3J1WJiqFtOJpMBKbkhe2FgK
- 6rQcMPkDttjijMZbgsebS3a4JgtgbpMvxijI6LSjYXOCopfYoJrl+VZSAnv9k0J0t9X+9Oqsz
- GCDKtxsaiJQ33fk6lh8iL62gQW9mVzkLGpMNNNnU3ya9Q92dIUyh/kzN2j8PlGaS7tVjvdL50
- QdZ0MVS69poQRq+pa1xNLNzrNYA7bAyQU0ICVNSt8Gihe
-Subject: Re: [Cake] [Rpm] [Make-wifi-fast] The most wonderful video ever
- about bufferbloat
+Subject: Re: [Cake] [Make-wifi-fast] [Rpm] The most wonderful video ever
+	about bufferbloat
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -88,133 +79,296 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
-Reply-To: Sebastian Moeller <moeller0@gmx.de>
+From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
+Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
 Cc: Rpm <rpm@lists.bufferbloat.net>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
  Cake List <cake@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============6695204015714524372=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SGkgU3R1YXJ0LAoKCj4gT24gT2N0IDE5LCAyMDIyLCBhdCAyMjo0NCwgU3R1YXJ0IENoZXNoaXJl
-IHZpYSBScG0gPHJwbUBsaXN0cy5idWZmZXJibG9hdC5uZXQ+IHdyb3RlOgo+IAo+IE9uIE1vbiwg
-T2N0IDE3LCAyMDIyIGF0IDU6MDIgUE0gU3R1YXJ0IENoZXNoaXJlIDxjaGVzaGlyZUBhcHBsZS5j
-b20+IHdyb3RlOgo+IAo+PiBBY2N1cmFjeSBiZSBkYW1uZWQuIFRoZSBhbmFsb2d5IHRvIGNvbW1v
-biBleHBlcmllbmNlIHJlc29uYXRlcyBtb3JlLgo+IAo+IEkgZmVlbCBpdCBpcyBub3QgYW4gZXNw
-ZWNpYWxseSBwcm9mb3VuZCBpbnNpZ2h0IHRvIG9ic2VydmUgdGhhdCwg4oCccGVvcGxlIGRvbuKA
-mXQgbGlrZSB3YWl0aW5nIGluIGxpbmUu4oCdIFRoZSBjb25jbHVzaW9uLCDigJx0aGVyZWZvcmUg
-cHJpdmlsZWdlZCBwZW9wbGUgc2hvdWxkIGdldCB0byBnbyB0byB0aGUgZnJvbnQs4oCdIGRlc2Ny
-aWJlcyBhbiBhaXJwb3J0IGZpcnN0IGNsYXNzIGNoZWNraW4gY291bnRlciwgRGlzbmV5IEZhc3Rw
-YXNzLCBhbmQgY291bnRsZXNzIG90aGVyIGFuYWxvZ2llcyBmcm9tIGV2ZXJ5ZGF5IGxpZmUsIGFs
-bCBvZiB3aGljaCBhcmUgdGhlIHdyb25nIHNvbHV0aW9uIGZvciBwYWNrZXRzIGluIGEgbmV0d29y
-ay4KPiAKPj4gSSB0aGluayB0aGUgcGVyc29uIHdpdGggdGhlIGNoZWV0b3MgcHVsbGluZyBvdXQg
-YSBndW4gYW5kIHNob290aW5nIGV2ZXJ5b25lIGluIGZyb250IG9mIGhpbSAoQVFNKSB3b3VsZCBu
-b3QgZ28gZG93biB3ZWxsLgo+IAo+IFdoaWNoIGlzIHdoeSBzdGFydGluZyB3aXRoIGEgYmFkIGFu
-YWxvZ3kgKHBlb3BsZSB3YWl0aW5nIGluIGEgZ3JvY2VyeSBzdG9yZSkgaW5ldml0YWJseSBsZWFk
-cyB0byBiYWQgY29uY2x1c2lvbnMuCj4gCj4gSWYgd2Ugd2FudCB0byBzdHJ1Z2dsZSB0byBtYWtl
-IHRoZSBncm9jZXJ5IHN0b3JlIGFuYWxvZ3kgd29yaywgcGVyaGFwcyB3ZSBzaG93IHBlb3BsZSBj
-aGVja2luZyBzb21lIGdyb2Nlcnkgc3RvcmUgYXBwIG9uIHRoZWlyIHNtYXJ0cGhvbmUgYmVmb3Jl
-IHRoZXkgbGVhdmUgaG9tZSwgYW5kIGlmIHRoZXkgc2VlIHRoYXQgYSBsb25nIGxpbmUgaXMgYmVn
-aW5uaW5nIHRvIGZvcm0gdGhleSB3YWl0IHVudGlsIGxhdGVyLCB3aGVuIHRoZSBsaW5lIGlzIHNo
-b3J0ZXIuIFRoZSBjaGFsbGVuZ2UgaXMgbm90IGhvdyB0byBkZWFsIHdpdGggYSBsb25nIHF1ZXVl
-IHdoZW4gaXTigJlzIHRoZXJlLCBpdCBpcyBob3cgdG8gYXZvaWQgYSBsb25nIHF1ZXVlIGluIHRo
-ZSBmaXJzdCBwbGFjZS4KCltTTV0gVGhhdCBzZWVtcyB0byBiZSBzb21ld2hhdCBvcHRpbWlzdGlj
-LiBXZSBoYXZlIGJlZW4gdGhlcmUgYmVmb3JlLCBzaG9ydCBvZiBtYW5kYXRpbmcgYWN0dWFsbHkt
-d29ya2luZyBvcmFjbGUgc2NoZWR1bGVycyBvbiBhbGwgZW5kLXBvaW50cywgaW50ZXJtZWRpYXRl
-IGhvcHMgd2lsbCBzZWUgcXVldWVzIHNvbWUgbW9yZSBhbmQgc29tZSBsZXNzIHRyYW5zaWVudC4g
-U28gd2UgY2FuIHN0cml2ZSB0byBtaW5pbWl6ZSBxdWV1ZSBidWlsZC11cCBzdXJlLCBidXQgY2Fu
-IG5vdCBhdm9pZCBxdWV1ZXMgYW5kIGxvbmcgcXVldWVzIGNvbXBsZXRlbHkgc28gd2UgbmVlZCBt
-ZXRob2RzIHRvIGRlYWwgd2l0aCB0aGVtIGdyYWNlZnVsbHkuCkFsc28gbm90IG1hbnkgYXBwbGlj
-YXRpb25zIGFyZSBhY3R1YWxseSBoZWxwZWQgYWxsIHRoYXQgbXVjaCBieSBsZXR0aW5nIGluZm9y
-bWF0aW9uIGdldCBzdGFsZSBpbiB0aGVpciBvd24gYnVmZmVycyBhcyBjb21wYXJlZCB0byBhbiBv
-bi1wYXRoIHF1ZXVlLiBUaGluayBhbiBvbi1saW5lIHJlYWN0aW9uLXRpbWUgZ2F0ZWQgZ2FtZSwg
-dGhlIG5lZWQgaXMgdG8gZGlzdHJpYnV0ZSBjdXJyZW50IHdvcmxkIHN0YXRlIHRvIGFsbCBwYXJ0
-aWNpcGF0aW5nIGNsaWVudHMgQVNBUC4gVGhhdCBvZnRlbiBtZWFucyBhIGJ1bmNoIG9mIHBhY2tl
-dHMgdGhhdCBjYW4gbm90IHJlYXNvbmFibHkgYmUgaGVsZCBiYWNrIGJ5IHRoZSBzZXJ2ZXIgdG8g
-cGFjZSB0aGVtIG91dCBhcyB3b3JsZCBzdGF0ZSBJSVVDIG5lZWRzIHRvIGJlIHRyYW5zbWl0dGVk
-IGNvbXBsZXRlbHkgZm9yIGNsaWVudHMgdG8gYmUgYWJsZSB0byBhY3R1YWxseSBkbyB0aGUgcmln
-aHQgdGhpbmcuIFN1Y2ggYW4gYXBwbGljYXRpb24gd2lsbCBjb250aW51ZSB0byBkdW1wIGl0cyB3
-b3JsZCBzdGF0ZSBidXJ0c3QgcGVyIGNsaWVudCBpbnRvIHRoZSBuZXR3b3JrIGFzIHRoYXQgaXMg
-dGhlIHJlcXVpcmVkIG1vZGUgb2Ygb3BlcmF0aW9uLiBJIHRoaW5rIHRoYXQgdGhlcmUgYXJlIG90
-aGVyIGFwcGxpY2F0aW9ucyB3aXRoIHNpbWlsYXIgcmVxdWlyZW1lbnRzIHdoaWNoIHdpbGwgbWFr
-ZSBzdXJlIHRoYXQgdHJhZmZpYyBzdGF5cyBidXJ0c3kgYW5kIHRoYXQgSU1ITyB3aWxsIGNhdXNl
-IHRyYW5zaWVudCBxdWV1ZXMgdG8gYnVpbGQgdXAuIChQcm9iYWJseSBzaG9ydCBkdXJhdGlvbiBv
-bmVzLCBidXQgc3RpbGwpLgoKCgo+IAo+PiBBY3R1YWxseSB0aGF0IGFuYWxvZ3kgaXMgZmFpcmx5
-IGNsb3NlIHRvIGZhaXIgcXVldWluZy4gVGhlIG11bHRpcGxlIGNoZWNrZXIgYW5hbG9neSBpcyBv
-bmUgb2YgdGhlIG1vc3QgY29tbW9uIGFuYWxvZ2llcyBpbiBxdWV1ZSB0aGVvcnkgaXRzZWxmLgo+
-IAo+IEkgZGlzYWdyZWUuIFlvdSBhcmUgZGVzY3JpYmluZyB0aGUg4oCcRlHigJ0gcGFydCBvZiBG
-UV9Db0RlbC4gSXTigJlzIHRoZSDigJxDb0RlbOKAnSBwYXJ0IG9mIEZRX0NvRGVsIHRoYXQgc29s
-dmVzIGJ1ZmZlcmJsb2F0LiBGUSBoYXMgYmVlbiBhcm91bmQgZm9yIGEgbG9uZyB0aW1lLCBhbmQg
-YXQgYmVzdCBpdCBwYXJ0aWFsbHkgbWFza2VkIHRoZSBlZmZlY3RzIG9mIGJ1ZmZlcmJsb2F0LiBI
-YXZpbmcgbW9yZSBxdWV1ZXMgZG9lcyBub3Qgc29sdmUgYnVmZmVyYmxvYXQuIE1hbmFnaW5nIHRo
-ZSBxdWV1ZShzKSBiZXR0ZXIgc29sdmVzIGJ1ZmZlcmJsb2F0LgoKCVtTTV0gWWVzIGFuZCBuby4g
-SU1ITyBpdCBpcyB0aGUgRlEgcGFydCB0aGF0IGdldHMgZ3JlZWR5IHRyYWZmaWMgb2ZmIHRoZSBi
-YWNrIG9mIHRob3NlIGZsb3dzIHRoYXQgc3RheSBiZWxvdyB0aGVpciBjYXBhY2l0eSBzaGFyZSwg
-YXMgaXQgKHVubGVzcyBvdmVybG9hZGVkKSB3aWxsIGlzb2xhdGUgdGhlIGNvbnNlcXVlbmNlIG9m
-IGV4Y2VlZGluZyBvbmUncyBjYXBhY2l0eSBzaGFyZSB0byB0aGUgZmxvdyhzKSBkb2luZyBzby4g
-VGhlIEFRTSBwYXJ0IHRoZW4gaGVscHMgZm9yIGdyZWVkeSB0cmFmZmljIG5vdCB0byBjb25nZXN0
-IGl0c2VsZiB1bmR1bHkuCglTbyBmb3IgcXVpdGUgYSBsb3Qgb2YgYXBwbGljYXRpb24gY2xhc3Nl
-cyAoZS5nLiBteSB3b3JsZC1zdGF0ZSBkaXN0cmlidXRpb24gZXhhbXBsZSBhYm92ZSkgRlEgKG9y
-IGFueSBvdGhlciB0eXBlIG9mIGNvbXBldGVudCBzY2hlZHVsaW5nKSB3aWxsIGFscmVhZHkgc29s
-dmUgbW9zdCBvZiB0aGUgcHJvYmxlbSwgaGVjayBpZiB1YmlxdWl0aW91cyBpdCB3b3VsZCBldmVu
-IGFsbG93IGdyZWVkeSB0cmFmZmljIHRvIHN3aXRjaCB0byBkZWxheSBiYXNlZCBDQyBtZXRob2Rz
-IHRoYXQgY2FuIGhlbHAga2VlcGluZyBxdWV1ZXMgc21hbGwgZXZlbiB3aXRob3V0IGNvbXBldGVu
-dCBBUU0gYXQgdGhlIGJvdHRsZW5lY2tzIChub3QgdGhhdCBJIHJlY29tbWVuZC9lbmRvcnNlIHRo
-YXQsIEkgYW0gYWxsIGZvciBjb21wZXRlbnQgQVFNL3NjaGVkdWxpbmcgYXQgdGhlIGJvdHRsZW5l
-Y2tzKikuCgoKCj4gCj4+IEkgbGlrZSB0aGUgaWRlYSBvZiBhIGd1cnUgZmxvYXRpbmcgYWJvdmUg
-YSBncm9jZXJ5IGNhcnQgd2l0aCBhIGJldHRlciBzdHJpbmcgb2YgZXhwbGFuYXRpb25zLCBleHBs
-YWluaW5nCj4+IAo+PiAgLSAibm8sIGdyYXNzaG9wcGVyLCB0aGUgc29sdXRpb24gdG8gYnVmZmVy
-YmxvYXQgaXMgbm8gbGluZS4uLiBhdCBhbGwiLgo+IAo+IFRoYXQgaXMgdGhlIGtpbmQgb2YgdGhp
-bmcgSSBoYWQgaW4gbWluZC4gT3IgYSBzaW1pbGFyIHF1b3RlIGZyb20gVGhlIE1hdHJpeC4gV2hp
-bGUgZXZlcnlvbmUgaXMgZGViYXRpbmcgd2F5cyB0byBsaXZlIHdpdGggbG9uZyBxdWV1ZXMsIHRo
-ZSBndXJ1IGFza3MsIOKAnFdoYXQgaWYgdGhlcmUgd2VyZSBubyBxdWV1ZXM/4oCdIFRoYXQgaXMg
-dGhlIOKAnG1pbmQgYmxvd27igJ0gcmVhbGl6YXRpb24uCgoJW1NNXSBIb3dldmVyIHRoZSAibm8g
-cXVldWVzIiBzdGF0ZSBpcyBnZW5lcmFsbHkgbm90IGFjaGlldmFibGUgbm9yIHdvdWxkIGl0IGJl
-IGRlc2lyYWJsZTsgcXVldWVzIGhhdmUgdXRpbGl0eSBhcyAic2hvY2sgYWJzb3JiZXJzIiBhbmQg
-dG8gaGVscCBrZWVwaW5nIGEgbGluayBidXN5KioqLiBJIGFkbWl0IHRob3VnaCB0aGF0ICJubyBv
-dmVyc2l6ZWQgcXVldWVzIiBpcyBmYXIgbGVzcyBzbmFwcHkuCgoKUmVnYXJkcwoJU2ViYXN0aWFu
-CgoKKikgV2hpY2ggaXMgd2h5IEkgYW0gdmVoZW1lbnRseSBvcHBvc2VkIHRvIEw0UywgaXQgb2Zm
-ZXJzIG5laXRoZXIgY29tcGV0ZW50IHNjaGVkdWxpbmcgbm9yIGNvbXBldGVudCBBUU0sIGluIGJv
-dGggcmVnaW1lcyBpdCBpcyBhZG1pdHRlZGx5IGJldHRlciB0aGVuIHRoZSBjdXJyZW50IHN0YXR1
-cyBxdW8gb2YgaGF2aW5nIG5laXRoZXIgYnV0IGl0IGZhbGxzIHNob3J0IG9mIHRoZSBzdGF0ZSBv
-ZiB0aGUgYXJ0IGluIGJvdGggc28gbXVjaCB0aGF0IGRlcGxveWluZyBMNFMgdG9kYXkgc2VlbXMg
-aW5kZWZlbnNpYmxlIG9uIHRlY2huaWNhbCBncm91bmRzLiBBbmQgbG8gYW5kIGJlaG9sZCBvbmUg
-b2YgTDRTIGJpZ2dlc3QgcHJvcG9uZW50cyBkb2VzIHNvIG1haW5seSBvbiBpZGVvbG9naWNhbCBn
-cm91bmRzIChqdXN0IHJlYWQgIkZsb3cgcmF0ZSBmYWlybmVzcyBkaXNtYW50bGluZyBhIHJlbGln
-aW9uIiBodHRwczovL2RsLmFjbS5vcmcvZG9pLzEwLjExNDUvMTIzMjkxOS4xMjMyOTI2IGFuZCB0
-aGVuIGFzayB5b3Vyc2VsZiB3aGV0aGVyIHlvdSBzaG91bGQgdHJ1c3Qgc3VjaCBhbiBhdXRob3Ig
-dG8gbWFrZSBvYmplY3RpdmUgZGVzaWduL2VuZ2luZWVyaW5nIGNob2ljZXMgYWZ0ZXIgYWxyZWFk
-eSB0eWluZyBoaW1zZWxmIHRvIHRoZSBtYXN0IHRoYXQgc3Ryb25nbHkqKikgYnV0IEkgZGlncmVz
-cy4uLgoKKiopIEkgZXZlbiBoYXZlIHNvbWUgc3ltcGF0aHkgZm9yIGhpcyBnb2FsIG9mIGVxdWFs
-aXppbmcgImNvc3QiIGFuZCBub3QganVzdCBzaW1wbGUgZmxvdyByYXRlLCBidXQgSSBmYWlsIHRv
-IHNlZSBhbnkgd2F5IGF0IGFsbCBvZiBzdXBwbHlpbmcgaW50ZXJtZWRpYXRlIGhvcHMgd2l0aCBz
-dWZmaWNpZW50IGFuZCByZWxpYWJsZSBlbm91Z2ggaW5mb3JtYXRpb24gdG8gZG8gYW55dGhpbmcg
-YmV0dGVyIHRoYW4gImFpbSB0byBzdGFydmUgbm8gZmxvdyIuIEFzIEkga2VlcCByZXBlYXRpbmcs
-IGZsb3ctcXVldWVpbmcgaXMgKGFsbW9zdCkgbmV2ZXIgb3B0aW1hbCwgYnV0IGF0IHRoZSBzYW1l
-IHRpbWUgaXQgaXMgYWxtb3N0IG5ldmVyIHBlc3NpbWFsIGFzIGl0IGF2b2lkcyBwaWNraW5nIHdp
-bm5lcnMgYW5kIGxvc2VycyBhcyBtdWNoIGFzIHBvc3NpYmxlICh3aGljaCBpbiB0dXJuIG1ha2Vz
-IGl0IGNvbnNpZGVyYWJseSBoYXJkZXIgdG8gYWJ1c2UgdGhhbiBvdGhlciB1bmVxdWFsIHJhdGUg
-ZGlzdHJpYnV0aW9uIG1ldGhvZHMgdGhhdCByZWx5IG9uIHNvbWUgY2hhcmFjdGVyaXN0aWNzIG9m
-IHBhY2tldCBkYXRhKS4KCioqKikgSSB1bmRlcnN0YW5kIHRoYXQgb25lIHdheSB0byBhdm9pZCBx
-dWV1ZXMgaXMgdG8ga2VlcCBhbXBsZSBjYXBhY2l0eSByZXNlcnZlcyBzbyBhIGxpbmsgIm5ldmVy
-IiBnZXRzIGNvbmdlc3RlZCwgYnV0IHRoYXQgaGFzIHNvbWUgaXNzdWVzOgphKSB0byBrZWVwIGEg
-bGluayBhdCBzYXkgYXQgbWF4IDgwJSBjYXBhY2l0eSB0aGVyZSBuZWVkcyB0byBiZSBzb21lIGFk
-bWlzc2lvbiBjb250cm9sIChvciB0aGUgYWdncmVnYXRlIGluZ3Jlc3MgY2FwYWNpdHkgbmVlZHMg
-dG8gYmUgc21hbGxlciB0aGFuIHRoZSBraW5rIGNhcGFjaXR5KSB3aGljaCByZWFsbHkganVzdCBt
-b3ZlcyB0aGUgcG9zaXRpb24gYXJvdW5kIHdoZXJlIGEgcXVldWUgd2lsbCBmb3JtLgpiKSBldmVu
-IHRoZW4gbW9zdCBsaW5rIHRlY2hub2xvZ2llcyBhcmUgZWl0aGVyIDEwMCUgYnVzeSBvZiAwICUg
-c28gaWYgdHdvIHBhY2tldHMgZnJvbSB0d28gZGlmZmVyZW50IGluZ3Jlc3MgaW50ZXJmYWNlcyBh
-cnJpdmUgc2ltdWx0YW5lb3VzbHkgYSBtaWNyby1xdWV1ZSBidWlsZHMgdXAgYXMgb25lIHBhY2tl
-dCBuZWVkcyB0byB3YWl0IGZvciB0aGUgb3RoZXIgdG8gcGFzcyB0aGUgbGluay4KYykgbWFueSBp
-bnRlcm5ldCBhY2Nlc3MgbGlua3MgZm9yIGVuZCB1c2VycyBhcmUgc3RpbGwgc21hbGwgZW5vdWdo
-IHRoYXQgY29uZ2VzdGlvbiBjYW4gYW5kIHdpbGwgcmVsaWFibHkgaGFwcGVuIGJ5IG5vcm1hbCB1
-c2UtY2FzZXMgYW5kIHRyYWZmaWMgY29uZGl0aW9uczsgc28gYXMgYSB1c2VyIG9mIHN1Y2ggYSBs
-aW5rIEkgbmVlZCB0byBkZWFsIHdpdGggdGhlIHF1ZXVlaW5nIGFuZCBjYW4gbm90IGp1c3Qgd2lz
-aCBpdCBhd2F5LgoKCgo+IAo+IFN0dWFydCBDaGVzaGlyZQo+IAo+IF9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCj4gUnBtIG1haWxpbmcgbGlzdAo+IFJwbUBs
-aXN0cy5idWZmZXJibG9hdC5uZXQKPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0
-aW5mby9ycG0KCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlz
-dHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UK
+--===============6695204015714524372==
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="000000000000ec5b1405eb7bff75"
+
+--000000000000ec5b1405eb7bff75
+Content-Type: multipart/alternative; boundary="000000000000e4f79805eb7bff63"
+
+--000000000000e4f79805eb7bff63
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Intel has a good analogous video on this with their CPU video here
+<https://youtu.be/o_WXTRS2qTY?t=3D316> going over branches and failed
+predictions. And to Stuart's point, the longer pipelines make the forks
+worse in the amount of in-process bytes that need to be thrown away.
+Interactivity, in my opinion, suggests shrinking the pipeline because, with
+networks, there is no quick way to throw away stale data rather every
+forwarding device continues forward with invalid data. That's bad for the
+network too, spending resources on something that's no longer valid. We in
+the test & measurement community never measure this.
+
+There have been a few requests that iperf 2 measure the "bytes thrown away"
+per a fork (user moves a video pointer, etc.) I haven't come up with a good
+test yet. I'm still trying to get basic awareness about existing latency,
+OWD and responsiveness metrics. I do think measuring the amount of
+resources spent on stale data is sorta like food waste, few really pay
+attention to it.
+
+Bob
+
+FYI, iperf 2 supports TCP_NOTSENT_LOWAT for those interested.
+
+--tcp-write-prefetch n[kmKM]
+Set TCP_NOTSENT_LOWAT on the socket and use event based writes per select()
+on the socket.
+
+
+On Thu, Oct 20, 2022 at 11:32 AM Stuart Cheshire via Make-wifi-fast <
+make-wifi-fast@lists.bufferbloat.net> wrote:
+
+> On 20 Oct 2022, at 02:36, Sebastian Moeller <moeller0@gmx.de> wrote:
+>
+> > Hi Stuart,
+> >
+> > [SM] That seems to be somewhat optimistic. We have been there before,
+> short of mandating actually-working oracle schedulers on all end-points,
+> intermediate hops will see queues some more and some less transient. So w=
+e
+> can strive to minimize queue build-up sure, but can not avoid queues and
+> long queues completely so we need methods to deal with them gracefully.
+> > Also not many applications are actually helped all that much by letting
+> information get stale in their own buffers as compared to an on-path queu=
+e.
+> Think an on-line reaction-time gated game, the need is to distribute
+> current world state to all participating clients ASAP.
+>
+> I=E2=80=99m afraid you are wrong about this. If an on-line game wants low=
+ delay,
+> the only answer is for it to avoid generating position updates faster tha=
+n
+> the network carry them. One packet giving the current game player positio=
+n
+> is better than a backlog of ten previous stale ones waiting to go out.
+> Sending packets faster than the network can carry them does not get them =
+to
+> the destination faster; it gets them there slower. The same applies to
+> frames in a screen sharing application. Sending the current state of the
+> screen *now* is better than having a backlog of ten previous stale frames
+> sitting in buffers somewhere on their way to the destination. Stale data =
+is
+> not inevitable. Applications don=E2=80=99t need to have stale data if the=
+y avoid
+> generating stale data in the first place.
+>
+> Please watch this video, which explains it better than I can in a written
+> email:
+>
+> <https://developer.apple.com/videos/play/wwdc2015/719/?time=3D892>
+>
+> Stuart Cheshire
+>
+> _______________________________________________
+> Make-wifi-fast mailing list
+> Make-wifi-fast@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/make-wifi-fast
+
+--=20
+This electronic communication and the information and any files transmitted=
+=20
+with it, or attached to it, are confidential and are intended solely for=20
+the use of the individual or entity to whom it is addressed and may contain=
+=20
+information that is confidential, legally privileged, protected by privacy=
+=20
+laws, or otherwise restricted from disclosure to anyone else. If you are=20
+not the intended recipient or the person responsible for delivering the=20
+e-mail to the intended recipient, you are hereby notified that any use,=20
+copying, distributing, dissemination, forwarding, printing, or copying of=
+=20
+this e-mail is strictly prohibited. If you received this e-mail in error,=
+=20
+please return the e-mail to the sender, delete it from your computer, and=
+=20
+destroy any printed copy of it.
+
+--000000000000e4f79805eb7bff63
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">Intel has a good analogous video on this with <a href=3D"h=
+ttps://youtu.be/o_WXTRS2qTY?t=3D316">their CPU video here</a>=C2=A0going ov=
+er branches and failed predictions. And to=C2=A0Stuart&#39;s point, the lon=
+ger pipelines make the forks worse in the amount=C2=A0of in-process bytes t=
+hat need to be thrown away. Interactivity, in my opinion, suggests shrinkin=
+g the pipeline because, with networks, there is no quick way to throw away =
+stale data rather every forwarding device continues forward=C2=A0with inval=
+id data. That&#39;s bad for the network too, spending resources on somethin=
+g that&#39;s no longer valid. We in the test &amp; measurement community ne=
+ver=C2=A0measure this.<br><br>There have been a few requests that iperf 2 m=
+easure the &quot;bytes thrown away&quot; per a fork (user moves a video poi=
+nter, etc.) I haven&#39;t come up with a good test yet. I&#39;m still tryin=
+g to get basic awareness about existing latency, OWD and responsiveness=C2=
+=A0metrics. I do think measuring the amount of resources spent on stale dat=
+a is sorta like food waste, few really pay attention=C2=A0to it.<br><br>Bob=
+<br><br>FYI, iperf 2 supports TCP_NOTSENT_LOWAT for those interested.=C2=A0=
+<br><br>--tcp-write-prefetch n[kmKM]<br>Set TCP_NOTSENT_LOWAT on the socket=
+ and use event based writes per select() on the socket.<br><br></div><br><d=
+iv class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, Oct =
+20, 2022 at 11:32 AM Stuart Cheshire via Make-wifi-fast &lt;<a href=3D"mail=
+to:make-wifi-fast@lists.bufferbloat.net">make-wifi-fast@lists.bufferbloat.n=
+et</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margi=
+n:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex=
+">On 20 Oct 2022, at 02:36, Sebastian Moeller &lt;<a href=3D"mailto:moeller=
+0@gmx.de" target=3D"_blank">moeller0@gmx.de</a>&gt; wrote:<br>
+<br>
+&gt; Hi Stuart,<br>
+&gt; <br>
+&gt; [SM] That seems to be somewhat optimistic. We have been there before, =
+short of mandating actually-working oracle schedulers on all end-points, in=
+termediate hops will see queues some more and some less transient. So we ca=
+n strive to minimize queue build-up sure, but can not avoid queues and long=
+ queues completely so we need methods to deal with them gracefully.<br>
+&gt; Also not many applications are actually helped all that much by lettin=
+g information get stale in their own buffers as compared to an on-path queu=
+e. Think an on-line reaction-time gated game, the need is to distribute cur=
+rent world state to all participating clients ASAP.<br>
+<br>
+I=E2=80=99m afraid you are wrong about this. If an on-line game wants low d=
+elay, the only answer is for it to avoid generating position updates faster=
+ than the network carry them. One packet giving the current game player pos=
+ition is better than a backlog of ten previous stale ones waiting to go out=
+. Sending packets faster than the network can carry them does not get them =
+to the destination faster; it gets them there slower. The same applies to f=
+rames in a screen sharing application. Sending the current state of the scr=
+een *now* is better than having a backlog of ten previous stale frames sitt=
+ing in buffers somewhere on their way to the destination. Stale data is not=
+ inevitable. Applications don=E2=80=99t need to have stale data if they avo=
+id generating stale data in the first place.<br>
+<br>
+Please watch this video, which explains it better than I can in a written e=
+mail:<br>
+<br>
+&lt;<a href=3D"https://developer.apple.com/videos/play/wwdc2015/719/?time=
+=3D892" rel=3D"noreferrer" target=3D"_blank">https://developer.apple.com/vi=
+deos/play/wwdc2015/719/?time=3D892</a>&gt;<br>
+<br>
+Stuart Cheshire<br>
+<br>
+_______________________________________________<br>
+Make-wifi-fast mailing list<br>
+<a href=3D"mailto:Make-wifi-fast@lists.bufferbloat.net" target=3D"_blank">M=
+ake-wifi-fast@lists.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/make-wifi-fast" rel=3D"no=
+referrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/make-wif=
+i-fast</a></blockquote></div>
+
+<br>
+<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
+ctronic communication and the information and any files transmitted with it=
+, or attached to it, are confidential and are intended solely for the use o=
+f the individual or entity to whom it is addressed and may contain informat=
+ion that is confidential, legally privileged, protected by privacy laws, or=
+ otherwise restricted from disclosure to anyone else. If you are not the in=
+tended recipient or the person responsible for delivering the e-mail to the=
+ intended recipient, you are hereby notified that any use, copying, distrib=
+uting, dissemination, forwarding, printing, or copying of this e-mail is st=
+rictly prohibited. If you received this e-mail in error, please return the =
+e-mail to the sender, delete it from your computer, and destroy any printed=
+ copy of it.</font></span>
+--000000000000e4f79805eb7bff63--
+
+--000000000000ec5b1405eb7bff75
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
+
+MIIQagYJKoZIhvcNAQcCoIIQWzCCEFcCAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
+gg3BMIIFDTCCA/WgAwIBAgIQeEqpED+lv77edQixNJMdADANBgkqhkiG9w0BAQsFADBMMSAwHgYD
+VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMzETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
+AxMKR2xvYmFsU2lnbjAeFw0yMDA5MTYwMDAwMDBaFw0yODA5MTYwMDAwMDBaMFsxCzAJBgNVBAYT
+AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhHbG9iYWxTaWduIEdDQyBS
+MyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+vbCmXCcsbZ/a0fRIQMBxp4gJnnyeneFYpEtNydrZZ+GeKSMdHiDgXD1UnRSIudKo+moQ6YlCOu4t
+rVWO/EiXfYnK7zeop26ry1RpKtogB7/O115zultAz64ydQYLe+a1e/czkALg3sgTcOOcFZTXk38e
+aqsXsipoX1vsNurqPtnC27TWsA7pk4uKXscFjkeUE8JZu9BDKaswZygxBOPBQBwrA5+20Wxlk6k1
+e6EKaaNaNZUy30q3ArEf30ZDpXyfCtiXnupjSK8WU2cK4qsEtj09JS4+mhi0CTCrCnXAzum3tgcH
+cHRg0prcSzzEUDQWoFxyuqwiwhHu3sPQNmFOMwIDAQABo4IB2jCCAdYwDgYDVR0PAQH/BAQDAgGG
+MGAGA1UdJQRZMFcGCCsGAQUFBwMCBggrBgEFBQcDBAYKKwYBBAGCNxQCAgYKKwYBBAGCNwoDBAYJ
+KwYBBAGCNxUGBgorBgEEAYI3CgMMBggrBgEFBQcDBwYIKwYBBQUHAxEwEgYDVR0TAQH/BAgwBgEB
+/wIBADAdBgNVHQ4EFgQUljPR5lgXWzR1ioFWZNW+SN6hj88wHwYDVR0jBBgwFoAUj/BLf6guRSSu
+TVD6Y5qL3uLdG7wwegYIKwYBBQUHAQEEbjBsMC0GCCsGAQUFBzABhiFodHRwOi8vb2NzcC5nbG9i
+YWxzaWduLmNvbS9yb290cjMwOwYIKwYBBQUHMAKGL2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5j
+b20vY2FjZXJ0L3Jvb3QtcjMuY3J0MDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jcmwuZ2xvYmFs
+c2lnbi5jb20vcm9vdC1yMy5jcmwwWgYDVR0gBFMwUTALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgEo
+CjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzAN
+BgkqhkiG9w0BAQsFAAOCAQEAdAXk/XCnDeAOd9nNEUvWPxblOQ/5o/q6OIeTYvoEvUUi2qHUOtbf
+jBGdTptFsXXe4RgjVF9b6DuizgYfy+cILmvi5hfk3Iq8MAZsgtW+A/otQsJvK2wRatLE61RbzkX8
+9/OXEZ1zT7t/q2RiJqzpvV8NChxIj+P7WTtepPm9AIj0Keue+gS2qvzAZAY34ZZeRHgA7g5O4TPJ
+/oTd+4rgiU++wLDlcZYd/slFkaT3xg4qWDepEMjT4T1qFOQIL+ijUArYS4owpPg9NISTKa1qqKWJ
+jFoyms0d0GwOniIIbBvhI2MJ7BSY9MYtWVT5jJO3tsVHwj4cp92CSFuGwunFMzCCA18wggJHoAMC
+AQICCwQAAAAAASFYUwiiMA0GCSqGSIb3DQEBCwUAMEwxIDAeBgNVBAsTF0dsb2JhbFNpZ24gUm9v
+dCBDQSAtIFIzMRMwEQYDVQQKEwpHbG9iYWxTaWduMRMwEQYDVQQDEwpHbG9iYWxTaWduMB4XDTA5
+MDMxODEwMDAwMFoXDTI5MDMxODEwMDAwMFowTDEgMB4GA1UECxMXR2xvYmFsU2lnbiBSb290IENB
+IC0gUjMxEzARBgNVBAoTCkdsb2JhbFNpZ24xEzARBgNVBAMTCkdsb2JhbFNpZ24wggEiMA0GCSqG
+SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMJXaQeQZ4Ihb1wIO2hMoonv0FdhHFrYhy/EYCQ8eyip0E
+XyTLLkvhYIJG4VKrDIFHcGzdZNHr9SyjD4I9DCuul9e2FIYQebs7E4B3jAjhSdJqYi8fXvqWaN+J
+J5U4nwbXPsnLJlkNc96wyOkmDoMVxu9bi9IEYMpJpij2aTv2y8gokeWdimFXN6x0FNx04Druci8u
+nPvQu7/1PQDhBjPogiuuU6Y6FnOM3UEOIDrAtKeh6bJPkC4yYOlXy7kEkmho5TgmYHWyn3f/kRTv
+riBJ/K1AFUjRAjFhGV64l++td7dkmnq/X8ET75ti+w1s4FRpFqkD2m7pg5NxdsZphYIXAgMBAAGj
+QjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBSP8Et/qC5FJK5N
+UPpjmove4t0bvDANBgkqhkiG9w0BAQsFAAOCAQEAS0DbwFCq/sgM7/eWVEVJu5YACUGssxOGhigH
+M8pr5nS5ugAtrqQK0/Xx8Q+Kv3NnSoPHRHt44K9ubG8DKY4zOUXDjuS5V2yq/BKW7FPGLeQkbLmU
+Y/vcU2hnVj6DuM81IcPJaP7O2sJTqsyQiunwXUaMld16WCgaLx3ezQA3QY/tRG3XUyiXfvNnBB4V
+14qWtNPeTCekTBtzc3b0F5nCH3oO4y0IrQocLP88q1UOD5F+NuvDV0m+4S4tfGCLw0FREyOdzvcy
+a5QBqJnnLDMfOjsl0oZAzjsshnjJYS8Uuu7bVW/fhO4FCU29KNhyztNiUGUe65KXgzHZs7XKR1g/
+XzCCBUkwggQxoAMCAQICDDGs4Qlq5OZK9mcDzTANBgkqhkiG9w0BAQsFADBbMQswCQYDVQQGEwJC
+RTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UEAxMoR2xvYmFsU2lnbiBHQ0MgUjMg
+UGVyc29uYWxTaWduIDIgQ0EgMjAyMDAeFw0yMjA5MTAxMzMzNDFaFw0yNTA5MTAxMzMzNDFaMIGM
+MQswCQYDVQQGEwJJTjESMBAGA1UECBMJS2FybmF0YWthMRIwEAYDVQQHEwlCYW5nYWxvcmUxFjAU
+BgNVBAoTDUJyb2FkY29tIEluYy4xFDASBgNVBAMTC0JvYiBNY01haG9uMScwJQYJKoZIhvcNAQkB
+Fhhib2IubWNtYWhvbkBicm9hZGNvbS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
+AQDBfX3nsBFRdO26im8lhOadVadRmV/YWK+U9OoGlTE+2MDsjJwO5p/Q6iaTUropqMRH1E+EIuhe
+/OU6a3/btrqzARE77RaVSdz5swXt7M4ciN+z44nIEx36UQIlFLsBFa3is/J/QLFhTUFFf0wLJsUO
+wyja+KvygH/E5TyfeXf5T2Y2wjGZx8jQXZMDmNpfANlEBYDfzCNYcAIQNox8FuPpEpuxWvv7jvxV
+X5dfkSef9T/DbsDM0PeTVMVyYIQoRSMBIGxVkaqp0MJglvQ2mU4CXcoOGgm6XC8LoLoEvYojXFKC
+fRgCOT5xeMR10UPSBQIljKwt7fPhpYVY+jTtOclpAgMBAAGjggHZMIIB1TAOBgNVHQ8BAf8EBAMC
+BaAwgaMGCCsGAQUFBwEBBIGWMIGTME4GCCsGAQUFBzAChkJodHRwOi8vc2VjdXJlLmdsb2JhbHNp
+Z24uY29tL2NhY2VydC9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcnQwQQYIKwYBBQUHMAGG
+NWh0dHA6Ly9vY3NwLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwME0G
+A1UdIARGMEQwQgYKKwYBBAGgMgEoCjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxz
+aWduLmNvbS9yZXBvc2l0b3J5LzAJBgNVHRMEAjAAMEkGA1UdHwRCMEAwPqA8oDqGOGh0dHA6Ly9j
+cmwuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAuY3JsMCMGA1UdEQQc
+MBqBGGJvYi5tY21haG9uQGJyb2FkY29tLmNvbTATBgNVHSUEDDAKBggrBgEFBQcDBDAfBgNVHSME
+GDAWgBSWM9HmWBdbNHWKgVZk1b5I3qGPzzAdBgNVHQ4EFgQUpG/4RP1YQA/iXGens9pIRe7CQxMw
+DQYJKoZIhvcNAQELBQADggEBACfWLy4qJyCnOa3sl4LEDAMU/gmJ6LbclGE5iR4KanAmlAt92gzN
+5lSy/iE+wsRrXiHI7YKFgXX1kVK/RqMiPRrw4hq2j8nxoSi/VFiyS3CsfVMGkbY7HBTlBvla/tH+
++2nJprlXbJyz1GdvoJAeam5RvTWotcCGAjZmMa3U3zMkszgXN849xe3dUK1DauUGiInXEwEdXDcA
+/0CVjL3EEMj+kNWcLhrSZKwFtxggUyMW3XWRaAeAL9wOtEaXYqlgbtnV0n9FuoV2TNm3h7Mh7rjV
+I2zM+IZ3DE+XFK7dcPwte33u75QyySNJ3UMZqi25CO85yl8Bmo7aWRm99N7HGnkxggJtMIICaQIB
+ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
+bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwxrOEJauTmSvZnA80wDQYJ
+YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEIGwdj55LVDbpvp0peddm+1sVa/0Ea7z7WdWA
+nm52lnU2MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTIyMTAyMDE5
+MDQ1MFowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
+AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
+BgkqhkiG9w0BAQEFAASCAQClA6Y2dTg6lSu2wFI/qjWGuLLr12ruk/If5JanPQViqW8M299VBZv4
+f7bB/48RPNV1gZ9xwX+qaTEDeFPoZMpY5Rc4wP2LhmiTFOqcsLtRs4bqf/5NLf78bIvSB8ykK0Kc
+rD93xA9LFNMFMeG6iPOEe5DW1M37X+9sVmqozYgohhAiPy7HjGbnKg0nfoOdmuldnCKk+co0IqOC
+DtLlbG2627NoK+yRg0YyfCR2zVDLxJMoOg7qSyLSuYTE7MLOOt++h0+aRPIsv6eOrHyxd/1wnp0A
+epp4S96ESvUZidmaYMyiAPJkbP4OOMSRREbGqXD7ni6RNfqLxJ6eVUJsuoUw
+--000000000000ec5b1405eb7bff75--
+
+--===============6695204015714524372==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============6695204015714524372==--
