@@ -2,74 +2,54 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3BD8762DE77
-	for <lists+cake@lfdr.de>; Thu, 17 Nov 2022 15:42:15 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id B9D6162DEE8
+	for <lists+cake@lfdr.de>; Thu, 17 Nov 2022 16:00:08 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 1D8993CB48;
-	Thu, 17 Nov 2022 09:42:14 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 7F2333CB48;
+	Thu, 17 Nov 2022 10:00:07 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1668696134;
-	bh=t7EKTADJc717KUS4N0E4rP+OFA1zLquT0evT5vIJSmc=;
-	h=In-Reply-To:Date:References:To:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1668697207;
+	bh=upM0I6juNG4FkqP2tABNyLva0bmhFU1Y1dvKsG7YNSY=;
+	h=Date:In-Reply-To:To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=DI9Uwt/frxc2L05FDdbW4gDPKgqinm3C999L1KfNpg53q5WQExFKaT7Xdycf7AW9S
-	 Ci2ik1zBgZeCUKJT0u+ThBVtoyGz5k5wE2wI13hMww0FmbBufUFmiAwKG4XYNCBMNO
-	 6CTT9eY+DYTXgqt9I51Au6d7gBwtwe0oWNUP0VY0NIpvRJza3pXiNqlNsKgDNvhV32
-	 9fS4DsNjwzKfXK9aedzoGpu5/oDwJl+KcKiT7I16mxOzmAxe9W8T3XJZqs2PR/vfhF
-	 Y1Y/SRNqagow7+/98a3SIXZBDxYQtpopt0riqruOcI3fagQbF5+CHN7Vw4y940Ee3H
-	 W5em4GNLQB3YQ==
+	b=RITD7DjHMM1t1VKEH9Uswu5HnCx7e7NExpFDP6xIIbgHCwEmPHrHEVugZ8iCv0n9D
+	 61fMCYQE+A3/6kOWsAIh453D/RNSCL0lAXe6+qFWWyix3j5JEMwPDbn6rIhY3HReBl
+	 kh1WAUi+yzauNBYama/h0X1NAd6FRFx44qkL6hfH4mZqYimG/kZeP7gJLOGUY68JiF
+	 aSGR9D2u6hhn3gO1bG7dawfKzyytPRDUXQdIv9l+f1GEBYKnhM2IRWAZw5r77ZvNCv
+	 4Yyea2586vC5DQHmecp8rg5Di9H/D+Iev7+LHZqurXIq7hiQ76xMDYwpcXmL2URiwD
+	 WA+g6fuNok4rw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
+Received: from vps.slashdirt.org (vps.slashdirt.org [144.91.108.218])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 438833B29D
+ for <cake@lists.bufferbloat.net>; Thu, 17 Nov 2022 10:00:06 -0500 (EST)
+Received: from smtpclient.apple (tardis.herebedragons.eu [171.22.3.161])
  (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id EC2193B29D
- for <cake@lists.bufferbloat.net>; Thu, 17 Nov 2022 09:42:11 -0500 (EST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de; s=s31663417;
- t=1668696130; bh=lfxexSkCeOWTLEhuNSEx4L/zWalJeRAMngnK5r7gI/c=;
- h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:To;
- b=sZ5Tm7Bfg9DD6tMkHD/UHY2eDL0AcapwKrWrgBsMCzgpHZj5CG53gw237h/B5N6fu
- x3/+biAk0fmUfi90Zn12yAFgedlxVxESC7TwOIqctI382ZO3jN+/R8cYc10+xspxkq
- fkxR8BSSTLwVl+Agf8KGpgXiLC5QZI6t9Aux5dQIixXgyByaCr1HQSj4El7TUFRy8z
- Gut6+yLFW/D3LxNre7E7yIdaKnWEdSMnvo5s+N9YUmdc2cIoKBIWt+WaBuYMz4A73e
- VGuGMFPQLBomnnpCj96TUqt8tzejusZMq4fe8mjekqgH5nl0mXUsP9yGYSwUQ1mrE5
- c+3qFIZB/y/ug==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from smtpclient.apple ([134.76.241.253]) by mail.gmx.net (mrgmx004
- [212.227.17.190]) with ESMTPSA (Nemesis) id 1MTAFh-1oW4L71ypj-00UYW1; Thu, 17
- Nov 2022 15:42:10 +0100
+ by vps.slashdirt.org (Postfix) with ESMTPSA id DC31D60186;
+ Thu, 17 Nov 2022 16:00:04 +0100 (CET)
+DKIM-Filter: OpenDKIM Filter v2.11.0 vps.slashdirt.org DC31D60186
+DKIM-Signature: v=1; a=rsa-sha256; c=simple/simple; d=slashdirt.org; s=mail;
+ t=1668697205; bh=v3dmalQBas8GtzyA01cx1yExOvZqRKaFT0Gx22RLXCM=;
+ h=From:Subject:Date:In-Reply-To:Cc:To:References:From;
+ b=LeT1fUg8U9hmjJPQG5semGTZfas70CHPnLet/8AqU4qquppV+OD+CD81yABq2FmUj
+ Z8DFYJhRBF/bMAoxiQy0SEMhxyCfQEojb5E1BwS7B455k3idLuApcfD4glm6D/kfFB
+ cBBUBkRp3YGvnGV6RJ7gyIMJYhGTc2s9xxBklyqI=
+Message-Id: <3550010F-3EB3-4CF3-B107-367802DF39A1@slashdirt.org>
 Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.1\))
-In-Reply-To: <4D5AA477-1547-441F-900C-6DC70C824960@slashdirt.org>
-Date: Thu, 17 Nov 2022 15:42:09 +0100
-Message-Id: <DB9D7633-A166-4A13-8302-8129C00A7CEB@gmx.de>
+Date: Thu, 17 Nov 2022 16:00:04 +0100
+In-Reply-To: <DB9D7633-A166-4A13-8302-8129C00A7CEB@gmx.de>
+To: Sebastian Moeller <moeller0@gmx.de>
 References: <386F2ED9-3D39-4A42-8982-742B5D4B417F@slashdirt.org>
  <F2D11ACD-9A4E-43E5-A7FE-B7CE27581434@gmx.de>
  <4CF53FE3-D26A-4E32-8378-3B27BBB70AEF@slashdirt.org>
  <F5AFD318-A148-4C42-A401-F1B18BC76628@gmx.de>
  <4D5AA477-1547-441F-900C-6DC70C824960@slashdirt.org>
-To: Thibaut <hacks@slashdirt.org>
+ <DB9D7633-A166-4A13-8302-8129C00A7CEB@gmx.de>
 X-Mailer: Apple Mail (2.3696.120.41.1.1)
-X-Provags-ID: V03:K1:o2K0wYTMv10QkRHOCTrtXaoUVx7Z3w806Os0nBDrX0q+HYiogUi
- ZCVxgX08EBfY7MxlgzhJDGdFP0k7JSYvCi4MD6nRkZq1X7SDzX8tZxcmcGjiwEKBjgFl490
- CUZDFPIyZW6yhxOkXN11c9zonOnsv4q18JfIoesOnuF5tWNXIHHTRx5jnbZbNU+qAO0AxdG
- fQ0YY2ckn4Y/1nEV68U/w==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:ZUIKB0qtZqI=;bstK+CKukSfh8Cx7sA9lPBk1lGH
- bYNwgzjDquhvTL7upBLOlRP72wLDbBum13M4QnG8GOFL9Sfsu85hWoMxvYaxrcUvKVNRDWS1X
- Vc++0R7Rqy7L+AjJdCzrV8h8YNsWrqyPMH47y8E0kTjvpk5LEhVWuiP5UrX+TBHzAAo9gj9xU
- irkcPUsrzllUknTP7jJFHQfrd8ggHVIK+9nhC+84u7osBy84QJHHIt+iGj7Mvb+uBMWqYHlMM
- m3MAoP0TuHJzM0DmeywB2PXh4d8kMJDpQHShoUTcAahFPtzlxCkdhfj2zW+VRWZKfCxMX/Zzr
- e8R+LuRWHi3JEwvOfkwaL1udYEyuPDT4A0pYCFQSu05YT3Lts/j2oULJXAGSh6Ui8xXPaf/FE
- /F+BJJ4wu80+CqreZLPda8tSmbA636hiS8NImgYFjRh+VzuPLJe+aBDSSMyQHWyGudm7uNhX/
- 0Z+nEUh0VVSluNZZPaFf2PZTx3aKBIzYWemTuHUZKXB5rTj/AZiAHdBZPZH9ZlvH3ucOxgY1U
- vF5iwnR+sBKb3j9GaTtlVsCzSCkiyhcApgawJkYhy5YGpZJ3DnRHUVBrswTVa6JsSrcfAINwV
- GmcvqGALBSXT1YpsA5s+wbDprWMQHNsabiCFkE20+12FQOzzqRgV7U4k4JjHma+ISMRkWxLNl
- vVBtRZMU4zd7v9vuV0btseFhHx8Oy2K+7W0QRjwF5EkJTGPj0jAvhHXByeDEy40/s33QdxRYb
- nrHXPP9ObLlk4VrOB/5GRXli3m1ceptzp/NlVXyA6ehSCnmruejCPX7hSDcKtTB0pvAZN8LBh
- HRXthO9JwyoylZK97X5nGTYbfCM/b19kNo4rwPfUmXz78cHAjY00ROc6RwJ2runUf5M/7TqUy
- HFvYych2i0eq8LMsSjc9/IcMTMtzM1YMqBvWWhahwLd+Mn5Qk9CERPio/P1cObHVmvKh64h6O
- t+hILQyMfP4NnlBICxDXxe86q7M=
 Subject: Re: [Cake] Help untangling CAKE settings for FTTH
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -82,88 +62,465 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
-Reply-To: Sebastian Moeller <moeller0@gmx.de>
+From: Thibaut via Cake <cake@lists.bufferbloat.net>
+Reply-To: Thibaut <hacks@slashdirt.org>
 Cc: Cake List <cake@lists.bufferbloat.net>,
  openwrt-devel <openwrt-devel@lists.openwrt.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============1039234995275933157=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SGkgVGhpYmF1dCwKCj4gT24gTm92IDE3LCAyMDIyLCBhdCAxNToyMiwgVGhpYmF1dCA8aGFja3NA
-c2xhc2hkaXJ0Lm9yZz4gd3JvdGU6Cj4gCj4gSGkgU2ViYXN0aWFuLAo+IAo+PiBMZSAxNyBub3Yu
-IDIwMjIgw6AgMTA6NTAsIFNlYmFzdGlhbiBNb2VsbGVyIDxtb2VsbGVyMEBnbXguZGU+IGEgw6lj
-cml0IDoKPj4gCj4+IEhpIFQuCj4+IAo+PiAKPj4gc28gdGFraW5nIHlvdXIgcHJvcG9zYSB1bmRl
-ciBjb25zaWRlcmF0aW9uIEkgY2FuZ2VkIHRoZSBzZWN0aW9uIHRoYXQgdGhyZXcgeW91IG9mZiBj
-b3Vyc2UgdG8gcmVhZDoKPj4gCj4+IAo+PiAJ4oCiIEV0aGVybmV0IHdpdGggT3ZlcmhlYWQ6IFNR
-TSBjYW4gYWxzbyBhY2NvdW50IGZvciB0aGUgb3ZlcmhlYWQgaW1wb3NlZCBieSBWRFNMMiBsaW5r
-cyAtIGFkZCAyMiBieXRlcyBvZiBvdmVyaGVhZCAobXB1IDY4KS4gQ2FibGUgTW9kZW1zIChET0NT
-SVMpIHNldCBib3RoIHVwLSBhbmQgZG93bnN0cmVhbSBvdmVyaGVhZCB0byAxOCBieXRlcyAoNiBi
-eXRlcyBzb3VyY2UgTUFDLCA2IGJ5dGVzIGRlc3RpbmF0aW9uIE1BQywgMiBieXRlcyBldGhlci10
-eXBlLCA0IGJ5dGVzIEZDUyksIHRvIGFsbG93IGZvciBhIHBvc3NpYmxlIDQgYnl0ZSBWTEFOIHRh
-ZyBpdCBpcyByZWNvbW1lbmRlZCB0byBzZXQgdGhlIG92ZXJoZWFkIHRvIDE4ICsgNCA9IDIyICht
-cHUgNjQpLiBGb3IgRlRUSCB0aGUgYW5zd2VyIGlzIGxlc3MgY2xlYXIgY3V0LCBzaW5jZSBkaWZm
-ZXJlbnQgdW5kZXJsYXlpbmcgdGVjaG5vbG9naWVzIGhhdmUgZGlmZmVyZW50IHJlbGV2YW50IHBl
-ci1wYWNrZXQtb3ZlcmhlYWRzOyBob3dldmVyIHVuZGVyZXN0aW1hdGluZyB0aGUgcGVyLXBhY2tl
-dC1vdmVyaGVhZCBpcyBjb25zaWRlcmFibHkgd29yc2UgZm9yIHJlc3BvbnNpdmVuZXNzIHRoYW4g
-KGdlbnRseSkgb3ZlcmVzdGltYXRpbmcgaXQsIHNvIGZvciBGVFRIIHNldCB0aGUgb3ZlcmhlYWQg
-dG8gNDQgKG1wdSA4NCkgdW5sZXNzIHRoZXJlIGlzIG1vcmUgZGV0YWlsZWQgaW5mb3JtYXRpb24g
-YWJvdXQgdGhlIHRydWUgb3ZlcmhlYWQgb24gYSBsaW5rIGF2YWlsYWJsZS4KPj4gCeKAoiBOb25l
-OiBBbGwgc2hhcGluZyBiZWxvdyB0aGUgcGh5c2ljYWwgZ3Jvc3MtcmF0ZSBvZiBhIGxpbmsgcmVx
-dWlyZXMgY29ycmVjdCBwZXItcGFja2V0IG92ZXJoZWFkIGFjY291bnRpbmcgdG8gYmUgcHJlY2lz
-ZSwgc28gTm9uZSBpcyBvbmx5IHVzZWZ1bCBpZiBhcHByb3hpbWF0ZSBzaGFwaW5nIGlzIHN1ZmZp
-Y2llbnQsIHNheSBpZiB5b3Ugd2FudCB0byBjbGFtcCBhIGd1ZXN0IG5ldHdvcmsgdG8gYXQgYmVz
-dCB+NTAlIG9mIHRoZSBhdmFpbGFibGUgY2FwYWNpdHkgb3Igc2ltaWxhciB0YXNrcywgYnV0IGV2
-ZW4gdGhlbiBjb25maWd1cmluZyBhbiBhcHByb3hpbWF0ZSBjb3JyZWN0IHBlci1wYWNrZXQtb3Zl
-cmhlYWQgaXMgcmVjb21tZW5kZWQgKG92ZXJoZWFkIDQ0IChtcHUgODQpIGlzIGEgZGVjZW50IGRl
-ZmF1bHQgdG8gcGljaykuCj4+IAo+PiAKPj4gSSBob3BlIHRoaXMgaXMgZXhwbGljaXQgZW5vdWdo
-Lgo+IAo+IFllcyB0aGlzIGxvb2tzIGEgbG90IGJldHRlciwgdGhhbmsgeW91Lgo+IAo+IEFsdGhv
-dWdoIEkgbXVzdCBjb25mZXNzIHRoYXQgaXQgY2VydGFpbmx5IGZlZWxzIGNvdW50ZXItaW50dWl0
-aXZlIHRoYXQgZm9yIGV0aGVybmV0IChhbmQgRlRUSCkgd2Ugc3VnZ2VzdCBhIGhpZ2hlciBvdmVy
-aGVhZCB0aGFuIGUuZy4gVkRTTDIvY2FibGUgKHdoaWNoIHRoZW1zZWx2ZXMgcnVuIG9mZiBhbiBl
-dGhlcm5ldCBpbnRlcmZhY2UpLgoKCVRoYXQgaXMgc2ltcGx5IGJlY2F1c2UgZm9yIChBRFNMKSBE
-T0NTSVMgVkRTTDIgd2UgaGF2ZSBhIG11Y2ggY2xlYXIgcGljdHVyZSBhYm91dCB3aGF0IHdlIG5l
-ZWQgdG8gYWNjb3VudCBmb3IuIEFuZCBBT04gY2FuIGJlIGVzc2VudGlhbGx5IHVzaW5nIHRydWUg
-ZXRoZXJuZXQgZW5jYXBzdWxhdGlvbiBzbyB3ZSBjYW4gZXhwZWN0IGFuIHVuc3BlY2lmaWVkICJG
-VFRIIiBjbGFzcyB0byBlbmNvbXBhc3MgYSBicm9hZCBzZXQgb2YgZGlmZmVyZW50IGVuY2Fwc3Vs
-YXRpb25zLCBpZiB3ZSB3YW50IHRvIHJlY29tbWVuZCBhIHNpbmdsZSBudW1iZXIgdGhhdCBzaG91
-bGQgYWxzbyBjb3ZlciBBT04gKHRoZSBQT05zIGFyZSBtdWNoIGxlc3MgY2xlYXIqKS4gV2h5IGRv
-IHlvdSBhc3N1bWUgdGhhdCBGVFRIIG5lY2Vzc2FyaWx5IHdvdWxkIGhhdmUgYSBzbWFsbGVyIHBl
-ci1wYWNrZXQtb3ZlcmhlYWQgdGhhbiBvdGhlciBsaW5rIHRlY2hub2xvZ2llcz8gCglOb3csIGlm
-IHlvdSBoYXZlIHJlbGlhYmxlIGluZm9ybWF0aW9uIGZvciBzYXkgR1BPTi1vdmVyaGVhZCwgYnkg
-YWxsIG1lYW5zIGFkZCBpdCAoYnV0IHRvIGJlIHVzZWZ1bCB0aGlzIGFsc28gc2hvdWxkIGNvbnRh
-aW4gYW4gZWFzeSBpZGVudGlmaWVyIGZvciBvdGhlciB1c2VycyB0byBmaWd1cmUgb3V0IHdoZXRo
-ZXIgdGhleSB1c2UgR1BPTiBpbiB0aGUgZmlyc3QgcGxhY2UpLgoKCVRoZSBiaWdnZXIgcG9pbnQg
-aG93ZXZlciBpcyBJTUhPLCBmcm9tIHRoZSBwZXJzcGVjdGl2ZSBvZiBtaW5pbWl6aW5nIGJ1ZmZl
-cmJsb2F0L2xhdGVuY3ktdW5kZXItbG9hZC1pbmNyZWFzZSB1c2luZyBhIHNsaWdodGx5IHRvbyBs
-YXJnZSBwZXItcGFja2V0LW92ZXJoZWFkIGlzIGZ1bGx5IGJlbmlnbiwgd2hpbGUgc3BlY2lmeWlu
-ZyB0byBzbWFsbCBhbiBvdmVyaGVhZCBjYW4gZWFzaWx5IHJlc3VsdCBpbiBtZWFzdXJhYmxlIGJ1
-ZmZlcmJsb2F0IGluY3JlYXNlLiBTbyBJTUhPIGl0IGlzIGZpbmUgdG8gZXJyIG9uIHRoZSBzaWRl
-IG9mIHRvbyBsYXJnZSB3aGVuIGVzdGltYXRpbmcgdGhlIHBlci1wYWNrZXQtb3ZlcmhlYWQuCgoq
-KSBUaGUgY29yZSBwcm9ibGVtIGlzIHRoYXQgd2UgaGF2ZSBubyBzdHJhaWdodCBmb3J3YXJkIHdh
-eSB0byBlbXBpcmljYWxseSBkZWR1Y2UgdGhlIGVmZmVjdGl2ZSBwZXItcGFja2V0LW92ZXJoZWFk
-IG92ZXIgYW4gYXJiaXRyYXJ5IG5ldHdvcmsgcGF0aCwgc28gaWYgYSBsaW5rIHRlY2hub2xvZ3kg
-ZGVmaW5lcy9kb2N1bWVudHMgdGhlIG92ZXJoZWFkIHdlbGwgYW5kIGNvbmNsdXNpdmVseSAobGlr
-ZSBkb2NzaXMpIHdlIGFyZSBpbiBsdWNrLCBidXQgaWYgdGhlIGRldGFpbHMgYSB2YWd1ZSBvciBs
-ZWF2ZSBtYW55IG9wdGlvbnMgdG8gdGhlIElTUCB3ZSBoYXZlIHRvIG1ha2UgYW4gZWR1Y2F0ZWQg
-Z3Vlc3MuCgoKPiBJIHdvdWxkIGFsc28gbGlrZSB0byBzZWUgc29tZSBpbmZvIGFib3V0IHBwcCB2
-cyBldGhlcm5ldCBpbnRlcmZhY2UgaW4gdGhlcmUgKG1hdGNoaW5nIHlvdXIgcHJldmlvdXMgZW1h
-aWwpOiB1bmxlc3MgeW91IGJlYXQgbWUgdG8gaXQgSSB3aWxsIGFkZCBpdC4KCglJIHdpbGwgbm90
-IGJlYXQgeW91IHRvIGl0LCBiZWNhdXNlIGZvciB1c2VycyBvZiBjYWtlIGl0IGRvZXMgbm90IG1h
-dHRlciBhbmQgd2UgZG8gcmVjb21tZW5kIHRvIHVzZSBjYWtlIGluIHRoZSBmaXJzdCBwbGFjZS4u
-LiBoZWNrIGV2ZW4gZm9yIGZvbGtzIHdhbnRpbmcgdG8gdXNlIEhUQitmcV9jb2RlbCBJIHdvdWxk
-IHJlY29tbWVuZCB0byBzdGFydCB3aXRoIGNha2UgYW5kIHRoZW4gbG9vayBhdCB0aGUgb3V0cHV0
-IG9mIGB0YyAtcyBxZGlzY2AgdG8gZmlndXJlIG91dCB0aGUgb3ZlcmhlYWQgdGhhdCBpcyBhbHJl
-YWR5IGFjY291bnRlZCBmb3Igb24gYW4gaW50ZXJmYWNlLgoKPiBJIGFsc28gdGhpbmsgdGhlIMKr
-IGRldGFpbHMgwrsgcGFnZSBuZWVkcyB0byBiZSByZWZvcm1hdHRlZCBhIGJpdCwgaXTigJlzIHZl
-cnkgZGVuc2UgYW5kIHJlbGV2YW50IGluZm8gaXMgYWxsIG92ZXIgdGhlIHBsYWNlIGFuZCBub3Qg
-dmVyeSB3ZWxsIG9yZ2FuaXplZC4KCglNaWdodCB3ZWxsIGJlIHRydWUgKHRoZSBwYWdlIGV2b2x2
-ZWQgb3ZlciB0aW1lIGFuZCBtaWdodCBuZWVkIGEgZnVsbCBlZGl0b3JpYWwgcGFzcyksIGJ1dCBp
-dCBjb3ZlcnMgcXVpdGUgc29tZSB0ZXJyaXRvcnkgYW5kIGhlbmNlIGFsd2F5cyB3aWxsIGJlIGEg
-Yml0IHVud2llbGR5LgoKCj4gSeKAmWxsIHRyeSB0byBnZXQgYXJvdW5kIGltcHJvdmluZyB0aGF0
-LgoKCVBsZWFzZSB0cnkgdG8ga2VlcCBhbGwgY29ycmVjdCBpbmZvcm1hdGlvbiBhcm91bmQgaW4g
-dGhlIGRvY3VtZW50LgoKR29vZCBsdWNrCgoKPiAKPiBUaGFua3MKCl9fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlz
-dHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZv
-L2Nha2UK
+
+--===============1039234995275933157==
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_FE6AC6D7-9770-4823-B1F0-96FD1CA8269A"
+
+
+--Apple-Mail=_FE6AC6D7-9770-4823-B1F0-96FD1CA8269A
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+
+
+> Le 17 nov. 2022 =C3=A0 15:42, Sebastian Moeller <moeller0@gmx.de> a =
+=C3=A9crit :
+>=20
+> Hi Thibaut,
+>=20
+>> On Nov 17, 2022, at 15:22, Thibaut <hacks@slashdirt.org> wrote:
+>>=20
+>> Hi Sebastian,
+>>=20
+>>> Le 17 nov. 2022 =C3=A0 10:50, Sebastian Moeller <moeller0@gmx.de> a =
+=C3=A9crit :
+>>>=20
+>>> Hi T.
+>>>=20
+>>>=20
+>>> so taking your proposa under consideration I canged the section that =
+threw you off course to read:
+>>>=20
+>>>=20
+>>> 	=E2=80=A2 Ethernet with Overhead: SQM can also account for the =
+overhead imposed by VDSL2 links - add 22 bytes of overhead (mpu 68). =
+Cable Modems (DOCSIS) set both up- and downstream overhead to 18 bytes =
+(6 bytes source MAC, 6 bytes destination MAC, 2 bytes ether-type, 4 =
+bytes FCS), to allow for a possible 4 byte VLAN tag it is recommended to =
+set the overhead to 18 + 4 =3D 22 (mpu 64). For FTTH the answer is less =
+clear cut, since different underlaying technologies have different =
+relevant per-packet-overheads; however underestimating the =
+per-packet-overhead is considerably worse for responsiveness than =
+(gently) overestimating it, so for FTTH set the overhead to 44 (mpu 84) =
+unless there is more detailed information about the true overhead on a =
+link available.
+>>> 	=E2=80=A2 None: All shaping below the physical gross-rate of a =
+link requires correct per-packet overhead accounting to be precise, so =
+None is only useful if approximate shaping is sufficient, say if you =
+want to clamp a guest network to at best ~50% of the available capacity =
+or similar tasks, but even then configuring an approximate correct =
+per-packet-overhead is recommended (overhead 44 (mpu 84) is a decent =
+default to pick).
+>>>=20
+>>>=20
+>>> I hope this is explicit enough.
+>>=20
+>> Yes this looks a lot better, thank you.
+>>=20
+>> Although I must confess that it certainly feels counter-intuitive =
+that for ethernet (and FTTH) we suggest a higher overhead than e.g. =
+VDSL2/cable (which themselves run off an ethernet interface).
+>=20
+> 	That is simply because for (ADSL) DOCSIS VDSL2 we have a much =
+clear picture about what we need to account for. And AON can be =
+essentially using true ethernet encapsulation so we can expect an =
+unspecified "FTTH" class to encompass a broad set of different =
+encapsulations, if we want to recommend a single number that should also =
+cover AON (the PONs are much less clear*). Why do you assume that FTTH =
+necessarily would have a smaller per-packet-overhead than other link =
+technologies?=20
+
+I=E2=80=99m not (necessarily) making that assumption for FTTH (although =
+I would expect it to be the case, from my limited understanding of FTTH =
+technologies), I am however certainly making that assumption for plain =
+ethernet, which is included in the 44-byte documentation case. I think =
+it=E2=80=99s a reasonable one?
+
+> 	Now, if you have reliable information for say GPON-overhead, by =
+all means add it (but to be useful this also should contain an easy =
+identifier for other users to figure out whether they use GPON in the =
+first place).
+>=20
+> 	The bigger point however is IMHO, from the perspective of =
+minimizing bufferbloat/latency-under-load-increase using a slightly too =
+large per-packet-overhead is fully benign, while specifying to small an =
+overhead can easily result in measurable bufferbloat increase. So IMHO =
+it is fine to err on the side of too large when estimating the =
+per-packet-overhead.
+
+OK. Although I would think people reading the detailed explanation are =
+looking for precise info and explanations, not one-stop-shop =
+approximations. Not to mention the kind of users who want to squeeze the =
+maximum performance out of their setup.
+
+> *) The core problem is that we have no straight forward way to =
+empirically deduce the effective per-packet-overhead over an arbitrary =
+network path, so if a link technology defines/documents the overhead =
+well and conclusively (like docsis) we are in luck, but if the details a =
+vague or leave many options to the ISP we have to make an educated =
+guess.
+>=20
+>=20
+>> I would also like to see some info about ppp vs ethernet interface in =
+there (matching your previous email): unless you beat me to it I will =
+add it.
+>=20
+> 	I will not beat you to it, because for users of cake it does not =
+matter
+
+You said the exact opposite in your previous email (persistence of =
+statistics) :)
+
+> and we do recommend to use cake in the first place... heck even for =
+folks wanting to use HTB+fq_codel I would recommend to start with cake =
+and then look at the output of `tc -s qdisc` to figure out the overhead =
+that is already accounted for on an interface.
+>=20
+>> I also think the =C2=AB details =C2=BB page needs to be reformatted a =
+bit, it=E2=80=99s very dense and relevant info is all over the place and =
+not very well organized.
+>=20
+> 	Might well be true (the page evolved over time and might need a =
+full editorial pass), but it covers quite some territory and hence =
+always will be a bit unwieldy.
+>=20
+>=20
+>> I=E2=80=99ll try to get around improving that.
+>=20
+> 	Please try to keep all correct information around in the =
+document.
+
+Sure.
+
+Cheers=
+
+--Apple-Mail=_FE6AC6D7-9770-4823-B1F0-96FD1CA8269A
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"Content-Type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"word-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;" class=3D""><br =
+class=3D""><div><br class=3D""><blockquote type=3D"cite" class=3D""><div =
+class=3D"">Le 17 nov. 2022 =C3=A0 15:42, Sebastian Moeller &lt;<a =
+href=3D"mailto:moeller0@gmx.de" class=3D"">moeller0@gmx.de</a>&gt; a =
+=C3=A9crit :</div><br class=3D"Apple-interchange-newline"><div =
+class=3D""><meta charset=3D"UTF-8" class=3D""><span style=3D"caret-color: =
+rgb(0, 0, 0); font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; text-align: start; text-indent: 0px; text-transform: none; =
+white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none; float: none; display: inline !important;" =
+class=3D"">Hi Thibaut,</span><br style=3D"caret-color: rgb(0, 0, 0); =
+font-family: Menlo-Regular; font-size: 11px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><br style=3D"caret-color: rgb(0, 0, =
+0); font-family: Menlo-Regular; font-size: 11px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><blockquote type=3D"cite" =
+style=3D"font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; orphans: auto; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: auto; word-spacing: =
+0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D"">On Nov 17, 2022, at 15:22, Thibaut =
+&lt;<a href=3D"mailto:hacks@slashdirt.org" =
+class=3D"">hacks@slashdirt.org</a>&gt; wrote:<br class=3D""><br =
+class=3D"">Hi Sebastian,<br class=3D""><br class=3D""><blockquote =
+type=3D"cite" class=3D"">Le 17 nov. 2022 =C3=A0 10:50, Sebastian Moeller =
+&lt;<a href=3D"mailto:moeller0@gmx.de" class=3D"">moeller0@gmx.de</a>&gt; =
+a =C3=A9crit :<br class=3D""><br class=3D"">Hi T.<br class=3D""><br =
+class=3D""><br class=3D"">so taking your proposa under consideration I =
+canged the section that threw you off course to read:<br class=3D""><br =
+class=3D""><br class=3D""><span class=3D"Apple-tab-span" =
+style=3D"white-space: pre;">	</span>=E2=80=A2 Ethernet with Overhead: =
+SQM can also account for the overhead imposed by VDSL2 links - add 22 =
+bytes of overhead (mpu 68). Cable Modems (DOCSIS) set both up- and =
+downstream overhead to 18 bytes (6 bytes source MAC, 6 bytes destination =
+MAC, 2 bytes ether-type, 4 bytes FCS), to allow for a possible 4 byte =
+VLAN tag it is recommended to set the overhead to 18 + 4 =3D 22 (mpu =
+64). For FTTH the answer is less clear cut, since different underlaying =
+technologies have different relevant per-packet-overheads; however =
+underestimating the per-packet-overhead is considerably worse for =
+responsiveness than (gently) overestimating it, so for FTTH set the =
+overhead to 44 (mpu 84) unless there is more detailed information about =
+the true overhead on a link available.<br class=3D""><span =
+class=3D"Apple-tab-span" style=3D"white-space: pre;">	</span>=E2=80=A2 =
+None: All shaping below the physical gross-rate of a link requires =
+correct per-packet overhead accounting to be precise, so None is only =
+useful if approximate shaping is sufficient, say if you want to clamp a =
+guest network to at best ~50% of the available capacity or similar =
+tasks, but even then configuring an approximate correct =
+per-packet-overhead is recommended (overhead 44 (mpu 84) is a decent =
+default to pick).<br class=3D""><br class=3D""><br class=3D"">I hope =
+this is explicit enough.<br class=3D""></blockquote><br class=3D"">Yes =
+this looks a lot better, thank you.<br class=3D""><br class=3D"">Although =
+I must confess that it certainly feels counter-intuitive that for =
+ethernet (and FTTH) we suggest a higher overhead than e.g. VDSL2/cable =
+(which themselves run off an ethernet interface).<br =
+class=3D""></blockquote><br style=3D"caret-color: rgb(0, 0, 0); =
+font-family: Menlo-Regular; font-size: 11px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><span class=3D"Apple-tab-span" =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: pre; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; text-decoration: none;">	=
+</span><span style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none; float: none; display: inline !important;" class=3D"">That is =
+simply because for (ADSL) DOCSIS VDSL2 we have a much clear picture =
+about what we need to account for. And AON can be essentially using true =
+ethernet encapsulation so we can expect an unspecified "FTTH" class to =
+encompass a broad set of different encapsulations, if we want to =
+recommend a single number that should also cover AON (the PONs are much =
+less clear*). Why do you assume that FTTH necessarily would have a =
+smaller per-packet-overhead than other link technologies?<span =
+class=3D"Apple-converted-space">&nbsp;</span></span><br =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""></div></blockquote><div><br class=3D""></div><div>I=E2=80=
+=99m not (necessarily) making that assumption for FTTH (although I would =
+expect it to be the case, from my limited understanding of FTTH =
+technologies), I am however certainly making that assumption for plain =
+ethernet, which is included in the 44-byte documentation case. I think =
+it=E2=80=99s a reasonable one?</div><br class=3D""><blockquote =
+type=3D"cite" class=3D""><div class=3D""><span class=3D"Apple-tab-span" =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: pre; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; text-decoration: none;">	=
+</span><span style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none; float: none; display: inline !important;" class=3D"">Now, if you =
+have reliable information for say GPON-overhead, by all means add it =
+(but to be useful this also should contain an easy identifier for other =
+users to figure out whether they use GPON in the first place).</span><br =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><br style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><span class=3D"Apple-tab-span" style=3D"caret-color: =
+rgb(0, 0, 0); font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; text-align: start; text-indent: 0px; text-transform: none; =
+white-space: pre; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;">	</span><span style=3D"caret-color: =
+rgb(0, 0, 0); font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; text-align: start; text-indent: 0px; text-transform: none; =
+white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none; float: none; display: inline !important;" =
+class=3D"">The bigger point however is IMHO, from the perspective of =
+minimizing bufferbloat/latency-under-load-increase using a slightly too =
+large per-packet-overhead is fully benign, while specifying to small an =
+overhead can easily result in measurable bufferbloat increase. So IMHO =
+it is fine to err on the side of too large when estimating the =
+per-packet-overhead.</span><br style=3D"caret-color: rgb(0, 0, 0); =
+font-family: Menlo-Regular; font-size: 11px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""></div></blockquote><div><br =
+class=3D""></div>OK. Although I would think people reading the detailed =
+explanation are looking for precise info and explanations, not =
+one-stop-shop approximations. Not to mention the kind of users who want =
+to squeeze the maximum performance out of their setup.</div><div><br =
+class=3D""><blockquote type=3D"cite" class=3D""><div class=3D""><span =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none; float: none; display: inline !important;" class=3D"">*) The core =
+problem is that we have no straight forward way to empirically deduce =
+the effective per-packet-overhead over an arbitrary network path, so if =
+a link technology defines/documents the overhead well and conclusively =
+(like docsis) we are in luck, but if the details a vague or leave many =
+options to the ISP we have to make an educated guess.</span><br =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><br style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><br style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><blockquote type=3D"cite" style=3D"font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; orphans: auto; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D"">I =
+would also like to see some info about ppp vs ethernet interface in =
+there (matching your previous email): unless you beat me to it I will =
+add it.<br class=3D""></blockquote><br style=3D"caret-color: rgb(0, 0, =
+0); font-family: Menlo-Regular; font-size: 11px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><span class=3D"Apple-tab-span" =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: pre; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; text-decoration: none;">	=
+</span><span style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none; float: none; display: inline !important;" class=3D"">I will not =
+beat you to it, because for users of cake it does not =
+matter</span></div></blockquote><div><br class=3D""></div><div>You said =
+the exact opposite in your previous email (persistence of statistics) =
+:)</div><br class=3D""><blockquote type=3D"cite" class=3D""><div =
+class=3D""><span style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none; float: none; display: inline !important;" class=3D""> and we do =
+recommend to use cake in the first place... heck even for folks wanting =
+to use HTB+fq_codel I would recommend to start with cake and then look =
+at the output of `tc -s qdisc` to figure out the overhead that is =
+already accounted for on an interface.</span><br style=3D"caret-color: =
+rgb(0, 0, 0); font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; text-align: start; text-indent: 0px; text-transform: none; =
+white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><br style=3D"caret-color: rgb(0, 0, =
+0); font-family: Menlo-Regular; font-size: 11px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><blockquote type=3D"cite" =
+style=3D"font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; orphans: auto; text-align: start; text-indent: 0px; =
+text-transform: none; white-space: normal; widows: auto; word-spacing: =
+0px; -webkit-text-size-adjust: auto; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D"">I also think the =C2=AB details =C2=BB =
+page needs to be reformatted a bit, it=E2=80=99s very dense and relevant =
+info is all over the place and not very well organized.<br =
+class=3D""></blockquote><br style=3D"caret-color: rgb(0, 0, 0); =
+font-family: Menlo-Regular; font-size: 11px; font-style: normal; =
+font-variant-caps: normal; font-weight: 400; letter-spacing: normal; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;" class=3D""><span class=3D"Apple-tab-span" =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: pre; word-spacing: =
+0px; -webkit-text-stroke-width: 0px; text-decoration: none;">	=
+</span><span style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none; float: none; display: inline !important;" class=3D"">Might well be =
+true (the page evolved over time and might need a full editorial pass), =
+but it covers quite some territory and hence always will be a bit =
+unwieldy.</span><br style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><br style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><br style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><blockquote type=3D"cite" style=3D"font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; orphans: auto; =
+text-align: start; text-indent: 0px; text-transform: none; white-space: =
+normal; widows: auto; word-spacing: 0px; -webkit-text-size-adjust: auto; =
+-webkit-text-stroke-width: 0px; text-decoration: none;" class=3D"">I=E2=80=
+=99ll try to get around improving that.<br class=3D""></blockquote><br =
+style=3D"caret-color: rgb(0, 0, 0); font-family: Menlo-Regular; =
+font-size: 11px; font-style: normal; font-variant-caps: normal; =
+font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""><span class=3D"Apple-tab-span" style=3D"caret-color: =
+rgb(0, 0, 0); font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; text-align: start; text-indent: 0px; text-transform: none; =
+white-space: pre; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none;">	</span><span style=3D"caret-color: =
+rgb(0, 0, 0); font-family: Menlo-Regular; font-size: 11px; font-style: =
+normal; font-variant-caps: normal; font-weight: 400; letter-spacing: =
+normal; text-align: start; text-indent: 0px; text-transform: none; =
+white-space: normal; word-spacing: 0px; -webkit-text-stroke-width: 0px; =
+text-decoration: none; float: none; display: inline !important;" =
+class=3D"">Please try to keep all correct information around in the =
+document.</span><br style=3D"caret-color: rgb(0, 0, 0); font-family: =
+Menlo-Regular; font-size: 11px; font-style: normal; font-variant-caps: =
+normal; font-weight: 400; letter-spacing: normal; text-align: start; =
+text-indent: 0px; text-transform: none; white-space: normal; =
+word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration: =
+none;" class=3D""></div></blockquote><div><br =
+class=3D""></div>Sure.</div><div><br =
+class=3D""></div><div>Cheers</div></body></html>=
+
+--Apple-Mail=_FE6AC6D7-9770-4823-B1F0-96FD1CA8269A--
+
+--===============1039234995275933157==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============1039234995275933157==--
