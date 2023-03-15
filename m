@@ -2,141 +2,71 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 59E296BA114
-	for <lists+cake@lfdr.de>; Tue, 14 Mar 2023 21:59:37 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 781EE6BB980
+	for <lists+cake@lfdr.de>; Wed, 15 Mar 2023 17:20:02 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id C38523CBDA;
-	Tue, 14 Mar 2023 16:59:35 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 77FDA3CBF0;
+	Wed, 15 Mar 2023 12:20:00 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1678827575;
-	bh=JAVLJXYumVlQzPWYFreFaO5tI6R9lQlz7mPNHYxNRuQ=;
-	h=To:Date:References:In-Reply-To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	d=lists.bufferbloat.net; s=201610; t=1678897200;
+	bh=HZEWU2I6xLOIYgrbxED1+K7d2ZoLc5fLBL1XDXfQLs0=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
 	 From;
-	b=MEAVmco6dlmEbeS/fYNuPP81s3l0Fz/5ogoBesZr2V9PhqC24xSR1K+3AW/9h8TpP
-	 wvhDB7ujLUETMpdcd2ZK8beGHAjMlYnp0POy3btUmfawHWmBHTsSfONPOITpJZcPJH
-	 Uaic/F8wx+ciHP49EPX50JOif2eLPx0/1lCIkA7LDemDZ4VWQUFsc2BVk8I7ch2+xU
-	 YNYXJNRqeL4r0URWJOenNvW/h8+GPcDhnGAJT+sYhrwH67Gt7KVXU305bpki//B0OE
-	 UvgNgE46Aknc/YapyccgTSxOEpXshMCIk5wa0WqagymntakMCd5M5YlWjPqRVThnuk
-	 hbwDSRaz5frCA==
+	b=gFa4DXjewiutLHoR6scF0tXTZA9kNcxU8zdZNHz5Khq5joxyvkIdZBpUH9iZexWz7
+	 dp1q3JUmoVsRrNUyYd5AQDx3R5fzxf7NwCPnJ3wQqKQC3GQ+3WWsHyP/oyzybyvE9x
+	 qN6MudYr6Uzyqv3zosFFHWHrbmrPuB5Homps2bunqV52z8GXAQiaAjc4Pd64QuJ8AK
+	 8Dni7kc1sj2oVPffRo3cZyaP+r69GVGmf4Sokyk3ZScFl248JtAFTK5cC/Gm6RsKg1
+	 2qW5sv0FS04KydZ1h7dEmwpya1MhYqiZixA0HBkVp41e0zldYDurS9PceC5yD9OlCp
+	 QIZIckLa+IFZA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from NAM11-BN8-obe.outbound.protection.outlook.com
- (mail-bn8nam11on2100.outbound.protection.outlook.com [40.107.236.100])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-wm1-x32e.google.com (mail-wm1-x32e.google.com
+ [IPv6:2a00:1450:4864:20::32e])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id C408B3CB37
- for <cake@lists.bufferbloat.net>; Tue, 14 Mar 2023 16:59:34 -0400 (EDT)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector9901; d=microsoft.com; cv=none;
- b=BBRvWw2dOiHh+04W3aAhbnfpdHewrYTYXMsx0s7ATDqCiJ/jMQKXgI9WItjaq1U0O75Oe03LDkwG/NV/kRa+tiXxQw3zlfBX2T47YpDl9KWM+VQvMFMdFRIsm/qe0D9B03xj23RxVxVVyaighw0o8zp38qSdkQzp2XBYQEXIWISSaojFHPwRXpzrNsbrA4OfdwdF0ee3ZeyP1uTEXcieUBJKNsuYIkb3IT/h6U9e6dPUDfooHpMSdp5wEfBT7ZcLwxW8pp4JtuxIJMcvJuXztgk8NP6Bj/DdarV1PVerwVDYtCE1SL8pDxd4jaiCAkmi+acDGSplA3pKN8QttAOiHg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com; 
- s=arcselector9901;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gN3fTuRFzHvJjppH1BLvWXJ8+SFuc6eFJbXfO8+6DCY=;
- b=LARisbKKKiCpPJmgjkDEGsdbEcO1ek1Xf0nOJkZd4hs3gxbehZAei6y3mM/3GbE8FNb8b4093Su8wCJZnCLsqeEQHm69Nh+W5ihl8uvEJ8XQG0E8Prc4TaH2F0ncYtthsQAAlXXdBItT9vbs80JIKJKlJNXCX6qltrhH0OQImiOUNKmJqqhkP7ktcLCT3d+pIHiuUiSRuXwI9AoUnFuteFyFBAMimT2DUVs+ENM7YmhricZMfv8VW0t7JlmhoV9c6r2vs80xced0yN4ECcUqVFF9JwzYzkXs8zcG6efHu3lj4FXhbAzCJslcrrazCfRgHNOzAj+6FgfZEe/v3JeouQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=cablelabs.com; dmarc=pass action=none
- header.from=cablelabs.com; dkim=pass header.d=cablelabs.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cablelabs.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gN3fTuRFzHvJjppH1BLvWXJ8+SFuc6eFJbXfO8+6DCY=;
- b=coOhpNBPGAkdVfkPF9vnBGXfsOn2t+2ex/WFQaMsRMB4W6N0/1Ww9VLKyhFZNN6S6SBi9nHkKt2mSGaUZ6rTxYroaymR12GRdxKUyU3IYTmbcPg//Jojb+gZbeC6j4TnADwprLmOYTMFU8S4lK1HLfTT/d4YB0PVPQ/6g/aQZ/TueIQznfT+1GTQaqBpKG4CdfGmyf9Y1s7zd+oai04kVsd8HJtLSzpeskD8y1URKJAHQKLYPuWSqZJciSH6fpezFjI2SvCiGpn8VkHariXxlDxWzOOGXeAjss/KpypqCKO7zwVqGOobjvnTIjz2t4d0HybgMZnmzG/VKCojAzhunA==
-Received: from BN8PR06MB5892.namprd06.prod.outlook.com (2603:10b6:408:ce::25)
- by MN2PR06MB5741.namprd06.prod.outlook.com (2603:10b6:208:123::27)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.6178.26; Tue, 14 Mar
- 2023 20:59:32 +0000
-Received: from BN8PR06MB5892.namprd06.prod.outlook.com
- ([fe80::656e:9b0b:b49b:d084]) by BN8PR06MB5892.namprd06.prod.outlook.com
- ([fe80::656e:9b0b:b49b:d084%3]) with mapi id 15.20.6178.024; Tue, 14 Mar 2023
- 20:59:32 +0000
-To: Sebastian Moeller <moeller0@gmx.de>
-Thread-Topic: [tsvwg] draft-ietf-tsvwg-nqb-15.txt vs the cake AQM
-Thread-Index: AQHZVn2QY2isdk4gqE2SQVTbhBhZEq76EYiAgABt/gD//96ogA==
-Date: Tue, 14 Mar 2023 20:59:32 +0000
-Message-ID: <AA46BF0D-A01B-409F-B8E8-9F74C599D301@cablelabs.com>
-References: <167348364734.15098.9183646444272144529@ietfa.amsl.com>
- <FR2P281MB1527B1114EA0718F8BB19DBF9CD79@FR2P281MB1527.DEUP281.PROD.OUTLOOK.COM>
- <659CE6DE-2B9D-4210-BAF8-BCC99E2ED875@cablelabs.com>
- <FR2P281MB1527003371292BDB9F08764A9CDE9@FR2P281MB1527.DEUP281.PROD.OUTLOOK.COM>
- <DEB97936-375A-41C8-8ECB-E33F94D30056@cablelabs.com>
- <FR2P281MB15273966161929E8BAB937869CA29@FR2P281MB1527.DEUP281.PROD.OUTLOOK.COM>
- <7434C6A7-4CED-4D39-A852-2714AB9DA1DC@cablelabs.com>
- <FR2P281MB1527C89A1654A77FAD6A24AF9CBE9@FR2P281MB1527.DEUP281.PROD.OUTLOOK.COM>
- <CAA93jw4_MAX1DULpvU_Uo7BuyvvRpqZ-_gZP+HbhC251osCT3g@mail.gmail.com>
- <407A497F-1546-43E3-BE4C-A052CBE8CD4A@cablelabs.com>
- <0D20823D-9231-4221-B945-123E210DCD53@gmx.de>
-In-Reply-To: <0D20823D-9231-4221-B945-123E210DCD53@gmx.de>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-user-agent: Microsoft-MacOutlook/16.70.23021201
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=cablelabs.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: BN8PR06MB5892:EE_|MN2PR06MB5741:EE_
-x-ms-office365-filtering-correlation-id: 5db9e374-59c8-4bc2-43aa-08db24cf0275
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;
-x-microsoft-antispam-message-info: tZurwz0nhY/jpolJxjaqx7te6Ax7DKdZ4kM+hKng99k3ws4B6fX64sxQ7paSAJuWetIkNS4zpzSbUPszef28NTO8sf8df9NOL6FvWUEjRQAzDpVtb/+krYB0lwmCXVr6XydjiYgRZAvujh2Un8pIdTK5sPBlpTXCxvG11e4/sedS8DamoclZR1/l9EvS7MR/Oux7YUia0jgJI8tCUs+5HYGn0zLBLjTOP/uGLZ/ArHZB9wQ6u9pj7znmtyZn9I+OJuIUKplRh7+KMTZ2dsMRjZJ9t3RnfKmJLy9S3R9eEW3UOh4wbf5YtcAPvkwkLGTYQ2btXkoq23/jdDysUqrBLo/IwYuc4+Ac/Tusd3Os3BRTkZU3cFiVxvXF032Zzn9B22U9wdz1hIQzoFHpJbr4KmAQzoGULiu9tCxqME1XPLzJEM4jkeUsLL6WSJllM1WhWYA2jKDpCzvqAyqvMOLGiD5041RUvCD52qnzfBqnaiUb05gMk00Lf8zrfjLyKsjK7sER13d3lu5cMu2oK7BuSq3aJN+sGO8f6iHfwZiNBa04mbRHIpBCAktk23JK9bZCjped8405nGbtPpfASm7bU67rG3Ao0PxnvNgex8B0aX5A0Lsqh281NX+QMciSEKbd/Vwe9TTsjgSAPe2HxHFBEmgZAtpHIJvkMImj8F+RmnYhBuehC2Wx3NkTczFrmiyzCiCnMfzXGD8Pr4o6LhZ5wPebN/XdrMiFZBMqrGAs1A0=
-x-forefront-antispam-report: CIP:255.255.255.255; CTRY:; LANG:en; SCL:1; SRV:;
- IPV:NLI; SFV:NSPM; H:BN8PR06MB5892.namprd06.prod.outlook.com; PTR:; CAT:NONE;
- SFS:(13230025)(366004)(136003)(396003)(346002)(39850400004)(376002)(451199018)(2906002)(122000001)(66556008)(83380400001)(5660300002)(36756003)(33656002)(76116006)(66446008)(8676002)(64756008)(66946007)(41300700001)(8936002)(6916009)(38070700005)(91956017)(4326008)(316002)(38100700002)(66476007)(86362001)(54906003)(478600001)(2616005)(186003)(6506007)(966005)(6486002)(53546011)(26005)(6512007)(71200400001)(45980500001);
- DIR:OUT; SFP:1102; 
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?U21qSlVsUDNtV2UzZGdYVTlGc0NMaWpIT2txZUtEd0taSTBoRzhUZWRyS24z?=
- =?utf-8?B?WUhjTHFWY1BYK1VaRHBOU0d3MVJpTXpmRmFQYk1teGhBenJCZ1g4OGhBcDZD?=
- =?utf-8?B?bkZDU2lTL3ZwSXNUaWFSKzFYZzRGaUoyTmF0WUFXL2gzcEg2YWdVeVFraC9O?=
- =?utf-8?B?NG45MnpJUEtMWEpua3J6R2RFZzNmR3VOYVlDRWw4b3NMMXlDdDVwb3ZIdk9j?=
- =?utf-8?B?VGppeFlydFVxNXFMTFM3TDErSXI1YmU4c1g1aVp0TzB4YmlJQkF0Y2Q2L2Ns?=
- =?utf-8?B?NmN2dTFKUEk3TjZGQlE5RGxXM0pRWGNlbjArSzNWZDFDQU8xWmxQOUt0OEhJ?=
- =?utf-8?B?Rm56VUpSVzZQR21XZlhNQy9XaFpzd3YxZFVReVJwVDQrSSt6eldiTSs2dCty?=
- =?utf-8?B?elBjd05JUERodmR1M0VkQk5HWGpWQmt1dW40T2tid1l0TWY2M1Z4eGJrMXpk?=
- =?utf-8?B?ME15MlNHdExvczZEcW90MVh6N01YejVMdTB5TWRoS1NnUU1ZT2svQUphei9P?=
- =?utf-8?B?Q0NPL1cxaVlpUlV1bDZxNkRoTW9xdnV1dElVSWd6Vmx0VUNqc3k2WTdwVFF2?=
- =?utf-8?B?WE1YS1hqaXhhcTI0bGxBVWtNNWRNeHRIOUhSaXFFTHEwbjA1cytnTk9sRjVN?=
- =?utf-8?B?KzN1ZHIyNDF4K3czWHc1clpQb2oxeE11MDJhaEdiemlXK29yaUx0N0VuakFa?=
- =?utf-8?B?bUdkRCtzR2pXbGFjajJQUVBzVFRmeWFIL1h6cnBad01vK1BlSG5KQWlRSFcw?=
- =?utf-8?B?Q3FaYXcycVRZb2t5NlZaTUl1Z01kT0Y1djBtUmhFYUp6UFBiNW1hUHcvWXVX?=
- =?utf-8?B?T1N3KzVoNFZxTExuREd5OVVCQnMxbXRxL0FLakhwakNFcUdlWFBqZzhrR09y?=
- =?utf-8?B?d2tCemcwNVE5YnBucTArSmhKQmxWOGlMSUFzUmJDSFErVDhnWGs0aFl1QTZS?=
- =?utf-8?B?U3Y2bXhoTm9sdFhNbjF1N2s2S2dVcGIyZWMzQ2tmZnZPU1NBbFNTVzUwcHpE?=
- =?utf-8?B?WmcyWnVpdHZ1ZzQ0VlRhQitlaWpma1liajZhclFPRldJQTlibnRpaUZKcE92?=
- =?utf-8?B?czZYZ3p1VTNSekxoanZRaGlJY2V3UFF3Rk01UjR1ZlFOdUl0MnpmN2FFbWFr?=
- =?utf-8?B?Qkh5NGFQeitYczk1VkFselZRb0U5bFR2c09XbXc2a2NmdVBZTmRFdnFDQ3dJ?=
- =?utf-8?B?Vkc0TXBHYXVYekdWQk92aDhLek9uZnc5R1J4Qzl3OTYyTnRTMyt6OWNjMGlJ?=
- =?utf-8?B?OVBkNFQ4NXlKRVpQbWNFMzF3eWk1ejlqa3B2VjdoMGVrS1JmT0lvTUZpWU9o?=
- =?utf-8?B?V0s3Qi9MMW5QNW9mTFhET3BXL3BDM1FWdkYySFZ6YjNCbWVwYlR4WWFMY3lW?=
- =?utf-8?B?R29TaGlnZWJMa3JJQUlwZEVwNXlPWFpZdTR4S21SRTFGMDZWcldmck51Mkxo?=
- =?utf-8?B?cnhuNWZLdlJuQzVBcHF2aVhUTzFGZDc4OHNwMVpsdzZPRzNUMUtYaks1bGNF?=
- =?utf-8?B?M1Y2MDJOMnRPN0lrUjRQUmkvMmxrZEozWXE3Wjhja2J5M29ETUdSOVNDcGly?=
- =?utf-8?B?OVdPcVptdm9DemE0Q3VDbndOMEwzK3UzWi9uS1ZNOVdpeDFtUzlaeDJoT0Zi?=
- =?utf-8?B?MnpzR1RzZytBQUozQTlLbUxZRkVWeVpOYWtTTEJBTi8weUVQS2NQTHFqT3Yx?=
- =?utf-8?B?dlNtVkhrZlRZeXI5bTV2WnhJcEk5bm9wYUFpa2FqVFZCM0lVL2hEQlJ3Yi9Z?=
- =?utf-8?B?S1U4MXhjd05VWnF3MEdVVng0ZmRnelhjWkwxdzJuK253SlYvVWs3WGtVVkgx?=
- =?utf-8?B?QjMvdzl4L3ZpVWJFV1lUVklkMy9KYzJ5M1QvZkEwd2VoNDI3cXpFU1hGKzVY?=
- =?utf-8?B?cUtDc2thV3JGa2pJZlFlZlNhSzRSTUtUa3VaVG40cjh5ZS9ubm9CNm5USnpV?=
- =?utf-8?B?TEl1djJaNzlrek14TmZGR1FUUCtTeUdxQzBwcEFhZis0ejFXZDVOUXBDMkpP?=
- =?utf-8?B?Q3laeitJWG1ZK1ByQUdESnQ0dnJEVTdYRmdsVnJ4NVNUaEl6U1p1QUVBRE15?=
- =?utf-8?B?M2doakdTUjBHd3o1SGtvYWdHaWk0TlNXTk9mbTVGTG9DcWlSWDFxU2VueXMv?=
- =?utf-8?B?THFkOWZYZEIxMDJyNjhuNlJZSHhBMkxOWUFmUDJKczBPaEZ3YmtCdXo5YWVu?=
- =?utf-8?B?R1E9PQ==?=
-Content-ID: <D0041E1F6735134B9D9DDC1A30955CD8@namprd06.prod.outlook.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 2F2153CBC5;
+ Wed, 15 Mar 2023 12:19:59 -0400 (EDT)
+Received: by mail-wm1-x32e.google.com with SMTP id
+ m18-20020a05600c3b1200b003ed2a3d635eso1640646wms.4; 
+ Wed, 15 Mar 2023 09:19:59 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20210112; t=1678897197;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+ :from:to:cc:subject:date:message-id:reply-to;
+ bh=mpyM/7bwRIID1rOj5XQUeYK2k7H0vjqBgorzAR0LSYU=;
+ b=UEcrphCBGJsyyH3TOBYX1lTOM3aGOfpnuQ+sBZZ8aqHbdjlMA+1xgrPWAwZ/nn9GzZ
+ wAecKPgJOEB4qFwOmwv8TvxAiyC6vHwusgZxkosV2rqoFpY4v7LRjnrFZu//cCC1XdBM
+ HF4CdUhwNE8+4Hlcc6ECxaQNvuBFlvdFZCQWtCeRZDBi9+Hbx24tCIbs69r8ZmR1fW32
+ nldFFWKZwiYT5D6frJp1HZi5U15xfnG1R4R1iXsD1qASxJqJTNr61QioAyRmFoRHIqV+
+ A1AjWsEYfKhkVUTmuMnuklucNbRSjbsREg2QJfvv7lrKTlC286Ew7CUkVu7NqYgb76bi
+ dpJg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20210112; t=1678897197;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+ :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=mpyM/7bwRIID1rOj5XQUeYK2k7H0vjqBgorzAR0LSYU=;
+ b=PXGIZn7/uKv8osM7//iAa02NzuQXtgmgsSG0vgV9Wt1lnut+G08oCB2lKrshHwXWdo
+ WKrWnOLyxVk+gyrxkyHSR8AdPuD5r1cVdZuikYjuQHzuaxHWSPH4HtQHtyluzDm9/FUT
+ Wb9F2UR5o+b/BhTO7MfeldQKS9+SZ0B6du3l4JBLtG4CGFs5ISI1IfwxRHp397/QnFzE
+ 53ohjIxaWr5NN0Hpq36AQEdpDnuc9ugpTqeUcZU/xP7rm9ggJsS5SBiVZOdaD6JRoO8q
+ QpYpI6oaUkhZYp45WAQgEus8+Ca5G8GvKkgOLcS4bgpWre3nJxQyp/K1Y7DUppQ8FX3+
+ 6qkg==
+X-Gm-Message-State: AO0yUKWKg4/Vx8j5lwPHDPZdtJecBaWHozfVi0Ld846z9Qbxq7Kxhr6H
+ oU9mNrwb3eG/cbNkj7wCR64zMcfqtnpiTvR1A4w/kOvF
+X-Google-Smtp-Source: AK7set+HjXQjkjthLEGRAXLwQ/XMtXNATVmwLYv6e4m5UKj3M+Hn9dPxmi4RXl3ZPbvJX+DJ78fymvp17NU9bnfWMxI=
+X-Received: by 2002:a05:600c:1da8:b0:3ed:2937:90e8 with SMTP id
+ p40-20020a05600c1da800b003ed293790e8mr2598468wms.0.1678897197506; Wed, 15 Mar
+ 2023 09:19:57 -0700 (PDT)
 MIME-Version: 1.0
-X-OriginatorOrg: cablelabs.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: BN8PR06MB5892.namprd06.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 5db9e374-59c8-4bc2-43aa-08db24cf0275
-X-MS-Exchange-CrossTenant-originalarrivaltime: 14 Mar 2023 20:59:32.0501 (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: ce4fbcd1-1d81-4af0-ad0b-2998c441e160
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: JYp5l7UWguidFj0K+BqE9cEiU00BqV47Ynsrdiv8WKWROIT96Bkk0JHFl4cGfb5ih+BkKFi6TAto4Zpz5NJAhQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR06MB5741
-Subject: Re: [Cake] [tsvwg] draft-ietf-tsvwg-nqb-15.txt vs the cake AQM
+References: <a88b74824e9619d1f92eed294.bbdd06e8e6.20230315140019.d12c3de322.3411268c@mail126.atl111.rsgsv.net>
+In-Reply-To: <a88b74824e9619d1f92eed294.bbdd06e8e6.20230315140019.d12c3de322.3411268c@mail126.atl111.rsgsv.net>
+Date: Wed, 15 Mar 2023 09:19:46 -0700
+Message-ID: <CAA93jw6KN=aRo8nPNNWdSyqco5jx5rkUG0z6YA-1tAqmhbpUSA@mail.gmail.com>
+To: Cake List <cake@lists.bufferbloat.net>,
+ libreqos <libreqos@lists.bufferbloat.net>
+Subject: [Cake] Fwd: CAKE,
+	Michael Franti + many more at the Mill Valley Music Festival
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -148,92 +78,578 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Greg White via Cake <cake@lists.bufferbloat.net>
-Reply-To: Greg White <g.white@cablelabs.com>
-Cc: Cake List <cake@lists.bufferbloat.net>,
- "Ruediger.Geib@telekom.de" <Ruediger.Geib@telekom.de>,
- tsvwg IETF list <tsvwg@ietf.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Dave Taht via Cake <cake@lists.bufferbloat.net>
+Reply-To: Dave Taht <dave.taht@gmail.com>
+Content-Type: multipart/mixed; boundary="===============1446685424212482094=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SSBhZ3JlZSB3aXRoIHlvdSB0aGF0IHN1cHBvcnQgZm9yIGEgc2VwYXJhdGUgTlFCIHF1ZXVlIGlu
-IHRoZSBmbG93YmxpbmQsIHNyY2hvc3QsIGRzdGhvc3QsICYgaG9zdHMgbW9kZXMgKGlmIHN1cHBv
-cnRlZCkgc2hvdWxkIGJlIGNvbnRyb2xsYWJsZSBhbmQgZG9jdW1lbnRlZC4gSXQgd291bGQgc2Vl
-bSBzaW1wbGVzdCB0byBtZSB0aGF0IHRoaXMgY29uZmlndXJhdGlvbiB3b3VsZCBhcHBseSB0byBh
-bGwgaW5zdGFudGlhdGVkICJxdWV1ZXMiIChsaWtlIG90aGVyIHBhcmFtZXRlcnM6IG5hdCwgd2Fz
-aCwgYW5kIGV2ZW4gdGhlIGZsb3cgaXNvbGF0aW9uIGNvbmZpZ3VyYXRpb24gaXRzZWxmKS4gIENB
-S0UgZG9lc27igJl0IGFwcGVhciB0byBoYXZlIGEgd2F5IHRvIGNvbmZpZ3VyZSBlLmcuICJmb3Ig
-aG9zdCBYIHVzZSAnc3JjaG9zdCcgYW5kIGZvciBob3N0IFkgdXNlICdob3N0cyciLg0KDQotR3Jl
-Zw0KDQoNCu+7v09uIDMvMTQvMjMsIDEwOjU5IEFNLCAiU2ViYXN0aWFuIE1vZWxsZXIiIDxtb2Vs
-bGVyMEBnbXguZGUgPG1haWx0bzptb2VsbGVyMEBnbXguZGU+PiB3cm90ZToNCg0KDQpIaSBHcmVn
-LA0KDQoNCg0KDQo+IE9uIE1hciAxNCwgMjAyMywgYXQgMTc6MjUsIEdyZWcgV2hpdGUgPGcud2hp
-dGVAY2FibGVsYWJzLmNvbSA8bWFpbHRvOmcud2hpdGVAY2FibGVsYWJzLmNvbT4+IHdyb3RlOg0K
-PiANCj4gSGkgRGF2ZSwgDQo+IA0KPiBUaGUgTlFCIHJlcXVpcmVtZW50IGlzIHRoYXQgaXQgc2hh
-cmVzIGNhcGFjaXR5IHdpdGggYW5kIGlzIGF0IHRoZSBzYW1lIHByaW9yaXR5IGFzIERlZmF1bHQg
-KENTMCkuIFNvLCBmb3IgYWxsIHByaW9yaXR5IHF1ZXVlIG9wdGlvbnMgaW4gQ0FLRSAoYXNpZGUg
-ZnJvbSBwcmVjZWRlbmNlLCBwZXJoYXBzKSwgSSB3b3VsZCByZWNvbW1lbmQgdGhhdCB5b3UgYWxp
-Z24gd2l0aCB0aGF0IHJlcXVpcmVtZW50LiBTbywgSSB0aGluayBJIGFncmVlIHdpdGggd2hhdCB5
-b3Ugd3JvdGUgYmVsb3cgZm9yIGJlc3RlZmZvcnQsIGRpZmZzZXJ2MyBhbmQgcHJlY2VkZW5jZSwg
-YnV0IGZvciBkaWZmc2VydjQgQ0FLRSB3b3VsZCBiZSBub24tY29tcGxpYW50IGlmIGl0IHB1dCBO
-UUIgaW50byB0aGUgdmlkZW8gY2xhc3MuIEkgZG9uJ3QgdW5kZXJzdGFuZCBkaWZmc2VydjgsIHNp
-bmNlIHRoZSBtYW4gcGFnZSBkb2Vzbid0IGFwcGVhciB0byBkZXNjcmliZSBpdC4gQnV0LCB0aGUg
-c2FtZSBsb2dpYyBzaG91bGQgaG9sZCB0aGVyZSB0b28uIA0KPiANCj4gSW4gbW9zdCBjYXNlcywg
-SSB0aGluayB0aGUgZmxvdyBpc29sYXRpb24gaW4gQ0FLRSBhbHJlYWR5IHByb3ZpZGVzIHRoZSBi
-ZW5lZml0IHRoYXQgdGhlIE5RQiBQSEIgaXMgYWltaW5nIHRvIGFjaGlldmUuIEJ1dCwgaW4gdGhl
-IGZsb3dibGluZCwgc3JjaG9zdCwgZHN0aG9zdCwgJiBob3N0cyBtb2RlcywgaXQgZG9lc24ndC4N
-Cj4gSGVyZSBpcyB3aGVyZSB5b3UgY291bGQgY29uc2lkZXIgZG9pbmcgYSBmdWxsIGltcGxlbWVu
-dGF0aW9uIG9mIHRoZSBOUUIgUEhCIChhIHNlcGFyYXRlIHF1ZXVlIGluIHRoZSBCZXN0IEVmZm9y
-dCB0aW4pLiBJZiB5b3UgY2hvb3NlIHRvIHRha2UgdGhhdCBvbiwgdGhlIHJlY29tbWVuZGF0aW9u
-IGlzIHRvIGltcGxlbWVudCBhIHRyYWZmaWMgcHJvdGVjdGlvbiBtZWNoYW5pc20uIFRoaXMgd291
-bGQgYmUgYSByZWFsbHkgaW50ZXJlc3RpbmcgdGVzdCBjYXNlIHRvIHNlZSB3aGV0aGVyIHlvdSB0
-aGluayB0aGUgZHJhZnQgaXMgc3VmZmljaWVudGx5IGRldGFpbGVkIGZvciB5b3UgdG8gY29tZSB1
-cCB3aXRoIGEgZGVzaWduIGZvciBsaW51eC4gDQoNCg0KQnV0IHRoaXMgYWRkaXRpb25hbCBxdWV1
-ZSB3b3VsZCB2aW9sYXRlIHRoZSBwcm9taXNlcyBtYWRlIGJ5IGZsb3dibGluZCwgc3JjaG9zdCwg
-ZHN0aG9zdCwgJiBob3N0cywgc28geW91IHdvdWxkIG5lZWQgdG8gYWRkIHRoaXMgYXMgYWRkaXRp
-b25hbCBrZXkgd29yZCBkb2N1bWVudGVkIHRvIGFkZCBhbiBhZGRpdGlvbmFsIHF1ZXVlIGZvciBO
-UUIsIGJ1dCB3aGF0IHRvIGRvIHRoZW4sIGRvIHRoaXMgZS5nLiBpbmRpdmlkdWFsbHkgZm9yIGVh
-Y2ggb2YgdGhlIGhvc3QgcXVldWVzIG9yIGp1c3QgYSBzaW5nbGUgb25lLg0KDQoNCklmIHlvdSBh
-c2sgbWUgZG9uJ3QgZG8gaXQgYXQgYWxsIG9yIGFzIHNwZWNpZmljIG1vZGlmaWVyIGtleXdvcmQg
-Zm9yIHRoZSBpc29sYXRpb24gbW9kZXMsIG5vdCB0aGF0IHlvdSBhc2tlZCA7KQ0KDQoNCg0KDQo+
-IFlvdSBtZW50aW9uZWQgYSBQYXJ0IElJIHRvIGRpc2N1c3MgdGhlIHZhcmlvdXMgd2FzaCBtb2Rl
-cy4gSSBvbmx5IHNlZSB0d28gbW9kZXMgKHdhc2gvbm93YXNoKSBhbSBJIG1pc3Npbmcgc29tZXRo
-aW5nPw0KDQoNClNhbWUgaGVyZSwgYW5kIGFnYWluLCBpZiB5b3Ugd2FudCBhIHNwZWNpYWwgbW9k
-ZSB0aGF0IHN0aWxsIHByb3BhZ2F0ZXMgTlFCIHBsZWFzZSBnaXZlIHRoaXMgYSBuZXcgZGVzY3Jp
-cHRpdmUgbmFtZSByZXRhaW5fZTJlX0RTQ1BzIG9yIHNpbWlsYXIsIG9yIGFuIGV4cGxpY2l0IHdh
-eSB0byBlbnVtZXJhdGUgd2hpY2ggRFNDUHMgdG8gd2FzaC4NCg0KDQpSZWdhcmRzDQpTZWJhc3Rp
-YW4NCg0KDQoNCg0KPiANCj4gLUdyZWcNCj4gDQo+IA0KPiBPbiAzLzE0LzIzLCA4OjAyIEFNLCAi
-RGF2ZSBUYWh0IiA8ZGF2ZS50YWh0QGdtYWlsLmNvbSA8bWFpbHRvOmRhdmUudGFodEBnbWFpbC5j
-b20+IDxtYWlsdG86ZGF2ZS50YWh0QGdtYWlsLmNvbSA8bWFpbHRvOmRhdmUudGFodEBnbWFpbC5j
-b20+Pj4gd3JvdGU6DQo+IA0KPiANCj4gSSBoYXZlIGJlZW4gc2l0dGluZyBvbiB0aGUgY2FrZSBy
-ZWxhdGVkIHBhdGNoZXMgZm9yIHRoaXMgZm9yIHllYXJzDQo+IG5vdywgYW5kIGl0IGlzIG15IGhv
-cGUgdG8gZ2V0IHN1cHBvcnQgZm9yIE5RQiBpbnRvIHRoZSBuZXh0IGxpbnV4DQo+IHJlbGVhc2Us
-IHJlZ2FyZGxlc3Mgb2Ygd2hldGhlciBpdCBnZXRzIHRocm91Z2ggbGFzdCBjYWxsIGF0IHRoaXMg
-dGltZSwNCj4gdW5sZXNzIHRoZSBzZWxlY3RlZCBjb2RlcG9pbnQgbnVtYmVyIGNoYW5nZXMuICg/
-KQ0KPiANCj4gDQo+IENha2UgKHBsZWFzZSBzZWUgdGhlIG1hbiBwYWdlIGhlcmU6DQo+IGh0dHBz
-Oi8vbWFuNy5vcmcvbGludXgvbWFuLXBhZ2VzL21hbjgvdGMtY2FrZS44Lmh0bWwgPGh0dHBzOi8v
-bWFuNy5vcmcvbGludXgvbWFuLXBhZ2VzL21hbjgvdGMtY2FrZS44Lmh0bWw+IDxodHRwczovL21h
-bjcub3JnL2xpbnV4L21hbi1wYWdlcy9tYW44L3RjLWNha2UuOC5odG1sPiA8aHR0cHM6Ly9tYW43
-Lm9yZy9saW51eC9tYW4tcGFnZXMvbWFuOC90Yy1jYWtlLjguaHRtbCZndDs+ICkgc3VwcG9ydHMN
-Cj4gbXVsdGlwbGUgZGlmZnNlcnYgbW9kZWxzLg0KPiANCj4gDQo+IGJlc3RlZmZvcnQgaXMgZXhh
-Y3RseSB0aGF0LCBiZXN0ZWZmb3J0LCBhbmQgd2lsbCBub3QgZ2FpbiBOUUIgc3VwcG9ydC4NCj4g
-DQo+IA0KPiBUaGUgZGlmZnNlcnYzIGludGVycHJldGF0aW9uIGlzIHRoZSBkZWZhdWx0LCBhbmQg
-Z2l2ZW4gdGhhdCBmbG93DQo+IHF1ZXVpbmcgaGFuZGxlcyBtb3N0IG9mIHRoZSBOUUItbGlrZSBw
-cm9ibGVtcyBuYXR1cmFsbHksIGFuZCBWb2ljZQ0KPiAoQ1M3LCBDUzYsIEVGLCBWQSwgVE9TNCkg
-aXMgYWxsIHRoYXQgaXMgaGFuZGxlZCB0aGVyZSB0b2RheSwgSSBhbQ0KPiB0aGlua2luZyBvZiAq
-bm90KiBlbGV2YXRpbmcgTlFCIGludG8gdGhhdCBjbGFzcyBpcyB0aGUgcmlnaHQgdGhpbmcuDQo+
-IA0KPiANCj4gTlFCIGZpdHMgbmljZWx5IGludG8gdGhlIGRpZmZzZXJ2NCBtb2RlbCBpbiB0aGUg
-dmlkZW8gY2xhc3MsIHNvIEkgd2lsbA0KPiBwdXQgaXQgdGhlcmUuIHNpbmNlIGNvdmlkIHdlIHRl
-bmQgdG8gdXNlIHRoZSBkaWZmc2VydjQgbW9kZWwgYSBsb3QgdG8NCj4gbWFuYWdlIHZpZGVvY29u
-ZmVyZW5jaW5nIGJldHRlci4NCj4gDQo+IA0KPiBBcyBmb3IgdGhlIENTMC1DUzcgcHJlY2VkZW5j
-ZSBtb2RlbCBpbmMgY2FrZSwgd2UgaGF2ZSBkZWNsYXJlZCB0aGF0DQo+IG9ic29sZXRlIGluIHRo
-ZSBjb2RlLCBhbmQgd2hlcmV2ZXIgTlFCIGZhbGxzIGludG8gaXQsIGdyZWF0LiBBbmQgdGhlDQo+
-IGRpZmZzZXJ2OCwgSSBkb27CtHQga25vdy4NCj4gDQo+IA0KPiBBbnl3YXksIGRvZXMgdGhhdCB3
-b3JrIGZvciBldmVyeW9uZT8NCj4gDQo+IA0KPiBQYXJ0IElJIG9mIHRoaXMgd291bGQgYmUgYSBk
-aXNjdXNzaW9uIG9mIHRoZSB2YXJpb3VzIHdhc2ggbW9kZXMsIGJ1dA0KPiBtZXJlbHkgZ2V0dGlu
-ZyB0aGUgcmlnaHQgYnl0ZSBpbnRvIHRoZSByaWdodCBsb29rdXAgdGFibGVzIGFmdGVyIGFsbA0K
-PiB0aGlzIGRpc2N1c3Npb24sIHdvdWxkIGJlIG5pY2UuDQo+IA0KPiANCj4gDQoNCg0KDQoNCg0K
+--===============1446685424212482094==
+Content-Type: multipart/alternative; boundary="0000000000001263c405f6f2b79e"
+
+--0000000000001263c405f6f2b79e
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+so nice to see CAKE is touring.
+
+---------- Forwarded message ---------
+From: Relix <alerts@relix.com>
+Date: Wed, Mar 15, 2023 at 7:00=E2=80=AFAM
+Subject: CAKE, Michael Franti + many more at the Mill Valley Music Festival
+To: <dave.taht@gmail.com>
+
+
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3D0f37e9270b&e=3Dbbdd06e8e6>
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3D65e79f812a&e=3Dbbdd06e8e6>
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3D3022c4ea78&e=3Dbbdd06e8e6>
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3D162c954ecf&e=3Dbbdd06e8e6>
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3Dff6f50ae1c&e=3Dbbdd06e8e6>
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3Df2b6b9055c&e=3Dbbdd06e8e6>
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3Df3714a10f5&e=3Dbbdd06e8e6>
+*Mill Valley Music Festival* is returning this May 13 &14! See music
+from *Michael
+Franti & Spearhead*, *CAKE*, *Tank & The Bangas*, *Original Talking Heads
+member Jerry Harrison, and Adrian Belew*, performing *Remain in Light* +
+many more! This festival features a diverse mix of local and national acts,
+coupled with world-class cuisine, local artists, and craft drinks. Don't
+miss out on seeing your favorite band perform in an intimate setting
+nestled below the Bay Area slopes of Mount Tamalpais. Single-day and 2-Day
+tickets are on sale now at *Millvalleymusicfest.com
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3De6a3760a2c&e=3Dbbdd06e8e6>*
+GET TICKETS TODAY
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3Dc9abcfd16d&e=3Dbbdd06e8e6>
+
+*SHARE WITH A FRIEND
+<https://us7.forward-to-friend.com/forward?u=3Da88b74824e9619d1f92eed294&id=
+=3Dd12c3de322&e=3Dbbdd06e8e6>*
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3D36b0619103&e=3Dbbdd06e8e6>
+
+*Subscribe Today* SUBSCRIBE
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3D34e0809a3e&e=3Dbbdd06e8e6>
+RENEW
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3Dc21f8056aa&e=3Dbbdd06e8e6>
+DIGITAL
+EDITION
+<https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619d1f92eed29=
+4&id=3D85ba1cdb55&e=3Dbbdd06e8e6>
+Unsubscribe
+<https://relix.us7.list-manage.com/unsubscribe?u=3Da88b74824e9619d1f92eed29=
+4&id=3D4510819a5c&e=3Dbbdd06e8e6&c=3Dd12c3de322>
+  |    View in Browser
+<https://mailchi.mp/relix/cake-michael-franti-many-more-at-the-mill-valley-=
+music-festival?e=3Dbbdd06e8e6>
+*Copyright =C2=A9 2023 Relix Media Group, All rights reserved.*
+RELIX MEDIA GROUP 104 West 29th St, 11th Floor, New York, NY 10001
+*You are receiving this email because you are an opt-in subscriber for
+promotional update emails from Relix.*
+
+
+--=20
+Come Heckle Mar 6-9 at: https://www.understandinglatency.com
+<https://www.understandinglatency.com/Dave>/
+Dave T=C3=A4ht CEO, TekLibre, LLC
+
+--0000000000001263c405f6f2b79e
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">so nice to see CAKE is touring.=C2=A0<br><br><div class=3D=
+"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">---------- Forwarded me=
+ssage ---------<br>From: <strong class=3D"gmail_sendername" dir=3D"auto">Re=
+lix</strong> <span dir=3D"auto">&lt;<a href=3D"mailto:alerts@relix.com">ale=
+rts@relix.com</a>&gt;</span><br>Date: Wed, Mar 15, 2023 at 7:00=E2=80=AFAM<=
+br>Subject: CAKE, Michael Franti + many more at the Mill Valley Music Festi=
+val<br>To:  &lt;<a href=3D"mailto:dave.taht@gmail.com">dave.taht@gmail.com<=
+/a>&gt;<br></div><br><br><div class=3D"msg-1613039062777282978"><u></u>
+
+   =20
+       =20
+       =20
+       =20
+       =20
+       =20
+       =20
+
+   =20
+    <div style=3D"height:100%;margin:0;padding:0;width:100%;background-colo=
+r:#ffffff">
+       =20
+        <center>
+            <table align=3D"center" border=3D"0" cellpadding=3D"0" cellspac=
+ing=3D"0" height=3D"100%" width=3D"100%" id=3D"m_-1613039062777282978bodyTa=
+ble" style=3D"border-collapse:collapse;height:100%;margin:0;padding:0;width=
+:100%;background-color:#ffffff">
+                <tbody><tr>
+                    <td align=3D"center" valign=3D"top" id=3D"m_-1613039062=
+777282978bodyCell" style=3D"height:100%;margin:0;padding:10px;width:100%;bo=
+rder-top:0">
+                       =20
+                       =20
+                        <table border=3D"0" cellpadding=3D"0" cellspacing=
+=3D"0" width=3D"100%" class=3D"m_-1613039062777282978templateContainer" sty=
+le=3D"border-collapse:collapse;border:0;max-width:600px!important">
+                            <tbody><tr>
+                                <td valign=3D"top" id=3D"m_-161303906277728=
+2978templatePreheader" style=3D"background:#ffffff none no-repeat center/co=
+ver;background-color:#ffffff;background-image:none;background-repeat:no-rep=
+eat;background-position:center;background-size:cover;border-top:0;border-bo=
+ttom:0;padding-top:0px;padding-bottom:5px"></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"m_-161303906277728=
+2978templateHeader" style=3D"background:#ffffff none no-repeat center/cover=
+;background-color:#ffffff;background-image:none;background-repeat:no-repeat=
+;background-position:center;background-size:cover;border-top:0;border-botto=
+m:0;padding-top:0px;padding-bottom:5px"><table border=3D"0" cellpadding=3D"=
+0" cellspacing=3D"0" width=3D"100%" style=3D"min-width:100%;border-collapse=
+:collapse">
+    <tbody>
+            <tr>
+                <td valign=3D"top" style=3D"padding:0px">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;border-collapse:coll=
+apse">
+                        <tbody><tr>
+                            <td valign=3D"top" style=3D"padding-right:0px;p=
+adding-left:0px;padding-top:0;padding-bottom:0;text-align:center">
+
+                                    <a href=3D"https://relix.us7.list-manag=
+e.com/track/click?u=3Da88b74824e9619d1f92eed294&amp;id=3D0f37e9270b&amp;e=
+=3Dbbdd06e8e6" title=3D"" target=3D"_blank">
+                                        <img align=3D"center" alt=3D"" src=
+=3D"https://mcusercontent.com/a88b74824e9619d1f92eed294/images/b60b9cff-358=
+9-4146-9de4-9d542a09aedf.png" width=3D"180" style=3D"max-width:180px;paddin=
+g-bottom:0;display:inline!important;vertical-align:bottom;border:0;height:a=
+uto;outline:none;text-decoration:none" class=3D"m_-1613039062777282978mcnIm=
+age">
+                                    </a>
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" style=3D"border-collapse:collapse">
+    <tbody>
+        <tr>
+            <td valign=3D"top">
+               =20
+<table style=3D"width:100%;max-width:600px;margin-top:10px;border-collapse:=
+collapse" align=3D"center">
+<tbody><tr align=3D"center">
+   		<td><a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b7=
+4824e9619d1f92eed294&amp;id=3D65e79f812a&amp;e=3Dbbdd06e8e6" style=3D"text-=
+decoration:none" target=3D"_blank">
+			<img border=3D"0" alt=3D"" src=3D"https://gallery.mailchimp.com/a88b7482=
+4e9619d1f92eed294/images/16218d5f-9ea5-4b8c-8b79-41a205572ad3.png" width=3D=
+"30" height=3D"24px" style=3D"border:0;height:auto;outline:none;text-decora=
+tion:none">
+			</a></td>
+    	<td><a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b7=
+4824e9619d1f92eed294&amp;id=3D3022c4ea78&amp;e=3Dbbdd06e8e6" style=3D"text-=
+decoration:none" target=3D"_blank">
+			<img border=3D"0" alt=3D"" src=3D"https://gallery.mailchimp.com/a88b7482=
+4e9619d1f92eed294/images/84031751-494a-4aff-9523-8a4aa6b8050c.png" width=3D=
+"30" height=3D"25" align=3D"middle" style=3D"border:0;height:auto;outline:n=
+one;text-decoration:none">
+			</a></td>
+   		<td><a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b7=
+4824e9619d1f92eed294&amp;id=3D162c954ecf&amp;e=3Dbbdd06e8e6" style=3D"text-=
+decoration:none" target=3D"_blank">
+			<img border=3D"0" alt=3D"" src=3D"https://gallery.mailchimp.com/a88b7482=
+4e9619d1f92eed294/images/300bcef7-f025-45a6-acbc-bb0ac42865b4.png" width=3D=
+"30" height=3D"25" align=3D"middle" style=3D"border:0;height:auto;outline:n=
+one;text-decoration:none">
+			</a></td>
+   		<td><a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b7=
+4824e9619d1f92eed294&amp;id=3Dff6f50ae1c&amp;e=3Dbbdd06e8e6" style=3D"text-=
+decoration:none" target=3D"_blank">
+			<img border=3D"0" alt=3D"" src=3D"https://gallery.mailchimp.com/a88b7482=
+4e9619d1f92eed294/images/c5781983-ecce-4969-a00c-83ad951df06c.png" width=3D=
+"30" height=3D"25" align=3D"middle" style=3D"border:0;height:auto;outline:n=
+one;text-decoration:none">
+			</a></td>
+   		<td><a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b7=
+4824e9619d1f92eed294&amp;id=3Df2b6b9055c&amp;e=3Dbbdd06e8e6" style=3D"text-=
+decoration:none" target=3D"_blank">
+			<img border=3D"0" alt=3D"" src=3D"https://mcusercontent.com/a88b74824e96=
+19d1f92eed294/images/3358e259-1d0b-910d-6e2c-920ba6221a3b.png" width=3D"30"=
+ height=3D"25" align=3D"middle" style=3D"border:0;height:auto;outline:none;=
+text-decoration:none">
+			</a></td></tr>
+	<tr>
+		<td colspan=3D"5" width=3D"100%" height=3D"5"></td></tr>
+	<tr>
+		<td colspan=3D"5" width=3D"100%" bgcolor=3D"#b62629" valign=3D"middle" he=
+ight=3D"2" style=3D"font-size:1px;line-height:1px">
+		</td></tr>
+	<tr>
+		<td colspan=3D"5" width=3D"100%" bgcolor=3D"white" valign=3D"middle" heig=
+ht=3D"4" style=3D"font-size:1px;line-height:1px">
+		</td></tr>
+</tbody></table>
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"m_-161303906277728=
+2978templateUpperBody" style=3D"background:#ffffff none no-repeat center/co=
+ver;background-color:#ffffff;background-image:none;background-repeat:no-rep=
+eat;background-position:center;background-size:cover;border-top:0;border-bo=
+ttom:0;padding-top:8px;padding-bottom:0"><table border=3D"0" cellpadding=3D=
+"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width:100%;border-collaps=
+e:collapse">
+    <tbody>
+            <tr>
+                <td valign=3D"top" style=3D"padding:9px">
+                    <table align=3D"left" width=3D"100%" border=3D"0" cellp=
+adding=3D"0" cellspacing=3D"0" style=3D"min-width:100%;border-collapse:coll=
+apse">
+                        <tbody><tr>
+                            <td valign=3D"top" style=3D"padding-right:9px;p=
+adding-left:9px;padding-top:0;padding-bottom:0;text-align:center">
+
+                                    <a href=3D"https://relix.us7.list-manag=
+e.com/track/click?u=3Da88b74824e9619d1f92eed294&amp;id=3Df3714a10f5&amp;e=
+=3Dbbdd06e8e6" title=3D"" target=3D"_blank">
+                                        <img align=3D"center" alt=3D"" src=
+=3D"https://mcusercontent.com/a88b74824e9619d1f92eed294/images/c0a946ce-d0e=
+f-d3a4-f036-0570284594ee.png" width=3D"564" style=3D"max-width:1080px;paddi=
+ng-bottom:0;display:inline!important;vertical-align:bottom;border:0;height:=
+auto;outline:none;text-decoration:none" class=3D"m_-1613039062777282978mcnI=
+mage">
+                                    </a>
+
+                            </td>
+                        </tr>
+                    </tbody></table>
+                </td>
+            </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" style=3D"min-width:100%;border-collapse:collapse">
+    <tbody>
+        <tr>
+            <td valign=3D"top" style=3D"padding-top:9px">
+              =09
+		=09
+			=09
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%;min-width:100%;border-collapse:collapse=
+" width=3D"100%" class=3D"m_-1613039062777282978mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"m_-1613039062777282978m=
+cnTextContent" style=3D"padding-top:0;padding-right:18px;padding-bottom:9px=
+;padding-left:18px;word-break:break-word;color:#000000;font-family:Helvetic=
+a;font-size:16px;line-height:150%;text-align:center">
+
+                            <span style=3D"font-size:16px"><strong>Mill Val=
+ley Music Festival</strong> is returning this May 13 &amp;14! See music fro=
+m <strong>Michael Franti &amp; Spearhead</strong>, <strong>CAKE</strong>, <=
+strong>Tank &amp; The Bangas</strong>, <strong>Original Talking Heads membe=
+r Jerry Harrison, and Adrian Belew</strong>, performing <em>Remain in Light=
+</em> + many more! This festival features a diverse mix of local and nation=
+al acts, coupled with world-class cuisine, local artists, and craft drinks.=
+ Don&#39;t miss out on seeing your favorite band perform in an intimate set=
+ting nestled below the Bay Area slopes of Mount Tamalpais. Single-day and 2=
+-Day tickets are on sale now at <u><a href=3D"https://relix.us7.list-manage=
+.com/track/click?u=3Da88b74824e9619d1f92eed294&amp;id=3De6a3760a2c&amp;e=3D=
+bbdd06e8e6" style=3D"color:#cc0000;font-weight:bold;text-decoration:none" t=
+arget=3D"_blank">Millvalleymusicfest.com</a></u></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+			=09
+
+			=09
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" style=3D"min-width:100%;border-collapse:collapse">
+    <tbody>
+        <tr>
+            <td style=3D"padding-top:0;padding-right:18px;padding-bottom:18=
+px;padding-left:18px" valign=3D"top" align=3D"center">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" sty=
+le=3D"border-collapse:separate!important;border-radius:4px;background-color=
+:#fc5200">
+                    <tbody>
+                        <tr>
+                            <td align=3D"center" valign=3D"middle" style=3D=
+"font-family:Arial;font-size:18px;padding:18px">
+                                <a class=3D"m_-1613039062777282978mcnButton=
+" title=3D"GET TICKETS TODAY" href=3D"https://relix.us7.list-manage.com/tra=
+ck/click?u=3Da88b74824e9619d1f92eed294&amp;id=3Dc9abcfd16d&amp;e=3Dbbdd06e8=
+e6" style=3D"font-weight:bold;letter-spacing:normal;line-height:100%;text-a=
+lign:center;text-decoration:none;color:#ffffff;display:block" target=3D"_bl=
+ank">GET TICKETS TODAY</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"m_-161303906277728=
+2978templateColumns" style=3D"background:#ffffff none no-repeat center/cove=
+r;background-color:#ffffff;background-image:none;background-repeat:no-repea=
+t;background-position:center;background-size:cover;border-top:0;border-bott=
+om:0;padding-top:0;padding-bottom:0">
+                                   =20
+                                    <table align=3D"left" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"300" class=3D"m_-16130390627772829=
+78columnWrapper" style=3D"border-collapse:collapse">
+                                        <tbody><tr>
+                                            <td valign=3D"top" class=3D"m_-=
+1613039062777282978columnContainer"></td>
+                                        </tr>
+                                    </tbody></table>
+                                   =20
+                                    <table align=3D"left" border=3D"0" cell=
+padding=3D"0" cellspacing=3D"0" width=3D"300" class=3D"m_-16130390627772829=
+78columnWrapper" style=3D"border-collapse:collapse">
+                                        <tbody><tr>
+                                            <td valign=3D"top" class=3D"m_-=
+1613039062777282978columnContainer"></td>
+                                        </tr>
+                                    </tbody></table>
+                                   =20
+                                </td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"m_-161303906277728=
+2978templateLowerBody" style=3D"background:#ffffff none no-repeat center/co=
+ver;background-color:#ffffff;background-image:none;background-repeat:no-rep=
+eat;background-position:center;background-size:cover;border-top:0;border-bo=
+ttom:0;padding-top:5px;padding-bottom:0px"><table border=3D"0" cellpadding=
+=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"min-width:100%;border-coll=
+apse:collapse">
+    <tbody>
+        <tr>
+            <td valign=3D"top" style=3D"padding-top:9px">
+              =09
+		=09
+			=09
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%;min-width:100%;border-collapse:collapse=
+" width=3D"100%" class=3D"m_-1613039062777282978mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"m_-1613039062777282978m=
+cnTextContent" style=3D"padding:0px 18px 9px;line-height:100%;word-break:br=
+eak-word;color:#000000;font-family:Helvetica;font-size:10px;text-align:cent=
+er">
+
+                            <div style=3D"text-align:center"><span style=3D=
+"font-size:10px"><strong><a href=3D"https://us7.forward-to-friend.com/forwa=
+rd?u=3Da88b74824e9619d1f92eed294&amp;id=3Dd12c3de322&amp;e=3Dbbdd06e8e6" st=
+yle=3D"color:#b62629;font-weight:bold;text-decoration:none" target=3D"_blan=
+k"><span style=3D"color:#b62629">SHARE WITH A FRIEND</span></a></strong></s=
+pan></div>
+
+                        </td>
+                    </tr>
+                </tbody></table>
+			=09
+
+			=09
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                            <tr>
+                                <td valign=3D"top" id=3D"m_-161303906277728=
+2978templateFooter" style=3D"background:#ffffff none no-repeat center/cover=
+;background-color:#ffffff;background-image:none;background-repeat:no-repeat=
+;background-position:center;background-size:cover;border-top:4px solid #b62=
+629;border-bottom:0;padding-top:2px;padding-bottom:2px"><table border=3D"0"=
+ cellpadding=3D"0" cellspacing=3D"0" width=3D"100%" style=3D"border-collaps=
+e:collapse">
+    <tbody>
+        <tr>
+            <td valign=3D"top">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" cla=
+ss=3D"m_-1613039062777282978mcnCaptionRightContentOuter" width=3D"100%" sty=
+le=3D"border-collapse:collapse;margin-top:10px">
+    <tbody><tr>
+        <td valign=3D"top" style=3D"padding:0 9px">
+            <table align=3D"left" border=3D"0" cellpadding=3D"0" cellspacin=
+g=3D"0" class=3D"m_-1613039062777282978mcnCaptionRightImageContentContainer=
+" width=3D"420" style=3D"border-collapse:collapse">
+                <tbody><tr>
+                    <td align=3D"center" valign=3D"top">
+
+
+                        <a href=3D"https://relix.us7.list-manage.com/track/=
+click?u=3Da88b74824e9619d1f92eed294&amp;id=3D36b0619103&amp;e=3Dbbdd06e8e6"=
+ title=3D"" target=3D"_blank">
+
+
+                        <img alt=3D"" src=3D"https://relix.com/wp-content/u=
+ploads/2022/03/relix_Mailchimp_covergraphic.png" width=3D"420" style=3D"max=
+-width:420px;border:0;height:auto;outline:none;text-decoration:none;vertica=
+l-align:bottom" class=3D"m_-1613039062777282978mcnImage">
+                        </a>
+
+
+                    </td>
+                </tr>
+            </tbody></table>
+            <table class=3D"m_-1613039062777282978mcnCaptionRightTextConten=
+tContainer" align=3D"center" border=3D"0" cellpadding=3D"0" cellspacing=3D"=
+0" width=3D"150" style=3D"border-collapse:collapse">
+                <tbody><tr>
+                    <td valign=3D"top" class=3D"m_-1613039062777282978mcnTe=
+xtContent" style=3D"word-break:break-word;color:#000000;font-family:Helveti=
+ca;font-size:10px;line-height:200%;text-align:center">
+                        <div align=3D"center" style=3D"text-align:center;ma=
+rgin-left:5px;margin-right:5px;margin-top:5px"><font color=3D"#000000"><spa=
+n style=3D"font-size:17px"><strong>Subscribe Today</strong></span></font>
+
+<a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619=
+d1f92eed294&amp;id=3D34e0809a3e&amp;e=3Dbbdd06e8e6" style=3D"color:#6e6e6e;=
+border-color:#848484;border-style:solid;border-width:1px;border-radius:3px;=
+font-weight:bold;font-family:Arial;font-size:11px;text-decoration:none;marg=
+in-top:10px;padding:3px;text-align:center;display:block;width:100%;max-widt=
+h:300px" target=3D"_blank"> SUBSCRIBE </a>
+
+<a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619=
+d1f92eed294&amp;id=3Dc21f8056aa&amp;e=3Dbbdd06e8e6" style=3D"color:#6e6e6e;=
+border-color:#848484;border-style:solid;border-width:1px;border-radius:3px;=
+font-weight:bold;font-family:Arial;font-size:11px;text-decoration:none;marg=
+in-top:10px;padding:3px;text-align:center;display:block;width:100%;max-widt=
+h:300px" target=3D"_blank"> RENEW </a>
+
+<a href=3D"https://relix.us7.list-manage.com/track/click?u=3Da88b74824e9619=
+d1f92eed294&amp;id=3D85ba1cdb55&amp;e=3Dbbdd06e8e6" style=3D"color:#6e6e6e;=
+border-color:#848484;border-style:solid;border-width:1px;border-radius:3px;=
+font-weight:bold;font-family:Arial;font-size:11px;text-decoration:none;marg=
+in-top:10px;padding:3px;text-align:center;display:block;width:100%;max-widt=
+h:300px" target=3D"_blank"> DIGITAL EDITION </a>
+
+
+</div>
+
+                    </td>
+                </tr>
+            </tbody></table>
+        </td>
+    </tr>
+</tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" class=3D"m_-1613039062777282978mcnDividerBlock" style=3D"min-width:100%=
+;border-collapse:collapse;table-layout:fixed!important">
+    <tbody>
+        <tr>
+            <td style=3D"min-width:100%;padding:10px 18px">
+                <table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" wid=
+th=3D"100%" style=3D"min-width:100%;border-top:2px solid #eeeeee;border-col=
+lapse:collapse">
+                    <tbody><tr>
+                        <td>
+                            <span></span>
+                        </td>
+                    </tr>
+                </tbody></table>
+
+            </td>
+        </tr>
+    </tbody>
+</table><table border=3D"0" cellpadding=3D"0" cellspacing=3D"0" width=3D"10=
+0%" style=3D"min-width:100%;border-collapse:collapse">
+    <tbody>
+        <tr>
+            <td valign=3D"top" style=3D"padding-top:9px">
+              =09
+		=09
+			=09
+                <table align=3D"left" border=3D"0" cellpadding=3D"0" cellsp=
+acing=3D"0" style=3D"max-width:100%;min-width:100%;border-collapse:collapse=
+" width=3D"100%" class=3D"m_-1613039062777282978mcnTextContentContainer">
+                    <tbody><tr>
+
+                        <td valign=3D"top" class=3D"m_-1613039062777282978m=
+cnTextContent" style=3D"padding-top:0;padding-right:18px;padding-bottom:9px=
+;padding-left:18px;word-break:break-word;color:#656565;font-family:Helvetic=
+a;font-size:12px;line-height:150%;text-align:center">
+
+                            <a href=3D"https://relix.us7.list-manage.com/un=
+subscribe?u=3Da88b74824e9619d1f92eed294&amp;id=3D4510819a5c&amp;e=3Dbbdd06e=
+8e6&amp;c=3Dd12c3de322" style=3D"color:#6e6e6e;font-weight:bold;text-decora=
+tion:none" target=3D"_blank">Unsubscribe</a>=C2=A0 =C2=A0 |=C2=A0 =C2=A0=C2=
+=A0<a href=3D"https://mailchi.mp/relix/cake-michael-franti-many-more-at-the=
+-mill-valley-music-festival?e=3Dbbdd06e8e6" style=3D"color:#6e6e6e;font-wei=
+ght:bold;text-decoration:none" target=3D"_blank">View in Browser</a><br>
+<em>Copyright =C2=A9 2023 Relix Media Group, All rights reserved.</em><br>
+RELIX MEDIA GROUP 104 West 29th St, 11th Floor, New York, NY 10001<br>
+<em><span style=3D"font-size:10px">You are receiving this email because you=
+ are an opt-in subscriber for promotional update emails from Relix.</span><=
+/em>
+                        </td>
+                    </tr>
+                </tbody></table>
+			=09
+
+			=09
+            </td>
+        </tr>
+    </tbody>
+</table></td>
+                            </tr>
+                        </tbody></table>
+                       =20
+                       =20
+                    </td>
+                </tr>
+            </tbody></table>
+        </center>
+    <img src=3D"https://relix.us7.list-manage.com/track/open.php?u=3Da88b74=
+824e9619d1f92eed294&amp;id=3Dd12c3de322&amp;e=3Dbbdd06e8e6" height=3D"1" wi=
+dth=3D"1" alt=3D""></div>
+</div></div><br clear=3D"all"><div><br></div><span class=3D"gmail_signature=
+_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature" data-smar=
+tmail=3D"gmail_signature"><div dir=3D"ltr"><div>Come Heckle Mar 6-9 at: <a =
+href=3D"https://www.understandinglatency.com/Dave" target=3D"_blank">https:=
+//www.understandinglatency.com</a>/=C2=A0</div><div>Dave T=C3=A4ht CEO, Tek=
+Libre, LLC</div></div></div></div>
+
+--0000000000001263c405f6f2b79e--
+
+--===============1446685424212482094==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
 X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============1446685424212482094==--
