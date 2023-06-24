@@ -2,53 +2,70 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4FACB73CC6C
-	for <lists+cake@lfdr.de>; Sat, 24 Jun 2023 20:42:03 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 6F44A73CCBB
+	for <lists+cake@lfdr.de>; Sat, 24 Jun 2023 23:00:52 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 8A1543CB44;
-	Sat, 24 Jun 2023 14:41:54 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id C9D1C3CB40;
+	Sat, 24 Jun 2023 17:00:50 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1687632114;
-	bh=xDHwRbEQ1wVt8AwbDOrRHhb+cXZq0QPH3BXlVo5Dknw=;
+	d=lists.bufferbloat.net; s=201610; t=1687640450;
+	bh=NiSn3LqszqxtRw6ZCaRnI1nPoNUbwV84BS/k+MbBWt8=;
 	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
-	 List-Help:List-Subscribe:From:Reply-To:Cc:From;
-	b=Mr/NzZITrVLKqib8H9122Jo1E3qNU3i+QsbgDZ+rdkj6qY3xoGYVFTvsA6NmGHVHk
-	 xSMc0oVs+iV+YgsW56Wg6kUbLB82VHdxgrT8hwuM8MGidnRkip2iuJo5TAT6jRynUJ
-	 XLQ2jWyENVoiLDUZY4+445cjcwLQB0fDlIZ7Vfvxn3zgEn7k7+yqSVaHIkTHld6jOY
-	 9aSnO3CGzrd3dnneovvkMQt7pMQCuGIrxHETmLcxBDti1pzOscyEk1hObbNfSFNN3x
-	 zNTzdxF0KsHRz3ySI9Inqkb2A9cNY+eMuT+XGlAQ3S3EIB9coDMa3w67JMj7hTvF/+
-	 an4OlPhTfVGjA==
+	 List-Help:List-Subscribe:From:Reply-To:From;
+	b=pZ52rrMGtZ88O4GiCY5ve/DOx1ooAjBOEdmR+Yc880uEA71XBFX8VS1rEZkmxXIyQ
+	 LL94Stoo3o93j/yorHwQ7n8RrZfMEnv2Ns3VJj9OMcOsaRdhFs11lKESAWmYdKGSPZ
+	 3pd/odNurLLfX6F9HnsjQ7EYi01Cu77HCYncxn1UH8qCS7B1WCRJZF3N+wqafAq+2R
+	 CZzkkvPtFnr8NCIVkFdFBD2n7Oi8IOzjPZ6/nMgX4eiYsbQqfGxPD4xyahiqzLjyZL
+	 4QM+v9yNlXX82GzQ5ULzOZriDrASO/GRWgc862MvuAgqt42wd47TG7wqigBdvDKCkl
+	 +HqUVjsW6u/CQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp69.iad3a.emailsrvr.com (smtp69.iad3a.emailsrvr.com
- [173.203.187.69])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.19])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id D5B963B29D
- for <cake@lists.bufferbloat.net>; Sat, 24 Jun 2023 14:41:52 -0400 (EDT)
-Received: from app34.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp9.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id 1BED4142A;
- Sat, 24 Jun 2023 14:41:52 -0400 (EDT)
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app34.wa-webapps.iad3a (Postfix) with ESMTP id 0494A620E0;
- Sat, 24 Jun 2023 14:41:52 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Sat, 24 Jun 2023 14:41:52 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Sat, 24 Jun 2023 14:41:52 -0400 (EDT)
-To: "Cake  List" <cake@lists.bufferbloat.net>
-MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-X-Client-IP: 209.6.168.128
-Message-ID: <1687632112.01524513@apps.rackspace.com>
-X-Mailer: webmail/19.0.24-RC
-X-Classification-ID: e3813393-869b-4ab8-b1b9-8d2e1a06f775-1-1
-Subject: [Cake] Two questions re high speed congestion management and
-	datagram protocols
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 832223B29D;
+ Sat, 24 Jun 2023 17:00:48 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de;
+ s=s31663417; t=1687640447; x=1688245247; i=moeller0@gmx.de;
+ bh=wEnvBtCluwwhBQsY6bZ5on2BAqvhFCvKjHD+mcxvz24=;
+ h=X-UI-Sender-Class:From:Subject:Date:To;
+ b=KxDOS31FFbjaYGIOuLcUwLLlRsApRyJHKWLnKTaRqSzvelzM4iHiIzqVcRHJcNH/2fMwyk4
+ M81ruFX/4MQqWdeGCxyrqq/MTXhj1MZL04QygIGfJYN3OgZOqcXbeG72/XBACmoCeNTg+qZ2k
+ C4hXM9bgFKCy3mVQPrKPXOCz0+GjDji0DbUTi3geaCda27fNtUpGSdqaWoTZSh4HBE7MHkqwc
+ jTHJjfiGZsMW+rwHsZrl5wR/OGXRZglAipg21TISzibXDj5XD1XVcK59+LxfEd3TGlQQlzuu4
+ XppfHLFPYm6zN9L4+yy91cdl3aPCd+M7BRJ5JKWfqqo58hDTiScQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from smtpclient.apple ([77.3.0.223]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1N8GMk-1q03MF0Ge0-014B7j; Sat, 24
+ Jun 2023 23:00:47 +0200
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.3\))
+Message-Id: <24D1A566-DFE9-4FDF-86A2-CFB30F20FCB2@gmx.de>
+Date: Sat, 24 Jun 2023 23:00:46 +0200
+To: ECN-Sane <ecn-sane@lists.bufferbloat.net>,
+ Cake List <cake@lists.bufferbloat.net>,
+ Jonathan Morton via Bloat <bloat@lists.bufferbloat.net>
+X-Mailer: Apple Mail (2.3696.120.41.1.3)
+X-Provags-ID: V03:K1:b6inpvYHgbLG+39gYBCd+npFrno4mP1YTEQn7FHCcjQl8RR7tey
+ F7sv1Fpb5zWasL8S5LGMlmI6ZNiau78+eKE4sqBWhOZA/ppIlgXujjZNBnp4zjsN3p9L47m
+ himgRp3Wz1W9SNoS1x8vcqI76gEasETRO/R5AYDfC/5maOGEjHzcse3dQxXBp6CdcwKHl5p
+ 56WebOuw/CrOneaIGno7A==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:o6uc81kuBJc=;/16Pa7NYWOE0gwHqnKqxXjX5bjI
+ 0VTsnI0TzAYcFpr9c3TzgosMDWaseO/acM1RF0hV41v1mr5lREZ8nKcBHH+tX7epUyHbJj+hM
+ HpMkUIxJzFecq8pz8JUdLVxF8qXiDAyHuV5r50eUZrtIvsOb8KiUcIea62+IL5zcPog7eewIr
+ LSl8F/uszMZiOsjEh5N82L8xyG6PoJfLdQFWOGJHR2dW9eOsh6EeRutvqZovYsXZLUVQroTyU
+ 0I+iD7mZ4e6B1UJmZbGMowBF/L+4VG9CmvlRttnhfTPAKS2CBsJST2XcrnTNMx6neQtEQCA0M
+ km6dTdCIQwXJKUwCsvoNRm0qdUZz+1XuUpji6GTDDpjvadT0ki7iU27yC9CjyJke9JdfaVCt0
+ uuT29W9krp/p+S1gJH4/fUCx7iWYZ4HDW4eMr7Lywp18G4bti6x8BrUaXmvAzNv3Lwe9jV2YY
+ AWkyDJ8pCvhak3I16Oj5Wr4x3vSAcbcIIiZXrEB3af6q37ZaQEkVo0KjLLG7PTEJ6CVp3Gses
+ 5g8YWNc9rdbw/P6+eQyXGOO886e1AxuRNTilxCCg6a97iE/EFReUKScJdAiSyiAEErpXL9Bwg
+ 5zSkLxGOCK47eSWgn2LPIOkMGYR88J5K1O375TNaRll/ALefswIG7LTL2p42sWSSxDBnM1OIO
+ YVJEG3OGgbt2nOxZfqTqeZUNAtBBeTLSav+dFdcAxdQNAopftyhWWjyFEXVA87/zAX9fcQe0P
+ q+y9iW3u78ZkJ/z8in1WCmXLQwATTSpFFbChUqPu2Yc9P07KnMQqcRbL6yGhlSRBve2CWKV5o
+ bfgo3N0UBvbUzjlqkcdQTh6dotYtw+2WkcyRRluHtc56hLbNrnsyrKhhbQGK9+2dhHOjaQQ8p
+ k4AcjlgmuSBX+ayvqFu+pO3K/cFqEUpeQ9M9t4CEOvjTIClqxacWK7XXBA7tq9D4DRcyxnt9P
+ fBjJaw==
+Subject: [Cake] Anybody has contacts at Dropbox?
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -60,88 +77,63 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: "David P. Reed via Cake" <cake@lists.bufferbloat.net>
-Reply-To: "David P. Reed" <dpreed@deepplum.com>
-Cc: bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============6505466416770049142=="
+From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
+Reply-To: Sebastian Moeller <moeller0@gmx.de>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============6505466416770049142==
-Content-Type: multipart/alternative;boundary="----=_20230624144152000000_85866"
-
-------=_20230624144152000000_85866
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-=0AI was recently looking at congestion control algorithms - endpoint-based=
- ones - that would deal with very low level, very low latency requirements =
-in datacenters that use high speed switch fabrics. (note: congestion contro=
-l in such datacenters is a very, very real issue, especially since some lay=
-er 2 switches are overbuffered by a huge factor, so they don't signal conge=
-stion while building very long queues at 40-400 Gb/sec)=0A =0AI came across=
- this work from MIT CSAIL [ https://ccp-project.github.io/ccp-guide/ ]( htt=
-ps://ccp-project.github.io/ccp-guide/ )=0A =0AI also was looking back to DC=
-CP as a useful way to get a UDP that handled congestion without engaging th=
-e higher layers, and preserving the other flexibility of UDP.=0A =0AAnyone =
-here have any experience with looking at the performance of these, especial=
-ly w.r.t. Cake, which operates at the IP layer and thus takes direct advant=
-age of IP congestion signalling? Does libreqos look like it might help?=0A =
-=0A[as the guy most associated with the creation of UDP, this remains an ar=
-ea of great interest personally, and is also presumably of relevance to QUI=
-C... I don't know if either of these things are supported in systems other =
-than Linux, but in server datacenters and my home lab, Linux networking is =
-all that matters]=0A =0A- David
-------=_20230624144152000000_85866
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 10pt; overflow-wrap: break-word;">I was recently looking=
- at congestion control algorithms - endpoint-based ones - that would deal w=
-ith very low level, very low latency requirements in datacenters that use h=
-igh speed switch fabrics. (note: congestion control in such datacenters is =
-a very, very real issue, especially since some layer 2 switches are overbuf=
-fered by a huge factor, so they don't signal congestion while building very=
- long queues at 40-400 Gb/sec)</p>=0A<p style=3D"margin:0;padding:0;font-fa=
-mily: arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p s=
-tyle=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wr=
-ap: break-word;">I came across this work from MIT CSAIL&nbsp;<a href=3D"htt=
-ps://ccp-project.github.io/ccp-guide/">https://ccp-project.github.io/ccp-gu=
-ide/</a></p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size=
-: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;paddi=
-ng:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">I als=
-o was looking back to DCCP as a useful way to get a UDP that handled conges=
-tion without engaging the higher layers, and preserving the other flexibili=
-ty of UDP.</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-si=
-ze: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;pad=
-ding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">Any=
-one here have any experience with looking at the performance of these, espe=
-cially w.r.t. Cake, which operates at the IP layer and thus takes direct ad=
-vantage of IP congestion signalling? Does libreqos look like it might help?=
-</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; =
-overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;fon=
-t-family: arial; font-size: 10pt; overflow-wrap: break-word;">[as the guy m=
-ost associated with the creation of UDP, this remains an area of great inte=
-rest personally, and is also presumably of relevance to QUIC... I don't kno=
-w if either of these things are supported in systems other than Linux, but =
-in server datacenters and my home lab, Linux networking is all that matters=
-]</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 10pt;=
- overflow-wrap: break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;fo=
-nt-family: arial; font-size: 10pt; overflow-wrap: break-word;">- David</p><=
-/font>
-------=_20230624144152000000_85866--
-
-
---===============6505466416770049142==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============6505466416770049142==--
-
+RGVhciBBbGwsCgpJIHN0YXJ0ZWQgdG8gbG9vayBhdCBFQ04gYWN0aW9uIG9uIG15IGhvbWVsaW5r
+IGFuZCBJIGRvIHNlZSB0aGUgZXhwZWN0ZWQgRUNUKDApIGFuZCBDRSBtYXJrcyAobW9zdGx5IHVu
+ZGVyIExpbml4LCBtYWNvcywgaW5zcGl0ZSBvZiB3aGF0IHN5c2N0bCBzZWVtcyB0byBpbXBseSBk
+b2VzIG5vdCB1c2UgRUNOIGZvciBtZSBhbnkgbW9yZSkuIEJVdCBJIGFsc28gc2VlIHRoZSBmb2xs
+b3dpbmcgRUNUKDEpIG1hcmtlZCB0cmFmZmljIHJvdWdobHkgZXZlcnkgNSBzZWNvbmRzOgoKcm9v
+dEB0dXJyaXM6L3Nydi9wZXJzaXN0ZW50L2NhcHR1cmVzIyB0Y3BkdW1wIC1pIHBwcG9lLXdhbiAt
+diAtbiAnKGlwNiBhbmQgKGlwNlswOjJdICYgMHgzMCkgPj4gNCAgPT0gMSknIG9yICcoaXAgYW5k
+IChpcFsxXSAmIDB4MykgCj09IDEpJyAjIEVDVCgxKQp0Y3BkdW1wOiBsaXN0ZW5pbmcgb24gcHBw
+b2Utd2FuLCBsaW5rLXR5cGUgTElOVVhfU0xMIChMaW51eCBjb29rZWQgdjEpLCBjYXB0dXJlIHNp
+emUgMjYyMTQ0IGJ5dGVzCjIyOjUzOjA3LjQ3MDU3MyBJUCAodG9zIDB4MSxFQ1QoMSksIHR0bCA0
+NywgaWQgNDIwMzksIG9mZnNldCAwLCBmbGFncyBbREZdLCBwcm90byBUQ1AgKDYpLCBsZW5ndGgg
+Mjk2KQogICAgMTYyLjEyNS4yMS4zLjQ0MyA+IDc3LjMuMC4yMjMuNTEyNzI6IEZsYWdzIFtQLl0s
+IGNrc3VtIDB4MGE2MyAoY29ycmVjdCksIHNlcSAyNjMwMTExOTAwOjI2MzAxMTIxNDQsIGFjayAy
+NTUxNDg0NjUwLCB3aW4gMTMwLCBvcHRpb25zIFtub3Asbm9wLFRTIHZhbCA4MDgzNzM5NjkgZWNy
+IDI1NDM3MzgzNjBdLCBsZW5ndGggMjQ0CjIyOjUzOjA4LjM3MTcyMCBJUCAodG9zIDB4MjEsRUNU
+KDEpLCB0dGwgNDcsIGlkIDY0Mjg4LCBvZmZzZXQgMCwgZmxhZ3MgW0RGXSwgcHJvdG8gVENQICg2
+KSwgbGVuZ3RoIDE3MCkKICAgIDE2Mi4xMjUuMjEuMy40NDMgPiA3Ny4zLjAuMjIzLjUxMjc2OiBG
+bGFncyBbUC5dLCBja3N1bSAweDA2YzYgKGNvcnJlY3QpLCBzZXEgMTQxNDc1MzMxOjE0MTQ3NTQ0
+OSwgYWNrIDI4MDQzMDE4MDgsIHdpbiAxMzAsIG9wdGlvbnMgW25vcCxub3AsVFMgdmFsIDM3NjQ3
+MzY4NjYgZWNyIDMwODg1MTM5NzBdLCBsZW5ndGggMTE4CjIyOjUzOjIyLjI2MDg0NCBJUCAodG9z
+IDB4MSxFQ1QoMSksIHR0bCA0NywgaWQgNDIwNDIsIG9mZnNldCAwLCBmbGFncyBbREZdLCBwcm90
+byBUQ1AgKDYpLCBsZW5ndGggMTczKQogICAgMTYyLjEyNS4yMS4zLjQ0MyA+IDc3LjMuMC4yMjMu
+NTEyNzI6IEZsYWdzIFtQLl0sIGNrc3VtIDB4ZmE3YyAoY29ycmVjdCksIHNlcSAyNDQ6MzY1LCBh
+Y2sgNDE1LCB3aW4gMTMwLCBvcHRpb25zIFtub3Asbm9wLFRTIHZhbCA4MDgzODg3NTggZWNyIDI1
+NDM3NjkxNjFdLCBsZW5ndGggMTIxCjIyOjUzOjI4LjQ5OTI3MyBJUCAodG9zIDB4MSxFQ1QoMSks
+IHR0bCA0OCwgaWQgMTI1MTksIG9mZnNldCAwLCBmbGFncyBbREZdLCBwcm90byBUQ1AgKDYpLCBs
+ZW5ndGggMTcwKQogICAgMTYyLjEyNS4yMS4zLjQ0MyA+IDc3LjMuMC4yMjMuNTEyNzU6IEZsYWdz
+IFtQLl0sIGNrc3VtIDB4YWMxNiAoY29ycmVjdCksIHNlcSAyOTIzMDkxNzYzOjI5MjMwOTE4ODEs
+IGFjayAyMTc2Nzk1MTMyLCB3aW4gMTMwLCBvcHRpb25zIFtub3Asbm9wLFRTIHZhbCA0MDI3Njkx
+ODUzIGVjciAyMTUyNjExMzU1XSwgbGVuZ3RoIDExOAoyMjo1MzozNC4wMjEzNjYgSVAgKHRvcyAw
+eDEsRUNUKDEpLCB0dGwgNDgsIGlkIDI0MzE4LCBvZmZzZXQgMCwgZmxhZ3MgW0RGXSwgcHJvdG8g
+VENQICg2KSwgbGVuZ3RoIDk0MykKICAgIDE2Mi4xMjUuMjEuMi40NDMgPiA3Ny4zLjAuMjIzLjUx
+MjczOiBGbGFncyBbUC5dLCBja3N1bSAweDM0OTggKGNvcnJlY3QpLCBzZXEgNDExMDIyNzUzNjo0
+MTEwMjI4NDI3LCBhY2sgNDE2OTQwODUxOSwgd2luIDEzMCwgb3B0aW9ucyBbbm9wLG5vcCxUUyB2
+YWwgNTYxMzkzMDM3IGVjciA4MTE4ODgxMjBdLCBsZW5ndGggODkxCjIyOjUzOjM4Ljg2MjU1NCBJ
+UCAodG9zIDB4MSxFQ1QoMSksIHR0bCA0OCwgaWQgNDYzMjMsIG9mZnNldCAwLCBmbGFncyBbREZd
+LCBwcm90byBUQ1AgKDYpLCBsZW5ndGggMjg0KQogICAgMTYyLjEyNS4yMS4yLjQ0MyA+IDc3LjMu
+MC4yMjMuNTEyNzQ6IEZsYWdzIFtQLl0sIGNrc3VtIDB4N2JjNiAoY29ycmVjdCksIHNlcSAzMzM2
+ODA1MDE5OjMzMzY4MDUyNTEsIGFjayAxODUyNTkxNjQzLCB3aW4gMTMwLCBvcHRpb25zIFtub3As
+bm9wLFRTIHZhbCA3MjM0NTAzNTQgZWNyIDI2Mjc2MzM2MDFdLCBsZW5ndGggMjMyCgpXaG9pcyB0
+ZWxscyBtZSAxNjIuMTI1LjIxLlsyfDNdIGJlbG9uZyB0byBkcm9wYm94IChJIGhhdmUgdGhlIGRy
+b3Bib3ggY2xpZW50IGluc3RhbGxlZCBvbiB0aGF0IG1hY2hpbmUpCgpTbyB3aGF0IGlzIGdvaW5n
+IG9uIGhlcmU/CgpJcyBkcm9wYm94IHVzaW5nIEVDVCgxKSBmb3IgYSByZmMzMTY4IHN0eWxlIHJl
+c3BvbnNlPwpJcyBkcm9wYm94IHNpbGVudGx5IGFscmVhZHkgdXNpbmcgYW4gTDRTLXN0eWxlIEND
+IGZvciB0aGVpciBUQ1A/CklzIGRyb3Bib3ggYWltaW5nIGZvciBEU0NQIGRlY2ltYWwgMSAoYWth
+IExFKSBhbmQgYWN0dWFsbHkgc2V0dGluZyBUT1MgZGVjaW1hbCAxIGluc3RlYWQ/CldhcyB0aGUg
+YXNzdW1wdGlvbiB0aGF0IEVDVCgxKSBpcyBib3QgdXNlZCBzaW1wbHkgd3Jvbmc/CgoKQW55d2F5
+LCBpZiBhbnlib2R5IGZyb20gRHJvcGJveCBpcyBzdWJzY3JpYmVkLCBvciBhbnlib2R5IGhlcmUg
+aGFzIGNvbnRhY3RzIGludG8gZHJvcGJveCwgdGhpcyBzZWVtcyBsaWtlIHNvbWV0aGluZyB3b3J0
+aCBsb29raW5nIGludG8gdG8gZ2V0IGl0IGZpeGVkPwoKUmVnYXJkcwoJU2ViYXN0aWFuCgpfX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcg
+bGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0
+Lm5ldC9saXN0aW5mby9jYWtlCg==
