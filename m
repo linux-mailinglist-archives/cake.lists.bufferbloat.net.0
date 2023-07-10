@@ -2,75 +2,80 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3E84D74E035
-	for <lists+cake@lfdr.de>; Mon, 10 Jul 2023 23:28:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 87D8E74E194
+	for <lists+cake@lfdr.de>; Tue, 11 Jul 2023 00:55:12 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id F3C293CB45;
-	Mon, 10 Jul 2023 17:27:55 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 20F603CB40;
+	Mon, 10 Jul 2023 18:55:11 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1689024476;
-	bh=fi4IXNrNencZf+x0p2BJUE4qrYtEwYcMJJFKr3ZDGpM=;
+	d=lists.bufferbloat.net; s=201610; t=1689029711;
+	bh=61rejPfHjZw7AN6mU+VS6yECuJqxxclf1p6puEIkEYw=;
 	h=Date:To:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=ZIc9JGz84BxdCTp+16a3+0VoGPhk34KTLfrYsu9dnZmUEzDsFNRzpcPX8OD4qIeSs
-	 DIVEHe3GNiKSpv2UT6yD0wH0GG5dZE0SLHpVDE2fhJxwfgRJY7XkeYoYQo77/aZe9V
-	 HpMNl3Qsgy15CVE2LMBPgdXrTmy0mft4caaimaMSjSel6cuzRotRxkCz+VJ7xQXkOB
-	 krtpVR8nNFaNKqptQULNAey4W3cLhx5BgkqxDjBvp4otupgiO0g8IAtznmSerWtPnt
-	 h23hqsBvL+K1oMW8ZXMA6ONJ/fIDZHvprGQSVcc34mO7UwBeDETnLdmaWZ5l14KEG9
-	 hvyn8H2IuTzxg==
+	b=eWOSkWr7FLM2nDOJ83j5STXc/E3Y7Og1QumqKnqAiiqR7rLya7XKh/J47Wp9OGemo
+	 1z7u0xUiGlwtip+/OtsX0xzxoAWywW4YqMXeu4hwhQs+XXOkH7rletnXQUkHz+9Qg7
+	 0UsRSIqeWh3BKB8mCcE+cwUAZJSdkg+6oaajn1fDyheQLYKexQbkZ/MVQ9w9SWnyZn
+	 zMe4jxST0JM/8CsvwsIrtdGqdhedTKa8W3/nrSJ8DseY8iTc/gGoX0jllL0mqLTc+6
+	 a3Vfn/bLASzLuwW2JlAwWeGrhax3XIBJTK3C3cu+OLBmemTUw7eO/RQG3JMpXkjKik
+	 heEUqq6hYML5Q==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.22])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-pl1-x636.google.com (mail-pl1-x636.google.com
+ [IPv6:2607:f8b0:4864:20::636])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 2108E3B29E;
- Mon, 10 Jul 2023 17:27:53 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de;
- s=s31663417; t=1689024470; x=1689629270; i=moeller0@gmx.de;
- bh=iwTsLVofLY6wJio26adR4A0SnVEDlwjJjasgGshfZQ8=;
- h=X-UI-Sender-Class:Date:From:To:CC:Subject:In-Reply-To:References;
- b=dLi6gJQuLcQVgLNm2ly0PJ5oa2e69bN6ZhrndwuhnNsUqA3hX3dAa0usX7dACZBvetvBRxu
- M4j2LgE8N1HaxxFHNqYhmwvNDlG/MKPmFGar55fMbMLz61Uw9TWlr0t8khMiSNdhKHf9HjsDU
- LVjUWMlV/NKVgqtlo3q4S733t/4m2vzI7ju/Hav/Lbt6WzrzldO1WTD3iX4M7df5VoyH4Jp9b
- hiuAhT5aRxrTyj4+hQWy8eN5q+XXuHvbM42FlI69uCwZbvR/tHUmsq/Fwjgr0rQVTpjnxJt/s
- ughH5bP7RpvsXViT6rjVpSZgbmQU+sRPbraR27u8JXAAOuNxHkMg==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([80.113.60.234]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MacOQ-1piGlA06tW-00cB3V; Mon, 10
- Jul 2023 23:27:50 +0200
-Date: Mon, 10 Jul 2023 23:27:46 +0200
-To: Stephen Hemminger <stephen@networkplumber.org>,
- Stephen Hemminger via Bloat <bloat@lists.bufferbloat.net>,
- "David P. Reed" <dpreed@deepplum.com>
-User-Agent: K-9 Mail for Android
-In-Reply-To: <20230710133540.1cbe20bd@hermes.local>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 9FF533B29E
+ for <cake@lists.bufferbloat.net>; Mon, 10 Jul 2023 18:55:09 -0400 (EDT)
+Received: by mail-pl1-x636.google.com with SMTP id
+ d9443c01a7336-1b8a44ee159so24841515ad.3
+ for <cake@lists.bufferbloat.net>; Mon, 10 Jul 2023 15:55:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=networkplumber-org.20221208.gappssmtp.com; s=20221208; t=1689029708;
+ x=1691621708; 
+ h=content-transfer-encoding:mime-version:references:in-reply-to
+ :message-id:subject:cc:to:from:date:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=vJ2EwK56KiG4MzV1lLMhtPvhOeSphEZ2sRY7Klh/+rw=;
+ b=hVfBbNq9rsxwWwJIMSA+406blJIxUZAll0kPrF4jB6FVieeg5bTjmhVOTDVm284r1S
+ mMymHpZxEtAbnZZPp/WrtQ9rgV8US65bsf/qvxfWKnthd/vrmfiqgu1MxLloNZ3gxfaw
+ Gp8gISMUqJ9jIuvLQvxhkgXPHNsgg4V36ANf7T8cNVwc/lyQ9tdoSXNY99SNSM0wPpm1
+ +SwLHljp2NC4XOp1gxWYaFNhAebfo1YOUr5dToKRiluWQwoxF8zZ/XzUTn02/1Zez/1a
+ FoIO3lMc7TyzxyeGO6eCVC+GtGfD4Yy1TrtQ/RNRoKNvI6Ml7YkhQPH6snvZ183MPik/
+ NT6A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20221208; t=1689029708; x=1691621708;
+ h=content-transfer-encoding:mime-version:references:in-reply-to
+ :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=vJ2EwK56KiG4MzV1lLMhtPvhOeSphEZ2sRY7Klh/+rw=;
+ b=Xmn+TSB8y978RbLTXar17KJ4frOrIxU441JrxaouNU9GDPvKfMISWv2/62/vUzuLHR
+ Hu5LvADcI9J4VG4VVp7WcBT9EYXaIckX9YTmKRouaISRfxYxY/I6F0LGGr8n/HDs7aSt
+ YdsYjl5aGFGKg3dFWyU3IkFmPZ+nkGGro1OkH0aoZiwkJvUQp3bCc9TramLrAaNdVygS
+ r9AeZvA6k+G+hwIcO+7VppfYpi0qqPuH2xowl/6MKgIIQy+kLHvN9VBYRMqJdshm4qai
+ ICECeI/fF2kA1wsqIEF8ty12yMUJya9VtcWX75aapHktXFFBVLbRKkoba5jyr0yHxVx0
+ Sllg==
+X-Gm-Message-State: ABy/qLYt1pSaZqXxC2ZMUtzwD5cec+DKJ7eEpbT1tvlnxyvp+p6Vm+Bo
+ jOcod+k7opJPVlsQhPTBFOfujw==
+X-Google-Smtp-Source: APBJJlE/TPIgPCnT6w2RPLd8hqFY4fxfaqGJpJVqxfh4b0nu2p4xKyILHlHltC4Z1cM2Zxa0B1n5LQ==
+X-Received: by 2002:a17:902:6b0c:b0:1b8:7e55:7a4e with SMTP id
+ o12-20020a1709026b0c00b001b87e557a4emr3818989plk.26.1689029708473; 
+ Mon, 10 Jul 2023 15:55:08 -0700 (PDT)
+Received: from hermes.local (204-195-120-218.wavecable.com. [204.195.120.218])
+ by smtp.gmail.com with ESMTPSA id
+ t8-20020a1709028c8800b001b8a3a0c928sm393570plo.181.2023.07.10.15.55.07
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Mon, 10 Jul 2023 15:55:08 -0700 (PDT)
+Date: Mon, 10 Jul 2023 15:55:06 -0700
+To: Sebastian Moeller <moeller0@gmx.de>
+Message-ID: <20230710155506.4b3bb671@hermes.local>
+In-Reply-To: <A0010D20-BCC6-41EC-9517-685012F042EE@gmx.de>
 References: <1687962752.39077378@mobile.rackspace.com>
  <20230710133540.1cbe20bd@hermes.local>
-Message-ID: <A0010D20-BCC6-41EC-9517-685012F042EE@gmx.de>
+ <A0010D20-BCC6-41EC-9517-685012F042EE@gmx.de>
 MIME-Version: 1.0
-X-Provags-ID: V03:K1:B7JC3X+6ipxDll01pg/BWRqGVnG8NDmpxlfo3pRgPjO61vWUfDA
- QfPNN8ebS5BVRk/VwmS6hycZmKOGimiBhTFpryqzAo0vrvyTwLoQfh/UErZmns6PH7Y60Tt
- 4dDHMZ1UHc7byq7szyAUgbBcyLCVKYAnYJ+SCGFOsZlqaGeRRip2aNzA4wJaXcpL+LYZvpE
- rRIcNnUbQrQF8dPxnewow==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:zAcZBFezBQ8=;TOevFqk5SEOKCrhEU+Uv9P+7GMv
- mvWWwigY1hEqwwARsmV6IO/OQkDTDbafuI4GwbZpnu/O9RuuXZ8eEuCLP7NbSCHhQnyYAzS2X
- syqFQL1YUPOgh6mxCEUWHgIf1w21igeS1KYaveoq6KxswooaO90onhGUFqmYCL6P//tbP4Ia0
- FOu6l7sq4Sy10zZF9cbJr8KEGT6CgDF1h52EUNMPSFX7MWd3hY+T9+yiKFQRV7AJOY5Wmtz/Q
- /0G2o7uDJH0IYOsFPRi6Sxea2ELhMWny9eEDm9oi4fQQ1bBGXRyjgPSj4MOHo/eK6xfULf6wj
- WDWuuXfVQzTCN/gPAeZ3pBXAxMjoNVFQxIbUB6kv6QSZQPkOFpE/tuyx+YBhDD2tfL8khaoKV
- ytEysUHSL4k9ZaVerZPUOhsFECyxUgD+Lr6IDCxcAE0w+RUaWnOnjOi3yvCPI9VNctWJzIybN
- zjbcc/Ip1MKOsEsKr7axT3e/WLtpAZvAV4VYxGf1ndDT8nOw3MiCoEyCLQxIqex8HwGJ/Z9Lz
- iT7E7u9vLkqH7WQM2rnv3thAW2N7yi1Wwo96EwpSGG8zUxE+GYzX9M43bIdrge27+AFGpnBd6
- 3yK2+pPeMOv+9VUt/FNeqgCTqJMSKH1q9uR9GHvDcpkXmb0EzabTyJ6Ia0hJOCQsDftS6CwSn
- obFCLkKXmjdeaf/aEz8Oea1pZlFxKMe1ZFtSDPWqcE206h+z+YwtoCdMn3HVu/Kupy4w2ce3L
- SqEa9Cta0NTda2xyGVQP3u17ggzhWi3FCt2VL6kldsyrv3DwLREUL9m3BPiQcJqeLyxSJ5Sn6
- kxBFgg9MuQoaLmh2RrVRuvujSDj86tD4nTHYu4LDq6DE3H3UtEfE17oSn+fTKdXnxJ7YZvdDy
- I+qK3wNklBTJE9DECjYlTgZ2aOi6+SjyNDzwM0JcTGyZp8kI4FIPfZXTejQKEH8ymEaPS2zBr
- LwMkEsyUmbAY1hFLjlJi0exO6Kw=
 Subject: Re: [Cake] [Bloat] Two questions re high speed congestionmanagement
-	anddatagram protocols
+ anddatagram protocols
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -82,113 +87,25 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
-Reply-To: Sebastian Moeller <moeller0@gmx.de>
+From: Stephen Hemminger via Cake <cake@lists.bufferbloat.net>
+Reply-To: Stephen Hemminger <stephen@networkplumber.org>
 Cc: Dave Taht via Cake <cake@lists.bufferbloat.net>,
- bloat@lists.bufferbloat.net
-Content-Type: multipart/mixed; boundary="===============3669982079255339797=="
+ Stephen Hemminger via Bloat <bloat@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============3669982079255339797==
-Content-Type: multipart/alternative;
- boundary=----TWVMRXLWSL1NQRY23JD58DO8ETKASM
-Content-Transfer-Encoding: 7bit
-
-------TWVMRXLWSL1NQRY23JD58DO8ETKASM
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-For what it is worth, the tsv working group is considering whether to proce=
-ss mp-dccp on the standards track, but then the IETF seems not to care too =
-deeply about open-source licence compliance=2E Or recent kernel implementat=
-ions or implementations that have a realistic path towards mainline inclusi=
-on=2E=2E=2E but I digress=2E
-
-Regards
-        Sebastian
-
-
-
-
-
-On 10 July 2023 22:35:40 CEST, Stephen Hemminger via Bloat <bloat@lists=2E=
-bufferbloat=2Enet> wrote:
->On Wed, 28 Jun 2023 10:32:32 -0400 (EDT)
->"David P=2E Reed" <dpreed@deepplum=2Ecom> wrote:
->
->> How to find a kernel maintainer to care about DCCP, seems to be the que=
-stion for Linux=2E
->> I am tempted=2E=2E=2E Not to get involved with IETF "barriers" (what a =
-mess, given the folks in IETF who resisted in AQM, I wouldn't last a minute=
-), but to keep DCCP support alive=2E
->> The barrier here is getting accepted as a Linux maintainer, which is a =
-different issue entirely, looking at my last two experiences with submittin=
-g simple bug fixes to the kernel, which were nightmares=2E I don't have the=
- commitment to become accepted as a maintainer=2E
->> But it seems good to maintain DCCP, despite its lack of popularity as a=
-n IETF standard=2E It does deal with CC in a way that simplifies use of UDP=
- for serious work=2E
->
->Interesting that there is an out of tree DCCP, complete with likely GPL l=
-icense violation=2E
->https://github=2Ecom/telekom/mp-dccp
->_______________________________________________
->Bloat mailing list
->Bloat@lists=2Ebufferbloat=2Enet
->https://lists=2Ebufferbloat=2Enet/listinfo/bloat
-
---=20
-Sent from my Android device with K-9 Mail=2E Please excuse my brevity=2E
-------TWVMRXLWSL1NQRY23JD58DO8ETKASM
-Content-Type: text/html;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-<html><head></head><body><div dir=3D"auto">For what it is worth, the tsv wo=
-rking group is considering whether to process mp-dccp on the standards trac=
-k, but then the IETF seems not to care too deeply about open-source licence=
- compliance=2E Or recent kernel implementations or implementations that hav=
-e a realistic path towards mainline inclusion=2E=2E=2E but I digress=2E<br>=
-<br>Regards<br>=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Sebastian<br><br>=
-<br><br></div><br><br><div class=3D"gmail_quote"><div dir=3D"auto">On 10 Ju=
-ly 2023 22:35:40 CEST, Stephen Hemminger via Bloat &lt;bloat@lists=2Ebuffer=
-bloat=2Enet&gt; wrote:</div><blockquote class=3D"gmail_quote" style=3D"marg=
-in: 0pt 0pt 0pt 0=2E8ex; border-left: 1px solid rgb(204, 204, 204); padding=
--left: 1ex;">
-<pre class=3D"k9mail"><div dir=3D"auto">On Wed, 28 Jun 2023 10:32:32 -0400=
- (EDT)<br>"David P=2E Reed" &lt;dpreed@deepplum=2Ecom&gt; wrote:<br><br></d=
-iv><blockquote class=3D"gmail_quote" style=3D"margin: 0pt 0pt 1ex 0=2E8ex; =
-border-left: 1px solid #729fcf; padding-left: 1ex;"><div dir=3D"auto">How t=
-o find a kernel maintainer to care about DCCP, seems to be the question for=
- Linux=2E<br>I am tempted=2E=2E=2E Not to get involved with IETF "barriers"=
- (what a mess, given the folks in IETF who resisted in AQM, I wouldn't last=
- a minute), but to keep DCCP support alive=2E<br>The barrier here is gettin=
-g accepted as a Linux maintainer, which is a different issue entirely, look=
-ing at my last two experiences with submitting simple bug fixes to the kern=
-el, which were nightmares=2E I don't have the commitment to become accepted=
- as a maintainer=2E<br>But it seems good to maintain DCCP, despite its lack=
- of popularity as an IETF standard=2E It does deal with CC in a way that si=
-mplifies use of UDP for serious work=2E<br></div></blockquote><div dir=3D"a=
-uto"><br>Interesting that there is an out of tree DCCP, complete with likel=
-y GPL license violation=2E<br><a href=3D"https://github=2Ecom/telekom/mp-dc=
-cp">https://github=2Ecom/telekom/mp-dccp</a><hr>Bloat mailing list<br>Bloat=
-@lists=2Ebufferbloat=2Enet<br><a href=3D"https://lists=2Ebufferbloat=2Enet/=
-listinfo/bloat">https://lists=2Ebufferbloat=2Enet/listinfo/bloat</a><br></d=
-iv></pre></blockquote></div><div dir=3D"auto"><div class=3D'k9mail-signatur=
-e'>-- <br>Sent from my Android device with K-9 Mail=2E Please excuse my bre=
-vity=2E</div></div></body></html>
-------TWVMRXLWSL1NQRY23JD58DO8ETKASM--
-
---===============3669982079255339797==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============3669982079255339797==--
+T24gTW9uLCAxMCBKdWwgMjAyMyAyMzoyNzo0NiArMDIwMApTZWJhc3RpYW4gTW9lbGxlciA8bW9l
+bGxlcjBAZ214LmRlPiB3cm90ZToKCj4gRm9yIHdoYXQgaXQgaXMgd29ydGgsIHRoZSB0c3Ygd29y
+a2luZyBncm91cCBpcyBjb25zaWRlcmluZyB3aGV0aGVyIHRvIHByb2Nlc3MgbXAtZGNjcCBvbiB0
+aGUgc3RhbmRhcmRzIHRyYWNrLCBidXQgdGhlbiB0aGUgSUVURiBzZWVtcyBub3QgdG8gY2FyZSB0
+b28gZGVlcGx5IGFib3V0IG9wZW4tc291cmNlIGxpY2VuY2UgY29tcGxpYW5jZS4gT3IgcmVjZW50
+IGtlcm5lbCBpbXBsZW1lbnRhdGlvbnMgb3IgaW1wbGVtZW50YXRpb25zIHRoYXQgaGF2ZSBhIHJl
+YWxpc3RpYyBwYXRoIHRvd2FyZHMgbWFpbmxpbmUgaW5jbHVzaW9uLi4uIGJ1dCBJIGRpZ3Jlc3Mu
+CgpUaGUgaXNzdWUgaXMgdGhlIE1QLURDQ1AgaW1wbGVtZW50YXRpb24gaXMgZGVyaXZlZCBmcm9t
+IHRoZSBleGlzdGluZyBrZXJuZWwgRENDUCB3aGljaCBpcyBHUEwtdjIuCllvdSBjYW4ndCBnbyBy
+YW5kb21seSBtaXhpbmcgcHJvcHJpZXRhcnkgY29kZSBhbmQgR1BMIGNvZGUgaW4gdGhlIGtlcm5l
+bC4KX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBt
+YWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZm
+ZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
