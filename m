@@ -2,49 +2,65 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D53FA7C99D6
-	for <lists+cake@lfdr.de>; Sun, 15 Oct 2023 17:53:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B7C837C99D8
+	for <lists+cake@lfdr.de>; Sun, 15 Oct 2023 17:54:06 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id DDA373CB42;
-	Sun, 15 Oct 2023 11:53:04 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 0AB383CB43;
+	Sun, 15 Oct 2023 11:54:06 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1697385184;
-	bh=Mm33GMpnPzYOh5+2wgPB7nxh3rb/pRjvyAvHfkce4rE=;
-	h=Date:To:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
+	d=lists.bufferbloat.net; s=201610; t=1697385246;
+	bh=kFncrW7WAkKrkPNp72L0+lofsA+t9gLO4JC2kM2ZFbI=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=XcXYSsutM3r5IDeGESmu8BZvFwBgdUxqkoOLXQImdk4ZI5HdCEchPIqmio3vIbbCH
-	 Kos7S1+HC2cMHjlA7DLkKhMpa+uBH3X25X+VjKxuCp5TCM8wzoM8tUDOeeg1Nctt9B
-	 5Z5tvMkr6ehjoo23EiEfOsn5L5h/H7Oi2z6sBJvvOmXbP5Lbh/VEp8rdKVetoZ5Z7Y
-	 IrJ6+tRmmMUqygVr7C7f/STPZJyYIXvv8cJE/uW8zrIVvcpV0uHrcSsPBgnh4Dfrg4
-	 QW4KEOl8BFAs61K8EsbD6h35ds+78QtgcPoZpZTHxsjhw0iYd5nO3aPHVTRqX09Not
-	 5QJqhRU8/J5aA==
+	b=UpRg+SfqDtuw64cQ3r55Q/t79yUbTMki2FThmRKrf1uUfFHmOVbfuyW9zMSYx8cSs
+	 g9RB4JD75QvgUBVh/UqykYzcB39Ub9rAShSWdmoCWmxGDlByON2P+5+KVODT8QUvSV
+	 /yOJoeXsTJPdmGplp8o2aMkLaKJza/SF6ecKT5MYbCRFAdrx1gZXa3iu76C+zttj+V
+	 B7mE6q71D7+COx12DL8fQdpHDKd/vZhIkaTzK961OjCvd28WSRnk0YrDuMdBCYE2LO
+	 vfYYveKsGNnKzuLlQVuf1jJ5WaMrzWb/b1ja6FSSeXaouaxHGXN5vgA6rTbh7vCsKM
+	 z3qvtQUFabEkQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-pf1-x429.google.com (mail-pf1-x429.google.com
+ [IPv6:2607:f8b0:4864:20::429])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id D19013CB39
- for <cake@lists.bufferbloat.net>; Sun, 15 Oct 2023 11:53:02 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de; s=s31663417;
- t=1697385180; x=1697989980; i=moeller0@gmx.de;
- bh=V2WTvIO6ywN+elY6xvCJtGpON5W7FvRpzDnRb21YATQ=;
- h=X-UI-Sender-Class:Date:From:To:Subject:In-Reply-To:References;
- b=oi9t/KyUOuVJl8TdwW2Y/yewHpj3tsVCY/Ifjb3nyl+iSy14V2C/9QdjH2xb08Yln8Zqd7S6eEs
- uLVriY95KJ0zYgapam1ysR2BseDRx7Pnfz+0aMdT6j0ZM70vovjcEycyJ7epp0eeufraALiFCycDY
- RlWD7ZpsmZAH8KAxXrWgS/LRVlgZUd4QtyusCUYCABBVynyXyLl0mxEoAhcga8eggXIey3gC0DjHc
- HDHK7e9J97LzGhGQhGBld9pgL35qo40CyWNjqZqM5WF8VJT0piwKt21of2CLIZbrIwKKQgghZRc0O
- +0HhzwN9OBtIdMdicRXsBiHdPw0xeVYHzOSQ==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from [127.0.0.1] ([77.10.49.66]) by mail.gmx.net (mrgmx104
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1N4hzj-1ra1H92Z5r-011hKu; Sun, 15
- Oct 2023 17:53:00 +0200
-Date: Sun, 15 Oct 2023 17:52:56 +0200
-To: dave seddon <dave.seddon.ca@gmail.com>,
- dave seddon via Cake <cake@lists.bufferbloat.net>,
- Cake List <cake@lists.bufferbloat.net>, Dave Taht <dave.taht@gmail.com>
-User-Agent: K-9 Mail for Android
-In-Reply-To: <CANypexRZaxEDATZbK78NdzWrBSs6nnH_kyP_HA4HT2Ka7N8f5Q@mail.gmail.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 8F3B03CB39
+ for <cake@lists.bufferbloat.net>; Sun, 15 Oct 2023 11:54:04 -0400 (EDT)
+Received: by mail-pf1-x429.google.com with SMTP id
+ d2e1a72fcca58-6bd32d1a040so762394b3a.3
+ for <cake@lists.bufferbloat.net>; Sun, 15 Oct 2023 08:54:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20230601; t=1697385243; x=1697990043; darn=lists.bufferbloat.net;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=vOe7OCcgxbTYdqcdBj3LMUvohRtharf+QTkT5n3CH/Q=;
+ b=E7TPuAnwI6BDAlXr7zuiWVZC6CKiND3SRv9+fdLNAVgiSqFSrg3VjzEAhhtqTCnmKu
+ /+PKtdqWSBO301LETyfQVaXAdy67F0SfNr/6ASUWTdP4xKF66yNf0oTXFaE/L389pHz9
+ zcKYtLMwqSdD7oZ5gzE2A1BB/lPrSsZBqwG3U+cvEoX+o3Hxz6jxmdeyjc/a4yvf8LqJ
+ /7VOl6/i/RlbGZsW32mDx73aik627zIUloR7Rd5SrcOUJopHHL1r3jJ/FLDrfxXz/7WE
+ MDADnJI3RljrsrlnhbZGH1gxuRh4083eWsyhGLmXXBxRBhLL+YrkA75fOXGvTOL8iJwQ
+ 7c/A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1697385243; x=1697990043;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=vOe7OCcgxbTYdqcdBj3LMUvohRtharf+QTkT5n3CH/Q=;
+ b=NTpVVjUqH0yizELu2JBXNSYF6WcxM9L1C3I7JI+YRBYS+d2YMIhyfS5j/4c9X264IM
+ Rq3+aH5G2/RAMsj+WqRGevZB8yACJJcphEsIOLzrilYn1bkFPIlr1K4w92+7h15VQs5k
+ 4+oYTBhCBoucCZ+Evh9OWoFlKgu9gXYWGoypy6V7NfRoWbqUuoMG4DTKFlZLeg4qNQEg
+ lLw9FDAVRlAKlIKMldgtB6ruzScl/DdpgxObUnGA+IgtDzAqEj9WA8sQOkv/a51ynaRw
+ AU1xgMJCmoKbxTiSoP2Bbvyne1tLNgBNLoTJ6ek3c1c5e3YJuPAeRIK8xaaMVnDqTrWX
+ aQ3w==
+X-Gm-Message-State: AOJu0YwjVUy4t6tjMyxuWEa5C5jaks2GUCozdr67wAtL9JZ2HWHd35ob
+ WVSg2tWtZPa/hqDDE0VUgyZ/Vhgh0S7y8eKM6EmxK9MmI3k=
+X-Google-Smtp-Source: AGHT+IGbQmVCFn3CYfmee3aAIOR6HTSqx3gHyu0131yKbjm06L1lm3ALRHUqnyh65Tv/yFgl75pms3Lh8xgAee8wKbE=
+X-Received: by 2002:a05:6a20:3d1b:b0:12e:4d86:c017 with SMTP id
+ y27-20020a056a203d1b00b0012e4d86c017mr39019465pzi.10.1697385243198; Sun, 15
+ Oct 2023 08:54:03 -0700 (PDT)
+MIME-Version: 1.0
 References: <CAA93jw5nDw_vArfxpevWbuLrj9HiLTczepEBL2vJxj=MGmrf8g@mail.gmail.com>
  <CANypexR5p7Lekzk7+ktfEWjFXJP2zRHC_BgGWRRzKc5QdaxubA@mail.gmail.com>
  <1695068690.78066946@apps.rackspace.com>
@@ -58,28 +74,10 @@ References: <CAA93jw5nDw_vArfxpevWbuLrj9HiLTczepEBL2vJxj=MGmrf8g@mail.gmail.com>
  <CANypexR9-Cpxup83w9tgcer7Dv48Hsun6+JR=qLPAdhhnRP58w@mail.gmail.com>
  <CANypexS=7eP0eU4xTO62swRp2o+fM0rg4rG0OSMqq6ybKx2omA@mail.gmail.com>
  <CANypexRZaxEDATZbK78NdzWrBSs6nnH_kyP_HA4HT2Ka7N8f5Q@mail.gmail.com>
-Message-ID: <EADF76C6-5C1A-47DB-BDD1-10BC0D7C4522@gmx.de>
-MIME-Version: 1.0
-X-Provags-ID: V03:K1:ifKIpmdRemWD/MCT79FpqiWG2YYDylHOHiNJDrHXjcqjPRtgOSj
- raP8zCECC1g0upP5LVfMSgeTA+rkoSRq7Laa9iQ1ke4H+3pzKKML3vhUUvU+mCmvNQuTDjz
- VotmzOZwaq3hr1FsHyAWgRar8KQI3DP8z963HfnHDVzj5lC+Hbvlu8743GrLQ3grRR/s/tk
- 8wN4JXedgGpt+5NV/nDYQ==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:ekOIoZ3AP8k=;DIW6l2u5HK3RgD+MYSrmiFL1lMD
- qX8s/IUvNeHFq7wu0NF1BxqWPEBlWXz4nc7KUkv6vvRwlEHJ6VfX5Np89Es11UzcQsGEJTQ61
- m1J2fw1uL+nQnbJbC+iAF2y4DS26i8SB8LAi9rGUhXWsRsGOLhF3N3vRWbdMwd9+14gw78HLI
- QpCDYe1vpsP5GJ52AUG+8M+j+NJcuAMQVQHY1glK1bmhMS8Dn8HzCG4ePUzJaxnNKk7TtxqrH
- 1u4+z1PhoXnstTmD/GIXzlLhwopHW39Qsd9ekOV9PvEK+VJcBjOKc/1xC5M1D3pHNXMLCbLKy
- XMhhNs5ztIuY/9Q74AkB4X+IG/rbuZlaHSJX28FLfiJKynNhdhUjNZH01/cDJLuJGttIlqPyd
- 0+OOAaQOaGa6ysk6UX2mEZspfiaa4cFhgH/KQzSZqXgQ6auO5IolL9FIxlGUp9Ri57Ss7G0Yb
- nx5x34YXFI/dj5giz+Ef8b+iUGhQfpHScvTwcYTojGm8XGHafL4mJJffFUGFUcZr8So/gNHg1
- X0gMehLWSt8uFObLdC/SHif/kGrR92zQJxGrNeUavCeIeWTqiKllgn15C6PcmIEIph+lqY5to
- EdUaYC8GTo9HWHTwRkoCIZW2HueG5UqBBQdGZwWExe8QS5w8gQyWmVUXvj37OStNMXNTqMxaB
- YEKMDP5Z5/hgyR9ZR3vwfjquxM4bzBUla7sC+CaMqWuhnh4SSO1SlyojjjtA+qbtv1tTtDsex
- E9xkywxUis4Su2YCUXY6QxosRmyUg4Yo4oDlg59pOi7/IHW/tvfC4EM84Y3G4lFAWXEtL6jwI
- GlbICk+sjmi9d1oXqWN1hkffcWVxSFvg7/fjzAAnXfAjXWvQbZ5k/23h4vFMc4/Ams2ITA6Rq
- r1yKHwQnCY6No6Khtdsii9iLlpjISN8WIycd/6d4lmPd6F/4vg/5T8MncKotulM4RXpfp+6cD
- /465Kqag4SQFvhNayNgr1DA72lM=
+In-Reply-To: <CANypexRZaxEDATZbK78NdzWrBSs6nnH_kyP_HA4HT2Ka7N8f5Q@mail.gmail.com>
+Date: Sun, 15 Oct 2023 08:53:49 -0700
+Message-ID: <CAA93jw4qbb4gxn0F_EdkcMJvhx0w3ReY1PYcUOwdjJnuey4PBw@mail.gmail.com>
+To: dave seddon <dave.seddon.ca@gmail.com>
 Subject: Re: [Cake] some comprehensive arm64 w/cake results
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -92,440 +90,138 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
-Reply-To: Sebastian Moeller <moeller0@gmx.de>
-Content-Type: multipart/mixed; boundary="===============5026035625002155009=="
+From: Dave Taht via Cake <cake@lists.bufferbloat.net>
+Reply-To: Dave Taht <dave.taht@gmail.com>
+Cc: Cake List <cake@lists.bufferbloat.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============5026035625002155009==
-Content-Type: multipart/alternative;
- boundary=----8XUICOG9OAKHJLUSIMUVZ11YJAQ97Z
-Content-Transfer-Encoding: 7bit
-
-------8XUICOG9OAKHJLUSIMUVZ11YJAQ97Z
-Content-Type: text/plain;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-If I recall correctly, flent will use irtt for its delay probes if availabl=
-e on both ends=2E Sure fixing fping seems like a good thing longer term, bu=
-t to get data in quickly, maybe try irtt instead?
-
-On 15 October 2023 17:11:23 CEST, dave seddon via Cake <cake@lists=2Ebuffe=
-rbloat=2Enet> wrote:
->G'day,
->
->I've put more work into a test framework around the qdisc tests, but
->unfortunately flent doesn't work easily with Ubuntu LTS (
->https://github=2Ecom/tohojo/flent/issues/232, which I think is an issue w=
-ith
->flent parsing the fping output )=2E
->
->Results and graphs in this sheet:
->https://docs=2Egoogle=2Ecom/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8=
-ABXKvDsSIMz9ag/edit#gid=3D1203641125
->
->Raw results of x2 test runs are here:
->https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdisc/report=
-=2Ecsv
->
->Each run:
->https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-13T18%3A45%3A45/report=2Ecsv
->https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-14T14%3A22%3A53/report=2Ecsv
->
->Full iperf outputs are available too, for example:
->https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-13T18%3A45%3A45/nanopi-r2s/fq_codel/iperf/test/16_iperf/stdout
->
->
->Logs for each run are also available, for example:
->https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-13T18%3A45%3A45/log=2Ejson
->
->The code repo updated here: https://github=2Ecom/randomizedcoder/cake , w=
-ith
->thehttps://github=2Ecom/randomizedcoder/cake/blob/main/README=2Emd which
->explains how the test work=2E
->Updated google doc is started here:
->https://docs=2Egoogle=2Ecom/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zU=
-JYCj0WuCs0/edit?usp=3Dsharing
->
->Based on the questions on this list earlier, there is a folder with devic=
-e
->information for each of the devices
->https://github=2Ecom/randomizedcoder/cake/tree/main/device_info
->
->For example, the Pi4 and the Lichee Pi (risc-v) hardware layout is here:
->- https://github=2Ecom/randomizedcoder/cake/blob/main/device_info/pi4/hwl=
-oc-ls-pi4=2Epng
->
->-
->https://github=2Ecom/randomizedcoder/cake/blob/main/device_info/lpi4a/hwl=
-oc-ls-lpi4a=2Epng
->
->The switch has also been upgraded to a Cisco 3750x, which I think based o=
-n
->the "show interface" output has a max queue size of 40 frames=2E  The tes=
-t
->process clears the counters before each test and gathers the "show
->interface" output at the end=2E
->
->The Lichee Pi 4A doesn't look good (
->https://wiki=2Esipeed=2Ecom/hardware/en/lichee/th1520/lp4a=2Ehtml )
->
->[image: image=2Epng]
->I really wish the flent was working, so I'll probably see if I can work o=
-ut
->the parsing=2E
->
->Thanks,
->Dave Seddon
->
->On Fri, Oct 13, 2023 at 10:25=E2=80=AFAM dave seddon <dave=2Eseddon=2Eca@=
-gmail=2Ecom>
->wrote:
->
->> My bad=2E  There's a bug for this=2E=2E=2E=2E Looks like I have to down=
-grade fping
->>
->> https://github=2Ecom/tohojo/flent/issues/232
->> https://github=2Ecom/schweikert/fping/issues/203
->>
->> On Fri, Oct 13, 2023 at 8:59=E2=80=AFAM dave seddon <dave=2Eseddon=2Eca=
-@gmail=2Ecom>
->> wrote:
->>
->>> G'day,
->>>
->>> I've been working away on automation of the tests=2E  Pretty close to
->>> having much nicer tests with a lot more details=2E  I've also got the =
-risc-v
->>> device working=2E
->>>
->>> However, I've run into something funny with flent=2E  Flent is not hap=
-py
->>> with fping or ping=2E
->>>
->>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ /usr/bin/sudo
->>> /usr/sbin/ip netns exec network101 /usr/bin/flent rrul --output
->>>  /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_flent/flent_=
-pi4_noqueue=2Epng
->>> --data-dir /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_fl=
-ent/
->>> --format summary --plot all_scaled --title-extra
->>> 2023-10-13T15:53:21_pi4_noqueue --note 2023-10-13T15:53:21_pi4_noqueue
->>> --extended-metadata --host 172=2E17=2E51=2E10 --length 60 --ipv4 --soc=
-ket-stats
->>> Starting Flent 2=2E0=2E1 using Python 3=2E10=2E12=2E
->>> Starting rrul test=2E Expected run time: 70 seconds=2E
->>> WARNING: Found fping, but couldn't parse its output=2E Not
->>> using=2E              <---------------- ???
->>> ERROR: Runner Ping (ms) ICMP failed check: Cannot parse output of the
->>> system ping binary (/usr/bin/ping)=2E Please install fping v3=2E5+=2E =
-   <----- ??
->>>
->>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ dpkg --list | grep ping
->>> ii  fping                                 5=2E1-1
->>>         amd64        sends ICMP ECHO_REQUEST packets to network hosts
->>> ii  iputils-ping                          3:20211215-1
->>>          amd64        Tools to test the reachability of network hosts
->>> ii  kpartx                                0=2E8=2E8-1ubuntu1=2E22=2E04=
-=2E1
->>>          amd64        create device mappings for partitions
->>> ii  libharfbuzz0b:amd64                   2=2E7=2E4-1ubuntu3=2E1
->>>          amd64        OpenType text shaping engine (shared library)
->>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ fping --version
->>> fping: Version 5=2E1
->>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ ping -V
->>> ping from iputils 20211215
->>>
->>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ cat /etc/lsb-release
->>> DISTRIB_ID=3DUbuntu
->>> DISTRIB_RELEASE=3D22=2E04
->>> DISTRIB_CODENAME=3Djammy
->>> DISTRIB_DESCRIPTION=3D"Ubuntu 22=2E04=2E3 LTS"
->>>
->>> I did install via "apt install fping"
->>>
->>> Any thoughts please?
->>>
->>> Kind regards,
->>> Dave
->>>
->>> On Thu, Sep 28, 2023 at 6:27=E2=80=AFAM Sebastian Moeller via Cake <
->>> cake@lists=2Ebufferbloat=2Enet> wrote:
->>>
->>>>
->>>>
->>>> > On Sep 28, 2023, at 15:19, David Lang <david@lang=2Ehm> wrote:
->>>> >
->>>> > On Thu, 28 Sep 2023, Sebastian Moeller via Cake wrote:
->>>> >
->>>> >> P=2ES=2E: I am tempted, but will likely wait until they are availa=
-ble in
->>>> quantity and hope that the street price comes down a bit before getti=
-ng one
->>>> ;)
->>>> >
->>>> > They aren't available at all yet, and it's not clear when they will=
- be
->>>> available=2E
->>>>
->>>>         The announcement was end of October, but I think I could
->>>> pre-order right now if I was feeling an urge=2E You are right though,
->>>> announced !=3D available or delivered=2E
->>>>
->>>> Regards
->>>>         Sebastian
->>>>
->>>> P=2ES=2E: I have a pi400 in use as "desktop" for my oldest kid, this =
-is
->>>> close to be actually generally usable, I would guess that changing a
->>>> potential p500 from the pi400's 4GB to 8 GB together with the other
->>>> imprivements the 5 brings might push it over the threshold into the t=
-ruly
->>>> useful category=2E Which probably means that either a potential pi500=
- will
->>>> come late and probably with only 4 GB, but let's see how this works o=
-ut now
->>>> that the supply situation is less problematic=2E
->>>> And I understand that there are other capable ARM based SoCs for
->>>> homerouter/desktop duty, I just happen ot have a soft spot for the
->>>> raspberry project ;)
->>>>
->>>> >
->>>> > David Lang
->>>>
->>>> _______________________________________________
->>>> Cake mailing list
->>>> Cake@lists=2Ebufferbloat=2Enet
->>>> https://lists=2Ebufferbloat=2Enet/listinfo/cake
->>>>
->>>
->>>
->>> --
->>> Regards,
->>> Dave Seddon
->>> +1 415 857 5102
->>>
->>
->>
->> --
->> Regards,
->> Dave Seddon
->> +1 415 857 5102
->>
->
->
->--=20
->Regards,
->Dave Seddon
->+1 415 857 5102
-
---=20
-Sent from my Android device with K-9 Mail=2E Please excuse my brevity=2E
-------8XUICOG9OAKHJLUSIMUVZ11YJAQ97Z
-Content-Type: text/html;
- charset=utf-8
-Content-Transfer-Encoding: quoted-printable
-
-<html><head></head><body><div dir=3D"auto">If I recall correctly, flent wil=
-l use irtt for its delay probes if available on both ends=2E Sure fixing fp=
-ing seems like a good thing longer term, but to get data in quickly, maybe =
-try irtt instead?</div><br><br><div class=3D"gmail_quote"><div dir=3D"auto"=
->On 15 October 2023 17:11:23 CEST, dave seddon via Cake &lt;cake@lists=2Ebu=
-fferbloat=2Enet&gt; wrote:</div><blockquote class=3D"gmail_quote" style=3D"=
-margin: 0pt 0pt 0pt 0=2E8ex; border-left: 1px solid rgb(204, 204, 204); pad=
-ding-left: 1ex;">
-<div dir=3D"ltr"><div>G'day,</div><div><br></div><div>I've put more work i=
-nto a test framework around the qdisc tests, but unfortunately flent doesn'=
-t work easily with Ubuntu LTS ( <a href=3D"https://github=2Ecom/tohojo/flen=
-t/issues/232">https://github=2Ecom/tohojo/flent/issues/232</a>, which I thi=
-nk is an issue with flent parsing the fping output )=2E<br></div><div><br><=
-/div><div><div><div>Results and graphs in this sheet:<br></div><div><a href=
-=3D"https://docs=2Egoogle=2Ecom/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicO=
-m8ABXKvDsSIMz9ag/edit#gid=3D1203641125" target=3D"_blank">https://docs=2Ego=
-ogle=2Ecom/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8ABXKvDsSIMz9ag/edit=
-#gid=3D1203641125</a></div></div></div><div><br></div><div>Raw results of x=
-2 test runs are here:<br></div><div><a href=3D"https://github=2Ecom/randomi=
-zedcoder/qdisc_results/blob/main/qdisc/report=2Ecsv">https://github=2Ecom/r=
-andomizedcoder/qdisc_results/blob/main/qdisc/report=2Ecsv</a></div><div><br=
-></div><div>Each run:<br></div><div><a href=3D"https://github=2Ecom/randomi=
-zedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/report=2Ecsv=
-">https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-13T18%3A45%3A45/report=2Ecsv</a></div><div><a href=3D"https://github=2Eco=
-m/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-14T14%3A22%3A53/rep=
-ort=2Ecsv">https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdi=
-sc/2023-10-14T14%3A22%3A53/report=2Ecsv</a></div><div><br></div><div>Full i=
-perf outputs are available too, for example: <a href=3D"https://github=2Eco=
-m/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/nan=
-opi-r2s/fq_codel/iperf/test/16_iperf/stdout">https://github=2Ecom/randomize=
-dcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi-r2s/fq_=
-codel/iperf/test/16_iperf/stdout </a><br></div><div><br></div><div>Logs for=
- each run are also available, for example: <a href=3D"https://github=2Ecom/=
-randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/log=
-=2Ejson">https://github=2Ecom/randomizedcoder/qdisc_results/blob/main/qdisc=
-/2023-10-13T18%3A45%3A45/log=2Ejson</a></div><div><br></div><div>The code r=
-epo updated here: <a href=3D"https://github=2Ecom/randomizedcoder/cake" tar=
-get=3D"_blank">https://github=2Ecom/randomizedcoder/cake</a> , with the<a h=
-ref=3D"https://github=2Ecom/randomizedcoder/cake/blob/main/README=2Emd" tar=
-get=3D"_blank">https://github=2Ecom/randomizedcoder/cake/blob/main/README=
-=2Emd</a> which explains how the test work=2E</div><div>Updated google doc =
-is started here: <a href=3D"https://docs=2Egoogle=2Ecom/document/d/1fYKj3BS=
-89aB9drg_DsSq289xSdVQhn1zUJYCj0WuCs0/edit?usp=3Dsharing">https://docs=2Egoo=
-gle=2Ecom/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJYCj0WuCs0/edit?usp=
-=3Dsharing</a></div><div><br></div><div>Based on the questions on this list=
- earlier, there is a folder with device information for each of the devices=
-<br></div><div><a href=3D"https://github=2Ecom/randomizedcoder/cake/tree/ma=
-in/device_info" target=3D"_blank">https://github=2Ecom/randomizedcoder/cake=
-/tree/main/device_info</a></div><div><br></div><div>For example, the Pi4 an=
-d the Lichee Pi (risc-v) hardware layout is here:</div><div>- <a href=3D"ht=
-tps://github=2Ecom/randomizedcoder/cake/blob/main/device_info/pi4/hwloc-ls-=
-pi4=2Epng" target=3D"_blank">https://github=2Ecom/randomizedcoder/cake/blob=
-/main/device_info/pi4/hwloc-ls-pi4=2Epng <br></a></div><div>- <a href=3D"ht=
-tps://github=2Ecom/randomizedcoder/cake/blob/main/device_info/lpi4a/hwloc-l=
-s-lpi4a=2Epng" target=3D"_blank">https://github=2Ecom/randomizedcoder/cake/=
-blob/main/device_info/lpi4a/hwloc-ls-lpi4a=2Epng</a><br></div><div><br></di=
-v><div>The switch has also been upgraded to a Cisco 3750x, which I think ba=
-sed on the "show interface" output has a max queue size of 40 frames=2E&nbs=
-p; The test process clears the counters before each test and gathers the "s=
-how interface" output at the end=2E<br></div><div><br></div><div>The Lichee=
- Pi 4A doesn't look good ( <a href=3D"https://wiki=2Esipeed=2Ecom/hardware/=
-en/lichee/th1520/lp4a=2Ehtml">https://wiki=2Esipeed=2Ecom/hardware/en/liche=
-e/th1520/lp4a=2Ehtml</a> )<br></div><div><br></div><div><img src=3D"cid:ii_=
-lnrlip390" alt=3D"image=2Epng" width=3D"578" height=3D"356"><br></div><div>=
-I really wish the flent was working, so I'll probably see if I can work out=
- the parsing=2E</div><div><br></div><div>Thanks,</div><div>Dave Seddon<br><=
-/div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_a=
-ttr">On Fri, Oct 13, 2023 at 10:25=E2=80=AFAM dave seddon &lt;<a href=3D"ma=
-ilto:dave=2Eseddon=2Eca@gmail=2Ecom" target=3D"_blank">dave=2Eseddon=2Eca@g=
-mail=2Ecom</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=
-=3D"margin:0px 0px 0px 0=2E8ex;border-left:1px solid rgb(204,204,204);paddi=
-ng-left:1ex"><div dir=3D"ltr"><div>My bad=2E&nbsp; There's a bug for this=
-=2E=2E=2E=2E Looks like I have to downgrade fping<br></div><div><br></div><=
-div><a href=3D"https://github=2Ecom/tohojo/flent/issues/232" target=3D"_bla=
-nk">https://github=2Ecom/tohojo/flent/issues/232</a></div><div><a href=3D"h=
-ttps://github=2Ecom/schweikert/fping/issues/203" target=3D"_blank">https://=
-github=2Ecom/schweikert/fping/issues/203</a></div></div><br><div class=3D"g=
-mail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Oct 13, 2023 at 8=
-:59=E2=80=AFAM dave seddon &lt;<a href=3D"mailto:dave=2Eseddon=2Eca@gmail=
-=2Ecom" target=3D"_blank">dave=2Eseddon=2Eca@gmail=2Ecom</a>&gt; wrote:<br>=
-</div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0=2E8ex=
-;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr">=
-<div>G'day,</div><div><br></div><div>I've been working away on automation o=
-f the tests=2E&nbsp; Pretty close to having much nicer tests with a lot mor=
-e details=2E&nbsp; I've also got the risc-v device working=2E<br></div><div=
-><br></div><div>However, I've run into something funny with flent=2E&nbsp; =
-Flent is not happy with fping or ping=2E<br></div><div><br></div><div>das@3=
-rd:~/Downloads/cake/cmd/run_qdiscs_tests$ /usr/bin/sudo /usr/sbin/ip netns =
-exec network101 /usr/bin/flent rrul --output &nbsp;/tmp/qdisc/2023-10-13T15=
-:53:21/pi4/noqueue/flent/test/15_flent/flent_pi4_noqueue=2Epng --data-dir /=
-tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_flent/ --format sum=
-mary --plot all_scaled --title-extra 2023-10-13T15:53:21_pi4_noqueue --note=
- 2023-10-13T15:53:21_pi4_noqueue --extended-metadata --host 172=2E17=2E51=
-=2E10 --length 60 --ipv4 --socket-stats<br>Starting Flent 2=2E0=2E1 using P=
-ython 3=2E10=2E12=2E<br>Starting rrul test=2E Expected run time: 70 seconds=
-=2E<br>WARNING: Found fping, but couldn't parse its output=2E Not using=2E&=
-nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbs=
-p; &lt;---------------- ???<br>ERROR: Runner Ping (ms) ICMP failed check: C=
-annot parse output of the system ping binary (/usr/bin/ping)=2E Please inst=
-all fping v3=2E5+=2E&nbsp;&nbsp;&nbsp; &lt;----- ??</div><div><br></div><di=
-v>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ dpkg --list | grep ping<br=
->ii &nbsp;fping &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nb=
-sp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 5=2E1-1 &nbsp; &nbsp; =
-&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
-; &nbsp; &nbsp; &nbsp; &nbsp; amd64 &nbsp; &nbsp; &nbsp; &nbsp;sends ICMP E=
-CHO_REQUEST packets to network hosts<br>ii &nbsp;iputils-ping &nbsp; &nbsp;=
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
-p;3:20211215-1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
-p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;amd64 &nbsp; &nbsp; &nbsp; &nbsp;Tools=
- to test the reachability of network hosts<br>ii &nbsp;kpartx &nbsp; &nbsp;=
- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbs=
-p; &nbsp; &nbsp; &nbsp;0=2E8=2E8-1ubuntu1=2E22=2E04=2E1 &nbsp; &nbsp; &nbsp=
-; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;amd64 &nbsp; &nbsp; &nbsp; &nbsp=
-;create device mappings for partitions<br>ii &nbsp;libharfbuzz0b:amd64 &nbs=
-p; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 2=2E7=2E4-1ubunt=
-u3=2E1 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp=
-; &nbsp; &nbsp;amd64 &nbsp; &nbsp; &nbsp; &nbsp;OpenType text shaping engin=
-e (shared library)<br>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ fping =
---version<br>fping: Version 5=2E1</div><div>das@3rd:~/Downloads/cake/cmd/ru=
-n_qdiscs_tests$ ping -V<br>ping from iputils 20211215</div><div><br></div><=
-div>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ cat /etc/lsb-release <br=
->DISTRIB_ID=3DUbuntu<br>DISTRIB_RELEASE=3D22=2E04<br>DISTRIB_CODENAME=3Djam=
-my<br>DISTRIB_DESCRIPTION=3D"Ubuntu 22=2E04=2E3 LTS"</div><div><br></div><d=
-iv>I did install via "apt install fping"<br></div><div><br></div><div>Any t=
-houghts please?</div><div><br></div><div>Kind regards,</div><div>Dave<br></=
-div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_at=
-tr">On Thu, Sep 28, 2023 at 6:27=E2=80=AFAM Sebastian Moeller via Cake &lt;=
-<a href=3D"mailto:cake@lists=2Ebufferbloat=2Enet" target=3D"_blank">cake@li=
-sts=2Ebufferbloat=2Enet</a>&gt; wrote:<br></div><blockquote class=3D"gmail_=
-quote" style=3D"margin:0px 0px 0px 0=2E8ex;border-left:1px solid rgb(204,20=
-4,204);padding-left:1ex"><br>
-<br>
-&gt; On Sep 28, 2023, at 15:19, David Lang &lt;<a href=3D"mailto:david@lan=
-g=2Ehm" target=3D"_blank">david@lang=2Ehm</a>&gt; wrote:<br>
-&gt; <br>
-&gt; On Thu, 28 Sep 2023, Sebastian Moeller via Cake wrote:<br>
-&gt; <br>
-&gt;&gt; P=2ES=2E: I am tempted, but will likely wait until they are avail=
-able in quantity and hope that the street price comes down a bit before get=
-ting one ;)<br>
-&gt; <br>
-&gt; They aren't available at all yet, and it's not clear when they will b=
-e available=2E<br>
-<br>
-&nbsp; &nbsp; &nbsp; &nbsp; The announcement was end of October, but I thi=
-nk I could pre-order right now if I was feeling an urge=2E You are right th=
-ough, announced !=3D available or delivered=2E<br>
-<br>
-Regards<br>
-&nbsp; &nbsp; &nbsp; &nbsp; Sebastian<br>
-<br>
-P=2ES=2E: I have a pi400 in use as "desktop" for my oldest kid, this is cl=
-ose to be actually generally usable, I would guess that changing a potentia=
-l p500 from the pi400's 4GB to 8 GB together with the other imprivements th=
-e 5 brings might push it over the threshold into the truly useful category=
-=2E Which probably means that either a potential pi500 will come late and p=
-robably with only 4 GB, but let's see how this works out now that the suppl=
-y situation is less problematic=2E<br>
-And I understand that there are other capable ARM based SoCs for homeroute=
-r/desktop duty, I just happen ot have a soft spot for the raspberry project=
- ;)<br>
-<br>
-&gt; <br>
-&gt; David Lang<br>
-<br>
-_______________________________________________<br>
-Cake mailing list<br>
-<a href=3D"mailto:Cake@lists=2Ebufferbloat=2Enet" target=3D"_blank">Cake@l=
-ists=2Ebufferbloat=2Enet</a><br>
-<a href=3D"https://lists=2Ebufferbloat=2Enet/listinfo/cake" rel=3D"norefer=
-rer" target=3D"_blank">https://lists=2Ebufferbloat=2Enet/listinfo/cake</a><=
-br>
-</blockquote></div><br clear=3D"all"><br><span class=3D"gmail_signature_pr=
-efix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"=
-ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dav=
-e Seddon<br>+1 415 857 5102<br></div></div></div></div></div></div>
-</blockquote></div><br clear=3D"all"><br><span class=3D"gmail_signature_pr=
-efix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"=
-ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dav=
-e Seddon<br>+1 415 857 5102<br></div></div></div></div></div></div>
-</blockquote></div><br clear=3D"all"></blockquote></div><div dir=3D"auto">=
-<div class=3D'k9mail-signature'>-- <br>Sent from my Android device with K-9=
- Mail=2E Please excuse my brevity=2E</div></div></body></html>
-------8XUICOG9OAKHJLUSIMUVZ11YJAQ97Z--
-
---===============5026035625002155009==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============5026035625002155009==--
+cmVhbGx5IGxvdmVseSwgdGhhbmsgeW91LiBJIGhvcGUgd2UgY2FuIGdldCBmbGVudCBmaXhlZC4g
+VGhhdCByaXNjCnJlc3VsdCB3YXMgYXdmdWwuIERvZXMgaXQgaGF2ZSBCUUw/IEFyZSB0aGVyZSBz
+cGVjcyBvbiB0aGUgZXRoZXJuZXQKaW50ZXJmYWNlPwoKVGhpcyByaXNjLXYgYmVhZ2xlYm9uZSBq
+dXN0IGNhbWUgb3V0IHRvZGF5OgpodHRwczovL3d3dy5iZWFnbGVib2FyZC5vcmcvYm9hcmRzL2Jl
+YWdsZXYtYWhlYWQKCk9uIFN1biwgT2N0IDE1LCAyMDIzIGF0IDg6MTHigK9BTSBkYXZlIHNlZGRv
+biA8ZGF2ZS5zZWRkb24uY2FAZ21haWwuY29tPiB3cm90ZToKPgo+IEcnZGF5LAo+Cj4gSSd2ZSBw
+dXQgbW9yZSB3b3JrIGludG8gYSB0ZXN0IGZyYW1ld29yayBhcm91bmQgdGhlIHFkaXNjIHRlc3Rz
+LCBidXQgdW5mb3J0dW5hdGVseSBmbGVudCBkb2Vzbid0IHdvcmsgZWFzaWx5IHdpdGggVWJ1bnR1
+IExUUyAoIGh0dHBzOi8vZ2l0aHViLmNvbS90b2hvam8vZmxlbnQvaXNzdWVzLzIzMiwgd2hpY2gg
+SSB0aGluayBpcyBhbiBpc3N1ZSB3aXRoIGZsZW50IHBhcnNpbmcgdGhlIGZwaW5nIG91dHB1dCAp
+Lgo+Cj4gUmVzdWx0cyBhbmQgZ3JhcGhzIGluIHRoaXMgc2hlZXQ6Cj4gaHR0cHM6Ly9kb2NzLmdv
+b2dsZS5jb20vc3ByZWFkc2hlZXRzL2QvMVQ1OVF3RWROd0pGbTRUZ0RGQV9OWTk4Z2ljT204QUJY
+S3ZEc1NJTXo5YWcvZWRpdCNnaWQ9MTIwMzY0MTEyNQo+Cj4gUmF3IHJlc3VsdHMgb2YgeDIgdGVz
+dCBydW5zIGFyZSBoZXJlOgo+IGh0dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21pemVkY29kZXIvcWRp
+c2NfcmVzdWx0cy9ibG9iL21haW4vcWRpc2MvcmVwb3J0LmNzdgo+Cj4gRWFjaCBydW46Cj4gaHR0
+cHM6Ly9naXRodWIuY29tL3JhbmRvbWl6ZWRjb2Rlci9xZGlzY19yZXN1bHRzL2Jsb2IvbWFpbi9x
+ZGlzYy8yMDIzLTEwLTEzVDE4JTNBNDUlM0E0NS9yZXBvcnQuY3N2Cj4gaHR0cHM6Ly9naXRodWIu
+Y29tL3JhbmRvbWl6ZWRjb2Rlci9xZGlzY19yZXN1bHRzL2Jsb2IvbWFpbi9xZGlzYy8yMDIzLTEw
+LTE0VDE0JTNBMjIlM0E1My9yZXBvcnQuY3N2Cj4KPiBGdWxsIGlwZXJmIG91dHB1dHMgYXJlIGF2
+YWlsYWJsZSB0b28sIGZvciBleGFtcGxlOiBodHRwczovL2dpdGh1Yi5jb20vcmFuZG9taXplZGNv
+ZGVyL3FkaXNjX3Jlc3VsdHMvYmxvYi9tYWluL3FkaXNjLzIwMjMtMTAtMTNUMTglM0E0NSUzQTQ1
+L25hbm9waS1yMnMvZnFfY29kZWwvaXBlcmYvdGVzdC8xNl9pcGVyZi9zdGRvdXQKPgo+IExvZ3Mg
+Zm9yIGVhY2ggcnVuIGFyZSBhbHNvIGF2YWlsYWJsZSwgZm9yIGV4YW1wbGU6IGh0dHBzOi8vZ2l0
+aHViLmNvbS9yYW5kb21pemVkY29kZXIvcWRpc2NfcmVzdWx0cy9ibG9iL21haW4vcWRpc2MvMjAy
+My0xMC0xM1QxOCUzQTQ1JTNBNDUvbG9nLmpzb24KPgo+IFRoZSBjb2RlIHJlcG8gdXBkYXRlZCBo
+ZXJlOiBodHRwczovL2dpdGh1Yi5jb20vcmFuZG9taXplZGNvZGVyL2Nha2UgLCB3aXRoIHRoZWh0
+dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21pemVkY29kZXIvY2FrZS9ibG9iL21haW4vUkVBRE1FLm1k
+IHdoaWNoIGV4cGxhaW5zIGhvdyB0aGUgdGVzdCB3b3JrLgo+IFVwZGF0ZWQgZ29vZ2xlIGRvYyBp
+cyBzdGFydGVkIGhlcmU6IGh0dHBzOi8vZG9jcy5nb29nbGUuY29tL2RvY3VtZW50L2QvMWZZS2oz
+QlM4OWFCOWRyZ19Ec1NxMjg5eFNkVlFobjF6VUpZQ2owV3VDczAvZWRpdD91c3A9c2hhcmluZwo+
+Cj4gQmFzZWQgb24gdGhlIHF1ZXN0aW9ucyBvbiB0aGlzIGxpc3QgZWFybGllciwgdGhlcmUgaXMg
+YSBmb2xkZXIgd2l0aCBkZXZpY2UgaW5mb3JtYXRpb24gZm9yIGVhY2ggb2YgdGhlIGRldmljZXMK
+PiBodHRwczovL2dpdGh1Yi5jb20vcmFuZG9taXplZGNvZGVyL2Nha2UvdHJlZS9tYWluL2Rldmlj
+ZV9pbmZvCj4KPiBGb3IgZXhhbXBsZSwgdGhlIFBpNCBhbmQgdGhlIExpY2hlZSBQaSAocmlzYy12
+KSBoYXJkd2FyZSBsYXlvdXQgaXMgaGVyZToKPiAtIGh0dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21p
+emVkY29kZXIvY2FrZS9ibG9iL21haW4vZGV2aWNlX2luZm8vcGk0L2h3bG9jLWxzLXBpNC5wbmcK
+PiAtIGh0dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21pemVkY29kZXIvY2FrZS9ibG9iL21haW4vZGV2
+aWNlX2luZm8vbHBpNGEvaHdsb2MtbHMtbHBpNGEucG5nCj4KPiBUaGUgc3dpdGNoIGhhcyBhbHNv
+IGJlZW4gdXBncmFkZWQgdG8gYSBDaXNjbyAzNzUweCwgd2hpY2ggSSB0aGluayBiYXNlZCBvbiB0
+aGUgInNob3cgaW50ZXJmYWNlIiBvdXRwdXQgaGFzIGEgbWF4IHF1ZXVlIHNpemUgb2YgNDAgZnJh
+bWVzLiAgVGhlIHRlc3QgcHJvY2VzcyBjbGVhcnMgdGhlIGNvdW50ZXJzIGJlZm9yZSBlYWNoIHRl
+c3QgYW5kIGdhdGhlcnMgdGhlICJzaG93IGludGVyZmFjZSIgb3V0cHV0IGF0IHRoZSBlbmQuCj4K
+PiBUaGUgTGljaGVlIFBpIDRBIGRvZXNuJ3QgbG9vayBnb29kICggaHR0cHM6Ly93aWtpLnNpcGVl
+ZC5jb20vaGFyZHdhcmUvZW4vbGljaGVlL3RoMTUyMC9scDRhLmh0bWwgKQo+Cj4KPiBJIHJlYWxs
+eSB3aXNoIHRoZSBmbGVudCB3YXMgd29ya2luZywgc28gSSdsbCBwcm9iYWJseSBzZWUgaWYgSSBj
+YW4gd29yayBvdXQgdGhlIHBhcnNpbmcuCj4KPiBUaGFua3MsCj4gRGF2ZSBTZWRkb24KPgo+IE9u
+IEZyaSwgT2N0IDEzLCAyMDIzIGF0IDEwOjI14oCvQU0gZGF2ZSBzZWRkb24gPGRhdmUuc2VkZG9u
+LmNhQGdtYWlsLmNvbT4gd3JvdGU6Cj4+Cj4+IE15IGJhZC4gIFRoZXJlJ3MgYSBidWcgZm9yIHRo
+aXMuLi4uIExvb2tzIGxpa2UgSSBoYXZlIHRvIGRvd25ncmFkZSBmcGluZwo+Pgo+PiBodHRwczov
+L2dpdGh1Yi5jb20vdG9ob2pvL2ZsZW50L2lzc3Vlcy8yMzIKPj4gaHR0cHM6Ly9naXRodWIuY29t
+L3NjaHdlaWtlcnQvZnBpbmcvaXNzdWVzLzIwMwo+Pgo+PiBPbiBGcmksIE9jdCAxMywgMjAyMyBh
+dCA4OjU54oCvQU0gZGF2ZSBzZWRkb24gPGRhdmUuc2VkZG9uLmNhQGdtYWlsLmNvbT4gd3JvdGU6
+Cj4+Pgo+Pj4gRydkYXksCj4+Pgo+Pj4gSSd2ZSBiZWVuIHdvcmtpbmcgYXdheSBvbiBhdXRvbWF0
+aW9uIG9mIHRoZSB0ZXN0cy4gIFByZXR0eSBjbG9zZSB0byBoYXZpbmcgbXVjaCBuaWNlciB0ZXN0
+cyB3aXRoIGEgbG90IG1vcmUgZGV0YWlscy4gIEkndmUgYWxzbyBnb3QgdGhlIHJpc2MtdiBkZXZp
+Y2Ugd29ya2luZy4KPj4+Cj4+PiBIb3dldmVyLCBJJ3ZlIHJ1biBpbnRvIHNvbWV0aGluZyBmdW5u
+eSB3aXRoIGZsZW50LiAgRmxlbnQgaXMgbm90IGhhcHB5IHdpdGggZnBpbmcgb3IgcGluZy4KPj4+
+Cj4+PiBkYXNAM3JkOn4vRG93bmxvYWRzL2Nha2UvY21kL3J1bl9xZGlzY3NfdGVzdHMkIC91c3Iv
+YmluL3N1ZG8gL3Vzci9zYmluL2lwIG5ldG5zIGV4ZWMgbmV0d29yazEwMSAvdXNyL2Jpbi9mbGVu
+dCBycnVsIC0tb3V0cHV0ICAvdG1wL3FkaXNjLzIwMjMtMTAtMTNUMTU6NTM6MjEvcGk0L25vcXVl
+dWUvZmxlbnQvdGVzdC8xNV9mbGVudC9mbGVudF9waTRfbm9xdWV1ZS5wbmcgLS1kYXRhLWRpciAv
+dG1wL3FkaXNjLzIwMjMtMTAtMTNUMTU6NTM6MjEvcGk0L25vcXVldWUvZmxlbnQvdGVzdC8xNV9m
+bGVudC8gLS1mb3JtYXQgc3VtbWFyeSAtLXBsb3QgYWxsX3NjYWxlZCAtLXRpdGxlLWV4dHJhIDIw
+MjMtMTAtMTNUMTU6NTM6MjFfcGk0X25vcXVldWUgLS1ub3RlIDIwMjMtMTAtMTNUMTU6NTM6MjFf
+cGk0X25vcXVldWUgLS1leHRlbmRlZC1tZXRhZGF0YSAtLWhvc3QgMTcyLjE3LjUxLjEwIC0tbGVu
+Z3RoIDYwIC0taXB2NCAtLXNvY2tldC1zdGF0cwo+Pj4gU3RhcnRpbmcgRmxlbnQgMi4wLjEgdXNp
+bmcgUHl0aG9uIDMuMTAuMTIuCj4+PiBTdGFydGluZyBycnVsIHRlc3QuIEV4cGVjdGVkIHJ1biB0
+aW1lOiA3MCBzZWNvbmRzLgo+Pj4gV0FSTklORzogRm91bmQgZnBpbmcsIGJ1dCBjb3VsZG4ndCBw
+YXJzZSBpdHMgb3V0cHV0LiBOb3QgdXNpbmcuICAgICAgICAgICAgICA8LS0tLS0tLS0tLS0tLS0t
+LSA/Pz8KPj4+IEVSUk9SOiBSdW5uZXIgUGluZyAobXMpIElDTVAgZmFpbGVkIGNoZWNrOiBDYW5u
+b3QgcGFyc2Ugb3V0cHV0IG9mIHRoZSBzeXN0ZW0gcGluZyBiaW5hcnkgKC91c3IvYmluL3Bpbmcp
+LiBQbGVhc2UgaW5zdGFsbCBmcGluZyB2My41Ky4gICAgPC0tLS0tID8/Cj4+Pgo+Pj4gZGFzQDNy
+ZDp+L0Rvd25sb2Fkcy9jYWtlL2NtZC9ydW5fcWRpc2NzX3Rlc3RzJCBkcGtnIC0tbGlzdCB8IGdy
+ZXAgcGluZwo+Pj4gaWkgIGZwaW5nICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNS4x
+LTEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFtZDY0ICAgICAgICBzZW5kcyBJ
+Q01QIEVDSE9fUkVRVUVTVCBwYWNrZXRzIHRvIG5ldHdvcmsgaG9zdHMKPj4+IGlpICBpcHV0aWxz
+LXBpbmcgICAgICAgICAgICAgICAgICAgICAgICAgIDM6MjAyMTEyMTUtMSAgICAgICAgICAgICAg
+ICAgICAgICAgICAgICBhbWQ2NCAgICAgICAgVG9vbHMgdG8gdGVzdCB0aGUgcmVhY2hhYmlsaXR5
+IG9mIG5ldHdvcmsgaG9zdHMKPj4+IGlpICBrcGFydHggICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgICAgIDAuOC44LTF1YnVudHUxLjIyLjA0LjEgICAgICAgICAgICAgICAgICBhbWQ2NCAgICAg
+ICAgY3JlYXRlIGRldmljZSBtYXBwaW5ncyBmb3IgcGFydGl0aW9ucwo+Pj4gaWkgIGxpYmhhcmZi
+dXp6MGI6YW1kNjQgICAgICAgICAgICAgICAgICAgMi43LjQtMXVidW50dTMuMSAgICAgICAgICAg
+ICAgICAgICAgICAgIGFtZDY0ICAgICAgICBPcGVuVHlwZSB0ZXh0IHNoYXBpbmcgZW5naW5lIChz
+aGFyZWQgbGlicmFyeSkKPj4+IGRhc0AzcmQ6fi9Eb3dubG9hZHMvY2FrZS9jbWQvcnVuX3FkaXNj
+c190ZXN0cyQgZnBpbmcgLS12ZXJzaW9uCj4+PiBmcGluZzogVmVyc2lvbiA1LjEKPj4+IGRhc0Az
+cmQ6fi9Eb3dubG9hZHMvY2FrZS9jbWQvcnVuX3FkaXNjc190ZXN0cyQgcGluZyAtVgo+Pj4gcGlu
+ZyBmcm9tIGlwdXRpbHMgMjAyMTEyMTUKPj4+Cj4+PiBkYXNAM3JkOn4vRG93bmxvYWRzL2Nha2Uv
+Y21kL3J1bl9xZGlzY3NfdGVzdHMkIGNhdCAvZXRjL2xzYi1yZWxlYXNlCj4+PiBESVNUUklCX0lE
+PVVidW50dQo+Pj4gRElTVFJJQl9SRUxFQVNFPTIyLjA0Cj4+PiBESVNUUklCX0NPREVOQU1FPWph
+bW15Cj4+PiBESVNUUklCX0RFU0NSSVBUSU9OPSJVYnVudHUgMjIuMDQuMyBMVFMiCj4+Pgo+Pj4g
+SSBkaWQgaW5zdGFsbCB2aWEgImFwdCBpbnN0YWxsIGZwaW5nIgo+Pj4KPj4+IEFueSB0aG91Z2h0
+cyBwbGVhc2U/Cj4+Pgo+Pj4gS2luZCByZWdhcmRzLAo+Pj4gRGF2ZQo+Pj4KPj4+IE9uIFRodSwg
+U2VwIDI4LCAyMDIzIGF0IDY6MjfigK9BTSBTZWJhc3RpYW4gTW9lbGxlciB2aWEgQ2FrZSA8Y2Fr
+ZUBsaXN0cy5idWZmZXJibG9hdC5uZXQ+IHdyb3RlOgo+Pj4+Cj4+Pj4KPj4+Pgo+Pj4+ID4gT24g
+U2VwIDI4LCAyMDIzLCBhdCAxNToxOSwgRGF2aWQgTGFuZyA8ZGF2aWRAbGFuZy5obT4gd3JvdGU6
+Cj4+Pj4gPgo+Pj4+ID4gT24gVGh1LCAyOCBTZXAgMjAyMywgU2ViYXN0aWFuIE1vZWxsZXIgdmlh
+IENha2Ugd3JvdGU6Cj4+Pj4gPgo+Pj4+ID4+IFAuUy46IEkgYW0gdGVtcHRlZCwgYnV0IHdpbGwg
+bGlrZWx5IHdhaXQgdW50aWwgdGhleSBhcmUgYXZhaWxhYmxlIGluIHF1YW50aXR5IGFuZCBob3Bl
+IHRoYXQgdGhlIHN0cmVldCBwcmljZSBjb21lcyBkb3duIGEgYml0IGJlZm9yZSBnZXR0aW5nIG9u
+ZSA7KQo+Pj4+ID4KPj4+PiA+IFRoZXkgYXJlbid0IGF2YWlsYWJsZSBhdCBhbGwgeWV0LCBhbmQg
+aXQncyBub3QgY2xlYXIgd2hlbiB0aGV5IHdpbGwgYmUgYXZhaWxhYmxlLgo+Pj4+Cj4+Pj4gICAg
+ICAgICBUaGUgYW5ub3VuY2VtZW50IHdhcyBlbmQgb2YgT2N0b2JlciwgYnV0IEkgdGhpbmsgSSBj
+b3VsZCBwcmUtb3JkZXIgcmlnaHQgbm93IGlmIEkgd2FzIGZlZWxpbmcgYW4gdXJnZS4gWW91IGFy
+ZSByaWdodCB0aG91Z2gsIGFubm91bmNlZCAhPSBhdmFpbGFibGUgb3IgZGVsaXZlcmVkLgo+Pj4+
+Cj4+Pj4gUmVnYXJkcwo+Pj4+ICAgICAgICAgU2ViYXN0aWFuCj4+Pj4KPj4+PiBQLlMuOiBJIGhh
+dmUgYSBwaTQwMCBpbiB1c2UgYXMgImRlc2t0b3AiIGZvciBteSBvbGRlc3Qga2lkLCB0aGlzIGlz
+IGNsb3NlIHRvIGJlIGFjdHVhbGx5IGdlbmVyYWxseSB1c2FibGUsIEkgd291bGQgZ3Vlc3MgdGhh
+dCBjaGFuZ2luZyBhIHBvdGVudGlhbCBwNTAwIGZyb20gdGhlIHBpNDAwJ3MgNEdCIHRvIDggR0Ig
+dG9nZXRoZXIgd2l0aCB0aGUgb3RoZXIgaW1wcml2ZW1lbnRzIHRoZSA1IGJyaW5ncyBtaWdodCBw
+dXNoIGl0IG92ZXIgdGhlIHRocmVzaG9sZCBpbnRvIHRoZSB0cnVseSB1c2VmdWwgY2F0ZWdvcnku
+IFdoaWNoIHByb2JhYmx5IG1lYW5zIHRoYXQgZWl0aGVyIGEgcG90ZW50aWFsIHBpNTAwIHdpbGwg
+Y29tZSBsYXRlIGFuZCBwcm9iYWJseSB3aXRoIG9ubHkgNCBHQiwgYnV0IGxldCdzIHNlZSBob3cg
+dGhpcyB3b3JrcyBvdXQgbm93IHRoYXQgdGhlIHN1cHBseSBzaXR1YXRpb24gaXMgbGVzcyBwcm9i
+bGVtYXRpYy4KPj4+PiBBbmQgSSB1bmRlcnN0YW5kIHRoYXQgdGhlcmUgYXJlIG90aGVyIGNhcGFi
+bGUgQVJNIGJhc2VkIFNvQ3MgZm9yIGhvbWVyb3V0ZXIvZGVza3RvcCBkdXR5LCBJIGp1c3QgaGFw
+cGVuIG90IGhhdmUgYSBzb2Z0IHNwb3QgZm9yIHRoZSByYXNwYmVycnkgcHJvamVjdCA7KQo+Pj4+
+Cj4+Pj4gPgo+Pj4+ID4gRGF2aWQgTGFuZwo+Pj4+Cj4+Pj4gX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+PiBDYWtlIG1haWxpbmcgbGlzdAo+Pj4+IENh
+a2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4+Pj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5u
+ZXQvbGlzdGluZm8vY2FrZQo+Pj4KPj4+Cj4+Pgo+Pj4gLS0KPj4+IFJlZ2FyZHMsCj4+PiBEYXZl
+IFNlZGRvbgo+Pj4gKzEgNDE1IDg1NyA1MTAyCj4+Cj4+Cj4+Cj4+IC0tCj4+IFJlZ2FyZHMsCj4+
+IERhdmUgU2VkZG9uCj4+ICsxIDQxNSA4NTcgNTEwMgo+Cj4KPgo+IC0tCj4gUmVnYXJkcywKPiBE
+YXZlIFNlZGRvbgo+ICsxIDQxNSA4NTcgNTEwMgoKCgotLSAKT2N0IDMwOiBodHRwczovL25ldGRl
+dmNvbmYuaW5mby8weDE3L25ld3MvdGhlLW1hZXN0cm8tYW5kLXRoZS1tdXNpYy1ib2YuaHRtbApE
+YXZlIFTDpGh0IENTTywgTGlicmVRb3MKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5u
+ZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
