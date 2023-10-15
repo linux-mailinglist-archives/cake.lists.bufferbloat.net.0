@@ -2,64 +2,63 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B7C837C99D8
-	for <lists+cake@lfdr.de>; Sun, 15 Oct 2023 17:54:06 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 48AF67C9A0A
+	for <lists+cake@lfdr.de>; Sun, 15 Oct 2023 18:25:06 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 0AB383CB43;
-	Sun, 15 Oct 2023 11:54:06 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 5F41C3CB42;
+	Sun, 15 Oct 2023 12:25:05 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1697385246;
-	bh=kFncrW7WAkKrkPNp72L0+lofsA+t9gLO4JC2kM2ZFbI=;
+	d=lists.bufferbloat.net; s=201610; t=1697387105;
+	bh=k1clGPjpnNsq/1XukG677t/xCDLN2FObthLCwHc0mYU=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=UpRg+SfqDtuw64cQ3r55Q/t79yUbTMki2FThmRKrf1uUfFHmOVbfuyW9zMSYx8cSs
-	 g9RB4JD75QvgUBVh/UqykYzcB39Ub9rAShSWdmoCWmxGDlByON2P+5+KVODT8QUvSV
-	 /yOJoeXsTJPdmGplp8o2aMkLaKJza/SF6ecKT5MYbCRFAdrx1gZXa3iu76C+zttj+V
-	 B7mE6q71D7+COx12DL8fQdpHDKd/vZhIkaTzK961OjCvd28WSRnk0YrDuMdBCYE2LO
-	 vfYYveKsGNnKzuLlQVuf1jJ5WaMrzWb/b1ja6FSSeXaouaxHGXN5vgA6rTbh7vCsKM
-	 z3qvtQUFabEkQ==
+	b=MQGlhrgsBprBqObJ1Us3XAUmM98ogWkjjN1T3CJn+1p+CZGnSW+6XfkunHjSBIwHz
+	 J2j5TRapWHa2h2q3uF2/eVJXE9DZ9Y96QiqvNHUNZADI49oXKOH2x+90jFQhsBqNaU
+	 Xpajbr8G8k988VK/HbsuIRELOr/gwCUgXCECNW1WDbefb9JpAHyeMKlaycNPaWcvgK
+	 BjT1IC9aaBLDSTQlsmn/3azD9vILneuIne7pbSr10oSKL4xFEi38YfkJeUl8uj4txL
+	 SflTfomcJIkuCJwq6+RPSyF3Yp7p7nqNncagUoz7Veoulu7+a1K4Q3399IG9S1uyrt
+	 gGDb50xPnOXgg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-pf1-x429.google.com (mail-pf1-x429.google.com
- [IPv6:2607:f8b0:4864:20::429])
+Received: from mail-qv1-xf35.google.com (mail-qv1-xf35.google.com
+ [IPv6:2607:f8b0:4864:20::f35])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 8F3B03CB39
- for <cake@lists.bufferbloat.net>; Sun, 15 Oct 2023 11:54:04 -0400 (EDT)
-Received: by mail-pf1-x429.google.com with SMTP id
- d2e1a72fcca58-6bd32d1a040so762394b3a.3
- for <cake@lists.bufferbloat.net>; Sun, 15 Oct 2023 08:54:04 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 968C73CB39
+ for <cake@lists.bufferbloat.net>; Sun, 15 Oct 2023 12:25:04 -0400 (EDT)
+Received: by mail-qv1-xf35.google.com with SMTP id
+ 6a1803df08f44-66d11fec9a5so21344066d6.1
+ for <cake@lists.bufferbloat.net>; Sun, 15 Oct 2023 09:25:04 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1697385243; x=1697990043; darn=lists.bufferbloat.net;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:from:to:cc:subject:date
- :message-id:reply-to;
- bh=vOe7OCcgxbTYdqcdBj3LMUvohRtharf+QTkT5n3CH/Q=;
- b=E7TPuAnwI6BDAlXr7zuiWVZC6CKiND3SRv9+fdLNAVgiSqFSrg3VjzEAhhtqTCnmKu
- /+PKtdqWSBO301LETyfQVaXAdy67F0SfNr/6ASUWTdP4xKF66yNf0oTXFaE/L389pHz9
- zcKYtLMwqSdD7oZ5gzE2A1BB/lPrSsZBqwG3U+cvEoX+o3Hxz6jxmdeyjc/a4yvf8LqJ
- /7VOl6/i/RlbGZsW32mDx73aik627zIUloR7Rd5SrcOUJopHHL1r3jJ/FLDrfxXz/7WE
- MDADnJI3RljrsrlnhbZGH1gxuRh4083eWsyhGLmXXBxRBhLL+YrkA75fOXGvTOL8iJwQ
- 7c/A==
+ d=gmail.com; s=20230601; t=1697387103; x=1697991903; darn=lists.bufferbloat.net;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=OasvWGpAg7jQa0A/qoxQx0p51w/DBccoevR+jW80Kt0=;
+ b=hoewNHrFmlKp1Nmw9lPXqTmmF5H7KAdJNkOOFdPIlE7epdHjfA8JmICsrFyPItQxh/
+ ceB4gQA3YuEM89o9Otd23mJW1lf9d171wESYg5lmmCRk5SZTLeCCBaZFsd9dB8drwqYv
+ CcA5x4EVPyuvr1ffiPUwOPJynvXrFVexvgb5oQ5mJ0RqjtyM20LV9it6lODoZZwnnlwb
+ 6HRxn5+I3dE/1+uecqqt60v9EnbL0fe9/82sXvRWFHTWymtYrZ5XHAmJh1HUL2KS2oEL
+ 7BZob/WR2DhmXLyt0hChvWxFtg1fHPvaxdlIF21jiLfVhz3lF4p+YX26H7zOpq3LDqEy
+ xOFw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1697385243; x=1697990043;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=vOe7OCcgxbTYdqcdBj3LMUvohRtharf+QTkT5n3CH/Q=;
- b=NTpVVjUqH0yizELu2JBXNSYF6WcxM9L1C3I7JI+YRBYS+d2YMIhyfS5j/4c9X264IM
- Rq3+aH5G2/RAMsj+WqRGevZB8yACJJcphEsIOLzrilYn1bkFPIlr1K4w92+7h15VQs5k
- 4+oYTBhCBoucCZ+Evh9OWoFlKgu9gXYWGoypy6V7NfRoWbqUuoMG4DTKFlZLeg4qNQEg
- lLw9FDAVRlAKlIKMldgtB6ruzScl/DdpgxObUnGA+IgtDzAqEj9WA8sQOkv/a51ynaRw
- AU1xgMJCmoKbxTiSoP2Bbvyne1tLNgBNLoTJ6ek3c1c5e3YJuPAeRIK8xaaMVnDqTrWX
- aQ3w==
-X-Gm-Message-State: AOJu0YwjVUy4t6tjMyxuWEa5C5jaks2GUCozdr67wAtL9JZ2HWHd35ob
- WVSg2tWtZPa/hqDDE0VUgyZ/Vhgh0S7y8eKM6EmxK9MmI3k=
-X-Google-Smtp-Source: AGHT+IGbQmVCFn3CYfmee3aAIOR6HTSqx3gHyu0131yKbjm06L1lm3ALRHUqnyh65Tv/yFgl75pms3Lh8xgAee8wKbE=
-X-Received: by 2002:a05:6a20:3d1b:b0:12e:4d86:c017 with SMTP id
- y27-20020a056a203d1b00b0012e4d86c017mr39019465pzi.10.1697385243198; Sun, 15
- Oct 2023 08:54:03 -0700 (PDT)
+ d=1e100.net; s=20230601; t=1697387103; x=1697991903;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=OasvWGpAg7jQa0A/qoxQx0p51w/DBccoevR+jW80Kt0=;
+ b=sgh+WFLZZFE0h4BtGRSJDYbmwfE3ngnbu1/0T29ky9H4TebxX20kssjHnKZYHJwvge
+ r2m/By2vJgJl67vlPINMo6r4+quOyQxPd5V0oyS73d1yYQjRwI2doNaA+69XYGx9bMTc
+ u84XuvdfifbrQsnkmgy6tFMnMMcb0TZFcePJwbxJxvuhanPFRHZah3Dp4vRoI7gs7YGg
+ WLdGXv/X61Whys8uMyCtPO/ET6Dl8KcdxU5JStfBNc+MVvUC+2Bjekna6wNNuFUZEjXn
+ wxFtzQ294JlM062zhzAvtiyY1VwsgbTit5q8B98mo3ip9CbdHPwFX2GTWm7jh6VlK5QG
+ +P4w==
+X-Gm-Message-State: AOJu0Yx79rJLJ1ccOj8mNYA1hP1N8K4n7rBrSUCz6xf6/sx12A9nFeBq
+ p96MofALwepF5/Is2cna9ZLzdVZsYC/TjxfN4hY=
+X-Google-Smtp-Source: AGHT+IHtJ6koMqjMcuIZqGRpT5YfuTmnOR7Ge3WB6qTNaf/lRzOek4YX/JRwPR1DnDoz2HCjx/ph7RZULsEy2lvCqS4=
+X-Received: by 2002:a0c:f247:0:b0:65a:fe8f:14a5 with SMTP id
+ z7-20020a0cf247000000b0065afe8f14a5mr28164459qvl.52.1697387103264; Sun, 15
+ Oct 2023 09:25:03 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw5nDw_vArfxpevWbuLrj9HiLTczepEBL2vJxj=MGmrf8g@mail.gmail.com>
  <CANypexR5p7Lekzk7+ktfEWjFXJP2zRHC_BgGWRRzKc5QdaxubA@mail.gmail.com>
@@ -74,10 +73,11 @@ References: <CAA93jw5nDw_vArfxpevWbuLrj9HiLTczepEBL2vJxj=MGmrf8g@mail.gmail.com>
  <CANypexR9-Cpxup83w9tgcer7Dv48Hsun6+JR=qLPAdhhnRP58w@mail.gmail.com>
  <CANypexS=7eP0eU4xTO62swRp2o+fM0rg4rG0OSMqq6ybKx2omA@mail.gmail.com>
  <CANypexRZaxEDATZbK78NdzWrBSs6nnH_kyP_HA4HT2Ka7N8f5Q@mail.gmail.com>
-In-Reply-To: <CANypexRZaxEDATZbK78NdzWrBSs6nnH_kyP_HA4HT2Ka7N8f5Q@mail.gmail.com>
-Date: Sun, 15 Oct 2023 08:53:49 -0700
-Message-ID: <CAA93jw4qbb4gxn0F_EdkcMJvhx0w3ReY1PYcUOwdjJnuey4PBw@mail.gmail.com>
-To: dave seddon <dave.seddon.ca@gmail.com>
+ <EADF76C6-5C1A-47DB-BDD1-10BC0D7C4522@gmx.de>
+In-Reply-To: <EADF76C6-5C1A-47DB-BDD1-10BC0D7C4522@gmx.de>
+Date: Sun, 15 Oct 2023 09:24:51 -0700
+Message-ID: <CANypexT3z0=Avm1pb5wmajZ83HfCswappF2wvOjCiWiW00FJBQ@mail.gmail.com>
+To: Sebastian Moeller <moeller0@gmx.de>
 Subject: Re: [Cake] some comprehensive arm64 w/cake results
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -90,138 +90,463 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Dave Taht via Cake <cake@lists.bufferbloat.net>
-Reply-To: Dave Taht <dave.taht@gmail.com>
-Cc: Cake List <cake@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: dave seddon via Cake <cake@lists.bufferbloat.net>
+Reply-To: dave seddon <dave.seddon.ca@gmail.com>
+Cc: dave seddon via Cake <cake@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============3271761418627532817=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-cmVhbGx5IGxvdmVseSwgdGhhbmsgeW91LiBJIGhvcGUgd2UgY2FuIGdldCBmbGVudCBmaXhlZC4g
-VGhhdCByaXNjCnJlc3VsdCB3YXMgYXdmdWwuIERvZXMgaXQgaGF2ZSBCUUw/IEFyZSB0aGVyZSBz
-cGVjcyBvbiB0aGUgZXRoZXJuZXQKaW50ZXJmYWNlPwoKVGhpcyByaXNjLXYgYmVhZ2xlYm9uZSBq
-dXN0IGNhbWUgb3V0IHRvZGF5OgpodHRwczovL3d3dy5iZWFnbGVib2FyZC5vcmcvYm9hcmRzL2Jl
-YWdsZXYtYWhlYWQKCk9uIFN1biwgT2N0IDE1LCAyMDIzIGF0IDg6MTHigK9BTSBkYXZlIHNlZGRv
-biA8ZGF2ZS5zZWRkb24uY2FAZ21haWwuY29tPiB3cm90ZToKPgo+IEcnZGF5LAo+Cj4gSSd2ZSBw
-dXQgbW9yZSB3b3JrIGludG8gYSB0ZXN0IGZyYW1ld29yayBhcm91bmQgdGhlIHFkaXNjIHRlc3Rz
-LCBidXQgdW5mb3J0dW5hdGVseSBmbGVudCBkb2Vzbid0IHdvcmsgZWFzaWx5IHdpdGggVWJ1bnR1
-IExUUyAoIGh0dHBzOi8vZ2l0aHViLmNvbS90b2hvam8vZmxlbnQvaXNzdWVzLzIzMiwgd2hpY2gg
-SSB0aGluayBpcyBhbiBpc3N1ZSB3aXRoIGZsZW50IHBhcnNpbmcgdGhlIGZwaW5nIG91dHB1dCAp
-Lgo+Cj4gUmVzdWx0cyBhbmQgZ3JhcGhzIGluIHRoaXMgc2hlZXQ6Cj4gaHR0cHM6Ly9kb2NzLmdv
-b2dsZS5jb20vc3ByZWFkc2hlZXRzL2QvMVQ1OVF3RWROd0pGbTRUZ0RGQV9OWTk4Z2ljT204QUJY
-S3ZEc1NJTXo5YWcvZWRpdCNnaWQ9MTIwMzY0MTEyNQo+Cj4gUmF3IHJlc3VsdHMgb2YgeDIgdGVz
-dCBydW5zIGFyZSBoZXJlOgo+IGh0dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21pemVkY29kZXIvcWRp
-c2NfcmVzdWx0cy9ibG9iL21haW4vcWRpc2MvcmVwb3J0LmNzdgo+Cj4gRWFjaCBydW46Cj4gaHR0
-cHM6Ly9naXRodWIuY29tL3JhbmRvbWl6ZWRjb2Rlci9xZGlzY19yZXN1bHRzL2Jsb2IvbWFpbi9x
-ZGlzYy8yMDIzLTEwLTEzVDE4JTNBNDUlM0E0NS9yZXBvcnQuY3N2Cj4gaHR0cHM6Ly9naXRodWIu
-Y29tL3JhbmRvbWl6ZWRjb2Rlci9xZGlzY19yZXN1bHRzL2Jsb2IvbWFpbi9xZGlzYy8yMDIzLTEw
-LTE0VDE0JTNBMjIlM0E1My9yZXBvcnQuY3N2Cj4KPiBGdWxsIGlwZXJmIG91dHB1dHMgYXJlIGF2
-YWlsYWJsZSB0b28sIGZvciBleGFtcGxlOiBodHRwczovL2dpdGh1Yi5jb20vcmFuZG9taXplZGNv
-ZGVyL3FkaXNjX3Jlc3VsdHMvYmxvYi9tYWluL3FkaXNjLzIwMjMtMTAtMTNUMTglM0E0NSUzQTQ1
-L25hbm9waS1yMnMvZnFfY29kZWwvaXBlcmYvdGVzdC8xNl9pcGVyZi9zdGRvdXQKPgo+IExvZ3Mg
-Zm9yIGVhY2ggcnVuIGFyZSBhbHNvIGF2YWlsYWJsZSwgZm9yIGV4YW1wbGU6IGh0dHBzOi8vZ2l0
-aHViLmNvbS9yYW5kb21pemVkY29kZXIvcWRpc2NfcmVzdWx0cy9ibG9iL21haW4vcWRpc2MvMjAy
-My0xMC0xM1QxOCUzQTQ1JTNBNDUvbG9nLmpzb24KPgo+IFRoZSBjb2RlIHJlcG8gdXBkYXRlZCBo
-ZXJlOiBodHRwczovL2dpdGh1Yi5jb20vcmFuZG9taXplZGNvZGVyL2Nha2UgLCB3aXRoIHRoZWh0
-dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21pemVkY29kZXIvY2FrZS9ibG9iL21haW4vUkVBRE1FLm1k
-IHdoaWNoIGV4cGxhaW5zIGhvdyB0aGUgdGVzdCB3b3JrLgo+IFVwZGF0ZWQgZ29vZ2xlIGRvYyBp
-cyBzdGFydGVkIGhlcmU6IGh0dHBzOi8vZG9jcy5nb29nbGUuY29tL2RvY3VtZW50L2QvMWZZS2oz
-QlM4OWFCOWRyZ19Ec1NxMjg5eFNkVlFobjF6VUpZQ2owV3VDczAvZWRpdD91c3A9c2hhcmluZwo+
-Cj4gQmFzZWQgb24gdGhlIHF1ZXN0aW9ucyBvbiB0aGlzIGxpc3QgZWFybGllciwgdGhlcmUgaXMg
-YSBmb2xkZXIgd2l0aCBkZXZpY2UgaW5mb3JtYXRpb24gZm9yIGVhY2ggb2YgdGhlIGRldmljZXMK
-PiBodHRwczovL2dpdGh1Yi5jb20vcmFuZG9taXplZGNvZGVyL2Nha2UvdHJlZS9tYWluL2Rldmlj
-ZV9pbmZvCj4KPiBGb3IgZXhhbXBsZSwgdGhlIFBpNCBhbmQgdGhlIExpY2hlZSBQaSAocmlzYy12
-KSBoYXJkd2FyZSBsYXlvdXQgaXMgaGVyZToKPiAtIGh0dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21p
-emVkY29kZXIvY2FrZS9ibG9iL21haW4vZGV2aWNlX2luZm8vcGk0L2h3bG9jLWxzLXBpNC5wbmcK
-PiAtIGh0dHBzOi8vZ2l0aHViLmNvbS9yYW5kb21pemVkY29kZXIvY2FrZS9ibG9iL21haW4vZGV2
-aWNlX2luZm8vbHBpNGEvaHdsb2MtbHMtbHBpNGEucG5nCj4KPiBUaGUgc3dpdGNoIGhhcyBhbHNv
-IGJlZW4gdXBncmFkZWQgdG8gYSBDaXNjbyAzNzUweCwgd2hpY2ggSSB0aGluayBiYXNlZCBvbiB0
-aGUgInNob3cgaW50ZXJmYWNlIiBvdXRwdXQgaGFzIGEgbWF4IHF1ZXVlIHNpemUgb2YgNDAgZnJh
-bWVzLiAgVGhlIHRlc3QgcHJvY2VzcyBjbGVhcnMgdGhlIGNvdW50ZXJzIGJlZm9yZSBlYWNoIHRl
-c3QgYW5kIGdhdGhlcnMgdGhlICJzaG93IGludGVyZmFjZSIgb3V0cHV0IGF0IHRoZSBlbmQuCj4K
-PiBUaGUgTGljaGVlIFBpIDRBIGRvZXNuJ3QgbG9vayBnb29kICggaHR0cHM6Ly93aWtpLnNpcGVl
-ZC5jb20vaGFyZHdhcmUvZW4vbGljaGVlL3RoMTUyMC9scDRhLmh0bWwgKQo+Cj4KPiBJIHJlYWxs
-eSB3aXNoIHRoZSBmbGVudCB3YXMgd29ya2luZywgc28gSSdsbCBwcm9iYWJseSBzZWUgaWYgSSBj
-YW4gd29yayBvdXQgdGhlIHBhcnNpbmcuCj4KPiBUaGFua3MsCj4gRGF2ZSBTZWRkb24KPgo+IE9u
-IEZyaSwgT2N0IDEzLCAyMDIzIGF0IDEwOjI14oCvQU0gZGF2ZSBzZWRkb24gPGRhdmUuc2VkZG9u
-LmNhQGdtYWlsLmNvbT4gd3JvdGU6Cj4+Cj4+IE15IGJhZC4gIFRoZXJlJ3MgYSBidWcgZm9yIHRo
-aXMuLi4uIExvb2tzIGxpa2UgSSBoYXZlIHRvIGRvd25ncmFkZSBmcGluZwo+Pgo+PiBodHRwczov
-L2dpdGh1Yi5jb20vdG9ob2pvL2ZsZW50L2lzc3Vlcy8yMzIKPj4gaHR0cHM6Ly9naXRodWIuY29t
-L3NjaHdlaWtlcnQvZnBpbmcvaXNzdWVzLzIwMwo+Pgo+PiBPbiBGcmksIE9jdCAxMywgMjAyMyBh
-dCA4OjU54oCvQU0gZGF2ZSBzZWRkb24gPGRhdmUuc2VkZG9uLmNhQGdtYWlsLmNvbT4gd3JvdGU6
-Cj4+Pgo+Pj4gRydkYXksCj4+Pgo+Pj4gSSd2ZSBiZWVuIHdvcmtpbmcgYXdheSBvbiBhdXRvbWF0
-aW9uIG9mIHRoZSB0ZXN0cy4gIFByZXR0eSBjbG9zZSB0byBoYXZpbmcgbXVjaCBuaWNlciB0ZXN0
-cyB3aXRoIGEgbG90IG1vcmUgZGV0YWlscy4gIEkndmUgYWxzbyBnb3QgdGhlIHJpc2MtdiBkZXZp
-Y2Ugd29ya2luZy4KPj4+Cj4+PiBIb3dldmVyLCBJJ3ZlIHJ1biBpbnRvIHNvbWV0aGluZyBmdW5u
-eSB3aXRoIGZsZW50LiAgRmxlbnQgaXMgbm90IGhhcHB5IHdpdGggZnBpbmcgb3IgcGluZy4KPj4+
-Cj4+PiBkYXNAM3JkOn4vRG93bmxvYWRzL2Nha2UvY21kL3J1bl9xZGlzY3NfdGVzdHMkIC91c3Iv
-YmluL3N1ZG8gL3Vzci9zYmluL2lwIG5ldG5zIGV4ZWMgbmV0d29yazEwMSAvdXNyL2Jpbi9mbGVu
-dCBycnVsIC0tb3V0cHV0ICAvdG1wL3FkaXNjLzIwMjMtMTAtMTNUMTU6NTM6MjEvcGk0L25vcXVl
-dWUvZmxlbnQvdGVzdC8xNV9mbGVudC9mbGVudF9waTRfbm9xdWV1ZS5wbmcgLS1kYXRhLWRpciAv
-dG1wL3FkaXNjLzIwMjMtMTAtMTNUMTU6NTM6MjEvcGk0L25vcXVldWUvZmxlbnQvdGVzdC8xNV9m
-bGVudC8gLS1mb3JtYXQgc3VtbWFyeSAtLXBsb3QgYWxsX3NjYWxlZCAtLXRpdGxlLWV4dHJhIDIw
-MjMtMTAtMTNUMTU6NTM6MjFfcGk0X25vcXVldWUgLS1ub3RlIDIwMjMtMTAtMTNUMTU6NTM6MjFf
-cGk0X25vcXVldWUgLS1leHRlbmRlZC1tZXRhZGF0YSAtLWhvc3QgMTcyLjE3LjUxLjEwIC0tbGVu
-Z3RoIDYwIC0taXB2NCAtLXNvY2tldC1zdGF0cwo+Pj4gU3RhcnRpbmcgRmxlbnQgMi4wLjEgdXNp
-bmcgUHl0aG9uIDMuMTAuMTIuCj4+PiBTdGFydGluZyBycnVsIHRlc3QuIEV4cGVjdGVkIHJ1biB0
-aW1lOiA3MCBzZWNvbmRzLgo+Pj4gV0FSTklORzogRm91bmQgZnBpbmcsIGJ1dCBjb3VsZG4ndCBw
-YXJzZSBpdHMgb3V0cHV0LiBOb3QgdXNpbmcuICAgICAgICAgICAgICA8LS0tLS0tLS0tLS0tLS0t
-LSA/Pz8KPj4+IEVSUk9SOiBSdW5uZXIgUGluZyAobXMpIElDTVAgZmFpbGVkIGNoZWNrOiBDYW5u
-b3QgcGFyc2Ugb3V0cHV0IG9mIHRoZSBzeXN0ZW0gcGluZyBiaW5hcnkgKC91c3IvYmluL3Bpbmcp
-LiBQbGVhc2UgaW5zdGFsbCBmcGluZyB2My41Ky4gICAgPC0tLS0tID8/Cj4+Pgo+Pj4gZGFzQDNy
-ZDp+L0Rvd25sb2Fkcy9jYWtlL2NtZC9ydW5fcWRpc2NzX3Rlc3RzJCBkcGtnIC0tbGlzdCB8IGdy
-ZXAgcGluZwo+Pj4gaWkgIGZwaW5nICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgNS4x
-LTEgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGFtZDY0ICAgICAgICBzZW5kcyBJ
-Q01QIEVDSE9fUkVRVUVTVCBwYWNrZXRzIHRvIG5ldHdvcmsgaG9zdHMKPj4+IGlpICBpcHV0aWxz
-LXBpbmcgICAgICAgICAgICAgICAgICAgICAgICAgIDM6MjAyMTEyMTUtMSAgICAgICAgICAgICAg
-ICAgICAgICAgICAgICBhbWQ2NCAgICAgICAgVG9vbHMgdG8gdGVzdCB0aGUgcmVhY2hhYmlsaXR5
-IG9mIG5ldHdvcmsgaG9zdHMKPj4+IGlpICBrcGFydHggICAgICAgICAgICAgICAgICAgICAgICAg
-ICAgICAgIDAuOC44LTF1YnVudHUxLjIyLjA0LjEgICAgICAgICAgICAgICAgICBhbWQ2NCAgICAg
-ICAgY3JlYXRlIGRldmljZSBtYXBwaW5ncyBmb3IgcGFydGl0aW9ucwo+Pj4gaWkgIGxpYmhhcmZi
-dXp6MGI6YW1kNjQgICAgICAgICAgICAgICAgICAgMi43LjQtMXVidW50dTMuMSAgICAgICAgICAg
-ICAgICAgICAgICAgIGFtZDY0ICAgICAgICBPcGVuVHlwZSB0ZXh0IHNoYXBpbmcgZW5naW5lIChz
-aGFyZWQgbGlicmFyeSkKPj4+IGRhc0AzcmQ6fi9Eb3dubG9hZHMvY2FrZS9jbWQvcnVuX3FkaXNj
-c190ZXN0cyQgZnBpbmcgLS12ZXJzaW9uCj4+PiBmcGluZzogVmVyc2lvbiA1LjEKPj4+IGRhc0Az
-cmQ6fi9Eb3dubG9hZHMvY2FrZS9jbWQvcnVuX3FkaXNjc190ZXN0cyQgcGluZyAtVgo+Pj4gcGlu
-ZyBmcm9tIGlwdXRpbHMgMjAyMTEyMTUKPj4+Cj4+PiBkYXNAM3JkOn4vRG93bmxvYWRzL2Nha2Uv
-Y21kL3J1bl9xZGlzY3NfdGVzdHMkIGNhdCAvZXRjL2xzYi1yZWxlYXNlCj4+PiBESVNUUklCX0lE
-PVVidW50dQo+Pj4gRElTVFJJQl9SRUxFQVNFPTIyLjA0Cj4+PiBESVNUUklCX0NPREVOQU1FPWph
-bW15Cj4+PiBESVNUUklCX0RFU0NSSVBUSU9OPSJVYnVudHUgMjIuMDQuMyBMVFMiCj4+Pgo+Pj4g
-SSBkaWQgaW5zdGFsbCB2aWEgImFwdCBpbnN0YWxsIGZwaW5nIgo+Pj4KPj4+IEFueSB0aG91Z2h0
-cyBwbGVhc2U/Cj4+Pgo+Pj4gS2luZCByZWdhcmRzLAo+Pj4gRGF2ZQo+Pj4KPj4+IE9uIFRodSwg
-U2VwIDI4LCAyMDIzIGF0IDY6MjfigK9BTSBTZWJhc3RpYW4gTW9lbGxlciB2aWEgQ2FrZSA8Y2Fr
-ZUBsaXN0cy5idWZmZXJibG9hdC5uZXQ+IHdyb3RlOgo+Pj4+Cj4+Pj4KPj4+Pgo+Pj4+ID4gT24g
-U2VwIDI4LCAyMDIzLCBhdCAxNToxOSwgRGF2aWQgTGFuZyA8ZGF2aWRAbGFuZy5obT4gd3JvdGU6
-Cj4+Pj4gPgo+Pj4+ID4gT24gVGh1LCAyOCBTZXAgMjAyMywgU2ViYXN0aWFuIE1vZWxsZXIgdmlh
-IENha2Ugd3JvdGU6Cj4+Pj4gPgo+Pj4+ID4+IFAuUy46IEkgYW0gdGVtcHRlZCwgYnV0IHdpbGwg
-bGlrZWx5IHdhaXQgdW50aWwgdGhleSBhcmUgYXZhaWxhYmxlIGluIHF1YW50aXR5IGFuZCBob3Bl
-IHRoYXQgdGhlIHN0cmVldCBwcmljZSBjb21lcyBkb3duIGEgYml0IGJlZm9yZSBnZXR0aW5nIG9u
-ZSA7KQo+Pj4+ID4KPj4+PiA+IFRoZXkgYXJlbid0IGF2YWlsYWJsZSBhdCBhbGwgeWV0LCBhbmQg
-aXQncyBub3QgY2xlYXIgd2hlbiB0aGV5IHdpbGwgYmUgYXZhaWxhYmxlLgo+Pj4+Cj4+Pj4gICAg
-ICAgICBUaGUgYW5ub3VuY2VtZW50IHdhcyBlbmQgb2YgT2N0b2JlciwgYnV0IEkgdGhpbmsgSSBj
-b3VsZCBwcmUtb3JkZXIgcmlnaHQgbm93IGlmIEkgd2FzIGZlZWxpbmcgYW4gdXJnZS4gWW91IGFy
-ZSByaWdodCB0aG91Z2gsIGFubm91bmNlZCAhPSBhdmFpbGFibGUgb3IgZGVsaXZlcmVkLgo+Pj4+
-Cj4+Pj4gUmVnYXJkcwo+Pj4+ICAgICAgICAgU2ViYXN0aWFuCj4+Pj4KPj4+PiBQLlMuOiBJIGhh
-dmUgYSBwaTQwMCBpbiB1c2UgYXMgImRlc2t0b3AiIGZvciBteSBvbGRlc3Qga2lkLCB0aGlzIGlz
-IGNsb3NlIHRvIGJlIGFjdHVhbGx5IGdlbmVyYWxseSB1c2FibGUsIEkgd291bGQgZ3Vlc3MgdGhh
-dCBjaGFuZ2luZyBhIHBvdGVudGlhbCBwNTAwIGZyb20gdGhlIHBpNDAwJ3MgNEdCIHRvIDggR0Ig
-dG9nZXRoZXIgd2l0aCB0aGUgb3RoZXIgaW1wcml2ZW1lbnRzIHRoZSA1IGJyaW5ncyBtaWdodCBw
-dXNoIGl0IG92ZXIgdGhlIHRocmVzaG9sZCBpbnRvIHRoZSB0cnVseSB1c2VmdWwgY2F0ZWdvcnku
-IFdoaWNoIHByb2JhYmx5IG1lYW5zIHRoYXQgZWl0aGVyIGEgcG90ZW50aWFsIHBpNTAwIHdpbGwg
-Y29tZSBsYXRlIGFuZCBwcm9iYWJseSB3aXRoIG9ubHkgNCBHQiwgYnV0IGxldCdzIHNlZSBob3cg
-dGhpcyB3b3JrcyBvdXQgbm93IHRoYXQgdGhlIHN1cHBseSBzaXR1YXRpb24gaXMgbGVzcyBwcm9i
-bGVtYXRpYy4KPj4+PiBBbmQgSSB1bmRlcnN0YW5kIHRoYXQgdGhlcmUgYXJlIG90aGVyIGNhcGFi
-bGUgQVJNIGJhc2VkIFNvQ3MgZm9yIGhvbWVyb3V0ZXIvZGVza3RvcCBkdXR5LCBJIGp1c3QgaGFw
-cGVuIG90IGhhdmUgYSBzb2Z0IHNwb3QgZm9yIHRoZSByYXNwYmVycnkgcHJvamVjdCA7KQo+Pj4+
-Cj4+Pj4gPgo+Pj4+ID4gRGF2aWQgTGFuZwo+Pj4+Cj4+Pj4gX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX18KPj4+PiBDYWtlIG1haWxpbmcgbGlzdAo+Pj4+IENh
-a2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4+Pj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5u
-ZXQvbGlzdGluZm8vY2FrZQo+Pj4KPj4+Cj4+Pgo+Pj4gLS0KPj4+IFJlZ2FyZHMsCj4+PiBEYXZl
-IFNlZGRvbgo+Pj4gKzEgNDE1IDg1NyA1MTAyCj4+Cj4+Cj4+Cj4+IC0tCj4+IFJlZ2FyZHMsCj4+
-IERhdmUgU2VkZG9uCj4+ICsxIDQxNSA4NTcgNTEwMgo+Cj4KPgo+IC0tCj4gUmVnYXJkcywKPiBE
-YXZlIFNlZGRvbgo+ICsxIDQxNSA4NTcgNTEwMgoKCgotLSAKT2N0IDMwOiBodHRwczovL25ldGRl
-dmNvbmYuaW5mby8weDE3L25ld3MvdGhlLW1hZXN0cm8tYW5kLXRoZS1tdXNpYy1ib2YuaHRtbApE
-YXZlIFTDpGh0IENTTywgTGlicmVRb3MKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5u
-ZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+--===============3271761418627532817==
+Content-Type: multipart/alternative; boundary="00000000000056286b0607c3bbdc"
+
+--00000000000056286b0607c3bbdc
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Oh thanks Sebastian.  I have irtt installed, but it looks like I need to
+start the server.   That's easy.  Doing it now.
+
+( Incidentally, I did write a golang based icmp pinger.  It can ping at
+very high rates: https://github.com/edgio/icmpengine.  Really should write
+one with rust using io_uring... )
+
+
+
+On Sun, Oct 15, 2023 at 8:53=E2=80=AFAM Sebastian Moeller <moeller0@gmx.de>=
+ wrote:
+
+> If I recall correctly, flent will use irtt for its delay probes if
+> available on both ends. Sure fixing fping seems like a good thing longer
+> term, but to get data in quickly, maybe try irtt instead?
+>
+>
+> On 15 October 2023 17:11:23 CEST, dave seddon via Cake <
+> cake@lists.bufferbloat.net> wrote:
+>
+>> G'day,
+>>
+>> I've put more work into a test framework around the qdisc tests, but
+>> unfortunately flent doesn't work easily with Ubuntu LTS (
+>> https://github.com/tohojo/flent/issues/232, which I think is an issue
+>> with flent parsing the fping output ).
+>>
+>> Results and graphs in this sheet:
+>>
+>> https://docs.google.com/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8ABX=
+KvDsSIMz9ag/edit#gid=3D1203641125
+>>
+>> Raw results of x2 test runs are here:
+>>
+>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/report.=
+csv
+>>
+>> Each run:
+>>
+>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10=
+-13T18%3A45%3A45/report.csv
+>>
+>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10=
+-14T14%3A22%3A53/report.csv
+>>
+>> Full iperf outputs are available too, for example: https://github.com/ra=
+ndomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi-=
+r2s/fq_codel/iperf/test/16_iperf/stdout
+>>
+>>
+>> Logs for each run are also available, for example:
+>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10=
+-13T18%3A45%3A45/log.json
+>>
+>> The code repo updated here: https://github.com/randomizedcoder/cake ,
+>> with thehttps://github.com/randomizedcoder/cake/blob/main/README.md
+>> which explains how the test work.
+>> Updated google doc is started here:
+>> https://docs.google.com/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJYC=
+j0WuCs0/edit?usp=3Dsharing
+>>
+>> Based on the questions on this list earlier, there is a folder with
+>> device information for each of the devices
+>> https://github.com/randomizedcoder/cake/tree/main/device_info
+>>
+>> For example, the Pi4 and the Lichee Pi (risc-v) hardware layout is here:
+>> - https://github.com/randomizedcoder/cake/blob/main/device_info/pi4/hwlo=
+c-ls-pi4.png
+>>
+>> -
+>> https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/hwlo=
+c-ls-lpi4a.png
+>>
+>> The switch has also been upgraded to a Cisco 3750x, which I think based
+>> on the "show interface" output has a max queue size of 40 frames.  The t=
+est
+>> process clears the counters before each test and gathers the "show
+>> interface" output at the end.
+>>
+>> The Lichee Pi 4A doesn't look good (
+>> https://wiki.sipeed.com/hardware/en/lichee/th1520/lp4a.html )
+>>
+>> [image: image.png]
+>> I really wish the flent was working, so I'll probably see if I can work
+>> out the parsing.
+>>
+>> Thanks,
+>> Dave Seddon
+>>
+>> On Fri, Oct 13, 2023 at 10:25=E2=80=AFAM dave seddon <dave.seddon.ca@gma=
+il.com>
+>> wrote:
+>>
+>>> My bad.  There's a bug for this.... Looks like I have to downgrade fpin=
+g
+>>>
+>>> https://github.com/tohojo/flent/issues/232
+>>> https://github.com/schweikert/fping/issues/203
+>>>
+>>> On Fri, Oct 13, 2023 at 8:59=E2=80=AFAM dave seddon <dave.seddon.ca@gma=
+il.com>
+>>> wrote:
+>>>
+>>>> G'day,
+>>>>
+>>>> I've been working away on automation of the tests.  Pretty close to
+>>>> having much nicer tests with a lot more details.  I've also got the ri=
+sc-v
+>>>> device working.
+>>>>
+>>>> However, I've run into something funny with flent.  Flent is not happy
+>>>> with fping or ping.
+>>>>
+>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ /usr/bin/sudo
+>>>> /usr/sbin/ip netns exec network101 /usr/bin/flent rrul --output
+>>>>  /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_flent/flent_=
+pi4_noqueue.png
+>>>> --data-dir /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_fl=
+ent/
+>>>> --format summary --plot all_scaled --title-extra
+>>>> 2023-10-13T15:53:21_pi4_noqueue --note 2023-10-13T15:53:21_pi4_noqueue
+>>>> --extended-metadata --host 172.17.51.10 --length 60 --ipv4 --socket-st=
+ats
+>>>> Starting Flent 2.0.1 using Python 3.10.12.
+>>>> Starting rrul test. Expected run time: 70 seconds.
+>>>> WARNING: Found fping, but couldn't parse its output. Not
+>>>> using.              <---------------- ???
+>>>> ERROR: Runner Ping (ms) ICMP failed check: Cannot parse output of the
+>>>> system ping binary (/usr/bin/ping). Please install fping v3.5+.    <--=
+--- ??
+>>>>
+>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ dpkg --list | grep ping
+>>>> ii  fping                                 5.1-1
+>>>>           amd64        sends ICMP ECHO_REQUEST packets to network host=
+s
+>>>> ii  iputils-ping                          3:20211215-1
+>>>>            amd64        Tools to test the reachability of network host=
+s
+>>>> ii  kpartx                                0.8.8-1ubuntu1.22.04.1
+>>>>            amd64        create device mappings for partitions
+>>>> ii  libharfbuzz0b:amd64                   2.7.4-1ubuntu3.1
+>>>>            amd64        OpenType text shaping engine (shared library)
+>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ fping --version
+>>>> fping: Version 5.1
+>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ ping -V
+>>>> ping from iputils 20211215
+>>>>
+>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ cat /etc/lsb-release
+>>>> DISTRIB_ID=3DUbuntu
+>>>> DISTRIB_RELEASE=3D22.04
+>>>> DISTRIB_CODENAME=3Djammy
+>>>> DISTRIB_DESCRIPTION=3D"Ubuntu 22.04.3 LTS"
+>>>>
+>>>> I did install via "apt install fping"
+>>>>
+>>>> Any thoughts please?
+>>>>
+>>>> Kind regards,
+>>>> Dave
+>>>>
+>>>> On Thu, Sep 28, 2023 at 6:27=E2=80=AFAM Sebastian Moeller via Cake <
+>>>> cake@lists.bufferbloat.net> wrote:
+>>>>
+>>>>>
+>>>>>
+>>>>> > On Sep 28, 2023, at 15:19, David Lang <david@lang.hm> wrote:
+>>>>> >
+>>>>> > On Thu, 28 Sep 2023, Sebastian Moeller via Cake wrote:
+>>>>> >
+>>>>> >> P.S.: I am tempted, but will likely wait until they are available
+>>>>> in quantity and hope that the street price comes down a bit before ge=
+tting
+>>>>> one ;)
+>>>>> >
+>>>>> > They aren't available at all yet, and it's not clear when they will
+>>>>> be available.
+>>>>>
+>>>>>         The announcement was end of October, but I think I could
+>>>>> pre-order right now if I was feeling an urge. You are right though,
+>>>>> announced !=3D available or delivered.
+>>>>>
+>>>>> Regards
+>>>>>         Sebastian
+>>>>>
+>>>>> P.S.: I have a pi400 in use as "desktop" for my oldest kid, this is
+>>>>> close to be actually generally usable, I would guess that changing a
+>>>>> potential p500 from the pi400's 4GB to 8 GB together with the other
+>>>>> imprivements the 5 brings might push it over the threshold into the t=
+ruly
+>>>>> useful category. Which probably means that either a potential pi500 w=
+ill
+>>>>> come late and probably with only 4 GB, but let's see how this works o=
+ut now
+>>>>> that the supply situation is less problematic.
+>>>>> And I understand that there are other capable ARM based SoCs for
+>>>>> homerouter/desktop duty, I just happen ot have a soft spot for the
+>>>>> raspberry project ;)
+>>>>>
+>>>>> >
+>>>>> > David Lang
+>>>>>
+>>>>> _______________________________________________
+>>>>> Cake mailing list
+>>>>> Cake@lists.bufferbloat.net
+>>>>> https://lists.bufferbloat.net/listinfo/cake
+>>>>>
+>>>>
+>>>>
+>>>> --
+>>>> Regards,
+>>>> Dave Seddon
+>>>> +1 415 857 5102
+>>>>
+>>>
+>>>
+>>> --
+>>> Regards,
+>>> Dave Seddon
+>>> +1 415 857 5102
+>>>
+>>
+>> --
+> Sent from my Android device with K-9 Mail. Please excuse my brevity.
+>
+
+
+--=20
+Regards,
+Dave Seddon
++1 415 857 5102
+
+--00000000000056286b0607c3bbdc
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Oh thanks Sebastian.=C2=A0 I have irtt installed, but=
+ it looks like I need to start the server.=C2=A0=C2=A0 That&#39;s easy.=C2=
+=A0 Doing it now.<br></div><div><br></div><div>( Incidentally, I did write =
+a golang based icmp pinger.=C2=A0 It can ping at very high rates: <a href=
+=3D"https://github.com/edgio/icmpengine">https://github.com/edgio/icmpengin=
+e</a>.=C2=A0 Really should write one with rust using io_uring... )<br></div=
+><div><br></div><div><br></div></div><br><div class=3D"gmail_quote"><div di=
+r=3D"ltr" class=3D"gmail_attr">On Sun, Oct 15, 2023 at 8:53=E2=80=AFAM Seba=
+stian Moeller &lt;<a href=3D"mailto:moeller0@gmx.de">moeller0@gmx.de</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div><d=
+iv dir=3D"auto">If I recall correctly, flent will use irtt for its delay pr=
+obes if available on both ends. Sure fixing fping seems like a good thing l=
+onger term, but to get data in quickly, maybe try irtt instead?</div><br><b=
+r><div class=3D"gmail_quote"><div dir=3D"auto">On 15 October 2023 17:11:23 =
+CEST, dave seddon via Cake &lt;<a href=3D"mailto:cake@lists.bufferbloat.net=
+" target=3D"_blank">cake@lists.bufferbloat.net</a>&gt; wrote:</div><blockqu=
+ote class=3D"gmail_quote" style=3D"margin:0pt 0pt 0pt 0.8ex;border-left:1px=
+ solid rgb(204,204,204);padding-left:1ex">
+<div dir=3D"ltr"><div>G&#39;day,</div><div><br></div><div>I&#39;ve put more=
+ work into a test framework around the qdisc tests, but unfortunately flent=
+ doesn&#39;t work easily with Ubuntu LTS ( <a href=3D"https://github.com/to=
+hojo/flent/issues/232" target=3D"_blank">https://github.com/tohojo/flent/is=
+sues/232</a>, which I think is an issue with flent parsing the fping output=
+ ).<br></div><div><br></div><div><div><div>Results and graphs in this sheet=
+:<br></div><div><a href=3D"https://docs.google.com/spreadsheets/d/1T59QwEdN=
+wJFm4TgDFA_NY98gicOm8ABXKvDsSIMz9ag/edit#gid=3D1203641125" target=3D"_blank=
+">https://docs.google.com/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8ABXK=
+vDsSIMz9ag/edit#gid=3D1203641125</a></div></div></div><div><br></div><div>R=
+aw results of x2 test runs are here:<br></div><div><a href=3D"https://githu=
+b.com/randomizedcoder/qdisc_results/blob/main/qdisc/report.csv" target=3D"_=
+blank">https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/rep=
+ort.csv</a></div><div><br></div><div>Each run:<br></div><div><a href=3D"htt=
+ps://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18=
+%3A45%3A45/report.csv" target=3D"_blank">https://github.com/randomizedcoder=
+/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/report.csv</a></div>=
+<div><a href=3D"https://github.com/randomizedcoder/qdisc_results/blob/main/=
+qdisc/2023-10-14T14%3A22%3A53/report.csv" target=3D"_blank">https://github.=
+com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-14T14%3A22%3A53/r=
+eport.csv</a></div><div><br></div><div>Full iperf outputs are available too=
+, for example: <a href=3D"https://github.com/randomizedcoder/qdisc_results/=
+blob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi-r2s/fq_codel/iperf/test/16_i=
+perf/stdout" target=3D"_blank">https://github.com/randomizedcoder/qdisc_res=
+ults/blob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi-r2s/fq_codel/iperf/test=
+/16_iperf/stdout </a><br></div><div><br></div><div>Logs for each run are al=
+so available, for example: <a href=3D"https://github.com/randomizedcoder/qd=
+isc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/log.json" target=3D"_bl=
+ank">https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-=
+10-13T18%3A45%3A45/log.json</a></div><div><br></div><div>The code repo upda=
+ted here: <a href=3D"https://github.com/randomizedcoder/cake" target=3D"_bl=
+ank">https://github.com/randomizedcoder/cake</a> , with the<a href=3D"https=
+://github.com/randomizedcoder/cake/blob/main/README.md" target=3D"_blank">h=
+ttps://github.com/randomizedcoder/cake/blob/main/README.md</a> which explai=
+ns how the test work.</div><div>Updated google doc is started here: <a href=
+=3D"https://docs.google.com/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJY=
+Cj0WuCs0/edit?usp=3Dsharing" target=3D"_blank">https://docs.google.com/docu=
+ment/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJYCj0WuCs0/edit?usp=3Dsharing</a><=
+/div><div><br></div><div>Based on the questions on this list earlier, there=
+ is a folder with device information for each of the devices<br></div><div>=
+<a href=3D"https://github.com/randomizedcoder/cake/tree/main/device_info" t=
+arget=3D"_blank">https://github.com/randomizedcoder/cake/tree/main/device_i=
+nfo</a></div><div><br></div><div>For example, the Pi4 and the Lichee Pi (ri=
+sc-v) hardware layout is here:</div><div>- <a href=3D"https://github.com/ra=
+ndomizedcoder/cake/blob/main/device_info/pi4/hwloc-ls-pi4.png" target=3D"_b=
+lank">https://github.com/randomizedcoder/cake/blob/main/device_info/pi4/hwl=
+oc-ls-pi4.png <br></a></div><div>- <a href=3D"https://github.com/randomized=
+coder/cake/blob/main/device_info/lpi4a/hwloc-ls-lpi4a.png" target=3D"_blank=
+">https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/hwloc=
+-ls-lpi4a.png</a><br></div><div><br></div><div>The switch has also been upg=
+raded to a Cisco 3750x, which I think based on the &quot;show interface&quo=
+t; output has a max queue size of 40 frames.=C2=A0 The test process clears =
+the counters before each test and gathers the &quot;show interface&quot; ou=
+tput at the end.<br></div><div><br></div><div>The Lichee Pi 4A doesn&#39;t =
+look good ( <a href=3D"https://wiki.sipeed.com/hardware/en/lichee/th1520/lp=
+4a.html" target=3D"_blank">https://wiki.sipeed.com/hardware/en/lichee/th152=
+0/lp4a.html</a> )<br></div><div><br></div><div><img alt=3D"image.png" width=
+=3D"578" height=3D"356"><br></div><div>I really wish the flent was working,=
+ so I&#39;ll probably see if I can work out the parsing.</div><div><br></di=
+v><div>Thanks,</div><div>Dave Seddon<br></div></div><br><div class=3D"gmail=
+_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Oct 13, 2023 at 10:25=
+=E2=80=AFAM dave seddon &lt;<a href=3D"mailto:dave.seddon.ca@gmail.com" tar=
+get=3D"_blank">dave.seddon.ca@gmail.com</a>&gt; wrote:<br></div><blockquote=
+ class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px so=
+lid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div>My bad.=C2=A0 =
+There&#39;s a bug for this.... Looks like I have to downgrade fping<br></di=
+v><div><br></div><div><a href=3D"https://github.com/tohojo/flent/issues/232=
+" target=3D"_blank">https://github.com/tohojo/flent/issues/232</a></div><di=
+v><a href=3D"https://github.com/schweikert/fping/issues/203" target=3D"_bla=
+nk">https://github.com/schweikert/fping/issues/203</a></div></div><br><div =
+class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Oct 13,=
+ 2023 at 8:59=E2=80=AFAM dave seddon &lt;<a href=3D"mailto:dave.seddon.ca@g=
+mail.com" target=3D"_blank">dave.seddon.ca@gmail.com</a>&gt; wrote:<br></di=
+v><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;borde=
+r-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div>G=
+&#39;day,</div><div><br></div><div>I&#39;ve been working away on automation=
+ of the tests.=C2=A0 Pretty close to having much nicer tests with a lot mor=
+e details.=C2=A0 I&#39;ve also got the risc-v device working.<br></div><div=
+><br></div><div>However, I&#39;ve run into something funny with flent.=C2=
+=A0 Flent is not happy with fping or ping.<br></div><div><br></div><div>das=
+@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ /usr/bin/sudo /usr/sbin/ip netn=
+s exec network101 /usr/bin/flent rrul --output =C2=A0/tmp/qdisc/2023-10-13T=
+15:53:21/pi4/noqueue/flent/test/15_flent/flent_pi4_noqueue.png --data-dir /=
+tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_flent/ --format sum=
+mary --plot all_scaled --title-extra 2023-10-13T15:53:21_pi4_noqueue --note=
+ 2023-10-13T15:53:21_pi4_noqueue --extended-metadata --host 172.17.51.10 --=
+length 60 --ipv4 --socket-stats<br>Starting Flent 2.0.1 using Python 3.10.1=
+2.<br>Starting rrul test. Expected run time: 70 seconds.<br>WARNING: Found =
+fping, but couldn&#39;t parse its output. Not using.=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &lt;-------------=
+--- ???<br>ERROR: Runner Ping (ms) ICMP failed check: Cannot parse output o=
+f the system ping binary (/usr/bin/ping). Please install fping v3.5+.=C2=A0=
+=C2=A0=C2=A0 &lt;----- ??</div><div><br></div><div>das@3rd:~/Downloads/cake=
+/cmd/run_qdiscs_tests$ dpkg --list | grep ping<br>ii =C2=A0fping =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 5.1-1 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0sends ICMP ECHO_REQUEST packets to net=
+work hosts<br>ii =C2=A0iputils-ping =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A03:20211215-1 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0Tools to test the reachabilit=
+y of network hosts<br>ii =C2=A0kpartx =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A00.8.8-1ubuntu1.22.04.1 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0create device mappings for pa=
+rtitions<br>ii =C2=A0libharfbuzz0b:amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 2.7.4-1ubuntu3.1 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0amd64 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0OpenType text shaping engine (shared library)<br>das@3rd:~/Dow=
+nloads/cake/cmd/run_qdiscs_tests$ fping --version<br>fping: Version 5.1</di=
+v><div>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ ping -V<br>ping from =
+iputils 20211215</div><div><br></div><div>das@3rd:~/Downloads/cake/cmd/run_=
+qdiscs_tests$ cat /etc/lsb-release <br>DISTRIB_ID=3DUbuntu<br>DISTRIB_RELEA=
+SE=3D22.04<br>DISTRIB_CODENAME=3Djammy<br>DISTRIB_DESCRIPTION=3D&quot;Ubunt=
+u 22.04.3 LTS&quot;</div><div><br></div><div>I did install via &quot;apt in=
+stall fping&quot;<br></div><div><br></div><div>Any thoughts please?</div><d=
+iv><br></div><div>Kind regards,</div><div>Dave<br></div></div><br><div clas=
+s=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Thu, Sep 28, 202=
+3 at 6:27=E2=80=AFAM Sebastian Moeller via Cake &lt;<a href=3D"mailto:cake@=
+lists.bufferbloat.net" target=3D"_blank">cake@lists.bufferbloat.net</a>&gt;=
+ wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px =
+0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><br>
+<br>
+&gt; On Sep 28, 2023, at 15:19, David Lang &lt;<a href=3D"mailto:david@lang=
+.hm" target=3D"_blank">david@lang.hm</a>&gt; wrote:<br>
+&gt; <br>
+&gt; On Thu, 28 Sep 2023, Sebastian Moeller via Cake wrote:<br>
+&gt; <br>
+&gt;&gt; P.S.: I am tempted, but will likely wait until they are available =
+in quantity and hope that the street price comes down a bit before getting =
+one ;)<br>
+&gt; <br>
+&gt; They aren&#39;t available at all yet, and it&#39;s not clear when they=
+ will be available.<br>
+<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 The announcement was end of October, but I thin=
+k I could pre-order right now if I was feeling an urge. You are right thoug=
+h, announced !=3D available or delivered.<br>
+<br>
+Regards<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 Sebastian<br>
+<br>
+P.S.: I have a pi400 in use as &quot;desktop&quot; for my oldest kid, this =
+is close to be actually generally usable, I would guess that changing a pot=
+ential p500 from the pi400&#39;s 4GB to 8 GB together with the other impriv=
+ements the 5 brings might push it over the threshold into the truly useful =
+category. Which probably means that either a potential pi500 will come late=
+ and probably with only 4 GB, but let&#39;s see how this works out now that=
+ the supply situation is less problematic.<br>
+And I understand that there are other capable ARM based SoCs for homerouter=
+/desktop duty, I just happen ot have a soft spot for the raspberry project =
+;)<br>
+<br>
+&gt; <br>
+&gt; David Lang<br>
+<br>
+_______________________________________________<br>
+Cake mailing list<br>
+<a href=3D"mailto:Cake@lists.bufferbloat.net" target=3D"_blank">Cake@lists.=
+bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/cake" rel=3D"noreferrer" =
+target=3D"_blank">https://lists.bufferbloat.net/listinfo/cake</a><br>
+</blockquote></div><br clear=3D"all"><br><span class=3D"gmail_signature_pre=
+fix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"l=
+tr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dave=
+ Seddon<br>+1 415 857 5102<br></div></div></div></div></div></div>
+</blockquote></div><br clear=3D"all"><br><span class=3D"gmail_signature_pre=
+fix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"l=
+tr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dave=
+ Seddon<br>+1 415 857 5102<br></div></div></div></div></div></div>
+</blockquote></div><br clear=3D"all"></blockquote></div><div dir=3D"auto"><=
+div>-- <br>Sent from my Android device with K-9 Mail. Please excuse my brev=
+ity.</div></div></div></blockquote></div><br clear=3D"all"><br><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div=
+>Regards,<br></div>Dave Seddon<br>+1 415 857 5102<br></div></div></div></di=
+v></div></div>
+
+--00000000000056286b0607c3bbdc--
+
+--===============3271761418627532817==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============3271761418627532817==--
