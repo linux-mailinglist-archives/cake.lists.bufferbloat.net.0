@@ -2,62 +2,63 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id D64527D5D46
-	for <lists+cake@lfdr.de>; Tue, 24 Oct 2023 23:35:57 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id F2A1D7D5DE9
+	for <lists+cake@lfdr.de>; Wed, 25 Oct 2023 00:07:00 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 8643C3CB40;
-	Tue, 24 Oct 2023 17:35:55 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 0ED283CB41;
+	Tue, 24 Oct 2023 18:07:00 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1698183355;
-	bh=7qxZCVNE++lZlgcZdMMBXD6T9AmM3/rD/SwcTEw39Lo=;
+	d=lists.bufferbloat.net; s=201610; t=1698185220;
+	bh=1Kkkmw9HtuCHUkd6KLiSCxhHimLnaBtNgnBox30xIbs=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=Urxdx1QRdqkunOzGrgiIKEd+vDefYwzCuFXcmgo5UrYYdwvs28P72QgiBxqbS0qVe
-	 vs7G5KkvWQ4d+u8mPTPBfFnKiNAJ+g1ah3SB2DAUV+Mz0X14d91WWN3sLz/jj3+Trd
-	 PsL6GuHu1+24fGj2ZsBab97rRpnDlJbrws6Qtr+GgfTuAuqnRw4hrbU3tNwZIlnI8h
-	 WF0Jl3cYcbRaC3QowWmECgsxBUL/Y4gnD+ZUA1EgzHSlkPx1AWxDSuQoa95PH0F4sh
-	 //sS4MjpO4wVpNFIWZrXCGYLUPJNTVzyebyTpV+jNT2pvIz6IdKMCOzphelFcLORQo
-	 EE8JeanxG/mMw==
+	b=EcJBFCRxShtWtgiXAM7KCZAAdS7jiss+bcTtqYwF5gLwN1HcB54IWm/W7gIWVVnui
+	 UvDtNarf7SFqInw9DfDcttHg3z6Hc19ldfuhgi/YS1r8Qhm2PF5E1uc5jiqp7qFv03
+	 KU8JbKualFDZaSwnewOGobXXcTnU6I77n94uqMLtVgAoYlkHRtTR8N6zggIBv0lYfJ
+	 wMSfCYBNmQQlOLn2y1MegFz/SQ9nvC+iEtgncBjDOnQz/Yyghox0FZCnJ8PD9Nf46X
+	 3y/mg5m+werbezJ89bqtzASSAbNZi1TpHQMvCe9FfUOHniPvBcH3h5PTZXOvdNHzo+
+	 Jw/8jBZ7t4Stg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ot1-x331.google.com (mail-ot1-x331.google.com
- [IPv6:2607:f8b0:4864:20::331])
+Received: from mail-pg1-x536.google.com (mail-pg1-x536.google.com
+ [IPv6:2607:f8b0:4864:20::536])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 70DD23B29D
- for <cake@lists.bufferbloat.net>; Tue, 24 Oct 2023 17:35:53 -0400 (EDT)
-Received: by mail-ot1-x331.google.com with SMTP id
- 46e09a7af769-6ce2c5b2154so3230526a34.3
- for <cake@lists.bufferbloat.net>; Tue, 24 Oct 2023 14:35:53 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id B94D33B29D
+ for <cake@lists.bufferbloat.net>; Tue, 24 Oct 2023 18:06:58 -0400 (EDT)
+Received: by mail-pg1-x536.google.com with SMTP id
+ 41be03b00d2f7-5a9bf4fbd3fso3671107a12.1
+ for <cake@lists.bufferbloat.net>; Tue, 24 Oct 2023 15:06:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1698183352; x=1698788152; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:in-reply-to:references:mime-version
- :from:to:cc:subject:date:message-id:reply-to;
- bh=PR/ZD6geGyjUbAaNWmODcDtlsK68gFRZqRbOe0XXM4E=;
- b=VFaCQu8+HbC6bnHO1wZPZ3YsDVhNZn6Pbamjz1XSS2blJUB+StYAi++NRjLLsyc6T/
- 7TckRKvZi0gHRThrXIQ+/Zr0gFBsJVPpejPl+iAAN1aZgibzS6rJwtMS9Ssos3Fy0Axf
- U2stn5md/t2jC8PuVpopI9j6TL0D1XZTa04OoOvMg8k/F5eu2jc+3J6QkXpMnWfq7eii
- cbqat/EM3rhfa0iH0cQG8yaw8uN4YcX1CgsJiAIirUHp+QE7UQyFjS0HAnj+Nt3XRlNa
- wnw5LatejNUZO01Bxr1q+7sqOtITTXk2TXLL0XntBZugQn/vmlpUrCkjtL5sjIYi7aaX
- F4BQ==
+ d=gmail.com; s=20230601; t=1698185217; x=1698790017; darn=lists.bufferbloat.net;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=m5ts7fe+9M8+AjwWZ2WIw1+yQt+2yMAgA6uhxts8nJE=;
+ b=hHqcUZWyfNXvSpU0COntemAMftAhqx2yQyh+zLulGOwp3/cdLFOse/RXhVwcFXXDL9
+ 8Y73YMevPTt3dhROFjQ+/K8OaNTLV7EAgFK/eBicIuB81s1/xvi6zDmNbK3S/cqzjOFn
+ iamju7tvr3NDXB6X0VcG/y/j7I0LfeFfiIafkULXdbfA/YvGEVjpT02DmyzwDTXMXuRn
+ SgYhEPKBepJMiyB+2cI2uP2EyKMThjyMnSdGN6p3f/dJBynb2S8dca1XJSaCZGPPWMqL
+ kL4fgHaKBz+x7t36pUPZ0gPrRMbG2fEFKEfvd2NsCiaua7ja4aqeIf0qMX0obb9RLS0W
+ UAbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1698183352; x=1698788152;
- h=to:subject:message-id:date:from:in-reply-to:references:mime-version
- :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
- bh=PR/ZD6geGyjUbAaNWmODcDtlsK68gFRZqRbOe0XXM4E=;
- b=V8lrL4dOhL0ypRWABDIlWQ8jU1NPPaRlzagIX4x4T9jJRFtSBYpEjnFDsHLo07TUby
- kSRTiKfOgVQUH75W3aFNkxrrDPSog/AAc4KRqCV1IOSdMve1XCKNRX2J/3Id1LHYv1Ma
- bqW6ZHTurFcb9fuGyN7zbewIbK3muNPqLMMdU9srSB4UQrUn7tuBb01fONvZkFlXgOMj
- APKOTRrQ5bVEEe1HG2eUL1WmMKqIzkL2bobgoGTzuydwuXZp6b0urHKMCAx7dk2tvVhV
- RwW5d4N2bHyts1UWvszYeP+z5rNY17sYNW8ypMQN9UNjQbE1iNQ8z28n02XDbAJuS6n8
- dgyg==
-X-Gm-Message-State: AOJu0YxAxZz6w97nlDRRPMQcOB6abVPcnuT3O/k9odmLEZIzB1bJUC0X
- G1jqz8KwvaFozjf+M2DF2qbWFJR1b0k0qU8Os5DZf4JBAhs=
-X-Google-Smtp-Source: AGHT+IG3Yw2KPP6MuOySA4fKpHJ/luwVolfuzcDrbg5eTTzyJ/q/0ltFctP0j9qKloRWz/dBBbkADIdS5CfXcyUMsY4=
-X-Received: by 2002:a05:6830:6b45:b0:6cd:e2a6:1ad5 with SMTP id
- dc5-20020a0568306b4500b006cde2a61ad5mr14289828otb.25.1698183351403; Tue, 24
- Oct 2023 14:35:51 -0700 (PDT)
+ d=1e100.net; s=20230601; t=1698185218; x=1698790018;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=m5ts7fe+9M8+AjwWZ2WIw1+yQt+2yMAgA6uhxts8nJE=;
+ b=b95Wga6NsUl2/99Q/V5hSg9xeAnrctuINWeHhfja9RapMwSOs0oJt1cX1UisT6M10S
+ IW0xqUqsp6JrShucSmCTsGZ27arGJsJEXVWyqHoyj3k0D0565Nim/scEYjqPlMSPzAQs
+ cFg9u6uN2E+wctjOYvHmjBHqd/pS8qWpG1b6BoFlN4jrGOPoE4I43m7+j+GbeVovkcJT
+ idz1hFZUCaLxfcCHbWgIX6Ss8zcqSadJIk6cyjDvYOCZ3R7e2Rg/rF4jHvo7OP52MChA
+ v5yjlH89jPkhtl0XBEMijIWn8dlKZxgBPfUj3YYaqWtmUsk+2bbtslWuzs/2ARomT7/G
+ hwgA==
+X-Gm-Message-State: AOJu0YwN6ci/ccUvkfFTOZYLrnvC0tVlOG6KmT+2tT/Q55c4qd7dDhu4
+ XBvUr2N68aqybYCSeNOMDs2wMu6k95aRwjcwiRUXotNnar4=
+X-Google-Smtp-Source: AGHT+IH0hu83PwdTDfIjVhMTLcMJa8mNLiAngTFGJ9Ycz4NKZqD+IAcEofjF47lU01JA2aQNt2vyh9FoPf5kQZTKzSw=
+X-Received: by 2002:a17:90a:41:b0:27d:d9d:c54d with SMTP id
+ 1-20020a17090a004100b0027d0d9dc54dmr12567591pjb.34.1698185216706; Tue, 24 Oct
+ 2023 15:06:56 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAA93jw5nDw_vArfxpevWbuLrj9HiLTczepEBL2vJxj=MGmrf8g@mail.gmail.com>
  <CANypexR5p7Lekzk7+ktfEWjFXJP2zRHC_BgGWRRzKc5QdaxubA@mail.gmail.com>
@@ -74,10 +75,11 @@ References: <CAA93jw5nDw_vArfxpevWbuLrj9HiLTczepEBL2vJxj=MGmrf8g@mail.gmail.com>
  <CANypexRZaxEDATZbK78NdzWrBSs6nnH_kyP_HA4HT2Ka7N8f5Q@mail.gmail.com>
  <CANypexTURfbiNsCBXgCyYwiQcX+z8mAFDpyPXfLqKkJVsro5iQ@mail.gmail.com>
  <CANypexSxiuzLn-mKHtpimL0Q24UMzriFKBPN4m4KyvchggeFxQ@mail.gmail.com>
-In-Reply-To: <CANypexSxiuzLn-mKHtpimL0Q24UMzriFKBPN4m4KyvchggeFxQ@mail.gmail.com>
-Date: Tue, 24 Oct 2023 14:35:36 -0700
-Message-ID: <CANypexT-=WZJdmQDpjOLD1Fi3gVH1jipeh-VWvg1-6MB_URK8g@mail.gmail.com>
-To: Cake List <cake@lists.bufferbloat.net>, Dave Taht <dave.taht@gmail.com>
+ <CANypexT-=WZJdmQDpjOLD1Fi3gVH1jipeh-VWvg1-6MB_URK8g@mail.gmail.com>
+In-Reply-To: <CANypexT-=WZJdmQDpjOLD1Fi3gVH1jipeh-VWvg1-6MB_URK8g@mail.gmail.com>
+Date: Tue, 24 Oct 2023 15:06:41 -0700
+Message-ID: <CAA93jw6BkW0FA_v43wc7+dPGzWaxwH=QeKN8A+FaWq=pdk-fbg@mail.gmail.com>
+To: dave seddon <dave.seddon.ca@gmail.com>
 Subject: Re: [Cake] some comprehensive arm64 w/cake results
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -90,380 +92,411 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: dave seddon via Cake <cake@lists.bufferbloat.net>
-Reply-To: dave seddon <dave.seddon.ca@gmail.com>
-Content-Type: multipart/mixed; boundary="===============4865023212951682011=="
+From: Dave Taht via Cake <cake@lists.bufferbloat.net>
+Reply-To: Dave Taht <dave.taht@gmail.com>
+Cc: Cake List <cake@lists.bufferbloat.net>
+Content-Type: multipart/mixed; boundary="===============8526329289166038615=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============4865023212951682011==
-Content-Type: multipart/related; boundary="0000000000006d401d06087d1f75"
+--===============8526329289166038615==
+Content-Type: multipart/related; boundary="0000000000009afd9206087d8e5b"
 
---0000000000006d401d06087d1f75
-Content-Type: multipart/alternative; boundary="0000000000006d401c06087d1f74"
+--0000000000009afd9206087d8e5b
+Content-Type: multipart/alternative; boundary="0000000000009afd9006087d8e5a"
 
---0000000000006d401c06087d1f74
+--0000000000009afd9006087d8e5a
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-G'day Dave,
+that is a really out of date doc on the bufferbloat site. Last I ran rg for
+the network driver tree it was in the many hundreds depending on how you
+count variants, but hundreds more left undone.
 
-Regarding the devices under test with Byte Queue Limits (BQL).
+There is a guide to creating the six or so lines needed here:
 
-lychee pi ( https://wiki.sipeed.com/hardware/en/lichee/th1520/lp4a.html )
-with driver "st_gmac" does NOT have BQL. ( not a great surprise )
+http://www.taht.net/~d/broadcom_aug9_2018.pdf
 
-Driver is:
-https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/ethtool=
-_driver_end0
+Somewhere around on some preso of mine was the before/after for the
+beaglebone black. It was NICE.
 
-das@lpi4a:~$ /usr/sbin/ethtool -i end0
-driver: st_gmac                                <-----------
-version: Jan_2016
-firmware-version:
-expansion-rom-version:
-bus-info:
-supports-statistics: yes
-supports-test: no
-supports-eeprom-access: no
-supports-register-dump: yes
-supports-priv-flags: no
-
-Jetson-nano has driver r8169 and is also not BQL enabled.
-https://github.com/randomizedcoder/cake/blob/main/device_info/jetson-nano/e=
-thtool_driver_eth0
-
-Based on doc here:
-https://www.bufferbloat.net/projects/codel/wiki/Best_practices_for_benchmar=
-king_Codel_and_FQ_Codel/,
-the current drivers with BQL are:
-
-das@t:~/Downloads/linux$ find drivers/net/ -name '*.c' -print | \
-xargs fgrep -l netdev_completed_queue
-drivers/net/can/spi/mcp251xfd/mcp251xfd-tef.c
-drivers/net/can/usb/etas_es58x/es58x_core.c
-drivers/net/can/dev/length.c
-drivers/net/ipa/ipa_gsi.c
-drivers/net/wan/fsl_ucc_hdlc.c
-drivers/net/ethernet/freescale/ucc_geth.c
-drivers/net/ethernet/marvell/skge.c
-drivers/net/ethernet/marvell/sky2.c
-drivers/net/ethernet/qualcomm/emac/emac-mac.c
-drivers/net/ethernet/socionext/netsec.c
-drivers/net/ethernet/atheros/ag71xx.c
-drivers/net/ethernet/mediatek/mtk_star_emac.c
-drivers/net/ethernet/3com/3c59x.c
-drivers/net/ethernet/broadcom/bcm4908_enet.c
-drivers/net/ethernet/broadcom/bgmac.c
-drivers/net/ethernet/broadcom/b44.c
-drivers/net/ethernet/broadcom/bcm63xx_enet.c
-drivers/net/ethernet/realtek/8139cp.c                    <------- close,
-but NOT r8169
-drivers/net/ethernet/lantiq_xrx200.c
-drivers/net/ethernet/via/via-rhine.c
-drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
-drivers/net/ethernet/hisilicon/hip04_eth.c
-drivers/net/ethernet/hisilicon/hisi_femac.c
-drivers/net/ethernet/intel/e1000e/netdev.c
-drivers/net/ethernet/intel/e1000/e1000_main.c
-drivers/net/ethernet/nvidia/forcedeth.c
-
-The st_gmac driver can also be seen here:
-https://github.com/torvalds/linux/blob/4f82870119a46b0d04d91ef4697ac4977a25=
-5a9d/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c#L26
-
-I guess I can take a look at creating an MR or two (2).
-
-Regards,
-Dave Seddon
-
-On Tue, Oct 24, 2023 at 9:27=E2=80=AFAM dave seddon <dave.seddon.ca@gmail.c=
+On Tue, Oct 24, 2023 at 2:35=E2=80=AFPM dave seddon <dave.seddon.ca@gmail.c=
 om>
 wrote:
 
-> G'day,
+> G'day Dave,
 >
-> Just to make sure the results are repeatable, I ran the flent tests again
-> for 600 seconds.
+> Regarding the devices under test with Byte Queue Limits (BQL).
 >
-> Directory here
+> lychee pi ( https://wiki.sipeed.com/hardware/en/lichee/th1520/lp4a.html )
+> with driver "st_gmac" does NOT have BQL. ( not a great surprise )
 >
-> https://github.com/randomizedcoder/qdisc_results/tree/main/qdisc/2023-10-=
-24T05%3A16%3A21
+> Driver is:
 >
-> Example direct links to the flent files:
+> https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/ethto=
+ol_driver_end0
 >
-> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-=
-24T05%3A16%3A21/pi4/cake20/flent/test/16_flent/rrul-2023-10-24T061153.94493=
-8.2023-10-24T05_16_21_pi4_cake20.flent.gz
+> das@lpi4a:~$ /usr/sbin/ethtool -i end0
+> driver: st_gmac                                <-----------
+> version: Jan_2016
+> firmware-version:
+> expansion-rom-version:
+> bus-info:
+> supports-statistics: yes
+> supports-test: no
+> supports-eeprom-access: no
+> supports-register-dump: yes
+> supports-priv-flags: no
 >
-> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-=
-24T05%3A16%3A21/jetson-nano/fq_codel/flent/test/16_flent/rrul-2023-10-24T08=
-1332.189258.2023-10-24T05_16_21_jetson-nano_fq_codel.flent.gz
+> Jetson-nano has driver r8169 and is also not BQL enabled.
 >
-> I'm not experienced at reading these flent reports, but it looks to me
-> like fq_codel has similar latency, but higher Mb/s than cake.
+> https://github.com/randomizedcoder/cake/blob/main/device_info/jetson-nano=
+/ethtool_driver_eth0
 >
-> Jetson nano fq_codel
-> [image: image.png]
+> Based on doc here:
+> https://www.bufferbloat.net/projects/codel/wiki/Best_practices_for_benchm=
+arking_Codel_and_FQ_Codel/,
+> the current drivers with BQL are:
 >
+> das@t:~/Downloads/linux$ find drivers/net/ -name '*.c' -print | \
+> xargs fgrep -l netdev_completed_queue
+> drivers/net/can/spi/mcp251xfd/mcp251xfd-tef.c
+> drivers/net/can/usb/etas_es58x/es58x_core.c
+> drivers/net/can/dev/length.c
+> drivers/net/ipa/ipa_gsi.c
+> drivers/net/wan/fsl_ucc_hdlc.c
+> drivers/net/ethernet/freescale/ucc_geth.c
+> drivers/net/ethernet/marvell/skge.c
+> drivers/net/ethernet/marvell/sky2.c
+> drivers/net/ethernet/qualcomm/emac/emac-mac.c
+> drivers/net/ethernet/socionext/netsec.c
+> drivers/net/ethernet/atheros/ag71xx.c
+> drivers/net/ethernet/mediatek/mtk_star_emac.c
+> drivers/net/ethernet/3com/3c59x.c
+> drivers/net/ethernet/broadcom/bcm4908_enet.c
+> drivers/net/ethernet/broadcom/bgmac.c
+> drivers/net/ethernet/broadcom/b44.c
+> drivers/net/ethernet/broadcom/bcm63xx_enet.c
+> drivers/net/ethernet/realtek/8139cp.c                    <------- close,
+> but NOT r8169
+> drivers/net/ethernet/lantiq_xrx200.c
+> drivers/net/ethernet/via/via-rhine.c
+> drivers/net/ethernet/hisilicon/hix5hd2_gmac.c
+> drivers/net/ethernet/hisilicon/hip04_eth.c
+> drivers/net/ethernet/hisilicon/hisi_femac.c
+> drivers/net/ethernet/intel/e1000e/netdev.c
+> drivers/net/ethernet/intel/e1000/e1000_main.c
+> drivers/net/ethernet/nvidia/forcedeth.c
 >
-> Jetson nano cake20
-> [image: image.png]
+> The st_gmac driver can also be seen here:
 >
-> The new network card arrived, so I need to work out how to integrate the
-> latency injection. ( I kind of wish I had multiple switches, so I could d=
-o
-> q-in-q, because this could dramatically simply the linux latency injectin=
-g
-> bridge machine's config. )
+> https://github.com/torvalds/linux/blob/4f82870119a46b0d04d91ef4697ac4977a=
+255a9d/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c#L26
 >
-> Kind regards,
+> I guess I can take a look at creating an MR or two (2).
+>
+> Regards,
 > Dave Seddon
 >
->
->
-> On Mon, Oct 23, 2023 at 1:31=E2=80=AFPM dave seddon <dave.seddon.ca@gmail=
+> On Tue, Oct 24, 2023 at 9:27=E2=80=AFAM dave seddon <dave.seddon.ca@gmail=
 .com>
 > wrote:
 >
 >> G'day,
 >>
->> Dave Taht and I have had a couple of phone conversations now, and he's
->> convinced me that rather than inserting the netem delay on each laptop,
->> that latency should be added by a seperate device.  To this end, I've go=
-t
->> another little PC and a NIC coming, so that I can repeat all the tests w=
-ith
->> seperate latency injection.
+>> Just to make sure the results are repeatable, I ran the flent tests agai=
+n
+>> for 600 seconds.
 >>
->> However, I've also completed the flent tests with the laptops adding
->> latency at each end.
->>
->> Full test runs here:
+>> Directory here
 >>
 >> https://github.com/randomizedcoder/qdisc_results/tree/main/qdisc/2023-10=
--23T16%3A49%3A10
+-24T05%3A16%3A21
 >>
->> You can find the actual rrul flent .tar.gz results for each test.
->>
->> e.g
->> Pi4 fq is here:
+>> Example direct links to the flent files:
 >>
 >> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10=
--23T16%3A49%3A10/pi4/fq/flent/test/16_flent/rrul-2023-10-23T170016.068273.2=
-023-10-23T16_49_10_pi4_fq.flent.gz
->>
->> Lychee Pi Risv with cake qdisc:
+-24T05%3A16%3A21/pi4/cake20/flent/test/16_flent/rrul-2023-10-24T061153.9449=
+38.2023-10-24T05_16_21_pi4_cake20.flent.gz
 >>
 >> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10=
--23T16%3A49%3A10/lpi4a/cake20/flent/test/16_flent/rrul-2023-10-23T201354.81=
-8316.2023-10-23T16_49_10_lpi4a_cake20.flent.gz
+-24T05%3A16%3A21/jetson-nano/fq_codel/flent/test/16_flent/rrul-2023-10-24T0=
+81332.189258.2023-10-24T05_16_21_jetson-nano_fq_codel.flent.gz
 >>
->> Just take these with a grain of salt until the new latency injection is
->> in place.
+>> I'm not experienced at reading these flent reports, but it looks to me
+>> like fq_codel has similar latency, but higher Mb/s than cake.
 >>
->> ... I'll see if I can script up the generation of all the pretty graphs
->> soon
+>> Jetson nano fq_codel
+>> [image: image.png]
 >>
->> Thanks,
+>>
+>> Jetson nano cake20
+>> [image: image.png]
+>>
+>> The new network card arrived, so I need to work out how to integrate the
+>> latency injection. ( I kind of wish I had multiple switches, so I could =
+do
+>> q-in-q, because this could dramatically simply the linux latency injecti=
+ng
+>> bridge machine's config. )
+>>
+>> Kind regards,
 >> Dave Seddon
 >>
 >>
->> On Sun, Oct 15, 2023 at 8:11=E2=80=AFAM dave seddon <dave.seddon.ca@gmai=
+>>
+>> On Mon, Oct 23, 2023 at 1:31=E2=80=AFPM dave seddon <dave.seddon.ca@gmai=
 l.com>
 >> wrote:
 >>
 >>> G'day,
 >>>
->>> I've put more work into a test framework around the qdisc tests, but
->>> unfortunately flent doesn't work easily with Ubuntu LTS (
->>> https://github.com/tohojo/flent/issues/232, which I think is an issue
->>> with flent parsing the fping output ).
+>>> Dave Taht and I have had a couple of phone conversations now, and he's
+>>> convinced me that rather than inserting the netem delay on each laptop,
+>>> that latency should be added by a seperate device.  To this end, I've g=
+ot
+>>> another little PC and a NIC coming, so that I can repeat all the tests =
+with
+>>> seperate latency injection.
 >>>
->>> Results and graphs in this sheet:
+>>> However, I've also completed the flent tests with the laptops adding
+>>> latency at each end.
 >>>
->>> https://docs.google.com/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8AB=
-XKvDsSIMz9ag/edit#gid=3D1203641125
+>>> Full test runs here:
 >>>
->>> Raw results of x2 test runs are here:
+>>> https://github.com/randomizedcoder/qdisc_results/tree/main/qdisc/2023-1=
+0-23T16%3A49%3A10
 >>>
->>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/report=
-.csv
+>>> You can find the actual rrul flent .tar.gz results for each test.
 >>>
->>> Each run:
+>>> e.g
+>>> Pi4 fq is here:
 >>>
 >>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-13T18%3A45%3A45/report.csv
+0-23T16%3A49%3A10/pi4/fq/flent/test/16_flent/rrul-2023-10-23T170016.068273.=
+2023-10-23T16_49_10_pi4_fq.flent.gz
+>>>
+>>> Lychee Pi Risv with cake qdisc:
 >>>
 >>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-14T14%3A22%3A53/report.csv
+0-23T16%3A49%3A10/lpi4a/cake20/flent/test/16_flent/rrul-2023-10-23T201354.8=
+18316.2023-10-23T16_49_10_lpi4a_cake20.flent.gz
 >>>
->>> Full iperf outputs are available too, for example: https://github.com/r=
-andomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi=
--r2s/fq_codel/iperf/test/16_iperf/stdout
+>>> Just take these with a grain of salt until the new latency injection is
+>>> in place.
 >>>
->>>
->>> Logs for each run are also available, for example:
->>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-13T18%3A45%3A45/log.json
->>>
->>> The code repo updated here: https://github.com/randomizedcoder/cake ,
->>> with thehttps://github.com/randomizedcoder/cake/blob/main/README.md
->>> which explains how the test work.
->>> Updated google doc is started here:
->>> https://docs.google.com/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJY=
-Cj0WuCs0/edit?usp=3Dsharing
->>>
->>> Based on the questions on this list earlier, there is a folder with
->>> device information for each of the devices
->>> https://github.com/randomizedcoder/cake/tree/main/device_info
->>>
->>> For example, the Pi4 and the Lichee Pi (risc-v) hardware layout is here=
-:
->>> - https://github.com/randomizedcoder/cake/blob/main/device_info/pi4/hwl=
-oc-ls-pi4.png
->>>
->>> -
->>> https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/hwl=
-oc-ls-lpi4a.png
->>>
->>> The switch has also been upgraded to a Cisco 3750x, which I think based
->>> on the "show interface" output has a max queue size of 40 frames.  The =
-test
->>> process clears the counters before each test and gathers the "show
->>> interface" output at the end.
->>>
->>> The Lichee Pi 4A doesn't look good (
->>> https://wiki.sipeed.com/hardware/en/lichee/th1520/lp4a.html )
->>>
->>> [image: image.png]
->>> I really wish the flent was working, so I'll probably see if I can work
->>> out the parsing.
+>>> ... I'll see if I can script up the generation of all the pretty graphs
+>>> soon
 >>>
 >>> Thanks,
 >>> Dave Seddon
 >>>
->>> On Fri, Oct 13, 2023 at 10:25=E2=80=AFAM dave seddon <dave.seddon.ca@gm=
-ail.com>
+>>>
+>>> On Sun, Oct 15, 2023 at 8:11=E2=80=AFAM dave seddon <dave.seddon.ca@gma=
+il.com>
 >>> wrote:
 >>>
->>>> My bad.  There's a bug for this.... Looks like I have to downgrade fpi=
-ng
+>>>> G'day,
 >>>>
->>>> https://github.com/tohojo/flent/issues/232
->>>> https://github.com/schweikert/fping/issues/203
+>>>> I've put more work into a test framework around the qdisc tests, but
+>>>> unfortunately flent doesn't work easily with Ubuntu LTS (
+>>>> https://github.com/tohojo/flent/issues/232, which I think is an issue
+>>>> with flent parsing the fping output ).
 >>>>
->>>> On Fri, Oct 13, 2023 at 8:59=E2=80=AFAM dave seddon <dave.seddon.ca@gm=
-ail.com>
+>>>> Results and graphs in this sheet:
+>>>>
+>>>> https://docs.google.com/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8A=
+BXKvDsSIMz9ag/edit#gid=3D1203641125
+>>>>
+>>>> Raw results of x2 test runs are here:
+>>>>
+>>>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/repor=
+t.csv
+>>>>
+>>>> Each run:
+>>>>
+>>>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-=
+10-13T18%3A45%3A45/report.csv
+>>>>
+>>>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-=
+10-14T14%3A22%3A53/report.csv
+>>>>
+>>>> Full iperf outputs are available too, for example: https://github.com/=
+randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/nanop=
+i-r2s/fq_codel/iperf/test/16_iperf/stdout
+>>>>
+>>>>
+>>>> Logs for each run are also available, for example:
+>>>> https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-=
+10-13T18%3A45%3A45/log.json
+>>>>
+>>>> The code repo updated here: https://github.com/randomizedcoder/cake ,
+>>>> with thehttps://github.com/randomizedcoder/cake/blob/main/README.md
+>>>> which explains how the test work.
+>>>> Updated google doc is started here:
+>>>> https://docs.google.com/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJ=
+YCj0WuCs0/edit?usp=3Dsharing
+>>>>
+>>>> Based on the questions on this list earlier, there is a folder with
+>>>> device information for each of the devices
+>>>> https://github.com/randomizedcoder/cake/tree/main/device_info
+>>>>
+>>>> For example, the Pi4 and the Lichee Pi (risc-v) hardware layout is her=
+e:
+>>>> - https://github.com/randomizedcoder/cake/blob/main/device_info/pi4/hw=
+loc-ls-pi4.png
+>>>>
+>>>> -
+>>>> https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/hw=
+loc-ls-lpi4a.png
+>>>>
+>>>> The switch has also been upgraded to a Cisco 3750x, which I think base=
+d
+>>>> on the "show interface" output has a max queue size of 40 frames.  The=
+ test
+>>>> process clears the counters before each test and gathers the "show
+>>>> interface" output at the end.
+>>>>
+>>>> The Lichee Pi 4A doesn't look good (
+>>>> https://wiki.sipeed.com/hardware/en/lichee/th1520/lp4a.html )
+>>>>
+>>>> [image: image.png]
+>>>> I really wish the flent was working, so I'll probably see if I can wor=
+k
+>>>> out the parsing.
+>>>>
+>>>> Thanks,
+>>>> Dave Seddon
+>>>>
+>>>> On Fri, Oct 13, 2023 at 10:25=E2=80=AFAM dave seddon <dave.seddon.ca@g=
+mail.com>
 >>>> wrote:
 >>>>
->>>>> G'day,
+>>>>> My bad.  There's a bug for this.... Looks like I have to downgrade
+>>>>> fping
 >>>>>
->>>>> I've been working away on automation of the tests.  Pretty close to
->>>>> having much nicer tests with a lot more details.  I've also got the r=
-isc-v
->>>>> device working.
+>>>>> https://github.com/tohojo/flent/issues/232
+>>>>> https://github.com/schweikert/fping/issues/203
 >>>>>
->>>>> However, I've run into something funny with flent.  Flent is not happ=
-y
->>>>> with fping or ping.
+>>>>> On Fri, Oct 13, 2023 at 8:59=E2=80=AFAM dave seddon <dave.seddon.ca@g=
+mail.com>
+>>>>> wrote:
 >>>>>
->>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ /usr/bin/sudo
->>>>> /usr/sbin/ip netns exec network101 /usr/bin/flent rrul --output
->>>>>  /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_flent/flent=
-_pi4_noqueue.png
->>>>> --data-dir /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_f=
-lent/
->>>>> --format summary --plot all_scaled --title-extra
->>>>> 2023-10-13T15:53:21_pi4_noqueue --note 2023-10-13T15:53:21_pi4_noqueu=
+>>>>>> G'day,
+>>>>>>
+>>>>>> I've been working away on automation of the tests.  Pretty close to
+>>>>>> having much nicer tests with a lot more details.  I've also got the =
+risc-v
+>>>>>> device working.
+>>>>>>
+>>>>>> However, I've run into something funny with flent.  Flent is not
+>>>>>> happy with fping or ping.
+>>>>>>
+>>>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ /usr/bin/sudo
+>>>>>> /usr/sbin/ip netns exec network101 /usr/bin/flent rrul --output
+>>>>>>  /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_flent/flen=
+t_pi4_noqueue.png
+>>>>>> --data-dir /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_=
+flent/
+>>>>>> --format summary --plot all_scaled --title-extra
+>>>>>> 2023-10-13T15:53:21_pi4_noqueue --note 2023-10-13T15:53:21_pi4_noque=
+ue
+>>>>>> --extended-metadata --host 172.17.51.10 --length 60 --ipv4 --socket-=
+stats
+>>>>>> Starting Flent 2.0.1 using Python 3.10.12.
+>>>>>> Starting rrul test. Expected run time: 70 seconds.
+>>>>>> WARNING: Found fping, but couldn't parse its output. Not
+>>>>>> using.              <---------------- ???
+>>>>>> ERROR: Runner Ping (ms) ICMP failed check: Cannot parse output of th=
 e
->>>>> --extended-metadata --host 172.17.51.10 --length 60 --ipv4 --socket-s=
-tats
->>>>> Starting Flent 2.0.1 using Python 3.10.12.
->>>>> Starting rrul test. Expected run time: 70 seconds.
->>>>> WARNING: Found fping, but couldn't parse its output. Not
->>>>> using.              <---------------- ???
->>>>> ERROR: Runner Ping (ms) ICMP failed check: Cannot parse output of the
->>>>> system ping binary (/usr/bin/ping). Please install fping v3.5+.    <-=
----- ??
->>>>>
->>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ dpkg --list | grep pin=
-g
->>>>> ii  fping                                 5.1-1
->>>>>             amd64        sends ICMP ECHO_REQUEST packets to network h=
-osts
->>>>> ii  iputils-ping                          3:20211215-1
->>>>>            amd64        Tools to test the reachability of network hos=
-ts
->>>>> ii  kpartx                                0.8.8-1ubuntu1.22.04.1
->>>>>            amd64        create device mappings for partitions
->>>>> ii  libharfbuzz0b:amd64                   2.7.4-1ubuntu3.1
->>>>>            amd64        OpenType text shaping engine (shared library)
->>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ fping --version
->>>>> fping: Version 5.1
->>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ ping -V
->>>>> ping from iputils 20211215
->>>>>
->>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ cat /etc/lsb-release
->>>>> DISTRIB_ID=3DUbuntu
->>>>> DISTRIB_RELEASE=3D22.04
->>>>> DISTRIB_CODENAME=3Djammy
->>>>> DISTRIB_DESCRIPTION=3D"Ubuntu 22.04.3 LTS"
->>>>>
->>>>> I did install via "apt install fping"
->>>>>
->>>>> Any thoughts please?
->>>>>
->>>>> Kind regards,
->>>>> Dave
->>>>>
->>>>> On Thu, Sep 28, 2023 at 6:27=E2=80=AFAM Sebastian Moeller via Cake <
->>>>> cake@lists.bufferbloat.net> wrote:
->>>>>
+>>>>>> system ping binary (/usr/bin/ping). Please install fping v3.5+.    <=
+----- ??
+>>>>>>
+>>>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ dpkg --list | grep
+>>>>>> ping
+>>>>>> ii  fping                                 5.1-1
+>>>>>>             amd64        sends ICMP ECHO_REQUEST packets to network =
+hosts
+>>>>>> ii  iputils-ping                          3:20211215-1
+>>>>>>              amd64        Tools to test the reachability of network =
+hosts
+>>>>>> ii  kpartx                                0.8.8-1ubuntu1.22.04.1
+>>>>>>              amd64        create device mappings for partitions
+>>>>>> ii  libharfbuzz0b:amd64                   2.7.4-1ubuntu3.1
+>>>>>>              amd64        OpenType text shaping engine (shared libra=
+ry)
+>>>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ fping --version
+>>>>>> fping: Version 5.1
+>>>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ ping -V
+>>>>>> ping from iputils 20211215
+>>>>>>
+>>>>>> das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ cat /etc/lsb-release
+>>>>>> DISTRIB_ID=3DUbuntu
+>>>>>> DISTRIB_RELEASE=3D22.04
+>>>>>> DISTRIB_CODENAME=3Djammy
+>>>>>> DISTRIB_DESCRIPTION=3D"Ubuntu 22.04.3 LTS"
+>>>>>>
+>>>>>> I did install via "apt install fping"
+>>>>>>
+>>>>>> Any thoughts please?
+>>>>>>
+>>>>>> Kind regards,
+>>>>>> Dave
+>>>>>>
+>>>>>> On Thu, Sep 28, 2023 at 6:27=E2=80=AFAM Sebastian Moeller via Cake <
+>>>>>> cake@lists.bufferbloat.net> wrote:
+>>>>>>
+>>>>>>>
+>>>>>>>
+>>>>>>> > On Sep 28, 2023, at 15:19, David Lang <david@lang.hm> wrote:
+>>>>>>> >
+>>>>>>> > On Thu, 28 Sep 2023, Sebastian Moeller via Cake wrote:
+>>>>>>> >
+>>>>>>> >> P.S.: I am tempted, but will likely wait until they are availabl=
+e
+>>>>>>> in quantity and hope that the street price comes down a bit before =
+getting
+>>>>>>> one ;)
+>>>>>>> >
+>>>>>>> > They aren't available at all yet, and it's not clear when they
+>>>>>>> will be available.
+>>>>>>>
+>>>>>>>         The announcement was end of October, but I think I could
+>>>>>>> pre-order right now if I was feeling an urge. You are right though,
+>>>>>>> announced !=3D available or delivered.
+>>>>>>>
+>>>>>>> Regards
+>>>>>>>         Sebastian
+>>>>>>>
+>>>>>>> P.S.: I have a pi400 in use as "desktop" for my oldest kid, this is
+>>>>>>> close to be actually generally usable, I would guess that changing =
+a
+>>>>>>> potential p500 from the pi400's 4GB to 8 GB together with the other
+>>>>>>> imprivements the 5 brings might push it over the threshold into the=
+ truly
+>>>>>>> useful category. Which probably means that either a potential pi500=
+ will
+>>>>>>> come late and probably with only 4 GB, but let's see how this works=
+ out now
+>>>>>>> that the supply situation is less problematic.
+>>>>>>> And I understand that there are other capable ARM based SoCs for
+>>>>>>> homerouter/desktop duty, I just happen ot have a soft spot for the
+>>>>>>> raspberry project ;)
+>>>>>>>
+>>>>>>> >
+>>>>>>> > David Lang
+>>>>>>>
+>>>>>>> _______________________________________________
+>>>>>>> Cake mailing list
+>>>>>>> Cake@lists.bufferbloat.net
+>>>>>>> https://lists.bufferbloat.net/listinfo/cake
+>>>>>>>
 >>>>>>
 >>>>>>
->>>>>> > On Sep 28, 2023, at 15:19, David Lang <david@lang.hm> wrote:
->>>>>> >
->>>>>> > On Thu, 28 Sep 2023, Sebastian Moeller via Cake wrote:
->>>>>> >
->>>>>> >> P.S.: I am tempted, but will likely wait until they are available
->>>>>> in quantity and hope that the street price comes down a bit before g=
-etting
->>>>>> one ;)
->>>>>> >
->>>>>> > They aren't available at all yet, and it's not clear when they wil=
-l
->>>>>> be available.
->>>>>>
->>>>>>         The announcement was end of October, but I think I could
->>>>>> pre-order right now if I was feeling an urge. You are right though,
->>>>>> announced !=3D available or delivered.
->>>>>>
->>>>>> Regards
->>>>>>         Sebastian
->>>>>>
->>>>>> P.S.: I have a pi400 in use as "desktop" for my oldest kid, this is
->>>>>> close to be actually generally usable, I would guess that changing a
->>>>>> potential p500 from the pi400's 4GB to 8 GB together with the other
->>>>>> imprivements the 5 brings might push it over the threshold into the =
-truly
->>>>>> useful category. Which probably means that either a potential pi500 =
-will
->>>>>> come late and probably with only 4 GB, but let's see how this works =
-out now
->>>>>> that the supply situation is less problematic.
->>>>>> And I understand that there are other capable ARM based SoCs for
->>>>>> homerouter/desktop duty, I just happen ot have a soft spot for the
->>>>>> raspberry project ;)
->>>>>>
->>>>>> >
->>>>>> > David Lang
->>>>>>
->>>>>> _______________________________________________
->>>>>> Cake mailing list
->>>>>> Cake@lists.bufferbloat.net
->>>>>> https://lists.bufferbloat.net/listinfo/cake
+>>>>>> --
+>>>>>> Regards,
+>>>>>> Dave Seddon
+>>>>>> +1 415 857 5102
 >>>>>>
 >>>>>
 >>>>>
@@ -503,259 +536,273 @@ out now
 
 
 --=20
-Regards,
-Dave Seddon
-+1 415 857 5102
+Oct 30: https://netdevconf.info/0x17/news/the-maestro-and-the-music-bof.htm=
+l
+Dave T=C3=A4ht CSO, LibreQos
 
---0000000000006d401c06087d1f74
+--0000000000009afd9006087d8e5a
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr"><div>G&#39;day Dave,</div><div><br></div><div>Regarding th=
-e devices under test with  Byte Queue Limits (BQL).</div><div><br></div><di=
-v></div><div></div><div>lychee pi ( <a href=3D"https://wiki.sipeed.com/hard=
-ware/en/lichee/th1520/lp4a.html">https://wiki.sipeed.com/hardware/en/lichee=
-/th1520/lp4a.html</a> ) with driver &quot;st_gmac&quot; does NOT have BQL. =
-( not a great surprise )<br></div><div><br></div><div>Driver is:<br></div><=
-div><a href=3D"https://github.com/randomizedcoder/cake/blob/main/device_inf=
-o/lpi4a/ethtool_driver_end0">https://github.com/randomizedcoder/cake/blob/m=
-ain/device_info/lpi4a/ethtool_driver_end0</a> <br></div><div><br></div><div=
->das@lpi4a:~$ /usr/sbin/ethtool -i end0<br>driver: st_gmac=C2=A0=C2=A0=C2=
+<div dir=3D"ltr">that is a really out of date doc on the bufferbloat site. =
+Last I ran rg for the network driver tree it was in the many hundreds depen=
+ding on how you count variants, but hundreds more left undone.<div><br></di=
+v><div>There is a guide to creating the six or so lines needed here:<br><di=
+v><br></div><div><a href=3D"http://www.taht.net/~d/broadcom_aug9_2018.pdf">=
+http://www.taht.net/~d/broadcom_aug9_2018.pdf</a><br></div></div><div><br><=
+/div><div>Somewhere around on some preso of mine was the before/after for t=
+he beaglebone black. It was NICE.</div></div><br><div class=3D"gmail_quote"=
+><div dir=3D"ltr" class=3D"gmail_attr">On Tue, Oct 24, 2023 at 2:35=E2=80=
+=AFPM dave seddon &lt;<a href=3D"mailto:dave.seddon.ca@gmail.com">dave.sedd=
+on.ca@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" s=
+tyle=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);pad=
+ding-left:1ex"><div dir=3D"ltr"><div>G&#39;day Dave,</div><div><br></div><d=
+iv>Regarding the devices under test with  Byte Queue Limits (BQL).</div><di=
+v><br></div><div></div><div></div><div>lychee pi ( <a href=3D"https://wiki.=
+sipeed.com/hardware/en/lichee/th1520/lp4a.html" target=3D"_blank">https://w=
+iki.sipeed.com/hardware/en/lichee/th1520/lp4a.html</a> ) with driver &quot;=
+st_gmac&quot; does NOT have BQL. ( not a great surprise )<br></div><div><br=
+></div><div>Driver is:<br></div><div><a href=3D"https://github.com/randomiz=
+edcoder/cake/blob/main/device_info/lpi4a/ethtool_driver_end0" target=3D"_bl=
+ank">https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/et=
+htool_driver_end0</a> <br></div><div><br></div><div>das@lpi4a:~$ /usr/sbin/=
+ethtool -i end0<br>driver: st_gmac=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
 =A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 &lt;-----------<br>version: Jan_2016<br>firmware-vers=
-ion: <br>expansion-rom-version: <br>bus-info: <br>supports-statistics: yes<=
-br>supports-test: no<br>supports-eeprom-access: no<br>supports-register-dum=
-p: yes<br>supports-priv-flags: no</div><div><br></div><div>Jetson-nano has =
-driver r8169 and is also not BQL enabled.</div><div><a href=3D"https://gith=
-ub.com/randomizedcoder/cake/blob/main/device_info/jetson-nano/ethtool_drive=
-r_eth0">https://github.com/randomizedcoder/cake/blob/main/device_info/jetso=
-n-nano/ethtool_driver_eth0</a></div><div><br></div><div>Based on doc here: =
-<a href=3D"https://www.bufferbloat.net/projects/codel/wiki/Best_practices_f=
-or_benchmarking_Codel_and_FQ_Codel/">https://www.bufferbloat.net/projects/c=
-odel/wiki/Best_practices_for_benchmarking_Codel_and_FQ_Codel/</a>, the curr=
-ent drivers with BQL are:<br></div><div><br></div><div>das@t:~/Downloads/li=
-nux$ find drivers/net/ -name &#39;*.c&#39; -print | \<br>xargs fgrep -l net=
-dev_completed_queue<br>drivers/net/can/spi/mcp251xfd/mcp251xfd-tef.c<br>dri=
-vers/net/can/usb/etas_es58x/es58x_core.c<br>drivers/net/can/dev/length.c<br=
->drivers/net/ipa/ipa_gsi.c<br>drivers/net/wan/fsl_ucc_hdlc.c<br>drivers/net=
-/ethernet/freescale/ucc_geth.c<br>drivers/net/ethernet/marvell/skge.c<br>dr=
-ivers/net/ethernet/marvell/sky2.c<br>drivers/net/ethernet/qualcomm/emac/ema=
-c-mac.c<br>drivers/net/ethernet/socionext/netsec.c<br>drivers/net/ethernet/=
-atheros/ag71xx.c<br>drivers/net/ethernet/mediatek/mtk_star_emac.c<br>driver=
-s/net/ethernet/3com/3c59x.c<br>drivers/net/ethernet/broadcom/bcm4908_enet.c=
-<br>drivers/net/ethernet/broadcom/bgmac.c<br>drivers/net/ethernet/broadcom/=
-b44.c<br>drivers/net/ethernet/broadcom/bcm63xx_enet.c<br>drivers/net/ethern=
-et/realtek/8139cp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &lt;------- cl=
-ose, but NOT r8169<br>drivers/net/ethernet/lantiq_xrx200.c<br>drivers/net/e=
-thernet/via/via-rhine.c<br>drivers/net/ethernet/hisilicon/hix5hd2_gmac.c<br=
->drivers/net/ethernet/hisilicon/hip04_eth.c<br>drivers/net/ethernet/hisilic=
-on/hisi_femac.c<br>drivers/net/ethernet/intel/e1000e/netdev.c<br>drivers/ne=
-t/ethernet/intel/e1000/e1000_main.c<br>drivers/net/ethernet/nvidia/forcedet=
-h.c<br></div><div><br></div><div>The st_gmac driver can also be seen here:<=
-br></div><div><a href=3D"https://github.com/torvalds/linux/blob/4f82870119a=
-46b0d04d91ef4697ac4977a255a9d/drivers/net/ethernet/stmicro/stmmac/stmmac_et=
-htool.c#L26">https://github.com/torvalds/linux/blob/4f82870119a46b0d04d91ef=
-4697ac4977a255a9d/drivers/net/ethernet/stmicro/stmmac/stmmac_ethtool.c#L26<=
-/a></div><div><br></div><div>I guess I can take a look at creating an MR or=
- two (2).</div><div><br></div><div>Regards,</div><div>Dave Seddon<br></div>=
-</div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">=
-On Tue, Oct 24, 2023 at 9:27=E2=80=AFAM dave seddon &lt;<a href=3D"mailto:d=
-ave.seddon.ca@gmail.com">dave.seddon.ca@gmail.com</a>&gt; wrote:<br></div><=
-blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-l=
-eft:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div>G&#3=
-9;day,</div><div><br></div><div>Just to make sure the results are repeatabl=
-e, I ran the flent tests again for 600 seconds.<br></div><div><br></div><di=
-v>Directory here<br></div><div><a href=3D"https://github.com/randomizedcode=
-r/qdisc_results/tree/main/qdisc/2023-10-24T05%3A16%3A21" target=3D"_blank">=
-https://github.com/randomizedcoder/qdisc_results/tree/main/qdisc/2023-10-24=
-T05%3A16%3A21</a></div><div><br></div><div>Example direct links to the flen=
-t files:<br></div><div><a href=3D"https://github.com/randomizedcoder/qdisc_=
-results/blob/main/qdisc/2023-10-24T05%3A16%3A21/pi4/cake20/flent/test/16_fl=
-ent/rrul-2023-10-24T061153.944938.2023-10-24T05_16_21_pi4_cake20.flent.gz" =
-target=3D"_blank">https://github.com/randomizedcoder/qdisc_results/blob/mai=
-n/qdisc/2023-10-24T05%3A16%3A21/pi4/cake20/flent/test/16_flent/rrul-2023-10=
--24T061153.944938.2023-10-24T05_16_21_pi4_cake20.flent.gz</a> <br></div><di=
-v></div><div><a href=3D"https://github.com/randomizedcoder/qdisc_results/bl=
-ob/main/qdisc/2023-10-24T05%3A16%3A21/jetson-nano/fq_codel/flent/test/16_fl=
-ent/rrul-2023-10-24T081332.189258.2023-10-24T05_16_21_jetson-nano_fq_codel.=
-flent.gz" target=3D"_blank">https://github.com/randomizedcoder/qdisc_result=
-s/blob/main/qdisc/2023-10-24T05%3A16%3A21/jetson-nano/fq_codel/flent/test/1=
-6_flent/rrul-2023-10-24T081332.189258.2023-10-24T05_16_21_jetson-nano_fq_co=
-del.flent.gz</a></div><div><br></div><div>I&#39;m not experienced at readin=
-g these flent reports, but it looks to me like fq_codel has similar latency=
-, but higher Mb/s than cake.<br></div><div><br></div><div>Jetson nano fq_co=
-del<br></div><div><img src=3D"cid:ii_lo4jafgv1" alt=3D"image.png" width=3D"=
-578" height=3D"361"></div><div><br></div><div><br></div><div>Jetson nano ca=
-ke20</div><div><img src=3D"cid:ii_lo4jc4mn2" alt=3D"image.png" width=3D"578=
-" height=3D"372"></div><div><br></div><div>The new network card arrived, so=
- I need to work out how to integrate the latency injection. ( I kind of wis=
-h I had multiple switches, so I could do q-in-q, because this could dramati=
-cally simply the linux latency injecting bridge machine&#39;s config. )</di=
-v><div><br></div><div>Kind regards,</div><div>Dave Seddon<br></div><div><br=
-><br></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"g=
-mail_attr">On Mon, Oct 23, 2023 at 1:31=E2=80=AFPM dave seddon &lt;<a href=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &l=
+t;-----------<br>version: Jan_2016<br>firmware-version: <br>expansion-rom-v=
+ersion: <br>bus-info: <br>supports-statistics: yes<br>supports-test: no<br>=
+supports-eeprom-access: no<br>supports-register-dump: yes<br>supports-priv-=
+flags: no</div><div><br></div><div>Jetson-nano has driver r8169 and is also=
+ not BQL enabled.</div><div><a href=3D"https://github.com/randomizedcoder/c=
+ake/blob/main/device_info/jetson-nano/ethtool_driver_eth0" target=3D"_blank=
+">https://github.com/randomizedcoder/cake/blob/main/device_info/jetson-nano=
+/ethtool_driver_eth0</a></div><div><br></div><div>Based on doc here: <a hre=
+f=3D"https://www.bufferbloat.net/projects/codel/wiki/Best_practices_for_ben=
+chmarking_Codel_and_FQ_Codel/" target=3D"_blank">https://www.bufferbloat.ne=
+t/projects/codel/wiki/Best_practices_for_benchmarking_Codel_and_FQ_Codel/</=
+a>, the current drivers with BQL are:<br></div><div><br></div><div>das@t:~/=
+Downloads/linux$ find drivers/net/ -name &#39;*.c&#39; -print | \<br>xargs =
+fgrep -l netdev_completed_queue<br>drivers/net/can/spi/mcp251xfd/mcp251xfd-=
+tef.c<br>drivers/net/can/usb/etas_es58x/es58x_core.c<br>drivers/net/can/dev=
+/length.c<br>drivers/net/ipa/ipa_gsi.c<br>drivers/net/wan/fsl_ucc_hdlc.c<br=
+>drivers/net/ethernet/freescale/ucc_geth.c<br>drivers/net/ethernet/marvell/=
+skge.c<br>drivers/net/ethernet/marvell/sky2.c<br>drivers/net/ethernet/qualc=
+omm/emac/emac-mac.c<br>drivers/net/ethernet/socionext/netsec.c<br>drivers/n=
+et/ethernet/atheros/ag71xx.c<br>drivers/net/ethernet/mediatek/mtk_star_emac=
+.c<br>drivers/net/ethernet/3com/3c59x.c<br>drivers/net/ethernet/broadcom/bc=
+m4908_enet.c<br>drivers/net/ethernet/broadcom/bgmac.c<br>drivers/net/ethern=
+et/broadcom/b44.c<br>drivers/net/ethernet/broadcom/bcm63xx_enet.c<br>driver=
+s/net/ethernet/realtek/8139cp.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &l=
+t;------- close, but NOT r8169<br>drivers/net/ethernet/lantiq_xrx200.c<br>d=
+rivers/net/ethernet/via/via-rhine.c<br>drivers/net/ethernet/hisilicon/hix5h=
+d2_gmac.c<br>drivers/net/ethernet/hisilicon/hip04_eth.c<br>drivers/net/ethe=
+rnet/hisilicon/hisi_femac.c<br>drivers/net/ethernet/intel/e1000e/netdev.c<b=
+r>drivers/net/ethernet/intel/e1000/e1000_main.c<br>drivers/net/ethernet/nvi=
+dia/forcedeth.c<br></div><div><br></div><div>The st_gmac driver can also be=
+ seen here:<br></div><div><a href=3D"https://github.com/torvalds/linux/blob=
+/4f82870119a46b0d04d91ef4697ac4977a255a9d/drivers/net/ethernet/stmicro/stmm=
+ac/stmmac_ethtool.c#L26" target=3D"_blank">https://github.com/torvalds/linu=
+x/blob/4f82870119a46b0d04d91ef4697ac4977a255a9d/drivers/net/ethernet/stmicr=
+o/stmmac/stmmac_ethtool.c#L26</a></div><div><br></div><div>I guess I can ta=
+ke a look at creating an MR or two (2).</div><div><br></div><div>Regards,</=
+div><div>Dave Seddon<br></div></div><br><div class=3D"gmail_quote"><div dir=
+=3D"ltr" class=3D"gmail_attr">On Tue, Oct 24, 2023 at 9:27=E2=80=AFAM dave =
+seddon &lt;<a href=3D"mailto:dave.seddon.ca@gmail.com" target=3D"_blank">da=
+ve.seddon.ca@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_q=
+uote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,2=
+04);padding-left:1ex"><div dir=3D"ltr"><div>G&#39;day,</div><div><br></div>=
+<div>Just to make sure the results are repeatable, I ran the flent tests ag=
+ain for 600 seconds.<br></div><div><br></div><div>Directory here<br></div><=
+div><a href=3D"https://github.com/randomizedcoder/qdisc_results/tree/main/q=
+disc/2023-10-24T05%3A16%3A21" target=3D"_blank">https://github.com/randomiz=
+edcoder/qdisc_results/tree/main/qdisc/2023-10-24T05%3A16%3A21</a></div><div=
+><br></div><div>Example direct links to the flent files:<br></div><div><a h=
+ref=3D"https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/202=
+3-10-24T05%3A16%3A21/pi4/cake20/flent/test/16_flent/rrul-2023-10-24T061153.=
+944938.2023-10-24T05_16_21_pi4_cake20.flent.gz" target=3D"_blank">https://g=
+ithub.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-24T05%3A16%=
+3A21/pi4/cake20/flent/test/16_flent/rrul-2023-10-24T061153.944938.2023-10-2=
+4T05_16_21_pi4_cake20.flent.gz</a> <br></div><div></div><div><a href=3D"htt=
+ps://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-24T05=
+%3A16%3A21/jetson-nano/fq_codel/flent/test/16_flent/rrul-2023-10-24T081332.=
+189258.2023-10-24T05_16_21_jetson-nano_fq_codel.flent.gz" target=3D"_blank"=
+>https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-2=
+4T05%3A16%3A21/jetson-nano/fq_codel/flent/test/16_flent/rrul-2023-10-24T081=
+332.189258.2023-10-24T05_16_21_jetson-nano_fq_codel.flent.gz</a></div><div>=
+<br></div><div>I&#39;m not experienced at reading these flent reports, but =
+it looks to me like fq_codel has similar latency, but higher Mb/s than cake=
+.<br></div><div><br></div><div>Jetson nano fq_codel<br></div><div><img src=
+=3D"cid:ii_lo4jafgv1" alt=3D"image.png" width=3D"578" height=3D"361"></div>=
+<div><br></div><div><br></div><div>Jetson nano cake20</div><div><img src=3D=
+"cid:ii_lo4jc4mn2" alt=3D"image.png" width=3D"578" height=3D"372"></div><di=
+v><br></div><div>The new network card arrived, so I need to work out how to=
+ integrate the latency injection. ( I kind of wish I had multiple switches,=
+ so I could do q-in-q, because this could dramatically simply the linux lat=
+ency injecting bridge machine&#39;s config. )</div><div><br></div><div>Kind=
+ regards,</div><div>Dave Seddon<br></div><div><br><br></div></div><br><div =
+class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mon, Oct 23,=
+ 2023 at 1:31=E2=80=AFPM dave seddon &lt;<a href=3D"mailto:dave.seddon.ca@g=
+mail.com" target=3D"_blank">dave.seddon.ca@gmail.com</a>&gt; wrote:<br></di=
+v><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;borde=
+r-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D"ltr"><div>G=
+&#39;day,</div><div><br></div><div>Dave Taht and I have had a couple of pho=
+ne conversations now, and he&#39;s convinced me that rather than inserting =
+the netem delay on each laptop, that latency should be added by a seperate =
+device.=C2=A0 To this end, I&#39;ve got another little PC and a NIC coming,=
+ so that I can repeat all the tests with seperate latency injection.</div><=
+div><br></div><div>However, I&#39;ve also completed the flent tests with th=
+e laptops adding latency at each end.<br></div><div><br></div><div>Full tes=
+t runs here:<br></div><div><a href=3D"https://github.com/randomizedcoder/qd=
+isc_results/tree/main/qdisc/2023-10-23T16%3A49%3A10" target=3D"_blank">http=
+s://github.com/randomizedcoder/qdisc_results/tree/main/qdisc/2023-10-23T16%=
+3A49%3A10</a></div><div><br></div><div>You can find the actual rrul flent .=
+tar.gz results for each test.</div><div><br></div><div>e.g</div><div>Pi4 fq=
+ is here:</div><div><a href=3D"https://github.com/randomizedcoder/qdisc_res=
+ults/blob/main/qdisc/2023-10-23T16%3A49%3A10/pi4/fq/flent/test/16_flent/rru=
+l-2023-10-23T170016.068273.2023-10-23T16_49_10_pi4_fq.flent.gz" target=3D"_=
+blank">https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/202=
+3-10-23T16%3A49%3A10/pi4/fq/flent/test/16_flent/rrul-2023-10-23T170016.0682=
+73.2023-10-23T16_49_10_pi4_fq.flent.gz</a></div><div><br></div><div>Lychee =
+Pi Risv with cake qdisc:<br></div><div><a href=3D"https://github.com/random=
+izedcoder/qdisc_results/blob/main/qdisc/2023-10-23T16%3A49%3A10/lpi4a/cake2=
+0/flent/test/16_flent/rrul-2023-10-23T201354.818316.2023-10-23T16_49_10_lpi=
+4a_cake20.flent.gz" target=3D"_blank">https://github.com/randomizedcoder/qd=
+isc_results/blob/main/qdisc/2023-10-23T16%3A49%3A10/lpi4a/cake20/flent/test=
+/16_flent/rrul-2023-10-23T201354.818316.2023-10-23T16_49_10_lpi4a_cake20.fl=
+ent.gz</a></div><div><br></div><div>Just take these with a grain of salt un=
+til the new latency injection is in place.</div><div><br></div><div>... I&#=
+39;ll see if I can script up the generation of all the pretty graphs soon<b=
+r></div><div><br></div><div>Thanks,</div><div>Dave Seddon<br></div><div><br=
+></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail=
+_attr">On Sun, Oct 15, 2023 at 8:11=E2=80=AFAM dave seddon &lt;<a href=3D"m=
+ailto:dave.seddon.ca@gmail.com" target=3D"_blank">dave.seddon.ca@gmail.com<=
+/a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0=
+px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><=
+div dir=3D"ltr"><div>G&#39;day,</div><div><br></div><div>I&#39;ve put more =
+work into a test framework around the qdisc tests, but unfortunately flent =
+doesn&#39;t work easily with Ubuntu LTS ( <a href=3D"https://github.com/toh=
+ojo/flent/issues/232" target=3D"_blank">https://github.com/tohojo/flent/iss=
+ues/232</a>, which I think is an issue with flent parsing the fping output =
+).<br></div><div><br></div><div><div><div>Results and graphs in this sheet:=
+<br></div><div><a href=3D"https://docs.google.com/spreadsheets/d/1T59QwEdNw=
+JFm4TgDFA_NY98gicOm8ABXKvDsSIMz9ag/edit#gid=3D1203641125" target=3D"_blank"=
+>https://docs.google.com/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8ABXKv=
+DsSIMz9ag/edit#gid=3D1203641125</a></div></div></div><div><br></div><div>Ra=
+w results of x2 test runs are here:<br></div><div><a href=3D"https://github=
+.com/randomizedcoder/qdisc_results/blob/main/qdisc/report.csv" target=3D"_b=
+lank">https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/repo=
+rt.csv</a></div><div><br></div><div>Each run:<br></div><div><a href=3D"http=
+s://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%=
+3A45%3A45/report.csv" target=3D"_blank">https://github.com/randomizedcoder/=
+qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/report.csv</a></div><=
+div><a href=3D"https://github.com/randomizedcoder/qdisc_results/blob/main/q=
+disc/2023-10-14T14%3A22%3A53/report.csv" target=3D"_blank">https://github.c=
+om/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-14T14%3A22%3A53/re=
+port.csv</a></div><div><br></div><div>Full iperf outputs are available too,=
+ for example: <a href=3D"https://github.com/randomizedcoder/qdisc_results/b=
+lob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi-r2s/fq_codel/iperf/test/16_ip=
+erf/stdout" target=3D"_blank">https://github.com/randomizedcoder/qdisc_resu=
+lts/blob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi-r2s/fq_codel/iperf/test/=
+16_iperf/stdout </a><br></div><div><br></div><div>Logs for each run are als=
+o available, for example: <a href=3D"https://github.com/randomizedcoder/qdi=
+sc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/log.json" target=3D"_bla=
+nk">https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
+0-13T18%3A45%3A45/log.json</a></div><div><br></div><div>The code repo updat=
+ed here: <a href=3D"https://github.com/randomizedcoder/cake" target=3D"_bla=
+nk">https://github.com/randomizedcoder/cake</a> , with the<a href=3D"https:=
+//github.com/randomizedcoder/cake/blob/main/README.md" target=3D"_blank">ht=
+tps://github.com/randomizedcoder/cake/blob/main/README.md</a> which explain=
+s how the test work.</div><div>Updated google doc is started here: <a href=
+=3D"https://docs.google.com/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJY=
+Cj0WuCs0/edit?usp=3Dsharing" target=3D"_blank">https://docs.google.com/docu=
+ment/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJYCj0WuCs0/edit?usp=3Dsharing</a><=
+/div><div><br></div><div>Based on the questions on this list earlier, there=
+ is a folder with device information for each of the devices<br></div><div>=
+<a href=3D"https://github.com/randomizedcoder/cake/tree/main/device_info" t=
+arget=3D"_blank">https://github.com/randomizedcoder/cake/tree/main/device_i=
+nfo</a></div><div><br></div><div>For example, the Pi4 and the Lichee Pi (ri=
+sc-v) hardware layout is here:</div><div>- <a href=3D"https://github.com/ra=
+ndomizedcoder/cake/blob/main/device_info/pi4/hwloc-ls-pi4.png" target=3D"_b=
+lank">https://github.com/randomizedcoder/cake/blob/main/device_info/pi4/hwl=
+oc-ls-pi4.png <br></a></div><div>- <a href=3D"https://github.com/randomized=
+coder/cake/blob/main/device_info/lpi4a/hwloc-ls-lpi4a.png" target=3D"_blank=
+">https://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/hwloc=
+-ls-lpi4a.png</a><br></div><div><br></div><div>The switch has also been upg=
+raded to a Cisco 3750x, which I think based on the &quot;show interface&quo=
+t; output has a max queue size of 40 frames.=C2=A0 The test process clears =
+the counters before each test and gathers the &quot;show interface&quot; ou=
+tput at the end.<br></div><div><br></div><div>The Lichee Pi 4A doesn&#39;t =
+look good ( <a href=3D"https://wiki.sipeed.com/hardware/en/lichee/th1520/lp=
+4a.html" target=3D"_blank">https://wiki.sipeed.com/hardware/en/lichee/th152=
+0/lp4a.html</a> )<br></div><div><br></div><div><img src=3D"cid:ii_lnrlip390=
+" alt=3D"image.png" width=3D"578" height=3D"356"><br></div><div>I really wi=
+sh the flent was working, so I&#39;ll probably see if I can work out the pa=
+rsing.</div><div><br></div><div>Thanks,</div><div>Dave Seddon<br></div></di=
+v><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On F=
+ri, Oct 13, 2023 at 10:25=E2=80=AFAM dave seddon &lt;<a href=3D"mailto:dave=
+.seddon.ca@gmail.com" target=3D"_blank">dave.seddon.ca@gmail.com</a>&gt; wr=
+ote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px=
+ 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"><div dir=3D=
+"ltr"><div>My bad.=C2=A0 There&#39;s a bug for this.... Looks like I have t=
+o downgrade fping<br></div><div><br></div><div><a href=3D"https://github.co=
+m/tohojo/flent/issues/232" target=3D"_blank">https://github.com/tohojo/flen=
+t/issues/232</a></div><div><a href=3D"https://github.com/schweikert/fping/i=
+ssues/203" target=3D"_blank">https://github.com/schweikert/fping/issues/203=
+</a></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gm=
+ail_attr">On Fri, Oct 13, 2023 at 8:59=E2=80=AFAM dave seddon &lt;<a href=
 =3D"mailto:dave.seddon.ca@gmail.com" target=3D"_blank">dave.seddon.ca@gmail=
 .com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"mar=
 gin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1=
-ex"><div dir=3D"ltr"><div>G&#39;day,</div><div><br></div><div>Dave Taht and=
- I have had a couple of phone conversations now, and he&#39;s convinced me =
-that rather than inserting the netem delay on each laptop, that latency sho=
-uld be added by a seperate device.=C2=A0 To this end, I&#39;ve got another =
-little PC and a NIC coming, so that I can repeat all the tests with seperat=
-e latency injection.</div><div><br></div><div>However, I&#39;ve also comple=
-ted the flent tests with the laptops adding latency at each end.<br></div><=
-div><br></div><div>Full test runs here:<br></div><div><a href=3D"https://gi=
-thub.com/randomizedcoder/qdisc_results/tree/main/qdisc/2023-10-23T16%3A49%3=
-A10" target=3D"_blank">https://github.com/randomizedcoder/qdisc_results/tre=
-e/main/qdisc/2023-10-23T16%3A49%3A10</a></div><div><br></div><div>You can f=
-ind the actual rrul flent .tar.gz results for each test.</div><div><br></di=
-v><div>e.g</div><div>Pi4 fq is here:</div><div><a href=3D"https://github.co=
-m/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-23T16%3A49%3A10/pi4=
-/fq/flent/test/16_flent/rrul-2023-10-23T170016.068273.2023-10-23T16_49_10_p=
-i4_fq.flent.gz" target=3D"_blank">https://github.com/randomizedcoder/qdisc_=
-results/blob/main/qdisc/2023-10-23T16%3A49%3A10/pi4/fq/flent/test/16_flent/=
-rrul-2023-10-23T170016.068273.2023-10-23T16_49_10_pi4_fq.flent.gz</a></div>=
-<div><br></div><div>Lychee Pi Risv with cake qdisc:<br></div><div><a href=
-=3D"https://github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-1=
-0-23T16%3A49%3A10/lpi4a/cake20/flent/test/16_flent/rrul-2023-10-23T201354.8=
-18316.2023-10-23T16_49_10_lpi4a_cake20.flent.gz" target=3D"_blank">https://=
-github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-23T16%3A49=
-%3A10/lpi4a/cake20/flent/test/16_flent/rrul-2023-10-23T201354.818316.2023-1=
-0-23T16_49_10_lpi4a_cake20.flent.gz</a></div><div><br></div><div>Just take =
-these with a grain of salt until the new latency injection is in place.</di=
-v><div><br></div><div>... I&#39;ll see if I can script up the generation of=
- all the pretty graphs soon<br></div><div><br></div><div>Thanks,</div><div>=
-Dave Seddon<br></div><div><br></div></div><br><div class=3D"gmail_quote"><d=
-iv dir=3D"ltr" class=3D"gmail_attr">On Sun, Oct 15, 2023 at 8:11=E2=80=AFAM=
- dave seddon &lt;<a href=3D"mailto:dave.seddon.ca@gmail.com" target=3D"_bla=
-nk">dave.seddon.ca@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"g=
-mail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204=
-,204,204);padding-left:1ex"><div dir=3D"ltr"><div>G&#39;day,</div><div><br>=
-</div><div>I&#39;ve put more work into a test framework around the qdisc te=
-sts, but unfortunately flent doesn&#39;t work easily with Ubuntu LTS ( <a h=
-ref=3D"https://github.com/tohojo/flent/issues/232" target=3D"_blank">https:=
-//github.com/tohojo/flent/issues/232</a>, which I think is an issue with fl=
-ent parsing the fping output ).<br></div><div><br></div><div><div><div>Resu=
-lts and graphs in this sheet:<br></div><div><a href=3D"https://docs.google.=
-com/spreadsheets/d/1T59QwEdNwJFm4TgDFA_NY98gicOm8ABXKvDsSIMz9ag/edit#gid=3D=
-1203641125" target=3D"_blank">https://docs.google.com/spreadsheets/d/1T59Qw=
-EdNwJFm4TgDFA_NY98gicOm8ABXKvDsSIMz9ag/edit#gid=3D1203641125</a></div></div=
-></div><div><br></div><div>Raw results of x2 test runs are here:<br></div><=
-div><a href=3D"https://github.com/randomizedcoder/qdisc_results/blob/main/q=
-disc/report.csv" target=3D"_blank">https://github.com/randomizedcoder/qdisc=
-_results/blob/main/qdisc/report.csv</a></div><div><br></div><div>Each run:<=
-br></div><div><a href=3D"https://github.com/randomizedcoder/qdisc_results/b=
-lob/main/qdisc/2023-10-13T18%3A45%3A45/report.csv" target=3D"_blank">https:=
-//github.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A=
-45%3A45/report.csv</a></div><div><a href=3D"https://github.com/randomizedco=
-der/qdisc_results/blob/main/qdisc/2023-10-14T14%3A22%3A53/report.csv" targe=
-t=3D"_blank">https://github.com/randomizedcoder/qdisc_results/blob/main/qdi=
-sc/2023-10-14T14%3A22%3A53/report.csv</a></div><div><br></div><div>Full ipe=
-rf outputs are available too, for example: <a href=3D"https://github.com/ra=
-ndomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/nanopi-=
-r2s/fq_codel/iperf/test/16_iperf/stdout" target=3D"_blank">https://github.c=
-om/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%3A45/na=
-nopi-r2s/fq_codel/iperf/test/16_iperf/stdout </a><br></div><div><br></div><=
-div>Logs for each run are also available, for example: <a href=3D"https://g=
-ithub.com/randomizedcoder/qdisc_results/blob/main/qdisc/2023-10-13T18%3A45%=
-3A45/log.json" target=3D"_blank">https://github.com/randomizedcoder/qdisc_r=
-esults/blob/main/qdisc/2023-10-13T18%3A45%3A45/log.json</a></div><div><br><=
-/div><div>The code repo updated here: <a href=3D"https://github.com/randomi=
-zedcoder/cake" target=3D"_blank">https://github.com/randomizedcoder/cake</a=
-> , with the<a href=3D"https://github.com/randomizedcoder/cake/blob/main/RE=
-ADME.md" target=3D"_blank">https://github.com/randomizedcoder/cake/blob/mai=
-n/README.md</a> which explains how the test work.</div><div>Updated google =
-doc is started here: <a href=3D"https://docs.google.com/document/d/1fYKj3BS=
-89aB9drg_DsSq289xSdVQhn1zUJYCj0WuCs0/edit?usp=3Dsharing" target=3D"_blank">=
-https://docs.google.com/document/d/1fYKj3BS89aB9drg_DsSq289xSdVQhn1zUJYCj0W=
-uCs0/edit?usp=3Dsharing</a></div><div><br></div><div>Based on the questions=
- on this list earlier, there is a folder with device information for each o=
-f the devices<br></div><div><a href=3D"https://github.com/randomizedcoder/c=
-ake/tree/main/device_info" target=3D"_blank">https://github.com/randomizedc=
-oder/cake/tree/main/device_info</a></div><div><br></div><div>For example, t=
-he Pi4 and the Lichee Pi (risc-v) hardware layout is here:</div><div>- <a h=
-ref=3D"https://github.com/randomizedcoder/cake/blob/main/device_info/pi4/hw=
-loc-ls-pi4.png" target=3D"_blank">https://github.com/randomizedcoder/cake/b=
-lob/main/device_info/pi4/hwloc-ls-pi4.png <br></a></div><div>- <a href=3D"h=
-ttps://github.com/randomizedcoder/cake/blob/main/device_info/lpi4a/hwloc-ls=
--lpi4a.png" target=3D"_blank">https://github.com/randomizedcoder/cake/blob/=
-main/device_info/lpi4a/hwloc-ls-lpi4a.png</a><br></div><div><br></div><div>=
-The switch has also been upgraded to a Cisco 3750x, which I think based on =
-the &quot;show interface&quot; output has a max queue size of 40 frames.=C2=
-=A0 The test process clears the counters before each test and gathers the &=
-quot;show interface&quot; output at the end.<br></div><div><br></div><div>T=
-he Lichee Pi 4A doesn&#39;t look good ( <a href=3D"https://wiki.sipeed.com/=
-hardware/en/lichee/th1520/lp4a.html" target=3D"_blank">https://wiki.sipeed.=
-com/hardware/en/lichee/th1520/lp4a.html</a> )<br></div><div><br></div><div>=
-<img src=3D"cid:ii_lnrlip390" alt=3D"image.png" width=3D"578" height=3D"356=
-"><br></div><div>I really wish the flent was working, so I&#39;ll probably =
-see if I can work out the parsing.</div><div><br></div><div>Thanks,</div><d=
-iv>Dave Seddon<br></div></div><br><div class=3D"gmail_quote"><div dir=3D"lt=
-r" class=3D"gmail_attr">On Fri, Oct 13, 2023 at 10:25=E2=80=AFAM dave seddo=
-n &lt;<a href=3D"mailto:dave.seddon.ca@gmail.com" target=3D"_blank">dave.se=
-ddon.ca@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote"=
- style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);p=
-adding-left:1ex"><div dir=3D"ltr"><div>My bad.=C2=A0 There&#39;s a bug for =
-this.... Looks like I have to downgrade fping<br></div><div><br></div><div>=
-<a href=3D"https://github.com/tohojo/flent/issues/232" target=3D"_blank">ht=
-tps://github.com/tohojo/flent/issues/232</a></div><div><a href=3D"https://g=
-ithub.com/schweikert/fping/issues/203" target=3D"_blank">https://github.com=
-/schweikert/fping/issues/203</a></div></div><br><div class=3D"gmail_quote">=
-<div dir=3D"ltr" class=3D"gmail_attr">On Fri, Oct 13, 2023 at 8:59=E2=80=AF=
-AM dave seddon &lt;<a href=3D"mailto:dave.seddon.ca@gmail.com" target=3D"_b=
-lank">dave.seddon.ca@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D=
-"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(2=
-04,204,204);padding-left:1ex"><div dir=3D"ltr"><div>G&#39;day,</div><div><b=
-r></div><div>I&#39;ve been working away on automation of the tests.=C2=A0 P=
-retty close to having much nicer tests with a lot more details.=C2=A0 I&#39=
-;ve also got the risc-v device working.<br></div><div><br></div><div>Howeve=
-r, I&#39;ve run into something funny with flent.=C2=A0 Flent is not happy w=
-ith fping or ping.<br></div><div><br></div><div>das@3rd:~/Downloads/cake/cm=
-d/run_qdiscs_tests$ /usr/bin/sudo /usr/sbin/ip netns exec network101 /usr/b=
-in/flent rrul --output =C2=A0/tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/fle=
-nt/test/15_flent/flent_pi4_noqueue.png --data-dir /tmp/qdisc/2023-10-13T15:=
-53:21/pi4/noqueue/flent/test/15_flent/ --format summary --plot all_scaled -=
--title-extra 2023-10-13T15:53:21_pi4_noqueue --note 2023-10-13T15:53:21_pi4=
-_noqueue --extended-metadata --host 172.17.51.10 --length 60 --ipv4 --socke=
-t-stats<br>Starting Flent 2.0.1 using Python 3.10.12.<br>Starting rrul test=
-. Expected run time: 70 seconds.<br>WARNING: Found fping, but couldn&#39;t =
-parse its output. Not using.=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 &lt;---------------- ???<br>ERROR: Runner=
- Ping (ms) ICMP failed check: Cannot parse output of the system ping binary=
- (/usr/bin/ping). Please install fping v3.5+.=C2=A0=C2=A0=C2=A0 &lt;----- ?=
-?</div><div><br></div><div>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ d=
-pkg --list | grep ping<br>ii =C2=A0fping =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 5.1-1 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 amd64 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0sends ICMP ECHO_REQUEST packets to network hosts<br>ii =C2=A0=
-iputils-ping =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A03:20211215-1 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0amd64 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0Tools to test the reachability of network hosts<br>ii =
-=C2=A0kpartx =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00.8.8-1ubuntu1.22.04.1 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0amd64 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0create device mappings for partitions<br>ii =C2=A0libharfb=
-uzz0b:amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-2.7.4-1ubuntu3.1 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0OpenType text s=
-haping engine (shared library)<br>das@3rd:~/Downloads/cake/cmd/run_qdiscs_t=
-ests$ fping --version<br>fping: Version 5.1</div><div>das@3rd:~/Downloads/c=
-ake/cmd/run_qdiscs_tests$ ping -V<br>ping from iputils 20211215</div><div><=
-br></div><div>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ cat /etc/lsb-r=
-elease <br>DISTRIB_ID=3DUbuntu<br>DISTRIB_RELEASE=3D22.04<br>DISTRIB_CODENA=
-ME=3Djammy<br>DISTRIB_DESCRIPTION=3D&quot;Ubuntu 22.04.3 LTS&quot;</div><di=
-v><br></div><div>I did install via &quot;apt install fping&quot;<br></div><=
-div><br></div><div>Any thoughts please?</div><div><br></div><div>Kind regar=
-ds,</div><div>Dave<br></div></div><br><div class=3D"gmail_quote"><div dir=
-=3D"ltr" class=3D"gmail_attr">On Thu, Sep 28, 2023 at 6:27=E2=80=AFAM Sebas=
-tian Moeller via Cake &lt;<a href=3D"mailto:cake@lists.bufferbloat.net" tar=
-get=3D"_blank">cake@lists.bufferbloat.net</a>&gt; wrote:<br></div><blockquo=
-te class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px =
-solid rgb(204,204,204);padding-left:1ex"><br>
+ex"><div dir=3D"ltr"><div>G&#39;day,</div><div><br></div><div>I&#39;ve been=
+ working away on automation of the tests.=C2=A0 Pretty close to having much=
+ nicer tests with a lot more details.=C2=A0 I&#39;ve also got the risc-v de=
+vice working.<br></div><div><br></div><div>However, I&#39;ve run into somet=
+hing funny with flent.=C2=A0 Flent is not happy with fping or ping.<br></di=
+v><div><br></div><div>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ /usr/b=
+in/sudo /usr/sbin/ip netns exec network101 /usr/bin/flent rrul --output =C2=
+=A0/tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/test/15_flent/flent_pi4=
+_noqueue.png --data-dir /tmp/qdisc/2023-10-13T15:53:21/pi4/noqueue/flent/te=
+st/15_flent/ --format summary --plot all_scaled --title-extra 2023-10-13T15=
+:53:21_pi4_noqueue --note 2023-10-13T15:53:21_pi4_noqueue --extended-metada=
+ta --host 172.17.51.10 --length 60 --ipv4 --socket-stats<br>Starting Flent =
+2.0.1 using Python 3.10.12.<br>Starting rrul test. Expected run time: 70 se=
+conds.<br>WARNING: Found fping, but couldn&#39;t parse its output. Not usin=
+g.=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 &lt;---------------- ???<br>ERROR: Runner Ping (ms) ICMP failed chec=
+k: Cannot parse output of the system ping binary (/usr/bin/ping). Please in=
+stall fping v3.5+.=C2=A0=C2=A0=C2=A0 &lt;----- ??</div><div><br></div><div>=
+das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ dpkg --list | grep ping<br>i=
+i =C2=A0fping =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 5.1-1 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0sends ICMP=
+ ECHO_REQUEST packets to network hosts<br>ii =C2=A0iputils-ping =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A03:20211215-1 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0T=
+ools to test the reachability of network hosts<br>ii =C2=A0kpartx =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00.8.8-1ubuntu1.22.04.1 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0c=
+reate device mappings for partitions<br>ii =C2=A0libharfbuzz0b:amd64 =C2=A0=
+ =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 2.7.4-1ubuntu3.1 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0amd64 =C2=A0 =C2=A0 =C2=A0 =C2=A0OpenType text shaping engine (sh=
+ared library)<br>das@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ fping --ver=
+sion<br>fping: Version 5.1</div><div>das@3rd:~/Downloads/cake/cmd/run_qdisc=
+s_tests$ ping -V<br>ping from iputils 20211215</div><div><br></div><div>das=
+@3rd:~/Downloads/cake/cmd/run_qdiscs_tests$ cat /etc/lsb-release <br>DISTRI=
+B_ID=3DUbuntu<br>DISTRIB_RELEASE=3D22.04<br>DISTRIB_CODENAME=3Djammy<br>DIS=
+TRIB_DESCRIPTION=3D&quot;Ubuntu 22.04.3 LTS&quot;</div><div><br></div><div>=
+I did install via &quot;apt install fping&quot;<br></div><div><br></div><di=
+v>Any thoughts please?</div><div><br></div><div>Kind regards,</div><div>Dav=
+e<br></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"g=
+mail_attr">On Thu, Sep 28, 2023 at 6:27=E2=80=AFAM Sebastian Moeller via Ca=
+ke &lt;<a href=3D"mailto:cake@lists.bufferbloat.net" target=3D"_blank">cake=
+@lists.bufferbloat.net</a>&gt; wrote:<br></div><blockquote class=3D"gmail_q=
+uote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,2=
+04);padding-left:1ex"><br>
 <br>
 &gt; On Sep 28, 2023, at 15:19, David Lang &lt;<a href=3D"mailto:david@lang=
 .hm" target=3D"_blank">david@lang.hm</a>&gt; wrote:<br>
@@ -820,10 +867,16 @@ tr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dave=
 fix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"l=
 tr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dave=
  Seddon<br>+1 415 857 5102<br></div></div></div></div></div></div>
+</blockquote></div><br clear=3D"all"><div><br></div><span class=3D"gmail_si=
+gnature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><d=
+iv dir=3D"ltr"><div>Oct 30: <a href=3D"https://netdevconf.info/0x17/news/th=
+e-maestro-and-the-music-bof.html" target=3D"_blank">https://netdevconf.info=
+/0x17/news/the-maestro-and-the-music-bof.html</a></div><div>Dave T=C3=A4ht =
+CSO, LibreQos<br></div></div></div>
 
---0000000000006d401c06087d1f74--
+--0000000000009afd9006087d8e5a--
 
---0000000000006d401d06087d1f75
+--0000000000009afd9206087d8e5b
 Content-Type: image/png; name="image.png"
 Content-Disposition: inline; filename="image.png"
 Content-Transfer-Encoding: base64
@@ -1877,7 +1930,7 @@ AHT0BQAAAAAAQEdfAAAAAAAAdPQFAAAAAABAR18AAAAAAAB09AUAAAAAAEBHXwAAAAAAAHT0BQAA
 AAAAQEdfAAAAAAAAdPQFAAAAAABAR18AAAAAAAB09AUAAAAAAEBHXwAAAAAAAHT0BQAAAAAAQEdf
 AAAAAAAAdPQFAAAAAABAR18AAAAAAAB09AUAAAAAAEBHXwAAAAAAAHT0BQAAAAAAQEdfAAAAAAAA
 dPQFAAAAAABAR18AAAAAAAB09AUAAAAAAEBHXwAAAAAAAHS/Alr3v5NRnVXbAAAAAElFTkSuQmCC
---0000000000006d401d06087d1f75
+--0000000000009afd9206087d8e5b
 Content-Type: image/png; name="image.png"
 Content-Disposition: inline; filename="image.png"
 Content-Transfer-Encoding: base64
@@ -8517,7 +8570,7 @@ LCwgIGDIkCEkwREREa+//np0dHRUVFRWVhaJimvRfE6ePBkbGxsaGhobG3vw4EHi+Mcff8THx/v7
 kBeF2tpajUYjk8nKysqSkpLmz5+fkpLSaKgnbP4HDhyYOnVqE9fJny7YcSHI3wOmuROAIMiTEh8f
 /3cSjQDAjK4OgiAvCiUlJd26ddNoNA8fPhw6dGhTRCN4kZv/i5tyBEH44NoRgiAIgiAIgiAIAFpl
 QBAEQRAEQRAEIfw/QZYrSJMDhQEAAAAASUVORK5CYII=
---0000000000006d401d06087d1f75
+--0000000000009afd9206087d8e5b
 Content-Type: image/png; name="image.png"
 Content-Disposition: inline; filename="image.png"
 Content-Transfer-Encoding: base64
@@ -14423,9 +14476,9 @@ CAQC0SseAPQKGaaXRpYDwLuTlZUVFRUl+j9MPnbm5uZpaWnsWB0A+Bi1tra2t7crKCg0NDQ4OTlt
 27at87c3nf3B5p+enh4REdHD99i9CxcugI8RZikA+Ag4ODhIU1eHENLN2BgA+FjU19d7eXm1t7c3
 NzfPnDmzJ10d8jE3/4835wB/ZXi3AwAAAAAA0gmzFAAAAAAAgHRCbwcAAAAAAKQTejsAAAAAACCd
 /gcZuQEuZkOoQwAAAABJRU5ErkJggg==
---0000000000006d401d06087d1f75--
+--0000000000009afd9206087d8e5b--
 
---===============4865023212951682011==
+--===============8526329289166038615==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -14435,4 +14488,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============4865023212951682011==--
+--===============8526329289166038615==--
