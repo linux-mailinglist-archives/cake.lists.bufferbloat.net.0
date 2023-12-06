@@ -2,92 +2,78 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id B67CD807C7B
-	for <lists+cake@lfdr.de>; Thu,  7 Dec 2023 00:42:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 43605807C94
+	for <lists+cake@lfdr.de>; Thu,  7 Dec 2023 00:55:51 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 475493CB50;
-	Wed,  6 Dec 2023 18:42:51 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 38A9B3CB51;
+	Wed,  6 Dec 2023 18:55:50 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1701906171;
-	bh=rzutF4fn8SH+Ra0LiLGrdT1KnYLj6vKTocORPuIcyLU=;
-	h=To:In-Reply-To:References:Date:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1701906950;
+	bh=Y/ZlLkjQRnIX8rffu9ll9VhZB9zPnOMcODTWhwuAlaM=;
+	h=Date:To:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=V1oBd9aUoWo22m1KpiwUeqmSjJVfJTkUh9r/rqZ9r0YzGDOtwRhSSisIX0A5AG/6m
-	 R8hEhBdZXXOI2OBq862yI/1iWvRR4h5lFwvrqXverF91uYYLhUWLjg87cX2nIqGWwZ
-	 TsUTNsuK6c36jN+7R2rM89W58kO1TDf5vepmdmSdA8GZv+49MQpPshuwzF3xt/FY/X
-	 BKPqg8cmrPidUDHUyqDM9EuUxgnOVa/RnKa/ebwrzYu/EBkl5VAA3YER+OoR7Ax8us
-	 AbWfGYEaouTFEkqlJiJihKJQyOk+wfmPpJsepw8teUdNZWLwVmX+UMMMZZJ4UiQp67
-	 MsTl6cMtqyj6w==
+	b=oA2XcJzrCTP9khNnfONkk8DHVdY67X7JKejWwFUMfVDxcEjnJiRJcq4W2u6dAO691
+	 U2+HcBip55DYmL5Bto3jwe6A5x6LNchEKZ2/DRgTEwgi3hTHZ6m0+sMuDEmXuxoDKq
+	 JSmZBtrszi8EpsswSJU3ZTbxFAtnjpXKCtSYoyaKKjYQBqsKu2oMJnGwPy/Xj5Bp/g
+	 yKPz/hHJfwd8TtRW5tQzkDQ/bphPxZGwXI3plGHttlDBL8I+a8+NxxCbUMoeoxww2l
+	 Ml4qTk7R9xB9ZRVNlT1yrIRC2beYt7wh2W9bRLm7x5cYPOnybKdNGgdXWYX5EAJ/XZ
+	 eW+GHV5MfxidA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from us-smtp-delivery-124.mimecast.com
- (us-smtp-delivery-124.mimecast.com [170.10.129.124])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-pj1-x1030.google.com (mail-pj1-x1030.google.com
+ [IPv6:2607:f8b0:4864:20::1030])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id BA2433B2A4
- for <cake@lists.bufferbloat.net>; Wed,  6 Dec 2023 18:42:50 -0500 (EST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1701906170;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding:
- in-reply-to:in-reply-to:references:references;
- bh=byKhWzYdmi5fEDA2bFIRQYvHyYjTkEKHVH1O6k33LAM=;
- b=ZWJHqiwmIM3l/8iKwUPHH3TdJXdnPKTZv58w4uHWX5bhH5dj1+H7hj9M2fkjxrQt3or5M4
- mqmF2BFa1ui7qXJszLZtHzUhyP1aazLRFilzSqQrlaVxvka5MNiIP1zH8MZ9uXX6AQYWNx
- hxLZak7eNnB//tnF62sK9W49HRqQf5E=
-Received: from mail-ed1-f70.google.com (mail-ed1-f70.google.com
- [209.85.208.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-649-xfbcSiZQMCmDupvg23ObUQ-1; Wed, 06 Dec 2023 18:42:48 -0500
-X-MC-Unique: xfbcSiZQMCmDupvg23ObUQ-1
-Received: by mail-ed1-f70.google.com with SMTP id
- 4fb4d7f45d1cf-54c504e5fd0so174361a12.3
- for <cake@lists.bufferbloat.net>; Wed, 06 Dec 2023 15:42:48 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id C23073B2A4
+ for <cake@lists.bufferbloat.net>; Wed,  6 Dec 2023 18:55:48 -0500 (EST)
+Received: by mail-pj1-x1030.google.com with SMTP id
+ 98e67ed59e1d1-28657040cdcso360240a91.3
+ for <cake@lists.bufferbloat.net>; Wed, 06 Dec 2023 15:55:48 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=networkplumber-org.20230601.gappssmtp.com; s=20230601; t=1701906948;
+ x=1702511748; darn=lists.bufferbloat.net; 
+ h=mime-version:references:in-reply-to:message-id:subject:cc:to:from
+ :date:from:to:cc:subject:date:message-id:reply-to;
+ bh=8ioixfZXRdrOh6hBuj+IGCCPeUDF31MruhCzIBSvtPg=;
+ b=Yz9qyVMFJlOmLKd7d6/7wh1EXTEUV91OMYs20L63BFCmXlRzu64v2XY5uBv1AT2DHd
+ mXQUcxJX3QO+sAESVOuD7JzS+o3MXCteGR8q9jUJWXYVES7H+1lGXu9GjXtsM4GDGfSg
+ a97U6L/g6QHwRY/pmm0lUdQG1sheF5MfyrOLycrc4ld+7R129w6Marmn9Qp0d8ceZxPh
+ /h0AW2L0kqGagqFUTWTPpJMzmlgPBjHKZJSrMC/erL8BO1GSPOUFVDNJzPVC1n1HRWXg
+ ZgBMWbxTQ24JxjDDhnlzEcxesncEKBDF5Rs8DOGhxUSP+h9/g98Oh/0vjs0hTyAUCGTe
+ 8BsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1701906167; x=1702510967;
- h=content-transfer-encoding:mime-version:message-id:date:references
- :in-reply-to:subject:cc:to:from:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=byKhWzYdmi5fEDA2bFIRQYvHyYjTkEKHVH1O6k33LAM=;
- b=Aiwfi1OiDSNw1WOaUutTx80Y7c2DF4hxsI6CxHPbKmEA+ZWnP4uI7QRNVtGZ02DmY6
- zfdd6EC86xBouAXIwpBszD3rHHVCbfW0yD3rF2VhPwszdd635uAOBpw0tOF1yKNsDtwz
- h+MCRoQhP3jubP2+CvRk/BPe27PA3KgGY5BF1Yn//E1SV1qTnO+bIm/BQiw6DunMeDuI
- TfaiKD6a16vAX19MJ3f1J7Gn4DpECqLU6oFn5NqwVlJ7ZPvzvoT22rvZXfkKRFEKYh2M
- 0pRT2vwWeKfOvYG+i9V0blQ2X7FMvidUuZPLZNrbwyCYI+xbR581VKSKNoU37+lcRVzU
- mNmg==
-X-Gm-Message-State: AOJu0Yy+w53ufBUNeMPxlXfRfox4n3QZ4dW+YbamaFoKwlwaOUUtAMXG
- koifox0u9SuJmrB5gaO7k/ppT6CxZXsEzOp8PsDLqZgFVjSzDhT8rT0q425UMOX4MIqRtWVWSXP
- 05ePr+u/sK2So5TzoQse5BQ==
-X-Received: by 2002:a05:6402:51d4:b0:54c:793b:8e29 with SMTP id
- r20-20020a05640251d400b0054c793b8e29mr1226991edd.29.1701906167712; 
- Wed, 06 Dec 2023 15:42:47 -0800 (PST)
-X-Google-Smtp-Source: AGHT+IF7vRlA+d/H97Tnlmdjl2ipDcurwnvVNGgVnqnqh+mn1wCaJMNyLFxRFkKmPIdyJdpL930WWw==
-X-Received: by 2002:a05:6402:51d4:b0:54c:793b:8e29 with SMTP id
- r20-20020a05640251d400b0054c793b8e29mr1226972edd.29.1701906167447; 
- Wed, 06 Dec 2023 15:42:47 -0800 (PST)
-Received: from alrua-x1.borgediget.toke.dk ([45.145.92.2])
+ d=1e100.net; s=20230601; t=1701906948; x=1702511748;
+ h=mime-version:references:in-reply-to:message-id:subject:cc:to:from
+ :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=8ioixfZXRdrOh6hBuj+IGCCPeUDF31MruhCzIBSvtPg=;
+ b=pXWjZruCBaVub3drCAvRIkv2alYtGTDGe7LIb+DGzaEzTmyzWzdNkefUhGQL8LgC8f
+ PSUBQptG1Uci2YD2C1EJMwC8Cv58K7GEl8BzEl5pDm2vDYG5+VM1deZn1piKwoLR5W0V
+ azBIw+9SmV4Qvpnytk3B9FxtMzQ7jNFm9ggANzu44jhPfh4IcEJuZ5+WonLCRtfBZlls
+ pefREnfI8R36+wkLUddNzJ2WvxUsBOw3+LuEbCEeb0/MTk1CGxMPjQZ+x2F/UApIGkwQ
+ 8UzpFd0aj/ks2+1b4Gz3qA6TXwcNvN5WzJw3hJw32PY7Bgrj3jVM31GzHlQXsDPdA8dX
+ QVpQ==
+X-Gm-Message-State: AOJu0YyAlQ/CQZ8/Whq/yIp/U1jtaJ+1CTH+s0kS2xD9iXrN/Xo0MEnw
+ HSyP2j4JOuu7X3CCgc1PPpc3aw==
+X-Google-Smtp-Source: AGHT+IH4RBfMuZUIQDGUHTBkbgy1nx2Dp65ER39CnQABXNDh/8+Z4plHxRfGRvtVG/0D876wBT2R1g==
+X-Received: by 2002:a17:90b:3b44:b0:286:815b:8c75 with SMTP id
+ ot4-20020a17090b3b4400b00286815b8c75mr1449165pjb.16.1701906947681; 
+ Wed, 06 Dec 2023 15:55:47 -0800 (PST)
+Received: from hermes.local (204-195-123-141.wavecable.com. [204.195.123.141])
  by smtp.gmail.com with ESMTPSA id
- u21-20020a509515000000b0054db440489fsm80993eda.60.2023.12.06.15.42.46
+ cx14-20020a17090afd8e00b00286c1303cdasm7303pjb.45.2023.12.06.15.55.46
  (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 06 Dec 2023 15:42:46 -0800 (PST)
-Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
- id 2CC53FAA7F4; Thu,  7 Dec 2023 00:42:46 +0100 (CET)
-To: Michal =?utf-8?Q?Koutn=C3=BD?= <mkoutny@suse.com>, Stephen Hemminger
- <stephen@networkplumber.org>
+ Wed, 06 Dec 2023 15:55:47 -0800 (PST)
+Date: Wed, 6 Dec 2023 15:55:45 -0800
+To: Michal =?UTF-8?B?S291dG7DvQ==?= <mkoutny@suse.com>
+Message-ID: <20231206155545.3ca3b2f6@hermes.local>
 In-Reply-To: <53ohvb547tegxv2vuvurhuwqunamfiy22sonog7gll54h3czht@3dnijc44xilq>
 References: <20231206192752.18989-1-mkoutny@suse.com>
  <7789659d-b3c5-4eef-af86-540f970102a4@mojatatu.com>
  <vk6uhf4r2turfxt2aokp66x5exzo5winal55253czkl2pmkkuu@77bhdfwfk5y3>
  <20231206142857.38403344@hermes.local>
  <53ohvb547tegxv2vuvurhuwqunamfiy22sonog7gll54h3czht@3dnijc44xilq>
-X-Clacks-Overhead: GNU Terry Pratchett
-Date: Thu, 07 Dec 2023 00:42:46 +0100
-Message-ID: <87sf4elwy1.fsf@toke.dk>
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
 Subject: Re: [Cake] [PATCH 0/3] net/sched: Load modules via alias
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -100,9 +86,8 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= via Cake
- <cake@lists.bufferbloat.net>
-Reply-To: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
+From: Stephen Hemminger via Cake <cake@lists.bufferbloat.net>
+Reply-To: Stephen Hemminger <stephen@networkplumber.org>
 Cc: Michal Kubecek <mkubecek@suse.cz>, KP Singh <kpsingh@kernel.org>,
  Song Liu <song@kernel.org>, Eric Dumazet <edumazet@google.com>,
  Stanislav Fomichev <sdf@google.com>, Yonghong Song <yonghong.song@linux.dev>,
@@ -118,20 +103,72 @@ Cc: Michal Kubecek <mkubecek@suse.cz>, KP Singh <kpsingh@kernel.org>,
  Pedro Tammela <pctammela@mojatatu.com>, Jiri Olsa <jolsa@kernel.org>,
  bpf@vger.kernel.org, Martin KaFai Lau <martin.lau@linux.dev>,
  "David S . Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============2049050327775374477=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-TWljaGFsIEtvdXRuw70gPG1rb3V0bnlAc3VzZS5jb20+IHdyaXRlczoKCj4gT24gV2VkLCBEZWMg
-MDYsIDIwMjMgYXQgMDI6Mjg6NTdQTSAtMDgwMCwgU3RlcGhlbiBIZW1taW5nZXIgPHN0ZXBoZW5A
-bmV0d29ya3BsdW1iZXIub3JnPiB3cm90ZToKPj4gSXQgaXMgbm90IGNsZWFyIHRvIG1lIHdoYXQg
-dGhpcyBwYXRjaHNldCBpcyB0cnlpbmcgdG8gZml4Lgo+PiBBdXRvbG9hZGluZyBoYXBwZW5zIG5v
-dywgYnV0IGl0IGRvZXMgZGVwZW5kIG9uIHRoZSBuYW1lIG5vdCBhbGlhcy4KPgo+IFRoZXJlIGFy
-ZSBzb21lIG1vcmUgZGV0YWlscyBpbiB0aGUgdGhyZWFkIG9mIHYxIFsxXSBbMl0uCj4gRG9lcyBp
-dCBjbGFyaWZ5PwoKWWVzLCBidXQgdGhpcyBzaG91bGQgYmUgZXhwbGFpbmVkIGNsZWFybHkgaW4g
-dGhlIGNvbW1pdCBtZXNzYWdlCihpbmNsdWRpbmcgdGhlIHJlYXNvbiB3aHkgdGhpcyBpcyB1c2Vm
-dWwsIGluIHRoZSBmb2xsb3ctdXAgdG8gWzFdKS4KCi1Ub2tlCgpfX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3Rz
-LmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9j
-YWtlCg==
+--===============2049050327775374477==
+Content-Type: multipart/signed; boundary="Sig_/alJaYiBnMbJbkGX8ASSTb5n";
+ protocol="application/pgp-signature"; micalg=pgp-sha256
+
+--Sig_/alJaYiBnMbJbkGX8ASSTb5n
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+On Wed, 6 Dec 2023 23:49:14 +0100
+Michal Koutn=C3=BD <mkoutny@suse.com> wrote:
+
+> On Wed, Dec 06, 2023 at 02:28:57PM -0800, Stephen Hemminger <stephen@netw=
+orkplumber.org> wrote:
+> > It is not clear to me what this patchset is trying to fix.
+> > Autoloading happens now, but it does depend on the name not alias. =20
+>=20
+> There are some more details in the thread of v1 [1] [2].
+> Does it clarify?
+>=20
+> Thanks,
+> Michal
+>=20
+> [1] https://lore.kernel.org/r/yerqczxbz6qlrslkfbu6u2emb5esqe7tkrexdbneite=
+2ah2a6i@l6arp7nzyj75/
+> [2] Oh, I realize I forgot to add v2 to today's posting.
+>=20
+>=20
+
+So your using blacklist as workaround security method and the name confuses=
+ it now.
+
+--Sig_/alJaYiBnMbJbkGX8ASSTb5n
+Content-Type: application/pgp-signature
+Content-Description: OpenPGP digital signature
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAEBCAAdFiEEn2/DRbBb5+dmuDyPgKd/YJXN5H4FAmVxCgEACgkQgKd/YJXN
+5H4msQ//bQpRE8MaxhEFPjgk6hhxd+8VBX3AF8SYclV67kaBLPnORN58blvGFVpR
+jt+gbHGMyENxE3KXzowiyHcYayDrBJz3IswSKiFZgGTFiUZegH6/mwpfEZ77qd9R
+II5Lqwc65AJWOlLvCXICUhvdCrAbyoIV+Draa6QZAz3hYILjXfVgDbIi1O7WI0S5
+EcoyKP49Z3+TvakdNmgIV/XPkPQrbM6ipoeeYT1VUBhp2crFa68ISSjkjIlqDIhw
+324Px5bmpOWrQfHUjBZnWyPUZpseRfKMhnd1czTRa/mRIFsZRr77O8/2XFp7IdLN
+AMM1SuvfWj5jv8MSlR58Jf0/Us30X0ng4xAYIMx9ySFTqFK0sHN/84bgBermd/q6
+ZGGTQR6jeMJw9phnLF7DUfZRlgs8QnqJ6KoddTyI7mF7yMbVpTvyT5EdWxEf5duY
+IQf8b/ULKjsUankcEKQVM0hseAMEj0VTstA8bYiOpsrXPJGNenvOlp90E3hl/pBv
+pM2Em+CpsJBabfXfwDqV9TcgpA8oCHgcuI+oDjJhY5PjIWT7+obMQSDpILntdAIM
+UU28U81t1gl33s8XKcpNDGW9KUJv6j0/CUPX91FkWArt6DgF8zvbMGkICgndTHJT
+6tBF/6G1G0mCvpdRPm133mx8j0SAA6dnJJvKM5fUjPikplpDoQo=
+=Lgtk
+-----END PGP SIGNATURE-----
+
+--Sig_/alJaYiBnMbJbkGX8ASSTb5n--
+
+--===============2049050327775374477==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============2049050327775374477==--
