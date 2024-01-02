@@ -2,70 +2,74 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 7B40E822327
-	for <lists+cake@lfdr.de>; Tue,  2 Jan 2024 22:15:34 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 7A9A0822337
+	for <lists+cake@lfdr.de>; Tue,  2 Jan 2024 22:24:24 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 648523CB47;
-	Tue,  2 Jan 2024 16:15:33 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 34FE63CB48;
+	Tue,  2 Jan 2024 16:24:23 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1704230133;
-	bh=VtWbqPKx7kWn8HplRWzVDxCYYEBuL8dMCvQkXHFk+SQ=;
-	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1704230663;
+	bh=WQeMWtqIA/qPDolryH1sASRmdyV0WQ8d4FkcrPBYXMg=;
+	h=In-Reply-To:Date:References:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=evpaiYYCLqsAIzMAs4uzy38L/cE01OMo5iBsFnXoJ+rHDUF90IRpNh//PBIVnarQb
-	 bGwHeNlRn1sn/iHySp6U8xjNIvKBgyVp7+4Q6KrTJdh/rFXp2hVJjiDZAWouOfbHjc
-	 Zcp1psCRWNcLNKI++iBLeueVSBJDTXRCobjNRJwfytnCE472FUsrZ+gwaCV/VitZDy
-	 +6x656dq6rHPTmJcDK7s+c8666D2J/jlaY1f2UPd+Mw80PNh5TlthGeXVMDq/81ZtL
-	 BMPyFMNVgROrqpif+HbXcg/gV7iXUAwiTcMO3GGOLv07viKLp1NyfYBeiVM9nlI/7C
-	 8XMQtgkZVq1fw==
+	b=k/jVcsHnsaOp4yECwjhf7n2uU8TV0qqjAZ7LkrbioLj8HZShL0Xy+Bgp8J614KJEr
+	 PO468yjVrhk5Bz9gRuXzSh/uVQcahj7e6echYQm/x5HoICTOGfhkaz5aI1/VapBzwv
+	 kogZl5C9tCswxWiIGpqRCwzPjNwV0dlQNS3nntO/V5oWjLig9iTPoZ7Lu6/uLvLgq4
+	 uPFr635kJEQ9MIK/qFHuVzuuYZ0EUyCrn1j4fdajTs7FcDuL4MQyAtUSvq+ZFK0FtZ
+	 oHj8CaN2yTaodGKYsHppH5TI4Fugc+JOwf5OEAXsTsBTEyUU+lgVgYFOMAi93OQ0Ri
+	 /4hGTD5iNPEsw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-oi1-x22c.google.com (mail-oi1-x22c.google.com
- [IPv6:2607:f8b0:4864:20::22c])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.15])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 2370E3CB40
- for <cake@lists.bufferbloat.net>; Tue,  2 Jan 2024 16:15:32 -0500 (EST)
-Received: by mail-oi1-x22c.google.com with SMTP id
- 5614622812f47-3bbd6e377ceso3640745b6e.1
- for <cake@lists.bufferbloat.net>; Tue, 02 Jan 2024 13:15:32 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1704230131; x=1704834931; darn=lists.bufferbloat.net;
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:from:to:cc:subject:date:message-id:reply-to;
- bh=Ym9FHOguljUNAmOUxyrOykSO1affUc0hrhU3+btst6I=;
- b=CerOKYfhJRwMXFIQ10HKo+z7X95pfqISYOyxLRvmc9ovw/4iNYqQcjFSSSwPr+jjRE
- hsy5yDUYOeqlXdJmCwiIQ/1DWYRULjUAlmtRDl+h+SMOiOdflbWhUCmJ/XgHarN3zneh
- Q6hD20aRV0ntoBE3iscxQgRW67xLd4+NR5Jg2K305kfAZ+bDr5EoiK9lyzwDGVbnsOmw
- GCJKn6C7kJGwJWwNsfzA2m8UNOeJmgHJMV+Jm7sk/X4dRHXJ3qk/w2OAV0bOhmqS1TS6
- AtgIEd6LwnH5caF72cqDjyH1sWboHuD5WSymnmggqdEd1Ak3Wfhloh4AmyLF8RuK2krw
- HQVg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1704230131; x=1704834931;
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=Ym9FHOguljUNAmOUxyrOykSO1affUc0hrhU3+btst6I=;
- b=U1imJL7zGj4bqiLA3A19y6DyuBD8vyAdpATbhqyzqeNFrusKRYMBuGOiwC5S0rz28Q
- YEbZvnWvPqhwuPfj7sgioCG7nKndsAP/mC33ALD4lz7bd86Jq0a1mIOwkhocIy366bW/
- nF3IFgC7LyCPBb3obMIkuKwKNxiO7I7z3v8YtCgHGVbK9EHJHcp7ckU2xydWYlgJrFHo
- nCi8E7xoa7nZFvhC3Gbcf1aG8ww5szQqhs6647JCMRqjVJwFC8oLdWfj8UR5tjMQIMDH
- vo6NlEu18gkEZ/mmXs/XaKnLHkEbw2eEjmBWbuRASYmrIqq+kao/dSM+qa5d7wJhgmeM
- 67Lg==
-X-Gm-Message-State: AOJu0Yw2AF4pxeQ+jhJwJv3ZLcr9mn5HdKOLuCCLV7DpesiiJ1h8GKrN
- 3MX2RiHGraeoPRAFO57/SBFn1juU0E5Qnl0bEAA=
-X-Google-Smtp-Source: AGHT+IHGDOD+ue/j19tRn4LfRoxStIjv/2aXzZur/lI11lL2oRKCK+XmVX+LMpT8ghgzvm5i+tAWg0opmYzoR/lYgz0=
-X-Received: by 2002:a05:6808:444a:b0:3bb:c73c:f83b with SMTP id
- ep10-20020a056808444a00b003bbc73cf83bmr16909656oib.21.1704230130525; Tue, 02
- Jan 2024 13:15:30 -0800 (PST)
-MIME-Version: 1.0
+ by lists.bufferbloat.net (Postfix) with ESMTPS id A80293CB40
+ for <cake@lists.bufferbloat.net>; Tue,  2 Jan 2024 16:24:21 -0500 (EST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=gmx.de; s=s31663417;
+ t=1704230659; x=1704835459; i=moeller0@gmx.de;
+ bh=w9AyeDWrNx0Uo6mW5GN/DPZ8hajVCnijWv5gHrOyNSQ=;
+ h=X-UI-Sender-Class:Subject:From:In-Reply-To:Date:Cc:References:
+ To;
+ b=McPHROdgfnTmzUrkRi6Nl6mIQzqN2odgP37Pwg4bfQtR1v3BNyuMqCPRxIvUa06N
+ EFP4vfFOJUJUm/Kq2cwMrUgm/qhSuDVkO9Q+NnTMevcM1sE60a9dIQH6Jou46Qohs
+ 1JpTnKv5Z9KSBxYY7DvqyJwfIdFK516PtA2WxCwxCTTrJKbzupKUZiofQm7NnkFan
+ k60Eqw5rw/8pHGl0kdL0WraCFbhk4Lj5B5ixz8ezFfQeb/ckuVX9Ip16L7StK/QCX
+ 7HJK4smXdtXN7B3BD4r/cZYYtYSZqkaziUVB1QgSWb3xoD0xxQDl9VJhIWDkC3nPF
+ rtOTGJD2YRWp7kKz2w==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from smtpclient.apple ([77.0.67.13]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MAONd-1rWYUi2zPv-00BwYf; Tue, 02
+ Jan 2024 22:24:19 +0100
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3696.120.41.1.4\))
+In-Reply-To: <CANypexQ6NpwV0onwFeOugogc+H7yCa03SNOJcC3OyZQGc8KRDQ@mail.gmail.com>
+Date: Tue, 2 Jan 2024 22:24:18 +0100
+Message-Id: <BED97C84-971D-4E7D-948E-888D3ED95DC6@gmx.de>
 References: <CANypexRYDqtsuj2vwX0qXWA=hXN3KZ5CJn5+vZRbm=Dikwh1Aw@mail.gmail.com>
  <FDEBFF40-7805-41A4-888C-C2E9DB9D7301@gmx.de>
-In-Reply-To: <FDEBFF40-7805-41A4-888C-C2E9DB9D7301@gmx.de>
-Date: Tue, 2 Jan 2024 13:15:18 -0800
-Message-ID: <CANypexQ6NpwV0onwFeOugogc+H7yCa03SNOJcC3OyZQGc8KRDQ@mail.gmail.com>
-To: Sebastian Moeller <moeller0@gmx.de>
+ <CANypexQ6NpwV0onwFeOugogc+H7yCa03SNOJcC3OyZQGc8KRDQ@mail.gmail.com>
+To: dave seddon <dave.seddon.ca@gmail.com>
+X-Mailer: Apple Mail (2.3696.120.41.1.4)
+X-Provags-ID: V03:K1:8uKPda/kwhWH+kzK0NKIrZ4zmr4PLW5bV4Mfye2q7bpFmSwYiCI
+ aWKeBKJkUu0FEYNykA8DotTEYuCwbE5s4reYj4hRfDe+hkepsno8iIvtx2eUaI/XmeU9/83
+ okajCgZuSQi8BY+2LKi/JPXvlrkHQhC/zmJ67QVZeqGxg9b18skJUV4lY1wToDB+DN1WPiw
+ uVjeFEIXOmzhjidbcc7HQ==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:Q+9m+EGEt8g=;Y7xo1jpNK8yokeJfhczclrpZcWN
+ iSi8mTf19+1no0au9pwt30ppU4REe6t5x3LqJ0+m0G9EakUwDaG6HESx2BT38zKALz7U6N6h+
+ W95eTy8JOd8r5Qy2mpQRLYRo/XUfFZpsgXG6YizKOgxtWUyolLq2MDLTkbos9K+3eBfMKs3SN
+ GWQzH+7WxXREn69oY+isTROYULyqJxlBqbE/FVQbCkcrgFs/NhACIIjo+LYzXv2Dljyh6DQhr
+ v4agElLjLRZJNMdeSAremk2uNZOfxbs62FOtyF6VZScIKRlggW7JMcNsEajeNXon7eHKbIMIA
+ L4+BuZ6ryWquH1aZpQ0BsxXnSsvAOI87tD/pMwDFjFzdwHTISzKvPHIT98EQ9N571F28X3DOg
+ QUKqM0Nq/puOoRUDoHS71zlz73hXgidykSstavzvjmqS23H80Kh2ciM9EJLIXHh+YEwm/8Q5n
+ 51GzUR8OWef6IAvM9VTLlTrGFlWrJsto1/tHBvvAdtMrTYIt/vqx92FYVRpWI7wGNtI2xES7Z
+ R6ecN0mC9qaGA6sgP26gkxLm4YN5zV6XIw3CGsRoHYvDm7B1vu3JSyTeBtvHf2D1eabqGmJ3U
+ vbgpGv872iMxjxY5KEz3xprPs6wP5PCj/5P0aAeWPlvjInoNCYL0MK/OtOS0/ES7zjnfCFvVt
+ nN6JqRbe9OII53SWrcFWebTSxbGR9w6W3c4MKjspGh2ZdlcQYtMcyx35MwIOwp8CbsyMYhpIq
+ 58wf/glnyL1v4i1r5nTCiUf4AG/oWolHFsX5Z3wpFskbakKlnsZD072F2dX2ZEqW/LGQbFBTy
+ zAkD9GQBICr+6+xLrXK/dBuX8KQmp+5QCtaKmmFs/pc83bEBmfmwXFfDOmhMgFH6+fMQYwiqv
+ TC4yf86vItlSnUTYwGbobUlwJOucdCg9n7BukB43PucyH7b2cpCBuAnzn+vrQiez97azBdPbh
+ 9tGjtZnHmHtPj095U9S6h0KZ4Gk=
 Subject: Re: [Cake] Ubiquity (Unifi ) Smart Queues
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -78,1142 +82,329 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: dave seddon via Cake <cake@lists.bufferbloat.net>
-Reply-To: dave seddon <dave.seddon.ca@gmail.com>
+From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
+Reply-To: Sebastian Moeller <moeller0@gmx.de>
 Cc: Cake List <cake@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============8604284849978460909=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8604284849978460909==
-Content-Type: multipart/related; boundary="0000000000008c2733060dfcff90"
-
---0000000000008c2733060dfcff90
-Content-Type: multipart/alternative; boundary="0000000000008c2733060dfcff8f"
-
---0000000000008c2733060dfcff8f
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Thanks Sebastian!
-
-Now I see the rates!!
-
-I actually reduced the rates to ensure this device is the bottleneck 80/10
-Mb/s
-
-[image: image.png]
-
-root@USG-Pro-4:~# tc -d class show dev eth2
-class htb 1:10 root leaf 100: prio 0 quantum 118750 rate 9500Kbit ceil
-9500Kbit burst 1598b/1 mpu 0b overhead 0b cburst 1598b/1 mpu 0b overhead 0b
-level 0
-class fq_codel 100:12c parent 100:
-class fq_codel 100:213 parent 100:
-class fq_codel 100:22e parent 100:
-
-root@USG-Pro-4:~# tc -d class show dev ifb_eth2
-class htb 1:10 root leaf 100: prio 0 quantum 200000 rate 76000Kbit ceil
-76000Kbit burst 1596b/1 mpu 0b overhead 0b cburst 1596b/1 mpu 0b overhead
-0b level 0
-class fq_codel 100:2c8 parent 100:
-class fq_codel 100:3df parent 100:
-
-On Tue, Jan 2, 2024 at 12:53=E2=80=AFPM Sebastian Moeller <moeller0@gmx.de>=
- wrote:
-
-> Hi Dave.
->
-> just a few comments from the peanut gallery...
->
->
-> > On Jan 2, 2024, at 19:59, dave seddon via Cake <
-> cake@lists.bufferbloat.net> wrote:
-> >
-> > G'day,
-> >
-> > Happy new year y'all
->
-> +1
->
-> >
-> > I thought people might be interested to see what Ubiquity/Unifi is doin=
-g
-> with "Smart Queues" on their devices.  The documentation on their website
-> is not very informative.
-> >
-> > Hopefully, this is vaguely interesting because Ubiquity is widely
-> deployed and apparently they have a market cap of >$8 billion, so you wou=
-ld
-> hope they do a "good job" (... Seems like they might be a target customer
-> for libreqos )
-> >
-> > <image.png>
-> > https://finance.yahoo.com/quote/ui/
-> >
-> > ( I use Unifi because their wifi stuff seems ok, and all the
-> switching/routing/wifi is all integrated into the single gui control
-> system.  Also honestly, I'm not sure I know how to do prefix delegation
-> stuff on Linux by hand. )
-> >
-> > Network diagram
-> >
-> > Spectrum Cable Internets <----------> Eth2 [ USG-Pro-4 ] Eth0 <--->
-> [Switches] <----> Access points
-> >
-> > "Smart Queue" Configuration
-> > Ubiquity doesn't have many knobs, you just enable "smart queues" and se=
-t
-> the bandwidth.
-> >
-> >
-> >
-> >
-> > "Smart Queue" Implementation
-> >
-> > Looks like they only apply tc qdiscs to the Eth2, and sadly this is NOT
-> cake, but fq_codel.
-> >
-> > And cake isn't available :(
-> >
-> > root@USG-Pro-4:~# tc qdisc replace dev eth0 cake bandwidth 100m rtt 20m=
-s
-> > Unknown qdisc "cake", hence option "bandwidth" is unparsable
-> >
-> > Outbound eth2
-> >
-> > root@USG-Pro-4:~# tc -p -s -d qdisc show dev eth2
-> > qdisc htb 1: root refcnt 2 r2q 10 default 10 direct_packets_stat 0 ver
-> 3.17
-> >  Sent 1071636465 bytes 5624944 pkt (dropped 0, overlimits 523078
-> requeues 0)  <---- OVERLIMITS?
-> >  backlog 0b 0p requeues 0
-> > qdisc fq_codel 100: parent 1:10 limit 10240p flows 1024 quantum 1514
-> target 5.0ms interval 100.0ms ecn
-> >  Sent 1071636465 bytes 5624944 pkt (dropped 2384, overlimits 0 requeues
-> 0)       <----- DROPS
-> >  backlog 0b 0p requeues 0
-> >   maxpacket 1514 drop_overlimit 0 new_flow_count 1244991 ecn_mark 0
-> >   new_flows_len 1 old_flows_len 1
-> > qdisc ingress ffff: parent ffff:fff1 ----------------
-> >  Sent 12636045136 bytes 29199533 pkt (dropped 0, overlimits 0 requeues
-> 0)
-> >  backlog 0b 0p requeues 0
-> >       =E2=80=A2 target 5.0ms is the default (
-> https://www.man7.org/linux/man-pages/man8/tc-fq_codel.8.html ).  I wonder
-> if they did much testing on this hardware?
->
-> [SM] Not sure whether playing with target in isolation would be much use,
-> in codel theory target should be 5-10% of interval ans interval should be
-> in the order of magnitude of to be handled RTTs (the default is 100ms wic=
-h
-> works reasonably well even across the Atlantic, but you probably knew all
-> that).
->
-> >               =E2=80=A2 ( I actually have a spare "wan" ethernet port, =
-so I
-> guess I could hook up a PC and perform a flent test. )
-> >       =E2=80=A2 It's unclear to me what the "htb" is doing, because I w=
-ould have
-> expected the download/upload rates to be configured here, but they appear
-> not to be
->
-> [SM] Likely because HTB does not reveal this when asked with the `-s`
-> option, try `-q` instead and not as qdisc but as class (so maybe `tc -d
-> class show dev eth2`).
->
-> >       =E2=80=A2 I'm not really sure what "overlimits" means or what tha=
-t does,
-> and tried looking this up, but I guess the kernel source is likely the
-> "best" documentation for this.  Maybe this means it's dropping?  Or is it
-> ECN?
->
-> I think this text about TBF explains this reasonably well (HTB is
-> essentially a hierarchical version of TBF):
->
-> see: https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.qdisc.classless.html
->
-> 9.2.2. Token Bucket Filter
->
-> The Token Bucket Filter (TBF) is a simple qdisc that only passes packets
-> arriving at a rate which is not exceeding some administratively set rate,
-> but with the possibility to allow short bursts in excess of this rate.
->
-> TBF is very precise, network- and processor friendly. It should be your
-> first choice if you simply want to slow an interface down!
->
-> The TBF implementation consists of a buffer (bucket), constantly filled b=
-y
-> some virtual pieces of information called tokens, at a specific rate (tok=
-en
-> rate). The most important parameter of the bucket is its size, that is th=
-e
-> number of tokens it can store.
->
-> Each arriving token collects one incoming data packet from the data queue
-> and is then deleted from the bucket. Associating this algorithm with the
-> two flows -- token and data, gives us three possible scenarios:
->
->         =E2=80=A2 The data arrives in TBF at a rate that's equal to the r=
-ate of
-> incoming tokens. In this case each incoming packet has its matching token
-> and passes the queue without delay.
->
->         =E2=80=A2 The data arrives in TBF at a rate that's smaller than t=
-he token
-> rate. Only a part of the tokens are deleted at output of each data packet
-> that's sent out the queue, so the tokens accumulate, up to the bucket siz=
-e.
-> The unused tokens can then be used to send data a a speed that's exceedin=
-g
-> the standard token rate, in case short data bursts occur.
->
->         =E2=80=A2 The data arrives in TBF at a rate bigger than the token=
- rate.
-> This means that the bucket will soon be devoid of tokens, which causes th=
-e
-> TBF to throttle itself for a while. This is called an 'overlimit
-> situation'. If packets keep coming in, packets will start to get dropped.
->
-> The last scenario is very important, because it allows to administrativel=
-y
-> shape the bandwidth available to data that's passing the filter.
->
-> The accumulation of tokens allows a short burst of overlimit data to be
-> still passed without loss, but any lasting overload will cause packets to
-> be constantly delayed, and then dropped.
->
-> Please note that in the actual implementation, tokens correspond to bytes=
-,
-> not packets.
->
->
-> >
-> > Inbound eth2 via ifb
-> >
-> > root@USG-Pro-4:~# tc -p -s -d qdisc show dev ifb_eth2
-> > qdisc htb 1: root refcnt 2 r2q 10 default 10 direct_packets_stat 0 ver
-> 3.17
-> >  Sent 13029810569 bytes 29185742 pkt (dropped 0, overlimits 14774339
-> requeues 0)   <---- OVERLIMITS?
-> >  backlog 0b 0p requeues 0
-> > qdisc fq_codel 100: parent 1:10 limit 10240p flows 1024 quantum 1514
-> target 5.0ms interval 100.0ms ecn
-> >  Sent 13029810569 bytes 29185742 pkt (dropped 10688, overlimits 0
-> requeues 0)  <---- WOW.  DROPS!!
-> >  backlog 0b 0p requeues 0
-> >   maxpacket 1514 drop_overlimit 0 new_flow_count 2256895 ecn_mark 0
-> >   new_flows_len 0 old_flows_len 2
-> >
-> > Apparently rather than applying the tc qdsic on the outbound path on th=
-e
-> LAN side ( eth0 ), they are applying it inbound on the the eth2 via
-> ifb_eth2.
->
-> [SM] Same approach that sqm-scripts takes, if you attach the ingress
-> shaper to the LAN port egress all internet traffic not traversing that
-> interface will not be shaped, e.g. traffic to/from the router itself or
-> WiFi traffic. If you are sure that such by-pass traffic does not exist,
-> putting the ingress shaper on lan-egress can save the cost of the ifb
-> indirection, but for full WiFi routers that is generally not true.
->
->
-> > Initially, I was pretty surprised to see so many drops on the inbound
-> path, but maybe this is actually normal?
->
-> [SM] Depends on your traffic and whether ECN is used or not. In your case
-> it appears ECN is not used and then DROPS are the only way fq_codel can
-> tell a flow to step on the brakes....
->
-> >
-> > I could imagine the upstream CDNs pushing pretty hard with low RTTs, bu=
-t
-> I would probably have expected the bottlenecks to form at the access
-> points. e.g. It's gigabit all the way until it reaches the air interface =
-of
-> the access points.  .... Or do I have a problem in my LAN network?
->
-> [SM] The idea is to create an artificial bittleneck (using HTB) so the
-> most relevant queue is under AQM control...
->
-> >
-> > I wonder if I can log into the access points to look at them too?....
-> >
-> > ( BTW - to get to root on these devices you can SSH in as an "admin"
-> users, and then just "sudo su" )
-> >
-> > ifconfig
-> >
-> > root@USG-Pro-4:~# ifconfig -a
-> > eth0      Link encap:Ethernet  HWaddr fc:ec:da:d1:1b:9f
-> >           inet addr:172.16.50.1  Bcast:172.16.50.255  Mask:255.255.255.=
-0
-> >           inet6 addr: [SNIP]:feec:daff:fed1:1b9f/64 Scope:Global
-> >           inet6 addr: fe80::feec:daff:fed1:1b9f/64 Scope:Link
-> >           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-> >           RX packets:11343139 errors:0 dropped:0 overruns:0 frame:0
-> >           TX packets:21614272 errors:0 dropped:0 overruns:0 carrier:0
-> >           collisions:0 txqueuelen:0
->   <---- queue len 0? Maybe this is a driver issue?
-> >           RX bytes:2047750597 (1.9 GiB)  TX bytes:23484692545 (21.8 GiB=
-)
-> >
-> > eth1      Link encap:Ethernet  HWaddr fc:ec:da:d1:1b:a0
-> >           inet addr:172.16.51.1  Bcast:172.16.51.255  Mask:255.255.255.=
-0
-> >           inet6 addr: fe80::feec:daff:fed1:1ba0/64 Scope:Link
-> >           inet6 addr: [SNIP]:daff:fed1:1ba0/64 Scope:Global
-> >           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-> >           RX packets:154930 errors:0 dropped:0 overruns:0 frame:0
-> >           TX packets:233294 errors:0 dropped:0 overruns:0 carrier:0
-> >           collisions:0 txqueuelen:0
-> >           RX bytes:32255162 (30.7 MiB)  TX bytes:116504400 (111.1 MiB)
-> >
-> > eth2      Link encap:Ethernet  HWaddr fc:ec:da:d1:1b:a1
-> >           inet addr:172.88.[SNIP]  Bcast:255.255.255.255
-> Mask:255.255.240.0
-> >           inet6 addr: [SNIP]:d474:3d71/128 Scope:Global
-> >           inet6 addr: fe80::feec:daff:fed1:1ba1/64 Scope:Link
-> >           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-> >           RX packets:60912335 errors:0 dropped:0 overruns:0 frame:0
-> >           TX packets:10546508 errors:0 dropped:0 overruns:0 carrier:0
-> >           collisions:0 txqueuelen:0
-> >           RX bytes:26087920038 (24.2 GiB)  TX bytes:1892854725 (1.7 GiB=
-)
-> >
-> > eth3      Link encap:Ethernet  HWaddr fc:ec:da:d1:1b:a2
-> >           BROADCAST MULTICAST  MTU:1500  Metric:1
-> >           RX packets:0 errors:0 dropped:0 overruns:0 frame:0
-> >           TX packets:0 errors:0 dropped:0 overruns:0 carrier:0
-> >           collisions:0 txqueuelen:0
-> >           RX bytes:0 (0.0 B)  TX bytes:0 (0.0 B)
-> >
-> > eth0.20   Link encap:Ethernet  HWaddr fc:ec:da:d1:1b:9f
-> >           inet addr:172.16.60.1  Bcast:172.16.60.255  Mask:255.255.255.=
-0
-> >           inet6 addr: [SNIP]:daff:fed1:1b9f/64 Scope:Global
-> >           inet6 addr: fe80::feec:daff:fed1:1b9f/64 Scope:Link
-> >           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-> >           RX packets:782123 errors:0 dropped:0 overruns:0 frame:0
-> >           TX packets:480343 errors:0 dropped:0 overruns:0 carrier:0
-> >           collisions:0 txqueuelen:0
-> >           RX bytes:60600161 (57.7 MiB)  TX bytes:108372413 (103.3 MiB)
-> >
-> > eth0.40   Link encap:Ethernet  HWaddr fc:ec:da:d1:1b:9f
-> >           inet addr:172.16.40.1  Bcast:172.16.40.255  Mask:255.255.255.=
-0
-> >           inet6 addr: [SNIP]:daff:fed1:1b9f/64 Scope:Global
-> >           inet6 addr: fe80::feec:daff:fed1:1b9f/64 Scope:Link
-> >           UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
-> >           RX packets:2695 errors:0 dropped:0 overruns:0 frame:0
-> >           TX packets:194291 errors:0 dropped:0 overruns:0 carrier:0
-> >           collisions:0 txqueuelen:0
-> >           RX bytes:123970 (121.0 KiB)  TX bytes:42370172 (40.4 MiB)
-> >
-> > ifb_eth2  Link encap:Ethernet  HWaddr de:ed:87:85:80:27
-> >           inet6 addr: fe80::dced:87ff:fe85:8027/64 Scope:Link
-> >           UP BROADCAST RUNNING NOARP  MTU:1500  Metric:1
-> >           RX packets:29656324 errors:0 dropped:2531 overruns:0 frame:0
-> >           TX packets:29653793 errors:0 dropped:0 overruns:0 carrier:0
-> >           collisions:0 txqueuelen:32
->  <----- queue len 32?  Curious
-> >           RX bytes:13086765284 (12.1 GiB)  TX bytes:13086264146 (12.1
-> GiB)
-> >
-> >
-> > System info
-> >
-> > This has a prehistoric kernel, I guess because they have some stuff tha=
-t
-> taints the kernel
-> >
-> > root@USG-Pro-4:~# uname -a
-> > Linux USG-Pro-4 3.10.107-UBNT #1 SMP Thu Jan 12 08:30:03 UTC 2023 mips6=
-4
-> GNU/Linux
->
-> [SM] I remember the time we felt great about using a series 3 kernel
-> instead of old series 2 gunk, but upstream is at series 6 by now (but it
-> also started to increase major numbers more aggressively after series 2)
->
-> >
-> > root@USG-Pro-4:~# cat /var/log/dmesg | grep taint
-> > ubnt_platform: module license 'Proprietary' taints kernel.
-> > Disabling lock debugging due to kernel taint
-> >
-> > I also notice this module, but I'm not sure it is in use.
-> > /lib/modules/3.10.107-UBNT/kernel/net/netfilter/xt_rateest.ko
-> >
-> >
-> > root@USG-Pro-4:~# cat /proc/cpuinfo
-> > system type : UBNT_E220
-> > machine : Unknown
-> > processor : 0
-> > cpu model : Cavium Octeon II V0.1
-> > BogoMIPS : 2000.00
-> > wait instruction : yes
-> > microsecond timers : yes
-> > tlb_entries : 128
-> > extra interrupt vector : yes
-> > hardware watchpoint : yes, count: 2, address/irw mask: [0x0ffc, 0x0ffb]
-> > isa : mips1 mips2 mips3 mips4 mips5 mips64r2
-> > ASEs implemented :
-> > shadow register sets : 1
-> > kscratch registers : 3
-> > core : 0
-> > VCED exceptions : not available
-> > VCEI exceptions : not available
-> >
-> > processor : 1
-> > cpu model : Cavium Octeon II V0.1
-> > BogoMIPS : 2000.00
-> > wait instruction : yes
-> > microsecond timers : yes
-> > tlb_entries : 128
-> > extra interrupt vector : yes
-> > hardware watchpoint : yes, count: 2, address/irw mask: [0x0ffc, 0x0ffb]
-> > isa : mips1 mips2 mips3 mips4 mips5 mips64r2
-> > ASEs implemented :
-> > shadow register sets : 1
-> > kscratch registers : 3
-> > core : 1
-> > VCED exceptions : not available
-> > VCEI exceptions : not available
-> >
-> >
-> >
-> > root@USG-Pro-4:~# ethtool -i eth2
-> > driver: octeon-ethernet
-> > version: 2.0
-> > firmware-version:
-> > bus-info: Builtin
-> > supports-statistics: no
-> > supports-test: no
-> > supports-eeprom-access: no
-> > supports-register-dump: no
-> > supports-priv-flags: no
-> >
-> > root@USG-Pro-4:~# ethtool -S eth2
-> > no stats available
-> >
-> > ( Oh great! Thanks guys! )
-> >
-> > root@USG-Pro-4:~# netstat -ia
-> > Kernel Interface table
-> > Iface   MTU Met   RX-OK RX-ERR RX-DRP RX-OVR    TX-OK TX-ERR TX-DRP
-> TX-OVR Flg
-> > eth0       1500 0  11340913      0      0 0      21612063      0      0
->     0 BMRU
-> > eth1       1500 0    154902      0      0 0        233236      0      0
->     0 BMRU
-> > eth2       1500 0  60898610      0      0 0      10544414      0      0
->     0 BMRU
-> > eth3       1500 0         0      0      0 0             0      0      0
->     0 BM
-> > eth0.20    1500 0    781992      0      0 0        480214      0      0
->     0 BMRU
-> > eth0.40    1500 0      2695      0      0 0        194260      0      0
->     0 BMRU
-> > ifb_eth2   1500 0  29642598      0   2530 0      29640068      0      0
->     0 BORU   <---- RX drops?
-> > imq0      16000 0         0      0      0 0             0      0      0
->     0 ORU
-> > lo        65536 0      9255      0      0 0          9255      0      0
->     0 LRU
-> > loop0      1500 0         0      0      0 0             0      0      0
->     0 BM
-> > loop1      1500 0         0      0      0 0             0      0      0
->     0 BM
-> > loop2      1500 0         0      0      0 0             0      0      0
->     0 BM
-> > loop3      1500 0         0      0      0 0             0      0      0
->     0 BM
-> > npi0       1500 0         0      0      0 0             0      0      0
->     0 BM
-> > npi1       1500 0         0      0      0 0             0      0      0
->     0 BM
-> > npi2       1500 0         0      0      0 0             0      0      0
->     0 BM
-> > npi3       1500 0         0      0      0 0             0      0      0
->     0 BM
-> >
-> > root@USG-Pro-4:/opt/vyatta/etc# cat version
-> > Version:      v4.4.57.5578372.230112.0824
-> >
-> > --
-> > Regards,
-> > Dave Seddon
-> > _______________________________________________
-> > Cake mailing list
-> > Cake@lists.bufferbloat.net
-> > https://lists.bufferbloat.net/listinfo/cake
->
->
-
---=20
-Regards,
-Dave Seddon
-+1 415 857 5102
-
---0000000000008c2733060dfcff8f
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div>Thanks Sebastian!</div><div><br></div><div>Now I see =
-the rates!!<br></div><div><br></div><div>I actually reduced the rates to en=
-sure this device is the bottleneck 80/10 Mb/s<br></div><div><br></div><div>=
-<img src=3D"cid:ii_lqwuczo60" alt=3D"image.png" width=3D"571" height=3D"64"=
-></div><div><span style=3D"font-family:monospace"><br></span></div><div><sp=
-an style=3D"font-family:monospace">root@USG-Pro-4:~# tc -d class show dev e=
-th2<br>class htb 1:10 root leaf 100: prio 0 quantum 118750 rate 9500Kbit ce=
-il 9500Kbit burst 1598b/1 mpu 0b overhead 0b cburst 1598b/1 mpu 0b overhead=
- 0b level 0 <br>class fq_codel 100:12c parent 100: <br>class fq_codel 100:2=
-13 parent 100: <br>class fq_codel 100:22e parent 100: <br></span></div><div=
-><span style=3D"font-family:monospace"><br></span></div><div><span style=3D=
-"font-family:monospace">root@USG-Pro-4:~# tc -d class show dev ifb_eth2<br>=
-class htb 1:10 root leaf 100: prio 0 quantum 200000 rate 76000Kbit ceil 760=
-00Kbit burst 1596b/1 mpu 0b overhead 0b cburst 1596b/1 mpu 0b overhead 0b l=
-evel 0 <br>class fq_codel 100:2c8 parent 100: <br>class fq_codel 100:3df pa=
-rent 100: </span></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr=
-" class=3D"gmail_attr">On Tue, Jan 2, 2024 at 12:53=E2=80=AFPM Sebastian Mo=
-eller &lt;<a href=3D"mailto:moeller0@gmx.de">moeller0@gmx.de</a>&gt; wrote:=
-<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8=
-ex;border-left:1px solid rgb(204,204,204);padding-left:1ex">Hi Dave.<br>
-<br>
-just a few comments from the peanut gallery...<br>
-<br>
-<br>
-&gt; On Jan 2, 2024, at 19:59, dave seddon via Cake &lt;<a href=3D"mailto:c=
-ake@lists.bufferbloat.net" target=3D"_blank">cake@lists.bufferbloat.net</a>=
-&gt; wrote:<br>
-&gt; <br>
-&gt; G&#39;day,<br>
-&gt; <br>
-&gt; Happy new year y&#39;all<br>
-<br>
-+1<br>
-<br>
-&gt; <br>
-&gt; I thought people might be interested to see what Ubiquity/Unifi is doi=
-ng with &quot;Smart Queues&quot; on their devices.=C2=A0 The documentation =
-on their website is not very informative.<br>
-&gt; <br>
-&gt; Hopefully, this is vaguely interesting because Ubiquity is widely depl=
-oyed and apparently they have a market cap of &gt;$8 billion, so you would =
-hope they do a &quot;good job&quot; (... Seems like they might be a target =
-customer for libreqos )<br>
-&gt; <br>
-&gt; &lt;image.png&gt;<br>
-&gt; <a href=3D"https://finance.yahoo.com/quote/ui/" rel=3D"noreferrer" tar=
-get=3D"_blank">https://finance.yahoo.com/quote/ui/</a><br>
-&gt; <br>
-&gt; ( I use Unifi because their wifi stuff seems ok, and all the switching=
-/routing/wifi is all integrated into the single gui control system.=C2=A0 A=
-lso honestly, I&#39;m not sure I know how to do prefix delegation stuff on =
-Linux by hand. )<br>
-&gt; <br>
-&gt; Network diagram<br>
-&gt; <br>
-&gt; Spectrum Cable Internets &lt;----------&gt; Eth2 [ USG-Pro-4 ] Eth0 &l=
-t;---&gt; [Switches] &lt;----&gt; Access points<br>
-&gt; <br>
-&gt; &quot;Smart Queue&quot; Configuration<br>
-&gt; Ubiquity doesn&#39;t have many knobs, you just enable &quot;smart queu=
-es&quot; and set the bandwidth.<br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; &quot;Smart Queue&quot; Implementation<br>
-&gt; <br>
-&gt; Looks like they only apply tc qdiscs to the Eth2, and sadly this is NO=
-T cake, but fq_codel.<br>
-&gt; <br>
-&gt; And cake isn&#39;t available :(<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# tc qdisc replace dev eth0 cake bandwidth 100m rtt 20=
-ms<br>
-&gt; Unknown qdisc &quot;cake&quot;, hence option &quot;bandwidth&quot; is =
-unparsable<br>
-&gt; <br>
-&gt; Outbound eth2<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# tc -p -s -d qdisc show dev eth2<br>
-&gt; qdisc htb 1: root refcnt 2 r2q 10 default 10 direct_packets_stat 0 ver=
- 3.17<br>
-&gt;=C2=A0 Sent 1071636465 bytes 5624944 pkt (dropped 0, overlimits 523078 =
-requeues 0)=C2=A0 &lt;---- OVERLIMITS?<br>
-&gt;=C2=A0 backlog 0b 0p requeues 0 <br>
-&gt; qdisc fq_codel 100: parent 1:10 limit 10240p flows 1024 quantum 1514 t=
-arget 5.0ms interval 100.0ms ecn <br>
-&gt;=C2=A0 Sent 1071636465 bytes 5624944 pkt (dropped 2384, overlimits 0 re=
-queues 0)=C2=A0 =C2=A0 =C2=A0 =C2=A0&lt;----- DROPS<br>
-&gt;=C2=A0 backlog 0b 0p requeues 0 <br>
-&gt;=C2=A0 =C2=A0maxpacket 1514 drop_overlimit 0 new_flow_count 1244991 ecn=
-_mark 0<br>
-&gt;=C2=A0 =C2=A0new_flows_len 1 old_flows_len 1<br>
-&gt; qdisc ingress ffff: parent ffff:fff1 ---------------- <br>
-&gt;=C2=A0 Sent 12636045136 bytes 29199533 pkt (dropped 0, overlimits 0 req=
-ueues 0) <br>
-&gt;=C2=A0 backlog 0b 0p requeues 0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=80=A2 target 5.0ms is the default ( <a h=
-ref=3D"https://www.man7.org/linux/man-pages/man8/tc-fq_codel.8.html" rel=3D=
-"noreferrer" target=3D"_blank">https://www.man7.org/linux/man-pages/man8/tc=
--fq_codel.8.html</a> ).=C2=A0 I wonder if they did much testing on this har=
-dware?<br>
-<br>
-[SM] Not sure whether playing with target in isolation would be much use, i=
-n codel theory target should be 5-10% of interval ans interval should be in=
- the order of magnitude of to be handled RTTs (the default is 100ms wich wo=
-rks reasonably well even across the Atlantic, but you probably knew all tha=
-t).<br>
-<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=80=A2 ( I ac=
-tually have a spare &quot;wan&quot; ethernet port, so I guess I could hook =
-up a PC and perform a flent test. )<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=80=A2 It&#39;s unclear to me what the &q=
-uot;htb&quot; is doing, because I would have expected the download/upload r=
-ates to be configured here, but they appear not to be<br>
-<br>
-[SM] Likely because HTB does not reveal this when asked with the `-s` optio=
-n, try `-q` instead and not as qdisc but as class (so maybe `tc -d class sh=
-ow dev eth2`).<br>
-<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0=E2=80=A2 I&#39;m not really sure what &quot=
-;overlimits&quot; means or what that does, and tried looking this up, but I=
- guess the kernel source is likely the &quot;best&quot; documentation for t=
-his.=C2=A0 Maybe this means it&#39;s dropping?=C2=A0 Or is it ECN?<br>
-<br>
-I think this text about TBF explains this reasonably well (HTB is essential=
-ly a hierarchical version of TBF):<br>
-<br>
-see: <a href=3D"https://tldp.org/HOWTO/Adv-Routing-HOWTO/lartc.qdisc.classl=
-ess.html" rel=3D"noreferrer" target=3D"_blank">https://tldp.org/HOWTO/Adv-R=
-outing-HOWTO/lartc.qdisc.classless.html</a><br>
-<br>
-9.2.2. Token Bucket Filter<br>
-<br>
-The Token Bucket Filter (TBF) is a simple qdisc that only passes packets ar=
-riving at a rate which is not exceeding some administratively set rate, but=
- with the possibility to allow short bursts in excess of this rate.<br>
-<br>
-TBF is very precise, network- and processor friendly. It should be your fir=
-st choice if you simply want to slow an interface down!<br>
-<br>
-The TBF implementation consists of a buffer (bucket), constantly filled by =
-some virtual pieces of information called tokens, at a specific rate (token=
- rate). The most important parameter of the bucket is its size, that is the=
- number of tokens it can store.<br>
-<br>
-Each arriving token collects one incoming data packet from the data queue a=
-nd is then deleted from the bucket. Associating this algorithm with the two=
- flows -- token and data, gives us three possible scenarios:<br>
-<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =E2=80=A2 The data arrives in TBF at a rate tha=
-t&#39;s equal to the rate of incoming tokens. In this case each incoming pa=
-cket has its matching token and passes the queue without delay.<br>
-<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =E2=80=A2 The data arrives in TBF at a rate tha=
-t&#39;s smaller than the token rate. Only a part of the tokens are deleted =
-at output of each data packet that&#39;s sent out the queue, so the tokens =
-accumulate, up to the bucket size. The unused tokens can then be used to se=
-nd data a a speed that&#39;s exceeding the standard token rate, in case sho=
-rt data bursts occur.<br>
-<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =E2=80=A2 The data arrives in TBF at a rate big=
-ger than the token rate. This means that the bucket will soon be devoid of =
-tokens, which causes the TBF to throttle itself for a while. This is called=
- an &#39;overlimit situation&#39;. If packets keep coming in, packets will =
-start to get dropped.<br>
-<br>
-The last scenario is very important, because it allows to administratively =
-shape the bandwidth available to data that&#39;s passing the filter.<br>
-<br>
-The accumulation of tokens allows a short burst of overlimit data to be sti=
-ll passed without loss, but any lasting overload will cause packets to be c=
-onstantly delayed, and then dropped.<br>
-<br>
-Please note that in the actual implementation, tokens correspond to bytes, =
-not packets.<br>
-<br>
-<br>
-&gt; <br>
-&gt; Inbound eth2 via ifb<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# tc -p -s -d qdisc show dev ifb_eth2<br>
-&gt; qdisc htb 1: root refcnt 2 r2q 10 default 10 direct_packets_stat 0 ver=
- 3.17<br>
-&gt;=C2=A0 Sent 13029810569 bytes 29185742 pkt (dropped 0, overlimits 14774=
-339 requeues 0)=C2=A0 =C2=A0&lt;---- OVERLIMITS?<br>
-&gt;=C2=A0 backlog 0b 0p requeues 0 <br>
-&gt; qdisc fq_codel 100: parent 1:10 limit 10240p flows 1024 quantum 1514 t=
-arget 5.0ms interval 100.0ms ecn <br>
-&gt;=C2=A0 Sent 13029810569 bytes 29185742 pkt (dropped 10688, overlimits 0=
- requeues 0)=C2=A0 &lt;---- WOW.=C2=A0 DROPS!!<br>
-&gt;=C2=A0 backlog 0b 0p requeues 0 <br>
-&gt;=C2=A0 =C2=A0maxpacket 1514 drop_overlimit 0 new_flow_count 2256895 ecn=
-_mark 0<br>
-&gt;=C2=A0 =C2=A0new_flows_len 0 old_flows_len 2<br>
-&gt; <br>
-&gt; Apparently rather than applying the tc qdsic on the outbound path on t=
-he LAN side ( eth0 ), they are applying it inbound on the the eth2 via ifb_=
-eth2.<br>
-<br>
-[SM] Same approach that sqm-scripts takes, if you attach the ingress shaper=
- to the LAN port egress all internet traffic not traversing that interface =
-will not be shaped, e.g. traffic to/from the router itself or WiFi traffic.=
- If you are sure that such by-pass traffic does not exist, putting the ingr=
-ess shaper on lan-egress can save the cost of the ifb indirection, but for =
-full WiFi routers that is generally not true.<br>
-<br>
-<br>
-&gt; Initially, I was pretty surprised to see so many drops on the inbound =
-path, but maybe this is actually normal?<br>
-<br>
-[SM] Depends on your traffic and whether ECN is used or not. In your case i=
-t appears ECN is not used and then DROPS are the only way fq_codel can tell=
- a flow to step on the brakes....<br>
-<br>
-&gt; <br>
-&gt; I could imagine the upstream CDNs pushing pretty hard with low RTTs, b=
-ut I would probably have expected the bottlenecks to form at the access poi=
-nts. e.g. It&#39;s gigabit all the way until it reaches the air interface o=
-f the access points.=C2=A0 .... Or do I have a problem in my LAN network?<b=
-r>
-<br>
-[SM] The idea is to create an artificial bittleneck (using HTB) so the most=
- relevant queue is under AQM control...<br>
-<br>
-&gt; <br>
-&gt; I wonder if I can log into the access points to look at them too?....<=
-br>
-&gt; <br>
-&gt; ( BTW - to get to root on these devices you can SSH in as an &quot;adm=
-in&quot; users, and then just &quot;sudo su&quot; )<br>
-&gt; <br>
-&gt; ifconfig<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# ifconfig -a<br>
-&gt; eth0=C2=A0 =C2=A0 =C2=A0 Link encap:Ethernet=C2=A0 HWaddr fc:ec:da:d1:=
-1b:9f=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet addr:172.16.50.1=C2=A0 Bc=
-ast:172.16.50.255=C2=A0 Mask:255.255.255.0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: [SNIP]:feec:daff:f=
-ed1:1b9f/64 Scope:Global<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: fe80::feec:daff:fe=
-d1:1b9f/64 Scope:Link<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0UP BROADCAST RUNNING MULTICAST=
-=C2=A0 MTU:1500=C2=A0 Metric:1<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX packets:11343139 errors:0 d=
-ropped:0 overruns:0 frame:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0TX packets:21614272 errors:0 d=
-ropped:0 overruns:0 carrier:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0collisions:0 txqueuelen:0=C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &lt;---- que=
-ue len 0? Maybe this is a driver issue?=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX bytes:2047750597 (1.9 GiB)=
-=C2=A0 TX bytes:23484692545 (21.8 GiB)<br>
-&gt; <br>
-&gt; eth1=C2=A0 =C2=A0 =C2=A0 Link encap:Ethernet=C2=A0 HWaddr fc:ec:da:d1:=
-1b:a0=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet addr:172.16.51.1=C2=A0 Bc=
-ast:172.16.51.255=C2=A0 Mask:255.255.255.0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: fe80::feec:daff:fe=
-d1:1ba0/64 Scope:Link<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: [SNIP]:daff:fed1:1=
-ba0/64 Scope:Global<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0UP BROADCAST RUNNING MULTICAST=
-=C2=A0 MTU:1500=C2=A0 Metric:1<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX packets:154930 errors:0 dro=
-pped:0 overruns:0 frame:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0TX packets:233294 errors:0 dro=
-pped:0 overruns:0 carrier:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0collisions:0 txqueuelen:0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX bytes:32255162 (30.7 MiB)=
-=C2=A0 TX bytes:116504400 (111.1 MiB)<br>
-&gt; <br>
-&gt; eth2=C2=A0 =C2=A0 =C2=A0 Link encap:Ethernet=C2=A0 HWaddr fc:ec:da:d1:=
-1b:a1=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet addr:172.88.[SNIP]=C2=A0 =
-Bcast:255.255.255.255=C2=A0 Mask:255.255.240.0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: [SNIP]:d474:3d71/1=
-28 Scope:Global<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: fe80::feec:daff:fe=
-d1:1ba1/64 Scope:Link<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0UP BROADCAST RUNNING MULTICAST=
-=C2=A0 MTU:1500=C2=A0 Metric:1<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX packets:60912335 errors:0 d=
-ropped:0 overruns:0 frame:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0TX packets:10546508 errors:0 d=
-ropped:0 overruns:0 carrier:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0collisions:0 txqueuelen:0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX bytes:26087920038 (24.2 GiB=
-)=C2=A0 TX bytes:1892854725 (1.7 GiB)<br>
-&gt; <br>
-&gt; eth3=C2=A0 =C2=A0 =C2=A0 Link encap:Ethernet=C2=A0 HWaddr fc:ec:da:d1:=
-1b:a2=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0BROADCAST MULTICAST=C2=A0 MTU:=
-1500=C2=A0 Metric:1<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX packets:0 errors:0 dropped:=
-0 overruns:0 frame:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0TX packets:0 errors:0 dropped:=
-0 overruns:0 carrier:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0collisions:0 txqueuelen:0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX bytes:0 (0.0 B)=C2=A0 TX by=
-tes:0 (0.0 B)<br>
-&gt; <br>
-&gt; eth0.20=C2=A0 =C2=A0Link encap:Ethernet=C2=A0 HWaddr fc:ec:da:d1:1b:9f=
-=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet addr:172.16.60.1=C2=A0 Bc=
-ast:172.16.60.255=C2=A0 Mask:255.255.255.0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: [SNIP]:daff:fed1:1=
-b9f/64 Scope:Global<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: fe80::feec:daff:fe=
-d1:1b9f/64 Scope:Link<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0UP BROADCAST RUNNING MULTICAST=
-=C2=A0 MTU:1500=C2=A0 Metric:1<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX packets:782123 errors:0 dro=
-pped:0 overruns:0 frame:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0TX packets:480343 errors:0 dro=
-pped:0 overruns:0 carrier:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0collisions:0 txqueuelen:0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX bytes:60600161 (57.7 MiB)=
-=C2=A0 TX bytes:108372413 (103.3 MiB)<br>
-&gt; <br>
-&gt; eth0.40=C2=A0 =C2=A0Link encap:Ethernet=C2=A0 HWaddr fc:ec:da:d1:1b:9f=
-=C2=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet addr:172.16.40.1=C2=A0 Bc=
-ast:172.16.40.255=C2=A0 Mask:255.255.255.0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: [SNIP]:daff:fed1:1=
-b9f/64 Scope:Global<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: fe80::feec:daff:fe=
-d1:1b9f/64 Scope:Link<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0UP BROADCAST RUNNING MULTICAST=
-=C2=A0 MTU:1500=C2=A0 Metric:1<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX packets:2695 errors:0 dropp=
-ed:0 overruns:0 frame:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0TX packets:194291 errors:0 dro=
-pped:0 overruns:0 carrier:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0collisions:0 txqueuelen:0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX bytes:123970 (121.0 KiB)=C2=
-=A0 TX bytes:42370172 (40.4 MiB)<br>
-&gt; <br>
-&gt; ifb_eth2=C2=A0 Link encap:Ethernet=C2=A0 HWaddr de:ed:87:85:80:27=C2=
-=A0 <br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0inet6 addr: fe80::dced:87ff:fe=
-85:8027/64 Scope:Link<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0UP BROADCAST RUNNING NOARP=C2=
-=A0 MTU:1500=C2=A0 Metric:1<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX packets:29656324 errors:0 d=
-ropped:2531 overruns:0 frame:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0TX packets:29653793 errors:0 d=
-ropped:0 overruns:0 carrier:0<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0collisions:0 txqueuelen:32=C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0&lt;----- queue len 32?=C2=A0 Curi=
-ous<br>
-&gt;=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0RX bytes:13086765284 (12.1 GiB=
-)=C2=A0 TX bytes:13086264146 (12.1 GiB)<br>
-&gt; <br>
-&gt; <br>
-&gt; System info<br>
-&gt; <br>
-&gt; This has a prehistoric kernel, I guess because they have some stuff th=
-at taints the kernel<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# uname -a<br>
-&gt; Linux USG-Pro-4 3.10.107-UBNT #1 SMP Thu Jan 12 08:30:03 UTC 2023 mips=
-64 GNU/Linux<br>
-<br>
-[SM] I remember the time we felt great about using a series 3 kernel instea=
-d of old series 2 gunk, but upstream is at series 6 by now (but it also sta=
-rted to increase major numbers more aggressively after series 2)<br>
-<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# cat /var/log/dmesg | grep taint<br>
-&gt; ubnt_platform: module license &#39;Proprietary&#39; taints kernel.<br>
-&gt; Disabling lock debugging due to kernel taint<br>
-&gt; <br>
-&gt; I also notice this module, but I&#39;m not sure it is in use.<br>
-&gt; /lib/modules/3.10.107-UBNT/kernel/net/netfilter/xt_rateest.ko<br>
-&gt; <br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# cat /proc/cpuinfo <br>
-&gt; system type : UBNT_E220<br>
-&gt; machine : Unknown<br>
-&gt; processor : 0<br>
-&gt; cpu model : Cavium Octeon II V0.1<br>
-&gt; BogoMIPS : 2000.00<br>
-&gt; wait instruction : yes<br>
-&gt; microsecond timers : yes<br>
-&gt; tlb_entries : 128<br>
-&gt; extra interrupt vector : yes<br>
-&gt; hardware watchpoint : yes, count: 2, address/irw mask: [0x0ffc, 0x0ffb=
-]<br>
-&gt; isa : mips1 mips2 mips3 mips4 mips5 mips64r2<br>
-&gt; ASEs implemented :<br>
-&gt; shadow register sets : 1<br>
-&gt; kscratch registers : 3<br>
-&gt; core : 0<br>
-&gt; VCED exceptions : not available<br>
-&gt; VCEI exceptions : not available<br>
-&gt; <br>
-&gt; processor : 1<br>
-&gt; cpu model : Cavium Octeon II V0.1<br>
-&gt; BogoMIPS : 2000.00<br>
-&gt; wait instruction : yes<br>
-&gt; microsecond timers : yes<br>
-&gt; tlb_entries : 128<br>
-&gt; extra interrupt vector : yes<br>
-&gt; hardware watchpoint : yes, count: 2, address/irw mask: [0x0ffc, 0x0ffb=
-]<br>
-&gt; isa : mips1 mips2 mips3 mips4 mips5 mips64r2<br>
-&gt; ASEs implemented :<br>
-&gt; shadow register sets : 1<br>
-&gt; kscratch registers : 3<br>
-&gt; core : 1<br>
-&gt; VCED exceptions : not available<br>
-&gt; VCEI exceptions : not available<br>
-&gt; <br>
-&gt; <br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# ethtool -i eth2<br>
-&gt; driver: octeon-ethernet<br>
-&gt; version: 2.0<br>
-&gt; firmware-version: <br>
-&gt; bus-info: Builtin<br>
-&gt; supports-statistics: no<br>
-&gt; supports-test: no<br>
-&gt; supports-eeprom-access: no<br>
-&gt; supports-register-dump: no<br>
-&gt; supports-priv-flags: no<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# ethtool -S eth2<br>
-&gt; no stats available<br>
-&gt; <br>
-&gt; ( Oh great! Thanks guys! )<br>
-&gt; <br>
-&gt; root@USG-Pro-4:~# netstat -ia<br>
-&gt; Kernel Interface table<br>
-&gt; Iface=C2=A0 =C2=A0MTU Met=C2=A0 =C2=A0RX-OK RX-ERR RX-DRP RX-OVR=C2=A0=
- =C2=A0 TX-OK TX-ERR TX-DRP TX-OVR Flg<br>
-&gt; eth0=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 11340913=C2=A0 =C2=A0 =C2=
-=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 21612063=C2=A0 =C2=A0 =C2=
-=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 BMRU<br>
-&gt; eth1=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 =C2=A0 154902=C2=A0 =C2=A0=
- =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 233236=C2=A0 =
-=C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 BMRU<br>
-&gt; eth2=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 60898610=C2=A0 =C2=A0 =C2=
-=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 10544414=C2=A0 =C2=A0 =C2=
-=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 BMRU<br>
-&gt; eth3=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0=
- =C2=A0 =C2=A0 0 BM<br>
-&gt; eth0.20=C2=A0 =C2=A0 1500 0=C2=A0 =C2=A0 781992=C2=A0 =C2=A0 =C2=A0 0=
-=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 480214=C2=A0 =C2=A0 =C2=
-=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 BMRU<br>
-&gt; eth0.40=C2=A0 =C2=A0 1500 0=C2=A0 =C2=A0 =C2=A0 2695=C2=A0 =C2=A0 =C2=
-=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 194260=C2=A0 =C2=
-=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 BMRU<br>
-&gt; ifb_eth2=C2=A0 =C2=A01500 0=C2=A0 29642598=C2=A0 =C2=A0 =C2=A0 0=C2=A0=
- =C2=A02530 0=C2=A0 =C2=A0 =C2=A0 29640068=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=
-=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 BORU=C2=A0 =C2=A0&lt;---- RX drops?<br>
-&gt; imq0=C2=A0 =C2=A0 =C2=A0 16000 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00=C2=
-=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0=
- =C2=A0 0 ORU<br>
-&gt; lo=C2=A0 =C2=A0 =C2=A0 =C2=A0 65536 0=C2=A0 =C2=A0 =C2=A0 9255=C2=A0 =
-=C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 9=
-255=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 LRU<b=
-r>
-&gt; loop0=C2=A0 =C2=A0 =C2=A0 1500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00=C2=
-=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0=
- =C2=A0 0 BM<br>
-&gt; loop1=C2=A0 =C2=A0 =C2=A0 1500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00=C2=
-=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0=
- =C2=A0 0 BM<br>
-&gt; loop2=C2=A0 =C2=A0 =C2=A0 1500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00=C2=
-=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0=
- =C2=A0 0 BM<br>
-&gt; loop3=C2=A0 =C2=A0 =C2=A0 1500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A00=C2=
-=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0=
- =C2=A0 0 BM<br>
-&gt; npi0=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0=
- =C2=A0 =C2=A0 0 BM<br>
-&gt; npi1=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0=
- =C2=A0 =C2=A0 0 BM<br>
-&gt; npi2=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0=
- =C2=A0 =C2=A0 0 BM<br>
-&gt; npi3=C2=A0 =C2=A0 =C2=A0 =C2=A01500 0=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0 0=C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A00=C2=A0 =C2=A0 =C2=A0 0=C2=A0 =C2=A0 =C2=A0 0=C2=A0=
- =C2=A0 =C2=A0 0 BM<br>
-&gt; <br>
-&gt; root@USG-Pro-4:/opt/vyatta/etc# cat version <br>
-&gt; Version:=C2=A0 =C2=A0 =C2=A0 v4.4.57.5578372.230112.0824<br>
-&gt; <br>
-&gt; -- <br>
-&gt; Regards,<br>
-&gt; Dave Seddon<br>
-&gt; _______________________________________________<br>
-&gt; Cake mailing list<br>
-&gt; <a href=3D"mailto:Cake@lists.bufferbloat.net" target=3D"_blank">Cake@l=
-ists.bufferbloat.net</a><br>
-&gt; <a href=3D"https://lists.bufferbloat.net/listinfo/cake" rel=3D"norefer=
-rer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/cake</a><br>
-<br>
-</blockquote></div><br clear=3D"all"><br><span class=3D"gmail_signature_pre=
-fix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"l=
-tr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dave=
- Seddon<br>+1 415 857 5102<br></div></div></div></div></div></div>
-
---0000000000008c2733060dfcff8f--
-
---0000000000008c2733060dfcff90
-Content-Type: image/png; name="image.png"
-Content-Disposition: inline; filename="image.png"
-Content-Transfer-Encoding: base64
-Content-ID: <ii_lqwuczo60>
-X-Attachment-Id: ii_lqwuczo60
-
-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
-paPzAcZowAAAAABJRU5ErkJggg==
---0000000000008c2733060dfcff90--
-
---===============8604284849978460909==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8604284849978460909==--
+SGkgRGF2ZSwKCgo+IE9uIEphbiAyLCAyMDI0LCBhdCAyMjoxNSwgZGF2ZSBzZWRkb24gPGRhdmUu
+c2VkZG9uLmNhQGdtYWlsLmNvbT4gd3JvdGU6Cj4gCj4gVGhhbmtzIFNlYmFzdGlhbiEKPiAKPiBO
+b3cgSSBzZWUgdGhlIHJhdGVzISEKPiAKPiBJIGFjdHVhbGx5IHJlZHVjZWQgdGhlIHJhdGVzIHRv
+IGVuc3VyZSB0aGlzIGRldmljZSBpcyB0aGUgYm90dGxlbmVjayA4MC8xMCBNYi9zCj4gCj4gPGlt
+YWdlLnBuZz4KPiAKPiByb290QFVTRy1Qcm8tNDp+IyB0YyAtZCBjbGFzcyBzaG93IGRldiBldGgy
+Cj4gY2xhc3MgaHRiIDE6MTAgcm9vdCBsZWFmIDEwMDogcHJpbyAwIHF1YW50dW0gMTE4NzUwIHJh
+dGUgOTUwMEtiaXQgY2VpbCA5NTAwS2JpdCBidXJzdCAxNTk4Yi8xIG1wdSAwYiBvdmVyaGVhZCAw
+YiBjYnVyc3QgMTU5OGIvMSBtcHUgMGIgb3ZlcmhlYWQgMGIgbGV2ZWwgMCAKPiBjbGFzcyBmcV9j
+b2RlbCAxMDA6MTJjIHBhcmVudCAxMDA6IAo+IGNsYXNzIGZxX2NvZGVsIDEwMDoyMTMgcGFyZW50
+IDEwMDogCj4gY2xhc3MgZnFfY29kZWwgMTAwOjIyZSBwYXJlbnQgMTAwOiAKPiAKPiByb290QFVT
+Ry1Qcm8tNDp+IyB0YyAtZCBjbGFzcyBzaG93IGRldiBpZmJfZXRoMgo+IGNsYXNzIGh0YiAxOjEw
+IHJvb3QgbGVhZiAxMDA6IHByaW8gMCBxdWFudHVtIDIwMDAwMCByYXRlIDc2MDAwS2JpdCBjZWls
+IDc2MDAwS2JpdCBidXJzdCAxNTk2Yi8xIG1wdSAwYiBvdmVyaGVhZCAwYiBjYnVyc3QgMTU5NmIv
+MSBtcHUgMGIgb3ZlcmhlYWQgMGIgbGV2ZWwgMCAKPiBjbGFzcyBmcV9jb2RlbCAxMDA6MmM4IHBh
+cmVudCAxMDA6IAo+IGNsYXNzIGZxX2NvZGVsIDEwMDozZGYgcGFyZW50IDEwMDogCj4gCgpbU01d
+IFRoZXkgYXBwYXJlbnRseSBoYXZlIGEgcmF0aGVyIGxvb3NlIHRyYW5zbGF0aW9uIGZyb20gODAv
+MTAgR1VJIHJhdGVzIHRvIHNoYXBlciBzZXR0aW5ncyAoZGVyYXRlZCBieSA1JSksIGFuZCBteSBw
+ZXJzb25hbCBob2JieSBob3JzZSBzZWVtIHRvIGlnbm9yZSB0aGUgb3ZlcmhlYWQgcXVlc3Rpb24g
+bW9yZSBvciBsZXNzIGVudGlyZWx5KiouLi4gCmJhZCBVYmlxdWl0eS4uLiBpZiB5b3Ugd2FudCB0
+byBiZSBhICJnb29kIGJveSIgZW1haWwgbWUgOykKCgoqKikgSWYgdGhhdCA1JSBkZXJhdGluZyBp
+cyBzdXBwb3NlZCB0byBoYW5kbGUgb3ZlcmhlYWQsIG9oIG15Li4uIHBlciBwYWNrZXQgb3Zlcmhl
+YWQgc3RheXMgY29uc3RhbnQgd2l0aCBwYWNrZXQgbnVtYmVyIHdoaWxlIHBheWxvYWQgc2l6ZSBz
+Y2FsZXMgd2l0aCBwYWNrZXQgc2l6ZSBzbyBvdmVyaGVhZCBpbnZlcnNlbHkgc2NhbGVzIHdpdGgg
+cGFja2V0IHNpemUgYW5kIGhlbmNlIHN0YXRpYyByZXJhdGluZyBmb3IgcGVyLXBhY2tldCBvdmVy
+aGVhZCBpcyBhcHByb3hpbWF0ZSBhdCBiZXN0IHRvIHN0YXkgcG9saXRlLgoKQWxzbyB3aGF0IGlz
+IHVwIHdpdGggdGhlIGJ1cnN0IHZhbHVlcz8gd2h5IGRvIHRoZXkgZGlmZmVyIGJ5IDMyIG9jdGV0
+cz8KClNvcnJ5IGZvciBib3RoZXJpbmcgeW91IHdpdGggdGhpcywgdGhlc2UgYXJlIG1vc3RseSBx
+dWVzdGlvbnMgZm9yIFViaXF1aXR5IGFuZCB0aGUgYXJlIHVubGlrZWx5IHRvIG1vbml0b3IgdGhp
+cyBsaXN0IDspCgpSZWdhcmRzCglTZWJhc3RpYW4KCgoKPiBPbiBUdWUsIEphbiAyLCAyMDI0IGF0
+IDEyOjUz4oCvUE0gU2ViYXN0aWFuIE1vZWxsZXIgPG1vZWxsZXIwQGdteC5kZT4gd3JvdGU6Cj4g
+SGkgRGF2ZS4KPiAKPiBqdXN0IGEgZmV3IGNvbW1lbnRzIGZyb20gdGhlIHBlYW51dCBnYWxsZXJ5
+Li4uCj4gCj4gCj4gPiBPbiBKYW4gMiwgMjAyNCwgYXQgMTk6NTksIGRhdmUgc2VkZG9uIHZpYSBD
+YWtlIDxjYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4gd3JvdGU6Cj4gPiAKPiA+IEcnZGF5LAo+
+ID4gCj4gPiBIYXBweSBuZXcgeWVhciB5J2FsbAo+IAo+ICsxCj4gCj4gPiAKPiA+IEkgdGhvdWdo
+dCBwZW9wbGUgbWlnaHQgYmUgaW50ZXJlc3RlZCB0byBzZWUgd2hhdCBVYmlxdWl0eS9VbmlmaSBp
+cyBkb2luZyB3aXRoICJTbWFydCBRdWV1ZXMiIG9uIHRoZWlyIGRldmljZXMuICBUaGUgZG9jdW1l
+bnRhdGlvbiBvbiB0aGVpciB3ZWJzaXRlIGlzIG5vdCB2ZXJ5IGluZm9ybWF0aXZlLgo+ID4gCj4g
+PiBIb3BlZnVsbHksIHRoaXMgaXMgdmFndWVseSBpbnRlcmVzdGluZyBiZWNhdXNlIFViaXF1aXR5
+IGlzIHdpZGVseSBkZXBsb3llZCBhbmQgYXBwYXJlbnRseSB0aGV5IGhhdmUgYSBtYXJrZXQgY2Fw
+IG9mID4kOCBiaWxsaW9uLCBzbyB5b3Ugd291bGQgaG9wZSB0aGV5IGRvIGEgImdvb2Qgam9iIiAo
+Li4uIFNlZW1zIGxpa2UgdGhleSBtaWdodCBiZSBhIHRhcmdldCBjdXN0b21lciBmb3IgbGlicmVx
+b3MgKQo+ID4gCj4gPiA8aW1hZ2UucG5nPgo+ID4gaHR0cHM6Ly9maW5hbmNlLnlhaG9vLmNvbS9x
+dW90ZS91aS8KPiA+IAo+ID4gKCBJIHVzZSBVbmlmaSBiZWNhdXNlIHRoZWlyIHdpZmkgc3R1ZmYg
+c2VlbXMgb2ssIGFuZCBhbGwgdGhlIHN3aXRjaGluZy9yb3V0aW5nL3dpZmkgaXMgYWxsIGludGVn
+cmF0ZWQgaW50byB0aGUgc2luZ2xlIGd1aSBjb250cm9sIHN5c3RlbS4gIEFsc28gaG9uZXN0bHks
+IEknbSBub3Qgc3VyZSBJIGtub3cgaG93IHRvIGRvIHByZWZpeCBkZWxlZ2F0aW9uIHN0dWZmIG9u
+IExpbnV4IGJ5IGhhbmQuICkKPiA+IAo+ID4gTmV0d29yayBkaWFncmFtCj4gPiAKPiA+IFNwZWN0
+cnVtIENhYmxlIEludGVybmV0cyA8LS0tLS0tLS0tLT4gRXRoMiBbIFVTRy1Qcm8tNCBdIEV0aDAg
+PC0tLT4gW1N3aXRjaGVzXSA8LS0tLT4gQWNjZXNzIHBvaW50cwo+ID4gCj4gPiAiU21hcnQgUXVl
+dWUiIENvbmZpZ3VyYXRpb24KPiA+IFViaXF1aXR5IGRvZXNuJ3QgaGF2ZSBtYW55IGtub2JzLCB5
+b3UganVzdCBlbmFibGUgInNtYXJ0IHF1ZXVlcyIgYW5kIHNldCB0aGUgYmFuZHdpZHRoLgo+ID4g
+Cj4gPiAKPiA+IAo+ID4gCj4gPiAiU21hcnQgUXVldWUiIEltcGxlbWVudGF0aW9uCj4gPiAKPiA+
+IExvb2tzIGxpa2UgdGhleSBvbmx5IGFwcGx5IHRjIHFkaXNjcyB0byB0aGUgRXRoMiwgYW5kIHNh
+ZGx5IHRoaXMgaXMgTk9UIGNha2UsIGJ1dCBmcV9jb2RlbC4KPiA+IAo+ID4gQW5kIGNha2UgaXNu
+J3QgYXZhaWxhYmxlIDooCj4gPiAKPiA+IHJvb3RAVVNHLVByby00On4jIHRjIHFkaXNjIHJlcGxh
+Y2UgZGV2IGV0aDAgY2FrZSBiYW5kd2lkdGggMTAwbSBydHQgMjBtcwo+ID4gVW5rbm93biBxZGlz
+YyAiY2FrZSIsIGhlbmNlIG9wdGlvbiAiYmFuZHdpZHRoIiBpcyB1bnBhcnNhYmxlCj4gPiAKPiA+
+IE91dGJvdW5kIGV0aDIKPiA+IAo+ID4gcm9vdEBVU0ctUHJvLTQ6fiMgdGMgLXAgLXMgLWQgcWRp
+c2Mgc2hvdyBkZXYgZXRoMgo+ID4gcWRpc2MgaHRiIDE6IHJvb3QgcmVmY250IDIgcjJxIDEwIGRl
+ZmF1bHQgMTAgZGlyZWN0X3BhY2tldHNfc3RhdCAwIHZlciAzLjE3Cj4gPiAgU2VudCAxMDcxNjM2
+NDY1IGJ5dGVzIDU2MjQ5NDQgcGt0IChkcm9wcGVkIDAsIG92ZXJsaW1pdHMgNTIzMDc4IHJlcXVl
+dWVzIDApICA8LS0tLSBPVkVSTElNSVRTPwo+ID4gIGJhY2tsb2cgMGIgMHAgcmVxdWV1ZXMgMCAK
+PiA+IHFkaXNjIGZxX2NvZGVsIDEwMDogcGFyZW50IDE6MTAgbGltaXQgMTAyNDBwIGZsb3dzIDEw
+MjQgcXVhbnR1bSAxNTE0IHRhcmdldCA1LjBtcyBpbnRlcnZhbCAxMDAuMG1zIGVjbiAKPiA+ICBT
+ZW50IDEwNzE2MzY0NjUgYnl0ZXMgNTYyNDk0NCBwa3QgKGRyb3BwZWQgMjM4NCwgb3ZlcmxpbWl0
+cyAwIHJlcXVldWVzIDApICAgICAgIDwtLS0tLSBEUk9QUwo+ID4gIGJhY2tsb2cgMGIgMHAgcmVx
+dWV1ZXMgMCAKPiA+ICAgbWF4cGFja2V0IDE1MTQgZHJvcF9vdmVybGltaXQgMCBuZXdfZmxvd19j
+b3VudCAxMjQ0OTkxIGVjbl9tYXJrIDAKPiA+ICAgbmV3X2Zsb3dzX2xlbiAxIG9sZF9mbG93c19s
+ZW4gMQo+ID4gcWRpc2MgaW5ncmVzcyBmZmZmOiBwYXJlbnQgZmZmZjpmZmYxIC0tLS0tLS0tLS0t
+LS0tLS0gCj4gPiAgU2VudCAxMjYzNjA0NTEzNiBieXRlcyAyOTE5OTUzMyBwa3QgKGRyb3BwZWQg
+MCwgb3ZlcmxpbWl0cyAwIHJlcXVldWVzIDApIAo+ID4gIGJhY2tsb2cgMGIgMHAgcmVxdWV1ZXMg
+MCAKPiA+ICAgICAgIOKAoiB0YXJnZXQgNS4wbXMgaXMgdGhlIGRlZmF1bHQgKCBodHRwczovL3d3
+dy5tYW43Lm9yZy9saW51eC9tYW4tcGFnZXMvbWFuOC90Yy1mcV9jb2RlbC44Lmh0bWwgKS4gIEkg
+d29uZGVyIGlmIHRoZXkgZGlkIG11Y2ggdGVzdGluZyBvbiB0aGlzIGhhcmR3YXJlPwo+IAo+IFtT
+TV0gTm90IHN1cmUgd2hldGhlciBwbGF5aW5nIHdpdGggdGFyZ2V0IGluIGlzb2xhdGlvbiB3b3Vs
+ZCBiZSBtdWNoIHVzZSwgaW4gY29kZWwgdGhlb3J5IHRhcmdldCBzaG91bGQgYmUgNS0xMCUgb2Yg
+aW50ZXJ2YWwgYW5zIGludGVydmFsIHNob3VsZCBiZSBpbiB0aGUgb3JkZXIgb2YgbWFnbml0dWRl
+IG9mIHRvIGJlIGhhbmRsZWQgUlRUcyAodGhlIGRlZmF1bHQgaXMgMTAwbXMgd2ljaCB3b3JrcyBy
+ZWFzb25hYmx5IHdlbGwgZXZlbiBhY3Jvc3MgdGhlIEF0bGFudGljLCBidXQgeW91IHByb2JhYmx5
+IGtuZXcgYWxsIHRoYXQpLgo+IAo+ID4gICAgICAgICAgICAgICDigKIgKCBJIGFjdHVhbGx5IGhh
+dmUgYSBzcGFyZSAid2FuIiBldGhlcm5ldCBwb3J0LCBzbyBJIGd1ZXNzIEkgY291bGQgaG9vayB1
+cCBhIFBDIGFuZCBwZXJmb3JtIGEgZmxlbnQgdGVzdC4gKQo+ID4gICAgICAg4oCiIEl0J3MgdW5j
+bGVhciB0byBtZSB3aGF0IHRoZSAiaHRiIiBpcyBkb2luZywgYmVjYXVzZSBJIHdvdWxkIGhhdmUg
+ZXhwZWN0ZWQgdGhlIGRvd25sb2FkL3VwbG9hZCByYXRlcyB0byBiZSBjb25maWd1cmVkIGhlcmUs
+IGJ1dCB0aGV5IGFwcGVhciBub3QgdG8gYmUKPiAKPiBbU01dIExpa2VseSBiZWNhdXNlIEhUQiBk
+b2VzIG5vdCByZXZlYWwgdGhpcyB3aGVuIGFza2VkIHdpdGggdGhlIGAtc2Agb3B0aW9uLCB0cnkg
+YC1xYCBpbnN0ZWFkIGFuZCBub3QgYXMgcWRpc2MgYnV0IGFzIGNsYXNzIChzbyBtYXliZSBgdGMg
+LWQgY2xhc3Mgc2hvdyBkZXYgZXRoMmApLgo+IAo+ID4gICAgICAg4oCiIEknbSBub3QgcmVhbGx5
+IHN1cmUgd2hhdCAib3ZlcmxpbWl0cyIgbWVhbnMgb3Igd2hhdCB0aGF0IGRvZXMsIGFuZCB0cmll
+ZCBsb29raW5nIHRoaXMgdXAsIGJ1dCBJIGd1ZXNzIHRoZSBrZXJuZWwgc291cmNlIGlzIGxpa2Vs
+eSB0aGUgImJlc3QiIGRvY3VtZW50YXRpb24gZm9yIHRoaXMuICBNYXliZSB0aGlzIG1lYW5zIGl0
+J3MgZHJvcHBpbmc/ICBPciBpcyBpdCBFQ04/Cj4gCj4gSSB0aGluayB0aGlzIHRleHQgYWJvdXQg
+VEJGIGV4cGxhaW5zIHRoaXMgcmVhc29uYWJseSB3ZWxsIChIVEIgaXMgZXNzZW50aWFsbHkgYSBo
+aWVyYXJjaGljYWwgdmVyc2lvbiBvZiBUQkYpOgo+IAo+IHNlZTogaHR0cHM6Ly90bGRwLm9yZy9I
+T1dUTy9BZHYtUm91dGluZy1IT1dUTy9sYXJ0Yy5xZGlzYy5jbGFzc2xlc3MuaHRtbAo+IAo+IDku
+Mi4yLiBUb2tlbiBCdWNrZXQgRmlsdGVyCj4gCj4gVGhlIFRva2VuIEJ1Y2tldCBGaWx0ZXIgKFRC
+RikgaXMgYSBzaW1wbGUgcWRpc2MgdGhhdCBvbmx5IHBhc3NlcyBwYWNrZXRzIGFycml2aW5nIGF0
+IGEgcmF0ZSB3aGljaCBpcyBub3QgZXhjZWVkaW5nIHNvbWUgYWRtaW5pc3RyYXRpdmVseSBzZXQg
+cmF0ZSwgYnV0IHdpdGggdGhlIHBvc3NpYmlsaXR5IHRvIGFsbG93IHNob3J0IGJ1cnN0cyBpbiBl
+eGNlc3Mgb2YgdGhpcyByYXRlLgo+IAo+IFRCRiBpcyB2ZXJ5IHByZWNpc2UsIG5ldHdvcmstIGFu
+ZCBwcm9jZXNzb3IgZnJpZW5kbHkuIEl0IHNob3VsZCBiZSB5b3VyIGZpcnN0IGNob2ljZSBpZiB5
+b3Ugc2ltcGx5IHdhbnQgdG8gc2xvdyBhbiBpbnRlcmZhY2UgZG93biEKPiAKPiBUaGUgVEJGIGlt
+cGxlbWVudGF0aW9uIGNvbnNpc3RzIG9mIGEgYnVmZmVyIChidWNrZXQpLCBjb25zdGFudGx5IGZp
+bGxlZCBieSBzb21lIHZpcnR1YWwgcGllY2VzIG9mIGluZm9ybWF0aW9uIGNhbGxlZCB0b2tlbnMs
+IGF0IGEgc3BlY2lmaWMgcmF0ZSAodG9rZW4gcmF0ZSkuIFRoZSBtb3N0IGltcG9ydGFudCBwYXJh
+bWV0ZXIgb2YgdGhlIGJ1Y2tldCBpcyBpdHMgc2l6ZSwgdGhhdCBpcyB0aGUgbnVtYmVyIG9mIHRv
+a2VucyBpdCBjYW4gc3RvcmUuCj4gCj4gRWFjaCBhcnJpdmluZyB0b2tlbiBjb2xsZWN0cyBvbmUg
+aW5jb21pbmcgZGF0YSBwYWNrZXQgZnJvbSB0aGUgZGF0YSBxdWV1ZSBhbmQgaXMgdGhlbiBkZWxl
+dGVkIGZyb20gdGhlIGJ1Y2tldC4gQXNzb2NpYXRpbmcgdGhpcyBhbGdvcml0aG0gd2l0aCB0aGUg
+dHdvIGZsb3dzIC0tIHRva2VuIGFuZCBkYXRhLCBnaXZlcyB1cyB0aHJlZSBwb3NzaWJsZSBzY2Vu
+YXJpb3M6Cj4gCj4gICAgICAgICDigKIgVGhlIGRhdGEgYXJyaXZlcyBpbiBUQkYgYXQgYSByYXRl
+IHRoYXQncyBlcXVhbCB0byB0aGUgcmF0ZSBvZiBpbmNvbWluZyB0b2tlbnMuIEluIHRoaXMgY2Fz
+ZSBlYWNoIGluY29taW5nIHBhY2tldCBoYXMgaXRzIG1hdGNoaW5nIHRva2VuIGFuZCBwYXNzZXMg
+dGhlIHF1ZXVlIHdpdGhvdXQgZGVsYXkuCj4gCj4gICAgICAgICDigKIgVGhlIGRhdGEgYXJyaXZl
+cyBpbiBUQkYgYXQgYSByYXRlIHRoYXQncyBzbWFsbGVyIHRoYW4gdGhlIHRva2VuIHJhdGUuIE9u
+bHkgYSBwYXJ0IG9mIHRoZSB0b2tlbnMgYXJlIGRlbGV0ZWQgYXQgb3V0cHV0IG9mIGVhY2ggZGF0
+YSBwYWNrZXQgdGhhdCdzIHNlbnQgb3V0IHRoZSBxdWV1ZSwgc28gdGhlIHRva2VucyBhY2N1bXVs
+YXRlLCB1cCB0byB0aGUgYnVja2V0IHNpemUuIFRoZSB1bnVzZWQgdG9rZW5zIGNhbiB0aGVuIGJl
+IHVzZWQgdG8gc2VuZCBkYXRhIGEgYSBzcGVlZCB0aGF0J3MgZXhjZWVkaW5nIHRoZSBzdGFuZGFy
+ZCB0b2tlbiByYXRlLCBpbiBjYXNlIHNob3J0IGRhdGEgYnVyc3RzIG9jY3VyLgo+IAo+ICAgICAg
+ICAg4oCiIFRoZSBkYXRhIGFycml2ZXMgaW4gVEJGIGF0IGEgcmF0ZSBiaWdnZXIgdGhhbiB0aGUg
+dG9rZW4gcmF0ZS4gVGhpcyBtZWFucyB0aGF0IHRoZSBidWNrZXQgd2lsbCBzb29uIGJlIGRldm9p
+ZCBvZiB0b2tlbnMsIHdoaWNoIGNhdXNlcyB0aGUgVEJGIHRvIHRocm90dGxlIGl0c2VsZiBmb3Ig
+YSB3aGlsZS4gVGhpcyBpcyBjYWxsZWQgYW4gJ292ZXJsaW1pdCBzaXR1YXRpb24nLiBJZiBwYWNr
+ZXRzIGtlZXAgY29taW5nIGluLCBwYWNrZXRzIHdpbGwgc3RhcnQgdG8gZ2V0IGRyb3BwZWQuCj4g
+Cj4gVGhlIGxhc3Qgc2NlbmFyaW8gaXMgdmVyeSBpbXBvcnRhbnQsIGJlY2F1c2UgaXQgYWxsb3dz
+IHRvIGFkbWluaXN0cmF0aXZlbHkgc2hhcGUgdGhlIGJhbmR3aWR0aCBhdmFpbGFibGUgdG8gZGF0
+YSB0aGF0J3MgcGFzc2luZyB0aGUgZmlsdGVyLgo+IAo+IFRoZSBhY2N1bXVsYXRpb24gb2YgdG9r
+ZW5zIGFsbG93cyBhIHNob3J0IGJ1cnN0IG9mIG92ZXJsaW1pdCBkYXRhIHRvIGJlIHN0aWxsIHBh
+c3NlZCB3aXRob3V0IGxvc3MsIGJ1dCBhbnkgbGFzdGluZyBvdmVybG9hZCB3aWxsIGNhdXNlIHBh
+Y2tldHMgdG8gYmUgY29uc3RhbnRseSBkZWxheWVkLCBhbmQgdGhlbiBkcm9wcGVkLgo+IAo+IFBs
+ZWFzZSBub3RlIHRoYXQgaW4gdGhlIGFjdHVhbCBpbXBsZW1lbnRhdGlvbiwgdG9rZW5zIGNvcnJl
+c3BvbmQgdG8gYnl0ZXMsIG5vdCBwYWNrZXRzLgo+IAo+IAo+ID4gCj4gPiBJbmJvdW5kIGV0aDIg
+dmlhIGlmYgo+ID4gCj4gPiByb290QFVTRy1Qcm8tNDp+IyB0YyAtcCAtcyAtZCBxZGlzYyBzaG93
+IGRldiBpZmJfZXRoMgo+ID4gcWRpc2MgaHRiIDE6IHJvb3QgcmVmY250IDIgcjJxIDEwIGRlZmF1
+bHQgMTAgZGlyZWN0X3BhY2tldHNfc3RhdCAwIHZlciAzLjE3Cj4gPiAgU2VudCAxMzAyOTgxMDU2
+OSBieXRlcyAyOTE4NTc0MiBwa3QgKGRyb3BwZWQgMCwgb3ZlcmxpbWl0cyAxNDc3NDMzOSByZXF1
+ZXVlcyAwKSAgIDwtLS0tIE9WRVJMSU1JVFM/Cj4gPiAgYmFja2xvZyAwYiAwcCByZXF1ZXVlcyAw
+IAo+ID4gcWRpc2MgZnFfY29kZWwgMTAwOiBwYXJlbnQgMToxMCBsaW1pdCAxMDI0MHAgZmxvd3Mg
+MTAyNCBxdWFudHVtIDE1MTQgdGFyZ2V0IDUuMG1zIGludGVydmFsIDEwMC4wbXMgZWNuIAo+ID4g
+IFNlbnQgMTMwMjk4MTA1NjkgYnl0ZXMgMjkxODU3NDIgcGt0IChkcm9wcGVkIDEwNjg4LCBvdmVy
+bGltaXRzIDAgcmVxdWV1ZXMgMCkgIDwtLS0tIFdPVy4gIERST1BTISEKPiA+ICBiYWNrbG9nIDBi
+IDBwIHJlcXVldWVzIDAgCj4gPiAgIG1heHBhY2tldCAxNTE0IGRyb3Bfb3ZlcmxpbWl0IDAgbmV3
+X2Zsb3dfY291bnQgMjI1Njg5NSBlY25fbWFyayAwCj4gPiAgIG5ld19mbG93c19sZW4gMCBvbGRf
+Zmxvd3NfbGVuIDIKPiA+IAo+ID4gQXBwYXJlbnRseSByYXRoZXIgdGhhbiBhcHBseWluZyB0aGUg
+dGMgcWRzaWMgb24gdGhlIG91dGJvdW5kIHBhdGggb24gdGhlIExBTiBzaWRlICggZXRoMCApLCB0
+aGV5IGFyZSBhcHBseWluZyBpdCBpbmJvdW5kIG9uIHRoZSB0aGUgZXRoMiB2aWEgaWZiX2V0aDIu
+Cj4gCj4gW1NNXSBTYW1lIGFwcHJvYWNoIHRoYXQgc3FtLXNjcmlwdHMgdGFrZXMsIGlmIHlvdSBh
+dHRhY2ggdGhlIGluZ3Jlc3Mgc2hhcGVyIHRvIHRoZSBMQU4gcG9ydCBlZ3Jlc3MgYWxsIGludGVy
+bmV0IHRyYWZmaWMgbm90IHRyYXZlcnNpbmcgdGhhdCBpbnRlcmZhY2Ugd2lsbCBub3QgYmUgc2hh
+cGVkLCBlLmcuIHRyYWZmaWMgdG8vZnJvbSB0aGUgcm91dGVyIGl0c2VsZiBvciBXaUZpIHRyYWZm
+aWMuIElmIHlvdSBhcmUgc3VyZSB0aGF0IHN1Y2ggYnktcGFzcyB0cmFmZmljIGRvZXMgbm90IGV4
+aXN0LCBwdXR0aW5nIHRoZSBpbmdyZXNzIHNoYXBlciBvbiBsYW4tZWdyZXNzIGNhbiBzYXZlIHRo
+ZSBjb3N0IG9mIHRoZSBpZmIgaW5kaXJlY3Rpb24sIGJ1dCBmb3IgZnVsbCBXaUZpIHJvdXRlcnMg
+dGhhdCBpcyBnZW5lcmFsbHkgbm90IHRydWUuCj4gCj4gCj4gPiBJbml0aWFsbHksIEkgd2FzIHBy
+ZXR0eSBzdXJwcmlzZWQgdG8gc2VlIHNvIG1hbnkgZHJvcHMgb24gdGhlIGluYm91bmQgcGF0aCwg
+YnV0IG1heWJlIHRoaXMgaXMgYWN0dWFsbHkgbm9ybWFsPwo+IAo+IFtTTV0gRGVwZW5kcyBvbiB5
+b3VyIHRyYWZmaWMgYW5kIHdoZXRoZXIgRUNOIGlzIHVzZWQgb3Igbm90LiBJbiB5b3VyIGNhc2Ug
+aXQgYXBwZWFycyBFQ04gaXMgbm90IHVzZWQgYW5kIHRoZW4gRFJPUFMgYXJlIHRoZSBvbmx5IHdh
+eSBmcV9jb2RlbCBjYW4gdGVsbCBhIGZsb3cgdG8gc3RlcCBvbiB0aGUgYnJha2VzLi4uLgo+IAo+
+ID4gCj4gPiBJIGNvdWxkIGltYWdpbmUgdGhlIHVwc3RyZWFtIENETnMgcHVzaGluZyBwcmV0dHkg
+aGFyZCB3aXRoIGxvdyBSVFRzLCBidXQgSSB3b3VsZCBwcm9iYWJseSBoYXZlIGV4cGVjdGVkIHRo
+ZSBib3R0bGVuZWNrcyB0byBmb3JtIGF0IHRoZSBhY2Nlc3MgcG9pbnRzLiBlLmcuIEl0J3MgZ2ln
+YWJpdCBhbGwgdGhlIHdheSB1bnRpbCBpdCByZWFjaGVzIHRoZSBhaXIgaW50ZXJmYWNlIG9mIHRo
+ZSBhY2Nlc3MgcG9pbnRzLiAgLi4uLiBPciBkbyBJIGhhdmUgYSBwcm9ibGVtIGluIG15IExBTiBu
+ZXR3b3JrPwo+IAo+IFtTTV0gVGhlIGlkZWEgaXMgdG8gY3JlYXRlIGFuIGFydGlmaWNpYWwgYml0
+dGxlbmVjayAodXNpbmcgSFRCKSBzbyB0aGUgbW9zdCByZWxldmFudCBxdWV1ZSBpcyB1bmRlciBB
+UU0gY29udHJvbC4uLgo+IAo+ID4gCj4gPiBJIHdvbmRlciBpZiBJIGNhbiBsb2cgaW50byB0aGUg
+YWNjZXNzIHBvaW50cyB0byBsb29rIGF0IHRoZW0gdG9vPy4uLi4KPiA+IAo+ID4gKCBCVFcgLSB0
+byBnZXQgdG8gcm9vdCBvbiB0aGVzZSBkZXZpY2VzIHlvdSBjYW4gU1NIIGluIGFzIGFuICJhZG1p
+biIgdXNlcnMsIGFuZCB0aGVuIGp1c3QgInN1ZG8gc3UiICkKPiA+IAo+ID4gaWZjb25maWcKPiA+
+IAo+ID4gcm9vdEBVU0ctUHJvLTQ6fiMgaWZjb25maWcgLWEKPiA+IGV0aDAgICAgICBMaW5rIGVu
+Y2FwOkV0aGVybmV0ICBIV2FkZHIgZmM6ZWM6ZGE6ZDE6MWI6OWYgIAo+ID4gICAgICAgICAgIGlu
+ZXQgYWRkcjoxNzIuMTYuNTAuMSAgQmNhc3Q6MTcyLjE2LjUwLjI1NSAgTWFzazoyNTUuMjU1LjI1
+NS4wCj4gPiAgICAgICAgICAgaW5ldDYgYWRkcjogW1NOSVBdOmZlZWM6ZGFmZjpmZWQxOjFiOWYv
+NjQgU2NvcGU6R2xvYmFsCj4gPiAgICAgICAgICAgaW5ldDYgYWRkcjogZmU4MDo6ZmVlYzpkYWZm
+OmZlZDE6MWI5Zi82NCBTY29wZTpMaW5rCj4gPiAgICAgICAgICAgVVAgQlJPQURDQVNUIFJVTk5J
+TkcgTVVMVElDQVNUICBNVFU6MTUwMCAgTWV0cmljOjEKPiA+ICAgICAgICAgICBSWCBwYWNrZXRz
+OjExMzQzMTM5IGVycm9yczowIGRyb3BwZWQ6MCBvdmVycnVuczowIGZyYW1lOjAKPiA+ICAgICAg
+ICAgICBUWCBwYWNrZXRzOjIxNjE0MjcyIGVycm9yczowIGRyb3BwZWQ6MCBvdmVycnVuczowIGNh
+cnJpZXI6MAo+ID4gICAgICAgICAgIGNvbGxpc2lvbnM6MCB0eHF1ZXVlbGVuOjAgICAgICAgICAg
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgPC0tLS0gcXVldWUgbGVuIDA/IE1heWJlIHRo
+aXMgaXMgYSBkcml2ZXIgaXNzdWU/ICAKPiA+ICAgICAgICAgICBSWCBieXRlczoyMDQ3NzUwNTk3
+ICgxLjkgR2lCKSAgVFggYnl0ZXM6MjM0ODQ2OTI1NDUgKDIxLjggR2lCKQo+ID4gCj4gPiBldGgx
+ICAgICAgTGluayBlbmNhcDpFdGhlcm5ldCAgSFdhZGRyIGZjOmVjOmRhOmQxOjFiOmEwICAKPiA+
+ICAgICAgICAgICBpbmV0IGFkZHI6MTcyLjE2LjUxLjEgIEJjYXN0OjE3Mi4xNi41MS4yNTUgIE1h
+c2s6MjU1LjI1NS4yNTUuMAo+ID4gICAgICAgICAgIGluZXQ2IGFkZHI6IGZlODA6OmZlZWM6ZGFm
+ZjpmZWQxOjFiYTAvNjQgU2NvcGU6TGluawo+ID4gICAgICAgICAgIGluZXQ2IGFkZHI6IFtTTklQ
+XTpkYWZmOmZlZDE6MWJhMC82NCBTY29wZTpHbG9iYWwKPiA+ICAgICAgICAgICBVUCBCUk9BRENB
+U1QgUlVOTklORyBNVUxUSUNBU1QgIE1UVToxNTAwICBNZXRyaWM6MQo+ID4gICAgICAgICAgIFJY
+IHBhY2tldHM6MTU0OTMwIGVycm9yczowIGRyb3BwZWQ6MCBvdmVycnVuczowIGZyYW1lOjAKPiA+
+ICAgICAgICAgICBUWCBwYWNrZXRzOjIzMzI5NCBlcnJvcnM6MCBkcm9wcGVkOjAgb3ZlcnJ1bnM6
+MCBjYXJyaWVyOjAKPiA+ICAgICAgICAgICBjb2xsaXNpb25zOjAgdHhxdWV1ZWxlbjowIAo+ID4g
+ICAgICAgICAgIFJYIGJ5dGVzOjMyMjU1MTYyICgzMC43IE1pQikgIFRYIGJ5dGVzOjExNjUwNDQw
+MCAoMTExLjEgTWlCKQo+ID4gCj4gPiBldGgyICAgICAgTGluayBlbmNhcDpFdGhlcm5ldCAgSFdh
+ZGRyIGZjOmVjOmRhOmQxOjFiOmExICAKPiA+ICAgICAgICAgICBpbmV0IGFkZHI6MTcyLjg4LltT
+TklQXSAgQmNhc3Q6MjU1LjI1NS4yNTUuMjU1ICBNYXNrOjI1NS4yNTUuMjQwLjAKPiA+ICAgICAg
+ICAgICBpbmV0NiBhZGRyOiBbU05JUF06ZDQ3NDozZDcxLzEyOCBTY29wZTpHbG9iYWwKPiA+ICAg
+ICAgICAgICBpbmV0NiBhZGRyOiBmZTgwOjpmZWVjOmRhZmY6ZmVkMToxYmExLzY0IFNjb3BlOkxp
+bmsKPiA+ICAgICAgICAgICBVUCBCUk9BRENBU1QgUlVOTklORyBNVUxUSUNBU1QgIE1UVToxNTAw
+ICBNZXRyaWM6MQo+ID4gICAgICAgICAgIFJYIHBhY2tldHM6NjA5MTIzMzUgZXJyb3JzOjAgZHJv
+cHBlZDowIG92ZXJydW5zOjAgZnJhbWU6MAo+ID4gICAgICAgICAgIFRYIHBhY2tldHM6MTA1NDY1
+MDggZXJyb3JzOjAgZHJvcHBlZDowIG92ZXJydW5zOjAgY2FycmllcjowCj4gPiAgICAgICAgICAg
+Y29sbGlzaW9uczowIHR4cXVldWVsZW46MCAKPiA+ICAgICAgICAgICBSWCBieXRlczoyNjA4Nzky
+MDAzOCAoMjQuMiBHaUIpICBUWCBieXRlczoxODkyODU0NzI1ICgxLjcgR2lCKQo+ID4gCj4gPiBl
+dGgzICAgICAgTGluayBlbmNhcDpFdGhlcm5ldCAgSFdhZGRyIGZjOmVjOmRhOmQxOjFiOmEyICAK
+PiA+ICAgICAgICAgICBCUk9BRENBU1QgTVVMVElDQVNUICBNVFU6MTUwMCAgTWV0cmljOjEKPiA+
+ICAgICAgICAgICBSWCBwYWNrZXRzOjAgZXJyb3JzOjAgZHJvcHBlZDowIG92ZXJydW5zOjAgZnJh
+bWU6MAo+ID4gICAgICAgICAgIFRYIHBhY2tldHM6MCBlcnJvcnM6MCBkcm9wcGVkOjAgb3ZlcnJ1
+bnM6MCBjYXJyaWVyOjAKPiA+ICAgICAgICAgICBjb2xsaXNpb25zOjAgdHhxdWV1ZWxlbjowIAo+
+ID4gICAgICAgICAgIFJYIGJ5dGVzOjAgKDAuMCBCKSAgVFggYnl0ZXM6MCAoMC4wIEIpCj4gPiAK
+PiA+IGV0aDAuMjAgICBMaW5rIGVuY2FwOkV0aGVybmV0ICBIV2FkZHIgZmM6ZWM6ZGE6ZDE6MWI6
+OWYgIAo+ID4gICAgICAgICAgIGluZXQgYWRkcjoxNzIuMTYuNjAuMSAgQmNhc3Q6MTcyLjE2LjYw
+LjI1NSAgTWFzazoyNTUuMjU1LjI1NS4wCj4gPiAgICAgICAgICAgaW5ldDYgYWRkcjogW1NOSVBd
+OmRhZmY6ZmVkMToxYjlmLzY0IFNjb3BlOkdsb2JhbAo+ID4gICAgICAgICAgIGluZXQ2IGFkZHI6
+IGZlODA6OmZlZWM6ZGFmZjpmZWQxOjFiOWYvNjQgU2NvcGU6TGluawo+ID4gICAgICAgICAgIFVQ
+IEJST0FEQ0FTVCBSVU5OSU5HIE1VTFRJQ0FTVCAgTVRVOjE1MDAgIE1ldHJpYzoxCj4gPiAgICAg
+ICAgICAgUlggcGFja2V0czo3ODIxMjMgZXJyb3JzOjAgZHJvcHBlZDowIG92ZXJydW5zOjAgZnJh
+bWU6MAo+ID4gICAgICAgICAgIFRYIHBhY2tldHM6NDgwMzQzIGVycm9yczowIGRyb3BwZWQ6MCBv
+dmVycnVuczowIGNhcnJpZXI6MAo+ID4gICAgICAgICAgIGNvbGxpc2lvbnM6MCB0eHF1ZXVlbGVu
+OjAgCj4gPiAgICAgICAgICAgUlggYnl0ZXM6NjA2MDAxNjEgKDU3LjcgTWlCKSAgVFggYnl0ZXM6
+MTA4MzcyNDEzICgxMDMuMyBNaUIpCj4gPiAKPiA+IGV0aDAuNDAgICBMaW5rIGVuY2FwOkV0aGVy
+bmV0ICBIV2FkZHIgZmM6ZWM6ZGE6ZDE6MWI6OWYgIAo+ID4gICAgICAgICAgIGluZXQgYWRkcjox
+NzIuMTYuNDAuMSAgQmNhc3Q6MTcyLjE2LjQwLjI1NSAgTWFzazoyNTUuMjU1LjI1NS4wCj4gPiAg
+ICAgICAgICAgaW5ldDYgYWRkcjogW1NOSVBdOmRhZmY6ZmVkMToxYjlmLzY0IFNjb3BlOkdsb2Jh
+bAo+ID4gICAgICAgICAgIGluZXQ2IGFkZHI6IGZlODA6OmZlZWM6ZGFmZjpmZWQxOjFiOWYvNjQg
+U2NvcGU6TGluawo+ID4gICAgICAgICAgIFVQIEJST0FEQ0FTVCBSVU5OSU5HIE1VTFRJQ0FTVCAg
+TVRVOjE1MDAgIE1ldHJpYzoxCj4gPiAgICAgICAgICAgUlggcGFja2V0czoyNjk1IGVycm9yczow
+IGRyb3BwZWQ6MCBvdmVycnVuczowIGZyYW1lOjAKPiA+ICAgICAgICAgICBUWCBwYWNrZXRzOjE5
+NDI5MSBlcnJvcnM6MCBkcm9wcGVkOjAgb3ZlcnJ1bnM6MCBjYXJyaWVyOjAKPiA+ICAgICAgICAg
+ICBjb2xsaXNpb25zOjAgdHhxdWV1ZWxlbjowIAo+ID4gICAgICAgICAgIFJYIGJ5dGVzOjEyMzk3
+MCAoMTIxLjAgS2lCKSAgVFggYnl0ZXM6NDIzNzAxNzIgKDQwLjQgTWlCKQo+ID4gCj4gPiBpZmJf
+ZXRoMiAgTGluayBlbmNhcDpFdGhlcm5ldCAgSFdhZGRyIGRlOmVkOjg3Ojg1OjgwOjI3ICAKPiA+
+ICAgICAgICAgICBpbmV0NiBhZGRyOiBmZTgwOjpkY2VkOjg3ZmY6ZmU4NTo4MDI3LzY0IFNjb3Bl
+OkxpbmsKPiA+ICAgICAgICAgICBVUCBCUk9BRENBU1QgUlVOTklORyBOT0FSUCAgTVRVOjE1MDAg
+IE1ldHJpYzoxCj4gPiAgICAgICAgICAgUlggcGFja2V0czoyOTY1NjMyNCBlcnJvcnM6MCBkcm9w
+cGVkOjI1MzEgb3ZlcnJ1bnM6MCBmcmFtZTowCj4gPiAgICAgICAgICAgVFggcGFja2V0czoyOTY1
+Mzc5MyBlcnJvcnM6MCBkcm9wcGVkOjAgb3ZlcnJ1bnM6MCBjYXJyaWVyOjAKPiA+ICAgICAgICAg
+ICBjb2xsaXNpb25zOjAgdHhxdWV1ZWxlbjozMiAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
+ICAgIDwtLS0tLSBxdWV1ZSBsZW4gMzI/ICBDdXJpb3VzCj4gPiAgICAgICAgICAgUlggYnl0ZXM6
+MTMwODY3NjUyODQgKDEyLjEgR2lCKSAgVFggYnl0ZXM6MTMwODYyNjQxNDYgKDEyLjEgR2lCKQo+
+ID4gCj4gPiAKPiA+IFN5c3RlbSBpbmZvCj4gPiAKPiA+IFRoaXMgaGFzIGEgcHJlaGlzdG9yaWMg
+a2VybmVsLCBJIGd1ZXNzIGJlY2F1c2UgdGhleSBoYXZlIHNvbWUgc3R1ZmYgdGhhdCB0YWludHMg
+dGhlIGtlcm5lbAo+ID4gCj4gPiByb290QFVTRy1Qcm8tNDp+IyB1bmFtZSAtYQo+ID4gTGludXgg
+VVNHLVByby00IDMuMTAuMTA3LVVCTlQgIzEgU01QIFRodSBKYW4gMTIgMDg6MzA6MDMgVVRDIDIw
+MjMgbWlwczY0IEdOVS9MaW51eAo+IAo+IFtTTV0gSSByZW1lbWJlciB0aGUgdGltZSB3ZSBmZWx0
+IGdyZWF0IGFib3V0IHVzaW5nIGEgc2VyaWVzIDMga2VybmVsIGluc3RlYWQgb2Ygb2xkIHNlcmll
+cyAyIGd1bmssIGJ1dCB1cHN0cmVhbSBpcyBhdCBzZXJpZXMgNiBieSBub3cgKGJ1dCBpdCBhbHNv
+IHN0YXJ0ZWQgdG8gaW5jcmVhc2UgbWFqb3IgbnVtYmVycyBtb3JlIGFnZ3Jlc3NpdmVseSBhZnRl
+ciBzZXJpZXMgMikKPiAKPiA+IAo+ID4gcm9vdEBVU0ctUHJvLTQ6fiMgY2F0IC92YXIvbG9nL2Rt
+ZXNnIHwgZ3JlcCB0YWludAo+ID4gdWJudF9wbGF0Zm9ybTogbW9kdWxlIGxpY2Vuc2UgJ1Byb3By
+aWV0YXJ5JyB0YWludHMga2VybmVsLgo+ID4gRGlzYWJsaW5nIGxvY2sgZGVidWdnaW5nIGR1ZSB0
+byBrZXJuZWwgdGFpbnQKPiA+IAo+ID4gSSBhbHNvIG5vdGljZSB0aGlzIG1vZHVsZSwgYnV0IEkn
+bSBub3Qgc3VyZSBpdCBpcyBpbiB1c2UuCj4gPiAvbGliL21vZHVsZXMvMy4xMC4xMDctVUJOVC9r
+ZXJuZWwvbmV0L25ldGZpbHRlci94dF9yYXRlZXN0LmtvCj4gPiAKPiA+IAo+ID4gcm9vdEBVU0ct
+UHJvLTQ6fiMgY2F0IC9wcm9jL2NwdWluZm8gCj4gPiBzeXN0ZW0gdHlwZSA6IFVCTlRfRTIyMAo+
+ID4gbWFjaGluZSA6IFVua25vd24KPiA+IHByb2Nlc3NvciA6IDAKPiA+IGNwdSBtb2RlbCA6IENh
+dml1bSBPY3Rlb24gSUkgVjAuMQo+ID4gQm9nb01JUFMgOiAyMDAwLjAwCj4gPiB3YWl0IGluc3Ry
+dWN0aW9uIDogeWVzCj4gPiBtaWNyb3NlY29uZCB0aW1lcnMgOiB5ZXMKPiA+IHRsYl9lbnRyaWVz
+IDogMTI4Cj4gPiBleHRyYSBpbnRlcnJ1cHQgdmVjdG9yIDogeWVzCj4gPiBoYXJkd2FyZSB3YXRj
+aHBvaW50IDogeWVzLCBjb3VudDogMiwgYWRkcmVzcy9pcncgbWFzazogWzB4MGZmYywgMHgwZmZi
+XQo+ID4gaXNhIDogbWlwczEgbWlwczIgbWlwczMgbWlwczQgbWlwczUgbWlwczY0cjIKPiA+IEFT
+RXMgaW1wbGVtZW50ZWQgOgo+ID4gc2hhZG93IHJlZ2lzdGVyIHNldHMgOiAxCj4gPiBrc2NyYXRj
+aCByZWdpc3RlcnMgOiAzCj4gPiBjb3JlIDogMAo+ID4gVkNFRCBleGNlcHRpb25zIDogbm90IGF2
+YWlsYWJsZQo+ID4gVkNFSSBleGNlcHRpb25zIDogbm90IGF2YWlsYWJsZQo+ID4gCj4gPiBwcm9j
+ZXNzb3IgOiAxCj4gPiBjcHUgbW9kZWwgOiBDYXZpdW0gT2N0ZW9uIElJIFYwLjEKPiA+IEJvZ29N
+SVBTIDogMjAwMC4wMAo+ID4gd2FpdCBpbnN0cnVjdGlvbiA6IHllcwo+ID4gbWljcm9zZWNvbmQg
+dGltZXJzIDogeWVzCj4gPiB0bGJfZW50cmllcyA6IDEyOAo+ID4gZXh0cmEgaW50ZXJydXB0IHZl
+Y3RvciA6IHllcwo+ID4gaGFyZHdhcmUgd2F0Y2hwb2ludCA6IHllcywgY291bnQ6IDIsIGFkZHJl
+c3MvaXJ3IG1hc2s6IFsweDBmZmMsIDB4MGZmYl0KPiA+IGlzYSA6IG1pcHMxIG1pcHMyIG1pcHMz
+IG1pcHM0IG1pcHM1IG1pcHM2NHIyCj4gPiBBU0VzIGltcGxlbWVudGVkIDoKPiA+IHNoYWRvdyBy
+ZWdpc3RlciBzZXRzIDogMQo+ID4ga3NjcmF0Y2ggcmVnaXN0ZXJzIDogMwo+ID4gY29yZSA6IDEK
+PiA+IFZDRUQgZXhjZXB0aW9ucyA6IG5vdCBhdmFpbGFibGUKPiA+IFZDRUkgZXhjZXB0aW9ucyA6
+IG5vdCBhdmFpbGFibGUKPiA+IAo+ID4gCj4gPiAKPiA+IHJvb3RAVVNHLVByby00On4jIGV0aHRv
+b2wgLWkgZXRoMgo+ID4gZHJpdmVyOiBvY3Rlb24tZXRoZXJuZXQKPiA+IHZlcnNpb246IDIuMAo+
+ID4gZmlybXdhcmUtdmVyc2lvbjogCj4gPiBidXMtaW5mbzogQnVpbHRpbgo+ID4gc3VwcG9ydHMt
+c3RhdGlzdGljczogbm8KPiA+IHN1cHBvcnRzLXRlc3Q6IG5vCj4gPiBzdXBwb3J0cy1lZXByb20t
+YWNjZXNzOiBubwo+ID4gc3VwcG9ydHMtcmVnaXN0ZXItZHVtcDogbm8KPiA+IHN1cHBvcnRzLXBy
+aXYtZmxhZ3M6IG5vCj4gPiAKPiA+IHJvb3RAVVNHLVByby00On4jIGV0aHRvb2wgLVMgZXRoMgo+
+ID4gbm8gc3RhdHMgYXZhaWxhYmxlCj4gPiAKPiA+ICggT2ggZ3JlYXQhIFRoYW5rcyBndXlzISAp
+Cj4gPiAKPiA+IHJvb3RAVVNHLVByby00On4jIG5ldHN0YXQgLWlhCj4gPiBLZXJuZWwgSW50ZXJm
+YWNlIHRhYmxlCj4gPiBJZmFjZSAgIE1UVSBNZXQgICBSWC1PSyBSWC1FUlIgUlgtRFJQIFJYLU9W
+UiAgICBUWC1PSyBUWC1FUlIgVFgtRFJQIFRYLU9WUiBGbGcKPiA+IGV0aDAgICAgICAgMTUwMCAw
+ICAxMTM0MDkxMyAgICAgIDAgICAgICAwIDAgICAgICAyMTYxMjA2MyAgICAgIDAgICAgICAwICAg
+ICAgMCBCTVJVCj4gPiBldGgxICAgICAgIDE1MDAgMCAgICAxNTQ5MDIgICAgICAwICAgICAgMCAw
+ICAgICAgICAyMzMyMzYgICAgICAwICAgICAgMCAgICAgIDAgQk1SVQo+ID4gZXRoMiAgICAgICAx
+NTAwIDAgIDYwODk4NjEwICAgICAgMCAgICAgIDAgMCAgICAgIDEwNTQ0NDE0ICAgICAgMCAgICAg
+IDAgICAgICAwIEJNUlUKPiA+IGV0aDMgICAgICAgMTUwMCAwICAgICAgICAgMCAgICAgIDAgICAg
+ICAwIDAgICAgICAgICAgICAgMCAgICAgIDAgICAgICAwICAgICAgMCBCTQo+ID4gZXRoMC4yMCAg
+ICAxNTAwIDAgICAgNzgxOTkyICAgICAgMCAgICAgIDAgMCAgICAgICAgNDgwMjE0ICAgICAgMCAg
+ICAgIDAgICAgICAwIEJNUlUKPiA+IGV0aDAuNDAgICAgMTUwMCAwICAgICAgMjY5NSAgICAgIDAg
+ICAgICAwIDAgICAgICAgIDE5NDI2MCAgICAgIDAgICAgICAwICAgICAgMCBCTVJVCj4gPiBpZmJf
+ZXRoMiAgIDE1MDAgMCAgMjk2NDI1OTggICAgICAwICAgMjUzMCAwICAgICAgMjk2NDAwNjggICAg
+ICAwICAgICAgMCAgICAgIDAgQk9SVSAgIDwtLS0tIFJYIGRyb3BzPwo+ID4gaW1xMCAgICAgIDE2
+MDAwIDAgICAgICAgICAwICAgICAgMCAgICAgIDAgMCAgICAgICAgICAgICAwICAgICAgMCAgICAg
+IDAgICAgICAwIE9SVQo+ID4gbG8gICAgICAgIDY1NTM2IDAgICAgICA5MjU1ICAgICAgMCAgICAg
+IDAgMCAgICAgICAgICA5MjU1ICAgICAgMCAgICAgIDAgICAgICAwIExSVQo+ID4gbG9vcDAgICAg
+ICAxNTAwIDAgICAgICAgICAwICAgICAgMCAgICAgIDAgMCAgICAgICAgICAgICAwICAgICAgMCAg
+ICAgIDAgICAgICAwIEJNCj4gPiBsb29wMSAgICAgIDE1MDAgMCAgICAgICAgIDAgICAgICAwICAg
+ICAgMCAwICAgICAgICAgICAgIDAgICAgICAwICAgICAgMCAgICAgIDAgQk0KPiA+IGxvb3AyICAg
+ICAgMTUwMCAwICAgICAgICAgMCAgICAgIDAgICAgICAwIDAgICAgICAgICAgICAgMCAgICAgIDAg
+ICAgICAwICAgICAgMCBCTQo+ID4gbG9vcDMgICAgICAxNTAwIDAgICAgICAgICAwICAgICAgMCAg
+ICAgIDAgMCAgICAgICAgICAgICAwICAgICAgMCAgICAgIDAgICAgICAwIEJNCj4gPiBucGkwICAg
+ICAgIDE1MDAgMCAgICAgICAgIDAgICAgICAwICAgICAgMCAwICAgICAgICAgICAgIDAgICAgICAw
+ICAgICAgMCAgICAgIDAgQk0KPiA+IG5waTEgICAgICAgMTUwMCAwICAgICAgICAgMCAgICAgIDAg
+ICAgICAwIDAgICAgICAgICAgICAgMCAgICAgIDAgICAgICAwICAgICAgMCBCTQo+ID4gbnBpMiAg
+ICAgICAxNTAwIDAgICAgICAgICAwICAgICAgMCAgICAgIDAgMCAgICAgICAgICAgICAwICAgICAg
+MCAgICAgIDAgICAgICAwIEJNCj4gPiBucGkzICAgICAgIDE1MDAgMCAgICAgICAgIDAgICAgICAw
+ICAgICAgMCAwICAgICAgICAgICAgIDAgICAgICAwICAgICAgMCAgICAgIDAgQk0KPiA+IAo+ID4g
+cm9vdEBVU0ctUHJvLTQ6L29wdC92eWF0dGEvZXRjIyBjYXQgdmVyc2lvbiAKPiA+IFZlcnNpb246
+ICAgICAgdjQuNC41Ny41NTc4MzcyLjIzMDExMi4wODI0Cj4gPiAKPiA+IC0tIAo+ID4gUmVnYXJk
+cywKPiA+IERhdmUgU2VkZG9uCj4gPiBfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fXwo+ID4gQ2FrZSBtYWlsaW5nIGxpc3QKPiA+IENha2VAbGlzdHMuYnVmZmVy
+YmxvYXQubmV0Cj4gPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtl
+Cj4gCj4gCj4gCj4gLS0gCj4gUmVnYXJkcywKPiBEYXZlIFNlZGRvbgo+ICsxIDQxNSA4NTcgNTEw
+MgoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBt
+YWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZm
+ZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
