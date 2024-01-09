@@ -2,86 +2,72 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 52ED7828928
-	for <lists+cake@lfdr.de>; Tue,  9 Jan 2024 16:40:16 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1E782828987
+	for <lists+cake@lfdr.de>; Tue,  9 Jan 2024 16:59:21 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 5E8A13CB43;
-	Tue,  9 Jan 2024 10:40:09 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id BD5613CB44;
+	Tue,  9 Jan 2024 10:59:19 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1704814809;
-	bh=3gx3Ei4UjID3Z8M+ktCRxV2fiEtXSwejT/OAGH/0nBU=;
-	h=Date:In-Reply-To:To:References:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1704815959;
+	bh=AkJf4DO+BHcHSC+QNSwVaHirwpyvkaJIPl8gDQxo/oc=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=nWu/qt0lIzRGaDqvlA5JsP5dGE1d8fC/4Ix1kO8Lw6hrwL1mdgJF00PyTNK6RVlYt
-	 oyD7FczhPRwbGEnH+D+RV14swL+ePUa+fMIANPe4VTYFQZqD6hOiPhxmgL6dVRobm2
-	 J9qi7Jk1KiBSsE9t/Y3lniPtjdZUAJWVmOmJjef/khRr7Mbpm3O128hq1Mi4wjnwL4
-	 p64zn34VEq05RiJH6Szm4a8FgGCfxg4fwvTI9F1rA8vwHxK/x8v2J0bWBeowq7QJYW
-	 YWH1tiPykmsFXrlisGpp0Tmnw/+Ty1CYmRlGdoGl2qsWShd7BcSLkOKI+unsruINZn
-	 tQ7POuekqsqvw==
+	b=Lnyr4y9TYB4/A0zO72EOUIYVkWg5F0EtNRCKszfHGQOz8F4AxAmEhb9bJ6/syFNLj
+	 7iM/XmM7TVnOsRpSoyiPP4Zp79c7V6ai8ynm8HYVfSGfIPzeHp7ZyA38OdawIdi5yn
+	 Koium+ydK4mNodmonQ2AOiirnMZy6uIrjKAcGh7m8FYTfJDeHmsGdj5V3Vuahf2pIe
+	 mOaocwCk7cMn6xuOqNmzdby6DFZLqXXyUqMu4o71tIEkfHzsRP3YA6/MuoURVrCUZU
+	 grl1mgt5Ys9ed0VYR5kFG2hnKYAEJU4it03ujXmHb57BNB+dzBkqVzSXPewvBU4WAN
+	 SGEIZM3cYWpZw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from out5-smtp.messagingengine.com (out5-smtp.messagingengine.com
- [66.111.4.29])
- (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-pj1-x1029.google.com (mail-pj1-x1029.google.com
+ [IPv6:2607:f8b0:4864:20::1029])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id A451B3B2A4
- for <cake@lists.bufferbloat.net>; Tue,  9 Jan 2024 10:40:08 -0500 (EST)
-Received: from compute4.internal (compute4.nyi.internal [10.202.2.44])
- by mailout.nyi.internal (Postfix) with ESMTP id 8F1C65C058D;
- Tue,  9 Jan 2024 10:40:08 -0500 (EST)
-Received: from mailfrontend1 ([10.202.2.162])
- by compute4.internal (MEProxy); Tue, 09 Jan 2024 10:40:08 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=lochnair.net; h=
- cc:cc:content-type:content-type:date:date:from:from:in-reply-to
- :in-reply-to:message-id:mime-version:references:reply-to:subject
- :subject:to:to; s=fm1; t=1704814808; x=1704901208; bh=1rZgoBNrIb
- wv7U14lryJqOgsPTC+C9MGwMC7o80Phfw=; b=DRj+hRiqicqLyvBS/qu5Kxyjab
- xz9w6C+tiLkqIKbkhtPnM/qiaYbiZhNp376o+qkS8m9F/sO09a7es9//YQWKm0DH
- BERmqqDakyeFV/cooO3QXM/58CQeB1L47SMwfEmDcoyVkp3R5s8Gdz7j5yPjGNDT
- 1/uDV9eh5nHOut/b06kGooVjV24Qh1XyhuDTdQ77ugIOc+rGoWoZ2kx5mm9awyx8
- VDJDXsqbjVn6TbXTOczRrT/PUuormkDiD8y80/gBOQ9fzsGulJxtr72wMgxDLWsc
- 9Oy3PBOKzribos9RydNVUcBWOvTgYOtTxN6wnqn/U8ALndtmUEzFGSqbyw2A==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
- messagingengine.com; h=cc:cc:content-type:content-type:date:date
- :feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
- :message-id:mime-version:references:reply-to:subject:subject:to
- :to:x-me-proxy:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=
- fm2; t=1704814808; x=1704901208; bh=1rZgoBNrIbwv7U14lryJqOgsPTC+
- C9MGwMC7o80Phfw=; b=Th2S26INLU1yiCtGzyqXz2vSmMQOtz2VKCTR+bn7TDF7
- MuTIVvsI7ZPooZ6Sy1r71+qsmUv0uBhm5a0nR1p720fDH61doJHV4oPeXe+rhfAX
- qDqqi5VcQq15r1wy8rw4kf4vTN9pTzuPkjipwIgFDTcvddIFBu/xwdSYCqryDd1k
- 60tCBM+OzuCnyDlVGEDheeLUvHtzR/Ku402s64uwZ+7s+mv5SbE23O3dF8gBVBSp
- KjW36xFZyLZdemAoZYW4RaRKtg7PLn2jorXhG2sEkpb9oypq1ExHH0D4fq4MbNG6
- WVzi/FaY3CMHeL0NE4xIbfZ4K/33DM6JOPiD2U36Jw==
-X-ME-Sender: <xms:2GidZZggNppm5bkWg4dKuWzajd-qN-EMKulkhkmVmS27U1MV1bZ5KQ>
- <xme:2GidZeCMam5HZN11HVFk9ou99yGuveIXp16WHsckA3l30vcuZZFAhS5q9zKujPITZ
- Loig0uIk0JMZQlNIg>
-X-ME-Received: <xmr:2GidZZGTz9OtbuBBvxVPp-yWNJrC1u032aightS122XCJK3fPRFSVpQqXwd-HNVNjxqfMQ>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgedvkedrvdehledgjeekucetufdoteggodetrfdotf
- fvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfqfgfvpdfurfetoffkrfgpnffqhgen
- uceurghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmne
- cujfgurhephffktgggufffjgevvfhfofesrgdtmherhhdtjeenucfhrhhomheppfhilhhs
- ucetnhgurhgvrghsucfuvhgvvgcuoehmvgeslhhotghhnhgrihhrrdhnvghtqeenucggtf
- frrghtthgvrhhnpedujefgvdfhveejueevueeifedvudekiedttdfhhfejhffgueeukeet
- tefgtddtudenucffohhmrghinhepuhhirdgtohhmpdgsuhhffhgvrhgslhhorghtrdhnvg
- htnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomhepmhgv
- sehlohgthhhnrghirhdrnhgvth
-X-ME-Proxy: <xmx:2GidZeSGhbr3Pz9Td4qMEKERGQWQfS6Iern0rDtKWXHUNsL2AcT1ig>
- <xmx:2GidZWwLf7Ac2Rh1RqtyZ7ka91zHcRLclL1nXmFTKWdW2p1iaDa8RA>
- <xmx:2GidZU6B0fqtUxQ_X8R9jHNuZtIhW-TVOXl1L0dNyD-Md5_qkdBCdw>
- <xmx:2GidZboKSTAMVjXTstRjIVgtXwRMp7A3qXWc_Uw_m76vAdOYDTYJIg>
-Feedback-ID: id883430e:Fastmail
-Received: by mail.messagingengine.com (Postfix) with ESMTPA; Tue,
- 9 Jan 2024 10:40:07 -0500 (EST)
-Message-Id: <65325791-A1D1-4E21-9F1D-D17737BCFF0F@lochnair.net>
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3774.300.61.1.2\))
-Date: Tue, 9 Jan 2024 16:39:55 +0100
-In-Reply-To: <deed5fd13e38d17c8b6716f4fdad64cba896385b.camel@heistp.net>
-To: Pete Heist <pete@heistp.net>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 161CF3B2A4
+ for <cake@lists.bufferbloat.net>; Tue,  9 Jan 2024 10:59:17 -0500 (EST)
+Received: by mail-pj1-x1029.google.com with SMTP id
+ 98e67ed59e1d1-28c9d424cceso2165275a91.0
+ for <cake@lists.bufferbloat.net>; Tue, 09 Jan 2024 07:59:17 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20230601; t=1704815957; x=1705420757; darn=lists.bufferbloat.net;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=Xq8oZcMeFPR6jNBQz21bWOMpaHbiawZ1V0SXNRhqEcM=;
+ b=FWIUE3bMGe3CYMHw5+WUfqqruL4cJZQRRfwHX368bizcoX/K5lK3rTFudVONaXHDpb
+ U/FuY/2WvzHF1YJLvCP2pg+91NyHKLMfYjxkLXhnWKnO1RmjCXbZE5GO99LMBqSv9Md2
+ jOLWppvH9GpRLTv/xRu9lQEl2SYWdhJK0iL5UB/bXJCD2TGZAPfeHYiGcF6c7hFUlVFS
+ MwGFEsAjUQltAR9dVnqUj3PMghRVK72nHRT509f6+Wr9eAtNwvj9dmwr8/AMwNazWV8f
+ lEknycvPpyvZ0poY48WcrThRbV11gaDHSJ03T4evoMX9V1hCd47WOnycXE1Z0fDt+o/z
+ /CtQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1704815957; x=1705420757;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=Xq8oZcMeFPR6jNBQz21bWOMpaHbiawZ1V0SXNRhqEcM=;
+ b=euFq7gKJIyFyJ7fuG7k1XLSxmfUQtUe2TdR5+XzwS0BM5+UwC1bvkUuSiM9M/cFuG/
+ cIvsLVFhh84lAsCKdJUyjxkwFbodIMLwS9aj64BGW7TUnWe3iNJKZZhvkXa7asE0jXng
+ Dd5BXFOrX0Uns0e4zb33Q+68p7koh5Dh7o+i/Lnvv/jKoNGfO6geMpF68lsa59BgqwEM
+ P+7wc08nl9ABRb3/v8m3K3+s2QIsGy1PwMvEC9oZuAcr/JPX9PDPo9h0C8Nki5ureIdu
+ h7aFFfb0VQjh1PzODATg1sMtbkPfZsOmwLffZhYpEw+sd9Q+MmEA9OYgOhFiDz3iqg4Z
+ 4iSA==
+X-Gm-Message-State: AOJu0YzN5DH2kI9twm6PvuJxbgr94nfmN3hmh6DAxfi+womRR8Fy6BCM
+ s9HbsYCCJjIRKjFbneg+iYeU1pZtZB/x5XP6uM/aAcswvjU=
+X-Google-Smtp-Source: AGHT+IHJAY+p/QJ7HA3ERAlwxXO9gs0X+llKEbHUFAjsiSb/GTKBM4fmHQiqRZr7CbrfGInPIkGSL4Uwu03/aNSur7M=
+X-Received: by 2002:a17:90a:fb4d:b0:28b:765c:163e with SMTP id
+ iq13-20020a17090afb4d00b0028b765c163emr1129596pjb.16.1704815956880; Tue, 09
+ Jan 2024 07:59:16 -0800 (PST)
+MIME-Version: 1.0
 References: <CANypexRYDqtsuj2vwX0qXWA=hXN3KZ5CJn5+vZRbm=Dikwh1Aw@mail.gmail.com>
  <deed5fd13e38d17c8b6716f4fdad64cba896385b.camel@heistp.net>
-X-Mailer: Apple Mail (2.3774.300.61.1.2)
+ <65325791-A1D1-4E21-9F1D-D17737BCFF0F@lochnair.net>
+In-Reply-To: <65325791-A1D1-4E21-9F1D-D17737BCFF0F@lochnair.net>
+Date: Tue, 9 Jan 2024 10:59:05 -0500
+Message-ID: <CAA93jw4CMrGOFToJonBvC4zmcJwcLzrDHBrPU4FCdUQgKMmQ0A@mail.gmail.com>
+To: Nils Andreas Svee <me@lochnair.net>
 Subject: Re: [Cake] Ubiquity (Unifi ) Smart Queues
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -94,161 +80,76 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Nils Andreas Svee via Cake <cake@lists.bufferbloat.net>
-Reply-To: Nils Andreas Svee <me@lochnair.net>
+From: Dave Taht via Cake <cake@lists.bufferbloat.net>
+Reply-To: Dave Taht <dave.taht@gmail.com>
 Cc: CAKE list <cake@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============7014686394190459409=="
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-
---===============7014686394190459409==
-Content-Type: multipart/alternative;
-	boundary="Apple-Mail=_56F9B135-64E1-4E24-9772-44C4739FFBAB"
-
-
---Apple-Mail=_56F9B135-64E1-4E24-9772-44C4739FFBAB
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain;
-	charset=utf-8
-
-You=E2=80=99re unlikely to do any real harm though, but the warning is =
-there cause you can potentially soft brick your router using it. I=E2=80=99=
-ve run into that myself if I remember correctly, where after a firmware =
-upgrade the kernel had slightly changed, so loading the sch_cake module =
-caused it to panic. And I had it start through =
-/config/scripts/post-config.d of course, so it would happen on every =
-restart.
-
-Nothing a factory reset won=E2=80=99t solve, but annoying when if =
-you=E2=80=99re messing about remotely :)
-
-As for USG, I think I used to have some binaries for those too. I do =
-still have some old kernel sources for them laying around in a repo.
-It=E2=80=99s been awhile, but I probably stopped building for those as =
-it wasn=E2=80=99t as straightforward to keep up with the versions of the =
-firmware.
-
-Though frankly, I don=E2=80=99t plan on updating the sch_cake and tc =
-binaries when new firmwares are released anymore, as they don=E2=80=99t =
-publish the GPL archives on their webpage after the redesign, and they =
-don=E2=80=99t respond to requests for them either by the looks of the =
-forums. So if it breaks there=E2=80=99s not much I can do anymore.
-
-Best Regards,
-Nils Andreas Svee
-
-> On Jan 3, 2024, at 14:44, Pete Heist via Cake =
-<cake@lists.bufferbloat.net> wrote:
->=20
-> On Tue, 2024-01-02 at 10:59 -0800, dave seddon via Cake wrote:
->> I thought people might be interested to see what Ubiquity/Unifi is
->> doing with "Smart Queues" on their devices.  The documentation on
->> their website is not very informative.
->> <snip>
->> "Smart Queue" Implementation
->>=20
->> Looks like they only apply tc qdiscs to the Eth2, and sadly this is
->> NOT cake, but fq_codel.
->>=20
->> And cake isn't available :(
->>=20
->> root@USG-Pro-4:~# tc qdisc replace dev eth0 cake bandwidth 100m rtt
->> 20ms
->> Unknown qdisc "cake", hence option "bandwidth" is unparsable
->=20
-> Hi Dave, there's a community contributed version of Cake for =
-EdgeRouter
-> devices that I've been using for years on production ER-X's:
->=20
-> =
-https://community.ui.com/questions/Cake-compiled-for-the-EdgeRouter-device=
-s/fc1ff27c-f321-4344-8737-fcc755cae8a2
->=20
-> I don't think that works for UniFi/USG devices, however, and one =
-should
-> note the disclaimer and be careful when installing it. Also, it must =
-be
-> re-installed after every upgrade.
->=20
-> Cheers,
-> Pete
->=20
-> _______________________________________________
-> Cake mailing list
-> Cake@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/cake
-
-
---Apple-Mail=_56F9B135-64E1-4E24-9772-44C4739FFBAB
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/html;
-	charset=utf-8
-
-<html><head><meta http-equiv=3D"content-type" content=3D"text/html; =
-charset=3Dutf-8"></head><body style=3D"overflow-wrap: break-word; =
--webkit-nbsp-mode: space; line-break: after-white-space;"><div>You=E2=80=99=
-re unlikely to do any real harm though, but the warning is there cause =
-you can potentially soft brick your router using it. I=E2=80=99ve run =
-into that myself if I remember correctly, where after a firmware upgrade =
-the kernel had slightly changed, so loading the sch_cake module caused =
-it to panic. And I had it start through /config/scripts/post-config.d of =
-course, so it would happen on every =
-restart.</div><div><br></div><div>Nothing a factory reset won=E2=80=99t =
-solve, but annoying when if you=E2=80=99re messing about remotely =
-:)</div><div><br></div><div>As for USG, I think I used to have some =
-binaries for those too. I do still have some old kernel sources for them =
-laying around in a repo.</div><div>It=E2=80=99s been awhile, but I =
-probably stopped building for those as it wasn=E2=80=99t as =
-straightforward to keep up with the versions of the =
-firmware.</div><div><br></div><div>Though frankly, I don=E2=80=99t plan =
-on updating the sch_cake and tc binaries when new firmwares are released =
-anymore, as they don=E2=80=99t publish the GPL archives on their webpage =
-after the redesign, and they don=E2=80=99t respond to requests for them =
-either by the looks of the forums. So if it breaks there=E2=80=99s not =
-much I can do anymore.</div><br id=3D"lineBreakAtBeginningOfMessage"><div>=
-
-<div>Best Regards,<br>Nils Andreas Svee</div>
-
-</div>
-
-
-
-<div><br><blockquote type=3D"cite"><div>On Jan 3, 2024, at 14:44, Pete =
-Heist via Cake &lt;cake@lists.bufferbloat.net&gt; wrote:</div><br =
-class=3D"Apple-interchange-newline"><div><div>On Tue, 2024-01-02 at =
-10:59 -0800, dave seddon via Cake wrote:<br><blockquote type=3D"cite">I =
-thought people might be interested to see what Ubiquity/Unifi =
-is<br>doing with "Smart Queues" on their devices.&nbsp; The =
-documentation on<br>their website is not very =
-informative.<br>&lt;snip&gt;<br>"Smart Queue" =
-Implementation<br><br>Looks like they only apply tc qdiscs to the Eth2, =
-and sadly this is<br>NOT cake, but fq_codel.<br><br>And cake isn't =
-available :(<br><br>root@USG-Pro-4:~# tc qdisc replace dev eth0 cake =
-bandwidth 100m rtt<br>20ms<br>Unknown qdisc "cake", hence option =
-"bandwidth" is unparsable<br></blockquote><br>Hi Dave, there's a =
-community contributed version of Cake for EdgeRouter<br>devices that =
-I've been using for years on production =
-ER-X's:<br><br>https://community.ui.com/questions/Cake-compiled-for-the-Ed=
-geRouter-devices/fc1ff27c-f321-4344-8737-fcc755cae8a2<br><br>I don't =
-think that works for UniFi/USG devices, however, and one should<br>note =
-the disclaimer and be careful when installing it. Also, it must =
-be<br>re-installed after every =
-upgrade.<br><br>Cheers,<br>Pete<br><br>___________________________________=
-____________<br>Cake mailing =
-list<br>Cake@lists.bufferbloat.net<br>https://lists.bufferbloat.net/listin=
-fo/cake<br></div></div></blockquote></div><br></body></html>=
-
---Apple-Mail=_56F9B135-64E1-4E24-9772-44C4739FFBAB--
-
---===============7014686394190459409==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============7014686394190459409==--
+SXQgaXMgc28gbmljZSB0byBzZWUgdGhpcyBsaXN0IGNvbWUgdG8gbGlmZSBhZ2Fpbi4KSSBqdXN0
+IHdhbnRlZCB0byBwb2ludCBvdXQgdGhhdCB0aGUgaW5ib3VuZCBkcm9wIHJhdGUgd2FzIG1lcmVs
+eSAuMDMlCmluIHRoZSBmaXJzdCBlbWFpbC4KCkVsc2V3aGVyZSB3ZSBrZWVwIGhlYXJpbmcgb2Yg
+MS0yJSBkcm9wIHJhdGVzIGJlaW5nIGNvbW1vbiwgYW5kIEkganVzdAphaW50IHNlZWluZyBpdCBp
+biBhbnkgb2YgdGhlIGxhcmdlciBzY2FsZSBkYXRhIEkgaGF2ZSBiZWVuIGdldHRpbmcKZnJvbSB0
+aGUgbGlicmVxb3MgZGVwbG95bWVudC4gTWF5YmUgdGhhdMK0cyBob3cgZmlmb3MgY29sbGFwc2Ug
+aW4gc2xvdwpzdGFydCBhIGxvdCBtb3JlIHRoYW4gd2UgaGF2ZSBldmVyIG9ic2VydmVkLiBNYXli
+ZSBpdCBpcyByZXRyYW5zbWl0cwpnb2luZyB3aWxkIGF0IDI1MG1zIHdvcnRoIG9mIGJ1ZmZlcmlu
+Zy4KCnNjYWxlPTEwCjEwNjg4LzI5MTg1NzQyCi4wMDAzNjYyMDYyCgpJIHN0aWxsIGhhdmUgdG8g
+c2l0IGJhY2sgYW5kIGFkbWlyZSB5b3UgYWxsIGZvciB0aGlzIG1hZ25pZmljZW50CmFjaGlldmVt
+ZW50IG9mIGNha2UuIEkgYW0gbm90IHJlYWxseSB0aGUgZ2xvYXRpbmcgc29ydCwgYnV0IHNlZWlu
+ZwpqdW5pcGVyIGdvIHVwIGZvciBzYWxlIHRvIGhwZSB0b2RheSwgYXQgYSBmaXJlc2FsZSBwcmlj
+ZSwgaXMgb2RkbHkKc2F0aXNmeWluZy4KCmh0dHBzOi8vYmxvZy5jZXJvd3J0Lm9yZy9wb3N0L2p1
+bmlwZXIvCgoKCk9uIFR1ZSwgSmFuIDksIDIwMjQgYXQgMTA6NDDigK9BTSBOaWxzIEFuZHJlYXMg
+U3ZlZSB2aWEgQ2FrZQo8Y2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQ+IHdyb3RlOgo+Cj4gWW91
+4oCZcmUgdW5saWtlbHkgdG8gZG8gYW55IHJlYWwgaGFybSB0aG91Z2gsIGJ1dCB0aGUgd2Fybmlu
+ZyBpcyB0aGVyZSBjYXVzZSB5b3UgY2FuIHBvdGVudGlhbGx5IHNvZnQgYnJpY2sgeW91ciByb3V0
+ZXIgdXNpbmcgaXQuIEnigJl2ZSBydW4gaW50byB0aGF0IG15c2VsZiBpZiBJIHJlbWVtYmVyIGNv
+cnJlY3RseSwgd2hlcmUgYWZ0ZXIgYSBmaXJtd2FyZSB1cGdyYWRlIHRoZSBrZXJuZWwgaGFkIHNs
+aWdodGx5IGNoYW5nZWQsIHNvIGxvYWRpbmcgdGhlIHNjaF9jYWtlIG1vZHVsZSBjYXVzZWQgaXQg
+dG8gcGFuaWMuIEFuZCBJIGhhZCBpdCBzdGFydCB0aHJvdWdoIC9jb25maWcvc2NyaXB0cy9wb3N0
+LWNvbmZpZy5kIG9mIGNvdXJzZSwgc28gaXQgd291bGQgaGFwcGVuIG9uIGV2ZXJ5IHJlc3RhcnQu
+Cj4KPiBOb3RoaW5nIGEgZmFjdG9yeSByZXNldCB3b27igJl0IHNvbHZlLCBidXQgYW5ub3lpbmcg
+d2hlbiBpZiB5b3XigJlyZSBtZXNzaW5nIGFib3V0IHJlbW90ZWx5IDopCj4KPiBBcyBmb3IgVVNH
+LCBJIHRoaW5rIEkgdXNlZCB0byBoYXZlIHNvbWUgYmluYXJpZXMgZm9yIHRob3NlIHRvby4gSSBk
+byBzdGlsbCBoYXZlIHNvbWUgb2xkIGtlcm5lbCBzb3VyY2VzIGZvciB0aGVtIGxheWluZyBhcm91
+bmQgaW4gYSByZXBvLgo+IEl04oCZcyBiZWVuIGF3aGlsZSwgYnV0IEkgcHJvYmFibHkgc3RvcHBl
+ZCBidWlsZGluZyBmb3IgdGhvc2UgYXMgaXQgd2FzbuKAmXQgYXMgc3RyYWlnaHRmb3J3YXJkIHRv
+IGtlZXAgdXAgd2l0aCB0aGUgdmVyc2lvbnMgb2YgdGhlIGZpcm13YXJlLgo+Cj4gVGhvdWdoIGZy
+YW5rbHksIEkgZG9u4oCZdCBwbGFuIG9uIHVwZGF0aW5nIHRoZSBzY2hfY2FrZSBhbmQgdGMgYmlu
+YXJpZXMgd2hlbiBuZXcgZmlybXdhcmVzIGFyZSByZWxlYXNlZCBhbnltb3JlLCBhcyB0aGV5IGRv
+buKAmXQgcHVibGlzaCB0aGUgR1BMIGFyY2hpdmVzIG9uIHRoZWlyIHdlYnBhZ2UgYWZ0ZXIgdGhl
+IHJlZGVzaWduLCBhbmQgdGhleSBkb27igJl0IHJlc3BvbmQgdG8gcmVxdWVzdHMgZm9yIHRoZW0g
+ZWl0aGVyIGJ5IHRoZSBsb29rcyBvZiB0aGUgZm9ydW1zLiBTbyBpZiBpdCBicmVha3MgdGhlcmXi
+gJlzIG5vdCBtdWNoIEkgY2FuIGRvIGFueW1vcmUuCj4KPiBCZXN0IFJlZ2FyZHMsCj4gTmlscyBB
+bmRyZWFzIFN2ZWUKPgo+IE9uIEphbiAzLCAyMDI0LCBhdCAxNDo0NCwgUGV0ZSBIZWlzdCB2aWEg
+Q2FrZSA8Y2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQ+IHdyb3RlOgo+Cj4gT24gVHVlLCAyMDI0
+LTAxLTAyIGF0IDEwOjU5IC0wODAwLCBkYXZlIHNlZGRvbiB2aWEgQ2FrZSB3cm90ZToKPgo+IEkg
+dGhvdWdodCBwZW9wbGUgbWlnaHQgYmUgaW50ZXJlc3RlZCB0byBzZWUgd2hhdCBVYmlxdWl0eS9V
+bmlmaSBpcwo+IGRvaW5nIHdpdGggIlNtYXJ0IFF1ZXVlcyIgb24gdGhlaXIgZGV2aWNlcy4gIFRo
+ZSBkb2N1bWVudGF0aW9uIG9uCj4gdGhlaXIgd2Vic2l0ZSBpcyBub3QgdmVyeSBpbmZvcm1hdGl2
+ZS4KPiA8c25pcD4KPiAiU21hcnQgUXVldWUiIEltcGxlbWVudGF0aW9uCj4KPiBMb29rcyBsaWtl
+IHRoZXkgb25seSBhcHBseSB0YyBxZGlzY3MgdG8gdGhlIEV0aDIsIGFuZCBzYWRseSB0aGlzIGlz
+Cj4gTk9UIGNha2UsIGJ1dCBmcV9jb2RlbC4KPgo+IEFuZCBjYWtlIGlzbid0IGF2YWlsYWJsZSA6
+KAo+Cj4gcm9vdEBVU0ctUHJvLTQ6fiMgdGMgcWRpc2MgcmVwbGFjZSBkZXYgZXRoMCBjYWtlIGJh
+bmR3aWR0aCAxMDBtIHJ0dAo+IDIwbXMKPiBVbmtub3duIHFkaXNjICJjYWtlIiwgaGVuY2Ugb3B0
+aW9uICJiYW5kd2lkdGgiIGlzIHVucGFyc2FibGUKPgo+Cj4gSGkgRGF2ZSwgdGhlcmUncyBhIGNv
+bW11bml0eSBjb250cmlidXRlZCB2ZXJzaW9uIG9mIENha2UgZm9yIEVkZ2VSb3V0ZXIKPiBkZXZp
+Y2VzIHRoYXQgSSd2ZSBiZWVuIHVzaW5nIGZvciB5ZWFycyBvbiBwcm9kdWN0aW9uIEVSLVgnczoK
+Pgo+IGh0dHBzOi8vY29tbXVuaXR5LnVpLmNvbS9xdWVzdGlvbnMvQ2FrZS1jb21waWxlZC1mb3It
+dGhlLUVkZ2VSb3V0ZXItZGV2aWNlcy9mYzFmZjI3Yy1mMzIxLTQzNDQtODczNy1mY2M3NTVjYWU4
+YTIKPgo+IEkgZG9uJ3QgdGhpbmsgdGhhdCB3b3JrcyBmb3IgVW5pRmkvVVNHIGRldmljZXMsIGhv
+d2V2ZXIsIGFuZCBvbmUgc2hvdWxkCj4gbm90ZSB0aGUgZGlzY2xhaW1lciBhbmQgYmUgY2FyZWZ1
+bCB3aGVuIGluc3RhbGxpbmcgaXQuIEFsc28sIGl0IG11c3QgYmUKPiByZS1pbnN0YWxsZWQgYWZ0
+ZXIgZXZlcnkgdXBncmFkZS4KPgo+IENoZWVycywKPiBQZXRlCj4KPiBfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+IENha2UgbWFpbGluZyBsaXN0Cj4gQ2Fr
+ZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9s
+aXN0aW5mby9jYWtlCj4KPgo+IF9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fCj4gQ2FrZSBtYWlsaW5nIGxpc3QKPiBDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5l
+dAo+IGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZvL2Nha2UKCgoKLS0gCjQw
+IHllYXJzIG9mIG5ldCBoaXN0b3J5LCBhIGNvdXBsZSBzb25nczoKaHR0cHM6Ly93d3cueW91dHVi
+ZS5jb20vd2F0Y2g/dj1EOVJHWDZRRm01RQpEYXZlIFTDpGh0IENTTywgTGlicmVRb3MKX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxp
+c3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5u
+ZXQvbGlzdGluZm8vY2FrZQo=
