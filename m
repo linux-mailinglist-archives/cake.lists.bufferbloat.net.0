@@ -2,68 +2,72 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A41AB830BCE
-	for <lists+cake@lfdr.de>; Wed, 17 Jan 2024 18:17:09 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id CC6BE833443
+	for <lists+cake@lfdr.de>; Sat, 20 Jan 2024 13:39:40 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 80DCF3CB48;
-	Wed, 17 Jan 2024 12:16:59 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 868CA3CB4B;
+	Sat, 20 Jan 2024 07:39:31 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1705511819;
-	bh=btzSRnmgBCk4WqrCpmdyx4RBB87oTTl3fG3+j15StjA=;
-	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
-	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=qHeg5i8WS+d51XLLapKRdvSYu6z7WbsKjXx6+x83azYPB6uBH5BnlOUXEcc/sHxOr
-	 Y/PqLk1nY+GHlBSr8o5KdLW0Beiwl8lJjHen8R32NtFsN2tofz0q6yYjrd8/IK86YU
-	 wg8M5nhMr31SuwidK4xGB3etIgybEJavSDxJWidhjdRmTN51vz9BqvCl5e9Q4BLCns
-	 HDPZEPbG++MF2wvS7JsbX0adOYqNrWUNYWTfXRLy+SwFGVWHZuc3gAOU8CxWeRgmV4
-	 ngG565w8Z0OwC6iLy6qoLrs2QOf7ogpZfF0PztKuDE8tL9/9nPYxhpaLk/e0VllFE6
-	 +wXR12h54GLdg==
+	d=lists.bufferbloat.net; s=201610; t=1705754371;
+	bh=KuFJmuvzw2KSvhlds2iTIBHH74Apt36ic5bqK6PbTXw=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
+	 From;
+	b=p81kpCr9nfZIOPXcjOSSQV8SdwwwopqczfV920aHDE8vRgnekRm4ckR8ttauhSG+K
+	 Z7quiXHCgJswhKJCvt/1mWvrC7zTZRxhHg6dPNahTmFXP5/I8hAbinVDPoTT2P6kQm
+	 eiZaCEIv3S2DJG1XSVItrFJsmPNYig1meXyqh3u8FHkkbFwiFHBCkluCBU7m4WepR8
+	 W1MWrwcT3UO2d+3UkUWtQ4aQ6K+kbCl64AhedwbY+thWykzmmsZw/CpDnF13qB0qyo
+	 gsXJrFSk/XF1GPHnL+E2HlOsxXY2dTglkoRYLd2hGii8Vnawyod703NN+I/rJeMRAC
+	 fU8phxV1SocHw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-qt1-x82b.google.com (mail-qt1-x82b.google.com
- [IPv6:2607:f8b0:4864:20::82b])
+Received: from mail-qt1-x82f.google.com (mail-qt1-x82f.google.com
+ [IPv6:2607:f8b0:4864:20::82f])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 9B79C3CB37;
- Wed, 17 Jan 2024 12:16:57 -0500 (EST)
-Received: by mail-qt1-x82b.google.com with SMTP id
- d75a77b69052e-42993124fa1so68597761cf.3; 
- Wed, 17 Jan 2024 09:16:57 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 988193CB37;
+ Sat, 20 Jan 2024 07:39:28 -0500 (EST)
+Received: by mail-qt1-x82f.google.com with SMTP id
+ d75a77b69052e-42a32ebdcdeso1935651cf.0; 
+ Sat, 20 Jan 2024 04:39:28 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1705511817; x=1706116617; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
- :date:message-id:reply-to;
- bh=dpHeaa8cwdv/HJIaXd9eJkOa5oLDUpk5PBnVZe1pDig=;
- b=kNBfcpNBjt1Lk0WXzo3fabt5BprhQh3M8qiojYoXQlhWepHaN9Idq6ZK/MgrFgj4YL
- yBZErItZXL0uG8XcwK0t5z5MRW7tD2PNjmxHpQpsnVmtXUE1uj7Z8C3VEAvX4vG1ptSw
- SfvHoHVDMUP3Qm1OTntc1jyujvZIGBK8ERuYRn54kqrZzwaBNNFcTi9oVFhiEidRfkmm
- 6h6g/qn0dg7COuqtJkCCfM9t4xTprDAnCshnI5qBnfJP9bJhusLCS45gTu29dj5SGhYV
- wt7dIoDn7X4EOwzSWLDY77b8CJcLKpwrhPTONDCGe4qNWge4XbZQ8XoCdPodwDxah1zo
- w+hA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1705511817; x=1706116617;
- h=to:subject:message-id:date:from:mime-version:x-gm-message-state
+ d=gmail.com; s=20230601; t=1705754368; x=1706359168; darn=lists.bufferbloat.net;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
  :from:to:cc:subject:date:message-id:reply-to;
- bh=dpHeaa8cwdv/HJIaXd9eJkOa5oLDUpk5PBnVZe1pDig=;
- b=FvOv/IuShv3bbkFlI5bx+HkANJy7Z2l5hLuyEwb8W59IV8IMZXLYpit/5MSJN1uDDt
- x7PZwHka9rdJXACMys2s526+yKI+tFVb4yrKou7D+xjaLvr3ZYmMLEyLOxIwdYSmi1S1
- HR55BpfZD1yISPCJAyulzxTno/ksuVheI+YHRjpCWgcquWkvIFP3KHlllAXCJ5PFckOU
- mhJtlyFMnMtr4uap5tYALOASWo/aUmeMfnRXVLESW1vZODhnXIBvG80cGl3JYDlCsXlR
- 23yyHpo7le1Lkgv27P0/05YXIxu7LdHiBeEriXApAe8Vy04HKeDsiVVS6ZLCqCiv+CUH
- tfQA==
-X-Gm-Message-State: AOJu0YwrbAKnWGttspdCe0n7h2nUXu5NNQwya+fw972mmbhreAy5vd3b
- J2200QIN3l96fSh58CUxH7ZHQ539XDBvqN8D/3i1b+zJ
-X-Google-Smtp-Source: AGHT+IEuMtfk/QN+r4GjK3qUF1kalEfVAd8hEcBkI+XF1XWQL/IBRIMRt2ub3YaxJv57r39sHHDds7sBlrzhRladaNY=
-X-Received: by 2002:a05:622a:148:b0:429:f5fe:6abe with SMTP id
- v8-20020a05622a014800b00429f5fe6abemr5724854qtw.80.1705511815399; Wed, 17 Jan
- 2024 09:16:55 -0800 (PST)
+ bh=PCixhe2m7oApfF2sc8vseQRpR5C4SLGUtylQ9FlD9a4=;
+ b=JQlGOVXvRmGMhTxQixJXza/zhYrX07fww4JvYCKsazAczfeJcteEilhQNP49daS0du
+ RFWdcXOufbRzB01Eqw8rN873QmkEmMe9LJ6jGaPxHyb62EPzEF9/+I8Mo2l3Dn8PyGA7
+ E9Vwo9CtPVUtkU64wX7pJRvRWyOZv4TAGTxtZyVvPoxua0ayFw+udy3HVulQSHbyRSpH
+ ZXcxn1YC3dA7VLXZavd8hQsAfJjIFIpNnlH5OnxYb7HpNiSPvtosMp+bO5Q2JxzswYP6
+ Iiq2Y8kNZMu9ACvM0RIyzLv/v9gceNzlAQuvOydQwXDYXZ1ERW7U8CoUDCw1s4YVFHuk
+ 0Etg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1705754368; x=1706359168;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+ :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=PCixhe2m7oApfF2sc8vseQRpR5C4SLGUtylQ9FlD9a4=;
+ b=bDn40mpSF6KDQ+ZyV2Kz2aOPRffInW0xU/czNwEu219JXRJCbm2ZVtzmtr58LSu/ua
+ vqv0DvalDqrfmilCzFtmgGQ+KGkPV7Ts/qNjuF95sHYrtfJMj+3j8B3o6dOKDaZw84EB
+ ipiWGZHfG2d6sRs6q1o/xVQ+2N/UsoWAgrdPhW2jdzf52ZUQfVhG5amRRvLJbFm4xuUL
+ ZLTdvsXH0bVOhKXDTk40aMBVX+o+KgBLe3e3TjH7qZeA5dyLa1A57LLXiXyonAd9HiA2
+ Fh5g8M4lQZlE1/cRD/ZNpiMK37Hz9ZSry909lvulK7RsdQI7DpO1vquZ5cEWSGzNZGQG
+ tgTg==
+X-Gm-Message-State: AOJu0YydKZjwP2cGO2dR5klahkCcq2BrlFJ2RulYWU5TRv3TeJpLq78U
+ iPHyVBmbxn5tMVoyhxMJakfUW/JKIdbpCAkRjMY7Fsx5dgph9xs6lUn6TRQJj4a9Co+TKMleJV8
+ pA0qlU33aFYjZWHEL9Zv2GyyWEoWg9mMxt84=
+X-Google-Smtp-Source: AGHT+IGfoIilyBIpD3hIA1UVERDYhuRq2DHDVX+4WdctqCNdPrLizKrVSXbd2VFPTlCy/54qkJroUNB/kDvGoucB0GM=
+X-Received: by 2002:ac8:5a95:0:b0:42a:316d:c6b9 with SMTP id
+ c21-20020ac85a95000000b0042a316dc6b9mr983512qtc.25.1705754367323; Sat, 20 Jan
+ 2024 04:39:27 -0800 (PST)
 MIME-Version: 1.0
-Date: Wed, 17 Jan 2024 18:25:13 +0100
-Message-ID: <CAJUtOOjN+r4_qfKWVZwm3O6Tw-=7Fgft9zff83kevyP6_PUNgQ@mail.gmail.com>
+References: <CAJUtOOjN+r4_qfKWVZwm3O6Tw-=7Fgft9zff83kevyP6_PUNgQ@mail.gmail.com>
+In-Reply-To: <CAJUtOOjN+r4_qfKWVZwm3O6Tw-=7Fgft9zff83kevyP6_PUNgQ@mail.gmail.com>
+Date: Sat, 20 Jan 2024 13:38:51 +0100
+Message-ID: <CAJUtOOiPn3wyZbBtgnPwc+OZBpUUr+8wg4Bz00NmV_59pr9Cmw@mail.gmail.com>
 To: Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>,
  bloat <bloat@lists.bufferbloat.net>, 
  cake@lists.bufferbloat.net, codel@lists.bufferbloat.net
-Subject: [Cake] Preseem Fixed Wireless Network Report 2024 Q1 Edition
+Subject: Re: [Cake] Preseem Fixed Wireless Network Report 2024 Q1 Edition
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -77,64 +81,122 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 From: Frantisek Borsik via Cake <cake@lists.bufferbloat.net>
 Reply-To: Frantisek Borsik <frantisek.borsik@gmail.com>
-Content-Type: multipart/mixed; boundary="===============7968633892561996863=="
+Content-Type: multipart/mixed; boundary="===============1032251205812194232=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============7968633892561996863==
-Content-Type: multipart/related; boundary="000000000000ec1203060f276981"
+--===============1032251205812194232==
+Content-Type: multipart/related; boundary="00000000000023acd3060f5fe347"
 
---000000000000ec1203060f276981
-Content-Type: multipart/alternative; boundary="000000000000ec1203060f276980"
+--00000000000023acd3060f5fe347
+Content-Type: multipart/alternative; boundary="00000000000023acd1060f5fe346"
 
---000000000000ec1203060f276980
+--00000000000023acd1060f5fe346
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-*Download the report here:*
-
-https://preseem.com/wp-content/uploads/2024/01/Preseem-Fixed-Wireless-Netwo=
-rk-Report-2024-Q1.pdf
-
-=E2=80=9CPeak latency has dropped nearly 9% year over year.=E2=80=9D
-
+Here is the webinar recording, if you have missed it:
+https://www.youtube.com/watch?v=3DJIuStccg_GE
 
 All the best,
 
 Frank
+
 Frantisek (Frank) Borsik
 
+
+
 https://www.linkedin.com/in/frantisekborsik
+
 Signal, Telegram, WhatsApp: +421919416714
+
 iMessage, mobile: +420775230885
+
 Skype: casioa5302ca
+
 frantisek.borsik@gmail.com
 
---000000000000ec1203060f276980
+
+On Wed, Jan 17, 2024 at 6:25=E2=80=AFPM Frantisek Borsik <frantisek.borsik@=
+gmail.com>
+wrote:
+
+>
+>
+> *Download the report here:*
+>
+>
+> https://preseem.com/wp-content/uploads/2024/01/Preseem-Fixed-Wireless-Net=
+work-Report-2024-Q1.pdf
+>
+> =E2=80=9CPeak latency has dropped nearly 9% year over year.=E2=80=9D
+>
+>
+> All the best,
+>
+> Frank
+> Frantisek (Frank) Borsik
+>
+> https://www.linkedin.com/in/frantisekborsik
+> Signal, Telegram, WhatsApp: +421919416714
+> iMessage, mobile: +420775230885
+> Skype: casioa5302ca
+> frantisek.borsik@gmail.com
+>
+
+--00000000000023acd1060f5fe346
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"auto"><br></div><div><div> </div><div><img src=3D"cid:18d18736e=
-d51d59b7601" style=3D"max-width: 100%;"></div><div dir=3D"auto"><br></div><=
-div dir=3D"auto"><b>Download the report here:</b></div><div dir=3D"auto"><b=
-><br></b></div><div dir=3D"auto"><span><div><a href=3D"https://preseem.com/=
-wp-content/uploads/2024/01/Preseem-Fixed-Wireless-Network-Report-2024-Q1.pd=
-f">https://preseem.com/wp-content/uploads/2024/01/Preseem-Fixed-Wireless-Ne=
-twork-Report-2024-Q1.pdf</a></div><br></span></div><div dir=3D"auto"><div d=
-ir=3D"auto">
+<div dir=3D"ltr">Here is the webinar recording, if you have missed it:<div>=
+<a href=3D"https://www.youtube.com/watch?v=3DJIuStccg_GE">https://www.youtu=
+be.com/watch?v=3DJIuStccg_GE</a></div><div><br clear=3D"all"><div><div dir=
+=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div =
+dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><d=
+iv dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>All =
+the best,</div><div><br></div><div><p class=3D"MsoNormal" style=3D"color:rg=
+b(34,34,34)">Frank<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:r=
+gb(34,34,34)"><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(3=
+4,34,34)">Frantisek (Frank) Borsik<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)"><u></u>=C2=A0<u></u></p><p class=3D"MsoNormal=
+" style=3D"color:rgb(34,34,34)"><a href=3D"https://www.linkedin.com/in/fran=
+tisekborsik" style=3D"color:rgb(17,85,204)" target=3D"_blank">https://www.l=
+inkedin.com/in/frantisekborsik</a><u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Signal, Telegram, WhatsApp: +421919416714=C2=
+=A0<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">i=
+Message, mobile: +420775230885<u></u><u></u></p><p class=3D"MsoNormal" styl=
+e=3D"color:rgb(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p class=3D"=
+MsoNormal" style=3D"color:rgb(34,34,34)"><a href=3D"mailto:frantisek.borsik=
+@gmail.com" style=3D"color:rgb(17,85,204)" target=3D"_blank">frantisek.bors=
+ik@gmail.com</a></p></div></div></div></div></div></div></div></div></div><=
+/div></div></div></div><br></div></div><br><div class=3D"gmail_quote"><div =
+dir=3D"ltr" class=3D"gmail_attr">On Wed, Jan 17, 2024 at 6:25=E2=80=AFPM Fr=
+antisek Borsik &lt;<a href=3D"mailto:frantisek.borsik@gmail.com">frantisek.=
+borsik@gmail.com</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" =
+style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-left-style:s=
+olid;border-left-color:rgb(204,204,204);padding-left:1ex"><div dir=3D"auto"=
+><br></div><div><div> </div><div><img src=3D"cid:18d18736ed51d59b7601" styl=
+e=3D"max-width: 100%;"></div><div dir=3D"auto"><br></div><div dir=3D"auto">=
+<b>Download the report here:</b></div><div dir=3D"auto"><b><br></b></div><d=
+iv dir=3D"auto"><span><div><a href=3D"https://preseem.com/wp-content/upload=
+s/2024/01/Preseem-Fixed-Wireless-Network-Report-2024-Q1.pdf" target=3D"_bla=
+nk">https://preseem.com/wp-content/uploads/2024/01/Preseem-Fixed-Wireless-N=
+etwork-Report-2024-Q1.pdf</a></div><br></span></div><div dir=3D"auto"><div =
+dir=3D"auto">
 =E2=80=9CPeak latency has dropped nearly 9% year over year.=E2=80=9D
 </div><br></div><br clear=3D"all"><div><div dir=3D"ltr" class=3D"gmail_sign=
-ature" data-smartmail=3D"gmail_signature">All the best,<br><br>Frank<br>Fra=
-ntisek (Frank) Borsik<br><br><a href=3D"https://www.linkedin.com/in/frantis=
-ekborsik">https://www.linkedin.com/in/frantisekborsik</a><br>Signal, Telegr=
-am, WhatsApp:=C2=A0+421919416714=C2=A0<br>iMessage, mobile:=C2=A0+420775230=
-885<br>Skype: casioa5302ca<br><a href=3D"mailto:frantisek.borsik@gmail.com"=
->frantisek.borsik@gmail.com</a><br></div></div></div>
+ature">All the best,<br><br>Frank<br>Frantisek (Frank) Borsik<br><br><a hre=
+f=3D"https://www.linkedin.com/in/frantisekborsik" target=3D"_blank">https:/=
+/www.linkedin.com/in/frantisekborsik</a><br>Signal, Telegram, WhatsApp:=C2=
+=A0+421919416714=C2=A0<br>iMessage, mobile:=C2=A0+420775230885<br>Skype: ca=
+sioa5302ca<br><a href=3D"mailto:frantisek.borsik@gmail.com" target=3D"_blan=
+k">frantisek.borsik@gmail.com</a><br></div></div></div>
+</blockquote></div>
 
---000000000000ec1203060f276980--
+--00000000000023acd1060f5fe346--
 
---000000000000ec1203060f276981
-Content-Type: image/png; name="image_123986672.JPG"
+--00000000000023acd3060f5fe347
+Content-Type: image/jpeg; name="image_123986672.JPG"
 Content-Disposition: inline; filename="image_123986672.JPG"
 Content-Transfer-Encoding: base64
 Content-ID: <18d18736ed51d59b7601>
@@ -6933,9 +6995,9 @@ ICUd8UUH71ACUd6BR3oASiijvQAlHeijvQAlHfFFB+9QUhKO9Ao71AxKT2paTvQAUd6KO9ACUd8U
 UH71ACUd6BR3oASk9qWk70AFHeijvQCEo74ooP3qCgpKWk71IC0lLSd6ACigUd6ACkpe1JQAUUUV
 LAQ0nfFKelJ/FSAM0nfFH+f1o/ipoBO9N74p3f8AGm/xD8KAE7ZoHJo7UDqKAEpO9KaTvSAKO9FH
 egYhpM0pptAz/9k=
---000000000000ec1203060f276981--
+--00000000000023acd3060f5fe347--
 
---===============7968633892561996863==
+--===============1032251205812194232==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -6945,4 +7007,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============7968633892561996863==--
+--===============1032251205812194232==--
