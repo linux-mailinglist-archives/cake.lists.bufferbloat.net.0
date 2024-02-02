@@ -2,79 +2,73 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id CDEA884514C
-	for <lists+cake@lfdr.de>; Thu,  1 Feb 2024 07:17:30 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 3A061846FC9
+	for <lists+cake@lfdr.de>; Fri,  2 Feb 2024 13:08:28 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 6FBF03CB40;
-	Thu,  1 Feb 2024 01:17:28 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 09EA93CB41;
+	Fri,  2 Feb 2024 07:08:26 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1706768248;
-	bh=k6oALna7F9+5RjX1aJ3d1rQCLbVUgVSsrzYRomRnK7U=;
+	d=lists.bufferbloat.net; s=201610; t=1706875706;
+	bh=UyQDASJZeKGK64Tiwqi8+598GxJD9dAxl4nmOP9Guqw=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=NM++uGmLNbVCoU9TJZiUkY7mxXk0DSRIyI2wToYGlw5qmVBKjXipr2uPxc2In3mI7
-	 2zX8YUtmxJplpuplo6X7hl7vpErb4exVluHKVtHgmGuQCHQDQLZqDaIfEfzKdZppLK
-	 koscAAvyyNRYGH4oaR2L3XZQhOpR3fGns4HInp1T7avQdJ5PNJZiM+bIFu0bSX2d+g
-	 A9L55HjxqQRHVgEh/yj2NMQXl/btja5fgNF1K2yeWw4Qw0qWbymx4tWWYX5dSQfAPV
-	 Gj9A9w2n/+UNoPaD+bGz/UjWaj3BzirT9cu5m1o8Ry5kcBt3qS497Qesj2NlVkVeN1
-	 AR2cnnh23BWGQ==
+	b=EEdcNhEpZz+qCZ/w8cigsOBIXHItR5cIS5jVgys2ck1so/BHtLPdFLjyhWU9hYUdC
+	 JTUgFAdhqEV+P9y14AieoMo3je9WuDhBSeIR2sHZjTFhLxf5EafVx+DO/yI7ydVdDW
+	 E+cOzu2aOf6fVNi88wvShsteynBeGgKIsnAvNxSuKTUCAjOuu60Cx/K8MkaoCDBxIg
+	 T/dISVdH6R+NsfDX77A4C/MvaytsdsIAAxEzkhol1eWdSZtkYOoLFZCtw+pY1yL79j
+	 FUUCg8i/oMH5a1f6S/zuLT0uyhWNHT6O5zQiEwGf/k6urBjWOEk8KDixwa4toBhNMJ
+	 ZTygICLO2m5VA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-qt1-x836.google.com (mail-qt1-x836.google.com
- [IPv6:2607:f8b0:4864:20::836])
+Received: from mail-yw1-x112e.google.com (mail-yw1-x112e.google.com
+ [IPv6:2607:f8b0:4864:20::112e])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id E9E1C3B2A4;
- Thu,  1 Feb 2024 01:17:26 -0500 (EST)
-Received: by mail-qt1-x836.google.com with SMTP id
- d75a77b69052e-42a4516ec46so4809271cf.0; 
- Wed, 31 Jan 2024 22:17:26 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id C7FD63B29D
+ for <cake@lists.bufferbloat.net>; Fri,  2 Feb 2024 07:08:24 -0500 (EST)
+Received: by mail-yw1-x112e.google.com with SMTP id
+ 00721157ae682-604059403e9so20387617b3.3
+ for <cake@lists.bufferbloat.net>; Fri, 02 Feb 2024 04:08:24 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1706768246; x=1707373046; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:in-reply-to:references:mime-version
- :from:to:cc:subject:date:message-id:reply-to;
- bh=+RFEItnGBhPFZzJ41jYhXDD+hj+1L1vTI5hTIbjnVDY=;
- b=M/eGlVlBmsPO1nKOWey+9ZrdkHILnDFAoUCZSbyxX1hy/WhaJf7GFZWcZi5P/CYp0J
- dZulPgtkVl/zksq7jY1yXT2qQV42bYG+MU0unfjKuIWbgeiNztikrRCalEOu+osjztL6
- lB8Atd6dNPExANpeRvTMzl6Uhq+CODiBoOGqWuXs/+kSs3WAkRVUrbJhGlQr7MYgtEgt
- 3cgvDmfLE/5c0PhajmEYlKRvskqf2UxPArWYbVXV+dzVBsEUmIrITn+3k9DoQQoMcJGI
- PnI70Lk6qMcPvJYPodXHKoNYn+MlhDsAOztX0PFgT3tSOzMFAYBLicuQCq7Ex+wbbswX
- m0zA==
+ d=mojatatu-com.20230601.gappssmtp.com; s=20230601; t=1706875704; x=1707480504;
+ darn=lists.bufferbloat.net; 
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:from:to:cc:subject:date
+ :message-id:reply-to;
+ bh=AbUHI8hXSl0417ZmZn93pMUO7YG1xwRNmnX/Oh+gVXw=;
+ b=qVILrK5n5BZjjPhAv3vJNcdrXFpOwKA+EvtGz83oxgDSEEFn/IMOoVoyiT1Bs6ESde
+ xr5AhG5yErK5x1Lmw/z70kyEKp1w1+Q6JUjpIUFuutAwOgFZlndAss8S/nS6HNTIayL+
+ YTCppiksA4jEqjwmgPGOGUTD+ST49vqJqEi91nF4f/TNb03yaYwWrD30/W8zXI/Be7io
+ ZodAkhHEZypBJiFlL27nNEt5mRlzEqUog8uvUuIlZtaFHUP8b4JbPc+XIWQ/9Qf41ReV
+ Fhu5Br9Nbeg6cmblQjJOw3+CfOStzctl+JsCLg1h2BzqD32p51VldVNbkQfSoWmKzLoX
+ EuaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1706768246; x=1707373046;
- h=to:subject:message-id:date:from:in-reply-to:references:mime-version
- :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
- bh=+RFEItnGBhPFZzJ41jYhXDD+hj+1L1vTI5hTIbjnVDY=;
- b=HAt0Xv3m6SJCg7+tx7PnQ4fkh5tpFArPHMaTHjWwfNJtKBftsKucoAPBIQBXheLeEa
- 3xdZS2l+nwD9BtYGz2xn5qju4fpWlXdnnaqeEu+cq9wI7LbN1jYKsYsbfJNITB6y/vaW
- CLiszNEu1wSuFnWLjRp193yCkFNB761ZVu4a9Ny/O7YWYkHLJZGxJ+Y0Si9R4Tc4IL8V
- kJ05ANJ8/QCyzXImmQv2ME5a8Gv1gD9ymQwjHQxLnIGX+dq/qDn4JPkr7EH8q6ycztts
- daFmQ/V5trD3h7SMhOOt7wdFl6VgPNo1U/JMobGv0sTthBPR2chWNR/Gde8H3IkMwLlg
- A4JA==
-X-Gm-Message-State: AOJu0YzVJpn0ubYeWBpACSLhZ2sj+S4j3XIetV0Lm7SR+BBCH3venwKq
- /EHWjd31AkfvPZOpzCK1QwUQRb2YhvL7h8scvFUaXWRdoDVWmkJqOifS/8/0rBmN4EwAU8iWCd5
- X0Tj5jGPULpTicx1cRlnHT01E8Yb4oG91
-X-Google-Smtp-Source: AGHT+IHeZ0tSCV5EQ1KqKc8fK/ubuoPAId2MU7yY7QpXl03FJFNukx+zWUMMUA6AOvNM8pXz69IozmoXr/Qpc/uwU0Q=
-X-Received: by 2002:ac8:5708:0:b0:42b:f242:f05e with SMTP id
- 8-20020ac85708000000b0042bf242f05emr1821936qtw.1.1706768246074; Wed, 31 Jan
- 2024 22:17:26 -0800 (PST)
+ d=1e100.net; s=20230601; t=1706875704; x=1707480504;
+ h=content-transfer-encoding:cc:to:subject:message-id:date:from
+ :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+ :subject:date:message-id:reply-to;
+ bh=AbUHI8hXSl0417ZmZn93pMUO7YG1xwRNmnX/Oh+gVXw=;
+ b=fgMh5rfwqL12lLi+DODO2gUz+IDCL8p54Ps2B+kHNRz6NKAp9IQlP6TRmgNy5XnhLK
+ XfcZfBqmUWQT0vLfjHK6pTXOufQ1YqTMmopM+PAZMEFcikkVd1KzSMD04uBaC77bX/rY
+ Vi7A+ZZoFMziRAsU57Dt1O8hY+VeIlTe9iagiw/YZN+Mv3MQhzQ0KpI1C0H/SJGHxH42
+ 3hDNsnK316KlxCUzqfHbhJXcAbeUyBI25rXoGfIL8TJXeipZKoZhgPlpqkOdj4fpBtdm
+ XzAgz8D7uBans69BJaDjJffP5Bnj38ZzH+QLmBMlEpx/JknsjZLpp3FNtj9OyDdfK1eN
+ kPNg==
+X-Gm-Message-State: AOJu0YzRj5m3goM9PV5v/sK1yRQ+L9i1atRffYK9q/A7NPbiE6WiX2Tz
+ kyxPYBdrs9QhqNAfrStgGs+GFAh0rOdMHaxYxQ/wshXCwXSF5G3PKlz8RhZhYs5pSfu7BDPbQm3
+ U56gzw1P7OdUaHKJjHwGObj786stExC6KpCsw
+X-Google-Smtp-Source: AGHT+IEjjtQ/DhGAXm7hLk1+I7JJDKeMEgJ/8DH8etGoQz3Y/c+zY06bh/klIto8q9wn+v1N2uLHjxeleIKOIY6i6m0=
+X-Received: by 2002:a25:2d16:0:b0:dc2:66d4:1544 with SMTP id
+ t22-20020a252d16000000b00dc266d41544mr5634193ybt.55.1706875703633; Fri, 02
+ Feb 2024 04:08:23 -0800 (PST)
 MIME-Version: 1.0
-References: <772847304-9273@mail.pch.net>
- <CAJUtOOj_ndL7B18-9fx+T9UBxknuRjdCS0zhK-8tebJ-t6RF3w@mail.gmail.com>
-In-Reply-To: <CAJUtOOj_ndL7B18-9fx+T9UBxknuRjdCS0zhK-8tebJ-t6RF3w@mail.gmail.com>
-Date: Thu, 1 Feb 2024 07:25:55 +0100
-Message-ID: <CAJUtOOjGMAY+XVG0g5AZ0m9jEy-uw2cgSf+erYBvUUg=CMAxug@mail.gmail.com>
-To: Dave Taht via Starlink <starlink@lists.bufferbloat.net>, 
- Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>, 
- cake@lists.bufferbloat.net, codel@lists.bufferbloat.net, 
- ecn-sane@lists.bufferbloat.net, libreqos <libreqos@lists.bufferbloat.net>, 
- make-wifi-fast@lists.bufferbloat.net
-Subject: Re: [Cake] FREE IXP Workshop by Bill Woodcock & Packet Clearing
- House: Monday,
- Jan 22 @ 4PM CET / 10AM EST / 7AM PST / 11PM Singapore / 6PM Arabia / 8:30
- PM India
+References: <20240201130943.19536-1-mkoutny@suse.com>
+In-Reply-To: <20240201130943.19536-1-mkoutny@suse.com>
+Date: Fri, 2 Feb 2024 07:08:12 -0500
+Message-ID: <CAM0EoMmE1agDZoY_0UZPiWG-LLkRBT9qj+oy1ODH2w0GoktPdg@mail.gmail.com>
+To: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>
+Subject: Re: [Cake] [PATCH v5 0/4] net/sched: Load modules via alias
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -86,257 +80,118 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Frantisek Borsik via Cake <cake@lists.bufferbloat.net>
-Reply-To: Frantisek Borsik <frantisek.borsik@gmail.com>
-Content-Type: multipart/mixed; boundary="===============8049518583077347363=="
+From: Jamal Hadi Salim via Cake <cake@lists.bufferbloat.net>
+Reply-To: Jamal Hadi Salim <jhs@mojatatu.com>
+Cc: Alexei Starovoitov <ast@kernel.org>, Song Liu <song@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, Stanislav Fomichev <sdf@google.com>,
+ Yonghong Song <yonghong.song@linux.dev>,
+ Daniel Borkmann <daniel@iogearbox.net>,
+ Vinicius Costa Gomes <vinicius.gomes@intel.com>,
+ John Fastabend <john.fastabend@gmail.com>, Andrii Nakryiko <andrii@kernel.org>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ Jiri Pirko <jiri@resnulli.us>, Simon Horman <horms@kernel.org>,
+ KP Singh <kpsingh@kernel.org>, cake@lists.bufferbloat.net,
+ Cong Wang <xiyou.wangcong@gmail.com>, Hao Luo <haoluo@google.com>,
+ netdev@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Eduard Zingerman <eddyz87@gmail.com>, Pedro Tammela <pctammela@mojatatu.com>,
+ Jiri Olsa <jolsa@kernel.org>, bpf@vger.kernel.org,
+ Martin KaFai Lau <martin.lau@linux.dev>,
+ "David S . Miller" <davem@davemloft.net>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8049518583077347363==
-Content-Type: multipart/alternative; boundary="0000000000000572e306104bf36f"
-
---0000000000000572e306104bf36f
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hello to all,
-
-Here is the workshop recording:
-https://www.pch.net/resources/Tutorials/workshop-2024-01-22/
-
-
-All the best,
-
-Frank
-Frantisek (Frank) Borsik
-
-https://www.linkedin.com/in/frantisekborsik
-Signal, Telegram, WhatsApp: +421919416714
-iMessage, mobile: +420775230885
-Skype: casioa5302ca
-frantisek.borsik@gmail.com
-
-
-On Mon, 22 Jan 2024 at 7:47 AM, Frantisek Borsik <frantisek.borsik@gmail.co=
-m>
-wrote:
-
-> Hey guys,
->
-> Bill <https://www.linkedin.com/in/bwoodcock/> with Packet Clearing House
-> will be holding a 1 hour long free IXP workshop.
-> It will be recorded and shared by me and others later, here, as well as o=
-n
-> social media.
->
-> In his own words:
->
-> Although we generally do something like this about every three days, this
->> one will be unusual in that we're doing it for a distributed group, rath=
-er
->> than in-person, so we're doing it on Zoom, and anyone who wants to join =
-in
->> is welcome. We're using jay joffe's network as the starting-point for th=
-e
->> conversation: 400 households in a fiber network of 25km radius in rural
->> southwestern France. Would an IXP make sense? What would it look like, f=
-rom
->> a technical, governance, and financial perspective?
->
->
->
->> These questions are pertinent to many people right now, because the
->> Broadband Equity, Access, and Deployment (BEAD) program in the United
->> States is distributing USD 42Bn, and many hope that a significant portio=
-n
->> of that will be used to improve the connectivity of rural communities in
->> the US.
->
->
-> And I want to advertise :-) that he is about to write a doctoral thesis o=
-n
-> this particular topic at the Universite Paris 8, next year! So lot more
-> great stuff coming from him.
->
-> Looking forward to see you all, soon:
->
->
-> *https://us06web.zoom.us/j/86131129506?pwd=3DPlhHgU24uezoTavCWTSP9N0hzpTy=
-EC.1
-> <https://us06web.zoom.us/j/86131129506?pwd=3DPlhHgU24uezoTavCWTSP9N0hzpTy=
-EC.1>*
->
-> All the best,
->
-> Frank
->
-> Frantisek (Frank) Borsik
->
->
->
-> https://www.linkedin.com/in/frantisekborsik
->
-> Signal, Telegram, WhatsApp: +421919416714
->
-> iMessage, mobile: +420775230885
->
-> Skype: casioa5302ca
->
-> frantisek.borsik@gmail.com
->
->
-> ---------- Forwarded message ---------
-> From: Bill Woodcock via Nnagain <nnagain@lists.bufferbloat.net>
-> Date: Sun, Jan 21, 2024 at 11:07=E2=80=AFPM
-> Subject: [NNagain] IXP workshop
-> To: <nishal@pch.net>, <sara@pch.net>, <nnagain@lists.bufferbloat.net>
-> Cc: Bill Woodcock <woody@pch.net>
->
->
-> *Subject:* IXP workshop
-> *When:* Mon 1/22/2024 4:00 PM - 5:00 PM (1.0 hours) (GMT +01:00)
-> *Where:*
-> https://us06web.zoom.us/j/86131129506?pwd=3DPlhHgU24uezoTavCWTSP9N0hzpTyE=
-C.1
-> *Required:* nishal@pch.net, sara@pch.net, nnagain@lists.bufferbloat.net
->
-> Zoom Meeting ID: 861 3112 9506
-> Passcode: 777245
-> _______________________________________________
-> Nnagain mailing list
-> Nnagain@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/nnagain
->
-
---0000000000000572e306104bf36f
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"auto">Hello to all,</div><div dir=3D"auto"><br></div><div dir=
-=3D"auto">Here is the workshop recording:</div><div dir=3D"auto"><div><a hr=
-ef=3D"https://www.pch.net/resources/Tutorials/workshop-2024-01-22/">https:/=
-/www.pch.net/resources/Tutorials/workshop-2024-01-22/</a></div><br clear=3D=
-"all"><br clear=3D"all"><div dir=3D"auto"><div dir=3D"ltr" class=3D"gmail_s=
-ignature" data-smartmail=3D"gmail_signature">All the best,<br><br>Frank<br>=
-Frantisek (Frank) Borsik<br><br><a href=3D"https://www.linkedin.com/in/fran=
-tisekborsik">https://www.linkedin.com/in/frantisekborsik</a><br>Signal, Tel=
-egram, WhatsApp:=C2=A0+421919416714=C2=A0<br>iMessage, mobile:=C2=A0+420775=
-230885<br>Skype: casioa5302ca<br><a href=3D"mailto:frantisek.borsik@gmail.c=
-om">frantisek.borsik@gmail.com</a><br></div></div></div><div><br></div><div=
-><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Mo=
-n, 22 Jan 2024 at 7:47 AM, Frantisek Borsik &lt;<a href=3D"mailto:frantisek=
-.borsik@gmail.com">frantisek.borsik@gmail.com</a>&gt; wrote:<br></div><bloc=
-kquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left-=
-width:1px;border-left-style:solid;padding-left:1ex;border-left-color:rgb(20=
-4,204,204)"><div dir=3D"ltr"><div>Hey guys,</div><div><br></div><div><a hre=
-f=3D"https://www.linkedin.com/in/bwoodcock/" target=3D"_blank">Bill</a> wit=
-h Packet Clearing House will be holding a 1 hour long free IXP workshop.=C2=
-=A0</div><div>It will be recorded and shared by me and others later, here, =
-as well as on social media.</div><div><br></div><div>In his own words:</div=
-><div><br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0=
-px 0.8ex;border-left-width:1px;border-left-style:solid;padding-left:1ex;bor=
-der-left-color:rgb(204,204,204)">Although we generally do something like th=
-is about every three days, this one will be unusual in that we&#39;re doing=
- it for a distributed group, rather than in-person, so we&#39;re doing it o=
-n Zoom, and anyone who wants to join in is welcome. We&#39;re using jay jof=
-fe&#39;s network as the starting-point for the conversation: 400 households=
- in a fiber network of 25km radius in rural southwestern France. Would an I=
-XP make sense? What would it look like, from a technical, governance, and f=
-inancial perspective? </blockquote><div>=C2=A0</div><blockquote class=3D"gm=
-ail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left-width:1px;border-l=
-eft-style:solid;padding-left:1ex;border-left-color:rgb(204,204,204)">These =
-questions are pertinent to many people right now, because the Broadband Equ=
-ity, Access, and Deployment (BEAD) program in the United States is distribu=
-ting USD 42Bn, and many hope that a significant portion of that will be use=
-d to improve the connectivity of rural communities in the US.</blockquote><=
-div><br></div><div>And I want to advertise :-) that he is about to write a =
-doctoral thesis on this particular topic at the Universite Paris 8, next ye=
-ar! So lot more great stuff coming from him.=C2=A0</div><div><br></div><div=
->Looking forward to see you all, soon:</div><div><br></div><div><b><a href=
-=3D"https://us06web.zoom.us/j/86131129506?pwd=3DPlhHgU24uezoTavCWTSP9N0hzpT=
-yEC.1" style=3D"font-family:Verdana,Arial,sans-serif;font-size:12px" target=
-=3D"_blank">https://us06web.zoom.us/j/86131129506?pwd=3DPlhHgU24uezoTavCWTS=
-P9N0hzpTyEC.1</a><br></b></div><br clear=3D"all"><div><div dir=3D"ltr" clas=
-s=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><=
-div><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr=
-"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>All the best,</di=
-v><div><br></div><div><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">=
-Frank<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"=
-><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Fra=
-ntisek (Frank) Borsik<u></u><u></u></p><p class=3D"MsoNormal" style=3D"colo=
-r:rgb(34,34,34)"><u></u>=C2=A0<u></u></p><p class=3D"MsoNormal" style=3D"co=
-lor:rgb(34,34,34)"><a href=3D"https://www.linkedin.com/in/frantisekborsik" =
-style=3D"color:rgb(17,85,204)" target=3D"_blank">https://www.linkedin.com/i=
-n/frantisekborsik</a><u></u><u></u></p><p class=3D"MsoNormal" style=3D"colo=
-r:rgb(34,34,34)">Signal, Telegram, WhatsApp: +421919416714=C2=A0<u></u><u><=
-/u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessage, mobil=
-e: +420775230885<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb=
-(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p class=3D"MsoNormal" sty=
-le=3D"color:rgb(34,34,34)"><a href=3D"mailto:frantisek.borsik@gmail.com" st=
-yle=3D"color:rgb(17,85,204)" target=3D"_blank">frantisek.borsik@gmail.com</=
-a></p></div></div></div></div></div></div></div></div></div></div></div></d=
-iv></div><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail=
-_attr">---------- Forwarded message ---------<br>From: <strong class=3D"gma=
-il_sendername" dir=3D"auto">Bill Woodcock via Nnagain</strong> <span dir=3D=
-"auto">&lt;<a href=3D"mailto:nnagain@lists.bufferbloat.net" target=3D"_blan=
-k">nnagain@lists.bufferbloat.net</a>&gt;</span><br>Date: Sun, Jan 21, 2024 =
-at 11:07=E2=80=AFPM<br>Subject: [NNagain] IXP workshop<br>To:  &lt;<a href=
-=3D"mailto:nishal@pch.net" target=3D"_blank">nishal@pch.net</a>&gt;,  &lt;<=
-a href=3D"mailto:sara@pch.net" target=3D"_blank">sara@pch.net</a>&gt;,  &lt=
-;<a href=3D"mailto:nnagain@lists.bufferbloat.net" target=3D"_blank">nnagain=
-@lists.bufferbloat.net</a>&gt;<br>Cc: Bill Woodcock &lt;<a href=3D"mailto:w=
-oody@pch.net" target=3D"_blank">woody@pch.net</a>&gt;<br></div><br><br><tab=
-le style=3D"font-style:normal;font-variant-caps:normal;font-weight:normal;f=
-ont-stretch:normal;font-size:12px;line-height:normal;font-family:Verdana,Ar=
-ial,sans-serif;font-size-adjust:none;font-kerning:auto;font-variant-alterna=
-tes:normal;font-variant-ligatures:normal;font-variant-numeric:normal;font-v=
-ariant-east-asian:normal;font-feature-settings:normal">
-	<tbody style=3D"font-family:Verdana,Arial,sans-serif"><tr style=3D"font-fa=
-mily:Verdana,Arial,sans-serif"><td style=3D"font-family:Verdana,Arial,sans-=
-serif"><b style=3D"font-family:Verdana,Arial,sans-serif">Subject:</b></td><=
-td style=3D"font-family:Verdana,Arial,sans-serif">IXP workshop</td></tr>
-	<tr style=3D"font-family:Verdana,Arial,sans-serif"><td style=3D"font-famil=
-y:Verdana,Arial,sans-serif"><b style=3D"font-family:Verdana,Arial,sans-seri=
-f">When:</b></td><td style=3D"font-family:Verdana,Arial,sans-serif">Mon 1/2=
-2/2024 4:00 PM - 5:00 PM (1.0 hours) (GMT +01:00)</td></tr>
-	<tr style=3D"font-family:Verdana,Arial,sans-serif"><td style=3D"font-famil=
-y:Verdana,Arial,sans-serif"><b style=3D"font-family:Verdana,Arial,sans-seri=
-f">Where:</b></td><td style=3D"font-family:Verdana,Arial,sans-serif"><a hre=
-f=3D"https://us06web.zoom.us/j/86131129506?pwd=3DPlhHgU24uezoTavCWTSP9N0hzp=
-TyEC.1" target=3D"_blank" style=3D"font-family:Verdana,Arial,sans-serif">ht=
-tps://us06web.zoom.us/j/86131129506?pwd=3DPlhHgU24uezoTavCWTSP9N0hzpTyEC.1<=
-/a></td></tr>
-	<tr style=3D"font-family:Verdana,Arial,sans-serif"><td style=3D"font-famil=
-y:Verdana,Arial,sans-serif"><b style=3D"font-family:Verdana,Arial,sans-seri=
-f">Required:</b></td><td style=3D"font-family:Verdana,Arial,sans-serif"><a =
-href=3D"mailto:nishal@pch.net" target=3D"_blank" style=3D"font-family:Verda=
-na,Arial,sans-serif">nishal@pch.net</a>, <a href=3D"mailto:sara@pch.net" ta=
-rget=3D"_blank" style=3D"font-family:Verdana,Arial,sans-serif">sara@pch.net=
-</a>, <a href=3D"mailto:nnagain@lists.bufferbloat.net" target=3D"_blank" st=
-yle=3D"font-family:Verdana,Arial,sans-serif">nnagain@lists.bufferbloat.net<=
-/a></td></tr>
-</tbody></table>
-
-<p>Zoom Meeting ID: 861 3112 9506<br>Passcode: 777245</p>__________________=
-_____________________________<br>
-Nnagain mailing list<br>
-<a href=3D"mailto:Nnagain@lists.bufferbloat.net" target=3D"_blank">Nnagain@=
-lists.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/nnagain" rel=3D"noreferre=
-r" target=3D"_blank">https://lists.bufferbloat.net/listinfo/nnagain</a><br>
-</div></div>
-</blockquote></div></div>
-
---0000000000000572e306104bf36f--
-
---===============8049518583077347363==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8049518583077347363==--
+T24gVGh1LCBGZWIgMSwgMjAyNCBhdCA4OjA54oCvQU0gTWljaGFsIEtvdXRuw70gPG1rb3V0bnlA
+c3VzZS5jb20+IHdyb3RlOgo+Cj4gVGhlc2UgbW9kdWxlcyBtYXkgYmUgbG9hZGVkIGxhemlseSB3
+aXRob3V0IHVzZXIncyBhd2FyZW5lc3MgYW5kCj4gY29udHJvbC4gQWRkIHJlc3BlY3RpdmUgYWxp
+YXNlcyB0byBtb2R1bGVzIGFuZCByZXF1ZXN0IHRoZW0gdW5kZXIgdGhlc2UKPiBhbGlhc2VzIHNv
+IHRoYXQgbW9kcHJvYmUncyBibGFja2xpc3RpbmcgbWVjaGFuaXNtICh0aHJvdWdoIGFsaWFzZXMp
+Cj4gd29ya3MgZm9yIHRoZW0uIChUaGUgc2FtZSBwYXR0ZXJuIGV4aXN0cyBlLmcuIGZvciBmaWxl
+c3lzdGVtCj4gbW9kdWxlcy4pCj4KPiBGb3IgZXhhbXBsZSAoYmVmb3JlIHRoZSBjaGFuZ2UpOgo+
+ICAgJCB0YyBmaWx0ZXIgYWRkIGRldiBsbyBwYXJlbnQgMTA6IHByb3RvY29sIGlwIHByaW8gMTAg
+aGFuZGxlIDE6IGNncm91cAo+ICAgIyBjbHNfY2dyb3VwIG1vZHVsZSBpcyBsb2FkZWQgZGVzcGl0
+ZSBhIGBibGFja2xpc3QgY2xzX2Nncm91cGAgZW50cnkKPiAgICMgaW4gL2V0Yy9tb2Rwcm9iZS5k
+LyouY29uZgo+Cj4gQWZ0ZXIgdGhlIGNoYW5nZToKPiAgICQgdGMgZmlsdGVyIGFkZCBkZXYgbG8g
+cGFyZW50IDEwOiBwcm90b2NvbCBpcCBwcmlvIDEwIGhhbmRsZSAxOiBjZ3JvdXAKPiAgIEVycm9y
+OiBUQyBjbGFzc2lmaWVyIG5vdCBmb3VuZC4KPiAgIFdlIGhhdmUgYW4gZXJyb3IgdGFsa2luZyB0
+byB0aGUga2VybmVsCj4gICAjIGV4cGxpY2l0L2Fja25vd2xlZGdlZCAocHJpdmlsZWdlZCkgYWN0
+aW9uIGlzIG5lZWRlZAo+ICAgJCBtb2Rwcm9iZSBjbHNfY2dyb3VwCj4gICAjIGJsYWNrbGlzdCBl
+bnRyeSB3b24ndCBhcHBseSB0byB0aGlzIGRpcmVjdCBtb2Rwcm9iZSwgbW9kdWxlIGlzCj4gICAj
+IGxvYWRlZCB3aXRoIGF3YXJlbmVzcwo+Cj4gQSBjb25zaWRlcmVkIGFsdGVybmF0aXZlIHdhcyBp
+bnZva2luZyBgbW9kcHJvYmUgLWJgIGFsd2F5cyBmcm9tCj4gcmVxdWVzdF9tb2R1bGUoKSwgaG93
+ZXZlciwgZGlzbWlzc2VkIGFzIHRvbyBpbnRydXNpdmUgYW5kIHNsaWdodGx5Cj4gY29uZnVzaW5n
+IGluIGZhdm9yIG9mIHRoZSBwcmVjZWRlbnRlZCBhbGlhc2VzICh0aGUgY29tbWl0IDdmNzhlMDM1
+MTM5NAo+ICgiZnM6IExpbWl0IHN5c19tb3VudCB0byBvbmx5IHJlcXVlc3QgZmlsZXN5c3RlbSBt
+b2R1bGVzLiIpLgo+Cj4gVXNlciBleHBlcmllbmNlIHN1ZmZlcnMgaW4gYm90aCBhbHRlcm5hdGl2
+ZXMuIEl0cyBpbXByb3ZlbWVudCBpcwo+IG9ydGhvZ29uYWwgdG8gYmxhY2tsaXN0IGhvbm9yaW5n
+Lgo+CgpUaGFua3MgTWljaGFsLiBXZSBzdGlsbCBkaWRudCBoZWFyIGZyb20gU3RlcGhlbiwgYnV0
+IGkgdGhpbmsgbG9va3MKc29saWQgbm93LiBTbyBmb3IgdGhlIHBhdGNoc2V0OgoKQWNrZWQtYnk6
+IEphbWFsIEhhZGkgU2FsaW0gPGpoc0Btb2phdGF0dS5jb20+CgpjaGVlcnMsCmphbWFsCgo+IENo
+YW5nZXMgZnJvbSB2MSAoaHR0cHM6Ly9sb3JlLmtlcm5lbC5vcmcvci8yMDIzMTEyMTE3NTY0MC45
+OTgxLTEtbWtvdXRueUBzdXNlLmNvbSkKPiAtIFRyZWF0IHNjaF8gYW5kIGFjdF8gbW9kdWxlcyBh
+bmFsb2dvdXNseSB0byBjbHNfCj4KPiBDaGFuZ2VzIGZyb20gdjIgKGh0dHBzOi8vbG9yZS5rZXJu
+ZWwub3JnL3IvMjAyMzEyMDYxOTI3NTIuMTg5ODktMS1ta291dG55QHN1c2UuY29tKQo+IC0gcmVv
+cmdhbml6ZWQgY29tbWl0cyAob25lIGdlbmVyYXRlZCBjb21taXQgKyBtYW51YWwgcHJlLS9wb3N0
+LSB3b3JrKQo+IC0gdXNlZCBhbGlhcyBuYW1lcyBtb3JlIGZpdHRpbmcgdGhlIGV4aXN0aW5nIG5l
+dC0gYWxpYXNlcwo+IC0gbW9yZSBpbmZvIGluIGNvbW1pdCBtZXNzYWdlcyBhbmQgY292ZXIgbGV0
+dGVyCj4gLSByZWJhc2VkIG9uIGN1cnJlbnQgbWFzdGVyCj4KPiBDaGFuZ2VzIGZyb20gdjMgKGh0
+dHBzOi8vbG9yZS5rZXJuZWwub3JnL3IvMjAyNDAxMTIxODA2NDYuMTMyMzItMS1ta291dG55QHN1
+c2UuY29tKQo+IC0gcmViYXNlIG9uIG5ldGRldi9uZXQtbmV4dC9tYWluCj4gLSBjb3JyZWN0IGFs
+aWFzZXMgaW4gY2xzXyogbW9kdWxlcyAod3Jvbmcgc2VkKQo+IC0gcmVwbGFjZSByZXBlYXRlZCBw
+cmVmaXggc3RyaW5ncyB3aXRoIGEgbWFjcm8KPiAtIHBhdGNoIGFsc28gcmVxdWVzdF9tb2R1bGUg
+Y2FsbCBpbiBxZGlzY19zZXRfZGVmYXVsdCgpCj4KPiBDaGFuZ2VzIGZyb20gdjQgKGh0dHBzOi8v
+bG9yZS5rZXJuZWwub3JnL3IvMjAyNDAxMjMxMzUyNDIuMTE0MzAtMS1ta291dG55QHN1c2UuY29t
+KQo+IC0gdXBkYXRlIGV4YW1wbGUgaW4gY292ZXIgbGV0dGVyIHRvIGV4aXN0aW5nIG1vZHVsZSAo
+Y2xzX3RjaW5kZXgtPmNsc19jZ3JvdXApCj4gICAtIHRlc3RlZCB0aGF0ICc6LSkKPiAtIHJlbW92
+ZSBfX3N0cmluZ2lmeSBpbiBhbGlhcyBtYWNybywgbmV0LWNscy1jZ3JvdXAgaW5zdGVhZCBvZiBu
+ZXQtY2xzLSJjZ3JvdXAiCj4gLSBwYXNzIGNvcnJlY3QgYXJndW1lbnQgdG8gcmVxdWVzdF9tb2R1
+bGUoKSAoU2ltb24pCj4gLSByZWJhc2VkIG9uIG5ldGRldi1uZXh0L21haW4KPgo+IE1pY2hhbCBL
+b3V0bsO9ICg0KToKPiAgIG5ldC9zY2hlZDogQWRkIGhlbHBlciBtYWNyb3Mgd2l0aCBtb2R1bGUg
+bmFtZXMKPiAgIG5ldC9zY2hlZDogQWRkIG1vZHVsZSBhbGlhc2VzIGZvciBjbHNfLHNjaF8sYWN0
+XyBtb2R1bGVzCj4gICBuZXQvc2NoZWQ6IExvYWQgbW9kdWxlcyB2aWEgdGhlaXIgYWxpYXMKPiAg
+IG5ldC9zY2hlZDogUmVtb3ZlIGFsaWFzIG9mIHNjaF9jbHNhY3QKPgo+ICBpbmNsdWRlL25ldC9h
+Y3RfYXBpLmggICAgICB8IDIgKysKPiAgaW5jbHVkZS9uZXQvcGt0X2Nscy5oICAgICAgfCAyICsr
+Cj4gIGluY2x1ZGUvbmV0L3BrdF9zY2hlZC5oICAgIHwgMiArKwo+ICBuZXQvc2NoZWQvYWN0X2Fw
+aS5jICAgICAgICB8IDIgKy0KPiAgbmV0L3NjaGVkL2FjdF9icGYuYyAgICAgICAgfCAxICsKPiAg
+bmV0L3NjaGVkL2FjdF9jb25ubWFyay5jICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9jc3VtLmMg
+ICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9jdC5jICAgICAgICAgfCAxICsKPiAgbmV0L3Nj
+aGVkL2FjdF9jdGluZm8uYyAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9nYWN0LmMgICAgICAg
+fCAxICsKPiAgbmV0L3NjaGVkL2FjdF9nYXRlLmMgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2Fj
+dF9pZmUuYyAgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9taXJyZWQuYyAgICAgfCAxICsK
+PiAgbmV0L3NjaGVkL2FjdF9tcGxzLmMgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9uYXQu
+YyAgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9wZWRpdC5jICAgICAgfCAxICsKPiAgbmV0
+L3NjaGVkL2FjdF9wb2xpY2UuYyAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9zYW1wbGUuYyAg
+ICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9zaW1wbGUuYyAgICAgfCAxICsKPiAgbmV0L3NjaGVk
+L2FjdF9za2JlZGl0LmMgICAgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF9za2Jtb2QuYyAgICAgfCAx
+ICsKPiAgbmV0L3NjaGVkL2FjdF90dW5uZWxfa2V5LmMgfCAxICsKPiAgbmV0L3NjaGVkL2FjdF92
+bGFuLmMgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL2Nsc19hcGkuYyAgICAgICAgfCAyICstCj4g
+IG5ldC9zY2hlZC9jbHNfYmFzaWMuYyAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9jbHNfYnBmLmMg
+ICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9jbHNfY2dyb3VwLmMgICAgIHwgMSArCj4gIG5ldC9z
+Y2hlZC9jbHNfZmxvdy5jICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9jbHNfZmxvd2VyLmMgICAg
+IHwgMSArCj4gIG5ldC9zY2hlZC9jbHNfZncuYyAgICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9j
+bHNfbWF0Y2hhbGwuYyAgIHwgMSArCj4gIG5ldC9zY2hlZC9jbHNfcm91dGUuYyAgICAgIHwgMSAr
+Cj4gIG5ldC9zY2hlZC9jbHNfdTMyLmMgICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfYXBp
+LmMgICAgICAgIHwgNCArKy0tCj4gIG5ldC9zY2hlZC9zY2hfY2FrZS5jICAgICAgIHwgMSArCj4g
+IG5ldC9zY2hlZC9zY2hfY2JzLmMgICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfY2hva2Uu
+YyAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfY29kZWwuYyAgICAgIHwgMSArCj4gIG5ldC9z
+Y2hlZC9zY2hfZHJyLmMgICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfZXRmLmMgICAgICAg
+IHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfZXRzLmMgICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9z
+Y2hfZnEuYyAgICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfZnFfY29kZWwuYyAgIHwgMSAr
+Cj4gIG5ldC9zY2hlZC9zY2hfZ3JlZC5jICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfaGZz
+Yy5jICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfaGhmLmMgICAgICAgIHwgMSArCj4gIG5l
+dC9zY2hlZC9zY2hfaHRiLmMgICAgICAgIHwgMSArCj4gIG5ldC9zY2hlZC9zY2hfaW5ncmVzcy5j
+ICAgIHwgMyArKy0KPiAgbmV0L3NjaGVkL3NjaF9tcXByaW8uYyAgICAgfCAxICsKPiAgbmV0L3Nj
+aGVkL3NjaF9tdWx0aXEuYyAgICAgfCAxICsKPiAgbmV0L3NjaGVkL3NjaF9uZXRlbS5jICAgICAg
+fCAxICsKPiAgbmV0L3NjaGVkL3NjaF9waWUuYyAgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL3Nj
+aF9wbHVnLmMgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL3NjaF9wcmlvLmMgICAgICAgfCAxICsK
+PiAgbmV0L3NjaGVkL3NjaF9xZnEuYyAgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL3NjaF9yZWQu
+YyAgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL3NjaF9zZmIuYyAgICAgICAgfCAxICsKPiAgbmV0
+L3NjaGVkL3NjaF9zZnEuYyAgICAgICAgfCAxICsKPiAgbmV0L3NjaGVkL3NjaF9za2JwcmlvLmMg
+ICAgfCAxICsKPiAgbmV0L3NjaGVkL3NjaF90YXByaW8uYyAgICAgfCAxICsKPiAgbmV0L3NjaGVk
+L3NjaF90YmYuYyAgICAgICAgfCAxICsKPiAgNjEgZmlsZXMgY2hhbmdlZCwgNjYgaW5zZXJ0aW9u
+cygrKSwgNSBkZWxldGlvbnMoLSkKPgo+Cj4gYmFzZS1jb21taXQ6IDY0NGM2NDMxOGRlMGRmNWY0
+ZWE5ZjAwZTRiOGNjMjYyYjM0M2E5M2YKPiAtLQo+IDIuNDMuMAo+Cl9fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBsaXN0CkNha2VAbGlz
+dHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQubmV0L2xpc3RpbmZv
+L2Nha2UK
