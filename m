@@ -2,67 +2,48 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 4BB5987DC06
-	for <lists+cake@lfdr.de>; Sun, 17 Mar 2024 00:48:58 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 236FD89B2CC
+	for <lists+cake@lfdr.de>; Sun,  7 Apr 2024 18:10:10 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id A8ED13CB41;
-	Sat, 16 Mar 2024 19:48:56 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 551B53CB41;
+	Sun,  7 Apr 2024 12:10:08 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1710632936;
-	bh=AxFpq9VcSg60q8Sf3ES7LZ2XE67t1XQmMkTvaTJCnd4=;
-	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
-	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=kz6ggFoTwzVZc4k6JH0W4dq93EqTPXvngK1BHRnDifc7LIio23foUhXKtys0TDg6Z
-	 iFhJDrb9opMNC3YaM8dZ9jtbrKuS7MPCVK3eYAmi1Ax4t95QTJf+t8MeSFb+B2ulbj
-	 dTdZahk1iyU7DQRLoWgndbChmK+WuGx82Xtque2Ue0yx7OBk+g3BUK9UHDWAXQNkr3
-	 4FR5B/WdTBoZBAdaxE/3e9luj5tYk6VOQnXAGuThcVq7BVX3uLmD+eKos1f5R73znn
-	 tLjr3gEMlLvxqCGSdfLlaqgLw3RONM37T6dUJYwYzprkCAsX1gDg0kfeBoISPYClu/
-	 JP4Nb09U6lQqQ==
+	d=lists.bufferbloat.net; s=201610; t=1712506208;
+	bh=xHFNpBdchvEdHMoqG4LC/FnhOpbtOxY9Vtn/r97hGkQ=;
+	h=To:In-Reply-To:References:Date:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	 From;
+	b=Y8qnmIMc84IH7xmBr7U778ghiy5NHkf9dQfcT5Yi2Nk71/HJXoowvlMuGMOGKwPCP
+	 6RCl+kN9szG76vSKKk2EjLaRy27/ni1cjtksE81j6/oFpHG9M6sWfzpry9ca+7dLt1
+	 zg4FdngTK8eiEuXt4a1V0XW76n/ragg5UBrocq0RT8BHpe5r0QkTf8giADv7IzpwXQ
+	 XFyv2dly+GjZDL1lgD7TWgX/jfLoVG1FiXTh4McR0xYDoacAPRH4nlVls/mr1zHign
+	 LCLrktvvX2I3yAz2REVOrVKPa1L8CLU8m9HP8rjmoSjfx3A7nov8oQQJSjZeWukAxG
+	 KAzKQoGKdWf4A==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-qv1-xf31.google.com (mail-qv1-xf31.google.com
- [IPv6:2607:f8b0:4864:20::f31])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
+ (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id B1B193B2A4
- for <cake@lists.bufferbloat.net>; Sat, 16 Mar 2024 19:48:54 -0400 (EDT)
-Received: by mail-qv1-xf31.google.com with SMTP id
- 6a1803df08f44-690cbf99143so19026216d6.3
- for <cake@lists.bufferbloat.net>; Sat, 16 Mar 2024 16:48:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1710632934; x=1711237734; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
- :date:message-id:reply-to;
- bh=mdLFFJMCymisewi9w4+tS0eZgDruRE7AgKKu2f0jpFA=;
- b=IsT3diZ7neyXv+AByBgaDu7jYVQnSWTeicYkPsPB34tNkhu/9IO2R3MVhx1D/wAC0N
- CMbKM2znPw+G6o3FUYDzRCIwNOoEnLs5MTH3s2QTdmE0zmQ3YgYQjTgtzESBt7nBkQNA
- +dyy98vGoxEot2Z82s4IlsTxTzqOsB8pETdqxpXz4u7xm6A0J8ANuqdtp05ERL6Zt56f
- PnDhijqKytuKqX9Y5qR2fxxl6Xc983/C/ZYT39LUYKyF8d8cJ7RJvGuvZdLn5QeCw2G9
- f8V+56P0MAJ5VOL68FunfFzrvEJZJSKKLfyNiQ42gpANEWmpCr0e5nNAiM0+3L7EunpB
- regw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1710632934; x=1711237734;
- h=to:subject:message-id:date:from:mime-version:x-gm-message-state
- :from:to:cc:subject:date:message-id:reply-to;
- bh=mdLFFJMCymisewi9w4+tS0eZgDruRE7AgKKu2f0jpFA=;
- b=QwS5H95YUrCXf7UhYhzm31zQyBXSBDyz9JsUgou5AShXp63V5YbcPqfUz9CuosMBd0
- kTTjr8hANdsuMIlIb2ZEv+v0MG8oDDDz3qis99LpWDbZgRULULTnDdTLAjySQp4Hvgqn
- eWbfw0xsJUV3Bsz5teIcIrC9u5Jk0iRg/eaU6FZfHp0yNEjQf9RsPGtE8UyxPA7CzOTL
- 2sBIy1My3DXv/c8SnfiiAdcN1LhTmHcSVLQtmehU7gWItjxovjB28G1cYwEys90aAO9D
- qwHGx+eV56/ncWSfsZwif2/RHIXqk+kX1FZ3Rd5d/XK1fkR/I2Uh5xIOGZ/RQFaEEwrs
- uFZw==
-X-Gm-Message-State: AOJu0YzTK8+FOJfCqWVENs4ZmV6OQhpftol8hANbKQx+3/uY7i4TcELT
- cmD2clrOWROyeIUBiBW3wVv1fie1d818nXGeqqAsC96PXjFrvnjc04rKwKgZhQ1DZSHQH739ruu
- +uWY7eo8fe94+aF2ZcTEJywI7Hyc7E/hpysI=
-X-Google-Smtp-Source: AGHT+IFuvy0ERl4n8xklzdSSZXreS0UlthDpAm06h+owys5lCmv87VpwRltJ019CyxbYHBC59SGvwS8VqF9f81ZBTZw=
-X-Received: by 2002:a0c:e608:0:b0:691:1fcc:e26d with SMTP id
- z8-20020a0ce608000000b006911fcce26dmr8967317qvm.31.1710632933784; Sat, 16 Mar
- 2024 16:48:53 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id A53943CB38
+ for <cake@lists.bufferbloat.net>; Sun,  7 Apr 2024 12:10:06 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
+ t=1712506205; bh=jRHmiYZioEwTqHzvjz9ABYHfiTrjg7+dvZ5R454o5LU=;
+ h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+ b=CeTS4FKglAx+piMHVKigJkdCDiiM1bokhQAM9Q5pZWIb4AZP+M8uh0y3zUBI2swey
+ 1Y5rmf+F3PYKcb9ngrPTadUwe4m0mcsAZwO5BFsGhxXgr1473SlczVyX3X5UnHfDJJ
+ FXDPz2t98/zRjgjTMPNDtQZAdA1PX7RidonG7j1GvTXUETxWSBWweovpu7gzxd6I63
+ 1nGtkjqQoyWImhDp3OTfoVGhybpPro2b0nSgpM+GzeWtMzEOau/1QrpHHIyj5ftP6b
+ rQk3oes8bDqLriOLkddTTpQ8gr+NIVy38njV5/ZB06gQKu/hg44FZR6kQtVDAHwUA0
+ hqdD0pk/c5FWA==
+To: Kuan-Wei Chiu <visitorckw@gmail.com>
+In-Reply-To: <20240406235532.613696-1-visitorckw@gmail.com>
+References: <20240406235532.613696-1-visitorckw@gmail.com>
+Date: Sun, 07 Apr 2024 18:10:04 +0200
+X-Clacks-Overhead: GNU Terry Pratchett
+Message-ID: <87frvxgnmr.fsf@toke.dk>
 MIME-Version: 1.0
-Date: Sat, 16 Mar 2024 16:48:42 -0700
-Message-ID: <CANypexQWCR5mWqrcuKDm+iTyzP8+5AFDGM+ZQ2NbDUJMd-tubA@mail.gmail.com>
-To: Cake List <cake@lists.bufferbloat.net>
-Subject: [Cake] irtt update to go 1.22
+Subject: Re: [Cake] [PATCH net-next] net: sched: cake: Optimize number of
+ calls to cake_heapify()
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -74,62 +55,26 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: dave seddon via Cake <cake@lists.bufferbloat.net>
-Reply-To: dave seddon <dave.seddon.ca@gmail.com>
-Content-Type: multipart/mixed; boundary="===============3925850515273926083=="
+From: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= via Cake
+ <cake@lists.bufferbloat.net>
+Reply-To: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
+Cc: jiri@resnulli.us, netdev@vger.kernel.org, jhs@mojatatu.com,
+ jserv@ccns.ncku.edu.tw, cake@lists.bufferbloat.net, edumazet@google.com,
+ Kuan-Wei Chiu <visitorckw@gmail.com>, kuba@kernel.org,
+ xiyou.wangcong@gmail.com, pabeni@redhat.com, davem@davemloft.net,
+ linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============3925850515273926083==
-Content-Type: multipart/alternative; boundary="0000000000005c04a40613cfc476"
-
---0000000000005c04a40613cfc476
-Content-Type: text/plain; charset="UTF-8"
-
-G'day,
-
-I'm chasing weird latency spikes in my wifi network, so on Dave T's
-suggestion, I'm going to try using irtt to debug it.
-
-I noticed irtt hasn't upgraded its Go version for a long time, and Go has
-come a long way since 1.12. While I was there I spotted a bunch of lint
-errors, so I just hacked in a quick log.Fatal, but these should probably be
-real error exit codes.
-
-https://github.com/heistp/irtt/pull/41
-
--- 
-Regards,
-Dave Seddon
-+1 415 857 5102
-
---0000000000005c04a40613cfc476
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div>G&#39;day,</div><div><br></div><div>I&#39;m chasing w=
-eird latency spikes in my wifi network, so on Dave T&#39;s suggestion, I&#3=
-9;m going to try using irtt to debug it.<br></div><div><br></div><div>I not=
-iced irtt hasn&#39;t upgraded its Go version for a long time, and Go has co=
-me a long way since 1.12. While I was there I spotted a bunch of lint error=
-s, so I just hacked in a quick log.Fatal, but these should probably be real=
- error exit codes.<br></div><div><br></div><div><a href=3D"https://github.c=
-om/heistp/irtt/pull/41">https://github.com/heistp/irtt/pull/41</a></div><br=
-><span class=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" clas=
-s=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><=
-div><div dir=3D"ltr"><div><div dir=3D"ltr"><div>Regards,<br></div>Dave Sedd=
-on<br>+1 415 857 5102<br></div></div></div></div></div></div></div>
-
---0000000000005c04a40613cfc476--
-
---===============3925850515273926083==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============3925850515273926083==--
+S3Vhbi1XZWkgQ2hpdSA8dmlzaXRvcmNrd0BnbWFpbC5jb20+IHdyaXRlczoKCj4gSW1wcm92ZSB0
+aGUgbWF4LWhlYXAgY29uc3RydWN0aW9uIHByb2Nlc3MgYnkgcmVkdWNpbmcgdW5uZWNlc3NhcnkK
+PiBoZWFwaWZ5IG9wZXJhdGlvbnMuIFNwZWNpZmljYWxseSwgYWRqdXN0IHRoZSBzdGFydGluZyBj
+b25kaXRpb24gZnJvbQo+IG4gLyAyIHRvIG4gLyAyIC0gMSBpbiB0aGUgbG9vcCB0aGF0IGl0ZXJh
+dGVzIG92ZXIgYWxsIG5vbi1sZWFmCj4gZWxlbWVudHMuCgpQbGVhc2UgYWRkIGFuIGV4cGxhbmF0
+aW9uIGZvciB3aHkgdGhpcyBjaGFuZ2UgaXMgY29ycmVjdCwgYW5kIHdoeSBpdCBpcwpiZW5lZmlj
+aWFsLiAiSW1wcm92ZSIgYW5kICJ1bm5lY2Vzc2FyeSIgaXMgd2F5IHRvbyBpbXBsaWNpdC4KCnB3
+LWJvdDogY3IKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
+Q2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0
+cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
