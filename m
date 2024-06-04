@@ -2,72 +2,70 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E54DF8B65EC
-	for <lists+cake@lfdr.de>; Tue, 30 Apr 2024 00:54:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 33C528FA6F0
+	for <lists+cake@lfdr.de>; Tue,  4 Jun 2024 02:22:21 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 8A5613CB54;
-	Mon, 29 Apr 2024 18:54:00 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id AB85E3CB56;
+	Mon,  3 Jun 2024 20:22:19 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1714431240;
-	bh=2vGtPaNjgCxPMCrOOj2s/uqzj1R8qEKzPebGECOgtXo=;
+	d=lists.bufferbloat.net; s=201610; t=1717460539;
+	bh=hbiLO5d+9B3FPYmVGsFoXofkZFkVNrRyziOdAgxKSsQ=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
 	 From;
-	b=mfIMEBB4B804cz5L3YrEHazpfZ1MVOYCP2uenKKwha3HbzsLCdjkLz4icnRwsiUyE
-	 ep5fCqKqDXqtSqPMe9AxmvP1WK7L5wg3wyOycmkTdzM61ITIgoHl5W/m0Y2b6N9G4m
-	 QFc9VtFfZ48uw321Gx3P9a1saeDxhnbEW51KWsZ96K2B0G2EdzozvCpGKpYmIfGF2i
-	 9K9M8q9K61sfZ/QuZtdGVr6M9mYjGCBWT+y5Az7dAu/OC1WtPobC6lS0rz0PvzPujU
-	 xAPklh1cN7ynADC3B1yQ4XG5eiY40s/Fj44vxjVJ/Nk0Rn7YJFXE3a1GslkHg5sEUZ
-	 4KGV3p44sfObA==
+	b=je2K4nBwJZXdL8dwbomC2R8XSumZoVsfmhwhaiinkd3TqfGNsOPaTvgGUQ4XGwK8u
+	 j5v/puhYq96CeF4nqkqkX0b1bOa9GYOBeqrmfw8wODEq/k4h9vAoWQXnHnnJwMSeKI
+	 N0PHCYitHVaVHA3ly+gZwnG4rlJSu/mBacpUkCc5llw9u/FCuJ1VELmBMikRFavnxT
+	 xPy7WOQTWFMxwvV9at5aRvYIphqQg0sI+Kr1Hzp1F/Xtn9XiJW/cUFwmTRPmcQkI+z
+	 8PL0rhM3t9fyg26Pg5ZJYXheTVhTLLpHxaxJyY2Wz73XXPq/YGS70bNQY0YRuSFs+U
+	 Qg4Lx1NT6XSLA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-oi1-x229.google.com (mail-oi1-x229.google.com
- [IPv6:2607:f8b0:4864:20::229])
+Received: from mail-wm1-x334.google.com (mail-wm1-x334.google.com
+ [IPv6:2a00:1450:4864:20::334])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 9F7C83CB44
- for <cake@lists.bufferbloat.net>; Mon, 29 Apr 2024 18:53:58 -0400 (EDT)
-Received: by mail-oi1-x229.google.com with SMTP id
- 5614622812f47-3c5ed7fdbb1so2934322b6e.0
- for <cake@lists.bufferbloat.net>; Mon, 29 Apr 2024 15:53:58 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id EAC2F3CB37
+ for <cake@lists.bufferbloat.net>; Mon,  3 Jun 2024 20:22:17 -0400 (EDT)
+Received: by mail-wm1-x334.google.com with SMTP id
+ 5b1f17b1804b1-4213870aafdso18954355e9.2
+ for <cake@lists.bufferbloat.net>; Mon, 03 Jun 2024 17:22:17 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=broadcom.com; s=google; t=1714431238; x=1715036038;
- darn=lists.bufferbloat.net; 
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:from:to:cc:subject:date:message-id:reply-to;
- bh=VgVmSmAV+tPfcw16Z+RHwHNqwq77iNtyKkkoPqHEcIo=;
- b=RqvaS3OZTcnLHq+eYTT9l4Juh4AmzAYhNmWAqmNGm0K+sD7jz4UNrUAX5BUsSYzJy7
- lnrdLcqHm/m832oAAdxPFyjEUpFue5VOaYj8y/mItRGDv2NZIOePnJbMXmv14bBlJKys
- qs5KRDXSRfEE6fNNyt3xbNVvh7Q+Fei5h9nTU=
+ d=gmail.com; s=20230601; t=1717460536; x=1718065336; darn=lists.bufferbloat.net;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+ :from:to:cc:subject:date:message-id:reply-to;
+ bh=jo7wahCUT7rr/xs8pxZCPzfjix5p6t03rVHKN85O3R8=;
+ b=kpejg+7JEjAgr3A0f+AE2AFXJGQhxzIk1JkFWUtvZc2COD7LeQzRBaJHHXvu9viGRs
+ 0cayv2iqjk2Xv/Np9hYxiU25UIQNpY0HoENawxpu781NlNYFivSyd+UUHEkSL9hENY32
+ kE/BuJ6Bhb4v4wDSUgSJ9joXeuxKbv0/1zZgp1uxXKD6VIyfa9/Xol+3j+QF9ZvENJej
+ h/gPToEHu8zAd2K4bDX39Tm+0sngcDTg3ixmdFR2IP4M2nmRni4nLYEhQii0Vn1DLqyX
+ ydLyZpCSk0Y3HsepeLboQzFL0/ZntSCiIolIKCaaR4ahfljbmlDUXIBU+vYmig1ndebq
+ Jwlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1714431238; x=1715036038;
- h=cc:to:subject:message-id:date:from:in-reply-to:references
- :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=VgVmSmAV+tPfcw16Z+RHwHNqwq77iNtyKkkoPqHEcIo=;
- b=Ikv3cZgEne5bSSkVe6uSZkb4DeG5nlpYG1pgl/Zgf+4RDaR99V3VOHj0sw2yxtDv0K
- X0G9OUW2jIb8fdiaL/HCKRMXbNY/tS/mMgwmEWvtyajz3zyuF1ybkGUs/zD8MBOUs4tc
- 0hol6AsDgpKhKSviI0QNyfQpFTjZ+CmsDU0D1b28QU991bPXyWgbHPG7FLr00KPR8NOb
- WRBDXu27nMuT8FMspzRd8yLQBaejBNnnBW7ZdRftaZPzUAXE9N+45GDQh4Wqxrks0+VA
- MUqfZ1enU/OocrabBSRpWGd2FeS0/jAof/Sx8Se1KzwKvxoEC46cpqt38hMu3AN1kuud
- kJbw==
-X-Forwarded-Encrypted: i=1;
- AJvYcCXEp+vgl0YYikfFIxfQo+18zH5RdwkRlKF7UgXwsFBCOKoYLTCjyKWVcJ2eU1ILwTzn8ywM7uuyHAYPm3HH4YFNrYtovd+rDRAnMg==
-X-Gm-Message-State: AOJu0YxVAsUMcYOh8/Sapv2kMLadcb5Q5khV6JL/HOIvoJv6OsnexFvw
- BPe+6MxgRbPMurIUagsa14WKBobk9PWxo8T8+dzEQ239DBX1JHFmWdVqF2QxNTtx/zGsutm7fl0
- GPV1xGNEWWs7AuDlifBfGs+HB7kKy2RXKpDaZwt4Rg7hmQupROFrUV8dhrlIvZ6qEp2Mcce7JZG
- wDcKJKbMYrOuJxTPKNhMP5w+Y=
-X-Google-Smtp-Source: AGHT+IEd2DNU53YGLW+ZMFLGdllwMAvYX7aQDUijjF+hxMNufb3vFicnt3QpIbTV0WG41bl4Te0hnEqEbXbDIwD1/v0=
-X-Received: by 2002:a05:6808:10d4:b0:3c7:210a:bffe with SMTP id
- s20-20020a05680810d400b003c7210abffemr461479ois.12.1714431237678; Mon, 29 Apr
- 2024 15:53:57 -0700 (PDT)
+ d=1e100.net; s=20230601; t=1717460536; x=1718065336;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+ :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=jo7wahCUT7rr/xs8pxZCPzfjix5p6t03rVHKN85O3R8=;
+ b=JNF4owg8uD4OsgLHqvlAB38FrPQS9fcscBo+DuMYuyxahQwDMWWFGFA3AQQVIj7hDW
+ YyPOIhhvRw4aoWXr/mzULsiUoZ5zwqdAfiInftCUs6GeB6bczuWs7L0JyP9P7DsEL1Tm
+ JIxB/XUsT4mO3dTIXv+zfJARjyTMIpJmE2WfxovynPv2YoFcGPlllhxzkk7cnvFAIcjc
+ U0opr5PEUnxXaDJ4meUoC5A79S1bcB1M7aLkVh1yzFVczQifhzMyg8qEP1E/oBmtsrUG
+ Ea6ee2h2YxARdBdk7LC5S0ElCxpLfIYaN1m/pxxvmhltLCzFJRDTFyTN07TJMB2j21NS
+ vX1w==
+X-Gm-Message-State: AOJu0Yxk7H9xMPKSvfnIkPaYDC7nB1adK6Dv8mRZDdj5V++lOKg7dWzc
+ VEpuljNdKOa3zLXMgKB5JKNd95m1uPYPTH/YHJORccbRjMrjRsP5FS4dOWld0oyAQhnkV56JpWu
+ 63KeB9m+N8V42TsOUYpxO/HFdCB9uJQ==
+X-Google-Smtp-Source: AGHT+IG+F5t/we+P1WoENbQrYZ7ufI/O3l4UBC7gYv9dDE14jBhBQppW21au0+IJkmIZLk+hC9aLJ4XelgidUqjV0Do=
+X-Received: by 2002:a05:600c:46d4:b0:41f:e56c:ef81 with SMTP id
+ 5b1f17b1804b1-4212e0448admr88127405e9.1.1717460536249; Mon, 03 Jun 2024
+ 17:22:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <CAA93jw60GY82v2fWUe-dMb2gCguSY+eYs2ing7Xk80trdF8qBg@mail.gmail.com>
-In-Reply-To: <CAA93jw60GY82v2fWUe-dMb2gCguSY+eYs2ing7Xk80trdF8qBg@mail.gmail.com>
-Date: Mon, 29 Apr 2024 15:53:55 -0700
-Message-ID: <CAHb6LvoFLob6i=uRSbevFhxNm9oYmmpZLfdsiUqZ0FGeg47b4Q@mail.gmail.com>
-To: Dave Taht <dave.taht@gmail.com>
-Subject: Re: [Cake] [Make-wifi-fast] waves podcast is out
+References: <3d1e2d945904a0fb55258559eb7322d7e11066b6.1715199358.git.pabeni@redhat.com>
+In-Reply-To: <3d1e2d945904a0fb55258559eb7322d7e11066b6.1715199358.git.pabeni@redhat.com>
+Date: Mon, 3 Jun 2024 17:22:04 -0700
+Message-ID: <CAA93jw6jOB69C0=um6AdYrT9_ZJEB8Jr7TpQg3os1n+O7nRfrw@mail.gmail.com>
+To: Cake List <cake@lists.bufferbloat.net>
+Subject: [Cake] Fwd: [RFC PATCH] net: introduce HW Rate Limiting Driver API
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -79,268 +77,785 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Bob McMahon via Cake <cake@lists.bufferbloat.net>
-Reply-To: Bob McMahon <bob.mcmahon@broadcom.com>
-Cc: Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- Cake List <cake@lists.bufferbloat.net>,
- libreqos <libreqos@lists.bufferbloat.net>, bloat <bloat@lists.bufferbloat.net>
-Content-Type: multipart/mixed; boundary="===============8964576862281521586=="
+From: Dave Taht via Cake <cake@lists.bufferbloat.net>
+Reply-To: Dave Taht <dave.taht@gmail.com>
+Content-Type: multipart/mixed; boundary="===============4514210007065125860=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8964576862281521586==
-Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
-	boundary="000000000000f1462d06174420e6"
+--===============4514210007065125860==
+Content-Type: multipart/alternative; boundary="0000000000002dd3ce061a0571b1"
 
---000000000000f1462d06174420e6
-Content-Type: multipart/alternative; boundary="000000000000ea155506174420a0"
-
---000000000000ea155506174420a0
+--0000000000002dd3ce061a0571b1
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-Fronthaul networks, preferably fiber, to a 20+ year concentrator (not a
-802.3 switch) at the same location of an electrical panel. Get rid of the
-SoC and AP which is basically a Sun workstation with NICs and use remote
-radio heads (or in switch speak, port ASICs.)  This design will work for
-50+ years or the lifespan of most buildings. One and one. Best return on
-labor possible. The MTBF shorter lived parts are replaceable like light
-bulbs or sprinkler heads.
-
-Spectrum is not limited.  Paul Baran pointed this out in 1994. Probably a
-good idea to stop with that property rights theory of limited spectrum.
-
-   - Shorter range rf transceivers connected to fiber could produce a
-   significant improvement - - tremendous improvement, really.
-   - a mixture of terrestrial links plus shorter range radio links has the
-   effect of increasing by orders and orders of magnitude the amount of
-   frequency spectrum that can be made available.
-   - By authorizing high power to support a few users to reach slightly
-   longer distances we deprive ourselves of the opportunity to serve the ma=
-ny.
-   - Communications systems can be built with 10dB ratio
-   - Digital transmission when properly done allows a small signal to noise
-   ratio to be used successfully to retrieve an error free signal. And, nev=
-er
-   forget, any transmission capacity not used is wasted forever, like water
-   over the dam. Not using such techniques represent lost opportunity.
+---------- Forwarded message ---------
+From: Paolo Abeni <pabeni@redhat.com>
+Date: Wed, May 8, 2024 at 1:27=E2=80=AFPM
+Subject: [RFC PATCH] net: introduce HW Rate Limiting Driver API
+To: <netdev@vger.kernel.org>
+Cc: Jakub Kicinski <kuba@kernel.org>, Jiri Pirko <jiri@resnulli.us>, Madhu
+Chittim <madhu.chittim@intel.com>, Sridhar Samudrala <
+sridhar.samudrala@intel.com>, Simon Horman <horms@kernel.org>, John
+Fastabend <john.fastabend@gmail.com>, Sunil Kovvuri Goutham <
+sgoutham@marvell.com>, Jamal Hadi Salim <jhs@mojatatu.com>
 
 
-The solution isn't to shrink bw and increase range. Spacetime includes
-space and freespace pathloss works in favor with digital communications.
-Let'st stop blasting RF energy all over the place. We do this for water in
-irrigation systems already.
+This is the first incarnation in a formal (pre-RFC) patch of the
+HW TX Rate Limiting Driver API proposal shared here[1].
+
+The goal is to outline the proposed APIs before pushing the actual
+implementation.
+
+The network devices gain a new ops struct to directly manipulate the
+H/W shapers implemented by the NIC.
+
+The shapers can be attached to a pre-defined set of 'domains' - port,
+vf, etc. - and the overall shapers configuration pushed to the H/W is
+maintained by the kernel.
+
+Each shaper is identified by an unique integer id based on the domain
+and additional domain-specific information - e.g. for the VF domain, the
+virtual function number/identifier.
+
+[1] https://lore.kernel.org/netdev/20240405102313.GA310894@kernel.org/
+
+Co-developed-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Simon Horman <horms@kernel.org>
+Signed-off-by: Paolo Abeni <pabeni@redhat.com>
+---
+ include/linux/netdevice.h |  15 +++
+ include/net/net_shaper.h  | 206 ++++++++++++++++++++++++++++++++++++++
+ net/Kconfig               |   3 +
+ 3 files changed, 224 insertions(+)
+ create mode 100644 include/net/net_shaper.h
+
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h
+index cf261fb89d73..39f66af014be 100644
+--- a/include/linux/netdevice.h
++++ b/include/linux/netdevice.h
+@@ -79,6 +79,8 @@ struct xdp_buff;
+ struct xdp_frame;
+ struct xdp_metadata_ops;
+ struct xdp_md;
++struct net_shaper_ops;
++struct net_shaper_data;
+
+ typedef u32 xdp_features_t;
+
+@@ -1596,6 +1598,13 @@ struct net_device_ops {
+        int                     (*ndo_hwtstamp_set)(struct net_device *dev,
+                                                    struct
+kernel_hwtstamp_config *kernel_config,
+                                                    struct netlink_ext_ack
+*extack);
++
++#if IS_ENABLED(CONFIG_NET_SHAPER)
++       /** @net_shaper_ops: Device shaping offload operations
++        * see include/net/net_shapers.h
++        */
++       const struct net_shaper_ops *net_shaper_ops;
++#endif
+ };
+
+ /**
+@@ -2403,6 +2412,12 @@ struct net_device {
+        /** @page_pools: page pools created for this netdevice */
+        struct hlist_head       page_pools;
+ #endif
++#if IS_ENABLED(CONFIG_NET_SHAPER)
++       /** @net_shaper_data: data tracking the current shaper status
++        *  see include/net/net_shapers.h
++        */
++       struct net_shaper_data *net_shaper_data;
++#endif
+ };
+ #define to_net_dev(d) container_of(d, struct net_device, dev)
+
+diff --git a/include/net/net_shaper.h b/include/net/net_shaper.h
+new file mode 100644
+index 000000000000..a4fbadd99870
+--- /dev/null
++++ b/include/net/net_shaper.h
+@@ -0,0 +1,206 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later */
++
++#ifndef _NET_SHAPER_H_
++#define _NET_SHAPER_H_
++
++#include <linux/types.h>
++#include <linux/netdevice.h>
++#include <linux/netlink.h>
++
++/**
++ * enum net_shaper_metric - the metric of the shaper
++ * @NET_SHAPER_METRIC_PPS: Shaper operates on a packets per second basis
++ * @NET_SHAPER_METRIC_BPS: Shaper operates on a bits per second basis
++ */
++enum net_shaper_metric {
++       NET_SHAPER_METRIC_PPS,
++       NET_SHAPER_METRIC_BPS
++};
++
++/**
++ * struct net_shaper_info - represents a shaping node on the NIC H/W
++ * @metric: Specify if the bw limits refers to PPS or BPS
++ * @bw_min: Minimum guaranteed rate for this shaper
++ * @bw_max: Maximum peak bw allowed for this shaper
++ * @burst: Maximum burst for the peek rate of this shaper
++ * @priority: Scheduling priority for this shaper
++ * @weight: Scheduling weight for this shaper
++ */
++struct net_shaper_info {
++       enum net_shaper_metric metric;
++       u64 bw_min;     /* minimum guaranteed bandwidth, according to
+metric */
++       u64 bw_max;     /* maximum allowed bandwidth */
++       u32 burst;      /* maximum burst in bytes for bw_max */
++       u32 priority;   /* scheduling strict priority */
++       u32 weight;     /* scheduling WRR weight*/
++};
++
++/**
++ * enum net_shaper_scope - the different scopes where a shaper could be
+attached
++ * @NET_SHAPER_SCOPE_PORT:   The root shaper for the whole H/W.
++ * @NET_SHAPER_SCOPE_NETDEV: The main shaper for the given network device.
++ * @NET_SHAPER_SCOPE_VF:     The shaper is attached to the given virtual
++ * function.
++ * @NET_SHAPER_SCOPE_QUEUE_GROUP: The shaper groups multiple queues under
+the
++ * same device.
++ * @NET_SHAPER_SCOPE_QUEUE:  The shaper is attached to the given device
+queue.
++ *
++ * NET_SHAPER_SCOPE_PORT and NET_SHAPER_SCOPE_VF are only available on
++ * PF devices, usually inside the host/hypervisor.
++ * NET_SHAPER_SCOPE_NETDEV, NET_SHAPER_SCOPE_QUEUE_GROUP and
++ * NET_SHAPER_SCOPE_QUEUE are available on both PFs and VFs devices.
++ */
++enum net_shaper_scope {
++       NET_SHAPER_SCOPE_PORT,
++       NET_SHAPER_SCOPE_NETDEV,
++       NET_SHAPER_SCOPE_VF,
++       NET_SHAPER_SCOPE_QUEUE_GROUP,
++       NET_SHAPER_SCOPE_QUEUE,
++};
++
++/**
++ * struct net_shaper_ops - Operations on device H/W shapers
++ * @add: Creates a new shaper in the specified scope.
++ * @set: Modify the existing shaper.
++ * @delete: Delete the specified shaper.
++ * @move: Move an existing shaper under a different parent.
++ *
++ * The initial shaping configuration ad device initialization is empty/
++ * a no-op/does not constraint the b/w in any way.
++ * The network core keeps track of the applied user-configuration in
++ * per device storage.
++ *
++ * Each shaper is uniquely identified within the device with an 'handle',
++ * dependent on the shaper scope and other data, see @shaper_make_handle()
++ */
++struct net_shaper_ops {
++       /** add - Add a shaper inside the shaper hierarchy
++        * @dev: netdevice to operate on
++        * @handle: the shaper indetifier
++        * @shaper: configuration of shaper
++        * @extack: Netlink extended ACK for reporting errors.
++        *
++        * Return:
++        * * 0 on success
++        * * %-EOPNOTSUPP - Operation is not supported by hardware, driver,
++        *                  or core for any reason. @extack should be set t=
+o
++        *                  text describing the reason.
++        * * Other negative error values on failure.
++        *
++        * Examples or reasons this operation may fail include:
++        * * H/W resources limits.
++        * * Can=E2=80=99t respect the requested bw limits.
++        */
++       int (*add)(struct net_device *dev, u32 handle,
++                  const struct net_shaper_info *shaper,
++                  struct netlink_ext_ack *extack);
++
++       /** set - Update the specified shaper, if it exists
++        * @dev: Netdevice to operate on.
++        * @handle: the shaper identifier
++        * @shaper: Configuration of shaper.
++        * @extack: Netlink extended ACK for reporting errors.
++        *
++        * Return:
++        * * %0 - Success
++        * * %-EOPNOTSUPP - Operation is not supported by hardware, driver,
++        *                  or core for any reason. @extack should be set t=
+o
++        *                  text describing the reason.
++        * * Other negative error values on failure.
++        */
++       int (*set)(struct net_device *dev, u32 handle,
++                  const struct net_shaper_info *shaper,
++                  struct netlink_ext_ack *extack);
++
++       /** delete - Removes a shaper from the NIC
++        * @dev: netdevice to operate on.
++        * @handle: the shaper identifier
++        * @extack: Netlink extended ACK for reporting errors.
++        *
++        * Return:
++        * * %0 - Success
++        * * %-EOPNOTSUPP - Operation is not supported by hardware, driver,
++        *                  or core for any reason. @extack should be set t=
+o
++        *                  text describing the reason.
++        * * Other negative error value on failure.
++        */
++       int (*delete)(struct net_device *dev, u32 handle,
++                     struct netlink_ext_ack *extack);
++
++       /** Move - change the parent id of the specified shaper
++        * @dev: netdevice to operate on.
++        * @handle: unique identifier for the shaper
++        * @new_parent_id: identifier of the new parent for this shaper
++        * @extack: Netlink extended ACK for reporting errors.
++        *
++        * Move the specified shaper in the hierarchy replacing its
++        * current parent shaper with @new_parent_id
++        *
++        * Return:
++        * * %0 - Success
++        * * %-EOPNOTSUPP - Operation is not supported by hardware, driver,
++        *                  or core for any reason. @extack should be set t=
+o
++        *                  text describing the reason.
++        * * Other negative error values on failure.
++        */
++       int (*move)(struct net_device *dev, u32 handle,
++                   u32 new_parent_handle, struct netlink_ext_ack *extack);
++};
++
++/**
++ * net_shaper_make_handle - creates an unique shaper identifier
++ * @scope: the shaper scope
++ * @vf: virtual function number
++ * @id: queue group or queue id
++ *
++ * Return: an unique identifier for the shaper
++ *
++ * Combines the specified arguments to create an unique identifier for
++ * the shaper.
++ * The virtual function number is only used within @NET_SHAPER_SCOPE_VF,
++ * @NET_SHAPER_SCOPE_QUEUE_GROUP and @NET_SHAPER_SCOPE_QUEUE.
++ * The @id number is only used for @NET_SHAPER_SCOPE_QUEUE_GROUP and
++ * @NET_SHAPER_SCOPE_QUEUE, and must be, respectively, the queue group
++ * identifier or the queue number.
++ */
++u32 net_shaper_make_handle(enum net_shaper_scope scope, int vf, int id);
++
++/*
++ * Examples:
++ * - set shaping on a given queue
++ *   struct shaper_info info =3D { }; // fill this
++ *   u32 handle =3D shaper_make_handle(NET_SHAPER_SCOPE_QUEUE, 0, queue_id=
+);
++ *   dev->shaper_ops->add(dev, handle, &info, NULL);
++ *
++ * - create a queue group with a queue group shaping limits.
++ *   Assuming the following topology already exists:
++ *                       < netdev shaper  >
++ *                        /              \
++ *               <queue 0 shaper> . . .  <queue N shaper>
++ *
++ *   struct shaper_info ginfo =3D { }; // fill this
++ *   u32 ghandle =3D shaper_make_handle(NET_SHAPER_SCOPE_QUEUE_GROUP, 0, 0=
+);
++ *   dev->shaper_ops->add(dev, ghandle, &ginfo);
++ *
++ *   // now topology is:
++ *   //                              < netdev shaper  >
++ *   //                             /         |          \
++ *   //                            /          |       < newly created
+shaper  >
++ *   //                           /           |
++ *   //        <queue 0 shaper> . . .    <queue N shaper>
++ *
++ *   // move a shapers for queues 3..n out of such queue group
++ *   for (i =3D 0; i <=3D 2; ++i) {
++ *       u32 qhandle =3D net_shaper_make_handle(NET_SHAPER_SCOPE_QUEUE, 0,
+i);
++ *       dev->netshaper_ops->move(dev, qhandle, ghandle, NULL);
++ *   }
++ *
++ *   // now the topology is:
++ *   //                                < netdev shaper  >
++ *   //                                 /            \
++ *   //               < newly created shaper>   <queue 3 shaper> .. <queue
+n shaper>
++ *   //                /               \
++ *   //        <queue 0 shaper> . . .    <queue 2 shaper>
++ */
++#endif
++
+diff --git a/net/Kconfig b/net/Kconfig
+index f0a8692496ff..29c6fec54711 100644
+--- a/net/Kconfig
++++ b/net/Kconfig
+@@ -66,6 +66,9 @@ config SKB_DECRYPTED
+ config SKB_EXTENSIONS
+        bool
+
++config NET_SHAPER
++       bool
++
+ menu "Networking options"
+
+ source "net/packet/Kconfig"
+--=20
+2.43.2
 
 
-Also, there are two optimums. The transport layer optimum and the link
-layer optimum. That's the core issue and the reason it's been "hard to fix"
 
-My $0.02,
-Bob
-
-
-On Mon, Apr 29, 2024 at 2:27=E2=80=AFPM Dave Taht via Make-wifi-fast <
-make-wifi-fast@lists.bufferbloat.net> wrote:
-
-> I did my usual bufferbloat rap on this pretty excellent podcast. What
-> I am most proud of however,
-> was showing off my mom=C2=B4s art in this segment here, including her mos=
-t
-> powerful piece "Sad Sam".
->
-> https://www.youtube.com/watch?v=3DBVFWSyMp3xg&t=3D1098s
->
-> --
-> https://www.youtube.com/watch?v=3DN0Tmvv5jJKs Epik Mellon Podcast
-> Dave T=C3=A4ht CSO, LibreQos
-> _______________________________________________
-> Make-wifi-fast mailing list
-> Make-wifi-fast@lists.bufferbloat.net
-> https://lists.bufferbloat.net/listinfo/make-wifi-fast
 
 --=20
-This electronic communication and the information and any files transmitted=
-=20
-with it, or attached to it, are confidential and are intended solely for=20
-the use of the individual or entity to whom it is addressed and may contain=
-=20
-information that is confidential, legally privileged, protected by privacy=
-=20
-laws, or otherwise restricted from disclosure to anyone else. If you are=20
-not the intended recipient or the person responsible for delivering the=20
-e-mail to the intended recipient, you are hereby notified that any use,=20
-copying, distributing, dissemination, forwarding, printing, or copying of=
-=20
-this e-mail is strictly prohibited. If you received this e-mail in error,=
-=20
-please return the e-mail to the sender, delete it from your computer, and=
-=20
-destroy any printed copy of it.
+https://www.linkedin.com/feed/update/urn:li:activity:7203400057172180992/
+Donations Drive.
+Dave T=C3=A4ht CSO, LibreQos
 
---000000000000ea155506174420a0
+--0000000000002dd3ce061a0571b1
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr">Fronthaul=C2=A0networks, preferably=C2=A0fiber, to a 20+ y=
-ear concentrator (not a 802.3 switch) at the same location of an electrical=
- panel. Get rid of the SoC and AP which is basically a Sun workstation with=
- NICs and use remote radio heads (or in switch speak, port ASICs.)=C2=A0 Th=
-is design will work for 50+ years or the=C2=A0lifespan of most buildings. O=
-ne and one. Best return on labor possible. The MTBF shorter lived parts are=
- replaceable like light bulbs or sprinkler heads.<br><br>Spectrum is not li=
-mited.=C2=A0 Paul Baran pointed this out in 1994. Probably a good idea to s=
-top with that property=C2=A0rights theory of limited spectrum.<br><ul><li>S=
-horter range rf transceivers connected to fiber could produce a significant=
- improvement - - tremendous improvement, really.</li><li>a mixture of terre=
-strial links plus shorter range radio links has the effect of increasing by=
- orders and orders of magnitude the amount of frequency spectrum that can b=
-e made available.</li><li>By authorizing high power to support a few users =
-to reach slightly longer distances we deprive ourselves of the opportunity =
-to serve the many.</li><li>Communications systems can be built with 10dB ra=
-tio</li><li>Digital transmission when properly done allows a small signal t=
-o noise ratio to be used successfully to retrieve an error free signal. And=
-, never forget, any transmission capacity not used is wasted forever, like =
-water over the dam. Not using such techniques represent lost opportunity.</=
-li></ul><span id=3D"gmail-docs-internal-guid-fec8688d-7fff-0eca-7750-2dcf83=
-094be9"><img width=3D"625px;" height=3D"436px;" src=3D"https://lh7-us.googl=
-eusercontent.com/vDSJaadtCJ5DU79Jmr1zXRMp7JCziKVt_IYvqMUGsmWCQjCp1m-Xjud6uf=
-yKbl6di0DNQsWka1cB85tsCLKdFswN1M88t_Db1lmH4f2Czr7ZeMvQmJWGoMq45z2gQKyyCtIte=
-bJBF0qHv1f5Q8nsliZ66Q=3Ds2048"></span><div><br></div><div>The solution isn&=
-#39;t to shrink bw and increase range. Spacetime includes space and freespa=
-ce pathloss works in favor with digital communications. Let&#39;st=C2=A0sto=
-p blasting RF energy all over the place. We do this for water in irrigation=
-=C2=A0systems already.=C2=A0<br><ul></ul><div><span>Also, there are two opt=
-imums. The transport layer optimum and the link layer optimum. That&#39;s t=
-he core issue and the reason it&#39;s been &quot;hard to fix&quot;</span></=
-div><div><span><br></span></div><div>My $0.02,<br></div><div><span>Bob<br><=
-br></span></div></div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr"=
- class=3D"gmail_attr">On Mon, Apr 29, 2024 at 2:27=E2=80=AFPM Dave Taht via=
- Make-wifi-fast &lt;<a href=3D"mailto:make-wifi-fast@lists.bufferbloat.net"=
->make-wifi-fast@lists.bufferbloat.net</a>&gt; wrote:<br></div><blockquote c=
-lass=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px soli=
-d rgb(204,204,204);padding-left:1ex">I did my usual bufferbloat rap on this=
- pretty excellent podcast. What<br>
-I am most proud of however,<br>
-was showing off my mom=C2=B4s art in this segment here, including her most<=
+<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
+=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong cla=
+ss=3D"gmail_sendername" dir=3D"auto">Paolo Abeni</strong> <span dir=3D"auto=
+">&lt;<a href=3D"mailto:pabeni@redhat.com">pabeni@redhat.com</a>&gt;</span>=
+<br>Date: Wed, May 8, 2024 at 1:27=E2=80=AFPM<br>Subject: [RFC PATCH] net: =
+introduce HW Rate Limiting Driver API<br>To:  &lt;<a href=3D"mailto:netdev@=
+vger.kernel.org">netdev@vger.kernel.org</a>&gt;<br>Cc: Jakub Kicinski &lt;<=
+a href=3D"mailto:kuba@kernel.org">kuba@kernel.org</a>&gt;, Jiri Pirko &lt;<=
+a href=3D"mailto:jiri@resnulli.us">jiri@resnulli.us</a>&gt;, Madhu Chittim =
+&lt;<a href=3D"mailto:madhu.chittim@intel.com">madhu.chittim@intel.com</a>&=
+gt;, Sridhar Samudrala &lt;<a href=3D"mailto:sridhar.samudrala@intel.com">s=
+ridhar.samudrala@intel.com</a>&gt;, Simon Horman &lt;<a href=3D"mailto:horm=
+s@kernel.org">horms@kernel.org</a>&gt;, John Fastabend &lt;<a href=3D"mailt=
+o:john.fastabend@gmail.com">john.fastabend@gmail.com</a>&gt;, Sunil Kovvuri=
+ Goutham &lt;<a href=3D"mailto:sgoutham@marvell.com">sgoutham@marvell.com</=
+a>&gt;, Jamal Hadi Salim &lt;<a href=3D"mailto:jhs@mojatatu.com">jhs@mojata=
+tu.com</a>&gt;<br></div><br><br>This is the first incarnation in a formal (=
+pre-RFC) patch of the<br>
+HW TX Rate Limiting Driver API proposal shared here[1].<br>
+<br>
+The goal is to outline the proposed APIs before pushing the actual<br>
+implementation.<br>
+<br>
+The network devices gain a new ops struct to directly manipulate the<br>
+H/W shapers implemented by the NIC.<br>
+<br>
+The shapers can be attached to a pre-defined set of &#39;domains&#39; - por=
+t,<br>
+vf, etc. - and the overall shapers configuration pushed to the H/W is<br>
+maintained by the kernel.<br>
+<br>
+Each shaper is identified by an unique integer id based on the domain<br>
+and additional domain-specific information - e.g. for the VF domain, the<br=
+>
+virtual function number/identifier.<br>
+<br>
+[1] <a href=3D"https://lore.kernel.org/netdev/20240405102313.GA310894@kerne=
+l.org/" rel=3D"noreferrer" target=3D"_blank">https://lore.kernel.org/netdev=
+/20240405102313.GA310894@kernel.org/</a><br>
+<br>
+Co-developed-by: Simon Horman &lt;<a href=3D"mailto:horms@kernel.org" targe=
+t=3D"_blank">horms@kernel.org</a>&gt;<br>
+Signed-off-by: Simon Horman &lt;<a href=3D"mailto:horms@kernel.org" target=
+=3D"_blank">horms@kernel.org</a>&gt;<br>
+Signed-off-by: Paolo Abeni &lt;<a href=3D"mailto:pabeni@redhat.com" target=
+=3D"_blank">pabeni@redhat.com</a>&gt;<br>
+---<br>
+=C2=A0include/linux/netdevice.h |=C2=A0 15 +++<br>
+=C2=A0include/net/net_shaper.h=C2=A0 | 206 ++++++++++++++++++++++++++++++++=
+++++++<br>
+=C2=A0net/Kconfig=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0|=
+=C2=A0 =C2=A03 +<br>
+=C2=A03 files changed, 224 insertions(+)<br>
+=C2=A0create mode 100644 include/net/net_shaper.h<br>
+<br>
+diff --git a/include/linux/netdevice.h b/include/linux/netdevice.h<br>
+index cf261fb89d73..39f66af014be 100644<br>
+--- a/include/linux/netdevice.h<br>
++++ b/include/linux/netdevice.h<br>
+@@ -79,6 +79,8 @@ struct xdp_buff;<br>
+=C2=A0struct xdp_frame;<br>
+=C2=A0struct xdp_metadata_ops;<br>
+=C2=A0struct xdp_md;<br>
++struct net_shaper_ops;<br>
++struct net_shaper_data;<br>
+<br>
+=C2=A0typedef u32 xdp_features_t;<br>
+<br>
+@@ -1596,6 +1598,13 @@ struct net_device_ops {<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 int=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0(*ndo_hwtstamp_set)(struct net_device *de=
+v,<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct kernel_hwtstamp_config *kernel_co=
+nfig,<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct netlink_ext_ack *extack);<br>
++<br>
++#if IS_ENABLED(CONFIG_NET_SHAPER)<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0/** @net_shaper_ops: Device shaping offload ope=
+rations<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * see include/net/net_shapers.h<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0const struct net_shaper_ops *net_shaper_ops;<br=
+>
++#endif<br>
+=C2=A0};<br>
+<br>
+=C2=A0/**<br>
+@@ -2403,6 +2412,12 @@ struct net_device {<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 /** @page_pools: page pools created for this ne=
+tdevice */<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 struct hlist_head=C2=A0 =C2=A0 =C2=A0 =C2=A0pag=
+e_pools;<br>
+=C2=A0#endif<br>
++#if IS_ENABLED(CONFIG_NET_SHAPER)<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0/** @net_shaper_data: data tracking the current=
+ shaper status<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 see include/net/net_shapers.h<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0struct net_shaper_data *net_shaper_data;<br>
++#endif<br>
+=C2=A0};<br>
+=C2=A0#define to_net_dev(d) container_of(d, struct net_device, dev)<br>
+<br>
+diff --git a/include/net/net_shaper.h b/include/net/net_shaper.h<br>
+new file mode 100644<br>
+index 000000000000..a4fbadd99870<br>
+--- /dev/null<br>
++++ b/include/net/net_shaper.h<br>
+@@ -0,0 +1,206 @@<br>
++/* SPDX-License-Identifier: GPL-2.0-or-later */<br>
++<br>
++#ifndef _NET_SHAPER_H_<br>
++#define _NET_SHAPER_H_<br>
++<br>
++#include &lt;linux/types.h&gt;<br>
++#include &lt;linux/netdevice.h&gt;<br>
++#include &lt;linux/netlink.h&gt;<br>
++<br>
++/**<br>
++ * enum net_shaper_metric - the metric of the shaper<br>
++ * @NET_SHAPER_METRIC_PPS: Shaper operates on a packets per second basis<b=
+r>
++ * @NET_SHAPER_METRIC_BPS: Shaper operates on a bits per second basis<br>
++ */<br>
++enum net_shaper_metric {<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0NET_SHAPER_METRIC_PPS,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0NET_SHAPER_METRIC_BPS<br>
++};<br>
++<br>
++/**<br>
++ * struct net_shaper_info - represents a shaping node on the NIC H/W<br>
++ * @metric: Specify if the bw limits refers to PPS or BPS<br>
++ * @bw_min: Minimum guaranteed rate for this shaper<br>
++ * @bw_max: Maximum peak bw allowed for this shaper<br>
++ * @burst: Maximum burst for the peek rate of this shaper<br>
++ * @priority: Scheduling priority for this shaper<br>
++ * @weight: Scheduling weight for this shaper<br>
++ */<br>
++struct net_shaper_info {<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0enum net_shaper_metric metric;<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0u64 bw_min;=C2=A0 =C2=A0 =C2=A0/* minimum guara=
+nteed bandwidth, according to metric */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0u64 bw_max;=C2=A0 =C2=A0 =C2=A0/* maximum allow=
+ed bandwidth */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0u32 burst;=C2=A0 =C2=A0 =C2=A0 /* maximum burst=
+ in bytes for bw_max */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0u32 priority;=C2=A0 =C2=A0/* scheduling strict =
+priority */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0u32 weight;=C2=A0 =C2=A0 =C2=A0/* scheduling WR=
+R weight*/<br>
++};<br>
++<br>
++/**<br>
++ * enum net_shaper_scope - the different scopes where a shaper could be at=
+tached<br>
++ * @NET_SHAPER_SCOPE_PORT:=C2=A0 =C2=A0The root shaper for the whole H/W.<=
 br>
-powerful piece &quot;Sad Sam&quot;.<br>
++ * @NET_SHAPER_SCOPE_NETDEV: The main shaper for the given network device.=
 <br>
-<a href=3D"https://www.youtube.com/watch?v=3DBVFWSyMp3xg&amp;t=3D1098s" rel=
-=3D"noreferrer" target=3D"_blank">https://www.youtube.com/watch?v=3DBVFWSyM=
-p3xg&amp;t=3D1098s</a><br>
++ * @NET_SHAPER_SCOPE_VF:=C2=A0 =C2=A0 =C2=A0The shaper is attached to the =
+given virtual<br>
++ * function.<br>
++ * @NET_SHAPER_SCOPE_QUEUE_GROUP: The shaper groups multiple queues under =
+the<br>
++ * same device.<br>
++ * @NET_SHAPER_SCOPE_QUEUE:=C2=A0 The shaper is attached to the given devi=
+ce queue.<br>
++ *<br>
++ * NET_SHAPER_SCOPE_PORT and NET_SHAPER_SCOPE_VF are only available on<br>
++ * PF devices, usually inside the host/hypervisor.<br>
++ * NET_SHAPER_SCOPE_NETDEV, NET_SHAPER_SCOPE_QUEUE_GROUP and<br>
++ * NET_SHAPER_SCOPE_QUEUE are available on both PFs and VFs devices.<br>
++ */<br>
++enum net_shaper_scope {<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0NET_SHAPER_SCOPE_PORT,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0NET_SHAPER_SCOPE_NETDEV,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0NET_SHAPER_SCOPE_VF,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0NET_SHAPER_SCOPE_QUEUE_GROUP,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0NET_SHAPER_SCOPE_QUEUE,<br>
++};<br>
++<br>
++/**<br>
++ * struct net_shaper_ops - Operations on device H/W shapers<br>
++ * @add: Creates a new shaper in the specified scope.<br>
++ * @set: Modify the existing shaper.<br>
++ * @delete: Delete the specified shaper.<br>
++ * @move: Move an existing shaper under a different parent.<br>
++ *<br>
++ * The initial shaping configuration ad device initialization is empty/<br=
+>
++ * a no-op/does not constraint the b/w in any way.<br>
++ * The network core keeps track of the applied user-configuration in<br>
++ * per device storage.<br>
++ *<br>
++ * Each shaper is uniquely identified within the device with an &#39;handl=
+e&#39;,<br>
++ * dependent on the shaper scope and other data, see @shaper_make_handle()=
 <br>
++ */<br>
++struct net_shaper_ops {<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0/** add - Add a shaper inside the shaper hierar=
+chy<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @dev: netdevice to operate on<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @handle: the shaper indetifier<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @shaper: configuration of shaper<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @extack: Netlink extended ACK for reporting =
+errors.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * Return:<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * 0 on success<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * %-EOPNOTSUPP - Operation is not supported =
+by hardware, driver,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 or core for any reason. @extack should be set to<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 text describing the reason.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * Other negative error values on failure.<br=
+>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * Examples or reasons this operation may fail =
+include:<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * H/W resources limits.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * Can=E2=80=99t respect the requested bw lim=
+its.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0int (*add)(struct net_device *dev, u32 handle,<=
+br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 const struc=
+t net_shaper_info *shaper,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct netl=
+ink_ext_ack *extack);<br>
++<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0/** set - Update the specified shaper, if it ex=
+ists<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @dev: Netdevice to operate on.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @handle: the shaper identifier<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @shaper: Configuration of shaper.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @extack: Netlink extended ACK for reporting =
+errors.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * Return:<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * %0 - Success<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * %-EOPNOTSUPP - Operation is not supported =
+by hardware, driver,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 or core for any reason. @extack should be set to<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 text describing the reason.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * Other negative error values on failure.<br=
+>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0int (*set)(struct net_device *dev, u32 handle,<=
+br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 const struc=
+t net_shaper_info *shaper,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 struct netl=
+ink_ext_ack *extack);<br>
++<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0/** delete - Removes a shaper from the NIC<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @dev: netdevice to operate on.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @handle: the shaper identifier<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @extack: Netlink extended ACK for reporting =
+errors.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * Return:<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * %0 - Success<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * %-EOPNOTSUPP - Operation is not supported =
+by hardware, driver,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 or core for any reason. @extack should be set to<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 text describing the reason.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * Other negative error value on failure.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0int (*delete)(struct net_device *dev, u32 handl=
+e,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0struct netlink_ext_ack *extack);<br>
++<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0/** Move - change the parent id of the specifie=
+d shaper<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @dev: netdevice to operate on.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @handle: unique identifier for the shaper<br=
+>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @new_parent_id: identifier of the new parent=
+ for this shaper<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * @extack: Netlink extended ACK for reporting =
+errors.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * Move the specified shaper in the hierarchy r=
+eplacing its<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * current parent shaper with @new_parent_id<br=
+>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * Return:<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * %0 - Success<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * %-EOPNOTSUPP - Operation is not supported =
+by hardware, driver,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 or core for any reason. @extack should be set to<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 text describing the reason.<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 * * Other negative error values on failure.<br=
+>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 */<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0int (*move)(struct net_device *dev, u32 handle,=
+<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0u32 n=
+ew_parent_handle, struct netlink_ext_ack *extack);<br>
++};<br>
++<br>
++/**<br>
++ * net_shaper_make_handle - creates an unique shaper identifier<br>
++ * @scope: the shaper scope<br>
++ * @vf: virtual function number<br>
++ * @id: queue group or queue id<br>
++ *<br>
++ * Return: an unique identifier for the shaper<br>
++ *<br>
++ * Combines the specified arguments to create an unique identifier for<br>
++ * the shaper.<br>
++ * The virtual function number is only used within @NET_SHAPER_SCOPE_VF,<b=
+r>
++ * @NET_SHAPER_SCOPE_QUEUE_GROUP and @NET_SHAPER_SCOPE_QUEUE.<br>
++ * The @id number is only used for @NET_SHAPER_SCOPE_QUEUE_GROUP and<br>
++ * @NET_SHAPER_SCOPE_QUEUE, and must be, respectively, the queue group<br>
++ * identifier or the queue number.<br>
++ */<br>
++u32 net_shaper_make_handle(enum net_shaper_scope scope, int vf, int id);<b=
+r>
++<br>
++/*<br>
++ * Examples:<br>
++ * - set shaping on a given queue<br>
++ *=C2=A0 =C2=A0struct shaper_info info =3D { }; // fill this<br>
++ *=C2=A0 =C2=A0u32 handle =3D shaper_make_handle(NET_SHAPER_SCOPE_QUEUE, 0=
+, queue_id);<br>
++ *=C2=A0 =C2=A0dev-&gt;shaper_ops-&gt;add(dev, handle, &amp;info, NULL);<b=
+r>
++ *<br>
++ * - create a queue group with a queue group shaping limits.<br>
++ *=C2=A0 =C2=A0Assuming the following topology already exists:<br>
++ *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0&lt; netdev shaper=C2=A0 &gt;<br>
++ *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 /=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
++ *=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0&lt;queue 0 shape=
+r&gt; . . .=C2=A0 &lt;queue N shaper&gt;<br>
++ *<br>
++ *=C2=A0 =C2=A0struct shaper_info ginfo =3D { }; // fill this<br>
++ *=C2=A0 =C2=A0u32 ghandle =3D shaper_make_handle(NET_SHAPER_SCOPE_QUEUE_G=
+ROUP, 0, 0);<br>
++ *=C2=A0 =C2=A0dev-&gt;shaper_ops-&gt;add(dev, ghandle, &amp;ginfo);<br>
++ *<br>
++ *=C2=A0 =C2=A0// now topology is:<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &lt; netdev shaper=C2=A0 &=
+gt;<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0/=C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0|=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 |=C2=A0 =C2=A0 =C2=A0 =C2=A0&lt; newly created shaper=C2=A0 &gt;<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0/=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
+=A0 =C2=A0|<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 &lt;queue 0 shaper&gt; . . .=
+=C2=A0 =C2=A0 &lt;queue N shaper&gt;<br>
++ *<br>
++ *=C2=A0 =C2=A0// move a shapers for queues 3..n out of such queue group<b=
+r>
++ *=C2=A0 =C2=A0for (i =3D 0; i &lt;=3D 2; ++i) {<br>
++ *=C2=A0 =C2=A0 =C2=A0 =C2=A0u32 qhandle =3D net_shaper_make_handle(NET_SH=
+APER_SCOPE_QUEUE, 0, i);<br>
++ *=C2=A0 =C2=A0 =C2=A0 =C2=A0dev-&gt;netshaper_ops-&gt;move(dev, qhandle, =
+ghandle, NULL);<br>
++ *=C2=A0 =C2=A0}<br>
++ *<br>
++ *=C2=A0 =C2=A0// now the topology is:<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &lt; netdev shaper=
+=C2=A0 &gt;<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0/=C2=A0 =C2=
+=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 \<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0&l=
+t; newly created shaper&gt;=C2=A0 =C2=A0&lt;queue 3 shaper&gt; .. &lt;queue=
+ n shaper&gt;<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 /=
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0\<br>
++ *=C2=A0 =C2=A0//=C2=A0 =C2=A0 =C2=A0 =C2=A0 &lt;queue 0 shaper&gt; . . .=
+=C2=A0 =C2=A0 &lt;queue 2 shaper&gt;<br>
++ */<br>
++#endif<br>
++<br>
+diff --git a/net/Kconfig b/net/Kconfig<br>
+index f0a8692496ff..29c6fec54711 100644<br>
+--- a/net/Kconfig<br>
++++ b/net/Kconfig<br>
+@@ -66,6 +66,9 @@ config SKB_DECRYPTED<br>
+=C2=A0config SKB_EXTENSIONS<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 bool<br>
+<br>
++config NET_SHAPER<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0bool<br>
++<br>
+=C2=A0menu &quot;Networking options&quot;<br>
+<br>
+=C2=A0source &quot;net/packet/Kconfig&quot;<br>
 -- <br>
-<a href=3D"https://www.youtube.com/watch?v=3DN0Tmvv5jJKs" rel=3D"noreferrer=
-" target=3D"_blank">https://www.youtube.com/watch?v=3DN0Tmvv5jJKs</a> Epik =
-Mellon Podcast<br>
-Dave T=C3=A4ht CSO, LibreQos<br>
-_______________________________________________<br>
-Make-wifi-fast mailing list<br>
-<a href=3D"mailto:Make-wifi-fast@lists.bufferbloat.net" target=3D"_blank">M=
-ake-wifi-fast@lists.bufferbloat.net</a><br>
-<a href=3D"https://lists.bufferbloat.net/listinfo/make-wifi-fast" rel=3D"no=
-referrer" target=3D"_blank">https://lists.bufferbloat.net/listinfo/make-wif=
-i-fast</a></blockquote></div>
-
+2.43.2<br>
 <br>
-<span style=3D"background-color:rgb(255,255,255)"><font size=3D"2">This ele=
-ctronic communication and the information and any files transmitted with it=
-, or attached to it, are confidential and are intended solely for the use o=
-f the individual or entity to whom it is addressed and may contain informat=
-ion that is confidential, legally privileged, protected by privacy laws, or=
- otherwise restricted from disclosure to anyone else. If you are not the in=
-tended recipient or the person responsible for delivering the e-mail to the=
- intended recipient, you are hereby notified that any use, copying, distrib=
-uting, dissemination, forwarding, printing, or copying of this e-mail is st=
-rictly prohibited. If you received this e-mail in error, please return the =
-e-mail to the sender, delete it from your computer, and destroy any printed=
- copy of it.</font></span>
---000000000000ea155506174420a0--
+<br>
+</div><br clear=3D"all"><div><br></div><span class=3D"gmail_signature_prefi=
+x">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=
+=3D"gmail_signature"><div dir=3D"ltr"><div><a href=3D"https://www.linkedin.=
+com/feed/update/urn:li:activity:7203400057172180992/" target=3D"_blank">htt=
+ps://www.linkedin.com/feed/update/urn:li:activity:7203400057172180992/</a><=
+/div><div>Donations Drive.</div><div>Dave T=C3=A4ht CSO, LibreQos<br></div>=
+</div></div></div>
 
---000000000000f1462d06174420e6
-Content-Type: application/pkcs7-signature; name="smime.p7s"
-Content-Transfer-Encoding: base64
-Content-Disposition: attachment; filename="smime.p7s"
-Content-Description: S/MIME Cryptographic Signature
+--0000000000002dd3ce061a0571b1--
 
-MIIQagYJKoZIhvcNAQcCoIIQWzCCEFcCAQExDzANBglghkgBZQMEAgEFADALBgkqhkiG9w0BBwGg
-gg3BMIIFDTCCA/WgAwIBAgIQeEqpED+lv77edQixNJMdADANBgkqhkiG9w0BAQsFADBMMSAwHgYD
-VQQLExdHbG9iYWxTaWduIFJvb3QgQ0EgLSBSMzETMBEGA1UEChMKR2xvYmFsU2lnbjETMBEGA1UE
-AxMKR2xvYmFsU2lnbjAeFw0yMDA5MTYwMDAwMDBaFw0yODA5MTYwMDAwMDBaMFsxCzAJBgNVBAYT
-AkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhHbG9iYWxTaWduIEdDQyBS
-MyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
-vbCmXCcsbZ/a0fRIQMBxp4gJnnyeneFYpEtNydrZZ+GeKSMdHiDgXD1UnRSIudKo+moQ6YlCOu4t
-rVWO/EiXfYnK7zeop26ry1RpKtogB7/O115zultAz64ydQYLe+a1e/czkALg3sgTcOOcFZTXk38e
-aqsXsipoX1vsNurqPtnC27TWsA7pk4uKXscFjkeUE8JZu9BDKaswZygxBOPBQBwrA5+20Wxlk6k1
-e6EKaaNaNZUy30q3ArEf30ZDpXyfCtiXnupjSK8WU2cK4qsEtj09JS4+mhi0CTCrCnXAzum3tgcH
-cHRg0prcSzzEUDQWoFxyuqwiwhHu3sPQNmFOMwIDAQABo4IB2jCCAdYwDgYDVR0PAQH/BAQDAgGG
-MGAGA1UdJQRZMFcGCCsGAQUFBwMCBggrBgEFBQcDBAYKKwYBBAGCNxQCAgYKKwYBBAGCNwoDBAYJ
-KwYBBAGCNxUGBgorBgEEAYI3CgMMBggrBgEFBQcDBwYIKwYBBQUHAxEwEgYDVR0TAQH/BAgwBgEB
-/wIBADAdBgNVHQ4EFgQUljPR5lgXWzR1ioFWZNW+SN6hj88wHwYDVR0jBBgwFoAUj/BLf6guRSSu
-TVD6Y5qL3uLdG7wwegYIKwYBBQUHAQEEbjBsMC0GCCsGAQUFBzABhiFodHRwOi8vb2NzcC5nbG9i
-YWxzaWduLmNvbS9yb290cjMwOwYIKwYBBQUHMAKGL2h0dHA6Ly9zZWN1cmUuZ2xvYmFsc2lnbi5j
-b20vY2FjZXJ0L3Jvb3QtcjMuY3J0MDYGA1UdHwQvMC0wK6ApoCeGJWh0dHA6Ly9jcmwuZ2xvYmFs
-c2lnbi5jb20vcm9vdC1yMy5jcmwwWgYDVR0gBFMwUTALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgEo
-CjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzAN
-BgkqhkiG9w0BAQsFAAOCAQEAdAXk/XCnDeAOd9nNEUvWPxblOQ/5o/q6OIeTYvoEvUUi2qHUOtbf
-jBGdTptFsXXe4RgjVF9b6DuizgYfy+cILmvi5hfk3Iq8MAZsgtW+A/otQsJvK2wRatLE61RbzkX8
-9/OXEZ1zT7t/q2RiJqzpvV8NChxIj+P7WTtepPm9AIj0Keue+gS2qvzAZAY34ZZeRHgA7g5O4TPJ
-/oTd+4rgiU++wLDlcZYd/slFkaT3xg4qWDepEMjT4T1qFOQIL+ijUArYS4owpPg9NISTKa1qqKWJ
-jFoyms0d0GwOniIIbBvhI2MJ7BSY9MYtWVT5jJO3tsVHwj4cp92CSFuGwunFMzCCA18wggJHoAMC
-AQICCwQAAAAAASFYUwiiMA0GCSqGSIb3DQEBCwUAMEwxIDAeBgNVBAsTF0dsb2JhbFNpZ24gUm9v
-dCBDQSAtIFIzMRMwEQYDVQQKEwpHbG9iYWxTaWduMRMwEQYDVQQDEwpHbG9iYWxTaWduMB4XDTA5
-MDMxODEwMDAwMFoXDTI5MDMxODEwMDAwMFowTDEgMB4GA1UECxMXR2xvYmFsU2lnbiBSb290IENB
-IC0gUjMxEzARBgNVBAoTCkdsb2JhbFNpZ24xEzARBgNVBAMTCkdsb2JhbFNpZ24wggEiMA0GCSqG
-SIb3DQEBAQUAA4IBDwAwggEKAoIBAQDMJXaQeQZ4Ihb1wIO2hMoonv0FdhHFrYhy/EYCQ8eyip0E
-XyTLLkvhYIJG4VKrDIFHcGzdZNHr9SyjD4I9DCuul9e2FIYQebs7E4B3jAjhSdJqYi8fXvqWaN+J
-J5U4nwbXPsnLJlkNc96wyOkmDoMVxu9bi9IEYMpJpij2aTv2y8gokeWdimFXN6x0FNx04Druci8u
-nPvQu7/1PQDhBjPogiuuU6Y6FnOM3UEOIDrAtKeh6bJPkC4yYOlXy7kEkmho5TgmYHWyn3f/kRTv
-riBJ/K1AFUjRAjFhGV64l++td7dkmnq/X8ET75ti+w1s4FRpFqkD2m7pg5NxdsZphYIXAgMBAAGj
-QjBAMA4GA1UdDwEB/wQEAwIBBjAPBgNVHRMBAf8EBTADAQH/MB0GA1UdDgQWBBSP8Et/qC5FJK5N
-UPpjmove4t0bvDANBgkqhkiG9w0BAQsFAAOCAQEAS0DbwFCq/sgM7/eWVEVJu5YACUGssxOGhigH
-M8pr5nS5ugAtrqQK0/Xx8Q+Kv3NnSoPHRHt44K9ubG8DKY4zOUXDjuS5V2yq/BKW7FPGLeQkbLmU
-Y/vcU2hnVj6DuM81IcPJaP7O2sJTqsyQiunwXUaMld16WCgaLx3ezQA3QY/tRG3XUyiXfvNnBB4V
-14qWtNPeTCekTBtzc3b0F5nCH3oO4y0IrQocLP88q1UOD5F+NuvDV0m+4S4tfGCLw0FREyOdzvcy
-a5QBqJnnLDMfOjsl0oZAzjsshnjJYS8Uuu7bVW/fhO4FCU29KNhyztNiUGUe65KXgzHZs7XKR1g/
-XzCCBUkwggQxoAMCAQICDDGs4Qlq5OZK9mcDzTANBgkqhkiG9w0BAQsFADBbMQswCQYDVQQGEwJC
-RTEZMBcGA1UEChMQR2xvYmFsU2lnbiBudi1zYTExMC8GA1UEAxMoR2xvYmFsU2lnbiBHQ0MgUjMg
-UGVyc29uYWxTaWduIDIgQ0EgMjAyMDAeFw0yMjA5MTAxMzMzNDFaFw0yNTA5MTAxMzMzNDFaMIGM
-MQswCQYDVQQGEwJJTjESMBAGA1UECBMJS2FybmF0YWthMRIwEAYDVQQHEwlCYW5nYWxvcmUxFjAU
-BgNVBAoTDUJyb2FkY29tIEluYy4xFDASBgNVBAMTC0JvYiBNY01haG9uMScwJQYJKoZIhvcNAQkB
-Fhhib2IubWNtYWhvbkBicm9hZGNvbS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIB
-AQDBfX3nsBFRdO26im8lhOadVadRmV/YWK+U9OoGlTE+2MDsjJwO5p/Q6iaTUropqMRH1E+EIuhe
-/OU6a3/btrqzARE77RaVSdz5swXt7M4ciN+z44nIEx36UQIlFLsBFa3is/J/QLFhTUFFf0wLJsUO
-wyja+KvygH/E5TyfeXf5T2Y2wjGZx8jQXZMDmNpfANlEBYDfzCNYcAIQNox8FuPpEpuxWvv7jvxV
-X5dfkSef9T/DbsDM0PeTVMVyYIQoRSMBIGxVkaqp0MJglvQ2mU4CXcoOGgm6XC8LoLoEvYojXFKC
-fRgCOT5xeMR10UPSBQIljKwt7fPhpYVY+jTtOclpAgMBAAGjggHZMIIB1TAOBgNVHQ8BAf8EBAMC
-BaAwgaMGCCsGAQUFBwEBBIGWMIGTME4GCCsGAQUFBzAChkJodHRwOi8vc2VjdXJlLmdsb2JhbHNp
-Z24uY29tL2NhY2VydC9nc2djY3IzcGVyc29uYWxzaWduMmNhMjAyMC5jcnQwQQYIKwYBBQUHMAGG
-NWh0dHA6Ly9vY3NwLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjNwZXJzb25hbHNpZ24yY2EyMDIwME0G
-A1UdIARGMEQwQgYKKwYBBAGgMgEoCjA0MDIGCCsGAQUFBwIBFiZodHRwczovL3d3dy5nbG9iYWxz
-aWduLmNvbS9yZXBvc2l0b3J5LzAJBgNVHRMEAjAAMEkGA1UdHwRCMEAwPqA8oDqGOGh0dHA6Ly9j
-cmwuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyM3BlcnNvbmFsc2lnbjJjYTIwMjAuY3JsMCMGA1UdEQQc
-MBqBGGJvYi5tY21haG9uQGJyb2FkY29tLmNvbTATBgNVHSUEDDAKBggrBgEFBQcDBDAfBgNVHSME
-GDAWgBSWM9HmWBdbNHWKgVZk1b5I3qGPzzAdBgNVHQ4EFgQUpG/4RP1YQA/iXGens9pIRe7CQxMw
-DQYJKoZIhvcNAQELBQADggEBACfWLy4qJyCnOa3sl4LEDAMU/gmJ6LbclGE5iR4KanAmlAt92gzN
-5lSy/iE+wsRrXiHI7YKFgXX1kVK/RqMiPRrw4hq2j8nxoSi/VFiyS3CsfVMGkbY7HBTlBvla/tH+
-+2nJprlXbJyz1GdvoJAeam5RvTWotcCGAjZmMa3U3zMkszgXN849xe3dUK1DauUGiInXEwEdXDcA
-/0CVjL3EEMj+kNWcLhrSZKwFtxggUyMW3XWRaAeAL9wOtEaXYqlgbtnV0n9FuoV2TNm3h7Mh7rjV
-I2zM+IZ3DE+XFK7dcPwte33u75QyySNJ3UMZqi25CO85yl8Bmo7aWRm99N7HGnkxggJtMIICaQIB
-ATBrMFsxCzAJBgNVBAYTAkJFMRkwFwYDVQQKExBHbG9iYWxTaWduIG52LXNhMTEwLwYDVQQDEyhH
-bG9iYWxTaWduIEdDQyBSMyBQZXJzb25hbFNpZ24gMiBDQSAyMDIwAgwxrOEJauTmSvZnA80wDQYJ
-YIZIAWUDBAIBBQCggdQwLwYJKoZIhvcNAQkEMSIEILdOAnpgaO2IK6P/j7cOUM/dfZQ2iQkexscT
-h5xYz2g9MBgGCSqGSIb3DQEJAzELBgkqhkiG9w0BBwEwHAYJKoZIhvcNAQkFMQ8XDTI0MDQyOTIy
-NTM1OFowaQYJKoZIhvcNAQkPMVwwWjALBglghkgBZQMEASowCwYJYIZIAWUDBAEWMAsGCWCGSAFl
-AwQBAjAKBggqhkiG9w0DBzALBgkqhkiG9w0BAQowCwYJKoZIhvcNAQEHMAsGCWCGSAFlAwQCATAN
-BgkqhkiG9w0BAQEFAASCAQApLBbc38LcWYNkbTU4gGpFIr1yKhS2D2Y2kDCJDkczk3/0fjS+LUub
-rvYz3J+6OQ2/ECZIMUmn68WiMNlJr4vy+jFaiUp/4oCo5JYyRerEJ+xUJvttVa5GRWUCkORz9a3n
-lyccsarIxndf8c+3Z2LKW0QOTVQAvqZQ+H0RCgT1sXdK/gL7wlUh+BQ6UXoF6rEBeDKATdSgHM9C
-iGBDx/QlPWDuxYIOY4qLKm91Z9J8KCwTscIw1qnC7qMvskxON7RGVKJGBgSwUepWco0zOPW0V8tc
-jxG1zictnO8p81jqyYMs4jpzMrkLkSC7IRQ0BIcDaisbHfvaU4enNapJZHTd
---000000000000f1462d06174420e6--
-
---===============8964576862281521586==
+--===============4514210007065125860==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -350,4 +865,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============8964576862281521586==--
+--===============4514210007065125860==--
