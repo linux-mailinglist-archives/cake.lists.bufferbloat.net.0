@@ -2,70 +2,90 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A55199421E1
-	for <lists+cake@lfdr.de>; Tue, 30 Jul 2024 22:51:53 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 88D6896A3B9
+	for <lists+cake@lfdr.de>; Tue,  3 Sep 2024 18:09:45 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 89DCD3CB43;
-	Tue, 30 Jul 2024 16:51:51 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id CD8DD3CB48;
+	Tue,  3 Sep 2024 12:09:43 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1722372711;
-	bh=KGK1l18sugD8kP7WPva7izvvY8O8zlmYVwkJaYuC/Ew=;
-	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
-	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
-	 From;
-	b=arB2rSJ7nEsDy75ItKhSFofHhgwi6M4QJLfx9NXgEuk+3Nl/ZWVspDmdh4EYplcP0
-	 rJqbnX4SfI6qRZuYXArE4tknlu5A1RcUmBQiaGp6wW2ucvgp4eSR6PvGEOavjyp5I4
-	 aVdZQ52JMSJrqcrfDiDQ8k4uv/LvYM/YkSMblfOrQelc4oi9V5vmehbM1YQ3lsk/Pm
-	 XdmGyL9+KZ5A3rAK5q3OrbHTFiCXC9bfqMUlHIBnXmpD/3HdAhXJbV9h1taGCcMbUX
-	 O0EyrsmbFQX266w9ss5WM9QKyE8JgmjC2VIE1wcbpIz+qwueyXN3z+wsC2NeOkWfku
-	 lAS0MJoR42now==
+	d=lists.bufferbloat.net; s=201610; t=1725379783;
+	bh=oxw2wF0HjhD1bT8hMtctS7ABdov52X6QGfxkPSkUiYw=;
+	h=To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
+	 List-Help:List-Subscribe:From:Reply-To:Cc:From;
+	b=fCBNEn+6RKANnQN/IwAlLwLP1FRdCJI0sUQoKQ+ySEE9PoXqwMCKUT3LoWiYaq1RH
+	 Kpaw7IOcmumYYQ0QCrTZeCfgKqnAgMN/R9x/oMkCSxnpYGu9ZHD8+4FK52XmjbN0nL
+	 jTh+nB+UrHfMVyNS+Wl5wNMSd+n7z7VKfY6hMNuLYtwiOuaFSF0ZV6QkSAPsSj2xVR
+	 3w2j3N2/Nx9IH16CIfMLgUewxFI3mUps2pUZv7p2Y5V8J/woBogzwy09RnJjEiR4nj
+	 HtHqd9JE5Z1sJaP14Ip9AVcTZRpFkM0IuM82q0DMRZFpjK4FBtEo8mJFO45aTXa+Ym
+	 Y4MHvoTK6EZAA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ot1-x330.google.com (mail-ot1-x330.google.com
- [IPv6:2607:f8b0:4864:20::330])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from us-smtp-delivery-124.mimecast.com
+ (us-smtp-delivery-124.mimecast.com [170.10.133.124])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 372773B29E
- for <cake@lists.bufferbloat.net>; Tue, 30 Jul 2024 16:51:50 -0400 (EDT)
-Received: by mail-ot1-x330.google.com with SMTP id
- 46e09a7af769-70930f8eabbso1997392a34.1
- for <cake@lists.bufferbloat.net>; Tue, 30 Jul 2024 13:51:50 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1722372709; x=1722977509; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:in-reply-to:references:mime-version
- :from:to:cc:subject:date:message-id:reply-to;
- bh=koMNwHvXIZtriZufnPdlS5Xm4MqyrSFRW+gkfpjwtp0=;
- b=VI1qaNVx/+7/w0qDxvrnjfDRn/eXmPI7/td8QicfnJ7cnQfRa5RITAWKopRnMzQ6bU
- NWUljwCVByLhFrQY6ia00Gt1pJZ1TOz7xQpkdUJuNMeEqMvb3Z+l9uTFjPd60yt+JX6M
- Rxfi3Ow7W55k1xfMYx78g2ecuzKHHCJayGJqfjFpkUeCzYZmkdeEaTHj6dBYBDQOvrlG
- B+LyJqgBL0qc73nej5lqfRxSnbynCnRfSiFp5sU3S4PCaQ4ODB960SOg+7nVJjsake6p
- Wm0RjDl/ayc9va6qJSHZk4L3NAISV+qg8wI4URhAqnvfOgTepBBXzLw9d94XyPoKc1ds
- H98w==
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 87C3A3B29D
+ for <cake@lists.bufferbloat.net>; Tue,  3 Sep 2024 12:09:42 -0400 (EDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+ s=mimecast20190719; t=1725379782;
+ h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+ to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+ content-transfer-encoding:content-transfer-encoding;
+ bh=+vEL9t9N3TjzDKFfGVpcEH/htsU0bsy4GSN4Thmrm6E=;
+ b=cP3pd9aJDW/O/0jFVRgCDC2edcxmr9S43vrFrwpi1IOUpN4FzhSYXEUmBwPzFRI5eh5iLc
+ UE3rclVdQUbtZ+EVtfg9Rybj3h3oj843ik9Ms4RxsQ8xA4nWom+QHjtXZCKM+qsT5somrc
+ UsjrzhRfRjBaArcvwbWJVAfPyuTJoZk=
+Received: from mail-lj1-f197.google.com (mail-lj1-f197.google.com
+ [209.85.208.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-590-hjBdLcQoPFWJRJ6Sei1kiw-1; Tue, 03 Sep 2024 12:09:40 -0400
+X-MC-Unique: hjBdLcQoPFWJRJ6Sei1kiw-1
+Received: by mail-lj1-f197.google.com with SMTP id
+ 38308e7fff4ca-2f3f61b42c2so64968341fa.3
+ for <cake@lists.bufferbloat.net>; Tue, 03 Sep 2024 09:09:40 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1722372709; x=1722977509;
- h=to:subject:message-id:date:from:in-reply-to:references:mime-version
- :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
- bh=koMNwHvXIZtriZufnPdlS5Xm4MqyrSFRW+gkfpjwtp0=;
- b=e+nJd1l5SM2KwxjNsCw22hv7OW7Ah07g7iUcs06jlgqjuCxL26tj7RVMK7D3S+v6aU
- P5SeHdlZ0jaGYz4g5tOI6YR6df1CIm+YziFFL5EWCXZ8XXbvGQXU5DnbFEwp9qb34ncV
- pjypp0YM1ouQjZWnk3wCbk8l2Ae8qL7/NofqVjdQL/MTXAo3sednnqpSadwP0OGAv/yL
- QCo7CNy6rulGMPmWWVC9hyuEdjCYPHpBXIan1/Q8XMsRZ2H+wJmrSAPqRrZVxEBrqgI8
- WGUxqfPvUM3/BJGPHbi8PCns6loE1xLrKFqPTbM+4COfEzsY1tAwDHdDeIPZH+AtL08l
- pnpg==
-X-Gm-Message-State: AOJu0Yz92MQIMAV/6tL5W/gHuPpeaLuCghUpIajJ1IRD2B6JnLOYFYYE
- DXm/jNpcBntuXEA38HXzlbBs3rqoARoWQz2OvGMYXo8vYAPm2L2pADXVviVVghJIN4KHTuhYfjP
- oUZgPyHBKRR1p5KeOA/XA6LHMzfNotw==
-X-Google-Smtp-Source: AGHT+IG8bIO+hLXBiRxrUZkaVyQT1Y4g+jv/QmGyqgWkn74OtSYuHwDrBpW1f2TWXpCFKrLTFAhwaoDPoDAe50KTprU=
-X-Received: by 2002:a05:6870:9727:b0:260:ffae:d389 with SMTP id
- 586e51a60fabf-267d4d5f49cmr13768059fac.16.1722372708742; Tue, 30 Jul 2024
- 13:51:48 -0700 (PDT)
+ d=1e100.net; s=20230601; t=1725379779; x=1725984579;
+ h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+ :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=+vEL9t9N3TjzDKFfGVpcEH/htsU0bsy4GSN4Thmrm6E=;
+ b=Dr8g7Z8FLU6wgd1epGA31r7rdi68aS3lbd7cwBM1rKu9v4KsPTl0WSZSF0Y10tRxyr
+ YoBkkdRM5t/F8pGQ0EV0PzzZTXmJxsKF4QZmzKOj5U7OQSesCJ8zgbZtGtkzJmTJlSXH
+ b/LvF3FlXzaN6UN4TVLErtGSRU7gvYNXU44RXKdMYa3jYX8ZRl3nToZi4mdeW3EQnbAe
+ hWjyJsZ34JSOZFHoN+YWGTwHrm5BR71RfPlRJNSJTcgmF89kio7Ar4UG2+5z1i+Mw9ac
+ HvZTamqaNklT6gOg2Mj17WWaj16VmOwSBJk6ntAmtbmZOuu20EPlso/PM24dSfUtimih
+ dVOQ==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCWV6wwX5kRuMuDnLVAiLDt1TKezdySG+TG8K+IgPJNSLF0U3iTQuppgHysQahCU8Y7ijb63@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YyLlttwoovkJCW8G86yKC7a8f99fYRlvGlEzi0LfKrBipnGxdEq
+ cqj5bdoUVEvUCzE60c0qWnIAXpH22Le71o032/wde9t30+9JkLu5iBePvWYUTzzfA/WzHp2ZISt
+ J6H/+RFQkjNtsIBG6w3wDujpbl0pTlAeMC98nhzp8lEzNJ99WDZDxqAfP8DE=
+X-Received: by 2002:a05:651c:19a3:b0:2ef:c8a1:ff4 with SMTP id
+ 38308e7fff4ca-2f6105c49a9mr156218331fa.7.1725379779289; 
+ Tue, 03 Sep 2024 09:09:39 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHM6IKnpjCa0SnPQDJqUDSYbdjdv3ACYWXRRNarHq2mh9lv5GtfRZskmFFlzTcDySivB4h63w==
+X-Received: by 2002:a05:651c:19a3:b0:2ef:c8a1:ff4 with SMTP id
+ 38308e7fff4ca-2f6105c49a9mr156217921fa.7.1725379778590; 
+ Tue, 03 Sep 2024 09:09:38 -0700 (PDT)
+Received: from alrua-x1.borgediget.toke.dk ([2a0c:4d80:42:443::2])
+ by smtp.gmail.com with ESMTPSA id
+ a640c23a62f3a-a8989233403sm696395866b.212.2024.09.03.09.09.37
+ (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+ Tue, 03 Sep 2024 09:09:38 -0700 (PDT)
+Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
+ id DA5BA14AE5EC; Tue, 03 Sep 2024 18:09:36 +0200 (CEST)
+To: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
+ Jamal Hadi Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.com>,
+ Jiri Pirko <jiri@resnulli.us>, George Amanakis <gamanakis@gmail.com>,
+ "David S. Miller" <davem@davemloft.net>
+Date: Tue,  3 Sep 2024 18:08:45 +0200
+Message-ID: <20240903160846.20909-1-toke@redhat.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-References: <cover.1722357745.git.pabeni@redhat.com>
-In-Reply-To: <cover.1722357745.git.pabeni@redhat.com>
-Date: Tue, 30 Jul 2024 13:51:36 -0700
-Message-ID: <CAA93jw6M8YWjO+eiAF0MQhMHXF0tbBuJzbtR0CaWFFHquOW7JQ@mail.gmail.com>
-To: Cake List <cake@lists.bufferbloat.net>
-Subject: [Cake] Fwd: [PATCH v3 00/12] net: introduce TX H/W shaping API
+X-Mimecast-Spam-Score: 0
+X-Mimecast-Originator: redhat.com
+Subject: [Cake] [PATCH net] sched: sch_cake: fix bulk flow accounting logic
+	for host fairness
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -77,491 +97,78 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Dave Taht via Cake <cake@lists.bufferbloat.net>
-Reply-To: Dave Taht <dave.taht@gmail.com>
-Content-Type: multipart/mixed; boundary="===============8026020750480778622=="
+From: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= via Cake
+ <cake@lists.bufferbloat.net>
+Reply-To: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
+Cc: netdev@vger.kernel.org,
+ =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
+ cake@lists.bufferbloat.net, Eric Dumazet <edumazet@google.com>,
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+ syzbot+7fe7b81d602cc1e6b94d@syzkaller.appspotmail.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============8026020750480778622==
-Content-Type: multipart/alternative; boundary="00000000000079bbce061e7d2512"
-
---00000000000079bbce061e7d2512
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
----------- Forwarded message ---------
-From: Paolo Abeni <pabeni@redhat.com>
-Date: Tue, Jul 30, 2024 at 1:41=E2=80=AFPM
-Subject: [PATCH v3 00/12] net: introduce TX H/W shaping API
-To: <netdev@vger.kernel.org>
-Cc: Jakub Kicinski <kuba@kernel.org>, Jiri Pirko <jiri@resnulli.us>, Madhu
-Chittim <madhu.chittim@intel.com>, Sridhar Samudrala <
-sridhar.samudrala@intel.com>, Simon Horman <horms@kernel.org>, John
-Fastabend <john.fastabend@gmail.com>, Sunil Kovvuri Goutham <
-sgoutham@marvell.com>, Jamal Hadi Salim <jhs@mojatatu.com>
-
-
-We have a plurality of shaping-related drivers API, but none flexible
-enough to meet existing demand from vendors[1].
-
-This series introduces new device APIs to configure in a flexible way
-TX H/W shaping. The new functionalities are exposed via a newly
-defined generic netlink interface and include introspection
-capabilities. Some self-tests are included, on top of a dummy
-netdevsim implementation, and a basic implementation for the iavf
-driver.
-
-Some usage examples:
-
-* Configure shaping on a given queue:
-
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \
-        --do set --json '{"ifindex":'$IFINDEX',
-                        "shaper": {"handle":
-                                {"scope": "queue", "id":'$QUEUEID' },
-                        "bw-max": 2000000 }}'
-
-* Container B/W sharing
-
-The orchestration infrastructure wants to group the
-container-related queues under a RR scheduling and limit the aggregate
-bandwidth:
-
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \
-        --do group --json '{"ifindex":'$IFINDEX',
-                        "inputs": [
-                          {"handle": {"scope": "queue", "id":'$QID1' },
-                           "weight": '$W1'},
-                          {"handle": {"scope": "queue", "id":'$QID2' },
-                           "weight": '$W2'}],
-                          {"handle": {"scope": "queue", "id":'$QID3' },
-                           "weight": '$W3'}],
-                        "output": { "handle": {"scope":"netdev"},
-                        "output": { "handle": {"scope":"netdev"},
-                           "bw-max": 10000000}}'
-{'handle': {'id': 0, 'scope': 'netdev'}}
-
-* Delegation
-
-A container wants to set a B/W limit on 2 of its own queues:
-
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \
-        --do group --json '{"ifindex":'$IFINDEX',
-                        "inputs": [
-                          {"handle": {"scope": "queue", "id":'$QID1' },
-                           "weight": '$W1'},
-                          {"handle": {"scope": "queue", "id":'$QID2' },
-                           "weight": '$W2'}],
-                        "output": { "handle": {"scope":"detached"},
-                           "bw-max": 5000000}}'
-{'handle': {'id': 0, 'scope': 'detached'}}
-
-* Cleanup:
-
-Deleting a single queue shaper:
-
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \
-        --do delete --json \
-        '{"ifindex":'$IFINDEX',
-          "handle": {"scope": "queue", "id":'$QID1' }}'
-
-deleting the last shaper under a group deletes the group, too:
-
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \
-        --do delete --json \
-        '{"ifindex":'$IFINDEX',
-          "handle": {"scope": "queue", "id":'$QID2' }}'
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \
-        --do get --json '{"ifindex":'$IF',
-                          "handle": { "scope": "detached", "id": 0}}'
-Netlink error: Invalid argument
-nl_len =3D 80 (64) nl_flags =3D 0x300 nl_type =3D 2
-        error: -22
-        extack: {'msg': "Can't find shaper for handle 10000000"}
-
-Changes from RFC v2:
- - added patch 1
- - fixed deprecated API usage
-
-RFC v2:
-https://lore.kernel.org/netdev/cover.1721851988.git.pabeni@redhat.com/
-
-Changes from RFC v1:
- - set() and delete() ops operate on a single shaper
- - added group() op to allow grouping and nesting
- - split the NL implementation into multiple patches to help reviewing
-
-RFC v1:
-https://lore.kernel.org/netdev/cover.1719518113.git.pabeni@redhat.com/
-
-[1] https://lore.kernel.org/netdev/20240405102313.GA310894@kernel.org/
-
-Paolo Abeni (8):
-  tools: ynl: lift an assumption about spec file name
-  netlink: spec: add shaper YAML spec
-  net-shapers: implement NL get operation
-  net-shapers: implement NL set and delete operations
-  net-shapers: implement NL group operation
-  netlink: spec: add shaper introspection support
-  net: shaper: implement introspection support
-  testing: net-drv: add basic shaper test
-
-Sudheer Mogilappagari (2):
-  iavf: Add net_shaper_ops support
-  iavf: add support to exchange qos capabilities
-
-Wenjun Wu (2):
-  virtchnl: support queue rate limit and quanta size configuration
-  ice: Support VF queue rate limit and quanta size configuration
-
- Documentation/netlink/specs/shaper.yaml       | 337 ++++++
- Documentation/networking/kapi.rst             |   3 +
- MAINTAINERS                                   |   1 +
- drivers/net/Kconfig                           |   1 +
- drivers/net/ethernet/intel/Kconfig            |   1 +
- drivers/net/ethernet/intel/iavf/iavf.h        |  13 +
- drivers/net/ethernet/intel/iavf/iavf_main.c   | 215 +++-
- drivers/net/ethernet/intel/iavf/iavf_txrx.h   |   2 +
- .../net/ethernet/intel/iavf/iavf_virtchnl.c   | 157 ++-
- drivers/net/ethernet/intel/ice/ice.h          |   2 +
- drivers/net/ethernet/intel/ice/ice_base.c     |   2 +
- drivers/net/ethernet/intel/ice/ice_common.c   |  21 +
- .../net/ethernet/intel/ice/ice_hw_autogen.h   |   8 +
- drivers/net/ethernet/intel/ice/ice_txrx.h     |   1 +
- drivers/net/ethernet/intel/ice/ice_type.h     |   1 +
- drivers/net/ethernet/intel/ice/ice_vf_lib.h   |   8 +
- drivers/net/ethernet/intel/ice/ice_virtchnl.c | 333 ++++++
- drivers/net/ethernet/intel/ice/ice_virtchnl.h |  11 +
- .../intel/ice/ice_virtchnl_allowlist.c        |   6 +
- drivers/net/netdevsim/netdev.c                |  37 +
- include/linux/avf/virtchnl.h                  | 119 +++
- include/linux/netdevice.h                     |  17 +
- include/net/net_shaper.h                      | 169 +++
- include/uapi/linux/net_shaper.h               |  91 ++
- net/Kconfig                                   |   3 +
- net/Makefile                                  |   1 +
- net/core/dev.c                                |   2 +
- net/core/dev.h                                |   6 +
- net/shaper/Makefile                           |   9 +
- net/shaper/shaper.c                           | 963 ++++++++++++++++++
- net/shaper/shaper_nl_gen.c                    | 142 +++
- net/shaper/shaper_nl_gen.h                    |  30 +
- tools/net/ynl/ynl-gen-c.py                    |   6 +-
- tools/testing/selftests/drivers/net/Makefile  |   1 +
- tools/testing/selftests/drivers/net/shaper.py | 267 +++++
- .../testing/selftests/net/lib/py/__init__.py  |   1 +
- tools/testing/selftests/net/lib/py/ynl.py     |   5 +
- 37 files changed, 2988 insertions(+), 4 deletions(-)
- create mode 100644 Documentation/netlink/specs/shaper.yaml
- create mode 100644 include/net/net_shaper.h
- create mode 100644 include/uapi/linux/net_shaper.h
- create mode 100644 net/shaper/Makefile
- create mode 100644 net/shaper/shaper.c
- create mode 100644 net/shaper/shaper_nl_gen.c
- create mode 100644 net/shaper/shaper_nl_gen.h
- create mode 100755 tools/testing/selftests/drivers/net/shaper.py
-
---=20
-2.45.2
-
-
-
-
---=20
-Artists/Musician Campout Aug 9-11
-https://www.eventbrite.com/e/healing-arts-event-tickets-928910826287
-Dave T=C3=A4ht CSO, LibreQos
-
---00000000000079bbce061e7d2512
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><br><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=
-=3D"gmail_attr">---------- Forwarded message ---------<br>From: <strong cla=
-ss=3D"gmail_sendername" dir=3D"auto">Paolo Abeni</strong> <span dir=3D"auto=
-">&lt;<a href=3D"mailto:pabeni@redhat.com">pabeni@redhat.com</a>&gt;</span>=
-<br>Date: Tue, Jul 30, 2024 at 1:41=E2=80=AFPM<br>Subject: [PATCH v3 00/12]=
- net: introduce TX H/W shaping API<br>To:  &lt;<a href=3D"mailto:netdev@vge=
-r.kernel.org">netdev@vger.kernel.org</a>&gt;<br>Cc: Jakub Kicinski &lt;<a h=
-ref=3D"mailto:kuba@kernel.org">kuba@kernel.org</a>&gt;, Jiri Pirko &lt;<a h=
-ref=3D"mailto:jiri@resnulli.us">jiri@resnulli.us</a>&gt;, Madhu Chittim &lt=
-;<a href=3D"mailto:madhu.chittim@intel.com">madhu.chittim@intel.com</a>&gt;=
-, Sridhar Samudrala &lt;<a href=3D"mailto:sridhar.samudrala@intel.com">srid=
-har.samudrala@intel.com</a>&gt;, Simon Horman &lt;<a href=3D"mailto:horms@k=
-ernel.org">horms@kernel.org</a>&gt;, John Fastabend &lt;<a href=3D"mailto:j=
-ohn.fastabend@gmail.com">john.fastabend@gmail.com</a>&gt;, Sunil Kovvuri Go=
-utham &lt;<a href=3D"mailto:sgoutham@marvell.com">sgoutham@marvell.com</a>&=
-gt;, Jamal Hadi Salim &lt;<a href=3D"mailto:jhs@mojatatu.com">jhs@mojatatu.=
-com</a>&gt;<br></div><br><br>We have a plurality of shaping-related drivers=
- API, but none flexible<br>
-enough to meet existing demand from vendors[1].<br>
-<br>
-This series introduces new device APIs to configure in a flexible way<br>
-TX H/W shaping. The new functionalities are exposed via a newly<br>
-defined generic netlink interface and include introspection<br>
-capabilities. Some self-tests are included, on top of a dummy<br>
-netdevsim implementation, and a basic implementation for the iavf<br>
-driver.<br>
-<br>
-Some usage examples:<br>
-<br>
-* Configure shaping on a given queue:<br>
-<br>
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 --do set --json &#39;{&quot;ifindex&quot;:&#39;=
-$IFINDEX&#39;,<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 &quot;shaper&quot;: {&quot;handle&quot;:<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 {&quot;scope&quot;: &quot;queue&quot=
-;, &quot;id&quot;:&#39;$QUEUEID&#39; },<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 &quot;bw-max&quot;: 2000000 }}&#39;<br>
-<br>
-* Container B/W sharing<br>
-<br>
-The orchestration infrastructure wants to group the <br>
-container-related queues under a RR scheduling and limit the aggregate<br>
-bandwidth:<br>
-<br>
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 --do group --json &#39;{&quot;ifindex&quot;:&#3=
-9;$IFINDEX&#39;, <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 &quot;inputs&quot;: [ <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 {&quot;handle&quot;: {&quot;scope&quot;: &quot;queue&quot=
-;, &quot;id&quot;:&#39;$QID1&#39; },<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0&quot;weight&quot;: &#39;$W1&#39;}, <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 {&quot;handle&quot;: {&quot;scope&quot;: &quot;queue&quot=
-;, &quot;id&quot;:&#39;$QID2&#39; },<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0&quot;weight&quot;: &#39;$W2&#39;}], <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 {&quot;handle&quot;: {&quot;scope&quot;: &quot;queue&quot=
-;, &quot;id&quot;:&#39;$QID3&#39; },<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0&quot;weight&quot;: &#39;$W3&#39;}], <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 &quot;output&quot;: { &quot;handle&quot;: {&quot;scope&quot;:&qu=
-ot;netdev&quot;},<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 &quot;output&quot;: { &quot;handle&quot;: {&quot;scope&quot;:&qu=
-ot;netdev&quot;},<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0&quot;bw-max&quot;: 10000000}}&#39;<br>
-{&#39;handle&#39;: {&#39;id&#39;: 0, &#39;scope&#39;: &#39;netdev&#39;}}<br=
->
-<br>
-* Delegation<br>
-<br>
-A container wants to set a B/W limit on 2 of its own queues:<br>
-<br>
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 --do group --json &#39;{&quot;ifindex&quot;:&#3=
-9;$IFINDEX&#39;, <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 &quot;inputs&quot;: [ <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 {&quot;handle&quot;: {&quot;scope&quot;: &quot;queue&quot=
-;, &quot;id&quot;:&#39;$QID1&#39; },<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0&quot;weight&quot;: &#39;$W1&#39;}, <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 {&quot;handle&quot;: {&quot;scope&quot;: &quot;queue&quot=
-;, &quot;id&quot;:&#39;$QID2&#39; },<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0&quot;weight&quot;: &#39;$W2&#39;}], <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 &quot;output&quot;: { &quot;handle&quot;: {&quot;scope&quot;:&qu=
-ot;detached&quot;},<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0&quot;bw-max&quot;: 5000000}}&#39;<br>
-{&#39;handle&#39;: {&#39;id&#39;: 0, &#39;scope&#39;: &#39;detached&#39;}}<=
-br>
-<br>
-* Cleanup:<br>
-<br>
-Deleting a single queue shaper:<br>
-<br>
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 --do delete --json \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 &#39;{&quot;ifindex&quot;:&#39;$IFINDEX&#39;, <=
-br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &quot;handle&quot;: {&quot;scope&quot;: =
-&quot;queue&quot;, &quot;id&quot;:&#39;$QID1&#39; }}&#39;<br>
-<br>
-deleting the last shaper under a group deletes the group, too:<br>
-<br>
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 --do delete --json \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 &#39;{&quot;ifindex&quot;:&#39;$IFINDEX&#39;, <=
-br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 &quot;handle&quot;: {&quot;scope&quot;: =
-&quot;queue&quot;, &quot;id&quot;:&#39;$QID2&#39; }}&#39;<br>
-./tools/net/ynl/cli.py --spec Documentation/netlink/specs/shaper.yaml \<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 --do get --json &#39;{&quot;ifindex&quot;:&#39;=
-$IF&#39;, <br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 &quot;handle&quot;: { &quot;scope&quot;: &quot;detached&q=
-uot;, &quot;id&quot;: 0}}&#39;<br>
-Netlink error: Invalid argument<br>
-nl_len =3D 80 (64) nl_flags =3D 0x300 nl_type =3D 2<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 error: -22<br>
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 extack: {&#39;msg&#39;: &quot;Can&#39;t find sh=
-aper for handle 10000000&quot;}<br>
-<br>
-Changes from RFC v2:<br>
-=C2=A0- added patch 1<br>
-=C2=A0- fixed deprecated API usage<br>
-<br>
-RFC v2: <a href=3D"https://lore.kernel.org/netdev/cover.1721851988.git.pabe=
-ni@redhat.com/" rel=3D"noreferrer" target=3D"_blank">https://lore.kernel.or=
-g/netdev/cover.1721851988.git.pabeni@redhat.com/</a><br>
-<br>
-Changes from RFC v1:<br>
-=C2=A0- set() and delete() ops operate on a single shaper<br>
-=C2=A0- added group() op to allow grouping and nesting<br>
-=C2=A0- split the NL implementation into multiple patches to help reviewing=
-<br>
-<br>
-RFC v1: <a href=3D"https://lore.kernel.org/netdev/cover.1719518113.git.pabe=
-ni@redhat.com/" rel=3D"noreferrer" target=3D"_blank">https://lore.kernel.or=
-g/netdev/cover.1719518113.git.pabeni@redhat.com/</a><br>
-<br>
-[1] <a href=3D"https://lore.kernel.org/netdev/20240405102313.GA310894@kerne=
-l.org/" rel=3D"noreferrer" target=3D"_blank">https://lore.kernel.org/netdev=
-/20240405102313.GA310894@kernel.org/</a><br>
-<br>
-Paolo Abeni (8):<br>
-=C2=A0 tools: ynl: lift an assumption about spec file name<br>
-=C2=A0 netlink: spec: add shaper YAML spec<br>
-=C2=A0 net-shapers: implement NL get operation<br>
-=C2=A0 net-shapers: implement NL set and delete operations<br>
-=C2=A0 net-shapers: implement NL group operation<br>
-=C2=A0 netlink: spec: add shaper introspection support<br>
-=C2=A0 net: shaper: implement introspection support<br>
-=C2=A0 testing: net-drv: add basic shaper test<br>
-<br>
-Sudheer Mogilappagari (2):<br>
-=C2=A0 iavf: Add net_shaper_ops support<br>
-=C2=A0 iavf: add support to exchange qos capabilities<br>
-<br>
-Wenjun Wu (2):<br>
-=C2=A0 virtchnl: support queue rate limit and quanta size configuration<br>
-=C2=A0 ice: Support VF queue rate limit and quanta size configuration<br>
-<br>
-=C2=A0Documentation/netlink/specs/shaper.yaml=C2=A0 =C2=A0 =C2=A0 =C2=A0| 3=
-37 ++++++<br>
-=C2=A0Documentation/networking/kapi.rst=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0|=C2=A0 =C2=A03 +<br>
-=C2=A0MAINTAINERS=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0|=C2=
-=A0 =C2=A01 +<br>
-=C2=A0drivers/net/Kconfig=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0|=C2=A0 =C2=A01 +<br>
-=C2=A0drivers/net/ethernet/intel/Kconfig=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 |=C2=A0 =C2=A01 +<br>
-=C2=A0drivers/net/ethernet/intel/iavf/iavf.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 |=
-=C2=A0 13 +<br>
-=C2=A0drivers/net/ethernet/intel/iavf/iavf_main.c=C2=A0 =C2=A0| 215 +++-<br=
->
-=C2=A0drivers/net/ethernet/intel/iavf/iavf_txrx.h=C2=A0 =C2=A0|=C2=A0 =C2=
-=A02 +<br>
-=C2=A0.../net/ethernet/intel/iavf/iavf_virtchnl.c=C2=A0 =C2=A0| 157 ++-<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 |=C2=A0 =C2=A02 +<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice_base.c=C2=A0 =C2=A0 =C2=A0|=C2=A0 =
-=C2=A02 +<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice_common.c=C2=A0 =C2=A0|=C2=A0 21 +<=
-br>
-=C2=A0.../net/ethernet/intel/ice/ice_hw_autogen.h=C2=A0 =C2=A0|=C2=A0 =C2=
-=A08 +<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice_txrx.h=C2=A0 =C2=A0 =C2=A0|=C2=A0 =
-=C2=A01 +<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice_type.h=C2=A0 =C2=A0 =C2=A0|=C2=A0 =
-=C2=A01 +<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice_vf_lib.h=C2=A0 =C2=A0|=C2=A0 =C2=
-=A08 +<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice_virtchnl.c | 333 ++++++<br>
-=C2=A0drivers/net/ethernet/intel/ice/ice_virtchnl.h |=C2=A0 11 +<br>
-=C2=A0.../intel/ice/ice_virtchnl_allowlist.c=C2=A0 =C2=A0 =C2=A0 =C2=A0 |=
-=C2=A0 =C2=A06 +<br>
-=C2=A0drivers/net/netdevsim/netdev.c=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 |=C2=A0 37 +<br>
-=C2=A0include/linux/avf/virtchnl.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 | 119 +++<br>
-=C2=A0include/linux/netdevice.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0|=C2=A0 17 +<br>
-=C2=A0include/net/net_shaper.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 | 169 +++<br>
-=C2=A0include/uapi/linux/net_shaper.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=
-=A0 =C2=A0 =C2=A0|=C2=A0 91 ++<br>
-=C2=A0net/Kconfig=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0|=C2=
-=A0 =C2=A03 +<br>
-=C2=A0net/Makefile=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 |=C2=A0 =C2=
-=A01 +<br>
-=C2=A0net/core/dev.c=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 |=C2=A0 =C2=A02 +<=
-br>
-=C2=A0net/core/dev.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0=
- =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 |=C2=A0 =C2=A06 +<=
-br>
-=C2=A0net/shaper/Makefile=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0|=C2=A0 =C2=A09 +<br>
-=C2=A0net/shaper/shaper.c=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0| 963 ++++++++++++++++++<br=
->
-=C2=A0net/shaper/shaper_nl_gen.c=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 | 142 +++<br>
-=C2=A0net/shaper/shaper_nl_gen.h=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 |=C2=A0 30 +<br>
-=C2=A0tools/net/ynl/ynl-gen-c.py=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =
-=C2=A0 =C2=A0 =C2=A0 =C2=A0 |=C2=A0 =C2=A06 +-<br>
-=C2=A0tools/testing/selftests/drivers/net/Makefile=C2=A0 |=C2=A0 =C2=A01 +<=
-br>
-=C2=A0tools/testing/selftests/drivers/net/shaper.py | 267 +++++<br>
-=C2=A0.../testing/selftests/net/lib/py/__init__.py=C2=A0 |=C2=A0 =C2=A01 +<=
-br>
-=C2=A0tools/testing/selftests/net/lib/py/ynl.py=C2=A0 =C2=A0 =C2=A0|=C2=A0 =
-=C2=A05 +<br>
-=C2=A037 files changed, 2988 insertions(+), 4 deletions(-)<br>
-=C2=A0create mode 100644 Documentation/netlink/specs/shaper.yaml<br>
-=C2=A0create mode 100644 include/net/net_shaper.h<br>
-=C2=A0create mode 100644 include/uapi/linux/net_shaper.h<br>
-=C2=A0create mode 100644 net/shaper/Makefile<br>
-=C2=A0create mode 100644 net/shaper/shaper.c<br>
-=C2=A0create mode 100644 net/shaper/shaper_nl_gen.c<br>
-=C2=A0create mode 100644 net/shaper/shaper_nl_gen.h<br>
-=C2=A0create mode 100755 tools/testing/selftests/drivers/net/shaper.py<br>
-<br>
--- <br>
-2.45.2<br>
-<br>
-<br>
-</div><br clear=3D"all"><div><br></div><span class=3D"gmail_signature_prefi=
-x">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=
-=3D"gmail_signature"><div dir=3D"ltr"><div>Artists/Musician Campout Aug 9-1=
-1</div><div><a href=3D"https://www.eventbrite.com/e/healing-arts-event-tick=
-ets-928910826287" target=3D"_blank">https://www.eventbrite.com/e/healing-ar=
-ts-event-tickets-928910826287</a><br></div><div>Dave T=C3=A4ht CSO, LibreQo=
-s<br></div></div></div></div>
-
---00000000000079bbce061e7d2512--
-
---===============8026020750480778622==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============8026020750480778622==--
+SW4gc2NoX2Nha2UsIHdlIGtlZXAgdHJhY2sgb2YgdGhlIGNvdW50IG9mIGFjdGl2ZSBidWxrIGZs
+b3dzIHBlciBob3N0LAp3aGVuIHJ1bm5pbmcgaW4gZHN0L3NyYyBob3N0IGZhaXJuZXNzIG1vZGUs
+IHdoaWNoIGlzIHVzZWQgYXMgdGhlCnJvdW5kLXJvYmluIHdlaWdodCB3aGVuIGl0ZXJhdGluZyB0
+aHJvdWdoIGZsb3dzLiBUaGUgY291bnQgb2YgYWN0aXZlCmJ1bGsgZmxvd3MgaXMgdXBkYXRlZCB3
+aGVuZXZlciBhIGZsb3cgY2hhbmdlcyBzdGF0ZS4KClRoaXMgaGFzIGEgcGVjdWxpYXIgaW50ZXJh
+Y3Rpb24gd2l0aCB0aGUgaGFzaCBjb2xsaXNpb24gaGFuZGxpbmc6IHdoZW4gYQpoYXNoIGNvbGxp
+c2lvbiBvY2N1cnMgKGFmdGVyIHRoZSBzZXQtYXNzb2NpYXRpdmUgaGFzaGluZyksIHRoZSBzdGF0
+ZSBvZgp0aGUgaGFzaCBidWNrZXQgaXMgc2ltcGx5IHVwZGF0ZWQgdG8gbWF0Y2ggdGhlIG5ldyBw
+YWNrZXQgdGhhdCBjb2xsaWRlZCwKYW5kIGlmIGhvc3QgZmFpcm5lc3MgaXMgZW5hYmxlZCwgdGhh
+dCBhbHNvIG1lYW5zIGFzc2lnbmluZyBuZXcgcGVyLWhvc3QKc3RhdGUgdG8gdGhlIGZsb3cuIEZv
+ciB0aGlzIHJlYXNvbiwgdGhlIGJ1bGsgZmxvdyBjb3VudGVycyBvZiB0aGUKaG9zdChzKSBhc3Np
+Z25lZCB0byB0aGUgZmxvdyBhcmUgZGVjcmVtZW50ZWQsIGJlZm9yZSBuZXcgc3RhdGUgaXMKYXNz
+aWduZWQgKGFuZCB0aGUgY291bnRlcnMsIHdoaWNoIG1heSBub3QgYmVsb25nIHRvIHRoZSBzYW1l
+IGhvc3QKYW55bW9yZSwgYXJlIGluY3JlbWVudGVkIGFnYWluKS4KCkJhY2sgd2hlbiB0aGlzIGNv
+ZGUgd2FzIGludHJvZHVjZWQsIHRoZSBob3N0IGZhaXJuZXNzIG1vZGUgd2FzIGFsd2F5cwplbmFi
+bGVkLCBzbyB0aGUgZGVjcmVtZW50IHdhcyB1bmNvbmRpdGlvbmFsLiBXaGVuIHRoZSBjb25maWd1
+cmF0aW9uCmZsYWdzIHdlcmUgaW50cm9kdWNlZCB0aGUgKmluY3JlbWVudCogd2FzIG1hZGUgY29u
+ZGl0aW9uYWwsIGJ1dAp0aGUgKmRlY3JlbWVudCogd2FzIG5vdC4gV2hpY2ggb2YgY291cnNlIGNh
+biBsZWFkIHRvIGEgc3B1cmlvdXMKZGVjcmVtZW50IChhbmQgYXNzb2NpYXRlZCB3cmFwLWFyb3Vu
+ZCB0byBVMTZfTUFYKS4KCkFGQUlDVCwgd2hlbiBob3N0IGZhaXJuZXNzIGlzIGRpc2FibGVkLCB0
+aGUgZGVjcmVtZW50IGFuZCB3cmFwLWFyb3VuZApoYXBwZW5zIGFzIHNvb24gYXMgYSBoYXNoIGNv
+bGxpc2lvbiBvY2N1cnMgKHdoaWNoIGlzIG5vdCB0aGF0IGNvbW1vbiBpbgppdHNlbGYsIGR1ZSB0
+byB0aGUgc2V0LWFzc29jaWF0aXZlIGhhc2hpbmcpLiBIb3dldmVyLCBpbiBtb3N0IGNhc2VzIHRo
+aXMKaXMgaGFybWxlc3MsIGFzIHRoZSB2YWx1ZSBpcyBvbmx5IHVzZWQgd2hlbiBob3N0IGZhaXJu
+ZXNzIG1vZGUgaXMKZW5hYmxlZC4gU28gaW4gb3JkZXIgdG8gdHJpZ2dlciBhbiBhcnJheSBvdmVy
+Zmxvdywgc2NoX2Nha2UgaGFzIHRvIGZpcnN0CmJlIGNvbmZpZ3VyZWQgd2l0aCBob3N0IGZhaXJu
+ZXNzIGRpc2FibGVkLCBhbmQgd2hpbGUgcnVubmluZyBpbiB0aGlzCm1vZGUsIGEgaGFzaCBjb2xs
+aXNpb24gaGFzIHRvIG9jY3VyIHRvIGNhdXNlIHRoZSBvdmVyZmxvdy4gVGhlbiwgdGhlCnFkaXNj
+IGhhcyB0byBiZSByZWNvbmZpZ3VyZWQgdG8gZW5hYmxlIGhvc3QgZmFpcm5lc3MsIHdoaWNoIGxl
+YWRzIHRvIHRoZQphcnJheSBvdXQtb2YtYm91bmRzIGJlY2F1c2UgdGhlIHdyYXBwZWQtYXJvdW5k
+IHZhbHVlIGlzIHJldGFpbmVkIGFuZAp1c2VkIGFzIGFuIGFycmF5IGluZGV4LiBJdCBzZWVtcyB0
+aGF0IHN5emJvdCBtYW5hZ2VkIHRvIHRyaWdnZXIgdGhpcywKd2hpY2ggaXMgcXVpdGUgaW1wcmVz
+c2l2ZSBpbiBpdHMgb3duIHJpZ2h0LgoKVGhpcyBwYXRjaCBmaXhlcyB0aGUgaXNzdWUgYnkgaW50
+cm9kdWNpbmcgdGhlIHNhbWUgY29uZGl0aW9uYWwgY2hlY2sgb24KZGVjcmVtZW50IGFzIGlzIHVz
+ZWQgb24gaW5jcmVtZW50LgoKVGhlIG9yaWdpbmFsIGJ1ZyBwcmVkYXRlcyB0aGUgdXBzdHJlYW1p
+bmcgb2YgY2FrZSwgYnV0IHRoZSBjb21taXQgbGlzdGVkCmluIHRoZSBGaXhlcyB0YWcgdG91Y2hl
+ZCB0aGF0IGNvZGUsIG1lYW5pbmcgdGhhdCB0aGlzIHBhdGNoIHdvbid0IGFwcGx5CmJlZm9yZSB0
+aGF0LgoKRml4ZXM6IDcxMjYzOTkyOTkxMiAoInNjaF9jYWtlOiBNYWtlIHRoZSBkdWFsIG1vZGVz
+IGZhaXJlciIpClJlcG9ydGVkLWJ5OiBzeXpib3QrN2ZlN2I4MWQ2MDJjYzFlNmI5NGRAc3l6a2Fs
+bGVyLmFwcHNwb3RtYWlsLmNvbQpTaWduZWQtb2ZmLWJ5OiBUb2tlIEjDuGlsYW5kLUrDuHJnZW5z
+ZW4gPHRva2VAcmVkaGF0LmNvbT4KLS0tCiBuZXQvc2NoZWQvc2NoX2Nha2UuYyB8IDExICsrKysr
+KystLS0tCiAxIGZpbGUgY2hhbmdlZCwgNyBpbnNlcnRpb25zKCspLCA0IGRlbGV0aW9ucygtKQoK
+ZGlmZiAtLWdpdCBhL25ldC9zY2hlZC9zY2hfY2FrZS5jIGIvbmV0L3NjaGVkL3NjaF9jYWtlLmMK
+aW5kZXggOTYwMmRhZmUzMmU2Li5kMmY0OWRiNzA1MjMgMTAwNjQ0Ci0tLSBhL25ldC9zY2hlZC9z
+Y2hfY2FrZS5jCisrKyBiL25ldC9zY2hlZC9zY2hfY2FrZS5jCkBAIC03ODYsMTIgKzc4NiwxNSBA
+QCBzdGF0aWMgdTMyIGNha2VfaGFzaChzdHJ1Y3QgY2FrZV90aW5fZGF0YSAqcSwgY29uc3Qgc3Ry
+dWN0IHNrX2J1ZmYgKnNrYiwKIAkJICogcXVldWUsIGFjY2VwdCB0aGUgY29sbGlzaW9uLCB1cGRh
+dGUgdGhlIGhvc3QgdGFncy4KIAkJICovCiAJCXEtPndheV9jb2xsaXNpb25zKys7Ci0JCWlmIChx
+LT5mbG93c1tvdXRlcl9oYXNoICsga10uc2V0ID09IENBS0VfU0VUX0JVTEspIHsKLQkJCXEtPmhv
+c3RzW3EtPmZsb3dzW3JlZHVjZWRfaGFzaF0uc3JjaG9zdF0uc3JjaG9zdF9idWxrX2Zsb3dfY291
+bnQtLTsKLQkJCXEtPmhvc3RzW3EtPmZsb3dzW3JlZHVjZWRfaGFzaF0uZHN0aG9zdF0uZHN0aG9z
+dF9idWxrX2Zsb3dfY291bnQtLTsKLQkJfQogCQlhbGxvY2F0ZV9zcmMgPSBjYWtlX2RzcmMoZmxv
+d19tb2RlKTsKIAkJYWxsb2NhdGVfZHN0ID0gY2FrZV9kZHN0KGZsb3dfbW9kZSk7CisKKwkJaWYg
+KHEtPmZsb3dzW291dGVyX2hhc2ggKyBrXS5zZXQgPT0gQ0FLRV9TRVRfQlVMSykgeworCQkJaWYg
+KGFsbG9jYXRlX3NyYykKKwkJCQlxLT5ob3N0c1txLT5mbG93c1tyZWR1Y2VkX2hhc2hdLnNyY2hv
+c3RdLnNyY2hvc3RfYnVsa19mbG93X2NvdW50LS07CisJCQlpZiAoYWxsb2NhdGVfZHN0KQorCQkJ
+CXEtPmhvc3RzW3EtPmZsb3dzW3JlZHVjZWRfaGFzaF0uZHN0aG9zdF0uZHN0aG9zdF9idWxrX2Zs
+b3dfY291bnQtLTsKKwkJfQogZm91bmQ6CiAJCS8qIHJlc2VydmUgcXVldWUgZm9yIGZ1dHVyZSBw
+YWNrZXRzIGluIHNhbWUgZmxvdyAqLwogCQlyZWR1Y2VkX2hhc2ggPSBvdXRlcl9oYXNoICsgazsK
+LS0gCjIuNDYuMAoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9s
+aXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
