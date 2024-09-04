@@ -2,88 +2,74 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BF1BA96B7C2
-	for <lists+cake@lfdr.de>; Wed,  4 Sep 2024 12:05:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id B561396C2FF
+	for <lists+cake@lfdr.de>; Wed,  4 Sep 2024 17:53:15 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 240483CB48;
-	Wed,  4 Sep 2024 06:05:34 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 0F4F13CB4E;
+	Wed,  4 Sep 2024 11:53:14 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1725444334;
-	bh=ZFpEe9lvCS1bINZJMrX75xBlKW3CGYv4YAPaQhuYRno=;
-	h=To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
-	 List-Help:List-Subscribe:From:Reply-To:Cc:From;
-	b=RnHKYyGH72IBTs4RuUGCKxelKqDrb67JCy6AtuKhX5XMXn73A33QZQrqcjEITe9Gu
-	 UDhB2MP9X212rYn+qa02+ZrQcH34F6SxqGbWXtEfVMnMk5v/KzEjmx0l6htnNjmr8u
-	 vK0sVUSr4t5/BV9mJqLHuZykKCOyBYczNnPgnTaOCN0dgnbANBRPdU/Fq05xJQBDxe
-	 zST1XIgFc//77sV/jLxHIzhdix2bIriSqUOYkaP4TmTPmsu07On+jDuzB2Ie0Mxra6
-	 9mCYh1uscI/5GPGh9O0FznUscK/liPqHK82lAHSR9sESnYye5OGoDADsx5PH1+JL+O
-	 IoCpWxq+61Z5A==
+	d=lists.bufferbloat.net; s=201610; t=1725465194;
+	bh=FhVUf1GVZuk6nvKB8dGzLtsmZWA9Bq/63B78lgnfj30=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	 From;
+	b=awNBOa18BLnJwaoXJiQgl3CNmrrDV6uDE5UAtk1T/G/G2Ak9zrhQ+KJLEgCnfrh1o
+	 6eADZ2IiNAMla5Di0Y2tnbQR/glsadXYaH5S7GPWTQGDlLWv35Gk310n06LBXO6fNU
+	 MaeOZ9kRUtLm7vZLWnm4z9rc34ALvngHpmn9Ok4OxmYYheb5j5REjhFPvCXLWhfhZc
+	 R2JI9nKhyMEFurV+sBg+JYFIndGjWPDkBgS9VOf7ElTKaEn2B3D9QFv3YkCzWkb1zD
+	 NCzGefbTicIR3ozHWBe4At81M7sBudpxRFPQjC42kyxPqtVxKjcEETooYA+/uMhS54
+	 4AnV7s+jh9YdQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from us-smtp-delivery-124.mimecast.com
- (us-smtp-delivery-124.mimecast.com [170.10.129.124])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-oa1-x29.google.com (mail-oa1-x29.google.com
+ [IPv6:2001:4860:4864:20::29])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 656753B29D
- for <cake@lists.bufferbloat.net>; Wed,  4 Sep 2024 06:05:32 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1725444332;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding;
- bh=7SgMWqwfRAemJXpyVUWXtmjgoS7M6mnA9OsZpEX3Nsc=;
- b=ZHDl4nNJCBrxSB22NUsiTqSyWZqxx7zwW/jY/pIjOu5AsGUoAqVY6AK6wUzi9OTkeTaDdu
- AyRIsWiF95+S5odvtQO7TrjoMi32emFlRR8eI7Q28YROpoVuq5d7CvcBrPNstmmjJcyzKt
- eZkz/CfBquKDitzMdFJoYDKkI7esDjs=
-Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
- [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-177-4PDKSFIHM8e7ANUncqLgmw-1; Wed, 04 Sep 2024 06:05:31 -0400
-X-MC-Unique: 4PDKSFIHM8e7ANUncqLgmw-1
-Received: by mail-wr1-f69.google.com with SMTP id
- ffacd0b85a97d-3771b6da3ceso622673f8f.3
- for <cake@lists.bufferbloat.net>; Wed, 04 Sep 2024 03:05:30 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id CDD803B2A4
+ for <cake@lists.bufferbloat.net>; Wed,  4 Sep 2024 11:53:12 -0400 (EDT)
+Received: by mail-oa1-x29.google.com with SMTP id
+ 586e51a60fabf-2781cb2800eso1224568fac.1
+ for <cake@lists.bufferbloat.net>; Wed, 04 Sep 2024 08:53:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20230601; t=1725465192; x=1726069992; darn=lists.bufferbloat.net;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=AmZMuXD+zLx3J5ibAWIgkFhxjB++JPWWW7xgelCddUc=;
+ b=gesc2fIgXYqogdYM5BgYlRWDvksWK3KPIIDJ5N0gRYjkKX2gBciT3NnvmqGVTUpGN0
+ VjPXPHiRtaA04GhlXxKEsUSH4P0Ixek29lRSCt7xsswIGV1ehFLZgalQRI/8HueLZw5C
+ +dcPhTNBGSMivr9x+RccnmP9g1skoEO0P8xvBzODCKVFKpntUieArGbbwIne1wuGd8+W
+ 9DxhM6t66KjODXf1uUcQUQJGBmQRvwIJZ//q69Xh9Mnv2cPZkM+JbUTmVkBi+Lh4/gtg
+ JJBjwqyXb4hluVYkLbYs350O2JkeGY5T3qkm/Nf4JlGFjlEqWM5SGFApDv+qR1+3Pugs
+ ngxg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1725444329; x=1726049129;
- h=content-transfer-encoding:mime-version:message-id:date:subject:cc
- :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+ d=1e100.net; s=20230601; t=1725465192; x=1726069992;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
  :reply-to;
- bh=7SgMWqwfRAemJXpyVUWXtmjgoS7M6mnA9OsZpEX3Nsc=;
- b=roQzT1ErgRL3k3zB5um7nkRhHkSp6m30xFXMta62E2IhUHZd2C0CjamBBYN3AZRM++
- im4OedJ8dmjs4sPcCftyoJ6SD2UJYnO68+amlQ0Pft1b5yRvzjh970CJ2BRLqvd1AFpb
- gM6Q/9733EmOAWBz9zM4UGWBl2Ba7rZ7VjHP64+Vqc3nEM9Gpy7owEpGgtqdrIWjUGlI
- l9ZZOE81IgJIl7VkCOz59oe1Ps+YBGwIc3nw3+7WsTclMDbjDJbrI9aFLVHa2Ks4c43t
- uOPHd7nbTn+XtNTQV+gu8Q2fsjQSpTPo4FPwUL60C1zJQJGXLHKNparJuNa+AOWc/eNM
- aq3A==
+ bh=AmZMuXD+zLx3J5ibAWIgkFhxjB++JPWWW7xgelCddUc=;
+ b=bbu73Aj74/iwiiHF7x22uJ4YRXCuJIbYPSSRj0cG2Avkc/t6m6lZQk2lGD4KTmDa+H
+ aauerZ8ybPYYBGY8JlpZaD/6h3c0NO5519JrYTIH0F1qNrrHWeKzJA1g2nsQ2UM/jMJw
+ 6bRLeIcJupU1Fgm74jpy8Rx/qacOSo33AykcqL7k3HNr4q/G8B+NHTxcVswfkAdxpPeO
+ yB/EQI6qOSKh4wQwtFEq0731uj6i1VHeq3Y5aX1eQ/hYUGtDtWvfT2HXpTiDF7hSsEIh
+ KEm37JSwUzDwbQP/2a5TZZ8hAiiw8GaKzCfqlh5sU3N1Mg7nfykYiuJG8Pzq0WztWLis
+ wb2w==
 X-Forwarded-Encrypted: i=1;
- AJvYcCXHPWBnAlTspxwVgRDe4NFnuhRGreycWInmfqIZzFA3YgUF/GAB0Z/tkACPEUEcb5qRm2Ec@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0YyHdl0/XLYQ5zhstnUyIiYyunguy17vtznCGt9YO2xo5B7CS8zv
- l8UwP9w7qjmwEV956q/y7AxYYN6im0PqTHdpeaBqsNHv+kGTNwgV9Ei5ENdIosG5OCeR916SHk4
- lnFOZChoYLK8QbxX3NHfKfW7sGgC8fUSKoJijoSJQ20YGJPdIdkTtGFZVpBg=
-X-Received: by 2002:adf:e5ce:0:b0:374:c712:507a with SMTP id
- ffacd0b85a97d-374c71250b6mr6136143f8f.32.1725444329461; 
- Wed, 04 Sep 2024 03:05:29 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFeRTWuKvLCbwapCMh7yQPpztr87Al5rISbB93gh6CJwlRrsshXjrGddYXAlYkLaqWSK1GQPQ==
-X-Received: by 2002:adf:e5ce:0:b0:374:c712:507a with SMTP id
- ffacd0b85a97d-374c71250b6mr6136133f8f.32.1725444328978; 
- Wed, 04 Sep 2024 03:05:28 -0700 (PDT)
-Received: from alrua-x1.borgediget.toke.dk ([45.145.92.2])
- by smtp.gmail.com with ESMTPSA id
- ffacd0b85a97d-374c0f6f4c4sm11128642f8f.44.2024.09.04.03.05.28
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Wed, 04 Sep 2024 03:05:28 -0700 (PDT)
-Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
- id 5A22F14AE6D7; Wed, 04 Sep 2024 12:05:27 +0200 (CEST)
-To: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
- Jamal Hadi Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.com>,
- Jiri Pirko <jiri@resnulli.us>
-Date: Wed,  4 Sep 2024 12:05:16 +0200
-Message-ID: <20240904100516.16926-1-toke@redhat.com>
-X-Mailer: git-send-email 2.46.0
+ AJvYcCWBlGHMXR9kyiNk+6xMd+ODjpEpJzLOIlxeR6OabYG9IvYL+rvpdxV3cG24Pp0y29I1t7xD@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0Yw8d8iBFb2YJecT589ZCyAfBHXYq5ihUMycP49xGcFOfs3+zRug
+ nRTGv6u9ib2eSUD7DrqTXz4zR+1i7oDEvEp2aZrR5TQr3gZ/QHr35/33+kHkhvE1UUqVgTKvtgd
+ WKHiSqRIxQplPJJMMhkQAozCZB4M=
+X-Google-Smtp-Source: AGHT+IFqRW6Fsh/KXiym4501b7kvcTgMeAY9v6U/rnww2u8jEaoIJ8CjiDZ77A8r1ESTqtSHqI+4ZBdwcofy/8wohvg=
+X-Received: by 2002:a05:6870:568b:b0:277:c0a9:f00d with SMTP id
+ 586e51a60fabf-277ccb0c9f5mr16706971fac.4.1725465192056; Wed, 04 Sep 2024
+ 08:53:12 -0700 (PDT)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Subject: [Cake] [PATCH net-next] sch_cake: constify inverse square root cache
+References: <20240904100516.16926-1-toke@redhat.com>
+In-Reply-To: <20240904100516.16926-1-toke@redhat.com>
+Date: Wed, 4 Sep 2024 08:52:59 -0700
+Message-ID: <CAA93jw5T57TXEHzEeEmDnJTrYS45-V3kDR9wGcws__SxaiGZFA@mail.gmail.com>
+To: =?UTF-8?B?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2Vu?= <toke@redhat.com>
+Subject: Re: [Cake] [PATCH net-next] sch_cake: constify inverse square root
+	cache
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -95,84 +81,327 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= via Cake
- <cake@lists.bufferbloat.net>
-Reply-To: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
-Cc: netdev@vger.kernel.org,
- =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
- cake@lists.bufferbloat.net, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+From: Dave Taht via Cake <cake@lists.bufferbloat.net>
+Reply-To: Dave Taht <dave.taht@gmail.com>
+Cc: Jiri Pirko <jiri@resnulli.us>, netdev@vger.kernel.org,
+ Jamal Hadi Salim <jhs@mojatatu.com>, cake@lists.bufferbloat.net,
+ Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
+ Cong Wang <xiyou.wangcong@gmail.com>, Paolo Abeni <pabeni@redhat.com>,
  "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8867855864454963496=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-RnJvbTogRGF2ZSBUYWh0IDxkYXZlLnRhaHRAZ21haWwuY29tPgoKc2NoX2Nha2UgdXNlcyBhIGNh
-Y2hlIG9mIHRoZSBmaXJzdCAxNiB2YWx1ZXMgb2YgdGhlIGludmVyc2Ugc3F1YXJlIHJvb3QKY2Fs
-Y3VsYXRpb24gZm9yIHRoZSBDb2JhbHQgQVFNIHRvIHNhdmUgc29tZSBjeWNsZXMgb24gdGhlIGZh
-c3QgcGF0aC4KVGhpcyBjYWNoZSBpcyBwb3B1bGF0ZWQgd2hlbiB0aGUgcWRpc2MgaXMgZmlyc3Qg
-bG9hZGVkLCBidXQgdGhlcmUncwpyZWFsbHkgbm8gcmVhc29uIHdoeSBpdCBjYW4ndCBqdXN0IGJl
-IHByZS1wb3B1bGF0ZWQuIFNvIGNoYW5nZSBpdCB0byBiZQpwcmUtcG9wdWxhdGVkIHdpdGggY29u
-c3RhbnRzLCB3aGljaCBhbHNvIG1ha2VzIGl0IHBvc3NpYmxlIHRvIGNvbnN0aWZ5Cml0LgoKVGhp
-cyBnaXZlcyBhIG1vZGVzdCBzcGFjZSBzYXZpbmcgZm9yIHRoZSBtb2R1bGUgKG5vdCBjb3VudGlu
-ZyBkZWJ1ZyBkYXRhKToKLnRleHQ6ICAtMjI0IGJ5dGVzCi5yb2RhdGE6ICs4MCBieXRlcwouYnNz
-OiAgICAtNjQgYnl0ZXMKVG90YWw6ICAtMTkyIGJ5dGVzCgpTaWduZWQtb2ZmLWJ5OiBEYXZlIFRh
-aHQgPGRhdmUudGFodEBnbWFpbC5jb20+ClsgZml4ZWQgdXAgY29tbWVudCwgcmV3cm90ZSBjb21t
-aXQgbWVzc2FnZSBdClNpZ25lZC1vZmYtYnk6IFRva2UgSMO4aWxhbmQtSsO4cmdlbnNlbiA8dG9r
-ZUByZWRoYXQuY29tPgotLS0KIG5ldC9zY2hlZC9zY2hfY2FrZS5jIHwgNTMgKysrKysrKysrKysr
-KysrLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0KIDEgZmlsZSBjaGFuZ2VkLCAxOCBpbnNl
-cnRpb25zKCspLCAzNSBkZWxldGlvbnMoLSkKCmRpZmYgLS1naXQgYS9uZXQvc2NoZWQvc2NoX2Nh
-a2UuYyBiL25ldC9zY2hlZC9zY2hfY2FrZS5jCmluZGV4IDk2MDJkYWZlMzJlNi4uYTUxYzQzYmRl
-MGRlIDEwMDY0NAotLS0gYS9uZXQvc2NoZWQvc2NoX2Nha2UuYworKysgYi9uZXQvc2NoZWQvc2No
-X2Nha2UuYwpAQCAtMzYxLDggKzM2MSwyNCBAQCBzdGF0aWMgY29uc3QgdTggYmVzdGVmZm9ydFtd
-ID0gewogc3RhdGljIGNvbnN0IHU4IG5vcm1hbF9vcmRlcltdID0gezAsIDEsIDIsIDMsIDQsIDUs
-IDYsIDd9Owogc3RhdGljIGNvbnN0IHU4IGJ1bGtfb3JkZXJbXSA9IHsxLCAwLCAyLCAzfTsKIAor
-LyogVGhlcmUgaXMgYSBiaWcgZGlmZmVyZW5jZSBpbiB0aW1pbmcgYmV0d2VlbiB0aGUgYWNjdXJh
-dGUgdmFsdWVzIHBsYWNlZCBpbiB0aGUKKyAqIGNhY2hlIGFuZCB0aGUgYXBwcm94aW1hdGlvbnMg
-Z2l2ZW4gYnkgYSBzaW5nbGUgTmV3dG9uIHN0ZXAgZm9yIHNtYWxsIGNvdW50CisgKiB2YWx1ZXMs
-IHBhcnRpY3VsYXJseSB3aGVuIHN0ZXBwaW5nIGZyb20gY291bnQgMSB0byAyIG9yIHZpY2UgdmVy
-c2EuIEhlbmNlLAorICogdGhlc2UgdmFsdWVzIGFyZSBjYWxjdWxhdGVkIHVzaW5nIGVpZ2h0IE5l
-d3RvbiBzdGVwcywgdXNpbmcgdGhlIGltcGxlbWVudGF0aW9uCisgKiBiZWxvdy4gQWJvdmUgMTYs
-IGEgc2luZ2xlIE5ld3RvbiBzdGVwIGdpdmVzIHN1ZmZpY2llbnQgYWNjdXJhY3kgaW4gZWl0aGVy
-CisgKiBkaXJlY3Rpb24sIGdpdmVuIHRoZSBwcmVjaXNpb24gc3RvcmVkLgorICoKKyAqIFRoZSBt
-YWduaXR1ZGUgb2YgdGhlIGVycm9yIHdoZW4gc3RlcHBpbmcgdXAgdG8gY291bnQgMiBpcyBzdWNo
-IGFzIHRvIGdpdmUKKyAqIHRoZSB2YWx1ZSB0aGF0ICpzaG91bGQqIGhhdmUgYmVlbiBwcm9kdWNl
-ZCBhdCBjb3VudCA0LgorICovCisKICNkZWZpbmUgUkVDX0lOVl9TUVJUX0NBQ0hFICgxNikKLXN0
-YXRpYyB1MzIgY29iYWx0X3JlY19pbnZfc3FydF9jYWNoZVtSRUNfSU5WX1NRUlRfQ0FDSEVdID0g
-ezB9Oworc3RhdGljIGNvbnN0IHUzMiBpbnZfc3FydF9jYWNoZVtSRUNfSU5WX1NRUlRfQ0FDSEVd
-ID0geworCSAgICAgICAgfjAsICAgICAgICAgfjAsIDMwMzcwMDA1MDAsIDI0Nzk3MDA1MjUsCisJ
-MjE0NzQ4MzY0NywgMTkyMDc2Nzc2NywgMTc1MzQxMzA1NiwgMTYyMzM0NTA1MSwKKwkxNTE4NTAw
-MjUwLCAxNDMxNjU1NzY1LCAxMzU4MTg3OTE0LCAxMjk0OTgxMzY0LAorCTEyMzk4NTAyNjMsIDEx
-OTEyMDk2MDEsIDExNDc4NzgyOTQsIDExMDg5NTU3ODgKK307CiAKIC8qIGh0dHA6Ly9lbi53aWtp
-cGVkaWEub3JnL3dpa2kvTWV0aG9kc19vZl9jb21wdXRpbmdfc3F1YXJlX3Jvb3RzCiAgKiBuZXdf
-aW52c3FydCA9IChpbnZzcXJ0IC8gMikgKiAoMyAtIGNvdW50ICogaW52c3FydF4yKQpAQCAtMzg4
-LDQ3ICs0MDQsMTQgQEAgc3RhdGljIHZvaWQgY29iYWx0X25ld3Rvbl9zdGVwKHN0cnVjdCBjb2Jh
-bHRfdmFycyAqdmFycykKIHN0YXRpYyB2b2lkIGNvYmFsdF9pbnZzcXJ0KHN0cnVjdCBjb2JhbHRf
-dmFycyAqdmFycykKIHsKIAlpZiAodmFycy0+Y291bnQgPCBSRUNfSU5WX1NRUlRfQ0FDSEUpCi0J
-CXZhcnMtPnJlY19pbnZfc3FydCA9IGNvYmFsdF9yZWNfaW52X3NxcnRfY2FjaGVbdmFycy0+Y291
-bnRdOworCQl2YXJzLT5yZWNfaW52X3NxcnQgPSBpbnZfc3FydF9jYWNoZVt2YXJzLT5jb3VudF07
-CiAJZWxzZQogCQljb2JhbHRfbmV3dG9uX3N0ZXAodmFycyk7CiB9CiAKLS8qIFRoZXJlIGlzIGEg
-YmlnIGRpZmZlcmVuY2UgaW4gdGltaW5nIGJldHdlZW4gdGhlIGFjY3VyYXRlIHZhbHVlcyBwbGFj
-ZWQgaW4KLSAqIHRoZSBjYWNoZSBhbmQgdGhlIGFwcHJveGltYXRpb25zIGdpdmVuIGJ5IGEgc2lu
-Z2xlIE5ld3RvbiBzdGVwIGZvciBzbWFsbAotICogY291bnQgdmFsdWVzLCBwYXJ0aWN1bGFybHkg
-d2hlbiBzdGVwcGluZyBmcm9tIGNvdW50IDEgdG8gMiBvciB2aWNlIHZlcnNhLgotICogQWJvdmUg
-MTYsIGEgc2luZ2xlIE5ld3RvbiBzdGVwIGdpdmVzIHN1ZmZpY2llbnQgYWNjdXJhY3kgaW4gZWl0
-aGVyCi0gKiBkaXJlY3Rpb24sIGdpdmVuIHRoZSBwcmVjaXNpb24gc3RvcmVkLgotICoKLSAqIFRo
-ZSBtYWduaXR1ZGUgb2YgdGhlIGVycm9yIHdoZW4gc3RlcHBpbmcgdXAgdG8gY291bnQgMiBpcyBz
-dWNoIGFzIHRvIGdpdmUKLSAqIHRoZSB2YWx1ZSB0aGF0ICpzaG91bGQqIGhhdmUgYmVlbiBwcm9k
-dWNlZCBhdCBjb3VudCA0LgotICovCi0KLXN0YXRpYyB2b2lkIGNvYmFsdF9jYWNoZV9pbml0KHZv
-aWQpCi17Ci0Jc3RydWN0IGNvYmFsdF92YXJzIHY7Ci0KLQltZW1zZXQoJnYsIDAsIHNpemVvZih2
-KSk7Ci0Jdi5yZWNfaW52X3NxcnQgPSB+MFU7Ci0JY29iYWx0X3JlY19pbnZfc3FydF9jYWNoZVsw
-XSA9IHYucmVjX2ludl9zcXJ0OwotCi0JZm9yICh2LmNvdW50ID0gMTsgdi5jb3VudCA8IFJFQ19J
-TlZfU1FSVF9DQUNIRTsgdi5jb3VudCsrKSB7Ci0JCWNvYmFsdF9uZXd0b25fc3RlcCgmdik7Ci0J
-CWNvYmFsdF9uZXd0b25fc3RlcCgmdik7Ci0JCWNvYmFsdF9uZXd0b25fc3RlcCgmdik7Ci0JCWNv
-YmFsdF9uZXd0b25fc3RlcCgmdik7Ci0KLQkJY29iYWx0X3JlY19pbnZfc3FydF9jYWNoZVt2LmNv
-dW50XSA9IHYucmVjX2ludl9zcXJ0OwotCX0KLX0KLQogc3RhdGljIHZvaWQgY29iYWx0X3ZhcnNf
-aW5pdChzdHJ1Y3QgY29iYWx0X3ZhcnMgKnZhcnMpCiB7CiAJbWVtc2V0KHZhcnMsIDAsIHNpemVv
-ZigqdmFycykpOwotCi0JaWYgKCFjb2JhbHRfcmVjX2ludl9zcXJ0X2NhY2hlWzBdKSB7Ci0JCWNv
-YmFsdF9jYWNoZV9pbml0KCk7Ci0JCWNvYmFsdF9yZWNfaW52X3NxcnRfY2FjaGVbMF0gPSB+MDsK
-LQl9CiB9CiAKIC8qIENvRGVsIGNvbnRyb2xfbGF3IGlzIHQgKyBpbnRlcnZhbC9zcXJ0KGNvdW50
-KQotLSAKMi40Ni4wCgpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fXwpDYWtlIG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczov
-L2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============8867855864454963496==
+Content-Type: multipart/alternative; boundary="000000000000d851c306214d2bc1"
+
+--000000000000d851c306214d2bc1
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+although REC_INV_SQRT_CACHE can just be pulled from the const size rather
+than a define...
+
+Acked-By: Dave Taht <dave.taht@gmail.com>
+
+On Wed, Sep 4, 2024 at 3:05=E2=80=AFAM Toke H=C3=B8iland-J=C3=B8rgensen <to=
+ke@redhat.com>
+wrote:
+
+> From: Dave Taht <dave.taht@gmail.com>
+>
+> sch_cake uses a cache of the first 16 values of the inverse square root
+> calculation for the Cobalt AQM to save some cycles on the fast path.
+> This cache is populated when the qdisc is first loaded, but there's
+> really no reason why it can't just be pre-populated. So change it to be
+> pre-populated with constants, which also makes it possible to constify
+> it.
+>
+> This gives a modest space saving for the module (not counting debug data)=
+:
+> .text:  -224 bytes
+> .rodata: +80 bytes
+> .bss:    -64 bytes
+> Total:  -192 bytes
+>
+> Signed-off-by: Dave Taht <dave.taht@gmail.com>
+> [ fixed up comment, rewrote commit message ]
+> Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen <toke@redhat.com>
+> ---
+>  net/sched/sch_cake.c | 53 +++++++++++++++-----------------------------
+>  1 file changed, 18 insertions(+), 35 deletions(-)
+>
+> diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
+> index 9602dafe32e6..a51c43bde0de 100644
+> --- a/net/sched/sch_cake.c
+> +++ b/net/sched/sch_cake.c
+> @@ -361,8 +361,24 @@ static const u8 besteffort[] =3D {
+>  static const u8 normal_order[] =3D {0, 1, 2, 3, 4, 5, 6, 7};
+>  static const u8 bulk_order[] =3D {1, 0, 2, 3};
+>
+> +/* There is a big difference in timing between the accurate values place=
+d
+> in the
+> + * cache and the approximations given by a single Newton step for small
+> count
+> + * values, particularly when stepping from count 1 to 2 or vice versa.
+> Hence,
+> + * these values are calculated using eight Newton steps, using the
+> implementation
+> + * below. Above 16, a single Newton step gives sufficient accuracy in
+> either
+> + * direction, given the precision stored.
+> + *
+> + * The magnitude of the error when stepping up to count 2 is such as to
+> give
+> + * the value that *should* have been produced at count 4.
+> + */
+> +
+>  #define REC_INV_SQRT_CACHE (16)
+> -static u32 cobalt_rec_inv_sqrt_cache[REC_INV_SQRT_CACHE] =3D {0};
+> +static const u32 inv_sqrt_cache[REC_INV_SQRT_CACHE] =3D {
+> +               ~0,         ~0, 3037000500, 2479700525,
+> +       2147483647, 1920767767, 1753413056, 1623345051,
+> +       1518500250, 1431655765, 1358187914, 1294981364,
+> +       1239850263, 1191209601, 1147878294, 1108955788
+> +};
+>
+>  /* http://en.wikipedia.org/wiki/Methods_of_computing_square_roots
+>   * new_invsqrt =3D (invsqrt / 2) * (3 - count * invsqrt^2)
+> @@ -388,47 +404,14 @@ static void cobalt_newton_step(struct cobalt_vars
+> *vars)
+>  static void cobalt_invsqrt(struct cobalt_vars *vars)
+>  {
+>         if (vars->count < REC_INV_SQRT_CACHE)
+> -               vars->rec_inv_sqrt =3D
+> cobalt_rec_inv_sqrt_cache[vars->count];
+> +               vars->rec_inv_sqrt =3D inv_sqrt_cache[vars->count];
+>         else
+>                 cobalt_newton_step(vars);
+>  }
+>
+> -/* There is a big difference in timing between the accurate values place=
+d
+> in
+> - * the cache and the approximations given by a single Newton step for
+> small
+> - * count values, particularly when stepping from count 1 to 2 or vice
+> versa.
+> - * Above 16, a single Newton step gives sufficient accuracy in either
+> - * direction, given the precision stored.
+> - *
+> - * The magnitude of the error when stepping up to count 2 is such as to
+> give
+> - * the value that *should* have been produced at count 4.
+> - */
+> -
+> -static void cobalt_cache_init(void)
+> -{
+> -       struct cobalt_vars v;
+> -
+> -       memset(&v, 0, sizeof(v));
+> -       v.rec_inv_sqrt =3D ~0U;
+> -       cobalt_rec_inv_sqrt_cache[0] =3D v.rec_inv_sqrt;
+> -
+> -       for (v.count =3D 1; v.count < REC_INV_SQRT_CACHE; v.count++) {
+> -               cobalt_newton_step(&v);
+> -               cobalt_newton_step(&v);
+> -               cobalt_newton_step(&v);
+> -               cobalt_newton_step(&v);
+> -
+> -               cobalt_rec_inv_sqrt_cache[v.count] =3D v.rec_inv_sqrt;
+> -       }
+> -}
+> -
+>  static void cobalt_vars_init(struct cobalt_vars *vars)
+>  {
+>         memset(vars, 0, sizeof(*vars));
+> -
+> -       if (!cobalt_rec_inv_sqrt_cache[0]) {
+> -               cobalt_cache_init();
+> -               cobalt_rec_inv_sqrt_cache[0] =3D ~0;
+> -       }
+>  }
+>
+>  /* CoDel control_law is t + interval/sqrt(count)
+> --
+> 2.46.0
+>
+>
+
+--=20
+Artists/Musician Campout Aug 9-11
+https://www.eventbrite.com/e/healing-arts-event-tickets-928910826287
+Dave T=C3=A4ht CSO, LibreQos
+
+--000000000000d851c306214d2bc1
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">although=C2=A0REC_INV_SQRT_CACHE can just be pulled from t=
+he const size rather than a define...<div><br></div><div>Acked-By: Dave Tah=
+t &lt;<a href=3D"mailto:dave.taht@gmail.com">dave.taht@gmail.com</a>&gt;</d=
+iv></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_att=
+r">On Wed, Sep 4, 2024 at 3:05=E2=80=AFAM Toke H=C3=B8iland-J=C3=B8rgensen =
+&lt;<a href=3D"mailto:toke@redhat.com">toke@redhat.com</a>&gt; wrote:<br></=
+div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;bor=
+der-left:1px solid rgb(204,204,204);padding-left:1ex">From: Dave Taht &lt;<=
+a href=3D"mailto:dave.taht@gmail.com" target=3D"_blank">dave.taht@gmail.com=
+</a>&gt;<br>
+<br>
+sch_cake uses a cache of the first 16 values of the inverse square root<br>
+calculation for the Cobalt AQM to save some cycles on the fast path.<br>
+This cache is populated when the qdisc is first loaded, but there&#39;s<br>
+really no reason why it can&#39;t just be pre-populated. So change it to be=
+<br>
+pre-populated with constants, which also makes it possible to constify<br>
+it.<br>
+<br>
+This gives a modest space saving for the module (not counting debug data):<=
+br>
+.text:=C2=A0 -224 bytes<br>
+.rodata: +80 bytes<br>
+.bss:=C2=A0 =C2=A0 -64 bytes<br>
+Total:=C2=A0 -192 bytes<br>
+<br>
+Signed-off-by: Dave Taht &lt;<a href=3D"mailto:dave.taht@gmail.com" target=
+=3D"_blank">dave.taht@gmail.com</a>&gt;<br>
+[ fixed up comment, rewrote commit message ]<br>
+Signed-off-by: Toke H=C3=B8iland-J=C3=B8rgensen &lt;<a href=3D"mailto:toke@=
+redhat.com" target=3D"_blank">toke@redhat.com</a>&gt;<br>
+---<br>
+=C2=A0net/sched/sch_cake.c | 53 +++++++++++++++----------------------------=
+-<br>
+=C2=A01 file changed, 18 insertions(+), 35 deletions(-)<br>
+<br>
+diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c<br>
+index 9602dafe32e6..a51c43bde0de 100644<br>
+--- a/net/sched/sch_cake.c<br>
++++ b/net/sched/sch_cake.c<br>
+@@ -361,8 +361,24 @@ static const u8 besteffort[] =3D {<br>
+=C2=A0static const u8 normal_order[] =3D {0, 1, 2, 3, 4, 5, 6, 7};<br>
+=C2=A0static const u8 bulk_order[] =3D {1, 0, 2, 3};<br>
+<br>
++/* There is a big difference in timing between the accurate values placed =
+in the<br>
++ * cache and the approximations given by a single Newton step for small co=
+unt<br>
++ * values, particularly when stepping from count 1 to 2 or vice versa. Hen=
+ce,<br>
++ * these values are calculated using eight Newton steps, using the impleme=
+ntation<br>
++ * below. Above 16, a single Newton step gives sufficient accuracy in eith=
+er<br>
++ * direction, given the precision stored.<br>
++ *<br>
++ * The magnitude of the error when stepping up to count 2 is such as to gi=
+ve<br>
++ * the value that *should* have been produced at count 4.<br>
++ */<br>
++<br>
+=C2=A0#define REC_INV_SQRT_CACHE (16)<br>
+-static u32 cobalt_rec_inv_sqrt_cache[REC_INV_SQRT_CACHE] =3D {0};<br>
++static const u32 inv_sqrt_cache[REC_INV_SQRT_CACHE] =3D {<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0~0,=C2=A0 =C2=A0 =
+=C2=A0 =C2=A0 =C2=A0~0, 3037000500, 2479700525,<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A02147483647, 1920767767, 1753413056, 1623345051,=
+<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A01518500250, 1431655765, 1358187914, 1294981364,=
+<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A01239850263, 1191209601, 1147878294, 1108955788<=
+br>
++};<br>
+<br>
+=C2=A0/* <a href=3D"http://en.wikipedia.org/wiki/Methods_of_computing_squar=
+e_roots" rel=3D"noreferrer" target=3D"_blank">http://en.wikipedia.org/wiki/=
+Methods_of_computing_square_roots</a><br>
+=C2=A0 * new_invsqrt =3D (invsqrt / 2) * (3 - count * invsqrt^2)<br>
+@@ -388,47 +404,14 @@ static void cobalt_newton_step(struct cobalt_vars *va=
+rs)<br>
+=C2=A0static void cobalt_invsqrt(struct cobalt_vars *vars)<br>
+=C2=A0{<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 if (vars-&gt;count &lt; REC_INV_SQRT_CACHE)<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0vars-&gt;rec_inv_sq=
+rt =3D cobalt_rec_inv_sqrt_cache[vars-&gt;count];<br>
++=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0vars-&gt;rec_inv_sq=
+rt =3D inv_sqrt_cache[vars-&gt;count];<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 else<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 cobalt_newton_step(=
+vars);<br>
+=C2=A0}<br>
+<br>
+-/* There is a big difference in timing between the accurate values placed =
+in<br>
+- * the cache and the approximations given by a single Newton step for smal=
+l<br>
+- * count values, particularly when stepping from count 1 to 2 or vice vers=
+a.<br>
+- * Above 16, a single Newton step gives sufficient accuracy in either<br>
+- * direction, given the precision stored.<br>
+- *<br>
+- * The magnitude of the error when stepping up to count 2 is such as to gi=
+ve<br>
+- * the value that *should* have been produced at count 4.<br>
+- */<br>
+-<br>
+-static void cobalt_cache_init(void)<br>
+-{<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0struct cobalt_vars v;<br>
+-<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0memset(&amp;v, 0, sizeof(v));<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0v.rec_inv_sqrt =3D ~0U;<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_rec_inv_sqrt_cache[0] =3D v.rec_inv_sqrt=
+;<br>
+-<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0for (v.count =3D 1; v.count &lt; REC_INV_SQRT_C=
+ACHE; v.count++) {<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_newton_step(=
+&amp;v);<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_newton_step(=
+&amp;v);<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_newton_step(=
+&amp;v);<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_newton_step(=
+&amp;v);<br>
+-<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_rec_inv_sqrt=
+_cache[v.count] =3D v.rec_inv_sqrt;<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0}<br>
+-}<br>
+-<br>
+=C2=A0static void cobalt_vars_init(struct cobalt_vars *vars)<br>
+=C2=A0{<br>
+=C2=A0 =C2=A0 =C2=A0 =C2=A0 memset(vars, 0, sizeof(*vars));<br>
+-<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0if (!cobalt_rec_inv_sqrt_cache[0]) {<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_cache_init()=
+;<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0cobalt_rec_inv_sqrt=
+_cache[0] =3D ~0;<br>
+-=C2=A0 =C2=A0 =C2=A0 =C2=A0}<br>
+=C2=A0}<br>
+<br>
+=C2=A0/* CoDel control_law is t + interval/sqrt(count)<br>
+-- <br>
+2.46.0<br>
+<br>
+</blockquote></div><br clear=3D"all"><div><br></div><span class=3D"gmail_si=
+gnature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_signature"><d=
+iv dir=3D"ltr"><div>Artists/Musician Campout Aug 9-11</div><div><a href=3D"=
+https://www.eventbrite.com/e/healing-arts-event-tickets-928910826287" targe=
+t=3D"_blank">https://www.eventbrite.com/e/healing-arts-event-tickets-928910=
+826287</a><br></div><div>Dave T=C3=A4ht CSO, LibreQos<br></div></div></div>
+
+--000000000000d851c306214d2bc1--
+
+--===============8867855864454963496==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============8867855864454963496==--
