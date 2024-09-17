@@ -2,89 +2,82 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id A2B11971319
-	for <lists+cake@lfdr.de>; Mon,  9 Sep 2024 11:16:39 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1FE0C97B52B
+	for <lists+cake@lfdr.de>; Tue, 17 Sep 2024 23:28:14 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id DC9693CB42;
-	Mon,  9 Sep 2024 05:16:37 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 7AE493CB49;
+	Tue, 17 Sep 2024 17:28:06 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1725873397;
-	bh=427p2WdBLvgPW38yAJhnhqHZW6XvucgXyG6khoJn+II=;
-	h=To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
-	 List-Help:List-Subscribe:From:Reply-To:Cc:From;
-	b=Uj1eMn1M/8SPLGMUnloDDDrFtUsvxbVqOypR/TwI7rzD/AtFwEtO2R9hoqMUCaGXy
-	 LjjDF0xyaO3XSWVDFVCn7aUk2KBEWJUi8yKZgc5Znqc+6qBxd7+Gv7gs0H2lw9CeRa
-	 IKmAhdTQxTPrMvIyV8WD22Po0ILa2pDT8xiRpmV+SicsHMQOG8+nWXqLLFcjntCIEJ
-	 OUtFHBOIA+nmIJdUTdMNWmx551R3s8+Y8PwIYuGRcc9qZoIPmKv/P4Xh12kFAwBn8l
-	 G032YsCU/Ae7PEgyuKzCdqw3N5bfvcq5kbXO/J+rnaB8WP058BJUTIVve+uQz1XTIJ
-	 U/65T942WHHNw==
+	d=lists.bufferbloat.net; s=201610; t=1726608486;
+	bh=LHMq8wkMmwGa8bRoT+X9tsmhyJZSRW/E9VbsAMZiO7E=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:
+	 From;
+	b=mJagq8R6Q9TGXjbMjvAWYfr9bVNaEKgyWYWKtU4aTT0ENnde5D2FpcA/ZeGqv1Wft
+	 bsv0lh1j97GZ5FyFk5XbXdNrDbM7JN4RExoqjrKduRhqXtkhNvPxjtNpTX+LjjSh33
+	 3+3c7D2VwfxXa0mIHgb0a3QYnlJXzDLSUm3me1dlqFOcoPHaNUhu/GgUEENkr+4YBC
+	 vpRO0xRqq9EjV1tfyD7uAlXmLl+pRLQ3Wid0Xu27qN37xml563us8Qi2ca4y9sBmEW
+	 RtLKz90M6R0sLtamZ8J374OcvhS7joCjeGWY7JN2HZOhsRTnN+5Dr8L/8l1FA0CKw4
+	 j00VGKUsabtxQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from us-smtp-delivery-124.mimecast.com
- (us-smtp-delivery-124.mimecast.com [170.10.133.124])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-qt1-x835.google.com (mail-qt1-x835.google.com
+ [IPv6:2607:f8b0:4864:20::835])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id E566E3CB38
- for <cake@lists.bufferbloat.net>; Mon,  9 Sep 2024 05:16:36 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
- s=mimecast20190719; t=1725873396;
- h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
- to:to:cc:cc:mime-version:mime-version:content-type:content-type:
- content-transfer-encoding:content-transfer-encoding;
- bh=hOgHx6oXUHCksOPdNO9GkwDeu+mkCXvvvLuR8v0qTU4=;
- b=SqApM5JCb9w818f6hlFPtIr7eikeqTaik3E3TJimLh03ENy5E4zmPJakqmtHlvuiSPg7NU
- M00gNQJIREMMNDY2ZGrONBmhp6IvcRVSQHgBPUk6KUlSQs3OYLJR9pDs74n6tD0IXhW7bs
- jWcfTUseFzQlbxW1bRX9MnO1NFiqu6Q=
-Received: from mail-ej1-f69.google.com (mail-ej1-f69.google.com
- [209.85.218.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-612-TVhpYRS-PrGJj5RTARN40w-1; Mon, 09 Sep 2024 05:16:35 -0400
-X-MC-Unique: TVhpYRS-PrGJj5RTARN40w-1
-Received: by mail-ej1-f69.google.com with SMTP id
- a640c23a62f3a-a8a6fee3ab1so328614466b.3
- for <cake@lists.bufferbloat.net>; Mon, 09 Sep 2024 02:16:34 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 5FC863B29D;
+ Tue, 17 Sep 2024 17:28:04 -0400 (EDT)
+Received: by mail-qt1-x835.google.com with SMTP id
+ d75a77b69052e-45aeed46f5eso13417941cf.3; 
+ Tue, 17 Sep 2024 14:28:04 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20230601; t=1726608484; x=1727213284; darn=lists.bufferbloat.net;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+ :from:to:cc:subject:date:message-id:reply-to;
+ bh=bpRqLXBiRZZ4+MPmehyFwBa0ovI69nrVwCgM/mghB1E=;
+ b=SXp8WMKZfUbET8622ATwRGPtnLqh4BZ5WbCmm7pJSFZv6bN+vNl6sINiqZKpvQk+MX
+ OtING+oeEBEsc3w+ZsX6i7GSNFlxKBJwbvwD2753cDsNSwlN7U0V9XWx7QsvOL0/urAi
+ RpjW10x9YaVvZ+Dw6EvRfAsIrikHW1/Z8XnbjD1ABtyVHIeGdFFNX3ABiPrQCZcXd1iO
+ s8+03DKGtd34c/B+MZ+nLpH6dW2xoHFmAvydbA3q8TxI7qT7jlhWj0wjbnjSYv7eY61k
+ +RUoQJFhVOaRNbYl1wgC4QTVEyuTl85Tzu3N2v+sLaibH/00jUu7rHOBZ8kGw7emzuWC
+ QoeA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1725873394; x=1726478194;
- h=content-transfer-encoding:mime-version:message-id:date:subject:cc
- :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
- :reply-to;
- bh=hOgHx6oXUHCksOPdNO9GkwDeu+mkCXvvvLuR8v0qTU4=;
- b=kTXyFEFh9l8z2xfExujtpH3LXPzo6Fnu5hj8gGRGW1C5MWqBLEM85wePxfTZ99C5/n
- P2VTEos/xYG5c2Pe4dgVhGAjH2fGxsCb9FGdPgGPoyWPN8UPrBemx0F4ANxrd2E+E3Ii
- +qSpGlZ6wJbz7KlRJ/ByvmRRrN6r5buNoVTAEILlkWHSlmP43W3rpQfE2HrrATfFgTtO
- vAi8Mat2soAhB5oNlyBxzFn6egWCTYeC9rKkzKy8UhDM2RaO5G3bfZRxmTOMdHoztI2M
- 59VVFna/oM7nfa6UgZb60511VrbAYw4++0tomoA86nzZvmgTSqTCPG3gjnUkUc4I4nJq
- iFiQ==
+ d=1e100.net; s=20230601; t=1726608484; x=1727213284;
+ h=to:subject:message-id:date:from:in-reply-to:references:mime-version
+ :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=bpRqLXBiRZZ4+MPmehyFwBa0ovI69nrVwCgM/mghB1E=;
+ b=O+omHpmZ6XneZSOCmxbfXyRGbvhrGHtksP43timHEdxfKQntFZEPrvkpJlWOVYwjBY
+ +Lxm15CuuJnLa6WlzoBxXNuVGiShMOgbS1RQWIPNuzeqCt+JzZHzIkY/699uasG2/rIC
+ zf9jRav3K9ICKXULitZEi0fEYSRLxCqQG1K6Ul4Z3jBkR7+knn20LJT0MBlRD95Gu9W+
+ glHZOsGT7rZJX94uBjqCFe6/ylkfZokudfxkRJzWDCNRnL2vdhtO3ak0qgiXro6+cjA2
+ eZyvnFYv4Kc8aqEIY9BdHfv+xhb3s6gic5KMB2VJFgmPWpWzkMtWhtWgZYg05+o/ih2G
+ 05qQ==
 X-Forwarded-Encrypted: i=1;
- AJvYcCUoaIvPTZRb7af7dKOe5VShdjdzStfuuba1y5hANFLD9VwblKtLFHDx14WmKek+mdz+9WBn@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0YxyzfPd+ncedOoyciHTOY2xVjXnz8BtRXKE0r8vZkBoCjqgRmTO
- SN8Q6VLRX+CpEvd9YXqW2UjJTYVJg+MDZ4AThTnEO1QBS2NyTZbOzOjyFEb4/H8HiiwlXjeTOVe
- 4jswCnwytv6ztlBTVw7Q2VrcTHk9uXqyJ18gPR3X/Kku/o/nHDC2VSzeBrGw=
-X-Received: by 2002:a17:907:368a:b0:a86:8953:e1fe with SMTP id
- a640c23a62f3a-a8a8884be2cmr834442566b.47.1725873393564; 
- Mon, 09 Sep 2024 02:16:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHNi4CPHkWulQf8Un7wTFpsfY+PTRR0uA19tgeQRrcwdcay9z5l6W2TFxorq811BaKwya9DjA==
-X-Received: by 2002:a17:907:368a:b0:a86:8953:e1fe with SMTP id
- a640c23a62f3a-a8a8884be2cmr834438266b.47.1725873392705; 
- Mon, 09 Sep 2024 02:16:32 -0700 (PDT)
-Received: from alrua-x1.borgediget.toke.dk ([2a0c:4d80:42:443::2])
- by smtp.gmail.com with ESMTPSA id
- a640c23a62f3a-a8d25d65cf6sm310680766b.222.2024.09.09.02.16.31
- (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
- Mon, 09 Sep 2024 02:16:32 -0700 (PDT)
-Received: by alrua-x1.borgediget.toke.dk (Postfix, from userid 1000)
- id E007714AEA8B; Mon, 09 Sep 2024 11:16:30 +0200 (CEST)
-To: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>,
- Jamal Hadi Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.com>,
- Jiri Pirko <jiri@resnulli.us>
-Date: Mon,  9 Sep 2024 11:16:28 +0200
-Message-ID: <20240909091630.22177-1-toke@redhat.com>
-X-Mailer: git-send-email 2.46.0
+ AJvYcCVDvMy7cp4mTQa9h+zKZsfhD51QDsdHTYJkr9ivqgwHljPRqXr/dIDHZHBlCfSRBEI3A/gZUeQs2hI=@lists.bufferbloat.net,
+ AJvYcCW2Xrc3eQ/4qHiIFmmDYf8v0KBynREkp3DXTM6AGGE5keKolCRiOG8ilAzI98rkxLK8BaC2QA==@lists.bufferbloat.net,
+ AJvYcCW9WtTyw7x8OE1S3pQy44vN/1fGEYUXuH2Cn7AdOpujtJ66D03jvIlbVKtzTN2kUVJDfrWIkg==@lists.bufferbloat.net,
+ AJvYcCXcNgJyg2mFmVaW1Ww047t7cf6hh87DrN29qQ27jWl4Z9aqbTDmTQfahIgX4Klsy9jcRjY6@lists.bufferbloat.net,
+ AJvYcCXflzEX1Kgz+xd6B+WKlJEMmhYgT2uMswsWk75fgkt7qCq0b6jc7ykELWlb+T+5OBc1IhOlLKrmzZTiTzvPWL8=@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YwyjTG0NMDg3WfWX/RrMJoiiRIcwk0ZH557enQpS5054IrJ2BIS
+ Ks0AFy04yNUBQ6ozhStn/sTHwAYG6pfuG4wPN9Onee2lTlDRAFfTgk0Xt65LErQ9IGxwIcBYCko
+ 3IX6gn464KhD18PGgDbCqDEOLbi+d9nRBe5o=
+X-Google-Smtp-Source: AGHT+IGof9lf4QTZoBjOEoOWU+NNDyuYx2dSydEQ48ALlzaT11YiCR2v837A9QmhM2NeA6jWViyfPdmMliB0HH2Ss1A=
+X-Received: by 2002:ac8:5a45:0:b0:458:37c4:dec0 with SMTP id
+ d75a77b69052e-45860416d76mr318229191cf.53.1726608483515; Tue, 17 Sep 2024
+ 14:28:03 -0700 (PDT)
 MIME-Version: 1.0
-X-Mimecast-Spam-Score: 0
-X-Mimecast-Originator: redhat.com
-Subject: [Cake] [PATCH net-next v2] sch_cake: constify inverse square root
-	cache
+References: <CAJUtOOgCZyLBz0T-CvQn2FsOORuVfCiT_--b9RQ0CmHRnYiXyA@mail.gmail.com>
+In-Reply-To: <CAJUtOOgCZyLBz0T-CvQn2FsOORuVfCiT_--b9RQ0CmHRnYiXyA@mail.gmail.com>
+Date: Tue, 17 Sep 2024 23:27:27 +0200
+Message-ID: <CAJUtOOj5n76gepLMurA3a+mxz7LJqoi7ND1FpTRkwctUsLi4dg@mail.gmail.com>
+To: libreqos <libreqos@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>, 
+ Cake List <cake@lists.bufferbloat.net>, 
+ Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>, 
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>, 
+ Dave Taht via Starlink <starlink@lists.bufferbloat.net>
+Subject: [Cake] "State of the Bloat" - Dave at Linux Plumbers: Wednesday,
+ Sept 18 @ 6PM CET | 12PM EST | 9AM PST
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -96,85 +89,169 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= via Cake
- <cake@lists.bufferbloat.net>
-Reply-To: =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>
-Cc: netdev@vger.kernel.org,
- =?UTF-8?q?Toke=20H=C3=B8iland-J=C3=B8rgensen?= <toke@redhat.com>,
- cake@lists.bufferbloat.net, Eric Dumazet <edumazet@google.com>,
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
- "David S. Miller" <davem@davemloft.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Frantisek Borsik via Cake <cake@lists.bufferbloat.net>
+Reply-To: Frantisek Borsik <frantisek.borsik@gmail.com>
+Content-Type: multipart/mixed; boundary="===============8721817952910745194=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-RnJvbTogRGF2ZSBUYWh0IDxkYXZlLnRhaHRAZ21haWwuY29tPgoKc2NoX2Nha2UgdXNlcyBhIGNh
-Y2hlIG9mIHRoZSBmaXJzdCAxNiB2YWx1ZXMgb2YgdGhlIGludmVyc2Ugc3F1YXJlIHJvb3QKY2Fs
-Y3VsYXRpb24gZm9yIHRoZSBDb2JhbHQgQVFNIHRvIHNhdmUgc29tZSBjeWNsZXMgb24gdGhlIGZh
-c3QgcGF0aC4KVGhpcyBjYWNoZSBpcyBwb3B1bGF0ZWQgd2hlbiB0aGUgcWRpc2MgaXMgZmlyc3Qg
-bG9hZGVkLCBidXQgdGhlcmUncwpyZWFsbHkgbm8gcmVhc29uIHdoeSBpdCBjYW4ndCBqdXN0IGJl
-IHByZS1wb3B1bGF0ZWQuIFNvIGNoYW5nZSBpdCB0byBiZQpwcmUtcG9wdWxhdGVkIHdpdGggY29u
-c3RhbnRzLCB3aGljaCBhbHNvIG1ha2VzIGl0IHBvc3NpYmxlIHRvIGNvbnN0aWZ5Cml0LgoKVGhp
-cyBnaXZlcyBhIG1vZGVzdCBzcGFjZSBzYXZpbmcgZm9yIHRoZSBtb2R1bGUgKG5vdCBjb3VudGlu
-ZyBkZWJ1ZyBkYXRhKToKLnRleHQ6ICAtMjI0IGJ5dGVzCi5yb2RhdGE6ICs4MCBieXRlcwouYnNz
-OiAgICAtNjQgYnl0ZXMKVG90YWw6ICAtMTkyIGJ5dGVzCgpTaWduZWQtb2ZmLWJ5OiBEYXZlIFRh
-aHQgPGRhdmUudGFodEBnbWFpbC5jb20+ClsgZml4ZWQgdXAgY29tbWVudCwgcmV3cm90ZSBjb21t
-aXQgbWVzc2FnZSBdClNpZ25lZC1vZmYtYnk6IFRva2UgSMO4aWxhbmQtSsO4cmdlbnNlbiA8dG9r
-ZUByZWRoYXQuY29tPgotLS0KdjI6Ci0gRml4IGluZGVudGF0aW9uIGFuZCBsaW5lIGxlbmd0aCBp
-c3N1ZXMKCiBuZXQvc2NoZWQvc2NoX2Nha2UuYyB8IDUzICsrKysrKysrKysrKysrKy0tLS0tLS0t
-LS0tLS0tLS0tLS0tLS0tLS0tLS0tCiAxIGZpbGUgY2hhbmdlZCwgMTggaW5zZXJ0aW9ucygrKSwg
-MzUgZGVsZXRpb25zKC0pCgpkaWZmIC0tZ2l0IGEvbmV0L3NjaGVkL3NjaF9jYWtlLmMgYi9uZXQv
-c2NoZWQvc2NoX2Nha2UuYwppbmRleCBkMmY0OWRiNzA1MjMuLmYyZjliNzUwMDhiYiAxMDA2NDQK
-LS0tIGEvbmV0L3NjaGVkL3NjaF9jYWtlLmMKKysrIGIvbmV0L3NjaGVkL3NjaF9jYWtlLmMKQEAg
-LTM2MSw4ICszNjEsMjQgQEAgc3RhdGljIGNvbnN0IHU4IGJlc3RlZmZvcnRbXSA9IHsKIHN0YXRp
-YyBjb25zdCB1OCBub3JtYWxfb3JkZXJbXSA9IHswLCAxLCAyLCAzLCA0LCA1LCA2LCA3fTsKIHN0
-YXRpYyBjb25zdCB1OCBidWxrX29yZGVyW10gPSB7MSwgMCwgMiwgM307CiAKKy8qIFRoZXJlIGlz
-IGEgYmlnIGRpZmZlcmVuY2UgaW4gdGltaW5nIGJldHdlZW4gdGhlIGFjY3VyYXRlIHZhbHVlcyBw
-bGFjZWQgaW4gdGhlCisgKiBjYWNoZSBhbmQgdGhlIGFwcHJveGltYXRpb25zIGdpdmVuIGJ5IGEg
-c2luZ2xlIE5ld3RvbiBzdGVwIGZvciBzbWFsbCBjb3VudAorICogdmFsdWVzLCBwYXJ0aWN1bGFy
-bHkgd2hlbiBzdGVwcGluZyBmcm9tIGNvdW50IDEgdG8gMiBvciB2aWNlIHZlcnNhLiBIZW5jZSwK
-KyAqIHRoZXNlIHZhbHVlcyBhcmUgY2FsY3VsYXRlZCB1c2luZyBlaWdodCBOZXd0b24gc3RlcHMs
-IHVzaW5nIHRoZQorICogaW1wbGVtZW50YXRpb24gYmVsb3cuIEFib3ZlIDE2LCBhIHNpbmdsZSBO
-ZXd0b24gc3RlcCBnaXZlcyBzdWZmaWNpZW50CisgKiBhY2N1cmFjeSBpbiBlaXRoZXIgZGlyZWN0
-aW9uLCBnaXZlbiB0aGUgcHJlY2lzaW9uIHN0b3JlZC4KKyAqCisgKiBUaGUgbWFnbml0dWRlIG9m
-IHRoZSBlcnJvciB3aGVuIHN0ZXBwaW5nIHVwIHRvIGNvdW50IDIgaXMgc3VjaCBhcyB0byBnaXZl
-IHRoZQorICogdmFsdWUgdGhhdCAqc2hvdWxkKiBoYXZlIGJlZW4gcHJvZHVjZWQgYXQgY291bnQg
-NC4KKyAqLworCiAjZGVmaW5lIFJFQ19JTlZfU1FSVF9DQUNIRSAoMTYpCi1zdGF0aWMgdTMyIGNv
-YmFsdF9yZWNfaW52X3NxcnRfY2FjaGVbUkVDX0lOVl9TUVJUX0NBQ0hFXSA9IHswfTsKK3N0YXRp
-YyBjb25zdCB1MzIgaW52X3NxcnRfY2FjaGVbUkVDX0lOVl9TUVJUX0NBQ0hFXSA9IHsKKwkJfjAs
-ICAgICAgICAgfjAsIDMwMzcwMDA1MDAsIDI0Nzk3MDA1MjUsCisJMjE0NzQ4MzY0NywgMTkyMDc2
-Nzc2NywgMTc1MzQxMzA1NiwgMTYyMzM0NTA1MSwKKwkxNTE4NTAwMjUwLCAxNDMxNjU1NzY1LCAx
-MzU4MTg3OTE0LCAxMjk0OTgxMzY0LAorCTEyMzk4NTAyNjMsIDExOTEyMDk2MDEsIDExNDc4Nzgy
-OTQsIDExMDg5NTU3ODgKK307CiAKIC8qIGh0dHA6Ly9lbi53aWtpcGVkaWEub3JnL3dpa2kvTWV0
-aG9kc19vZl9jb21wdXRpbmdfc3F1YXJlX3Jvb3RzCiAgKiBuZXdfaW52c3FydCA9IChpbnZzcXJ0
-IC8gMikgKiAoMyAtIGNvdW50ICogaW52c3FydF4yKQpAQCAtMzg4LDQ3ICs0MDQsMTQgQEAgc3Rh
-dGljIHZvaWQgY29iYWx0X25ld3Rvbl9zdGVwKHN0cnVjdCBjb2JhbHRfdmFycyAqdmFycykKIHN0
-YXRpYyB2b2lkIGNvYmFsdF9pbnZzcXJ0KHN0cnVjdCBjb2JhbHRfdmFycyAqdmFycykKIHsKIAlp
-ZiAodmFycy0+Y291bnQgPCBSRUNfSU5WX1NRUlRfQ0FDSEUpCi0JCXZhcnMtPnJlY19pbnZfc3Fy
-dCA9IGNvYmFsdF9yZWNfaW52X3NxcnRfY2FjaGVbdmFycy0+Y291bnRdOworCQl2YXJzLT5yZWNf
-aW52X3NxcnQgPSBpbnZfc3FydF9jYWNoZVt2YXJzLT5jb3VudF07CiAJZWxzZQogCQljb2JhbHRf
-bmV3dG9uX3N0ZXAodmFycyk7CiB9CiAKLS8qIFRoZXJlIGlzIGEgYmlnIGRpZmZlcmVuY2UgaW4g
-dGltaW5nIGJldHdlZW4gdGhlIGFjY3VyYXRlIHZhbHVlcyBwbGFjZWQgaW4KLSAqIHRoZSBjYWNo
-ZSBhbmQgdGhlIGFwcHJveGltYXRpb25zIGdpdmVuIGJ5IGEgc2luZ2xlIE5ld3RvbiBzdGVwIGZv
-ciBzbWFsbAotICogY291bnQgdmFsdWVzLCBwYXJ0aWN1bGFybHkgd2hlbiBzdGVwcGluZyBmcm9t
-IGNvdW50IDEgdG8gMiBvciB2aWNlIHZlcnNhLgotICogQWJvdmUgMTYsIGEgc2luZ2xlIE5ld3Rv
-biBzdGVwIGdpdmVzIHN1ZmZpY2llbnQgYWNjdXJhY3kgaW4gZWl0aGVyCi0gKiBkaXJlY3Rpb24s
-IGdpdmVuIHRoZSBwcmVjaXNpb24gc3RvcmVkLgotICoKLSAqIFRoZSBtYWduaXR1ZGUgb2YgdGhl
-IGVycm9yIHdoZW4gc3RlcHBpbmcgdXAgdG8gY291bnQgMiBpcyBzdWNoIGFzIHRvIGdpdmUKLSAq
-IHRoZSB2YWx1ZSB0aGF0ICpzaG91bGQqIGhhdmUgYmVlbiBwcm9kdWNlZCBhdCBjb3VudCA0Lgot
-ICovCi0KLXN0YXRpYyB2b2lkIGNvYmFsdF9jYWNoZV9pbml0KHZvaWQpCi17Ci0Jc3RydWN0IGNv
-YmFsdF92YXJzIHY7Ci0KLQltZW1zZXQoJnYsIDAsIHNpemVvZih2KSk7Ci0Jdi5yZWNfaW52X3Nx
-cnQgPSB+MFU7Ci0JY29iYWx0X3JlY19pbnZfc3FydF9jYWNoZVswXSA9IHYucmVjX2ludl9zcXJ0
-OwotCi0JZm9yICh2LmNvdW50ID0gMTsgdi5jb3VudCA8IFJFQ19JTlZfU1FSVF9DQUNIRTsgdi5j
-b3VudCsrKSB7Ci0JCWNvYmFsdF9uZXd0b25fc3RlcCgmdik7Ci0JCWNvYmFsdF9uZXd0b25fc3Rl
-cCgmdik7Ci0JCWNvYmFsdF9uZXd0b25fc3RlcCgmdik7Ci0JCWNvYmFsdF9uZXd0b25fc3RlcCgm
-dik7Ci0KLQkJY29iYWx0X3JlY19pbnZfc3FydF9jYWNoZVt2LmNvdW50XSA9IHYucmVjX2ludl9z
-cXJ0OwotCX0KLX0KLQogc3RhdGljIHZvaWQgY29iYWx0X3ZhcnNfaW5pdChzdHJ1Y3QgY29iYWx0
-X3ZhcnMgKnZhcnMpCiB7CiAJbWVtc2V0KHZhcnMsIDAsIHNpemVvZigqdmFycykpOwotCi0JaWYg
-KCFjb2JhbHRfcmVjX2ludl9zcXJ0X2NhY2hlWzBdKSB7Ci0JCWNvYmFsdF9jYWNoZV9pbml0KCk7
-Ci0JCWNvYmFsdF9yZWNfaW52X3NxcnRfY2FjaGVbMF0gPSB+MDsKLQl9CiB9CiAKIC8qIENvRGVs
-IGNvbnRyb2xfbGF3IGlzIHQgKyBpbnRlcnZhbC9zcXJ0KGNvdW50KQotLSAKMi40Ni4wCgpfX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcg
-bGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0
-Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============8721817952910745194==
+Content-Type: multipart/alternative; boundary="0000000000005387a50622575da5"
+
+--0000000000005387a50622575da5
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hello to all,
+
+Tune in: https://www.youtube.com/watch?v=3DqTVNcuzhV6M this Wednesday,
+September 18, @ 6PM CET | 12PM EST | 11PM CST | 10AM MST | 9AM PST
+
+Learn more:
+https://lpc.events/event/18/contributions/1967/
+Slides will be available here, too.
+
+All the best,
+
+Frank
+
+Frantisek (Frank) Borsik
+
+
+
+https://www.linkedin.com/in/frantisekborsik
+
+Signal, Telegram, WhatsApp: +421919416714
+
+iMessage, mobile: +420775230885
+
+Skype: casioa5302ca
+
+frantisek.borsik@gmail.com
+
+
+On Fri, Sep 13, 2024 at 12:33=E2=80=AFAM Frantisek Borsik <
+frantisek.borsik@gmail.com> wrote:
+
+> Hello to all,
+>
+> We are heading to Vienna for Open Source Summit Europe
+> <https://events.linuxfoundation.org/open-source-summit-europe/>
+> (September 16-18) and Linux Plumbers Conference
+> <https://lpc.events/event/18/> (September 18-20).
+>
+> Dave will be giving an update on "State of the Bloat" on Wednesday,
+> September 18
+> @ 6PM CET | 12PM EST | 9AM PST
+> https://lpc.events/event/18/contributions/1967/
+>
+> It would be possible to watch it online - Linux Plumbers organizers will
+> share a link to streaming before the start of the event on social media:
+> https://x.com/LinuxPlumbers
+> https://mastodon.social/@linuxplumbersconf
+>
+> So either see you in Vienna or have fun watching it online.
+>
+> All the best,
+>
+> Frank
+>
+> Frantisek (Frank) Borsik
+>
+>
+>
+> https://www.linkedin.com/in/frantisekborsik
+>
+> Signal, Telegram, WhatsApp: +421919416714
+>
+> iMessage, mobile: +420775230885
+>
+> Skype: casioa5302ca
+>
+> frantisek.borsik@gmail.com
+>
+
+--0000000000005387a50622575da5
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr">Hello to all,<div><br></div><div><div>Tun=
+e in: <a href=3D"https://www.youtube.com/watch?v=3DqTVNcuzhV6M">https://www=
+.youtube.com/watch?v=3DqTVNcuzhV6M</a>=C2=A0this Wednesday, September 18, @=
+ 6PM CET | 12PM EST | 11PM CST | 10AM MST | 9AM PST</div><div><br></div><di=
+v>Learn more:</div><div><a href=3D"https://lpc.events/event/18/contribution=
+s/1967/">https://lpc.events/event/18/contributions/1967/</a><br></div><div>=
+Slides will be available here, too.</div><div><br clear=3D"all"><div><div d=
+ir=3D"ltr" class=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"ltr"=
+><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><=
+div dir=3D"ltr"><div dir=3D"ltr"><div>All the best,</div><div><br></div><di=
+v><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frank<u></u><u></u><=
+/p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u></u><u></u></p><=
+p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frantisek (Frank) Borsi=
+k<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u>=
+</u>=C2=A0<u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><=
+a href=3D"https://www.linkedin.com/in/frantisekborsik" style=3D"color:rgb(1=
+7,85,204)" target=3D"_blank">https://www.linkedin.com/in/frantisekborsik</a=
+><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Sig=
+nal, Telegram, WhatsApp: +421919416714=C2=A0<u></u><u></u></p><p class=3D"M=
+soNormal" style=3D"color:rgb(34,34,34)">iMessage, mobile: +420775230885<u><=
+/u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Skype: c=
+asioa5302ca<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,3=
+4,34)"><a href=3D"mailto:frantisek.borsik@gmail.com" style=3D"color:rgb(17,=
+85,204)" target=3D"_blank">frantisek.borsik@gmail.com</a></p></div></div></=
+div></div></div></div></div></div></div></div></div></div></div><br></div><=
+/div></div><br><div class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_a=
+ttr">On Fri, Sep 13, 2024 at 12:33=E2=80=AFAM Frantisek Borsik &lt;<a href=
+=3D"mailto:frantisek.borsik@gmail.com">frantisek.borsik@gmail.com</a>&gt; w=
+rote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px 0p=
+x 0.8ex;border-left-width:1px;border-left-style:solid;border-left-color:rgb=
+(204,204,204);padding-left:1ex"><div dir=3D"ltr">Hello to all,<div><br></di=
+v><div>We are heading to Vienna for=C2=A0<a href=3D"https://events.linuxfou=
+ndation.org/open-source-summit-europe/" target=3D"_blank">Open Source Summi=
+t Europe</a> (September 16-18) and <a href=3D"https://lpc.events/event/18/"=
+ target=3D"_blank">Linux Plumbers Conference</a> (September 18-20).</div><d=
+iv><br></div><div>Dave will be giving an update on &quot;State of the Bloat=
+&quot; on Wednesday, September 18=C2=A0</div><div>@ 6PM CET | 12PM EST | 9A=
+M PST</div><div><a href=3D"https://lpc.events/event/18/contributions/1967/"=
+ target=3D"_blank">https://lpc.events/event/18/contributions/1967/</a></div=
+><div><br></div><div>It would be possible to watch it online - Linux Plumbe=
+rs organizers will share a link to streaming before the start of the event =
+on social media:</div><div><a href=3D"https://x.com/LinuxPlumbers" target=
+=3D"_blank">https://x.com/LinuxPlumbers<br></a></div><div><a href=3D"https:=
+//mastodon.social/@linuxplumbersconf" target=3D"_blank">https://mastodon.so=
+cial/@linuxplumbersconf<br></a></div><div><br></div><div>So either see you =
+in Vienna or have fun watching it online.</div><div><br></div><div><div><di=
+v dir=3D"ltr" class=3D"gmail_signature"><div dir=3D"ltr"><div><div dir=3D"l=
+tr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr=
+"><div dir=3D"ltr"><div dir=3D"ltr"><div>All the best,</div><div><br></div>=
+<div><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frank<u></u><u></=
+u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u></u><u></u></=
+p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frantisek (Frank) Bo=
+rsik<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">=
+<u></u>=C2=A0<u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)=
+"><a href=3D"https://www.linkedin.com/in/frantisekborsik" style=3D"color:rg=
+b(17,85,204)" target=3D"_blank">https://www.linkedin.com/in/frantisekborsik=
+</a><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">=
+Signal, Telegram, WhatsApp: +421919416714=C2=A0<u></u><u></u></p><p class=
+=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessage, mobile: +42077523088=
+5<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Sky=
+pe: casioa5302ca<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb=
+(34,34,34)"><a href=3D"mailto:frantisek.borsik@gmail.com" style=3D"color:rg=
+b(17,85,204)" target=3D"_blank">frantisek.borsik@gmail.com</a></p></div></d=
+iv></div></div></div></div></div></div></div></div></div></div></div></div>=
+</div>
+</blockquote></div></div>
+
+--0000000000005387a50622575da5--
+
+--===============8721817952910745194==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============8721817952910745194==--
