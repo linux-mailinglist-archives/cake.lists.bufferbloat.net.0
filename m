@@ -2,74 +2,78 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9AFE29BBDE3
-	for <lists+cake@lfdr.de>; Mon,  4 Nov 2024 20:20:26 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id C08D89BC71E
+	for <lists+cake@lfdr.de>; Tue,  5 Nov 2024 08:36:31 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 9E10D3CB44;
-	Mon,  4 Nov 2024 14:20:19 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 361693CB46;
+	Tue,  5 Nov 2024 02:36:25 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1730748019;
-	bh=WDx8dC8N74tUG2Syass3ikCgV3N+OQHNGmYdA1CFpp4=;
+	d=lists.bufferbloat.net; s=201610; t=1730792185;
+	bh=ThMrwLP7u7cK/PWQ6RAUAdtjlbQnKfcQPppei4di8hs=;
 	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
 	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=fUPG4XU0KI4OMN7h4GnOVC/f0rGtMxg75WFyEBTnpQ5EX7nCgc54Tdrz88z0a+TJ7
-	 jRa+M5md7ze+LeoSuOMD0dDw4RFy2Q1iEvfor266CWgqrjwGlkm49UGzhthSpzqPve
-	 RoSv0zU+ETu6OCvJ1rJD13b8+JYmK9B35PpvXWuAVWr1PDjgqs6bzw8qbsEkWr+FXm
-	 QOOHuTwifvzdZR4a0CJqEK0lJQuS6sYhes0OtbGh9O+lcjL8XTaMCvRtUByFElpctY
-	 xYknQ9qvn8JZFrptWAuIgS5Ow0WPSMkU3CMdaXNJigYS1retnq2PuSQ8LLU9N0UsV7
-	 RTWhRG29mx5fw==
+	b=GQ1YacaElLjViDGxFJKYDjBTZOlgZXgbKb9sQc/Byf/PwALGhiFpxpczRq/r/uVAF
+	 p/x+NiKDjrbI4BDP7kHGMPGYFd3zdh4xnUIj7RNQy2N/CyGNVuaOCobMLjlPYsBbbH
+	 Q5DcYf6dzZ56f7XdCpX9oM5VyCiLDvL3Wn6IN9DQCxhlkRebFpZXB9a5yDOysbZ0Qo
+	 8d2V4M+BX1IVrLJoCyXB86d5CWa8/rydrK6YAZ6fql3Insx3O2cRymv4LfjiBxFT+C
+	 G5PThD4UpDrEk61yGZwDmxyxSzFEs1eungiw1f6V5ACmozyp3knds+AO1vIfdEC+cb
+	 KVbH2DIoL/5yw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-lf1-x12c.google.com (mail-lf1-x12c.google.com
- [IPv6:2a00:1450:4864:20::12c])
+Received: from mail-ej1-x62b.google.com (mail-ej1-x62b.google.com
+ [IPv6:2a00:1450:4864:20::62b])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 6561C3B2A4;
- Mon,  4 Nov 2024 14:20:18 -0500 (EST)
-Received: by mail-lf1-x12c.google.com with SMTP id
- 2adb3069b0e04-539f7606199so2206734e87.0; 
- Mon, 04 Nov 2024 11:20:18 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 74A313B2A4;
+ Tue,  5 Nov 2024 02:36:23 -0500 (EST)
+Received: by mail-ej1-x62b.google.com with SMTP id
+ a640c23a62f3a-a9a2209bd7fso899230666b.2; 
+ Mon, 04 Nov 2024 23:36:23 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1730748017; x=1731352817; darn=lists.bufferbloat.net;
+ d=gmail.com; s=20230601; t=1730792182; x=1731396982; darn=lists.bufferbloat.net;
  h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
  :date:message-id:reply-to;
- bh=Nmob6v6SzXy/t11qsAM9Oylo8+yvRfAL8Z+8Vm/VAyU=;
- b=S8Ur93R4g/OhTZigmdhrmy7wIqE8Ro1Ou7WRDFqZ4fchXrwfjoLTaE9DVUBByzRrIt
- BT00xAWAWRbYJKwANOLM3zM/vFSSWTdeMpXCCmOpO6zgn6sE+eelrLTG4D8ToTefr/Yg
- 0HMZpOrTo6b4rDv9kGxispuCP4wx6K/bC8Gi5tWPca+YDz6oWbgwA5N5MJrD5R+vrR8X
- QNw/CjdYP2SBCZZ7GP/mv7bTlbIUxG/iY6vzRqO0HsES9vFzwVC3jBC4OuKbfsAaGrkt
- FZyL1vkifEPDFowmMb7v/hHf4ZQYjd8o2gk6OIqQdSBVFdgg0T3QNgZpzkQMflDdbhiN
- ogOw==
+ bh=ctyH+pguj0gnwRpkZ45mLT68jhLuKwPyP/mT2j+4aBw=;
+ b=EU+W2cAw0+Efjt7CeNq9zyRTCmXtgBVSdjsYLw4lykzZV9nxPKZYIdt303mEd7OLt0
+ 7ykbaWtMhOJ2d9VSfhuUxIUGtglxSKF3lAJ7tXXy52uok7F9ERg4lreMACgM/mkqLpvz
+ pmlk5S1G9uxdJxsQZBlvtqz3cTpJfeWQ7KGtvXBkTRBWlqYW8zaT0NwZOW62GwYBrKqF
+ FNX29F8LHoS35+psr3y5B6LRRnc1GhzTE3wpvaNMI1wr8JJ1Hvr9+w9phW12Io1Fr037
+ nbFy2NhWl8169VguoQ1sloone8cddE3VlHUrF1ysZpv5CQibMN+tRcD8UQlUbOzleuMI
+ O1dQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1730748017; x=1731352817;
+ d=1e100.net; s=20230601; t=1730792182; x=1731396982;
  h=to:subject:message-id:date:from:mime-version:x-gm-message-state
  :from:to:cc:subject:date:message-id:reply-to;
- bh=Nmob6v6SzXy/t11qsAM9Oylo8+yvRfAL8Z+8Vm/VAyU=;
- b=wBxo/opRDiuaSKVYNKM88W7DXWWrbAotcinS2OtoJ3InaEu/t+NP3UnKN+A/HRRLdJ
- u98euhF7oxwl4Aj0lNl6ZjDhNLSzbntLB5YkRY5QKZ3haoAnrlIbDmWXtyg2WKQxIjEN
- ZAUV+ewgkxPvR9sk4UUl2JfFqAuLkmhD/O3uBDD2cX4TJFsETM+jsTH0VrwuyI8UT9cd
- Aek53Wv9gwW4Zha3z08bOzbH2bnuGpw4WHJQZjO499KDShnQQ3x/H3FbFjuYllPkRMpC
- EVhTH/BJTQptuOsnUud1COpLDypDtyBmTw05Taa9vEpVXvw/Bqf8Mje3D7mJFdSMRvc0
- 7N3w==
+ bh=ctyH+pguj0gnwRpkZ45mLT68jhLuKwPyP/mT2j+4aBw=;
+ b=psAwVCmrbyFr1Ck6wQzgZ0J8f5Dh2F5kJcPu6+RwsX8bDitQMNyfHVHlS6tyDzwXSm
+ fNYfDIIYKbgaMVUzr9s+FQjNh2YKNkLwoxY0t1Tg3B+QQ0e3SipmNlQ8s/gR4AmOM0NQ
+ GnXXc7GbgpfDYczJ8VJOMRNl26w2NjLpYBnSd9X1OzB3rHlbL6bK+cqoXjQElAf6iDyX
+ CHFizNCG55vsVz4iWq/+owTEaLINvTAh9QmcgwLgziNW3pQ4f6Qd+kTRLxvfMU0QFBRk
+ fwPeN+4z0gibbsbjjcfjxHTx+071TxqHxidzWoGVbBG3H3kn3MHt0ucT8R7qLwa5OJsV
+ fm2g==
 X-Forwarded-Encrypted: i=1;
- AJvYcCVbGLvCKkOtyvDjj+i5e9K6ZE3kc84SyllBHGw1NcS6vUaTyZp/ZysHelRSmhDOri7sM79t@lists.bufferbloat.net,
- AJvYcCWL1nFCUKKcez3X/eZ3vn1D6Eqnscfmwg/oXhJ8SGyodjGw+ljm3SCQeOR+RP2fQwgo0LyJuA==@lists.bufferbloat.net,
- AJvYcCWZ69EGrsEvbE2CgBZF0ezh7DAobX5NT3x4AwyCGqPauTWtP/rLxGw8guLd5t3acpqZOABaJg==@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0YzmYmrHXuGSQzIvJQkhkBQcuD27dhD6bQpzTb276YQjs05fXXG1
- xtDgR89sZdPgFWuEmTm+WApXCFhPua4yL0WYZfLLnqgsZpbooeaArP246QqgCL3TgzVnp9zoE5r
- kO0/aezTbOtVInzzdE2AEAUAsrzjk1x2Bj4l2uA==
-X-Google-Smtp-Source: AGHT+IFxHxAEwPbrnRk2uoBLS0APYy1nNqdLicVxfvaSDDeoJtJ2i2Gcczqy3EX4FcfTS9BBkYlCVHTzg0hmHFJCZXk=
-X-Received: by 2002:a05:6512:6ce:b0:539:f922:bd4e with SMTP id
- 2adb3069b0e04-53b7ece11eamr11087139e87.23.1730748016518; Mon, 04 Nov 2024
- 11:20:16 -0800 (PST)
+ AJvYcCUIGU4VQen7pAULN1RNGN3Y77u1TaWKh2w1yVPOLVijf5ZP5beYEpFul/alJHFTEN7e4OY+0E4=@lists.bufferbloat.net,
+ AJvYcCVF+F0acfd6WbMoJ0heRwGfeFGxoi4Fgnt7TBZpzBGN3mYUhC78ozKI7ACMYEwLJ+gyHQCQ12R1kYY=@lists.bufferbloat.net,
+ AJvYcCVjc5AlEqDGN3UY0BGvqGVdNoFtYkLIp2TsIibvfmWq/55tzNkwpuokJJT6hQ9ei9IAIjel@lists.bufferbloat.net,
+ AJvYcCWM+SVUuhgQbRrAxmFN1c3u7p+I5Ag/5xSEx6Psg8QRnngRUU8DAZvVUQhfueTQmAFE8GGaAloaaM206i/dTa0=@lists.bufferbloat.net,
+ AJvYcCXU1a1dOwsVL4riSaySXXADIJX1bldKOeXjYKXk3GxAAhMK15zmoFroYPwg3ReofmW/uXLX@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YznDGuDQmlSd9SmMAJy9ZcPJfEd+QIE+sHS7QFli2e0iRGevuSt
+ ULc9Mxzco8XbIng6T0hPLN/fyw7Tgk80o0LQYIjbPq98SFgBhVb2l4VgfSqExQemB0Y/2uIHi30
+ Um6swmpWiEN2aF7ERe8esA/l9d2UPytYaq0s=
+X-Google-Smtp-Source: AGHT+IG4znjFBEqPWSGAqGgaKtcUFdIbuT3old7LtXSSzRGmrYlDzwVx6nkwW6+aCRLoZh3Y64kKms1MjMcKFBXZ1vQ=
+X-Received: by 2002:a17:907:1b84:b0:a9a:bbcc:508c with SMTP id
+ a640c23a62f3a-a9de5c91a6emr2255504666b.2.1730792181845; Mon, 04 Nov 2024
+ 23:36:21 -0800 (PST)
 MIME-Version: 1.0
-Date: Mon, 4 Nov 2024 20:19:57 +0100
-Message-ID: <CAJUtOOj651oWt_hV2XunmvZqOpT+7C5Snd=jHZvO2N5amUSUNQ@mail.gmail.com>
-To: codel@lists.bufferbloat.net, Cake List <cake@lists.bufferbloat.net>, 
- bloat <bloat@lists.bufferbloat.net>, 
- Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>
-Subject: [Cake] QoE at WISPAPALOOZA & DavidCB's "Queues,
- Hockey Sticks and Performance" at P99CONF by ScyllaDB
+Date: Tue, 5 Nov 2024 08:36:04 +0100
+Message-ID: <CAJUtOOjSC-P68w=GguxBCuyJHbZRoFcs-QjMCw3-KYZYJbct0A@mail.gmail.com>
+To: bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
+ codel@lists.bufferbloat.net, 
+ Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>, 
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>, 
+ libreqos <libreqos@lists.bufferbloat.net>
+Subject: [Cake] Measuring Network Latency from a Wireless ISP: Variations
+ Within and Across Subnets @ ACM Internet Measurement Conference 2024
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -83,27 +87,33 @@ List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
 From: Frantisek Borsik via Cake <cake@lists.bufferbloat.net>
 Reply-To: Frantisek Borsik <frantisek.borsik@gmail.com>
-Content-Type: multipart/mixed; boundary="===============6122033808460731056=="
+Content-Type: multipart/mixed; boundary="===============0759729789338409733=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============6122033808460731056==
-Content-Type: multipart/alternative; boundary="000000000000b873a406261b2c17"
+--===============0759729789338409733==
+Content-Type: multipart/alternative; boundary="0000000000002dd84306262575f9"
 
---000000000000b873a406261b2c17
+--0000000000002dd84306262575f9
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
 Hello to all,
 
+There was this wonderful paper presented yesterday at ACM Internet
+Measurement Conference 2024 in Madrid, Spain, done by Simon Sundberg, Anna
+Brunstrom, Simone Ferlin-Reiter, Toke H=C3=B8iland-J=C3=B8rgensen and Rober=
+t Chac=C3=B3n.
+
+Read it here:
+
+*https://dl.acm.org/doi/10.1145/3646547.3688438*
+<https://dl.acm.org/doi/10.1145/3646547.3688438>
+
+Other accepted papers can be found here:
+https://conferences.sigcomm.org/imc/2024/accepted-papers/
+
 Enjoy!
-
-LibreQos, Preseem & Cambium Networks @ WISPAPALOOZA 2024 - "Forest For The
-Trees: Listening To Your Network"
-https://www.youtube.com/watch?v=ZuzIaWGs9Vk
-
-David Collier-Brown at P99CONF by ScyllaDB - "Queues, Hockey Sticks and
-Performance"
-https://www.youtube.com/watch?v=k_m3nEBR8jA
 
 All the best,
 
@@ -123,41 +133,47 @@ Skype: casioa5302ca
 
 frantisek.borsik@gmail.com
 
---000000000000b873a406261b2c17
+--0000000000002dd84306262575f9
 Content-Type: text/html; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr"><div>Hello to all,<div><br></div><div>Enjoy!</div><div><br=
-></div><div>LibreQos, Preseem &amp; Cambium Networks @ WISPAPALOOZA 2024 - =
-&quot;Forest For The Trees: Listening To Your Network&quot;<br></div><div><=
-a href=3D"https://www.youtube.com/watch?v=3DZuzIaWGs9Vk">https://www.youtub=
-e.com/watch?v=3DZuzIaWGs9Vk<br></a></div><div><br></div><div>David Collier-=
-Brown at P99CONF by ScyllaDB - &quot;Queues, Hockey Sticks and Performance&=
-quot;</div><div><a href=3D"https://www.youtube.com/watch?v=3Dk_m3nEBR8jA">h=
-ttps://www.youtube.com/watch?v=3Dk_m3nEBR8jA</a></div></div><br clear=3D"al=
-l"><div><div dir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_=
-signature"><div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><di=
-v dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=
-=3D"ltr"><div>All the best,</div><div><br></div><div><p class=3D"MsoNormal"=
- style=3D"color:rgb(34,34,34)">Frank<u></u><u></u></p><p class=3D"MsoNormal=
-" style=3D"color:rgb(34,34,34)"><u></u><u></u></p><p class=3D"MsoNormal" st=
-yle=3D"color:rgb(34,34,34)">Frantisek (Frank) Borsik<u></u><u></u></p><p cl=
-ass=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u></u>=C2=A0<u></u></p><p =
-class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a href=3D"https://www.li=
-nkedin.com/in/frantisekborsik" style=3D"color:rgb(17,85,204)" target=3D"_bl=
-ank">https://www.linkedin.com/in/frantisekborsik</a><u></u><u></u></p><p cl=
-ass=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Signal, Telegram, WhatsApp:=
- +421919416714=C2=A0<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color=
-:rgb(34,34,34)">iMessage, mobile: +420775230885<u></u><u></u></p><p class=
-=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Skype: casioa5302ca<u></u><u><=
-/u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a href=3D"mail=
-to:frantisek.borsik@gmail.com" style=3D"color:rgb(17,85,204)" target=3D"_bl=
-ank">frantisek.borsik@gmail.com</a></p></div></div></div></div></div></div>=
-</div></div></div></div></div></div></div></div>
+<div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr">Hello to all,</div><div =
+dir=3D"ltr"><br></div><div dir=3D"ltr">There was this wonderful paper prese=
+nted yesterday at=C2=A0ACM Internet Measurement Conference 2024 in Madrid, =
+Spain, done by=C2=A0Simon Sundberg, Anna Brunstrom, Simone Ferlin-Reiter, T=
+oke H=C3=B8iland-J=C3=B8rgensen and Robert Chac=C3=B3n.</div><div dir=3D"lt=
+r"><br></div><div>Read it here:</div><div><a href=3D"https://dl.acm.org/doi=
+/10.1145/3646547.3688438" target=3D"_blank"><b>https://dl.acm.org/doi/10.11=
+45/3646547.3688438<br></b></a></div><div><br></div><div>Other accepted pape=
+rs can be found here:</div><div><a href=3D"https://conferences.sigcomm.org/=
+imc/2024/accepted-papers/" target=3D"_blank">https://conferences.sigcomm.or=
+g/imc/2024/accepted-papers/<br></a></div><div><br></div><div dir=3D"ltr">En=
+joy!</div><div dir=3D"ltr"><br clear=3D"all"><div><div dir=3D"ltr" class=3D=
+"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div>=
+<div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><d=
+iv dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>All the best,</div><d=
+iv><br></div><div><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Fran=
+k<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u>=
+</u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frantis=
+ek (Frank) Borsik<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rg=
+b(34,34,34)"><u></u>=C2=A0<u></u></p><p class=3D"MsoNormal" style=3D"color:=
+rgb(34,34,34)"><a href=3D"https://www.linkedin.com/in/frantisekborsik" styl=
+e=3D"color:rgb(17,85,204)" target=3D"_blank">https://www.linkedin.com/in/fr=
+antisekborsik</a><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rg=
+b(34,34,34)">Signal, Telegram, WhatsApp: +421919416714=C2=A0<u></u><u></u><=
+/p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessage, mobile: +=
+420775230885<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,=
+34,34)">Skype: casioa5302ca<u></u><u></u></p><p class=3D"MsoNormal" style=
+=3D"color:rgb(34,34,34)"><a href=3D"mailto:frantisek.borsik@gmail.com" styl=
+e=3D"color:rgb(17,85,204)" target=3D"_blank">frantisek.borsik@gmail.com</a>=
+</p></div></div></div></div></div></div></div></div></div></div></div></div=
+></div></div>
+</div>
+</div>
 
---000000000000b873a406261b2c17--
+--0000000000002dd84306262575f9--
 
---===============6122033808460731056==
+--===============0759729789338409733==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -167,4 +183,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============6122033808460731056==--
+--===============0759729789338409733==--
