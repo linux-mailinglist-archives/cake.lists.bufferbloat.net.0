@@ -2,58 +2,58 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 95E829FDAAA
-	for <lists+cake@lfdr.de>; Sat, 28 Dec 2024 14:25:52 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id BA9679FDAAB
+	for <lists+cake@lfdr.de>; Sat, 28 Dec 2024 14:25:53 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 00ACF3CB61;
+	by lists.bufferbloat.net (Postfix) with ESMTP id 1439E3CB65;
 	Sat, 28 Dec 2024 08:25:47 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1735392347;
-	bh=wdoAXsTsBTnkNXS3t/DaNRU2n0gGnuQcEgIRl64NjYk=;
+	bh=O0d8d2eV3rrC0AEjRMhsnkyy0gq68BN0nahF9xWQJa4=;
 	h=To:Date:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=X84Trh/ZFvyrjkVMGy60p2bkGjm/GY7tGNRpgt9gRIVwpGAZxCbXYK7lD8ju8GWbo
-	 1cH2kYc7C9DV6NpDfhOM8zVnreLYN05DQKAvixnMUS0aMTQzimzGdAlpxMjJ72hLgs
-	 J+vci+6sUw8XVZA0imc8egAC2QsyPWVoetdHKqFBEov00Yr1bS7rFye0xnze5zU3Z1
-	 Z5CzIdc0VGkhgSAcd49tnglIg2ukt+tQEHgC7vaIPUVPPfEdeyprALsRkeqCgSHI88
-	 qvfqsGTZNa6ElqUASEc2qwYJodSd0MVMf7acQ+CPkNwIzF8mhUTWgwyANSILtEPeX3
-	 ieIhoyP1Z/Kfg==
+	b=hwZq7By4GJSA+46vntGTTqxrsdBtcRbUAQMcaCM6eQi8Ekv3q5dkF8SAk17cqsjPF
+	 Nzx5JaGBOM91JLs5Szs9gmjMfld1p4G/ARmWnYa1KvJJa/zhTPR84ZQCdBwlfTPiz8
+	 eccRQjjRqDUwXFJ+ga8aMsoNO/TJ/ydZeXk1zOfCYmPyLcmapob8s3B10Z2dKMOzT9
+	 1eI360z9/QCtGe6nQ8DuJZ9nb2ec7QSzhZtx4iGy3C8ngnrjYbJfCJ/bcGPIlT4t07
+	 T9Q2fZ6wx2Nq3B42G7iBY4ZsHXwWSF/C2gemw8Frqv+m6r/44MxPpsS1NS5yAhZpCS
+	 QWA6JMnifPm/A==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
 Received: from nyc.source.kernel.org (nyc.source.kernel.org [147.75.193.91])
  (using TLSv1.2 with cipher ADH-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 3F9B53CB37
- for <cake@lists.bufferbloat.net>; Wed, 11 Dec 2024 13:54:10 -0500 (EST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id AEB723CB37
+ for <cake@lists.bufferbloat.net>; Wed, 11 Dec 2024 13:54:34 -0500 (EST)
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
- by nyc.source.kernel.org (Postfix) with ESMTP id 8F73BA418B7;
- Wed, 11 Dec 2024 18:52:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4F09C4CED4;
- Wed, 11 Dec 2024 18:54:07 +0000 (UTC)
+ by nyc.source.kernel.org (Postfix) with ESMTP id 216E9A41828;
+ Wed, 11 Dec 2024 18:52:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 78887C4CED4;
+ Wed, 11 Dec 2024 18:54:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
- s=k20201202; t=1733943249;
- bh=DVq9/0UC8vOHkJXORLyGEhtGTjAtJDQ/nabgP13wMvk=;
+ s=k20201202; t=1733943274;
+ bh=abLzIOoeqegwBKW22/IQl8qmfu8k5E7rnoJ2fhX+uyE=;
  h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
- b=MRjwyDSxbuynJqvPCqb3OFkH9/1dWiSeYxFflnfVIPw6gsAEbXDh4YkrExKXKsAQw
- 2KtUVHnxb75R7S8zlPmX21Z6GuAn/Ih2lNtBV86rE+55LeqdQ8oh/q/6E+qZ9yzrWT
- K2JrdIzbA02LQwnCuvdq78G5uZxllDew/nG4foyXIcDr+h4KYWnWa0INLe1DeOW1lv
- gleT7jAqmGc7qvOnxZP5QNEEfpffBOpryAvT/SvmTqPQ1cOYsyToyfIzHLHu5jxH1b
- hzbdckdi/L3/ibL/fF7OCeRvGdAtUxeZ2pEDl85rBjLuWx/mZnX9U6fdvvLka7UNC+
- pSKXfa9i4KFKg==
+ b=ioI09ZMXQUsSTeBg+iNt4jGGSkv6HKb9Sk11XkvniiFqHY4cCkjWTFxPkPWa3Phwc
+ W3LSPfKpSDNv2FYMsHKs9U0uF60TPXJxnJOFwpZeSZuxXdUjtk+LK4oxat842+NJED
+ 1s0B/Cr8Th6/aAYZ2wSJIX6JP9LAgjVjpv5ZL43/YnHSpKyNQF73gkHWGzTRhT/oPM
+ K2wsWL9XJHAF5IRYW2XvY+oR/PFVTmzhr4K/t5JGLaPk7gyBSMBaTsaNBSHUSORZz3
+ f0bLAq8SUNUKHGnPaYH92nznlao4xrKe3L2r1woqDLzonzx0dVrOrvn6LY4zPK84or
+ d6g+gAcBit8GA==
 To: linux-kernel@vger.kernel.org,
 	stable@vger.kernel.org
-Date: Wed, 11 Dec 2024 13:53:48 -0500
-Message-ID: <20241211185355.3842902-7-sashal@kernel.org>
+Date: Wed, 11 Dec 2024 13:54:13 -0500
+Message-ID: <20241211185419.3843138-7-sashal@kernel.org>
 X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20241211185355.3842902-1-sashal@kernel.org>
-References: <20241211185355.3842902-1-sashal@kernel.org>
+In-Reply-To: <20241211185419.3843138-1-sashal@kernel.org>
+References: <20241211185419.3843138-1-sashal@kernel.org>
 MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
-X-stable-base: Linux 5.15.173
+X-stable-base: Linux 5.10.230
 X-Mailman-Approved-At: Sat, 28 Dec 2024 08:25:46 -0500
-Subject: [Cake] [PATCH AUTOSEL 5.15 07/10] net: sched: fix ordering of qlen
+Subject: [Cake] [PATCH AUTOSEL 5.10 07/10] net: sched: fix ordering of qlen
 	adjustment
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
@@ -90,7 +90,7 @@ dD4KU2lnbmVkLW9mZi1ieTogU2FzaGEgTGV2aW4gPHNhc2hhbEBrZXJuZWwub3JnPgotLS0KIG5l
 dC9zY2hlZC9zY2hfY2FrZS5jICB8IDIgKy0KIG5ldC9zY2hlZC9zY2hfY2hva2UuYyB8IDIgKy0K
 IDIgZmlsZXMgY2hhbmdlZCwgMiBpbnNlcnRpb25zKCspLCAyIGRlbGV0aW9ucygtKQoKZGlmZiAt
 LWdpdCBhL25ldC9zY2hlZC9zY2hfY2FrZS5jIGIvbmV0L3NjaGVkL3NjaF9jYWtlLmMKaW5kZXgg
-Yzk1MmU1MGQzZjRmOC4uZWViNDE4MTY1NzU1ZSAxMDA2NDQKLS0tIGEvbmV0L3NjaGVkL3NjaF9j
+NGRkYjQzYTY2NDRhYi4uOGQ5YzBiOThhNzQ3YiAxMDA2NDQKLS0tIGEvbmV0L3NjaGVkL3NjaF9j
 YWtlLmMKKysrIGIvbmV0L3NjaGVkL3NjaF9jYWtlLmMKQEAgLTE1NDEsNyArMTU0MSw2IEBAIHN0
 YXRpYyB1bnNpZ25lZCBpbnQgY2FrZV9kcm9wKHN0cnVjdCBRZGlzYyAqc2NoLCBzdHJ1Y3Qgc2tf
 YnVmZiAqKnRvX2ZyZWUpCiAJYi0+YmFja2xvZ3NbaWR4XSAgICAtPSBsZW47CiAJYi0+dGluX2Jh
