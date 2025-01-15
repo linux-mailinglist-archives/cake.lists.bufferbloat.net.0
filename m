@@ -2,80 +2,75 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id BCB4CA105F1
-	for <lists+cake@lfdr.de>; Tue, 14 Jan 2025 12:51:18 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 1AD7EA12D0E
+	for <lists+cake@lfdr.de>; Wed, 15 Jan 2025 21:57:24 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 93E533CB47;
-	Tue, 14 Jan 2025 06:51:09 -0500 (EST)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 9A2BD3CB39;
+	Wed, 15 Jan 2025 15:57:22 -0500 (EST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1736855469;
-	bh=V5TvTQsSE83ABeweUlQX/4xT80leKy3HsaBJzBlv3KI=;
-	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
+	d=lists.bufferbloat.net; s=201610; t=1736974642;
+	bh=+eC0V/GJsndUvtDT8qMbNNhoBbycwFLnKWSugAv1r1E=;
+	h=To:Date:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
 	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=V+xoZBnqHGvzXQZMc3oq6uTz5boM06bqnUTODokMHDrTrIBJvVHoj9az9To7zx2bZ
-	 nqrICi0xZUb7rWJfVVTMFOTdrL/OEoyACAY/a2+96SBpOFLy7i9G6of06gGtDDGaYq
-	 K2et5mWV/idWmkVe7Bma19j2djbzTHed7zuvK5Gtm7KG21ZGi1vl2VUdNuqEzYyRbj
-	 z4bQOFudB3+9hsn+7hCRirCuxQrabm27DVmYVEZaZn4tIpBHSTRGGn3zsq/QHQNI3J
-	 OButstll8QXAu36yTjGr+n3aqPE2JLHDwDPFNmoUu9iCBS4AOlxZjxfl4M5BbQVOwJ
-	 Kz1FSitFib3sg==
+	b=n4ZbD78RtTJuVknvwyfgxIM++/BMq9V5xD9sKDpHj8zR9JfDpN6huvTZO8FZxDel1
+	 2D8JhLRzuZMlb9ipAXKduveYDPFiV6PnRsmeJ2zlg9s1MhFuY15WLkdJGm23U9i8Mk
+	 wMjWAOa1WvGXPoBOqn7oyqeZkGrzzvh/U3b1+Wm9ZKSsMaJeUcuMzpGCHDvF5htF4m
+	 bduR0nLwZBi9DSwnGq03y3yPcmD9PlV4ni3QrQtQ/+c729MHZz5gEnAegPNlLFvkkv
+	 ufWju2sSQgtXw9uFfjy/bD+OiOdEaMwhl+qr1CTFa1Fk/Y1ptBDTXDnXVcpDGudQYg
+	 74zbLL8OB8XTA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ed1-x52d.google.com (mail-ed1-x52d.google.com
- [IPv6:2a00:1450:4864:20::52d])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from smtp-out2.cloudwebhosting.com (smtp-out2.cloudwebhosting.com
+ [216.55.99.164])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id CBC9F3B29D;
- Tue, 14 Jan 2025 06:51:07 -0500 (EST)
-Received: by mail-ed1-x52d.google.com with SMTP id
- 4fb4d7f45d1cf-5d647d5df90so9062358a12.2; 
- Tue, 14 Jan 2025 03:51:07 -0800 (PST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1736855466; x=1737460266; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
- :date:message-id:reply-to;
- bh=5QhmIJT+UF3tXQF7GXradK3wI9idHXrUwxRUPT6mG3k=;
- b=jZvgZkq9TvtCF1r9ZR0QPCNhfJJF3OcSZHXvaQ1sztUIvUh2o26/vePNIyWTfWgCjk
- aS68pEu6S2VSr6ZVb+QGjN5I0gkXLYm6+Gj4SsVfocFQBC/80NQIDGZcYa+zB87IqBZw
- WEp0rMbzScn7VaHh7OyUOl8sxqBOL2eP92nJ4vIaYPZH5AS3oKtRAvln/X+KOJRgBwnU
- ByCmbr/9ZbHw6Ue0qHJjl6Fip9jow2fUj3XdqXhHWrcylbjC7jHcDAkvInf+SYYmOkUq
- 6dTdKygUAPdXQ1sH/K8pqqrxC4+w7mS/3ptSBD44ChYqyt9392LjaKMoGEgUHlOFb6r+
- 6RwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1736855466; x=1737460266;
- h=to:subject:message-id:date:from:mime-version:x-gm-message-state
- :from:to:cc:subject:date:message-id:reply-to;
- bh=5QhmIJT+UF3tXQF7GXradK3wI9idHXrUwxRUPT6mG3k=;
- b=QqFJ4RKLK7SYItiq7vALrIi4qQPL+hK5H3ZsHKGiFCK9o7rWB9iODtCQxge4tGD/g/
- KgylkpeShHipnNCkOBAXKHubFTtoWC4YnMPjhgSPvTUHj34qKffmQpa87N9lkM1aYHJ2
- VlK96CN+FnPCjKML7JoORLzw6whuYDZ85BibmvATs/a8KzRvX9j88PqJlpz+gTBt03ZY
- rU7U8VuyyVVi/VenCU1JhvhNHlAsAexnQuDXzgMKLh+EDwdPRM28KYpZs1XdOYOqrtwj
- ZKF2//jlRoTPbMX41cjKWrVqjTnrOUBEeYCw14llKuKQBnXN90Y3O0zqXGH0h1ccMEdv
- se9w==
-X-Forwarded-Encrypted: i=1;
- AJvYcCU59tHiDKCYSkXHpPPQlgPv8bkS57dh2+MFdQpSj270vVVl1iggs55IrBNi37xXBlBrjSQ1fJnJBPE=@lists.bufferbloat.net,
- AJvYcCUKXcaTW1RyeesOcXaGyp/UMXRRb5bBAOMxtfV/1EXeuI6WTTUNz9w20yQc6rgbLzxvAhal@lists.bufferbloat.net,
- AJvYcCUgZ11Cch9oBaJSekxTgC4/nvWxZeXqGSWRVDF3Vw7kXb3M/YynxhC98Uj3zpxvr8CMkbV2lyc=@lists.bufferbloat.net,
- AJvYcCVfWnrXhPYBq78WxT2EA0vLQku65UNkpXQpOvvACe9N+IcyXTpNQ6UkpnQ7u8srmi2x5lWMMAnyE6qudiQjgek=@lists.bufferbloat.net,
- AJvYcCXhYQ9aD8XguwU0fRHudC/hq1diTJ06TPKiuWKFm4axz7b9RkxSoT3OCk9tTjhJ2tpqDzFR@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0YwaU3mhicasBag2Y28IrXoUhrK9fZLwqvneht08OF2Y2L1SEB6K
- LCN4rV3pmVmpEW2+0SCpQ/CIM1GQh/n2vAS8XcW2bdTzbvNAXMbXPbcA0XVX/AvZjnLCWlHIXn2
- zRnANGrFcTPKPKboSljpajUuzoZd1RCAxadA=
-X-Gm-Gg: ASbGncs/SF86yLgBZ47GxT6yRqqMWKCLBcqpT2MPnan0wUJ/tez80z6E/WsyWz8gT9c
- ZbAdka56f8saJd2k/XoFGW8bhTUYq60GllPiFtEA=
-X-Google-Smtp-Source: AGHT+IF89GgrsQO5CBF45JzaXE6CSLTI56uhKzCMv2YkE0qA/5kL+Fnf1BWWGm0j4MnKWJFcz1MGnRhkrJFcVgQhayE=
-X-Received: by 2002:a17:906:7308:b0:ab2:faed:f180 with SMTP id
- a640c23a62f3a-ab2faedfd79mr1257872366b.33.1736855466261; Tue, 14 Jan 2025
- 03:51:06 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id A6BD43B2A4
+ for <cake@lists.bufferbloat.net>; Wed, 15 Jan 2025 15:57:20 -0500 (EST)
+Received: from localhost (smtp-out.cloudwebhosting.com [216.55.99.163])
+ by smtp-out.cloudwebhosting.com (SMTP-Out) with ESMTP id C74FD5B5F910
+ for <cake@lists.bufferbloat.net>; Wed, 15 Jan 2025 14:57:20 -0600 (CST)
+X-SPAM-VIRUS-Scanned: Outbound Email Gateway Filter Ver 2.1 at
+ smtp-out.cloudwebhosting.com
+Received: from smtp-out.cloudwebhosting.com ([216.55.99.163])
+ by localhost (smtp-out.cloudwebhosting.com [216.55.99.163]) (smtp-out,
+ port 10024)
+ with ESMTP id 6ix14inNr5hC for <cake@lists.bufferbloat.net>;
+ Wed, 15 Jan 2025 14:57:20 -0600 (CST)
+Received: from cloud208.cloudwebhosting.com (cloud208.cloudwebhosting.com
+ [165.140.70.189])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+ (No client certificate requested)
+ by smtp-out.cloudwebhosting.com (SMTP-Out) with ESMTPS id 250935B600A6
+ for <cake@lists.bufferbloat.net>; Wed, 15 Jan 2025 14:57:18 -0600 (CST)
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+ d=inacomptc.com; s=default; h=Content-Type:MIME-Version:Message-ID:Date:
+ Subject:To:From:Sender:Reply-To:Cc:Content-Transfer-Encoding:Content-ID:
+ Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+ :Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:
+ List-Subscribe:List-Post:List-Owner:List-Archive;
+ bh=T0yLXEwDnAl6Lv51hjbnpALiN3GSj8uwNp/Il9OJ/Gg=; b=0TnmOOeXBgvw9hV9MBZ19nB3M/
+ R0uYABYQh2O9rqdaRNIH3FNpHjtyvelSTtSYyiyFmlhs6u/aYKUtLFnOcFAk6I1/OjxJA4ChLg5F5
+ iYDj9QhMeksbF1WH3+mMaKKzJm1cStjBJzNT4s4a/lnziX90JbbeQ4lVuvcyvqgY5mi+AdhvU8RkG
+ /rWuA+ycv4BdzZNWalJnI03wX2ZO7f5KMUeGV+l9jBQiL/AMsmRrNyEkKHd5BbSZmQoY8TGSQpih1
+ na8IAjxp7UHD/mtVrEt/qqZSIFU0ZU7JTqRNXcLpZ6ypobwx7VEzz7U+kWCsmnbdHh5NlWyJCd9da
+ NIRvY2tw==;
+Received: from syn-075-129-181-105.res.spectrum.com ([75.129.181.105]:65366
+ helo=DESKTOP3O0ME24)
+ by cloud208.cloudwebhosting.com with esmtpsa (TLS1.2) tls
+ TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (Exim 4.98)
+ (envelope-from <jordan@inacomptc.com>) id 1tYARv-0000000GbcH-3wQy
+ for cake@lists.bufferbloat.net; Wed, 15 Jan 2025 13:57:16 -0700
+To: <cake@lists.bufferbloat.net>
+Date: Wed, 15 Jan 2025 15:57:16 -0500
+Message-ID: <01ba01db6790$0f7af6f0$2e70e4d0$@inacomptc.com>
 MIME-Version: 1.0
-Date: Tue, 14 Jan 2025 12:51:35 +0100
-X-Gm-Features: AbW1kva8QJVuqdrp9I32Nq8gMcuSb_0-r-aGga0PVJYr7V5S0n9Jt7wLQv1Io6c
-Message-ID: <CAJUtOOjTUgSoE3t83BU=Y6qmV2riNeh6qRcAOmxQHHi0_EOVRg@mail.gmail.com>
-To: bloat <bloat@lists.bufferbloat.net>, codel@lists.bufferbloat.net, 
- Cake List <cake@lists.bufferbloat.net>, 
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>, 
- Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>, 
- Dave Taht via Starlink <starlink@lists.bufferbloat.net>
-Subject: [Cake] "It GPLs Me" has 16 years already :)
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AdtnjoNvK5bBrjPWRlK9q5JH+5SiTQ==
+Content-Language: en-us
+X-Get-Message-Sender-Via: cloud208.cloudwebhosting.com: authenticated_id:
+ jordan@inacomptc.com
+X-Authenticated-Sender: cloud208.cloudwebhosting.com: jordan@inacomptc.com
+Subject: [Cake] CAKE & fq_codel in hardware
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -87,84 +82,120 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Frantisek Borsik via Cake <cake@lists.bufferbloat.net>
-Reply-To: Frantisek Borsik <frantisek.borsik@gmail.com>
-Content-Type: multipart/mixed; boundary="===============0693669561465856887=="
+From: Jordan Szuch via Cake <cake@lists.bufferbloat.net>
+Reply-To: jordan@inacomptc.com
+Content-Type: multipart/mixed; boundary="===============1542097721538661856=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============0693669561465856887==
-Content-Type: multipart/alternative; boundary="00000000000017c449062ba92dae"
+This is a multipart message in MIME format.
 
---00000000000017c449062ba92dae
-Content-Type: text/plain; charset="UTF-8"
+--===============1542097721538661856==
+Content-Type: multipart/alternative;
+	boundary="----=_NextPart_000_01BB_01DB6766.26A51600"
+Content-Language: en-us
 
-I was thinking about that song this morning and started my quest to find
-it, so here you are - just realized that it's 16 years already:
+This is a multipart message in MIME format.
 
-https://www.youtube.com/watch?v=C3DdvdLQh1U
+------=_NextPart_000_01BB_01DB6766.26A51600
+Content-Type: text/plain;
+	charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-Can't wait for more songs this year, Dave! <3
+Happened to be listening to a Q&A from relatively new SMB network vendor
+Alta Labs (https://www.alta.inc/) and was surprised to find a fairly
+straight forward discussion about wanting to implement CAKE in their router
+hardware (https://www.alta.inc/route10) and fq_codel in their wireless
+access points (https://www.alta.inc/access-points). Also included a brief
+aside about attempting to work with their chipset vendor on it. Qualcomm if
+I'm remembering correctly.
 
-PS: Here's a bonus - Starlink one, well-known at this point. It also helped
-Elon to get FQ-CoDel on board, lol!
-https://www.youtube.com/watch?v=wjur0RG-v-I
+ 
+
+https://www.youtube.com/live/aJ4Tjoqz2NY?t=2662s
+
+ 
+
+Just wanted to share since I wasn't expecting that question and it's
+associated answer to pop up!
+
+ 
+
+Jordan
 
 
-All the best,
-
-Frank
-
-Frantisek (Frank) Borsik
-
-
-
-https://www.linkedin.com/in/frantisekborsik
-
-Signal, Telegram, WhatsApp: +421919416714
-
-iMessage, mobile: +420775230885
-
-Skype: casioa5302ca
-
-frantisek.borsik@gmail.com
-
---00000000000017c449062ba92dae
-Content-Type: text/html; charset="UTF-8"
+------=_NextPart_000_01BB_01DB6766.26A51600
+Content-Type: text/html;
+	charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
 
-<div dir=3D"ltr"><div>I was thinking about that song this morning and start=
-ed my quest to find it, so here you are - just realized that it&#39;s 16 ye=
-ars already:</div><div><br></div><div><a href=3D"https://www.youtube.com/wa=
-tch?v=3DC3DdvdLQh1U">https://www.youtube.com/watch?v=3DC3DdvdLQh1U<br></a><=
-/div><div><br></div><div>Can&#39;t wait for more songs this year, Dave! &lt=
-;3</div><div><br></div><div>PS: Here&#39;s a bonus - Starlink one, well-kno=
-wn at this point. It also helped Elon to get FQ-CoDel on board, lol! <a hre=
-f=3D"https://www.youtube.com/watch?v=3Dwjur0RG-v-I">https://www.youtube.com=
-/watch?v=3Dwjur0RG-v-I</a></div><div><br></div><div><br></div><div><div dir=
-=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div =
-dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><d=
-iv dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>All =
-the best,</div><div><br></div><div><p class=3D"MsoNormal" style=3D"color:rg=
-b(34,34,34)">Frank<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:r=
-gb(34,34,34)"><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(3=
-4,34,34)">Frantisek (Frank) Borsik<u></u><u></u></p><p class=3D"MsoNormal" =
-style=3D"color:rgb(34,34,34)"><u></u>=C2=A0<u></u></p><p class=3D"MsoNormal=
-" style=3D"color:rgb(34,34,34)"><a href=3D"https://www.linkedin.com/in/fran=
-tisekborsik" style=3D"color:rgb(17,85,204)" target=3D"_blank">https://www.l=
-inkedin.com/in/frantisekborsik</a><u></u><u></u></p><p class=3D"MsoNormal" =
-style=3D"color:rgb(34,34,34)">Signal, Telegram, WhatsApp: +421919416714=C2=
-=A0<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">i=
-Message, mobile: +420775230885<u></u><u></u></p><p class=3D"MsoNormal" styl=
-e=3D"color:rgb(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p class=3D"=
-MsoNormal" style=3D"color:rgb(34,34,34)"><a href=3D"mailto:frantisek.borsik=
-@gmail.com" style=3D"color:rgb(17,85,204)" target=3D"_blank">frantisek.bors=
-ik@gmail.com</a></p></div></div></div></div></div></div></div></div></div><=
-/div></div></div></div></div>
+<html xmlns:v=3D"urn:schemas-microsoft-com:vml" =
+xmlns:o=3D"urn:schemas-microsoft-com:office:office" =
+xmlns:w=3D"urn:schemas-microsoft-com:office:word" =
+xmlns:m=3D"http://schemas.microsoft.com/office/2004/12/omml" =
+xmlns=3D"http://www.w3.org/TR/REC-html40"><head><meta =
+http-equiv=3DContent-Type content=3D"text/html; =
+charset=3Dus-ascii"><meta name=3DGenerator content=3D"Microsoft Word 15 =
+(filtered medium)"><style><!--
+/* Font Definitions */
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Aptos;}
+/* Style Definitions */
+p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Aptos",sans-serif;
+	mso-ligatures:standardcontextual;}
+a:link, span.MsoHyperlink
+	{mso-style-priority:99;
+	color:#467886;
+	text-decoration:underline;}
+span.EmailStyle17
+	{mso-style-type:personal-compose;
+	font-family:"Aptos",sans-serif;
+	color:windowtext;}
+.MsoChpDefault
+	{mso-style-type:export-only;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:1.0in 1.0in 1.0in 1.0in;}
+div.WordSection1
+	{page:WordSection1;}
+--></style><!--[if gte mso 9]><xml>
+<o:shapedefaults v:ext=3D"edit" spidmax=3D"1026" />
+</xml><![endif]--><!--[if gte mso 9]><xml>
+<o:shapelayout v:ext=3D"edit">
+<o:idmap v:ext=3D"edit" data=3D"1" />
+</o:shapelayout></xml><![endif]--></head><body lang=3DEN-US =
+link=3D"#467886" vlink=3D"#96607D" style=3D'word-wrap:break-word'><div =
+class=3DWordSection1><p class=3DMsoNormal>Happened to be listening to a =
+Q&amp;A from relatively new SMB network vendor Alta Labs (<a =
+href=3D"https://www.alta.inc/">https://www.alta.inc/</a>) and was =
+surprised to find a fairly straight forward discussion about wanting to =
+implement CAKE in their router hardware (<a =
+href=3D"https://www.alta.inc/route10">https://www.alta.inc/route10</a>) =
+and fq_codel in their wireless access points (<a =
+href=3D"https://www.alta.inc/access-points">https://www.alta.inc/access-p=
+oints</a>). Also included a brief aside about attempting to work with =
+their chipset vendor on it. Qualcomm if I&#8217;m remembering =
+correctly.<b><o:p></o:p></b></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal><a =
+href=3D"https://www.youtube.com/live/aJ4Tjoqz2NY?t=3D2662s">https://www.y=
+outube.com/live/aJ4Tjoqz2NY?t=3D2662s</a><o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><p class=3DMsoNormal>Just wanted =
+to share since I wasn&#8217;t expecting that question and it&#8217;s =
+associated answer to pop up!<o:p></o:p></p><p =
+class=3DMsoNormal><o:p>&nbsp;</o:p></p><div><div><div><div><div><div><div=
+><p class=3DMsoNormal><span style=3D'color:black'>Jordan</span><span =
+style=3D'mso-ligatures:none'><o:p></o:p></span></p></div></div></div></di=
+v></div></div></div></div></body></html>
+------=_NextPart_000_01BB_01DB6766.26A51600--
 
---00000000000017c449062ba92dae--
 
---===============0693669561465856887==
+--===============1542097721538661856==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -174,4 +205,5 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============0693669561465856887==--
+--===============1542097721538661856==--
+
