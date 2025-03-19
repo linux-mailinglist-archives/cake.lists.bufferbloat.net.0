@@ -2,71 +2,75 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id EF834A67F2C
-	for <lists+cake@lfdr.de>; Tue, 18 Mar 2025 23:00:34 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id D6AE3A69884
+	for <lists+cake@lfdr.de>; Wed, 19 Mar 2025 20:00:27 +0100 (CET)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 826AC3CB40;
-	Tue, 18 Mar 2025 18:00:33 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 9409A3CB43;
+	Wed, 19 Mar 2025 15:00:25 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1742335233;
-	bh=DCMIQ1oNSYqy7G+mhucKXckc4tfkbe8PDrLpIxP1Ua4=;
+	d=lists.bufferbloat.net; s=201610; t=1742410825;
+	bh=+eqz2R43E9XgZcNeR5nOS/n0HpwYWyu4BFnQA/umM0U=;
 	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
 	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=Vvd+qZld85i8vzr+R+0jHL69lgntGh16dlQlhjBvjBI3jCnGOh81QMbXSfKd+84m7
-	 sRxFrttdzYaDOLUgCuQvJCtB5KC7IS5HJe7wWfT4xSY/fPzJkkep+tCDejmbpO39uM
-	 lLfrXHRAwSBB22+QAx0LLSqB5x5wuXCDToG2N18KWO13V2p/RYHo1a/CJpzBFMIs4K
-	 heaLIWiblD14ZjnZaAMoI15HDB0l7nbm1YudrIl5x0NkjBdamRWZceJogTd12ZM3gv
-	 rSXncSBbslnKuFKpk1/NUcDdp/3n6KEhxrdu8U03BffHe+0GRJQv6fP4qs4+1sCA6w
-	 YAynhuQ++li0Q==
+	b=hN0uGX3fqKUoKEETnHeu+1P4fuElgY/4A6F0advbYK9qSYrmGDg7DXi7neBODnwiJ
+	 draq0np5afOAKZIoYByD5LSt+IlY8t/kItCgX+jJORa9LqJII9RT74Urekp7J2ox2R
+	 SYTr7mBIS+35HXN7mK3Zwke1SST3Xt91EAOotCC2wz8UrTaoXGF0dFAm36XpzmqzZ+
+	 fkVkBxBHHCwfCaxE8E/biFX8xdpX8qWCV8LI8QZZJwXxmSMF3Qyx1NvvOqdbDb3XN5
+	 A3n6NiE68Jmiot8Nxcd8vmS2fdz9e7UBbt+o9fdTHP8hbc8x9SXawfQ3+FZzCPdIkX
+	 d3bvreHQrhHsQ==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-ej1-x634.google.com (mail-ej1-x634.google.com
- [IPv6:2a00:1450:4864:20::634])
- (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
+Received: from resdmta-a2p-658371.sys.comcast.net
+ (resdmta-a2p-658371.sys.comcast.net [IPv6:2001:558:fd01:2bb4::d])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 3C62F3B2A4
- for <cake@lists.bufferbloat.net>; Tue, 18 Mar 2025 18:00:32 -0400 (EDT)
-Received: by mail-ej1-x634.google.com with SMTP id
- a640c23a62f3a-ac2902f7c2aso253545666b.1
- for <cake@lists.bufferbloat.net>; Tue, 18 Mar 2025 15:00:32 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 0CF773B29E
+ for <cake@lists.bufferbloat.net>; Wed, 19 Mar 2025 15:00:24 -0400 (EDT)
+Received: from resomta-a2p-646965.sys.comcast.net ([96.103.145.237])
+ (using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 256/256 bits)
+ (Client did not present a certificate)
+ by resdmta-a2p-658371.sys.comcast.net with ESMTPS
+ id uxjYtCZpTSOV4uyeNt6xz2; Wed, 19 Mar 2025 19:00:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1742335231; x=1742940031; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
- :date:message-id:reply-to;
- bh=Y86hnJJi/UZwG/5W0qksLbHyxN6ooyaTsZ5UZVjSXSo=;
- b=dJNd5hiC43mHtwgzEaqfrXNBgzgwJ/4rvPjSEMOjVIbBcX3jiU7AIrDuDEj4exIH1h
- hpCkZJ/6yE67Jxqcj4dG2M5k8TxkRTBD4BlBIp5VOV/0cIY3G2QsTTHxIRC60KYmjh1m
- Hest7dh21swcAvNI5nLaCOXIemVlizZIf0Hq7jx8X+8HWcIdE8VEdnJSgVAaSyJHs43B
- jqrzdQRO3c5hcvej0CjuO+rBA5nl/PXWWBWbekt75CePCqgzpyJ+P9Z4nkFfdjuEVZOK
- 2zJaNtOS0+sAg6Gn48PP6+FzL0pAF7++UUap1U9IX0HzRE/69doTWZ0cOIz0ud1Z6V43
- J3rg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1742335231; x=1742940031;
- h=to:subject:message-id:date:from:mime-version:x-gm-message-state
- :from:to:cc:subject:date:message-id:reply-to;
- bh=Y86hnJJi/UZwG/5W0qksLbHyxN6ooyaTsZ5UZVjSXSo=;
- b=i2F4FlgcGPlN0lePnVuE2darpwPKq59RPNhgtrF4nJWpE/mRg0u6CDAuGvMsBC6GmP
- k1vNq/Hh99wvkIydHkx9iH+zQUG5REwBD4HespVIcSXg72699WK9zrlvsYgLHd1t2J15
- Q9n4cWgz7Phhtq63EsFPUazAMZzGXJDLAKyXHiTkQCyu2kGl3MKhmzsd/3xoFzqlMg5e
- 8x4EqxEYS1Oq8dp43Q7UoaghgeS/LhNyiea/kF8e/GWQ0J7qm933D8oxyDsYPlfKMYPj
- hqygotf1PCbSojL7wayjlw5RJf4wrd/DgsREWRh7oH1xI2SCxqGe7R2XjnS2dcUWx9pW
- j4fA==
-X-Gm-Message-State: AOJu0YwFSleOXMLpesOTFBfjrVrnTJ/dP3Q6Aq/u/NnwPyolClTeO7hP
- UCkAQjzSsVNOZNXrjmwm2N+lYnCP3y7KVKjr5UutP8PFpZA/dH/e2UeckLi2J6V0tHpelTcv1Ot
- 2ARcRrKqKF2xBPzTE49jg62jnzwuBoG4R
-X-Gm-Gg: ASbGncu4p26+smIkbvlqmzM+IW4v7CCKZJ6nRIjLAYMZ5xtI93Szt2cqkLCy96n/ay7
- tqKpcgraZ1JefEA//TuGKh9za40tCJmBDSb1bIDQ189iuxYaR3Kwpe1lre0FyjyqWPf1AHhBwmC
- zpRKGid12DBrVbNQm7/8EA/XpeClD6Mqd9q0NvQw==
-X-Google-Smtp-Source: AGHT+IFwFgbwDxHuKEF/ZyWqE+gtTmO5aL/d8hML2LWft0PhXB2HnlD40BGuVP6VeWlne1FL2DizEAqzNr59Iew5vY8=
-X-Received: by 2002:a17:907:1c89:b0:ac3:26ff:11a0 with SMTP id
- a640c23a62f3a-ac3b7f5fdf5mr20024466b.38.1742335230903; Tue, 18 Mar 2025
- 15:00:30 -0700 (PDT)
+ d=comcastmailservice.net; s=20211018a; t=1742410823;
+ bh=z21Vup6HWFGS90meq7H93k/0NvtO+MFq+oQXQKF+jfg=;
+ h=Received:Received:Received:Message-ID:Date:MIME-Version:To:From:
+ Subject:Content-Type:Xfinity-Spam-Result;
+ b=Q4CW256jjPEgFO+E/agBaWzwPaBKEoCd0QruUz/8ZyX+/o+zpZY3bvhTPCQeeUi/V
+ Gnd6LbOkFjieRyLSz16rUe6nuk5YCJY18++pe19r/bR39ka4/dCAkeauyNEJBf6vvg
+ ntUPGPc0j0Q/ZIQgJyxjydIz9bBjGlh85f4vhlucy3ynqRILdi3+xBjiKTIYisIuWs
+ UKLcQmTiYO8tUaaEtC/u6euz9NvoUX2rbUY5Chg2Rb2K5jtro1VxUdQcLrAxtJ2lJ3
+ p6aCks1UsfwMZV4xoMtgK1aQq7t+6F03EED8IRwzXYeqdUobEkCarIagdTq+htUR00
+ QKBoY4wD9hbUw==
+Received: from home.sewingwitch.com
+ ([IPv6:2001:5a8:458c:ae00:2e0:81ff:feb5:9463])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 256/256 bits)
+ (Client did not present a certificate)
+ by resomta-a2p-646965.sys.comcast.net with ESMTPSA
+ id uycDt7orvWiI1uycJtC7K9; Wed, 19 Mar 2025 18:58:20 +0000
+Received: from [10.96.7.39] ([10.96.7.39]) (authenticated bits=0)
+ by home.sewingwitch.com (8.14.7/8.14.7) with ESMTP id 52JIw6Dm022980
+ (version=TLSv1/SSLv3 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NO)
+ for <cake@lists.bufferbloat.net>; Wed, 19 Mar 2025 11:58:07 -0700
+DKIM-Filter: OpenDKIM Filter v2.11.0 home.sewingwitch.com 52JIw6Dm022980
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sewingwitch.com;
+ s=default; t=1742410688;
+ bh=z21Vup6HWFGS90meq7H93k/0NvtO+MFq+oQXQKF+jfg=;
+ h=Date:To:From:Subject:From;
+ b=xMIdUUFSXf6IBRn7yKMhQo+HVxo0LiNgVdTcm3Ognjdc7m9IdrOcGKQgRVuMRKXsG
+ NAfcW1VGQApRC5qVulxbxbZZ9dC9rvOuPtftsF0s4tGUWxueoxGapmu8iPZbadCmNn
+ tsPMkBx9Sp6AtZ0aoIW4T5xKsArZwPrwtfsFlr9Y=
+Message-ID: <364cc0bc-054d-480f-92a0-d38a251ded24@sewingwitch.com>
+Date: Wed, 19 Mar 2025 11:58:06 -0700
 MIME-Version: 1.0
-Date: Tue, 18 Mar 2025 23:01:24 +0100
-X-Gm-Features: AQ5f1Jq_AYNtY3DgH8QgFNhNRLMjNtRYQJob0sz1ZCQTiGPBOfzSPnEHV4ScG34
-Message-ID: <CAJUtOOh3DEL==w8uYTkPEyhZpgYbLx5xbyLJtXCCpNUE+SQyJg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
 To: Cake List <cake@lists.bufferbloat.net>
-Subject: [Cake] CAKE is going to be deployed on Alta Labs any day now!
+Content-Language: en-US
+X-Scanned-By: MIMEDefang 3.4.1 on 10.96.0.132
+X-CMAE-Envelope: MS4xfC16GG6YGq07KEO6LgBVp/LxmczWRnv+7u4jgQ1uC28FAXtJ0NpLWwEFs4DONnboMRnSfW69udTIIGBLcg+CHbWp34v37Tiv9GcKfMhGOybkWC/VwI3g
+ L+JWgLkXxd+CTqK1FuhiZT7YlT9S89U0zwsdw+AWicGi9YTbaT2QLEzBhzAIXhx2dHalRN/K4zEcf9S5zu8VLPkK7NvJVuoC6Twn3rZLtxOYcMAXuFR/exEC
+ IPx//KidHnd8CB3HRPIjnjRqAwHiTFeM5VkHC11MPPc=
+Subject: [Cake] List web server down?
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -78,81 +82,20 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Frantisek Borsik via Cake <cake@lists.bufferbloat.net>
-Reply-To: Frantisek Borsik <frantisek.borsik@gmail.com>
-Content-Type: multipart/mixed; boundary="===============5892499213009657204=="
+From: Kenneth Porter via Cake <cake@lists.bufferbloat.net>
+Reply-To: Kenneth Porter <shiva@sewingwitch.com>
+Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="utf-8"; Format="flowed"
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============5892499213009657204==
-Content-Type: multipart/alternative; boundary="0000000000008490940630a50882"
-
---0000000000008490940630a50882
-Content-Type: text/plain; charset="UTF-8"
-
-Should be pushed through production in day or two and they will be talking
-about it on https://streamyard.com/watch/ubYm2AffWkYi this
-Wednesday,  March 19, at 1PM EST / 12PM CST / 11AM MST / 10AM PST
-
-Can't wait.
-
-All the best,
-
-Frank
-
-Frantisek (Frank) Borsik
-
-
-
-https://www.linkedin.com/in/frantisekborsik
-
-Signal, Telegram, WhatsApp: +421919416714
-
-iMessage, mobile: +420775230885
-
-Skype: casioa5302ca
-
-frantisek.borsik@gmail.com
-
---0000000000008490940630a50882
-Content-Type: text/html; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-<div dir=3D"ltr"><div>Should be pushed through production in day or two and=
- they will be talking about it on=C2=A0<a href=3D"https://streamyard.com/wa=
-tch/ubYm2AffWkYi">https://streamyard.com/watch/ubYm2AffWkYi</a> this Wednes=
-day,=C2=A0=C2=A0March 19, at 1PM EST / 12PM CST / 11AM MST / 10AM PST</div>=
-<div><br></div><div>Can&#39;t wait.</div><div><br></div><div><div dir=3D"lt=
-r" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div dir=3D=
-"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=
-=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>All the be=
-st,</div><div><br></div><div><p class=3D"MsoNormal" style=3D"color:rgb(34,3=
-4,34)">Frank<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,=
-34,34)"><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,3=
-4)">Frantisek (Frank) Borsik<u></u><u></u></p><p class=3D"MsoNormal" style=
-=3D"color:rgb(34,34,34)"><u></u>=C2=A0<u></u></p><p class=3D"MsoNormal" sty=
-le=3D"color:rgb(34,34,34)"><a href=3D"https://www.linkedin.com/in/frantisek=
-borsik" style=3D"color:rgb(17,85,204)" target=3D"_blank">https://www.linked=
-in.com/in/frantisekborsik</a><u></u><u></u></p><p class=3D"MsoNormal" style=
-=3D"color:rgb(34,34,34)">Signal, Telegram, WhatsApp: +421919416714=C2=A0<u>=
-</u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessag=
-e, mobile: +420775230885<u></u><u></u></p><p class=3D"MsoNormal" style=3D"c=
-olor:rgb(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p class=3D"MsoNor=
-mal" style=3D"color:rgb(34,34,34)"><a href=3D"mailto:frantisek.borsik@gmail=
-.com" style=3D"color:rgb(17,85,204)" target=3D"_blank">frantisek.borsik@gma=
-il.com</a></p></div></div></div></div></div></div></div></div></div></div><=
-/div></div></div></div>
-
---0000000000008490940630a50882--
-
---===============5892499213009657204==
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: base64
-Content-Disposition: inline
-
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
-aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
-bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
-
---===============5892499213009657204==--
+SSBjbGlja2VkIG9uIHRoZSBsaW5rIGF0IHRoZSBib3R0b20gb2YgdGhlIGxhdGVzdCBtZXNzYWdl
+IGFuZCBjYW4ndCAKY29ubmVjdCB0byB0aGUgd2ViIHNlcnZlci4gKHRlbG5ldCB0byBwb3J0IDQ0
+MyByZXR1cm5zIGNvbm5lY3QgZmFpbGVkLikgCkkgY2FuIHBpbmcgaXQsIHRob3VnaCwgd2l0aCBi
+b3RoIElQdjQgYW5kIElQdjYuIEknZCBpbnRlbmRlZCB0byBsaW5rIGEgCm1lc3NhZ2UgZnJvbSB0
+aGUgU3RhcmxpbmsgbGlzdCB0byBhIGZyaWVuZCB1c2luZ8KgIHRoZSBhcmNoaXZlIHllc3RlcmRh
+eSAKYW5kIGNvdWxkbid0IGNvbm5lY3QsIGFuZCBpdCBzZWVtcyB0byBzdGlsbCBiZSBkb3duIHRv
+ZGF5LgoKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQoKCl9fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fCkNha2UgbWFpbGluZyBs
+aXN0CkNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cmh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQu
+bmV0L2xpc3RpbmZvL2Nha2UK
