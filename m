@@ -2,72 +2,87 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id CE31EAD007F
-	for <lists+cake@lfdr.de>; Fri,  6 Jun 2025 12:41:05 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 93887AD0080
+	for <lists+cake@lfdr.de>; Fri,  6 Jun 2025 12:41:08 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 50D1F3CB64;
+	by lists.bufferbloat.net (Postfix) with ESMTP id 644AF3CBC4;
 	Fri,  6 Jun 2025 06:40:59 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1749206459;
-	bh=+ZOzM6B9WZZ/E8L/CxtSK8wj2+UzOokAYyuHoaFfIYE=;
-	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
-	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=pirO4e3hvt1e8uwUdF1fvSWWsIoIsJKrbI//XGxWp6WEgc13oFTHM1tePPJjdPsXz
-	 WQiKla8ZMdLb1HH25BU0ugEHk6AH7DqvgYbruVEc31q4qZcsnqBgAcPxLs07sMD83k
-	 +r9jt8vCcpggXuYgkFHL/NjCFg5ikb6pcO65clIjEp3lv4B4+W2vCY/C0nNKPNA2MA
-	 KLMJH8TAihINjmB9amkqqlkLhcjsdIfsdyUX00p0UOg697jzMTs5ilQY2S0ElKPEh7
-	 KViAJxQjo3amAks3hJ9tfTrsExrQNZ19peHq6s4281eU3Bus89TvciWMGncscPE2F/
-	 +W22quNDZ8f7A==
+	bh=DF2WpwAkfI+lUpxvobWroTdtmpscy28r+b5/B+PZb/c=;
+	h=Date:In-Reply-To:To:References:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	 From;
+	b=fhhH4j2X9F5/gsFZgpsR1MyO+/rmiIt1dwuXj6QakaC0YRzMJJJP417MW7lRt9CU1
+	 fSp20ZfyCHt07CdQIG04HgddnSCCKHVRvU4RVn2fCuSuVC7N/edCa0JhHn9XpsrOPz
+	 NATun8+GP2layOYGhlMYt5kMpW/OievAHeeN7caCRCcK9bRPETaaFX/kmUI43tYMPv
+	 eEAQhcSsYmIztKo6+CxHQfT5nJsCuaOy7a3OUCi0J2D9VFf1/qyqFKkdgYJWhjFkwX
+	 mZfetTwpFjvUH0y+jaRcrs7WfG7zjJGcNpO4IQ3hfbjHlV/RCBYeNWIheoQO//q9WK
+	 LfSjXPmLcyXSA==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-pl1-x629.google.com (mail-pl1-x629.google.com
- [IPv6:2607:f8b0:4864:20::629])
+Received: from mail-pl1-x635.google.com (mail-pl1-x635.google.com
+ [IPv6:2607:f8b0:4864:20::635])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id B295A3B2A4
- for <cake@lists.bufferbloat.net>; Wed, 15 Jan 2025 21:57:46 -0500 (EST)
-Received: by mail-pl1-x629.google.com with SMTP id
- d9443c01a7336-21644aca3a0so8526775ad.3
- for <cake@lists.bufferbloat.net>; Wed, 15 Jan 2025 18:57:46 -0800 (PST)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 78B393B2A4
+ for <cake@lists.bufferbloat.net>; Mon, 24 Mar 2025 11:23:09 -0400 (EDT)
+Received: by mail-pl1-x635.google.com with SMTP id
+ d9443c01a7336-2255003f4c6so85931945ad.0
+ for <cake@lists.bufferbloat.net>; Mon, 24 Mar 2025 08:23:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1736996265; x=1737601065; darn=lists.bufferbloat.net;
- h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
- :date:message-id:reply-to;
- bh=HmnvmJyoBAfZek1Z39Yc/vx8YCwg0GHFfAO/pOoJmSI=;
- b=QuwtKS98nrt9q9cP3rchN++gaEyAkgULBdQTz+TVkUCrxnu79Fo5DKdI5gHuzuLJnC
- ucLbKJ1S9VD9fsA2nROmCCIu/Ngy65KPMKmvzNAsDzwF4s9r0s9WPNwGdafLeBEBsSGx
- jCNW4X1oS61/f4nRmgBKkcYvgnn5Powo3nnvbo/qIEyUCTM/DSUxsSNoJ/NYJ79DO3TE
- sNVLDCTg0dToDiMwKgf4xqNRzTLcq7V/G/sj2nWWhdhS4dEeiaMNdkB575Kw08t7SlBM
- ysEqsHMbrdR5d/NkMT1LcCCquYhE78m0Dj+IAdSA6gqy4zxtvWdwIghK8v3ELpDPwanX
- Tulw==
+ d=jeffhansen.com; s=google; t=1742829788; x=1743434588;
+ darn=lists.bufferbloat.net; 
+ h=references:to:cc:in-reply-to:date:subject:mime-version:message-id
+ :from:from:to:cc:subject:date:message-id:reply-to;
+ bh=jmRzn5DsHDkGaqTUgg7hGySeY7ngPH2iQV15nCAOq+U=;
+ b=D9Nftl5D1qtI0WkurUzrv2x7jKuTPdt+sWSbRxBFMxhOnulVg7FP2dDJN5Uk7iKXyx
+ bStgv2YALykuj+mRga0HDOvJSUZNTGCck0jRBep1AcuZzXtCps49OTr4WU7+fgMVTV7j
+ 6seGOM0ssxCJ5k2rquaiDdrcVLexISpCtDdnsFKijL6wEyg4AdCpd2mzI8c4G8R/UBL1
+ o3KXugDxRMAh4J/niumQvIw1cMpx6MrMX0u8OPbkyWhP66yhfChm0XMlX3xBe5IO3nRm
+ 036HwikaaRQv85YmFEOlHCQUxlbeghW5GYRIiSQUS/Qtkohn+UbfeGjR/f53Dsdsph9Z
+ 7X0Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1736996265; x=1737601065;
- h=to:subject:message-id:date:from:mime-version:x-gm-message-state
- :from:to:cc:subject:date:message-id:reply-to;
- bh=HmnvmJyoBAfZek1Z39Yc/vx8YCwg0GHFfAO/pOoJmSI=;
- b=OiqCyyjpe4hOE33i4jg+H5gyYKVtm0Dsp0ywFznImVNn1kOZnLGhl2jJkQ4RwDuHRa
- TmBvaqfP59aTnPYCcR9/5rM+5Ven7i0BuHHRVsmnllh0P8pDli252S4rxZtZpRWMdZ6G
- dZHmi5g3W92JOwvAgHv3OOONSNiFLixMpwP4KsE/TBr1uV6BJYuKQbxn5zx7N3QCLGf3
- dbj3XIV5RiGMLVYlzEytC/S7OxWFw3CsW9vAAHQILPmoyFxp6Gbwidz2dabdguVGBlXC
- 5S+34j/KF5bHXBIe1QLn6X2rRFdPWn1QZcxpP+1Cgq24XHnzGoNK8nb0OnrCQsRHsdMF
- hg9g==
-X-Gm-Message-State: AOJu0YywtdCv8lZM5hEcyyxkoX2Xo9Iz6vpib/P1pA2e7m1n39yJ0UGE
- X08/NwumIcHwU924sWwO/AwEAIiAhz1LnV49p3jRtOpT6jA+CdH/o3G6uix/2FdZM612H7ox233
- jnQUcbzd4HcRa3pOorYjqEzIoSqdjsWw2Lww=
-X-Gm-Gg: ASbGncvg0E5yDSm80jotYhfqXHT8VtKClS7LB808nlM0NA7M3yC4tRmfPIQI1b0dM2m
- PQmART2Rh6YwGSi+cmNTW9xfaj2lnfJMsXEHJFg==
-X-Google-Smtp-Source: AGHT+IFlVJxMrI9VA+n33KNeI6jaSLDetL/ad8hUTzGmGd6lWUeuT9NhPTs7G8t9LIUt199imjT9eHZVOOif134jysI=
-X-Received: by 2002:a17:903:2613:b0:21b:d105:26c9 with SMTP id
- d9443c01a7336-21bd1052a6amr95277495ad.18.1736996255268; Wed, 15 Jan 2025
- 18:57:35 -0800 (PST)
-MIME-Version: 1.0
-Date: Thu, 16 Jan 2025 10:57:24 +0800
-X-Gm-Features: AbW1kvYZl9EojppYJZc0NcrLo0Jbzw4tY8VTt5wSSwKiMLMpakB8uNh6HF-wvjQ
-Message-ID: <CAPB3MF4ApjawJtr=spCr92rBvPBwBnwGmwR+fsGdPot0pM6_zQ@mail.gmail.com>
-To: cake@lists.bufferbloat.net
+ d=1e100.net; s=20230601; t=1742829788; x=1743434588;
+ h=references:to:cc:in-reply-to:date:subject:mime-version:message-id
+ :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=jmRzn5DsHDkGaqTUgg7hGySeY7ngPH2iQV15nCAOq+U=;
+ b=e6O5bi6/mBgNe3IGCDZpYZTfuotdRPfZtAoxFM2Qcqvfk1lqZ/3w5ju9xN1+FG+TIf
+ V/8shJosnkPpEcXsdwvdNhDp5aarOHGGFK7Q23nO/NmI612PRSaSptlkfF2fvwxxM1RP
+ 8MmfhcFl5O5bmJ6NGIu9Ng7oVs8rYHevwWAdTpPtzQH/2E8bgbxixbSx6/zbO8G0vNWa
+ mjlpRDcG/BGllCdDSzArDIzbHNy30uBZ3sbT2NPUD1mvDpO6QpD10L1+v6NAZS7CQ2Qe
+ JF6iKgad1GpGJb/JzfI6UUU6kXwoHXjqi/rWwYNRbfTNGkLmyAdwJ3q4IJx4dvPpwD0E
+ +IPQ==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCW8shWnF3gXKiUO5v8Xbdg+c/Zbd4pvNVptXzzRbgJXxlG7+AGyB0PdQlcQL1MSUw/31wUE@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YwUHfluRSx7I2vMeQmfpOuEsFzDGLa8sWoAlfqHBQDIIA8Wb+0P
+ dP0DMwsZq1Gas1HdDX0dDrpPJw3rCmiTqF1swrF0JWVXxjvx3YugGrRjsKZeRD8=
+X-Gm-Gg: ASbGncsbQg45JpCtgfYscOLvPxibdeGBorbT4gsj4pFV3d4u1O4f2t4820a2x1/aIcQ
+ EI5X83ktZJl3TouyRJ1gbgB6jXgNMv0atC0eR5kINqCwIu9iMJ7mNzQIUWQldztCCAHSmCoaW8s
+ VIAH4lvCKUeAEYj5G1gvVm2xX2YmNQJqHmhUt57FdzHCvYYuhUbOJcbE6DzsxbS1AunxT7+7u2d
+ YsuWWffqwg9iMtJYgNMWfkYkViQ5RRZ72V4p1JTVZY9gyJWeu60E+H34mK8da4lSf06WS1KqFU5
+ QEC7Kwe/riQ2tR9nteI6rnOkznVOjin9pX5FwwOB/T0rILUs3iCO6DNuLyuFHrnpULQ9JXkRAL/
+ 5FsKz/2gLDc30mTIU
+X-Google-Smtp-Source: AGHT+IGUm9Yy7EixCiO5gsWQ2D/2mkoNe1LWl/IzCXuBqml8q/+PKCAp6MZ3FHMPEMm77ZRHLefBIQ==
+X-Received: by 2002:a05:6a00:ac8:b0:736:5504:e8b4 with SMTP id
+ d2e1a72fcca58-739059ffa0dmr20155197b3a.19.1742829786734; 
+ Mon, 24 Mar 2025 08:23:06 -0700 (PDT)
+Received: from smtpclient.apple (poderoso.infowest.net. [209.33.214.42])
+ by smtp.gmail.com with ESMTPSA id
+ d2e1a72fcca58-7390611d3cbsm8085029b3a.87.2025.03.24.08.23.05
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Mon, 24 Mar 2025 08:23:06 -0700 (PDT)
+Message-Id: <8756E062-0FC3-4301-8884-B1BCA7A124B5@jeffhansen.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
+Date: Mon, 24 Mar 2025 09:23:03 -0600
+In-Reply-To: <CAJUtOOj1+US-u-aB=8=dCFnoi1pCmzjojSUY-46mL7_Uq3fV8A@mail.gmail.com>
+To: Frantisek Borsik <frantisek.borsik@gmail.com>
+References: <CAJUtOOh3DEL==w8uYTkPEyhZpgYbLx5xbyLJtXCCpNUE+SQyJg@mail.gmail.com>
+ <7FBEC0CA-162E-48A2-81D6-97CDD2F63EEC@gmail.com>
+ <CAJUtOOj1+US-u-aB=8=dCFnoi1pCmzjojSUY-46mL7_Uq3fV8A@mail.gmail.com>
+X-Mailer: Apple Mail (2.3826.400.131.1.6)
 X-Mailman-Approved-At: Fri, 06 Jun 2025 06:40:58 -0400
-Subject: [Cake] CAKE on the bonding interface (master) or the bonded
-	interfaces (slaves)?
+Subject: Re: [Cake] CAKE is going to be deployed on Alta Labs any day now!
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -79,43 +94,182 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: cam enih via Cake <cake@lists.bufferbloat.net>
-Reply-To: cam enih <nanericwang@gmail.com>
-Content-Type: multipart/mixed; boundary="===============1262137571932557096=="
+From: Jeff Hansen via Cake <cake@lists.bufferbloat.net>
+Reply-To: Jeff Hansen <x@jeffhansen.com>
+Cc: Cake List <cake@lists.bufferbloat.net>, contact@daryllswer.com
+Content-Type: multipart/mixed; boundary="===============1851783941432111813=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============1262137571932557096==
-Content-Type: multipart/alternative; boundary="000000000000c58999062bc9f420"
 
---000000000000c58999062bc9f420
-Content-Type: text/plain; charset="UTF-8"
+--===============1851783941432111813==
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_B7B2553D-8484-42B6-9711-DDEA35CA8E1D"
 
-Hi CAKE folks,
 
-I'm new to traffic shaping, just a quick question here:
-
-I have this virtual NIC set up and a few physical NICs bonded to it. Shall
-I apply the CAKE algorithm on the virtual one or the physical ones, or all
-of them? If either can do it, which is the best?
-
-Thanks,
-Eric
-
---000000000000c58999062bc9f420
-Content-Type: text/html; charset="UTF-8"
+--Apple-Mail=_B7B2553D-8484-42B6-9711-DDEA35CA8E1D
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
 
-<div dir=3D"ltr">Hi CAKE folks,<div><br></div><div>I&#39;m new to traffic s=
-haping, just a quick question here:</div><div><br></div><div>I have this vi=
-rtual NIC set up and a few=C2=A0physical=C2=A0NICs bonded to it. Shall I ap=
-ply the CAKE algorithm on the virtual one or the physical ones, or all of t=
-hem? If either can do it, which is the best?</div><div><br></div><div>Thank=
-s,</div><div>Eric</div></div>
+Frank,
 
---000000000000c58999062bc9f420--
+The hardware that Route10 is based off of doesn=E2=80=99t support FQ =
+Codel nor CAKE at all, so everything is done in software on our 5.4 =
+Linux kernel. It works great, though. In some instances it=E2=80=99s the =
+only way to max out a PPPoE connection and have optimal latency.
 
---===============1262137571932557096==
+It doesn=E2=80=99t look like our ethernet driver supports BQL at all, so =
+we haven=E2=80=99t tried that yet, but as is, it absolutely eliminates =
+high latency if tuned properly.
+
+-Jeff
+
+> On Mar 21, 2025, at 2:27=E2=80=AFAM, Frantisek Borsik =
+<frantisek.borsik@gmail.com> wrote:
+>=20
+> Happy to see that! Thanks, guys.
+>=20
+> Adding Jeff <https://www.linkedin.com/in/jeff-hansen-6794021/>, Alta =
+Labs CTO - Darryl <https://x.com/DaryllSwer/status/1902486684476047544> =
+has a suggestion how to push this further: "Maybe they can add both =
+FQ_CoDel and CAKE with BQL support? How's hardware-offloading of =
+FQ_CoDel looking on these =E2=80=9Cprosumer=E2=80=9D equipment these =
+days? I haven't kept up over a year on this topic."
+>=20
+> All the best,
+>=20
+> Frank
+>=20
+> Frantisek (Frank) Borsik
+>=20
+> =20
+>=20
+> https://www.linkedin.com/in/frantisekborsik
+>=20
+> Signal, Telegram, WhatsApp: +421919416714=20
+>=20
+> iMessage, mobile: +420775230885
+>=20
+> Skype: casioa5302ca
+>=20
+> frantisek.borsik@gmail.com <mailto:frantisek.borsik@gmail.com>
+>=20
+> On Fri, Mar 21, 2025 at 3:44=E2=80=AFAM Jonathan Morton =
+<chromatix99@gmail.com <mailto:chromatix99@gmail.com>> wrote:
+>> > On 19 Mar, 2025, at 12:01 am, Frantisek Borsik via Cake =
+<cake@lists.bufferbloat.net <mailto:cake@lists.bufferbloat.net>> wrote:
+>> >=20
+>> > Should be pushed through production in day or two and they will be =
+talking about it on https://streamyard.com/watch/ubYm2AffWkYi this =
+Wednesday,  March 19, at 1PM EST / 12PM CST / 11AM MST / 10AM PST
+>>=20
+>> I joined the stream, and was able to ask about the throughput they =
+were getting with CAKE on their hardware.  This is just for the "Route =
+10" rather than their APs, and they reported getting about 2.5Gbps =
+throughput with CAKE enabled. They do correctly note that the =
+hardware-accelerated forwarding path is disabled for the interface where =
+CAKE is turned on.
+>>=20
+>> Supporting 2.5Gbps is pretty good I think, and should be sufficient =
+to handle all practical Internet subscriptions that are likely to =
+require bufferbloat mitigation.  For comparison, on the same call they =
+claimed about 800Mbps throughput for acting as a WireGuard tunnel =
+endpoint.
+>>=20
+>>  - Jonathan Morton
+
+
+--Apple-Mail=_B7B2553D-8484-42B6-9711-DDEA35CA8E1D
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"overflow-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: =
+after-white-space;">Frank,<div><br></div><div>The hardware that Route10 =
+is based off of doesn=E2=80=99t support FQ Codel nor CAKE at all, so =
+everything is done in software on our 5.4 Linux kernel. It works great, =
+though. In some instances it=E2=80=99s the only way to max out a PPPoE =
+connection and have optimal latency.</div><div><br></div><div>It =
+doesn=E2=80=99t look like our ethernet driver supports BQL at all, so we =
+haven=E2=80=99t tried that yet, but as is, it absolutely eliminates high =
+latency if tuned properly.</div><div><br></div><div>-Jeff<br =
+id=3D"lineBreakAtBeginningOfMessage"><div><br><blockquote =
+type=3D"cite"><div>On Mar 21, 2025, at 2:27=E2=80=AFAM, Frantisek Borsik =
+&lt;frantisek.borsik@gmail.com&gt; wrote:</div><br =
+class=3D"Apple-interchange-newline"><div><div dir=3D"ltr"><div>Happy to =
+see that! Thanks, guys.</div><div><br></div><div>Adding <a =
+href=3D"https://www.linkedin.com/in/jeff-hansen-6794021/" =
+target=3D"_blank">Jeff</a>, Alta Labs CTO - <a =
+href=3D"https://x.com/DaryllSwer/status/1902486684476047544" =
+target=3D"_blank">Darryl</a> has a suggestion how to push this further: =
+"Maybe they can add both FQ_CoDel and CAKE with BQL support? How's =
+hardware-offloading of FQ_CoDel looking on these =E2=80=9Cprosumer=E2=80=9D=
+ equipment these days? I haven't kept up over a year on this =
+topic."</div><div><br></div><div><div dir=3D"ltr" =
+class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><div =
+dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div =
+dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div =
+dir=3D"ltr"><div>All the best,</div><div><br></div><div><p =
+class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Frank<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frantisek (Frank) =
+Borsik<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)"><u></u>&nbsp;<u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a =
+href=3D"https://www.linkedin.com/in/frantisekborsik" =
+style=3D"color:rgb(17,85,204)" =
+target=3D"_blank">https://www.linkedin.com/in/frantisekborsik</a><u></u><u=
+></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Signal, =
+Telegram, WhatsApp: +421919416714&nbsp;<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessage, mobile: =
++420775230885<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a =
+href=3D"mailto:frantisek.borsik@gmail.com" style=3D"color:rgb(17,85,204)" =
+target=3D"_blank">frantisek.borsik@gmail.com</a></p></div></div></div></di=
+v></div></div></div></div></div></div></div></div></div><br></div><br><div=
+ class=3D"gmail_quote"><div dir=3D"ltr" class=3D"gmail_attr">On Fri, Mar =
+21, 2025 at 3:44=E2=80=AFAM Jonathan Morton &lt;<a =
+href=3D"mailto:chromatix99@gmail.com" =
+target=3D"_blank">chromatix99@gmail.com</a>&gt; =
+wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px =
+0px 0px =
+0.8ex;border-left-width:1px;border-left-style:solid;border-left-color:rgb(=
+204,204,204);padding-left:1ex">&gt; On 19 Mar, 2025, at 12:01 am, =
+Frantisek Borsik via Cake &lt;<a =
+href=3D"mailto:cake@lists.bufferbloat.net" =
+target=3D"_blank">cake@lists.bufferbloat.net</a>&gt; wrote:<br>
+&gt; <br>
+&gt; Should be pushed through production in day or two and they will be =
+talking about it on <a href=3D"https://streamyard.com/watch/ubYm2AffWkYi" =
+rel=3D"noreferrer" =
+target=3D"_blank">https://streamyard.com/watch/ubYm2AffWkYi</a> this =
+Wednesday,&nbsp; March 19, at 1PM EST / 12PM CST / 11AM MST / 10AM =
+PST<br>
+<br>
+I joined the stream, and was able to ask about the throughput they were =
+getting with CAKE on their hardware.&nbsp; This is just for the "Route =
+10" rather than their APs, and they reported getting about 2.5Gbps =
+throughput with CAKE enabled. They do correctly note that the =
+hardware-accelerated forwarding path is disabled for the interface where =
+CAKE is turned on.<br>
+<br>
+Supporting 2.5Gbps is pretty good I think, and should be sufficient to =
+handle all practical Internet subscriptions that are likely to require =
+bufferbloat mitigation.&nbsp; For comparison, on the same call they =
+claimed about 800Mbps throughput for acting as a WireGuard tunnel =
+endpoint.<br>
+<br>
+&nbsp;- Jonathan Morton</blockquote></div>
+</div></blockquote></div><br></div></body></html>=
+
+--Apple-Mail=_B7B2553D-8484-42B6-9711-DDEA35CA8E1D--
+
+--===============1851783941432111813==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -125,4 +279,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============1262137571932557096==--
+--===============1851783941432111813==--
