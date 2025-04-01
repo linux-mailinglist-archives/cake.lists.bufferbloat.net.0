@@ -2,85 +2,85 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 9DD62A7824B
-	for <lists+cake@lfdr.de>; Tue,  1 Apr 2025 20:36:21 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 126D3A78279
+	for <lists+cake@lfdr.de>; Tue,  1 Apr 2025 20:53:20 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 85BB63CB40;
-	Tue,  1 Apr 2025 14:36:20 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 1AF633CB4D;
+	Tue,  1 Apr 2025 14:53:15 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1743532580;
-	bh=LP78T/tC/0wsMsTK9zqVFMxWAzByFJVYQiaBr9dZRMg=;
-	h=In-Reply-To:Date:References:To:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1743533595;
+	bh=r3CSp7K55yJOBGzZA+mSwsgGAXGWVCrBojyA97z4Ym8=;
+	h=Date:In-Reply-To:To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=e6XGz+/ovteAdnUiacKYoxWkEIkldRHGS+9enFkt9yGA0mCeECZOGewO9NnIH5Za8
-	 IjF6pm24lnyRnYkib13f+z39T7aKDPo/8H/lVszzMEYoXs6dCwLa6lhXt7hkmFsbMO
-	 9jbgJaUocCfKRn9OFV1IfoyfgLY3byPgN21udTWRHG72/1ASv2mtKb+LoTBsNfjMGt
-	 quaulgl7tjMg5GNKCLy06j+oDbdxrNzi77sYjvz0qaSMClz/b7AvJh/kSSET8vbL1j
-	 NWJTWis9inRjGfIjlF3U+H1+SyrTXq16pJIpO2yYxNpaAMKZFA62TZ94a9I+f/p5nU
-	 EQ0XqFaHMUzrw==
+	b=bsccndkOZO0AD08Hp+g9bgvwyze+UHXV40m0i76LouDVaNTNof1kYJ1c4ms9OmakC
+	 OmeM8QfolizGJw5i1usBy7IBZ946ac+wqlB5iil6/IDlBFt+XKJm3JQxr3Mpg9s5R/
+	 h9mehVaRV14XK6PB3Kq2txoSF5fjhtN5nbOaH6usfD139SGCu2/qo5CuibnuZBhmrX
+	 GnIWNFlU/pbdnGbBuXLpA5zsOEzz/eQFI9FTnUvPWgJeuXERqOaap+RQNkpejajhiR
+	 Ei78nfrQlUyScJ8+2+A39Fv790e2f7PB9YQordhsZyN7dOqoY/UAyvgzw70XKZ5F2v
+	 sKzG+bzAELowg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mout.gmx.net (mout.gmx.net [212.227.17.21])
- (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com
+ [209.85.214.173])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 8B3413B29D;
- Tue,  1 Apr 2025 14:36:19 -0400 (EDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
- s=s31663417; t=1743532578; x=1744137378; i=moeller0@gmx.de;
- bh=Ehf+ZrWnh0Ku7Nwo5ERydY8hyMvBarEvtweP+WWCvJw=;
- h=X-UI-Sender-Class:Content-Type:Mime-Version:Subject:From:
- In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
- References:To:cc:content-transfer-encoding:content-type:date:from:
- message-id:mime-version:reply-to:subject:to;
- b=HpfEkD8t9od0X0hHrX8z9u0RRU1YUqoVKmuwFyrVghzMGtejhFDA5Mr5BIH35e+G
- E5yZHVlXsrd3/NjwOuIf6BqVVO23/5hjIrCA6TM08g0KZhSnM0WosMnvInaG8dvmG
- QsdKRvZyWP4sfFxaZ19axLdG22+UXa77JynIAamAY5JnJdzilcUmZKa06+zxy+M0C
- qN9sLGlaJySYfuCYN3Lk30ZM6o9TnaRCvdAnCrCLU939k39Tg37r0897ZUvwfp0nC
- NW7UmNidpMXk6acxPvcPIHdKfz1k1/fkGTmUQwFzXVHrVLLqgH9hqIaKEpq9JxgKB
- o5jIMidr3isNWnZIZw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from smtpclient.apple ([95.112.37.54]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1MfYPY-1tSodF3PgW-00lcXH; Tue, 01
- Apr 2025 20:36:17 +0200
-Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.500.181.1.5\))
-In-Reply-To: <E3699A9A-9B07-4F19-969B-B3723E3DEF7A@apple.com>
-Date: Tue, 1 Apr 2025 20:36:06 +0200
-Message-Id: <6336C355-F659-413E-8D29-1E8B80D65994@gmx.de>
-References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
- <E3699A9A-9B07-4F19-969B-B3723E3DEF7A@apple.com>
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 100CA3B29D;
+ Tue,  1 Apr 2025 14:53:14 -0400 (EDT)
+Received: by mail-pl1-f173.google.com with SMTP id
+ d9443c01a7336-22409077c06so158266875ad.1; 
+ Tue, 01 Apr 2025 11:53:14 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=1e100.net; s=20230601; t=1743533593; x=1744138393;
+ h=references:to:cc:in-reply-to:date:subject:mime-version:message-id
+ :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+ bh=MDI7cgM4QbJsnUFkTjEUDq0FeAcFWs8BlVF9c3vpqcY=;
+ b=ie63bf/0rMIoqmfDb7EyK+M7/RwvP/09TS3D160n4DKb6Fsnvd8SPYZAG40+IOHVL/
+ 1Sckhxu+WZRYKSZp511IEEwEVAztvvyTLgPCrnto+6eMkdQcbULvKqYByxRcu8WyLs2w
+ sj8/hH5QLy5x/W7vpfAN+bHoctFKYAT5jZMor7Wo5k5WKb4UkCekKgChWM05TbKLacyK
+ Mb7+RJIu/UTN1UWX0xtlxqC3M2HOtTxwf9MMguIbC0dlIPWBvJZoKsXA1HBxPT5OKeFi
+ D75Rz/Am1loG05Vq3DlszZat6mxDtlzoXvYxANlbK1CQfjKQcZ1ZYNsx310PRx5u1q+9
+ 9coQ==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCUlCmDilMQaQweLXytGF6ejKJlG1QyovWEQXcG3n1l0f3SsW+6EON6iN1s8hBsrWjujaTXN@lists.bufferbloat.net,
+ AJvYcCVEGsHRc9DE1cgjOy7E2F/y5n2+4AkB6d12DpgWtnld7WXWw0R4CZBByaVKZ7/EtDdeVcJcJV0=@lists.bufferbloat.net,
+ AJvYcCVNYQP1h7AZaxQXGtSJ80kw8RIAecIYg/H8WvKDl1L/kT2kw///lXzFjp/dbw1pNgdl1zpzcv+zaxvK0XMTK3E=@lists.bufferbloat.net,
+ AJvYcCVX6pTyDeAL2/9NASqFnMIr4u+WIHSweqULujD9+62PKPANa80jrJ4FCPkR9Lq9+6Q5qsA74Q==@lists.bufferbloat.net,
+ AJvYcCVk7HOqcylbqGBtM2n87MfLhzlj414mHZj5JD5gplx0zMkiOin5Yuf5PMt2OgEIcsTmrOc9ojQ=@lists.bufferbloat.net,
+ AJvYcCW46Mp5F2C7MvI1yLjIkRJp3qKUFqjXA5Gjnhd9ubhT/9kdWwTi9+7GFpnuH9P2YRyK971D+USjI0U=@lists.bufferbloat.net,
+ AJvYcCWSWPnLLE6QnFf28HBZ9F+BYleHLNSYvIN612VTQnU46h1SitZv6jBMXVfYTMnagI/g/TJKkdnkP5ZPPy2PN18=@lists.bufferbloat.net,
+ AJvYcCWWwUrWBOLGUbOHmkx5nMP2SgPwqDbtflvmstFuBxaZvSK/GutPeE3zpusRNsNJQt5e/9vCG2AVFrke0FHMDw==@lists.bufferbloat.net,
+ AJvYcCWZfwrrig6Ht4l4FXIDb6Kn8U4zhOUbyim3Eg/239ymL9+fzAb/Hw3KR2Icd+X09EzRbY/Qye9PUYBhCPQrrg==@lists.bufferbloat.net,
+ AJvYcCXT0Y13Lp4hj5WHB4f2N3KEtS5VSmh/LYIjubOTxTulfrzxVS+TtwNf1aAOoLV1kePxLXROB8LxDEOI@lists.bufferbloat.net,
+ AJvYcCXkLce6LcaPMZPoHa6TUe9aHYxdzmOXptzdyRQxogE5mhWTCsqL7YpKBInI2fNjAebz/jzSvou1ew==@lists.bufferbloat.net,
+ AJvYcCXt7lixfbUcgXaOSoFDm9NcYeR5i6kQGm23Ua10iJNfuXBmEI3r7Y/u3ZRteJ5ggCpC1IgzvzKRwhLhz6JEdzU9@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0Yz+yS5Wf4GpPN+xmUR/WUPFRNBSSyGsiQNRrLkssesP/OLKMrah
+ GPa9jm5dw/YN7qyPAtDPKNNLiLjlmCYNeOtk3A0OgO8NiyJNldKwFdMNpAD7xtI=
+X-Gm-Gg: ASbGncvqnLCDwvSQ5p0+vqafOs++uhBodmrSSuoVHOXjIcTAdQmGsCufNhRIIj/h67t
+ rm4dbJh3epRwpqUO2yjGVC41axy04uPplEaQ1jq31ZSDwXpCRlkA3T0u0z1DFUuYx+Z62Evb3B9
+ HZtByGyLYSFw2rQcaQWr8+la4pShC7JLR2LYGcdRkVAJduFSEqTaKkFuK0bZ4SxBIL0uxT4olDB
+ dnu7KpOzcd8IflOJ3yB7l7iUSwtB/jH7TJ1N5e8nhcHVZQWQNpwrZrKdEhgxWHiML/NvW57zcI9
+ HA7i+3BNXe6oL+zxaDr33LmyYUbLk08YORfkYazGubbFh4rigm5zsSiCvDLbkSpF2To0Qr4Vaa2
+ y8gXiUK4=
+X-Google-Smtp-Source: AGHT+IHgbncMGh6iaalktDZUV+Lr7FaxdQYm416TlgkpnYS5fE0vZDTCM+XD+SAIJ/5JxgWV0oFTIg==
+X-Received: by 2002:a17:903:2acb:b0:220:f87d:9d5b with SMTP id
+ d9443c01a7336-2292f97a130mr251302785ad.24.1743533592972; 
+ Tue, 01 Apr 2025 11:53:12 -0700 (PDT)
+Received: from smtpclient.apple ([2600:1700:a700:d930:e08b:5c9a:a452:c97])
+ by smtp.gmail.com with ESMTPSA id
+ d9443c01a7336-2291eec533csm93042025ad.36.2025.04.01.11.53.11
+ (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+ Tue, 01 Apr 2025 11:53:12 -0700 (PDT)
+Message-Id: <EBC76E24-9757-460F-8036-A957592DB9E5@superduper.net>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3731.700.6.1.9\))
+Date: Tue, 1 Apr 2025 11:53:00 -0700
+In-Reply-To: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
 To: Frantisek Borsik <frantisek.borsik@gmail.com>
-X-Mailer: Apple Mail (2.3826.500.181.1.5)
-X-Provags-ID: V03:K1:tDaR/soIk9EXJ9ylHl7K1rXOXA0wnDDDuEcTfTWoocGPDmg4QK0
- g5mknPawqAn61e0cTwbJ5vTHLifqMY7nyygX5bJefVul76TbwG7YoYiiUrx6bUX0pG9ArjV
- UTLZnVQi8/vDftrqIy+EIkXI3GqGaolgnzUthuZwoNNOHf7cWq69qJ/g/SjEnEWe6jT+/e4
- xF+ntltUn7c6OhZ5jy7mg==
-X-Spam-Flag: NO
-UI-OutboundReport: notjunk:1;M01:P0:kppm+OaU9WU=;k/E48yY/by7gyPW29gksCsHQ+Vy
- EqNNHD4hthioCx6hiF9REUF4DTlDfMngEEPwW6t0GfO5U6AE5cjWGdidi7QNFmDrolcCMMls3
- 1XNwNr45W67e3Hcq/tY8Qq3Ov7vjUI0/EvMvxMzxvGgPCXfjjLw7tvcVKx0VIuWhsaw8LbHMM
- TQUSDfZIIm0kj+yYvI2DRqOm76W8KNNMiIGtO/SyHZ13PqUk0d9IJ3jD69D+m8AQyvDDfECN1
- Cb9Y9vou5T16KloQqDX+Mb6Su1vLPw4RiGC8kyk9kqdSQ8djmH7U5KHANA1FEMtcWEJn2dJDo
- ZY1PpdXtNyU35PQh4qzHa/o4Wjb0xTsEsx/jKmjC+FfPS3jmOsz9iPpMxKLYl7g3MG21LDfm4
- 4qfrHAjmwEKYFk0pbK1fpppv1px1TaQ+ybt8RdV8Bwmc1OFw0Sc5TP9ts0dKtFYNtSwzzebcJ
- niExlnkwKgG6de7iLIPguouFhKo9DOjcC5Xz2/NwEe9AP159oZB4c1yEtF4p/5V+WMNUdquY1
- qPLqSV4YBlx/mFg/OjPzngA8cvZqx4giRLWu2N8nAf7HGZWITv7wqabbo1HEqvRsG0XJfZQ4u
- UoO03e3svSaV/G2gNULl63UVIelawmmduzldfsCG7QGTx15rAhv8PSORzUVUkFSRf3UB2IwM9
- aPyjeVIaQ5JdQKLTm4WDeW90Hos/iNV4pCNSBFbXIn6hlkbL3Tz7opiZ6P+VgRzJIYvLeZGPO
- IjY6XphdzywYwsBMzBrJ2hPUIHE0f59EaMBHm5YlolS9Xh8lIaohWcTFjtWPCDi0b7n+GTSve
- 4oq8CGkfpd1OVczgEyKjREXfeMJvjOumNy6P83wvfqQB5KJAMuttqIAEmtbiJLwQasYeOpdxP
- QQ/zRoi7B5x2ozWV5U4na27QktzuHEY1cuC8xQGyEx+ZEeUbFF3cA7UalcV54OWCnz6NM1Pkr
- EVLSM0ohXLJYaFDDb4vQGtltASQNYkjSiNZpZGpCxAQYkilwKqG0PQ/mTtKbXPO0fhGIqDj2z
- 29WSie5m8sRtIrzuGAA4dNFiHIQe+Y9hT36uPfBeD1uX5uw6fiumzag++kQDJes11K0fL4b8X
- gwtKolfUUxy2QA6wHLar5bYcm+9j7cuK9pmJItv/2lmdv1rYy/FHpHtNuD5fO7F/UOnVbsN4r
- 1shIhCzXG8Oo3aLxxte1itlNayy0R5lH5kVO5fk8mkg+BiONcWuEujjH9Lb4aXn9xmmsppw8N
- apgFXTFBPaYEzyAWRMThikEP8PNtB7y8jnac4VNz+Bs8bo5TQSd33x1hMHJqNVU3vxciy6Pzd
- GIzjT9fqxb8RvzzyVtQxTrg4lCFvLjuVkf+fOH++5x9hEP+Vsu3TlDzZHOjksybTJq2unW5bm
- 73yx3ifvvece+nJk2SFJeK6wIB4DH/BG3AL7mObz/EEKxgk6cLva98Na9vyvM67JlhM6Te+30
- EOw7d/7l/llJ0nuAELbzAjq91gL7YsRzacTzhxNgO+/GBICMrExCtSiWVrJ07nxcYb8PkSA==
+References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
+X-Mailer: Apple Mail (2.3731.700.6.1.9)
 Subject: Re: [Cake]
- =?utf-8?q?=5BStarlink=5D_=5BBloat=5D_In_loving_memory_of_D?=
- =?utf-8?b?YXZlIFTDpGh0IDwz?=
+ =?utf-8?q?=5BBloat=5D_In_loving_memory_of_Dave_T=C3=A4ht_?=
+ =?utf-8?q?=3C3?=
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -92,87 +92,205 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
-Reply-To: Sebastian Moeller <moeller0@gmx.de>
-Cc: Stuart Cheshire <cheshire@apple.com>, cerowrt-commits@lists.bufferbloat.net,
- bloat-ietf@lists.bufferbloat.net, Herbert Wolverson <hwolverson@libreqos.io>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- cerowrt-users@lists.bufferbloat.net, libreqos <libreqos@lists.bufferbloat.net>,
+From: Simon Barber via Cake <cake@lists.bufferbloat.net>
+Reply-To: Simon Barber <simon@superduper.net>
+Cc: codel-wireless@lists.bufferbloat.net,
  Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>,
+ cerowrt-commits@lists.bufferbloat.net,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ libreqos <libreqos@lists.bufferbloat.net>,
+ Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
+ Herbert Wolverson <hwolverson@libreqos.io>,
+ "Frantisek \(Frank\) Borsik" <frank@libreqos.io>,
  =?utf-8?Q?Network_Neutrality_is_back!_Let=C2=B4s_make_the_technical_as?=
  =?utf-8?Q?pects_heard_this_time!?= <nnagain@lists.bufferbloat.net>,
- codel-wireless@lists.bufferbloat.net, cerowrt-devel@lists.bufferbloat.net,
+ codel@lists.bufferbloat.net, cerowrt-devel@lists.bufferbloat.net,
  bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
- codel@lists.bufferbloat.net, "Frantisek \(Frank\) Borsik" <frank@libreqos.io>,
- Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
+ bloat-ietf@lists.bufferbloat.net, cerowrt-users@lists.bufferbloat.net,
  =?utf-8?Q?Robert_Chac=C3=B3n?= <robert@libreqos.io>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============4909361317068035747=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-U2FkIG5ld3MgZGF5LiAKCkxlYXJuZWQgc28gbXVjaCBmcm9tIERhdmUgYWJvdXQgdGhlIG5ldHdv
-cmsgYWJvdXQgdGhlIGltcG9ydGFuY2Ugb2Ygc2hhcmluZyBpZGVhcywgYW5kIG5vdCB0byB0YWtl
-IG9uZSBzZWxmIHRvbyBzZXJpb3VzbHkuIApXaWxsIG1pc3MgeW91IG15IGZyaWVuZC4uLgoKU2Vi
-YXN0aWFuIE1vZWxsZXIKCgoKCj4gT24gMS4gQXByIDIwMjUsIGF0IDE5OjU3LCBTdHVhcnQgQ2hl
-c2hpcmUgdmlhIFN0YXJsaW5rIDxzdGFybGlua0BsaXN0cy5idWZmZXJibG9hdC5uZXQ+IHdyb3Rl
-Ogo+IAo+IERhdmUgVMOkaHQgd2FzIGEgZ29vZCBmcmllbmQgYW5kIGEgbWVudG9yIHRvIG1lIGFu
-ZCBzbyBtYW55IG90aGVycy4gSGUgaW5zcGlyZWQgbWUgdG8gZm9jdXMgbXVjaCBvZiBteSB0aW1l
-IGFuZCBlZmZvcnQgaW4gdGhlIGxhc3QgZGVjYWRlIHRvIGhpcyB2aXNpb24gb2YgYSBmYXN0ZXIg
-SW50ZXJuZXQgZXhwZXJpZW5jZSBmb3IgZXZlcnlvbmUgdGhyb3VnaCBsb3dlciBuZXR3b3JrIGxh
-dGVuY3kuIFRoZSByZXN1bHRzIG9mIERhdmXigJlzIHdvcmsgYXJlIGZpbmFsbHkgY29taW5nIHRv
-IGZydWl0aW9uLCBhbmQgdGhvc2UgaGUgdGF1Z2h0IHdpbGwgY29udGludWUgaGlzIHdvcmsgdHJh
-bnNmb3JtaW5nIGhvdyB0aGUgSW50ZXJuZXQgb3BlcmF0ZXMgYW5kIGltcHJvdmluZyB0aGUgbGl2
-ZXMgb2YgY291bnRsZXNzIG1pbGxpb25zIG9mIHBlb3BsZSB3b3JsZHdpZGUuCj4gCj4gU3R1YXJ0
-IENoZXNoaXJlCj4gCj4gT24gQXByIDEsIDIwMjUsIGF0IDEwOjI3LCBGcmFudGlzZWsgQm9yc2lr
-IHZpYSBCbG9hdCA8YmxvYXRAbGlzdHMuYnVmZmVyYmxvYXQubmV0PiB3cm90ZToKPiAKPj4gSGVs
-bG8gdG8gYWxsLAo+PiAKPj4gV2XigJlyZSBkZXZhc3RhdGVkIHRvIGFubm91bmNlIHRoYXQgRGF2
-ZSBUw6RodCBoYXMgcGFzc2VkIGF3YXkuCj4+IAo+PiBEYXZlIHdhcyBhbiBhbWF6aW5nIG1hbiwg
-aGVscGluZyB0aGUgd29ybGQgd2l0aCBGUS1Db0RlbCBhbmQgQ0FLRSwgZmlnaHRpbmcgYnVmZmVy
-YmxvYXQgYW5kIHRyeWluZyB0byBtYWtlIHRoZSB3b3JsZCBhIGJldHRlciBwbGFjZS4gQWx3YXlz
-IHdpbGxpbmcgdG8gaGVscCwgYW5kIHdpdGhvdXQgaGltIOKAkyBMaWJyZVFvUyAoYW5kIHRoZSBv
-dGhlciBRb0Ugc29sdXRpb25zIG91dCB0aGVyZSkgd291bGRu4oCZdCBleGlzdC4KPj4gCj4+IERh
-dmUgd2FzIGFuIGluc3BpcmF0aW9uLCBhbmQgd2UgYWxsIG1pc3MgaGltLiBXZeKAmXJlIHJlYWNo
-aW5nIG91dCB0byBmYW1pbHkgYW5kIGNsb3NlIGZyaWVuZHMgdG8gc2VlIGlmIHRoZXJl4oCZcyBh
-bnl0aGluZyB3ZSBjYW4gZG8gdG8gaGVscC4KPj4gCj4+IERhdmUgd2FzIGFuIGluc3BpcmF0aW9u
-IHRvIHVzLiBEYXZl4oCZcyBjb250cmlidXRpb25zIHRvIExpbnV4LCBGUS1Db0RlbCwgYW5kIENB
-S0UgaW1wcm92ZWQgaW50ZXJuZXQgY29ubmVjdGl2aXR5IGFyb3VuZCB0aGUgd29ybGQgZm9yIG1p
-bGxpb25zIG9mIHBlb3BsZS4gQmVjYXVzZSBvZiBoaW0sIG1pbGxpb25zIG9mIHBlb3BsZSBub3cg
-aGF2ZSBhY2Nlc3MgdG8gcmVsaWFibGUgdmlkZW8gY2FsbHMg4oCTIGFuZCBpbiB0dXJuLCBhY2Nl
-c3MgdG8gbG92ZWQgb25lcywgaGVhbHRoY2FyZSwgYW5kIGNvbW11bml0eS4gT25lIG9mIFJvYmVy
-dOKAmXMgSVNQIGN1c3RvbWVycyBpcyBhIGtpbmQgcGFyYXBsZWdpYyB3b21hbiB3aG8gbGl2ZXMg
-aW4gYSBmYXItZmx1bmcgcnVyYWwgQ29sb25pYSBhcm91bmQgRWwgUGFzbywgVGV4YXMuIEhlciBy
-ZWxpYWJsZSBhY2Nlc3MgdG8gaGVyIGRvY3RvcnMgdGhyb3VnaCB0ZWxlbWVkaWNpbmUsIGFuZCB0
-byBoZXIgZmFtaWx5IHRocm91Z2ggRmFjZVRpbWUsIHdhcyBvbmx5IG1hZGUgcG9zc2libGUgYmVj
-YXVzZSBvZiBoaXMgYWxnb3JpdGhtcy4gVGhlcmUgYXJlIG1pbGxpb25zIG9mIGNhc2VzIGxpa2Ug
-aGVycywgd2hlcmUgRGF2ZeKAmXMgY29udHJpYnV0aW9ucyBoYXZlIHNpbGVudGx5IGVuYWJsZWQg
-aHVtYW4gY29ubmVjdGlvbiBhbmQgc2FmZXR5LiBFdmVyeXRoaW5nIERhdmUgY29udHJpYnV0ZWQg
-dG8gdGhlIHdvcmxkIG9mIHRlY2hub2xvZ3kgd2FzIGZyZWUgYW5kIG9wZW4gc291cmNlLCBmb3Ig
-dGhlIGJldHRlcm1lbnQgb2YgaHVtYW5pdHkuCj4+IAo+PiBEYXZlIGlzIHRoZSByZWFzb24gdGhh
-dCBTdGFybGluayB3YXMgYWJsZSB0byB0YWNrbGUgaXRzIGxhdGVuY3kgaXNzdWVzIOKAkyBlbmFi
-bGluZyBhIGdlbmVyYXRpb24gb2YgeW91bmcgZW50cmVwcmVuZXVycyBhY3Jvc3MgdGhlIGRldmVs
-b3Bpbmcgd29ybGQsIHN1Y2ggYXMgdGhlc2UgeW91bmcgZm9sa3MgcGljdHVyZWQgaW4gdGhlIFBo
-aWxsaXBpbmVzLCB0byBzdGFydCB0aGVpciBvd24gSVNQcyB0byBleHBhbmQgaW50ZXJuZXQgYWNj
-ZXNzIHRvIHRoZWlyIGNvbW11bml0aWVzLiBEYXZlIHN0YXJ0ZWQgd29yayBvbiBGUS1Db0RlbCBp
-biBwYXJ0IGJlY2F1c2Ugb2YgaGlzIG93biBqb3VybmV5IHdvcmtpbmcgdG8gZXhwYW5kIGludGVy
-bmV0IGFjY2VzcyBpbiBOaWNhcmFndWEsIHNvIHdlIGtub3cgaGUgc2F3IHRoYXQgaGlzIHdvcmsg
-aGFkIGNvbWUgZnVsbC1jaXJjbGUgYW5kIGhlbHBlZCBzbyBtYW55Lgo+PiAKPj4gV2XigJlyZSBp
-bmNyZWRpYmx5IGdyYXRlZnVsIHRvIGhhdmUgRGF2ZSBhcyBvdXIgZnJpZW5kLCBtZW50b3IsIGFu
-ZCBhcyBzb21lb25lIHdobyBjb250aW51b3VzbHkgaW5zcGlyZWQgdXMg4oCTIHNob3dpbmcgdXMg
-dGhhdCB3ZSBjb3VsZCBkbyBiZXR0ZXIgZm9yIGVhY2ggb3RoZXIgaW4gdGhlIHdvcmxkLCBhbmQg
-bGV2ZXJhZ2UgdGVjaG5vbG9neSB0byBtYWtlIHRoYXQgaGFwcGVuLiBIZSB3aWxsIGJlIGRlYXJs
-eSBtaXNzZWQuCj4+IAo+PiBQUzogRGF2ZSBpcyBmb3JldmVyIGluIG91ciBoZWFydHMgYW5kIHNv
-dWxzLCBpbiBvdXIgcm91dGVycyBhbmQuLi5pbiBwcm9kdWN0aW9uIQo+PiBodHRwczovL2dpdGh1
-Yi5jb20vTGlicmVRb0UvTGlicmVRb1MvcHVsbC82ODQKPj4gCj4+IEFsbCB0aGUgYmVzdCwKPj4g
-Cj4+IEZyYW5rRnJhbnRpc2VrIChGcmFuaykgQm9yc2lrCj4+IGh0dHBzOi8vd3d3LmxpbmtlZGlu
-LmNvbS9pbi9mcmFudGlzZWtib3JzaWsKPj4gU2lnbmFsLCBUZWxlZ3JhbSwgV2hhdHNBcHA6ICs0
-MjE5MTk0MTY3MTQgCj4+IGlNZXNzYWdlLCBtb2JpbGU6ICs0MjA3NzUyMzA4ODUKPj4gU2t5cGU6
-IGNhc2lvYTUzMDJjYQo+PiBmcmFudGlzZWsuYm9yc2lrQGdtYWlsLmNvbQo+PiBfX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwo+PiBCbG9hdCBtYWlsaW5nIGxp
-c3QKPj4gQmxvYXRAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4+IGh0dHBzOi8vbGlzdHMuYnVmZmVy
-YmxvYXQubmV0L2xpc3RpbmZvL2Jsb2F0Cj4gCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KPiBTdGFybGluayBtYWlsaW5nIGxpc3QKPiBTdGFybGlua0Bs
-aXN0cy5idWZmZXJibG9hdC5uZXQKPiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0
-aW5mby9zdGFybGluawoKX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6
-Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============4909361317068035747==
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_8F98E2D6-C123-4BCA-95A7-8EF5907BF252"
+
+
+--Apple-Mail=_8F98E2D6-C123-4BCA-95A7-8EF5907BF252
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
+
+Shocking and terrible news indeed. Dave=E2=80=99s unrelenting dedication =
+to fixing the internet was inspirational. I=E2=80=99m sad to not have =
+the chance to work with him again, and I=E2=80=99ll miss the songs and =
+guitar playing.
+
+Simon
+
+
+> On Apr 1, 2025, at 10:27 AM, Frantisek Borsik via Bloat =
+<bloat@lists.bufferbloat.net> wrote:
+>=20
+> Hello to all,
+>=20
+> We=E2=80=99re devastated to announce that Dave T=C3=A4ht has passed =
+away. <https://libreqos.io/2025/04/01/in-loving-memory-of-dave/>
+>=20
+> Dave was an amazing man, helping the world with FQ-CoDel and CAKE, =
+fighting bufferbloat and trying to make the world a better place. Always =
+willing to help, and without him =E2=80=93 LibreQoS (and the other QoE =
+solutions out there) wouldn=E2=80=99t exist.
+>=20
+> Dave was an inspiration, and we all miss him. We=E2=80=99re reaching =
+out to family and close friends to see if there=E2=80=99s anything we =
+can do to help.
+>=20
+> Dave was an inspiration to us. Dave=E2=80=99s contributions to Linux, =
+FQ-CoDel, and CAKE improved internet connectivity around the world for =
+millions of people. Because of him, millions of people now have access =
+to reliable video calls =E2=80=93 and in turn, access to loved ones, =
+healthcare, and community. One of Robert=E2=80=99s ISP customers is a =
+kind paraplegic woman who lives in a far-flung rural Colonia around El =
+Paso, Texas. Her reliable access to her doctors through telemedicine, =
+and to her family through FaceTime, was only made possible because of =
+his algorithms. There are millions of cases like hers, where Dave=E2=80=99=
+s contributions have silently enabled human connection and safety. =
+Everything Dave contributed to the world of technology was free and open =
+source, for the betterment of humanity.
+>=20
+> Dave is the reason that Starlink was able to tackle its latency issues =
+=E2=80=93 enabling a generation of young entrepreneurs across the =
+developing world, such as these young folks pictured in the Phillipines, =
+to start their own ISPs to expand internet access to their communities. =
+Dave started work on FQ-CoDel in part because of his own journey working =
+to expand internet access in Nicaragua, so we know he saw that his work =
+had come full-circle and helped so many.
+>=20
+> We=E2=80=99re incredibly grateful to have Dave as our friend, mentor, =
+and as someone who continuously inspired us =E2=80=93 showing us that we =
+could do better for each other in the world, and leverage technology to =
+make that happen. He will be dearly missed.
+>=20
+> PS: Dave is forever in our hearts and souls, in our routers and...in =
+production!
+> https://github.com/LibreQoE/LibreQoS/pull/684
+>  <https://github.com/LibreQoE/LibreQoS/pull/684>
+>=20
+> All the best,
+>=20
+> Frank
+>=20
+> Frantisek (Frank) Borsik
+>=20
+> =20
+>=20
+> https://www.linkedin.com/in/frantisekborsik
+>=20
+> Signal, Telegram, WhatsApp: +421919416714=20
+>=20
+> iMessage, mobile: +420775230885
+>=20
+> Skype: casioa5302ca
+>=20
+> frantisek.borsik@gmail.com =
+<mailto:frantisek.borsik@gmail.com>_______________________________________=
+________
+> Bloat mailing list
+> Bloat@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/bloat
+
+
+--Apple-Mail=_8F98E2D6-C123-4BCA-95A7-8EF5907BF252
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
+
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"overflow-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;">Shocking and =
+terrible news indeed. Dave=E2=80=99s unrelenting dedication to fixing =
+the internet was inspirational. I=E2=80=99m sad to not have the chance =
+to work with him again, and I=E2=80=99ll miss the songs and guitar =
+playing.<div><br></div><div>Simon</div><div><br><div><br><blockquote =
+type=3D"cite"><div>On Apr 1, 2025, at 10:27 AM, Frantisek Borsik via =
+Bloat &lt;bloat@lists.bufferbloat.net&gt; wrote:</div><br =
+class=3D"Apple-interchange-newline"><div><div dir=3D"ltr"><div>Hello to =
+all,</div><div><br></div><div><a =
+href=3D"https://libreqos.io/2025/04/01/in-loving-memory-of-dave/">We=E2=80=
+=99re devastated to announce that Dave T=C3=A4ht has passed =
+away.</a><br><br>Dave was an amazing man, helping the world with =
+FQ-CoDel and CAKE, fighting bufferbloat and trying to make the world a =
+better place. Always willing to help, and without him =E2=80=93 LibreQoS =
+(and the other QoE solutions out there) wouldn=E2=80=99t =
+exist.<br><br>Dave was an inspiration, and we all miss him. We=E2=80=99re =
+reaching out to family and close friends to see if there=E2=80=99s =
+anything we can do to help.<br><br>Dave was an inspiration to us. =
+Dave=E2=80=99s contributions to Linux, FQ-CoDel, and CAKE improved =
+internet connectivity around the world for millions of people. Because =
+of him, millions of people now have access to reliable video calls =E2=80=93=
+ and in turn, access to loved ones, healthcare, and community. One of =
+Robert=E2=80=99s ISP customers is a kind paraplegic woman who lives in a =
+far-flung rural Colonia around El Paso, Texas. Her reliable access to =
+her doctors through telemedicine, and to her family through FaceTime, =
+was only made possible because of his algorithms. There are millions of =
+cases like hers, where Dave=E2=80=99s contributions have silently =
+enabled human connection and safety. Everything Dave contributed to the =
+world of technology was free and open source, for the betterment of =
+humanity.<br><br>Dave is the reason that Starlink was able to tackle its =
+latency issues =E2=80=93 enabling a generation of young entrepreneurs =
+across the developing world, such as these young folks pictured in the =
+Phillipines, to start their own ISPs to expand internet access to their =
+communities. Dave started work on FQ-CoDel in part because of his own =
+journey working to expand internet access in Nicaragua, so we know he =
+saw that his work had come full-circle and helped so =
+many.<br><br>We=E2=80=99re incredibly grateful to have Dave as our =
+friend, mentor, and as someone who continuously inspired us =E2=80=93 =
+showing us that we could do better for each other in the world, and =
+leverage technology to make that happen. He will be dearly =
+missed.<br></div><div><br></div><div><b>PS: </b>Dave is forever in our =
+hearts and souls, in our routers and...in production!</div><div><b><a =
+href=3D"https://github.com/LibreQoE/LibreQoS/pull/684">https://github.com/=
+LibreQoE/LibreQoS/pull/684<br></a></b></div><div><br></div><div><div =
+dir=3D"ltr" class=3D"gmail_signature" =
+data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div><div =
+dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div =
+dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>All the =
+best,</div><div><br></div><div><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Frank<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frantisek (Frank) =
+Borsik<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)"><u></u>&nbsp;<u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a =
+href=3D"https://www.linkedin.com/in/frantisekborsik" =
+style=3D"color:rgb(17,85,204)" =
+target=3D"_blank">https://www.linkedin.com/in/frantisekborsik</a><u></u><u=
+></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Signal, =
+Telegram, WhatsApp: +421919416714&nbsp;<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessage, mobile: =
++420775230885<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a =
+href=3D"mailto:frantisek.borsik@gmail.com" style=3D"color:rgb(17,85,204)" =
+target=3D"_blank">frantisek.borsik@gmail.com</a></p></div></div></div></di=
+v></div></div></div></div></div></div></div></div></div></div>
+_______________________________________________<br>Bloat mailing =
+list<br>Bloat@lists.bufferbloat.net<br>https://lists.bufferbloat.net/listi=
+nfo/bloat<br></div></blockquote></div><br></div></body></html>=
+
+--Apple-Mail=_8F98E2D6-C123-4BCA-95A7-8EF5907BF252--
+
+--===============4909361317068035747==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============4909361317068035747==--
