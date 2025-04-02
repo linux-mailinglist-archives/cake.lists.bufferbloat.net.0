@@ -2,57 +2,60 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id C11C6A79620
-	for <lists+cake@lfdr.de>; Wed,  2 Apr 2025 21:52:01 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 984D6A796A2
+	for <lists+cake@lfdr.de>; Wed,  2 Apr 2025 22:33:54 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 8DEBC3CBE0;
-	Wed,  2 Apr 2025 15:51:53 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id 5D5993CB55;
+	Wed,  2 Apr 2025 16:33:53 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1743623513;
-	bh=mL93WmKL30P8QWjHaJsjPiXQParNqInL/ZPOSmPoefU=;
-	h=Date:To:In-Reply-To:References:Subject:List-Id:List-Unsubscribe:
+	d=lists.bufferbloat.net; s=201610; t=1743626033;
+	bh=clgfB3uqQLNWhAtUolM6BQFtal95P8GL7vrWhlIUyZY=;
+	h=Date:In-Reply-To:To:References:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=Xyn1nTvC/w40qUM0vGR4zsLr7FHudl8Vv5iS/vzTZdaysGm42fsSEj3zkEhKaQpVP
-	 6HsXeXnH8uNdoOJsU3bTSsL/ahZ4rn9i+KeoKMfZI5CREJ6VwVoDo33NzPiHAF7Lja
-	 2MaJuAi7aY01djDNcypXAt/oH+D1WGUHVXvxiyLalUfEN7RQlN+6nE9K8Cym7BEaUv
-	 AzahFUey0HO1W2fLyqVOFMCFbyfplgEV2XrKowmkNPJiqcjjC2tVZl4J+XTbcXhyhJ
-	 SlnSksIlzqY+BEx2ch1NTkecmhvqMH3Q2WiUD+FgU9w1Lmk9ShH3qtXhTLCTiBUMPL
-	 xlzlV40fEqueQ==
+	b=goO0+rNZwP7f4no/Oiwuy3mx9IPko++Vc2H6MWFAuvCPCLzIK0b2ExA9FVX3ACRlK
+	 IQHxUb9LAFyG8SHaTIp3CQSCeB1UHGOFbYG/O7sl9NXTswjeB5rEjpXPs5crgerJQj
+	 48h3ZiA+qPdhlofxvauMWBBamoYTDifqy/+WkS0j/nWH7asrBen0uNu4CZvagGFmMe
+	 Kj3s9SjdCVivTGunfCJrwoxjd6EMB1LiaMiGWIX1PIK58iP63vDJFMgbzfIWBBkCiv
+	 eEvEEIN6HkdWO+TvQ8sLa8B8f3kp9qXjO26yJ3WT+gB7BRzgVRNR6SjMMsPVlPSNwy
+	 BCrLkwuMlIR2A==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from smtp67.iad3a.emailsrvr.com (smtp67.iad3a.emailsrvr.com
- [173.203.187.67])
- (using TLSv1.2 with cipher AECDH-AES256-SHA (256/256 bits))
+Received: from sender4-op-o12.zoho.com (sender4-op-o12.zoho.com
+ [136.143.188.12])
+ (using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 34D243CB45;
- Wed,  2 Apr 2025 15:51:52 -0400 (EDT)
-Received: from app41.wa-webapps.iad3a (relay-webapps.rsapps.net
- [172.27.255.140])
- by smtp25.relay.iad3a.emailsrvr.com (SMTP Server) with ESMTP id A305C252C5;
- Wed,  2 Apr 2025 15:51:51 -0400 (EDT)
-Received: from deepplum.com (localhost.localdomain [127.0.0.1])
- by app41.wa-webapps.iad3a (Postfix) with ESMTP id 81C1841CBD;
- Wed,  2 Apr 2025 15:51:51 -0400 (EDT)
-Received: by apps.rackspace.com
- (Authenticated sender: dpreed@deepplum.com, from: dpreed@deepplum.com) 
- with HTTP; Wed, 2 Apr 2025 15:51:51 -0400 (EDT)
-X-Auth-ID: dpreed@deepplum.com
-Date: Wed, 2 Apr 2025 15:51:51 -0400 (EDT)
-To: "Livingood, Jason" <jason_livingood@comcast.com>
-MIME-Version: 1.0
-Importance: Normal
-X-Priority: 3 (Normal)
-X-Type: html
-In-Reply-To: <8DA2934A-43D1-4700-8F32-CA424C3FAE8D@comcast.com>
-References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com> 
- <014po62q-r99p-71np-52r1-n84n9np63nqr@ynat.uz> <87plhvlyoc.fsf@toke.dk> 
- <976DC4FC-44CA-4C7E-90E0-DE39B57F01E1@comcast.com> 
- <8DA2934A-43D1-4700-8F32-CA424C3FAE8D@comcast.com>
-X-Client-IP: 209.6.168.128
-Message-ID: <1743623511.52759201@apps.rackspace.com>
-X-Mailer: webmail/19.0.28-RC
-X-Classification-ID: e2d9c006-1b4e-4285-b13d-dd5dbd9b148e-1-1
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 4C7143B2A4;
+ Wed,  2 Apr 2025 16:33:51 -0400 (EDT)
+ARC-Seal: i=1; a=rsa-sha256; t=1743626029; cv=none; 
+ d=zohomail.com; s=zohoarc; 
+ b=DdWfoeYdevjB2ujQB2mBGkT9SHn8aVr2Boqa3wjCQXw2LiHDnyIhpKlf07dgJkc8AQlnozWOfxNO1pyjc8f2E1yw7Xx0tC2+Jg9t/WZvU+tQ9LkPjTSdjDcDfLzbOZUipLVqplUdG0NjcAy5vHnv5Ack4IirBDVPvqXr6qELC/o=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com;
+ s=zohoarc; t=1743626029;
+ h=Content-Type:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To;
+ bh=SmOmeZNC4nQu4NtfdqkFRvA86UmPzpbpRobUQkZThZo=; 
+ b=G9LvqQQz2BDOtpUGagJpmAW3YVZjEkwW0OMqw7upWurQn9jjzFwlBRaDtZg+ElJhTtK3VCVi18Ef5fDbZPjFBY8ifRSHH6nBhLUYOdq3v71t0D+lN7vRjHKSSVteFYfIWO5q+WZlWQoB5qyXWIRdJoojS+D1bjVQ2glqYC9teyo=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+ dkim=pass  header.i=jonathanfoulkes.com;
+ spf=pass  smtp.mailfrom=jf@jonathanfoulkes.com;
+ dmarc=pass header.from=<jf@jonathanfoulkes.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1743626029; 
+ s=zoho; d=jonathanfoulkes.com; i=jf@jonathanfoulkes.com;
+ h=From:From:Message-Id:Message-Id:Content-Type:Mime-Version:Subject:Subject:Date:Date:In-Reply-To:Cc:Cc:To:To:References:Reply-To;
+ bh=SmOmeZNC4nQu4NtfdqkFRvA86UmPzpbpRobUQkZThZo=;
+ b=UDvNhL557x1+G9p4GKu2uEJj4v42TgaabnPLEhvkXbWd0rQAT0ckIScE14t8FlSf
+ 2ww9NtQ7YW+NomRgjyBKRNiDR1a05H/BaDSa91QCx3w9HfJsIvcusJrKXUAuGu4Kzbh
+ MF7OA9XqvCZXj+pY/Y25BJKCD+hPczYv6Z5oNz9A=
+Received: by mx.zohomail.com with SMTPS id 1743626027425804.0062128366021;
+ Wed, 2 Apr 2025 13:33:47 -0700 (PDT)
+Message-Id: <9DDEC1EC-DC08-477F-A70D-5E2B8F9962EC@jonathanfoulkes.com>
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.400.131.1.6\))
+Date: Wed, 2 Apr 2025 16:33:34 -0400
+In-Reply-To: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
+To: Frantisek Borsik <frantisek.borsik@gmail.com>
+References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
+X-Mailer: Apple Mail (2.3826.400.131.1.6)
+X-ZohoMailClient: External
 Subject: Re: [Cake]
  =?utf-8?q?=5BBloat=5D_In_loving_memory_of_Dave_T=C3=A4ht_?=
  =?utf-8?q?=3C3?=
@@ -67,248 +70,232 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: "David P. Reed via Cake" <cake@lists.bufferbloat.net>
-Reply-To: "David P. Reed" <dpreed@deepplum.com>
-Cc: "cerowrt-commits@lists.bufferbloat.net"
- <cerowrt-commits@lists.bufferbloat.net>,
- "bloat-ietf@lists.bufferbloat.net" <bloat-ietf@lists.bufferbloat.net>,
- Herbert Wolverson <hwolverson@libreqos.io>,
- Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- "cerowrt-users@lists.bufferbloat.net" <cerowrt-users@lists.bufferbloat.net>,
- libreqos <libreqos@lists.bufferbloat.net>,
+From: jf--- via Cake <cake@lists.bufferbloat.net>
+Reply-To: jf@jonathanfoulkes.com
+Cc: codel-wireless@lists.bufferbloat.net,
  Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>,
- =?utf-8?Q?Frantisek_=28Frank=29_Borsik?= <frank@libreqos.io>,
- =?utf-8?Q?Network_Neutrality_is_back=21_Let=C2=B4s_make_the_technical_asp?=
- =?utf-8?Q?ects_heard_this_time=21?= <nnagain@lists.bufferbloat.net>,
- "codel-wireless@lists.bufferbloat.net" <codel-wireless@lists.bufferbloat.net>,
- "cerowrt-devel@lists.bufferbloat.net" <cerowrt-devel@lists.bufferbloat.net>,
- bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
- "codel@lists.bufferbloat.net" <codel@lists.bufferbloat.net>,
- Vint Cerf <vint@google.com>,
+ cerowrt-commits@lists.bufferbloat.net,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ libreqos <libreqos@lists.bufferbloat.net>,
  Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
+ Herbert Wolverson <hwolverson@libreqos.io>,
+ "Frantisek \(Frank\) Borsik" <frank@libreqos.io>,
+ =?utf-8?Q?Network_Neutrality_is_back!_Let=C2=B4s_make_the_technical_as?=
+ =?utf-8?Q?pects_heard_this_time!?= <nnagain@lists.bufferbloat.net>,
+ codel@lists.bufferbloat.net, cerowrt-devel@lists.bufferbloat.net,
+ bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
+ bloat-ietf@lists.bufferbloat.net, cerowrt-users@lists.bufferbloat.net,
  =?utf-8?Q?Robert_Chac=C3=B3n?= <robert@libreqos.io>
-Content-Type: multipart/mixed; boundary="===============4328058866656216305=="
+Content-Type: multipart/mixed; boundary="===============8503081759216063758=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
---===============4328058866656216305==
-Content-Type: multipart/alternative;boundary="----=_20250402155151000000_81469"
 
-------=_20250402155151000000_81469
-Content-Type: text/plain; charset="UTF-8"
+--===============8503081759216063758==
+Content-Type: multipart/alternative;
+	boundary="Apple-Mail=_8F485093-70A9-4EA5-BEAB-B4DA874926FF"
+
+
+--Apple-Mail=_8F485093-70A9-4EA5-BEAB-B4DA874926FF
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain;
+	charset=utf-8
 
-=0AHi all -=0A =0AI've already shared my sadness and appreciation of my goo=
-d friend Dave on LinkedIn.=0AI met him through Jim Gettys at the beginning =
-of the Bufferbloat discovery, and besides our long correspondence, I hope I=
- have given him enough support over the years - including introducing him t=
-o my network of friends, some of whom are on this list. Others he found by =
-himself. =0AHe's been a one-person social network out there, who got things=
- done beyond what institutions seem to be able to do. (And he amazed me by =
-managing to get a stodgy IETF crowd to pay attention to the congestion cont=
-rol issue, despite much institutional resistance, and academic networking r=
-esearchers who never got the point). Of course, Jason Livingood worked behi=
-nd the scenes very hard to bypass corporate resistance, too.=0A=0AAlso, I c=
-an share something that few knew about - I brought Dave into an ex parte po=
-licy discussion at the FCC about an idea being promoted that the FCC should=
- require all routers the FCC certified to have a complete "locked down" con=
-figuration that could not be changed by users. I got brought in because of =
-my FCC TAC involvement around Software Defined Radio. But the folks behind =
-the proposal were just using that as an excuse - they wanted really to bloc=
-k WISPs by raising the cost of WiFi routers. Dave, who knew more than anyth=
-ing why re-flashing routers made them MORE secure and could explain it in a=
- disarming way to lawyers and policymakers, managed to get the commissioner=
-s to understand that security wasn't something the FCC could certify, and a=
-lso why commercial routers weren't at all secure. He was so much better at =
-explaining in what you might call an inclusive, folksy way that he changed =
-the FCC's approach significantly - away from Certifying Security entirely. =
-(The SDR issue ended up not being relevant to routers, though SDR is still =
-a complex policy issue that is holding back innovation in wireless systems.=
-) I'm certain Dave has had much impact of this sort.=0A =0AHowever, Dave's =
-passing s very frustrating to me because of two things:=0A =0A1) there is n=
-o one who can replace Dave. The things he made happen will continue, but he=
- was only getting started on issues like improving WiFi. Again, the resista=
-nce to improving WiFi is both institutional and corporate, and researchers =
-won't challenge the institutional and corporate shibboleths that get in the=
- way of solving critical problems in the 802.11 implementation and systems =
-architecture domain. (Unfortunately, WiFi has become a political term that =
-is being used by "wireless" operators and their suppliers to fight for or a=
-gainst monopoly control of the airwaves, very parallel to the problems of g=
-etting engineering solutions on Internet fabric that deal with congestion. =
-So it can't be done in the institutions and corporations focused away from =
-the engineering challenges. That's why Dave was needed.)=0A=0A2) I was thin=
-king about how we could get Dave recognized for his contributions. Like oth=
-er unsung heroes, Dave didn't work for BBN or some other moneyed entity who=
- would commission a book or a memorial. (BBN paid Katie Hafner to write the=
- text that later turned into her book "When Wizards Stay Up Late", which od=
-dly only talked about the ARPANET/Internet pioneers who worked for BBN, omi=
-tting many of my Internet colleagues.)  Dave wasn't the kind of guy that ge=
-ts Awards from the Computer History Museum or the ACM or IEEE. He wasn't be=
-loved at IETF or ISOC that I know of. He's in the category of folks like No=
-el Chiappa or Bram Cohen or Richard Stallman or Aaron Swartz - people I thi=
-nk really changed the way we think about computing and internetworking, but=
- who won't be in the official histories.=0A=0AI was hoping (before this wee=
-k) to try to =0AOn Wednesday, April 2, 2025 09:59, "Livingood, Jason via Ca=
-ke" <cake@lists.bufferbloat.net> said:=0A=0A=0A=0A> Very sad news indeed! I=
- had the pleasure of working closely with Dave for 15=0A> years. He was gen=
-erous with his time and had a unique way of bringing people=0A> together to=
- make the internet better for everyone!=0A> =0A> =0A> I had to go down memo=
-ry lane to recall when I first really started working with=0A> him. It may =
-have been around 2010 or so. In 2012, I started sending funds his way=0A> v=
-ia my day job to help him and his merry network of collaborators work to de=
-velop=0A> the CoDel AQM.=0A> =0A> =0A> Funding him was not necessarily easy=
-, as Dave had a unique way of working and was=0A> best when he had complete=
- autonomy and only loosely outlined goals - typically=0A> hard to sell in a=
- big company. But he could make things happen, so it worked. And=0A> I knew=
- when he started complaining about maintenance needs on his boat, or the=0A=
-> need to recruit a new person to the project, or about a great new (and pr=
-actical!)=0A> idea, that it was time to top up his funding. ;-)=0A> =0A> =
-=0A> That initial CoDel support in 2012 was extended to underwrite work on =
-his idea to=0A> develop RRUL, the first real working latency test that I ca=
-n remember=0A> (https://www.bufferbloat.net/projects/bloat/wiki/RRUL_Spec/=
-=0A> <https://www.bufferbloat.net/projects/bloat/wiki/RRUL_Spec/>). He was =
-also=0A> helpful in introducing me to Simon Kelley, developer of dnsmasq, s=
-o we could=0A> underwrite some IPv6 features in dnsmasq (and Dave convinced=
- Simon to come to an=0A> IETF meeting to help gather requirements and meet =
-folks).=0A> =0A> =0A> Dave got CoDel working, so we developed a compelling =
-demo of CoDel on a DOCSIS=0A> network (via a CeroWrt-based router connected=
- to a cable modem) and brought him=0A> along to IETF-86 in March 2013 in Or=
-lando - see interview with Dave at=0A> https://youtu.be/NuHYOu4aAqg?si=3Dp0=
-SJHLNpp_6n7XP9&t=3D195=0A> <https://youtu.be/NuHYOu4aAqg?si=3Dp0SJHLNpp_6n7=
-XP9&t=3D195>.=0A> =0A> =0A> From 2014-2017, I was able to make additional f=
-inancial support happen for him, so=0A> he could do R&D into how to improve=
- buffer bloat in WiFi network links and=0A> equipment, a project he called =
-"Make WiFi Fast". In 2020-2021 and 2024, I found=0A> funding for his work a=
-gain, this time to work on accelerating AQM adoption in the=0A> real world =
-& work related to the CAKE AQM.=0A> =0A> =0A> Thanks in part to my longstan=
-ding collaboration with Dave, tens of millions of=0A> DOCSIS users in our n=
-etwork have AQM and thus far better network responsiveness.=0A> The same is=
- true for AQMs he worked on, CeroWrt, LibreQoS, and other projects. He=0A> =
-succeeded in his goal to make the internet better for everyone!=0A> =0A> =
-=0A> We will miss you, Dave!=0A> =0A> =0A> Jason=0A> =0A> =0A> =0A> =0A> =
-=0A> =0A> =0A> =0A> =0A> =0A> =0A> ________________________________________=
-_______=0A> Cake mailing list=0A> Cake@lists.bufferbloat.net=0A> https://li=
-sts.bufferbloat.net/listinfo/cake=0A> 
-------=_20250402155151000000_81469
-Content-Type: text/html; charset="UTF-8"
+This is such sad news; I will deeply miss Dave and all his outstanding =
+contributions.
+
+I first met Dave around 2016 as I was beginning to mature the concepts =
+in the IQrouter. Dave was a great sounding board for ideas and a great =
+mentor who constantly encouraged us.
+I returned the favor by supporting his work and giving what feedback I =
+could over the years, sharing data gathered via our deployments to help =
+him and others refine the designs of the lower-level QoS components.
+
+His efforts to educate the rest of us and key players in our field will =
+be remembered for the fruits they had and continue to have.
+
+I=E2=80=99ll resurrect the Apple title =E2=80=98Evangelist=E2=80=99 and =
+apply it to Dave, one of our tireless Evangelists who worked to improve =
+the internet for all.
+
+R.I.P Dave, I miss you.
+
+Jonathan Foulkes
+
+
+> On Apr 1, 2025, at 1:27=E2=80=AFPM, Frantisek Borsik via Bloat =
+<bloat@lists.bufferbloat.net> wrote:
+>=20
+> Hello to all,
+>=20
+> We=E2=80=99re devastated to announce that Dave T=C3=A4ht has passed =
+away. <https://libreqos.io/2025/04/01/in-loving-memory-of-dave/>
+>=20
+> Dave was an amazing man, helping the world with FQ-CoDel and CAKE, =
+fighting bufferbloat and trying to make the world a better place. Always =
+willing to help, and without him =E2=80=93 LibreQoS (and the other QoE =
+solutions out there) wouldn=E2=80=99t exist.
+>=20
+> Dave was an inspiration, and we all miss him. We=E2=80=99re reaching =
+out to family and close friends to see if there=E2=80=99s anything we =
+can do to help.
+>=20
+> Dave was an inspiration to us. Dave=E2=80=99s contributions to Linux, =
+FQ-CoDel, and CAKE improved internet connectivity around the world for =
+millions of people. Because of him, millions of people now have access =
+to reliable video calls =E2=80=93 and in turn, access to loved ones, =
+healthcare, and community. One of Robert=E2=80=99s ISP customers is a =
+kind paraplegic woman who lives in a far-flung rural Colonia around El =
+Paso, Texas. Her reliable access to her doctors through telemedicine, =
+and to her family through FaceTime, was only made possible because of =
+his algorithms. There are millions of cases like hers, where Dave=E2=80=99=
+s contributions have silently enabled human connection and safety. =
+Everything Dave contributed to the world of technology was free and open =
+source, for the betterment of humanity.
+>=20
+> Dave is the reason that Starlink was able to tackle its latency issues =
+=E2=80=93 enabling a generation of young entrepreneurs across the =
+developing world, such as these young folks pictured in the Phillipines, =
+to start their own ISPs to expand internet access to their communities. =
+Dave started work on FQ-CoDel in part because of his own journey working =
+to expand internet access in Nicaragua, so we know he saw that his work =
+had come full-circle and helped so many.
+>=20
+> We=E2=80=99re incredibly grateful to have Dave as our friend, mentor, =
+and as someone who continuously inspired us =E2=80=93 showing us that we =
+could do better for each other in the world, and leverage technology to =
+make that happen. He will be dearly missed.
+>=20
+> PS: Dave is forever in our hearts and souls, in our routers and...in =
+production!
+> https://github.com/LibreQoE/LibreQoS/pull/684
+>  <https://github.com/LibreQoE/LibreQoS/pull/684>
+>=20
+> All the best,
+>=20
+> Frank
+>=20
+> Frantisek (Frank) Borsik
+>=20
+> =20
+>=20
+> https://www.linkedin.com/in/frantisekborsik
+>=20
+> Signal, Telegram, WhatsApp: +421919416714=20
+>=20
+> iMessage, mobile: +420775230885
+>=20
+> Skype: casioa5302ca
+>=20
+> frantisek.borsik@gmail.com =
+<mailto:frantisek.borsik@gmail.com>_______________________________________=
+________
+> Bloat mailing list
+> Bloat@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/bloat
+
+
+--Apple-Mail=_8F485093-70A9-4EA5-BEAB-B4DA874926FF
 Content-Transfer-Encoding: quoted-printable
+Content-Type: text/html;
+	charset=utf-8
 
-<font face=3D"arial" size=3D"2"><p style=3D"margin:0;padding:0;font-family:=
- arial; font-size: 10pt; overflow-wrap: break-word;">Hi all -</p>=0A<p styl=
-e=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap:=
- break-word;">&nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: aria=
-l; font-size: 10pt; overflow-wrap: break-word;">I've already shared my sadn=
-ess and appreciation of my good friend Dave on LinkedIn.</p>=0A<p style=3D"=
-margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wrap: brea=
-k-word;">I met him through Jim Gettys at the beginning of the Bufferbloat d=
-iscovery, and besides our long correspondence, I hope I have given him enou=
-gh support over the years - including introducing him to my network of frie=
-nds, some of whom are on this list. Others he found by himself.&nbsp;<br />=
-He's been a one-person social network out there, who got things done beyond=
- what institutions seem to be able to do. (And he amazed me by managing to =
-get a stodgy IETF crowd to pay attention to the congestion control issue, d=
-espite much institutional resistance, and academic networking researchers w=
-ho never got the point). Of course, Jason Livingood worked behind the scene=
-s very hard to bypass corporate resistance, too.<br /><br />Also, I can sha=
-re something that few knew about - I brought Dave into an ex parte policy d=
-iscussion at the FCC about an idea being promoted that the FCC should requi=
-re all routers the FCC certified to have a complete "locked down" configura=
-tion that could not be changed by users. I got brought in because of my FCC=
- TAC involvement around Software Defined Radio. But the folks behind the pr=
-oposal were just using that as an excuse - they wanted really to block WISP=
-s by raising the cost of WiFi routers. Dave, who knew more than anything wh=
-y re-flashing routers made them MORE secure and could explain it in a disar=
-ming way to lawyers and policymakers, managed to get the commissioners to u=
-nderstand that security wasn't something the FCC could certify, and also wh=
-y commercial routers weren't at all secure. He was so much better at explai=
-ning in what you might call an inclusive, folksy way that he changed the FC=
-C's approach significantly - away from Certifying Security entirely. (The S=
-DR issue ended up not being relevant to routers, though SDR is still a comp=
-lex policy issue that is holding back innovation in wireless systems.) I'm =
-certain Dave has had much impact of this sort.</p>=0A<p style=3D"margin:0;p=
-adding:0;font-family: arial; font-size: 10pt; overflow-wrap: break-word;">&=
-nbsp;</p>=0A<p style=3D"margin:0;padding:0;font-family: arial; font-size: 1=
-0pt; overflow-wrap: break-word;">However, Dave's passing s very frustrating=
- to me because of two things:</p>=0A<p style=3D"margin:0;padding:0;font-fam=
-ily: arial; font-size: 10pt; overflow-wrap: break-word;">&nbsp;</p>=0A<p st=
-yle=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wra=
-p: break-word;">1) there is no one who can replace Dave. The things he made=
- happen will continue, but he was only getting started on issues like impro=
-ving WiFi. Again, the resistance to improving WiFi is both institutional an=
-d corporate, and researchers won't challenge the institutional and corporat=
-e shibboleths that get in the way of solving critical problems in the 802.1=
-1 implementation and systems architecture domain. (Unfortunately, WiFi has =
-become a political term that is being used by "wireless" operators and thei=
-r suppliers to fight for or against monopoly control of the airwaves, very =
-parallel to the problems of getting engineering solutions on Internet fabri=
-c that deal with congestion. So it can't be done in the institutions and co=
-rporations focused away from the engineering challenges. That's why Dave wa=
-s needed.)<br /><br />2) I was thinking about how we could get Dave recogni=
-zed for his contributions. Like other unsung heroes, Dave didn't work for B=
-BN or some other moneyed entity who would commission a book or a memorial. =
-(BBN paid Katie Hafner to write the text that later turned into her book "W=
-hen Wizards Stay Up Late", which oddly only talked about the ARPANET/Intern=
-et pioneers who worked for BBN, omitting many of my Internet colleagues.)&n=
-bsp; Dave wasn't the kind of guy that gets Awards from the Computer History=
- Museum or the ACM or IEEE. He wasn't beloved at IETF or ISOC that I know o=
-f. He's in the category of folks like Noel Chiappa or Bram Cohen or Richard=
- Stallman or Aaron Swartz - people I think really changed the way we think =
-about computing and internetworking, but who won't be in the official histo=
-ries.<br /><br />I was hoping (before this week) to try to&nbsp;</p>=0A<p s=
-tyle=3D"margin:0;padding:0;font-family: arial; font-size: 10pt; overflow-wr=
-ap: break-word;">On Wednesday, April 2, 2025 09:59, "Livingood, Jason via C=
-ake" &lt;cake@lists.bufferbloat.net&gt; said:<br /><br /></p>=0A<div id=3D"=
-SafeStyles1743620774">=0A<p style=3D"margin:0;padding:0;font-family: arial;=
- font-size: 10pt; overflow-wrap: break-word;">&gt; Very sad news indeed! I =
-had the pleasure of working closely with Dave for 15<br />&gt; years. He wa=
-s generous with his time and had a unique way of bringing people<br />&gt; =
-together to make the internet better for everyone!<br />&gt; <br />&gt; <br=
- />&gt; I had to go down memory lane to recall when I first really started =
-working with<br />&gt; him. It may have been around 2010 or so. In 2012, I =
-started sending funds his way<br />&gt; via my day job to help him and his =
-merry network of collaborators work to develop<br />&gt; the CoDel AQM.<br =
-/>&gt; <br />&gt; <br />&gt; Funding him was not necessarily easy, as Dave =
-had a unique way of working and was<br />&gt; best when he had complete aut=
-onomy and only loosely outlined goals - typically<br />&gt; hard to sell in=
- a big company. But he could make things happen, so it worked. And<br />&gt=
-; I knew when he started complaining about maintenance needs on his boat, o=
-r the<br />&gt; need to recruit a new person to the project, or about a gre=
-at new (and practical!)<br />&gt; idea, that it was time to top up his fund=
-ing. ;-)<br />&gt; <br />&gt; <br />&gt; That initial CoDel support in 2012=
- was extended to underwrite work on his idea to<br />&gt; develop RRUL, the=
- first real working latency test that I can remember<br />&gt; (https://www=
-.bufferbloat.net/projects/bloat/wiki/RRUL_Spec/<br />&gt; &lt;https://www.b=
-ufferbloat.net/projects/bloat/wiki/RRUL_Spec/&gt;). He was also<br />&gt; h=
-elpful in introducing me to Simon Kelley, developer of dnsmasq, so we could=
-<br />&gt; underwrite some IPv6 features in dnsmasq (and Dave convinced Sim=
-on to come to an<br />&gt; IETF meeting to help gather requirements and mee=
-t folks).<br />&gt; <br />&gt; <br />&gt; Dave got CoDel working, so we dev=
-eloped a compelling demo of CoDel on a DOCSIS<br />&gt; network (via a Cero=
-Wrt-based router connected to a cable modem) and brought him<br />&gt; alon=
-g to IETF-86 in March 2013 in Orlando - see interview with Dave at<br />&gt=
-; https://youtu.be/NuHYOu4aAqg?si=3Dp0SJHLNpp_6n7XP9&amp;t=3D195<br />&gt; =
-&lt;https://youtu.be/NuHYOu4aAqg?si=3Dp0SJHLNpp_6n7XP9&amp;t=3D195&gt;.<br =
-/>&gt; <br />&gt; <br />&gt; From 2014-2017, I was able to make additional =
-financial support happen for him, so<br />&gt; he could do R&amp;D into how=
- to improve buffer bloat in WiFi network links and<br />&gt; equipment, a p=
-roject he called "Make WiFi Fast". In 2020-2021 and 2024, I found<br />&gt;=
- funding for his work again, this time to work on accelerating AQM adoption=
- in the<br />&gt; real world &amp; work related to the CAKE AQM.<br />&gt; =
-<br />&gt; <br />&gt; Thanks in part to my longstanding collaboration with =
-Dave, tens of millions of<br />&gt; DOCSIS users in our network have AQM an=
-d thus far better network responsiveness.<br />&gt; The same is true for AQ=
-Ms he worked on, CeroWrt, LibreQoS, and other projects. He<br />&gt; succee=
-ded in his goal to make the internet better for everyone!<br />&gt; <br />&=
-gt; <br />&gt; We will miss you, Dave!<br />&gt; <br />&gt; <br />&gt; Jaso=
-n<br />&gt; <br />&gt; <br />&gt; <br />&gt; <br />&gt; <br />&gt; <br />&g=
-t; <br />&gt; <br />&gt; <br />&gt; <br />&gt; <br />&gt; _________________=
-______________________________<br />&gt; Cake mailing list<br />&gt; Cake@l=
-ists.bufferbloat.net<br />&gt; https://lists.bufferbloat.net/listinfo/cake<=
-br />&gt; </p>=0A</div></font>
-------=_20250402155151000000_81469--
+<html><head><meta http-equiv=3D"content-type" content=3D"text/html; =
+charset=3Dutf-8"></head><body style=3D"overflow-wrap: break-word; =
+-webkit-nbsp-mode: space; line-break: after-white-space;"><div =
+dir=3D"auto" style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: =
+space; line-break: after-white-space;">This is such sad news; I will =
+deeply miss Dave and all his outstanding contributions.</div><div =
+dir=3D"auto" style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: =
+space; line-break: after-white-space;"><br></div><div dir=3D"auto" =
+style=3D"overflow-wrap: break-word; -webkit-nbsp-mode: space; =
+line-break: after-white-space;">I first met Dave around 2016 as I was =
+beginning to mature the concepts in the IQrouter. Dave was&nbsp;a great =
+sounding board for ideas&nbsp;and a great mentor who constantly =
+encouraged us.</div><div dir=3D"auto" style=3D"overflow-wrap: =
+break-word; -webkit-nbsp-mode: space; line-break: after-white-space;">I =
+returned the favor by supporting his work and giving what feedback I =
+could over the years, sharing&nbsp;data gathered via our deployments to =
+help him and others refine the designs of the lower-level QoS =
+components.<br =
+id=3D"lineBreakAtBeginningOfMessage"><div><br></div><div>His efforts to =
+educate the rest of us and key players in our field will be remembered =
+for the fruits they had&nbsp;and continue to =
+have.</div><div><br></div><div>I=E2=80=99ll resurrect the Apple title =
+=E2=80=98Evangelist=E2=80=99&nbsp;and apply it to Dave, one of our =
+tireless Evangelists who worked to improve the internet for =
+all.</div><div><br></div><div>R.I.P Dave, I miss =
+you.</div><div><br></div><div>Jonathan =
+Foulkes</div><div><br></div><div><br><blockquote type=3D"cite"><div>On =
+Apr 1, 2025, at 1:27=E2=80=AFPM, Frantisek Borsik via Bloat =
+&lt;bloat@lists.bufferbloat.net&gt; wrote:</div><br =
+class=3D"Apple-interchange-newline"><div><div dir=3D"ltr"><div>Hello to =
+all,</div><div><br></div><div><a =
+href=3D"https://libreqos.io/2025/04/01/in-loving-memory-of-dave/">We=E2=80=
+=99re devastated to announce that Dave T=C3=A4ht has passed =
+away.</a><br><br>Dave was an amazing man, helping the world with =
+FQ-CoDel and CAKE, fighting bufferbloat and trying to make the world a =
+better place. Always willing to help, and without him =E2=80=93 LibreQoS =
+(and the other QoE solutions out there) wouldn=E2=80=99t =
+exist.<br><br>Dave was an inspiration, and we all miss him. We=E2=80=99re =
+reaching out to family and close friends to see if there=E2=80=99s =
+anything we can do to help.<br><br>Dave was an inspiration to us. =
+Dave=E2=80=99s contributions to Linux, FQ-CoDel, and CAKE improved =
+internet connectivity around the world for millions of people. Because =
+of him, millions of people now have access to reliable video calls =E2=80=93=
+ and in turn, access to loved ones, healthcare, and community. One of =
+Robert=E2=80=99s ISP customers is a kind paraplegic woman who lives in a =
+far-flung rural Colonia around El Paso, Texas. Her reliable access to =
+her doctors through telemedicine, and to her family through FaceTime, =
+was only made possible because of his algorithms. There are millions of =
+cases like hers, where Dave=E2=80=99s contributions have silently =
+enabled human connection and safety. Everything Dave contributed to the =
+world of technology was free and open source, for the betterment of =
+humanity.<br><br>Dave is the reason that Starlink was able to tackle its =
+latency issues =E2=80=93 enabling a generation of young entrepreneurs =
+across the developing world, such as these young folks pictured in the =
+Phillipines, to start their own ISPs to expand internet access to their =
+communities. Dave started work on FQ-CoDel in part because of his own =
+journey working to expand internet access in Nicaragua, so we know he =
+saw that his work had come full-circle and helped so =
+many.<br><br>We=E2=80=99re incredibly grateful to have Dave as our =
+friend, mentor, and as someone who continuously inspired us =E2=80=93 =
+showing us that we could do better for each other in the world, and =
+leverage technology to make that happen. He will be dearly =
+missed.<br></div><div><br></div><div><b>PS: </b>Dave is forever in our =
+hearts and souls, in our routers and...in production!</div><div><b><a =
+href=3D"https://github.com/LibreQoE/LibreQoS/pull/684">https://github.com/=
+LibreQoE/LibreQoS/pull/684<br></a></b></div><div><br></div><div><div =
+dir=3D"ltr" class=3D"gmail_signature" =
+data-smartmail=3D"gmail_signature"><div dir=3D"ltr"><div><div =
+dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div =
+dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>All the =
+best,</div><div><br></div><div><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Frank<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Frantisek (Frank) =
+Borsik<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)"><u></u>&nbsp;<u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a =
+href=3D"https://www.linkedin.com/in/frantisekborsik" =
+style=3D"color:rgb(17,85,204)" =
+target=3D"_blank">https://www.linkedin.com/in/frantisekborsik</a><u></u><u=
+></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Signal, =
+Telegram, WhatsApp: +421919416714&nbsp;<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessage, mobile: =
++420775230885<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p =
+class=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a =
+href=3D"mailto:frantisek.borsik@gmail.com" style=3D"color:rgb(17,85,204)" =
+target=3D"_blank">frantisek.borsik@gmail.com</a></p></div></div></div></di=
+v></div></div></div></div></div></div></div></div></div></div>
+_______________________________________________<br>Bloat mailing =
+list<br>Bloat@lists.bufferbloat.net<br>https://lists.bufferbloat.net/listi=
+nfo/bloat<br></div></blockquote></div><br></div></body></html>=
 
+--Apple-Mail=_8F485093-70A9-4EA5-BEAB-B4DA874926FF--
 
---===============4328058866656216305==
+--===============8503081759216063758==
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: base64
@@ -318,5 +305,4 @@ X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
 aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
 bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
 
---===============4328058866656216305==--
-
+--===============8503081759216063758==--
