@@ -2,84 +2,91 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 2E133AD008E
-	for <lists+cake@lfdr.de>; Fri,  6 Jun 2025 12:41:31 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 2A43DAD008F
+	for <lists+cake@lfdr.de>; Fri,  6 Jun 2025 12:41:33 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 3EAD03D580;
+	by lists.bufferbloat.net (Postfix) with ESMTP id 51B3D3D585;
 	Fri,  6 Jun 2025 06:41:00 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1749206460;
-	bh=6/pTRvCt++2iDzJIn3NDVAuBot5tG+VpSmT/v3KZke4=;
+	bh=npGMBrb4gPPgDoT9TVEuteRSaQFgZqMDd3LM+9uD8u8=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=d5rhZ+iROQgnSvf7FBASvig05VJ/BIG/UUd2D7hHyYwfPTLtXZTB2sCy+Zm+KQhwI
-	 sxm4W7tT0TOGr+keoKnEOX0ipob0A7hiolymG1Waewn+t/96Ju9F391A3XR4YXhxa7
-	 JhzD+kCRHFF9TuLjaWAGXhyAuvBHGQiUsbFv7AronOC0Lfi1YK06kHRFBw5CdbDsp/
-	 iAAl9SHBVxGrIi3eVo76yXJ5at0oillOEz2nTnZCQEivQIKYA9z87QGqLpsYN2QtN3
-	 woC0k9qhbh3B+ynlXM9aJqTgk5EK8Wha7SoZhwWXYm9gZPVPg1fKJ+E/smzETSU5Pi
-	 VmE9SRys/6voA==
+	b=ShKurIgJLz/llQBXy7H7evXG5eUzuGcweBSFMFtJySnvyslG3paBPVt/rejBGLdh4
+	 uIEHtNmhEz8KT0jZdRbqKn6xmzutbX9n4iPMkUIc6LOHGOkrhoCdY0EFXc7D8WViJI
+	 VunGJAAD8orEeTGn6UZPLZfWq7NvHUwD32Zq6gsk71OCijoj9GKltCr3Ork/wwLDVn
+	 KWhPjI0m4BvndESH+oJMBO7RpKUIBVxpljkAHEhA8D5sfrC8ryE8QD5fBwp/AbIzqM
+	 lPp0wCl45D9OKjfMAcmiGjwwhy3gantBlPlqP4LFxGz8rVe64mY/Jm89SmuKrfUKKY
+	 F8QwXgrUyU7Sw==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-yb1-f175.google.com (mail-yb1-f175.google.com
- [209.85.219.175])
+Received: from mail-ej1-x62a.google.com (mail-ej1-x62a.google.com
+ [IPv6:2a00:1450:4864:20::62a])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 5FEE13B29D;
- Wed,  2 Apr 2025 02:06:17 -0400 (EDT)
-Received: by mail-yb1-f175.google.com with SMTP id
- 3f1490d57ef6-e6405b5cd9bso473260276.1; 
- Tue, 01 Apr 2025 23:06:17 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 720303B2A4;
+ Wed,  2 Apr 2025 10:52:43 -0400 (EDT)
+Received: by mail-ej1-x62a.google.com with SMTP id
+ a640c23a62f3a-ac73723b2d5so861156866b.3; 
+ Wed, 02 Apr 2025 07:52:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=gmail.com; s=20230601; t=1743605562; x=1744210362; darn=lists.bufferbloat.net;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=quhUdTCplyxNf6j5onBlk3SoDZ3s++quncwHo0sZAJs=;
+ b=dgIzJWbEbhzLfyxenx+emuagMbK9FfPaqfEwuieg/oecDsSOnx3sw5b2zCUw8btwcU
+ vPV9h+TCJiz94nmkf0Q8z22Cf8h68fBozUgo0WV2yin+yf7TNSbWe0YHpdsxvSEHN9qa
+ E2u6MGamlKE3LzmZdCZM37gic88cUWGzozC81x17PvtBlj6kvKpWNE1zd7KrZ7q008VE
+ UrMyix+NpNMstOLrzPQR5/QjkuGJHBNuGsF7E+zFltvH8ic8+UZOQowRw+tvthA7pus3
+ Ocwe7l1LXk9lDJHOlLra0XqWmTMs41POqUjuE8OVLKBOzyMZV1P6xKU7zFg2Evs62h7p
+ 7PwQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1743573977; x=1744178777;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=4/icFmZcr+eXJ09bHBs2r5tDr+pO7McwCYRoVWJ2V+k=;
- b=jjlZnxQyW2XOnjJrLoGDc447p83N5+7Mwd1DYxjstN8YbgW4dkJJDaTKW175HRwjiB
- VzTmmoI0qryTdv8jRschTtk3md9YjdSJzGdGb8+fy6IMGKbBXeLFaL8CkAfydmuOV4uW
- OKFCPe5Bbb+CUqMsaNdtuzkYT4O2ECXnXmrJdFJWM4aFx/QFmeXvVyuNGgSd7tKTwmrr
- 5klvddiIeftDBdN1/XVIgO3162ETp1Nn2g0M7cn6J2BJTMi7bRpOscQY8XSWEtxnTUlA
- R1her9cSLQliXeKCOEfxO8Rxvic0+tlL3kc+RBPept40/Il23uN+WbwgP/Te1edeTFbT
- 6XPg==
+ d=1e100.net; s=20230601; t=1743605562; x=1744210362;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=quhUdTCplyxNf6j5onBlk3SoDZ3s++quncwHo0sZAJs=;
+ b=uqVetFk7OsDCQaWYJw1+PrcnyY9+7dG6oso3+wQh4qSpPNj4bnvAZ3hJlMnqGeDMT/
+ 9ZE5q7Z+KkkWNhxOKYSlNkxkFvoTjPygTF+UdeQiTMsq9On9JZnVfTlOCWCJulEaQMsY
+ CguNgPbOZ26Ms5m2rmHVReIY7R19smHy9Qekimr88v1vZuFlNbIUYCFdE0+2QSKzH6EP
+ w5hyAedE2RUt3XDl8tsuBFO8qdqn10Mq9oSWgQgMrH+82m5TgqkDZTA6D7KMCh6LsP41
+ nEcHaSODH7TqG6egchDMEZRzSvLfI8yWALuHjKuc2LlSmQPEacOQNyB3MAbGZaK/19AF
+ cZGA==
 X-Forwarded-Encrypted: i=1;
- AJvYcCU081+U8fCiHwZahG2LmO4JQDlt79RVwNjplTUcNaBpvfMaIsDRnyWOBxhYCGJ3+M34rwPBlko=@lists.bufferbloat.net,
- AJvYcCUCkUaLi65KTDqn98BDe2vfUC7yOA/2+uLHT1/4ClCsdbvxNYetnlbaweUyqGZikewc0yZVBz7GZ1c=@lists.bufferbloat.net,
- AJvYcCUGFis/Df7vr2SJoz9uG+fm6rMyLbA2g6Pb/cHz+AsEKrOuqMC9eiHwX028S+ThPmfeQ5csUbx8Jprw0nPqYOU=@lists.bufferbloat.net,
- AJvYcCUK0+anqCNhNjBPTnfGRCGUKQJw+hQKdcGGEvY46Kb9LC52hv6I44x10sZbx2H8w+PXV8MJlLWAPrlFg38KXXw=@lists.bufferbloat.net,
- AJvYcCV0B7vRJ6So2X6C15ica5lD/wGqgIIfoRuXILwCBwWCQxSCRulc51ayfe3jrzE8teMdcu5v@lists.bufferbloat.net,
- AJvYcCV2JlRYue1k4Thqbonfci7I281u0iBENa8kLrZ4udh2E/+amU0y0jlwBgSP72fmBYEcortRL8O3OCw=@lists.bufferbloat.net,
- AJvYcCV3Ah4X0O6r/mmV7Hizsy1ZSDAwWr9JYeEWXcIJIz/z7xXNwti1kgzjKoelmVGTcYIS3nrSKwHsbA==@lists.bufferbloat.net,
- AJvYcCVOP+P5VpLjLcqD4L/q59QgzVWrMLkdChaqx2nVeHUeMsPRV0FjsUai5NT63siOC8aXRjYsnnI=@lists.bufferbloat.net,
- AJvYcCVw/UFmECpfc4RrJ76nSZs2LlT2i9Slhv9wSpjuaK9aCX3AGy5j7mDA3ArvtnZ40V0sYgwG80PD44ppfNrGyw==@lists.bufferbloat.net,
- AJvYcCW9svm/14+SlhBGgzPj0ByH4Fqsl8IFsmG2XLW2mADs0/hmTpFLrOoJxPxX45TcKGhguPxryN0R0h4E@lists.bufferbloat.net,
- AJvYcCWNLg7C2xSTWN/P1q5sk/yFRhLLHG928zQB9XzSWTIi+XffWiVJdQAeXCU9xHW8U0OFa750EsLxe23M+0jnnw==@lists.bufferbloat.net,
- AJvYcCX6VE7lHHEiVTKCyLMOqRvL12HlozqpuIuquMzNGSR7C8kDAawPQCJgb6iqq/fQboRY7wRaFA==@lists.bufferbloat.net,
- AJvYcCXXwSCgoyVLPZCL40bzQS9dXEDJf8aa/+TknbFVU/YHoy3kf3HSl3lf1a2pi5l8hUsFIBom71MUDAesHT/Dah85@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0Yxj9P6AWoDJtgYfHFZ/uCvt38urY05D/YAqO6m5eBDo5gAcX6O3
- dDBfbwX0v2H6eLfKZ6cHSx+82IJHyZ83cDFpSHx1NdCJ1kKi3wv1HZkfL1/FTQ3f0e9oiY8jttJ
- 0qNYikOZG1mX/UV73bWiy7QW3oNc=
-X-Gm-Gg: ASbGnct880YhbXhYZGkfqQsKWDX+4imgOdclLFLg9lccKi8UHp1lB5QvX+4YY2C4akh
- BdBkikkHDb/qeIZV9Q2lfzF/LuWbsIRe86XNFAMDcNh7YCs8LU3BRXFvhS1O6FQq8R8vXBFSxnW
- Mf1y6LEd6hMrlUWFkGqtJkC0fI914Yq1pz3yIC
-X-Google-Smtp-Source: AGHT+IESAhhw4V9vFaYnRUrAF2gEumiUXEq6KGK1vziVFvMnhRVRwtorVnLS+f+22qM4/Pz2Q00h4J093PoC/3kjYo0=
-X-Received: by 2002:a05:6902:2b02:b0:e5d:f98f:6f33 with SMTP id
- 3f1490d57ef6-e6df770a343mr1285848276.10.1743573976669; Tue, 01 Apr 2025
- 23:06:16 -0700 (PDT)
+ AJvYcCU8OOFgcCNZwDaPHBs2AWFBkqEpDToF3qsIORAhxdTgu8baaCLc9ypcNXvzI1KR1PfcJ03HRUaUCGBV+e8XnxE=@lists.bufferbloat.net,
+ AJvYcCUWP3b/NiPpMNLFK5A1ZuJ7X47pfbzi08hBSTca/qxWaH4U2iPAyxSXykrjro7E5wiYY7xGxXCmYUM=@lists.bufferbloat.net,
+ AJvYcCUjn6Xiuu0mnRJAxuPO5OsKP0w/reNIq5NiNinIVbe0Q0e0gLZRUEhLNY5vsiolnDDrUwvyAjk=@lists.bufferbloat.net,
+ AJvYcCUmABL5/BOomCAuqrIsuMDuAQCxVvciFNOxVd3ju4Gzgg1K8N44fTVEJETLTF4xUMfJ88byI2k4244o@lists.bufferbloat.net,
+ AJvYcCUo2yM/GAxeWCCbRE7xpNYhBVc/vw/VpeLlr5tEMQ4wrs1HrAcESZPTgVScSAqfBPsG4TChqThHJk573LLmCA==@lists.bufferbloat.net,
+ AJvYcCV49wMIUQcNOVLZtf/imi9P/K8714gwKfccYyc3P4cosy9GXm4sLbN5OIl01roC8twOOZvJmJuPvF+nurJT/neX@lists.bufferbloat.net,
+ AJvYcCV4ZoZtPK4SCU17MeuYgl59o99TdQ2VUrsEvIKlG6zeBIKawX/3yE6w+mjg4QetugvS1joP@lists.bufferbloat.net,
+ AJvYcCWy6Bv1Td756GsjYSkqGtcVY+aiADqW+CjF1ZtFKQNIsnEHKC3X6nVjEEq3OySFcO/NTvsI9fSEYAc5qW6quQ==@lists.bufferbloat.net,
+ AJvYcCX5YN9HHyRuuXudlU512UQ6cQvmP9WsjZU+hEMBqChhpoWGVj66g28R8AKobiarzLb8ZdKIhRalIQ==@lists.bufferbloat.net,
+ AJvYcCX95BjPKs/TsjidBv/bym7w4S+1iwXavgyfkJe0h+hOn6ZjP9Uuu0X5pOI8Vxr3INEXbrrVMCM=@lists.bufferbloat.net,
+ AJvYcCXSBnOwqgOxmXa/cjmjxJUBsng/i0mv9w5e6CramxxA0hEl0aUXIPntl4Cj6TJj8i4n3n8M3Q==@lists.bufferbloat.net,
+ AJvYcCXp6xFvAHXVfQFkpRsb+kr2vSpCzknJmiTxA+5ahrwtCDbkdcn9YKQFHDRhugt59fhQz7DYxpkpxDbrxsziYxI=@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0Yw8aUClmaZwrqAEq80VpvsaMRHwLUM+YCiUOMoZLBjdxjhr9eSX
+ TQhPHhEv1In10Q3GYrnljKlYbnOWLF0GxL023dtlM6cdUdiqzb+3U/FMT7Hp5VkN0UK6ovn6v3e
+ qcSl/YYndpNg256Kg5wx2OS4Gw44=
+X-Gm-Gg: ASbGnctOydlO1N7IWTuOOI6vS38l4CnRYG4/O7H8XvqdtwJ4ph1GvT8sMIZlWc3dTud
+ p0h/puvCTnVjnxvgxlLU/lgimbAbIHPjichn6VPAje1YeffghJk4F2tFN3E2YfFsNzXTIsssPOd
+ n5eQox44gLCDbQBGeGcwq7EySIfA==
+X-Google-Smtp-Source: AGHT+IHeKWSrAtfbsLtQK9R+lV4/nZ9CbZ5R4S7eb7E76eSbgBUZKozMq6thhvHJ8naR2DpZUFEfGicf2wEqzj+xpF8=
+X-Received: by 2002:a17:907:daa:b0:ac3:d54:d825 with SMTP id
+ a640c23a62f3a-ac7a1ae0c57mr220555866b.56.1743605561998; Wed, 02 Apr 2025
+ 07:52:41 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
- <014po62q-r99p-71np-52r1-n84n9np63nqr@ynat.uz>
- <11F96AF6-E164-420F-9B16-3A3F46AF183E@gmail.com>
- <CAP2nwOOmOMKtYB2DyctG-Z1amWy1e-AKAjx4DKxCTKqmbYezFw@mail.gmail.com>
-In-Reply-To: <CAP2nwOOmOMKtYB2DyctG-Z1amWy1e-AKAjx4DKxCTKqmbYezFw@mail.gmail.com>
-Date: Tue, 1 Apr 2025 23:06:05 -0700
-X-Gm-Features: AQ5f1Jo3G4_pfTMzrNTSoKCBGVlQI2xPZul97dDnbEj9nddBaSX4bLsIKosb40A
-Message-ID: <CAHn=e4jC27084hULfWsUk3gXjDvtPb9HFiN-c=WXL2hPKK_HAQ@mail.gmail.com>
-To: Omer Shapira <omer.shapira@gmail.com>
+In-Reply-To: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
+Date: Wed, 2 Apr 2025 17:52:31 +0300
+X-Gm-Features: AQ5f1JoQ6QU2KkXqfpDUmFwBhkRJYARSKz_EWQl5X3ImA4V-XO3SsYtNA9ia54A
+Message-ID: <CAJbqEYB9Mf_=cZFx1g3G+Pf0w1Dsyns=LwG+h8Z1u-ZqwNmS7Q@mail.gmail.com>
+To: Frantisek Borsik <frantisek.borsik@gmail.com>
 X-Mailman-Approved-At: Fri, 06 Jun 2025 06:40:58 -0400
 Subject: Re: [Cake]
-	=?utf-8?q?=5BStarlink=5D_=5BBloat=5D_In_loving_memory_of_D?=
-	=?utf-8?b?YXZlIFTDpGh0IDwz?=
+	=?utf-8?q?=5BStarlink=5D_In_loving_memory_of_Dave_T=C3=A4h?=
+	=?utf-8?q?t_=3C3?=
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -91,133 +98,396 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: J Pan via Cake <cake@lists.bufferbloat.net>
-Reply-To: J Pan <Pan@uvic.ca>
-Cc: cerowrt-commits@lists.bufferbloat.net, bloat-ietf@lists.bufferbloat.net,
- Herbert Wolverson <hwolverson@libreqos.io>,
+From: Sauli Kiviranta via Cake <cake@lists.bufferbloat.net>
+Reply-To: Sauli Kiviranta <smksauli@gmail.com>
+Cc: codel-wireless@lists.bufferbloat.net,
+ Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>,
+ cerowrt-commits@lists.bufferbloat.net,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
- libreqos <libreqos@lists.bufferbloat.net>, cerowrt-users@lists.bufferbloat.net,
- Rpm <rpm@lists.bufferbloat.net>,
+ libreqos <libreqos@lists.bufferbloat.net>,
+ Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
+ Herbert Wolverson <hwolverson@libreqos.io>,
  "Frantisek \(Frank\) Borsik" <frank@libreqos.io>,
  =?UTF-8?Q?Network_Neutrality_is_back=21_Let=C2=B4s_make_the_technical_aspect?=
  =?UTF-8?Q?s_heard_this_time=21?= <nnagain@lists.bufferbloat.net>,
  codel@lists.bufferbloat.net, cerowrt-devel@lists.bufferbloat.net,
  bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
- codel-wireless@lists.bufferbloat.net,
- Spencer Sevilla <spencer.builds.networks@gmail.com>,
- Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
+ bloat-ietf@lists.bufferbloat.net, cerowrt-users@lists.bufferbloat.net,
  =?UTF-8?Q?Robert_Chac=C3=B3n?= <robert@libreqos.io>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============0156553844708426980=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-a25ldyBkYXZlJ3Mgd29yayBhbmQgaW50ZXJhY3RlZCB3aXRoIGhpbSBvbiBzdGFybGluayAoaGUg
-aGVscGVkIHVzIG1hcAp0aGUgc3RhcmxpbmsgYmFja2JvbmUgZnJvbSB0aGUgbGF4IHBvcCBhbmQg
-cGxhbm5lZCB0byBkb25hdGUgaGlzIGRpc2gKdG8gYSB1Y3NiIHN0dWRlbnQgcHJvamVjdCB0b28p
-LiByaXAsIGRhdmUhCi0tCkogUGFuLCBVVmljIENTYywgRUNTNTY2LCAyNTAtNDcyLTU3OTYgKE5P
-IFZNKSwgUGFuQFVWaWMuQ0EsIFdlYi5VVmljLkNBL35wYW4KCk9uIFR1ZSwgQXByIDEsIDIwMjUg
-YXQgOToyMOKAr1BNIE9tZXIgU2hhcGlyYSB2aWEgU3RhcmxpbmsKPHN0YXJsaW5rQGxpc3RzLmJ1
-ZmZlcmJsb2F0Lm5ldD4gd3JvdGU6Cj4KPiBTbyBzYWQgdG8gaGVhciB0aGF0IERhdmUgcGFzc2Vk
-IGF3YXkuCj4KPiBJIHdvcmtlZCB3aXRoIGhpbSBicmllZmx5IHdoZW4gaGUgd2FzIGNvbnN1bHRp
-bmcgd2l0aCB1cywgYW5kIGhlIHdhcyBhIHRyZW1lbmRvdXMgaGVscCB3aGVuIEkgd2FzIHNldHRp
-bmcgdXAgdGhlIElBQiB3b3Jrc2hvcCBvbiBuZXR3b3JrIHF1YWxpdHkuCj4KPiBEYXZlIG1hbmFn
-ZWQgdG8gYmUga2luZCBhbmQgc3R1YmJvcm4gYXQgdGhlIHNhbWUgdGltZS4gTGlrZSBtYW55IHBl
-b3BsZSwgSSBsZWFybmVkIGEgbG90LCBhbmQgeWV0IG5vdCBlbm91Z2ggZnJvbSBoaW0uCj4KPiBP
-bWVyLgo+Cj4gUC5TLiBJIHN0aWxsIGhvcGUgdG8gd2FrZSB1cCB0b21vcnJvdyBhbmQgdG8gbGVh
-cm4gdGhhdCB0aGlzIHdhcyBhbiBBcHJpbCBGb29scyBqb2tlLgo+Cj4gT24gVHVlLCBBcHIgMSwg
-MjAyNSBhdCA3OjEy4oCvUE0gU3BlbmNlciBTZXZpbGxhIHZpYSBTdGFybGluayA8c3RhcmxpbmtA
-bGlzdHMuYnVmZmVyYmxvYXQubmV0PiB3cm90ZToKPj4KPj4gSSBkaWRu4oCZdCBnZXQgYSBjaGFu
-Y2UgdG8ga25vdyBEYXZlIHBlcnNvbmFsbHksIGJ1dCBzaW5jZXJlbHkgYXBwcmVjaWF0ZWQgaGlz
-IGluc2lnaHQgYW5kIHRlY2huaWNhbCBlZmZvcnRzLCBhcyB3ZWxsIGFzIHRoZSB3YXkgaGUganVz
-dCBzZWVtZWQgdG8gcHV0IG91dCBqb3kgaW4gc28gbWFueSBmb3Jtcy4gSSBoYXZlIHNhaWQgbXVs
-dGlwbGUgdGltZXMgdGhhdCB0aGVzZSBsaXN0c2VydnMgaGF2ZSBzb21lIG9mIHRoZSBoaWdoZXN0
-IHF1YWxpdHkgbmV0d29ya2luZyBkaXNjdXNzaW9uIG91dCB0aGVyZSwgYW5kIEkgdGhpbmsgdGhp
-cyBpcyBpbiBubyBzbWFsbCBwYXJ0IGEgdGVzdGFtZW50IHRvIERhdmXigJlzIGFiaWxpdHkgdG8g
-YnJpbmcgcGVvcGxlIHRvZ2V0aGVyIGFuZCBnZXQgdGhlbSB0YWxraW5nLgo+Pgo+PiBJIHdvdWxk
-IGNlcnRhaW5seSBiZSB3aWxsaW5nIHRvIGhlbHAgc3VwcG9ydCBvciB2b2x1bnRlZXIgZWZmb3J0
-IHRvIGtlZXAgdGhlc2UgbGlzdHNlcnZzIHJ1bm5pbmcuCj4+Cj4+IE9uIEFwciAxLCAyMDI1LCBh
-dCAxODoyMSwgRGF2aWQgTGFuZyB2aWEgU3RhcmxpbmsgPHN0YXJsaW5rQGxpc3RzLmJ1ZmZlcmJs
-b2F0Lm5ldD4gd3JvdGU6Cj4+Cj4+IEhlIHdpbGwgYmUgbWlzc2VkLgo+Pgo+PiBBcyBhIHByYWN0
-aWNhbCBxdWVzdGlvbiwgd2hhdCBpcyBnb2luZyB0byBoYXBwZW4gdG8gYWxsIG9mIHRoZXNlIGxp
-c3RzLCBldGMgdGhhdCBoZSBoYXMgYmVlbiBob3N0aW5nPwo+Pgo+PiBEYXZpZCBMYW5nCj4+Cj4+
-IE9uIFR1ZSwgMSBBcHIgMjAyNSwgRnJhbnRpc2VrIEJvcnNpayB2aWEgQmxvYXQgd3JvdGU6Cj4+
-Cj4+IERhdGU6IFR1ZSwgMSBBcHIgMjAyNSAxOToyNzozNiArMDIwMAo+PiBGcm9tOiBGcmFudGlz
-ZWsgQm9yc2lrIHZpYSBCbG9hdCA8YmxvYXRAbGlzdHMuYnVmZmVyYmxvYXQubmV0Pgo+PiBSZXBs
-eS1UbzogRnJhbnRpc2VrIEJvcnNpayA8ZnJhbnRpc2VrLmJvcnNpa0BnbWFpbC5jb20+Cj4+IFRv
-OiBsaWJyZXFvcyA8bGlicmVxb3NAbGlzdHMuYnVmZmVyYmxvYXQubmV0PiwKPj4gICAgYmxvYXQg
-PGJsb2F0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4sCj4+ICAgIERhdmUgVGFodCB2aWEgU3Rhcmxp
-bmsgPHN0YXJsaW5rQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4sCj4+ICAgIEplcmVteSBBdXN0aW4g
-dmlhIFJwbSA8cnBtQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4sCj4+ICAgIGJsb2F0LWlldGZAbGlz
-dHMuYnVmZmVyYmxvYXQubmV0LCBDYWtlIExpc3QgPGNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0
-PiwKPj4gICAgY29kZWxAbGlzdHMuYnVmZmVyYmxvYXQubmV0LCBjZXJvd3J0LWNvbW1pdHNAbGlz
-dHMuYnVmZmVyYmxvYXQubmV0LAo+PiAgICBjZXJvd3J0LWRldmVsQGxpc3RzLmJ1ZmZlcmJsb2F0
-Lm5ldCwgY2Vyb3dydC11c2Vyc0BsaXN0cy5idWZmZXJibG9hdC5uZXQsCj4+ICAgIGNvZGVsLXdp
-cmVsZXNzQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldCwKPj4gICAgTWFrZS1XaWZpLWZhc3QgPG1ha2Ut
-d2lmaS1mYXN0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldD4sCj4+ICAgIE5ldHdvcmsgTmV1dHJhbGl0
-eSBpcyBiYWNrISBMZXTCtHMgbWFrZSB0aGUgdGVjaG5pY2FsIGFzcGVjdHMgaGVhcmQgdGhpcwo+
-PiAgICB0aW1lISA8bm5hZ2FpbkBsaXN0cy5idWZmZXJibG9hdC5uZXQ+Cj4+IENjOiBIZXJiZXJ0
-IFdvbHZlcnNvbiA8aHdvbHZlcnNvbkBsaWJyZXFvcy5pbz4sCj4+ICAgICJGcmFudGlzZWsgKEZy
-YW5rKSBCb3JzaWsiIDxmcmFua0BsaWJyZXFvcy5pbz4sCj4+ICAgIFJvYmVydCBDaGFjw7NuIDxy
-b2JlcnRAbGlicmVxb3MuaW8+Cj4+IFN1YmplY3Q6IFtCbG9hdF0gSW4gbG92aW5nIG1lbW9yeSBv
-ZiBEYXZlIFTDpGh0IDwzCj4+IEhlbGxvIHRvIGFsbCwKPj4KPj4gV2XigJlyZSBkZXZhc3RhdGVk
-IHRvIGFubm91bmNlIHRoYXQgRGF2ZSBUw6RodCBoYXMgcGFzc2VkIGF3YXkuCj4+IDxodHRwczov
-L2xpYnJlcW9zLmlvLzIwMjUvMDQvMDEvaW4tbG92aW5nLW1lbW9yeS1vZi1kYXZlLz4KPj4KPj4g
-RGF2ZSB3YXMgYW4gYW1hemluZyBtYW4sIGhlbHBpbmcgdGhlIHdvcmxkIHdpdGggRlEtQ29EZWwg
-YW5kIENBS0UsIGZpZ2h0aW5nCj4+IGJ1ZmZlcmJsb2F0IGFuZCB0cnlpbmcgdG8gbWFrZSB0aGUg
-d29ybGQgYSBiZXR0ZXIgcGxhY2UuIEFsd2F5cyB3aWxsaW5nIHRvCj4+IGhlbHAsIGFuZCB3aXRo
-b3V0IGhpbSDigJMgTGlicmVRb1MgKGFuZCB0aGUgb3RoZXIgUW9FIHNvbHV0aW9ucyBvdXQgdGhl
-cmUpCj4+IHdvdWxkbuKAmXQgZXhpc3QuCj4+Cj4+IERhdmUgd2FzIGFuIGluc3BpcmF0aW9uLCBh
-bmQgd2UgYWxsIG1pc3MgaGltLiBXZeKAmXJlIHJlYWNoaW5nIG91dCB0byBmYW1pbHkKPj4gYW5k
-IGNsb3NlIGZyaWVuZHMgdG8gc2VlIGlmIHRoZXJl4oCZcyBhbnl0aGluZyB3ZSBjYW4gZG8gdG8g
-aGVscC4KPj4KPj4gRGF2ZSB3YXMgYW4gaW5zcGlyYXRpb24gdG8gdXMuIERhdmXigJlzIGNvbnRy
-aWJ1dGlvbnMgdG8gTGludXgsIEZRLUNvRGVsLCBhbmQKPj4gQ0FLRSBpbXByb3ZlZCBpbnRlcm5l
-dCBjb25uZWN0aXZpdHkgYXJvdW5kIHRoZSB3b3JsZCBmb3IgbWlsbGlvbnMgb2YKPj4gcGVvcGxl
-LiBCZWNhdXNlIG9mIGhpbSwgbWlsbGlvbnMgb2YgcGVvcGxlIG5vdyBoYXZlIGFjY2VzcyB0byBy
-ZWxpYWJsZQo+PiB2aWRlbyBjYWxscyDigJMgYW5kIGluIHR1cm4sIGFjY2VzcyB0byBsb3ZlZCBv
-bmVzLCBoZWFsdGhjYXJlLCBhbmQgY29tbXVuaXR5Lgo+PiBPbmUgb2YgUm9iZXJ04oCZcyBJU1Ag
-Y3VzdG9tZXJzIGlzIGEga2luZCBwYXJhcGxlZ2ljIHdvbWFuIHdobyBsaXZlcyBpbiBhCj4+IGZh
-ci1mbHVuZyBydXJhbCBDb2xvbmlhIGFyb3VuZCBFbCBQYXNvLCBUZXhhcy4gSGVyIHJlbGlhYmxl
-IGFjY2VzcyB0byBoZXIKPj4gZG9jdG9ycyB0aHJvdWdoIHRlbGVtZWRpY2luZSwgYW5kIHRvIGhl
-ciBmYW1pbHkgdGhyb3VnaCBGYWNlVGltZSwgd2FzIG9ubHkKPj4gbWFkZSBwb3NzaWJsZSBiZWNh
-dXNlIG9mIGhpcyBhbGdvcml0aG1zLiBUaGVyZSBhcmUgbWlsbGlvbnMgb2YgY2FzZXMgbGlrZQo+
-PiBoZXJzLCB3aGVyZSBEYXZl4oCZcyBjb250cmlidXRpb25zIGhhdmUgc2lsZW50bHkgZW5hYmxl
-ZCBodW1hbiBjb25uZWN0aW9uIGFuZAo+PiBzYWZldHkuIEV2ZXJ5dGhpbmcgRGF2ZSBjb250cmli
-dXRlZCB0byB0aGUgd29ybGQgb2YgdGVjaG5vbG9neSB3YXMgZnJlZSBhbmQKPj4gb3BlbiBzb3Vy
-Y2UsIGZvciB0aGUgYmV0dGVybWVudCBvZiBodW1hbml0eS4KPj4KPj4gRGF2ZSBpcyB0aGUgcmVh
-c29uIHRoYXQgU3Rhcmxpbmsgd2FzIGFibGUgdG8gdGFja2xlIGl0cyBsYXRlbmN5IGlzc3VlcyDi
-gJMKPj4gZW5hYmxpbmcgYSBnZW5lcmF0aW9uIG9mIHlvdW5nIGVudHJlcHJlbmV1cnMgYWNyb3Nz
-IHRoZSBkZXZlbG9waW5nIHdvcmxkLAo+PiBzdWNoIGFzIHRoZXNlIHlvdW5nIGZvbGtzIHBpY3R1
-cmVkIGluIHRoZSBQaGlsbGlwaW5lcywgdG8gc3RhcnQgdGhlaXIgb3duCj4+IElTUHMgdG8gZXhw
-YW5kIGludGVybmV0IGFjY2VzcyB0byB0aGVpciBjb21tdW5pdGllcy4gRGF2ZSBzdGFydGVkIHdv
-cmsgb24KPj4gRlEtQ29EZWwgaW4gcGFydCBiZWNhdXNlIG9mIGhpcyBvd24gam91cm5leSB3b3Jr
-aW5nIHRvIGV4cGFuZCBpbnRlcm5ldAo+PiBhY2Nlc3MgaW4gTmljYXJhZ3VhLCBzbyB3ZSBrbm93
-IGhlIHNhdyB0aGF0IGhpcyB3b3JrIGhhZCBjb21lIGZ1bGwtY2lyY2xlCj4+IGFuZCBoZWxwZWQg
-c28gbWFueS4KPj4KPj4gV2XigJlyZSBpbmNyZWRpYmx5IGdyYXRlZnVsIHRvIGhhdmUgRGF2ZSBh
-cyBvdXIgZnJpZW5kLCBtZW50b3IsIGFuZCBhcwo+PiBzb21lb25lIHdobyBjb250aW51b3VzbHkg
-aW5zcGlyZWQgdXMg4oCTIHNob3dpbmcgdXMgdGhhdCB3ZSBjb3VsZCBkbyBiZXR0ZXIKPj4gZm9y
-IGVhY2ggb3RoZXIgaW4gdGhlIHdvcmxkLCBhbmQgbGV2ZXJhZ2UgdGVjaG5vbG9neSB0byBtYWtl
-IHRoYXQgaGFwcGVuLgo+PiBIZSB3aWxsIGJlIGRlYXJseSBtaXNzZWQuCj4+Cj4+ICpQUzogKkRh
-dmUgaXMgZm9yZXZlciBpbiBvdXIgaGVhcnRzIGFuZCBzb3VscywgaW4gb3VyIHJvdXRlcnMgYW5k
-Li4uaW4KPj4gcHJvZHVjdGlvbiEKPj4KPj4gKmh0dHBzOi8vZ2l0aHViLmNvbS9MaWJyZVFvRS9M
-aWJyZVFvUy9wdWxsLzY4NAo+PiA8aHR0cHM6Ly9naXRodWIuY29tL0xpYnJlUW9FL0xpYnJlUW9T
-L3B1bGwvNjg0PioKPj4KPj4gQWxsIHRoZSBiZXN0LAo+Pgo+PiBGcmFuawo+Pgo+PiBGcmFudGlz
-ZWsgKEZyYW5rKSBCb3JzaWsKPj4KPj4KPj4KPj4gaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2lu
-L2ZyYW50aXNla2JvcnNpawo+Pgo+PiBTaWduYWwsIFRlbGVncmFtLCBXaGF0c0FwcDogKzQyMTkx
-OTQxNjcxNAo+Pgo+PiBpTWVzc2FnZSwgbW9iaWxlOiArNDIwNzc1MjMwODg1Cj4+Cj4+IFNreXBl
-OiBjYXNpb2E1MzAyY2EKPj4KPj4gZnJhbnRpc2VrLmJvcnNpa0BnbWFpbC5jb20KPj4KPj4gX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KPj4gQmxvYXQgbWFp
-bGluZyBsaXN0Cj4+IEJsb2F0QGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo+PiBodHRwczovL2xpc3Rz
-LmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9ibG9hdAo+PiBfX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fXwo+PiBTdGFybGluayBtYWlsaW5nIGxpc3QKPj4gU3Rh
-cmxpbmtAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cj4+IGh0dHBzOi8vbGlzdHMuYnVmZmVyYmxvYXQu
-bmV0L2xpc3RpbmZvL3N0YXJsaW5rCj4+Cj4+Cj4+IF9fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fCj4+IFN0YXJsaW5rIG1haWxpbmcgbGlzdAo+PiBTdGFybGlu
-a0BsaXN0cy5idWZmZXJibG9hdC5uZXQKPj4gaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQv
-bGlzdGluZm8vc3RhcmxpbmsKPgo+Cj4KPiAtLQo+IFNpbmNlcmVseSBZb3VycywKPiAgT21lciBT
-aGFwaXJhCj4gX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18K
-PiBTdGFybGluayBtYWlsaW5nIGxpc3QKPiBTdGFybGlua0BsaXN0cy5idWZmZXJibG9hdC5uZXQK
-PiBodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9zdGFybGluawpfX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlz
-dApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1ZmZlcmJsb2F0Lm5l
-dC9saXN0aW5mby9jYWtlCg==
+--===============0156553844708426980==
+Content-Type: multipart/alternative; boundary="00000000000026c8c10631ccce57"
+
+--00000000000026c8c10631ccce57
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Very sorry to hear that, what a loss! Condolences :(
+
+We lost a great engineer and internet enthusiast (activist?) who was always
+a positive driving force to make sh!t happen, yet with strongly held values
+as north star, a true open-source believer! After few years lurking in the
+shadows of IETF, in early 2023 I was preparing for first at site
+participation and asked Dave for advice. Advice he did, a true mentor! This
+eventually led to various late hour discussions, mostly just me picking his
+brain for advice to help on the adventures on trying to make Internet
+faster. He was happy to breach about bufferbloat and share insights into
+why things still suck even if we have a lot of the answers already, about
+fairness in internet protocols, or just him reflecting on fq and aqm to
+preserve our collective discipline on the internet, fairness not just as a
+feature, for him it was a moral imperative.
+
+What made Dave special was all those philosophical reflections and small
+insertions of his (often strong held) values into the technical
+discussions, even in the smalles of technical contexts. Dave often shared
+his dislike and was vocal on the problems in our way of working as
+engineers, and I do share that concern. He would often tell the story on
+how Richard Feynman exposing the flaws behind the Challenger disaster
+=E2=80=9Cbroke=E2=80=9D him not only emotionally but also professionally, l=
+eading him to
+change in direction as engineer. Much alike that of Feynman what Dave had
+was a spirit and demand for truthfulness and the rejection of bureaucratic
+spin in the face of technical reality. He was frustrated on how we often
+end up dismissing the stakes of engineering that ignoring physical laws not
+just be bringing jail time but =E2=80=9Cdeath and destruction=E2=80=9D, yet=
+ we are often
+casual about consequences of our lack of discipline in the internet
+(technically, right?).
+
+Dave always had a good sense of humor and a grounded, human touch, plus to
+put the music on top of that. That combo made an entertaining speaker and
+funny demos he was throwing around to make a point. When I would ask his
+advice to help us on a project, he would be soon joking about needing to go
+for a walk because his =E2=80=9Cbrain hurts" after spending the day on the =
+problems
+of slinging packets across the solar system. He was a strong space
+advocate, albeit with a dark touch to it due to the Feynman influence. All
+this considered I am very happy to hear that he got to make contributions
+to Starlink! He was often talking about it and hoping to be able to help.
+His wit, humility, and generosity with time and advice was always there,
+never pretentious, always direct, and often self-deprecating with humor.
+Very characteristic example piece of Dave space enthusiasm was his worries
+and writings about asteroid mining (He did write a lot of good stuff!):
+
+https://the-edge.blogspot.com/search/label/asteroids
+
+Dave was as a rare blend of an engineer, philosopher, educator, and
+activist. His character was one of intellectual honesty, generosity, and a
+deep values but always ending up with practical engineering and soemthing
+that is reliable to the point of preserving human life directly or
+indirectly. Dave was also one with true passion for open-source, unwavering
+passion (Hi LibreQoS team!). He always punctuated on and advocated for
+collaboration, offering to share code and share access to everything he
+did, test things around, and openly critique what he saw as flawed
+assumptions. His attitude was not one of competition but protective of what
+he considered sacred, the integrity of internet. He was one who wanted to
+believe, in the powers of good, to live, and live he did!
+
+https://www.youtube.com/watch?v=3DOKMSgZo9c8s
+
+We lost a great one! We will do our best and try to uphold what Dave was
+fighting for, even if times get grim on occasion, losing him certainly is
+one of those grim time. Log off now, Dave, may the waves be soothing on the
+sail to the other side, rest in peace as you well deserve!
+
+- Sauli
+
+--
+
+*Sauli Kiviranta*
+
+CEO, Founder
+
+Delta Cygni Labs
+
+
+
+XRTC: www.xrtc.io
+
+POINTR: www.pointr.com
+
+DCL: www.deltacygnilabs.com
+
+
+
+Mobile: +358 40 357 3272
+
+LinkedIn: https://www.linkedin.com/in/saulikiviranta
+
+--
+
+On Tue, Apr 1, 2025 at 8:26=E2=80=AFPM Frantisek Borsik via Starlink <
+starlink@lists.bufferbloat.net> wrote:
+
+> Hello to all,
+>
+> We=E2=80=99re devastated to announce that Dave T=C3=A4ht has passed away.
+> <https://libreqos.io/2025/04/01/in-loving-memory-of-dave/>
+>
+> Dave was an amazing man, helping the world with FQ-CoDel and CAKE,
+> fighting bufferbloat and trying to make the world a better place. Always
+> willing to help, and without him =E2=80=93 LibreQoS (and the other QoE so=
+lutions
+> out there) wouldn=E2=80=99t exist.
+>
+> Dave was an inspiration, and we all miss him. We=E2=80=99re reaching out =
+to family
+> and close friends to see if there=E2=80=99s anything we can do to help.
+>
+> Dave was an inspiration to us. Dave=E2=80=99s contributions to Linux, FQ-=
+CoDel,
+> and CAKE improved internet connectivity around the world for millions of
+> people. Because of him, millions of people now have access to reliable
+> video calls =E2=80=93 and in turn, access to loved ones, healthcare, and =
+community.
+> One of Robert=E2=80=99s ISP customers is a kind paraplegic woman who live=
+s in a
+> far-flung rural Colonia around El Paso, Texas. Her reliable access to her
+> doctors through telemedicine, and to her family through FaceTime, was onl=
+y
+> made possible because of his algorithms. There are millions of cases like
+> hers, where Dave=E2=80=99s contributions have silently enabled human conn=
+ection and
+> safety. Everything Dave contributed to the world of technology was free a=
+nd
+> open source, for the betterment of humanity.
+>
+> Dave is the reason that Starlink was able to tackle its latency issues =
+=E2=80=93
+> enabling a generation of young entrepreneurs across the developing world,
+> such as these young folks pictured in the Phillipines, to start their own
+> ISPs to expand internet access to their communities. Dave started work on
+> FQ-CoDel in part because of his own journey working to expand internet
+> access in Nicaragua, so we know he saw that his work had come full-circle
+> and helped so many.
+>
+> We=E2=80=99re incredibly grateful to have Dave as our friend, mentor, and=
+ as
+> someone who continuously inspired us =E2=80=93 showing us that we could d=
+o better
+> for each other in the world, and leverage technology to make that happen.
+> He will be dearly missed.
+>
+> *PS: *Dave is forever in our hearts and souls, in our routers and...in
+> production!
+>
+> *https://github.com/LibreQoE/LibreQoS/pull/684
+> <https://github.com/LibreQoE/LibreQoS/pull/684>*
+>
+> All the best,
+>
+> Frank
+>
+> Frantisek (Frank) Borsik
+>
+>
+>
+> https://www.linkedin.com/in/frantisekborsik
+>
+> Signal, Telegram, WhatsApp: +421919416714
+>
+> iMessage, mobile: +420775230885
+>
+> Skype: casioa5302ca
+>
+> frantisek.borsik@gmail.com
+> _______________________________________________
+> Starlink mailing list
+> Starlink@lists.bufferbloat.net
+> https://lists.bufferbloat.net/listinfo/starlink
+>
+
+--00000000000026c8c10631ccce57
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div dir=3D"ltr">Very sorry to hear that, what a loss! Con=
+dolences :(<br><br>We lost a great engineer and internet enthusiast (activi=
+st?) who was always a positive driving force to make sh!t happen, yet with =
+strongly held values as north star, a true open-source believer! After few =
+years lurking in the shadows of IETF, in early 2023 I was preparing for fir=
+st at site participation and asked Dave for advice. Advice he did, a true m=
+entor!=C2=A0This eventually led to various late hour discussions, mostly ju=
+st me picking his brain for advice to help on the adventures on trying to m=
+ake Internet faster. He was happy to breach about bufferbloat and share ins=
+ights into why things still suck even if we have a lot of the answers alrea=
+dy, about fairness in internet protocols, or just him reflecting on fq and =
+aqm to preserve our collective discipline on the internet, fairness not jus=
+t as a feature, for him it was a moral imperative. <br><br>What made Dave s=
+pecial was all those philosophical reflections and small insertions of his =
+(often strong held) values into the technical discussions, even in the smal=
+les of technical contexts. Dave often shared his dislike and was vocal on t=
+he problems in our way of working as engineers, and I do share that concern=
+. He would often tell the story on how Richard Feynman exposing the flaws b=
+ehind the Challenger disaster =E2=80=9Cbroke=E2=80=9D him not only emotiona=
+lly but also professionally, leading him to change in direction as engineer=
+. Much alike that of Feynman what Dave had was a spirit and demand for trut=
+hfulness and the rejection of bureaucratic spin in the face of technical re=
+ality. He was frustrated on how we often end up dismissing the stakes of en=
+gineering that ignoring physical laws not just be bringing jail time but =
+=E2=80=9Cdeath and destruction=E2=80=9D, yet we are often casual about cons=
+equences of our lack of discipline in the internet (technically, right?). <=
+br><br>Dave always had a good sense of humor and a grounded, human touch, p=
+lus to put the music on top of that. That combo made an entertaining speake=
+r and funny demos he was throwing around to make a point. When I would ask =
+his advice to help us on a project, he would be soon joking about needing t=
+o go for a walk because his =E2=80=9Cbrain hurts&quot; after spending the d=
+ay on the problems of slinging packets across the solar system. He was a st=
+rong space advocate, albeit with a dark touch to it due to the Feynman infl=
+uence. All this considered I am very happy to hear that he got to make cont=
+ributions to Starlink! He was often talking about it and hoping to be able =
+to help. His wit, humility, and generosity with time and advice was always =
+there, never pretentious, always direct, and often self-deprecating with hu=
+mor. Very characteristic example piece of Dave space enthusiasm was his wor=
+ries and writings about asteroid mining (He did write a lot of good stuff!)=
+: <br><br><a href=3D"https://the-edge.blogspot.com/search/label/asteroids">=
+https://the-edge.blogspot.com/search/label/asteroids</a><div><br><div>Dave =
+was as a rare blend of an engineer, philosopher, educator, and activist. Hi=
+s character was one of intellectual honesty, generosity, and a deep values =
+but always ending up with practical engineering and soemthing that is relia=
+ble to the point of preserving human life directly or indirectly. Dave was =
+also one with true passion for open-source, unwavering passion (Hi LibreQoS=
+ team!). He always punctuated on and advocated for collaboration, offering =
+to share code and share access to everything he did, test things around, an=
+d openly critique what he saw as flawed assumptions. His attitude was not o=
+ne of competition but protective of what he considered sacred, the integrit=
+y of internet. He was one who wanted to believe, in the powers of good, to =
+live, and live he did! <br><br><a href=3D"https://www.youtube.com/watch?v=
+=3DOKMSgZo9c8s">https://www.youtube.com/watch?v=3DOKMSgZo9c8s </a><br><br>W=
+e lost a great one! We will do our best and try to uphold what Dave was fig=
+hting for, even if times get grim on occasion, losing him certainly is one =
+of those grim time. Log off now, Dave, may the waves be soothing on the sai=
+l to the other side, rest in peace as you well deserve!</div><div><br>- Sau=
+li</div></div></div><br><p class=3D"MsoNormal" style=3D"margin:0in;font-siz=
+e:12pt;font-family:Aptos,sans-serif"><a name=3D"_MailAutoSig"><span style=
+=3D"font-size:11pt">--</span></a></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><b><span style=3D"font-size:11pt">Sauli Kiviranta</span></b></=
+p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt">CEO, Founder</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt">Delta Cygni Labs</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt">=C2=A0</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt;color:rgb(64,64,64)">XRTC</span>=
+<span style=3D"font-size:11pt">: </span><a href=3D"http://www.xrtc.io"><spa=
+n style=3D"font-size:11pt;color:rgb(70,120,134)">www.xrtc.io</span></a><spa=
+n style=3D"font-size:11pt"></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt;color:rgb(64,64,64)">POINTR</spa=
+n><span style=3D"font-size:11pt">: </span><a href=3D"http://www.pointr.com"=
+><span style=3D"font-size:11pt;color:rgb(70,120,134)">www.pointr.com</span>=
+</a><span style=3D"font-size:11pt"></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt;color:rgb(64,64,64)">DCL</span><=
+span style=3D"font-size:11pt">: </span><a href=3D"http://www.deltacygnilabs=
+.com"><span style=3D"font-size:11pt;color:rgb(70,120,134)">www.deltacygnila=
+bs.com</span></a><span style=3D"font-size:11pt"></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt">=C2=A0</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt;color:rgb(64,64,64)">Mobile</spa=
+n><span style=3D"font-size:11pt">: +358 40 357 3272</span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt;color:rgb(64,64,64)">LinkedIn</s=
+pan><span style=3D"font-size:11pt">: </span><a href=3D"https://www.linkedin=
+.com/in/saulikiviranta"><span style=3D"font-size:11pt;color:rgb(70,120,134)=
+">https://www.linkedin.com/in/saulikiviranta</span></a><span style=3D"font-=
+size:11pt"></span></p>
+
+<p class=3D"MsoNormal" style=3D"margin:0in;font-size:12pt;font-family:Aptos=
+,sans-serif"><span style=3D"font-size:11pt">--</span></p><br><div class=3D"=
+gmail_quote gmail_quote_container"><div dir=3D"ltr" class=3D"gmail_attr">On=
+ Tue, Apr 1, 2025 at 8:26=E2=80=AFPM Frantisek Borsik via Starlink &lt;<a h=
+ref=3D"mailto:starlink@lists.bufferbloat.net">starlink@lists.bufferbloat.ne=
+t</a>&gt; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin=
+:0px 0px 0px 0.8ex;border-left:1px solid rgb(204,204,204);padding-left:1ex"=
+><div dir=3D"ltr"><div>Hello to all,</div><div><br></div><div><a href=3D"ht=
+tps://libreqos.io/2025/04/01/in-loving-memory-of-dave/" target=3D"_blank">W=
+e=E2=80=99re devastated to announce that Dave T=C3=A4ht has passed away.</a=
+><br><br>Dave was an amazing man, helping the world with FQ-CoDel and CAKE,=
+ fighting bufferbloat and trying to make the world a better place. Always w=
+illing to help, and without him =E2=80=93 LibreQoS (and the other QoE solut=
+ions out there) wouldn=E2=80=99t exist.<br><br>Dave was an inspiration, and=
+ we all miss him. We=E2=80=99re reaching out to family and close friends to=
+ see if there=E2=80=99s anything we can do to help.<br><br>Dave was an insp=
+iration to us. Dave=E2=80=99s contributions to Linux, FQ-CoDel, and CAKE im=
+proved internet connectivity around the world for millions of people. Becau=
+se of him, millions of people now have access to reliable video calls =E2=
+=80=93 and in turn, access to loved ones, healthcare, and community. One of=
+ Robert=E2=80=99s ISP customers is a kind paraplegic woman who lives in a f=
+ar-flung rural Colonia around El Paso, Texas. Her reliable access to her do=
+ctors through telemedicine, and to her family through FaceTime, was only ma=
+de possible because of his algorithms. There are millions of cases like her=
+s, where Dave=E2=80=99s contributions have silently enabled human connectio=
+n and safety. Everything Dave contributed to the world of technology was fr=
+ee and open source, for the betterment of humanity.<br><br>Dave is the reas=
+on that Starlink was able to tackle its latency issues =E2=80=93 enabling a=
+ generation of young entrepreneurs across the developing world, such as the=
+se young folks pictured in the Phillipines, to start their own ISPs to expa=
+nd internet access to their communities. Dave started work on FQ-CoDel in p=
+art because of his own journey working to expand internet access in Nicarag=
+ua, so we know he saw that his work had come full-circle and helped so many=
+.<br><br>We=E2=80=99re incredibly grateful to have Dave as our friend, ment=
+or, and as someone who continuously inspired us =E2=80=93 showing us that w=
+e could do better for each other in the world, and leverage technology to m=
+ake that happen. He will be dearly missed.<br></div><div><br></div><div><b>=
+PS: </b>Dave is forever in our hearts and souls, in our routers and...in pr=
+oduction!</div><div><b><a href=3D"https://github.com/LibreQoE/LibreQoS/pull=
+/684" target=3D"_blank">https://github.com/LibreQoE/LibreQoS/pull/684<br></=
+a></b></div><div><br></div><div><div dir=3D"ltr" class=3D"gmail_signature">=
+<div dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"lt=
+r"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div=
+>All the best,</div><div><br></div><div><p class=3D"MsoNormal" style=3D"col=
+or:rgb(34,34,34)">Frank<u></u><u></u></p><p class=3D"MsoNormal" style=3D"co=
+lor:rgb(34,34,34)"><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:=
+rgb(34,34,34)">Frantisek (Frank) Borsik<u></u><u></u></p><p class=3D"MsoNor=
+mal" style=3D"color:rgb(34,34,34)"><u></u>=C2=A0<u></u></p><p class=3D"MsoN=
+ormal" style=3D"color:rgb(34,34,34)"><a href=3D"https://www.linkedin.com/in=
+/frantisekborsik" style=3D"color:rgb(17,85,204)" target=3D"_blank">https://=
+www.linkedin.com/in/frantisekborsik</a><u></u><u></u></p><p class=3D"MsoNor=
+mal" style=3D"color:rgb(34,34,34)">Signal, Telegram, WhatsApp: +42191941671=
+4=C2=A0<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34=
+)">iMessage, mobile: +420775230885<u></u><u></u></p><p class=3D"MsoNormal" =
+style=3D"color:rgb(34,34,34)">Skype: casioa5302ca<u></u><u></u></p><p class=
+=3D"MsoNormal" style=3D"color:rgb(34,34,34)"><a href=3D"mailto:frantisek.bo=
+rsik@gmail.com" style=3D"color:rgb(17,85,204)" target=3D"_blank">frantisek.=
+borsik@gmail.com</a></p></div></div></div></div></div></div></div></div></d=
+iv></div></div></div></div></div>
+_______________________________________________<br>
+Starlink mailing list<br>
+<a href=3D"mailto:Starlink@lists.bufferbloat.net" target=3D"_blank">Starlin=
+k@lists.bufferbloat.net</a><br>
+<a href=3D"https://lists.bufferbloat.net/listinfo/starlink" rel=3D"noreferr=
+er" target=3D"_blank">https://lists.bufferbloat.net/listinfo/starlink</a><b=
+r>
+</blockquote></div></div>
+
+--00000000000026c8c10631ccce57--
+
+--===============0156553844708426980==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============0156553844708426980==--
