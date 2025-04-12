@@ -2,62 +2,86 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id E2FF8AD0094
-	for <lists+cake@lfdr.de>; Fri,  6 Jun 2025 12:41:41 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 05909AD0095
+	for <lists+cake@lfdr.de>; Fri,  6 Jun 2025 12:41:44 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id C9A253D59E;
+	by lists.bufferbloat.net (Postfix) with ESMTP id EA5763D59F;
 	Fri,  6 Jun 2025 06:41:00 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
 	d=lists.bufferbloat.net; s=201610; t=1749206460;
-	bh=XhsDTTY3Odn5soWAADonfh5CVHKc/PHnxc2onFte8XQ=;
-	h=Date:To:Subject:List-Id:List-Unsubscribe:List-Archive:List-Post:
-	 List-Help:List-Subscribe:From:Reply-To:From;
-	b=nnhLKYQuLz40Oi5wAOc94w0sVJdxzr5plJ7aQt+nLgkwV/WHoCOujzf31WBDHD/Zx
-	 ylRgl3r6k4d1FDoUaqXxoDyrxOvWwg2zrkFr2+Bsj+HvOWiBZ8XFYEdC9vpl3MbG2F
-	 NJaHstpRQm5Vw6H39BSzGim11sexbFnAodWyVpt16OY0VOmqUJ+XntFCOdZ5ceyPyA
-	 D/LSm2GDncEmDgzfR4Nh5SkxpKAH1KssNoKEGDmDuhS/cQdO/D72MNWIGkEzhUJ0C1
-	 R4xBEERpmFTWeLkNOwaYfEX/snpGVy6j2Y5IFrKeRuEy9ZduP+DJz2Qy/0lhyv4PCy
-	 7sVjlBdxlRNUg==
+	bh=6C4i6UnMSXpUq7JcuZqn0VZPFmZ4FsjUQlmrNGat7IY=;
+	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
+	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
+	 From;
+	b=Qqd9xq2uUx5oa3imZMyxyoAMHc+8Qi+pUOOk19OW0w6XHkslQv+GiLhc89ezGASgY
+	 /QfrOxRxGbNdG3m2HS3ypmWwk7c/fOl0iszEHqoJHdZE+apdWLmPm1Pdt3W2Dfd0Dl
+	 1HvP8V4ajK7T8sRHFk3S65amPQKfc+NkTMPokFzIJue3ROTnbUY8b/9Caiao+Mv2U0
+	 0pzBUgrDoxUDRLI19oh8EuKxFUA1yJryU6dKhzyEZUDjpVbQl9e5ypNCZeyKky+dja
+	 dBNPf6xU1wwM/O3tgUI5DI2wcux538EnLcPcteKtqFiXPjO9l6din+1hbljVLb4eCx
+	 IxoKhqQ19IH7Q==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-il1-f206.google.com (mail-il1-f206.google.com
- [209.85.166.206])
+Received: from mail-pl1-x62b.google.com (mail-pl1-x62b.google.com
+ [IPv6:2607:f8b0:4864:20::62b])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 9732C3B29D
- for <cake@lists.bufferbloat.net>; Mon,  7 Apr 2025 08:13:24 -0400 (EDT)
-Received: by mail-il1-f206.google.com with SMTP id
- e9e14a558f8ab-3d6c613bd79so45811875ab.2
- for <cake@lists.bufferbloat.net>; Mon, 07 Apr 2025 05:13:24 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 206683B29E
+ for <cake@lists.bufferbloat.net>; Sat, 12 Apr 2025 07:12:31 -0400 (EDT)
+Received: by mail-pl1-x62b.google.com with SMTP id
+ d9443c01a7336-2240aad70f2so139165ad.0
+ for <cake@lists.bufferbloat.net>; Sat, 12 Apr 2025 04:12:31 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=google.com; s=20230601; t=1744456350; x=1745061150;
+ darn=lists.bufferbloat.net; 
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=f5yZfBIt4LcppKWIiY+/0AdswWLA95G7zwERtltTZC4=;
+ b=yiiHWGoxYbyUYLFS5aQcFNFuiwM+b/j0egqv+koUMXOD6db056u8XjEJaqzvpfdRbb
+ g7uHWap4Uj4U7MhuYdEOPaR9mv14nE/p5YVWgyd9w1DIUnKsofqmbIqAwqom8XO3Db1H
+ 7qcoKFJz/gGmE48VQ18qyUuivhUjQOtGCYrOPv2yUQ0vmSYBIuZuC7h34XpkD8EVLImn
+ 61X7hPuPD5URB8jEsiepN64qo/byvkif9XGpTr/+O/nKYA2gXUge7JheWAVPVngLru+K
+ SKNy6x/LQdl+h/HbFbWngw5rSAkFc3JiCh2X7gYZjNBVw0C/RlGbJsq7/35gBbrM3/zE
+ cRfA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1744028004; x=1744632804;
- h=to:from:subject:message-id:date:mime-version:x-gm-message-state
- :from:to:cc:subject:date:message-id:reply-to;
- bh=8sBuYwBdcimnZtn0G1ADj+iI2GJJl6vdeMkk5uNXqfg=;
- b=ApVOXWwD0/8llIcpZAg6PVxSKikY5TLwGEY0MAvl6ajA7CjFSODQoOG0z9ksYnXvNY
- tAgHystLfajfRfmZ/Qs4UqI/JOIX8pwuc14QqYwqnbt3UzrAwdqzU8H9tVGQymgGJygY
- Fi2bpae/42Padoeg+c4jcYWYJAA43aDF5xsIfRMwZHv4zaIVASrIVUYEWg/iZ5YXmLXY
- oas/qgQkfv76fEZgYgIWc7AQQN/xfcJBglyHZwQc59CpryD2Fq7QN8OLStnBvnB5MLB5
- 2C+RFnwQgiZOv40EU0ziE2+EvnFnj2QAM25e0JCVjiq4Hn2JM5+trg49erv/iC+eXqsE
- qL+g==
-X-Gm-Message-State: AOJu0YwCooT108RvDbTzFEvgmlHA3BjpxniivQtfaymEwaykLrI69Pv6
- KzzATcohBJh3lDdhBWApCoelPfnvOodQcbwQtTFKDDEW4QxZmdUyOOgnoFJZQ42CHjHK8xqKgZe
- 5MOW+9ohiW6BkkBU6lz1s6vgjJK2WUvd3de+INz7iMWuq5X82kiQvsYrJwg==
-X-Google-Smtp-Source: AGHT+IGimJBmkK9OFoPbeQlFJGlb5UIzDFO0CD55dSnX5KLZYjtw4Cm1xZ+CVaS17rC/wsPApjy7NMLHuyC1xRE6arAnOWUhHTLN
+ d=1e100.net; s=20230601; t=1744456350; x=1745061150;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=f5yZfBIt4LcppKWIiY+/0AdswWLA95G7zwERtltTZC4=;
+ b=IL+XC8DxCVygjoBadfEYR91QdlA1pvos4rhtXLya3yO9M/f0mayvjPin6bWvJRcYWn
+ bCLWQD14faONd60diPg37vpS3eCmpyg2sPUxxayS4tgE/okxjgRN7s1a32FpxAkHouOJ
+ mqjKWmEBy0aPS3mEu87wE035yPy35QnQ1VQhvmz/AMEJTKGaDEM2aSW1/RswEPeoDLiB
+ a4thtAKxcwlhZ0Nx5hw/F1ENihg6B7Dv68KK0sfgu9zztFCpgVIqShBmgA4SqwuHMqhw
+ F060Ar4v86J2emXYbtlvKL9cSb5nDYxuuLjp0KSpTNC4Oy0/XTOc3twkkbX1tH/atJmQ
+ Rv7g==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCU9JXwi5B4dSRrqedrgUcg3G+xQp7KzKdMIgTXy5PjmqZLE4Z9xdCtds+6SevmM1DLl1yzG@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YwxLiEab6EiBTOFJ4PnW+2SDBcvlbiDDTjMHqAiH5hsIRhg20aG
+ Gqyn5ueIvYuKab9M+d/334vbaO1Lr3qUe7xaVBrljJ2MjGRszyMErnnjp5MGurnA0A6wdNn7jFs
+ 7A4nOizlIhoM2fEmehm1XtG70W7APz/pVG06T
+X-Gm-Gg: ASbGncsqrict8mta25Q/NWVLVcMcX5f6hHlY7q6FMtHgIiYRfkEw+G77IR0Tr2klJNP
+ NbMtz6zRW2EGG7bv7JrdDmh2z5um1KOlaJ26PDTrw4JiUdg3QrMU5P/BgsvGsVcoJD8HW99FwJA
+ W6rS6WvIltMJg9WNYQUgF74nZiyDOAui7fpDd0osIebdAeGiv60MT7reqFWeXD1poAkVQ=
+X-Google-Smtp-Source: AGHT+IGQoAd+2DjT5DgDI+gNmQByWImqd0eQwJ4RTPmk393r3sVnfctWU1eJbI2XB7ZJHK2TNI3BXVp7A0po/SY5snE=
+X-Received: by 2002:a17:903:185:b0:215:7ced:9d66 with SMTP id
+ d9443c01a7336-22bf4472724mr1782295ad.10.1744456343109; Sat, 12 Apr 2025
+ 04:12:23 -0700 (PDT)
 MIME-Version: 1.0
-X-Received: by 2002:a05:6e02:18cb:b0:3d5:e002:b8ac with SMTP id
- e9e14a558f8ab-3d6e3f054b0mr114806305ab.9.1744028004051; Mon, 07 Apr 2025
- 05:13:24 -0700 (PDT)
-Date: Mon, 07 Apr 2025 05:13:24 -0700
-X-Google-Appengine-App-Id: s~syzkaller
-X-Google-Appengine-App-Id-Alias: syzkaller
-Message-ID: <67f3c164.050a0220.396535.054b.GAE@google.com>
-To: cake@lists.bufferbloat.net, davem@davemloft.net, edumazet@google.com, 
- horms@kernel.org, jhs@mojatatu.com, jiri@resnulli.us, kuba@kernel.org, 
- linux-kernel@vger.kernel.org, netdev@vger.kernel.org, pabeni@redhat.com, 
- syzkaller-bugs@googlegroups.com, toke@toke.dk, xiyou.wangcong@gmail.com
+References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
+ <014po62q-r99p-71np-52r1-n84n9np63nqr@ynat.uz> <87plhvlyoc.fsf@toke.dk>
+ <976DC4FC-44CA-4C7E-90E0-DE39B57F01E1@comcast.com>
+ <8DA2934A-43D1-4700-8F32-CA424C3FAE8D@comcast.com>
+ <1743623511.52759201@apps.rackspace.com>
+ <CAOp4FwR71iS-mijozYr7zzuAhajJeqjzw1bGo1eicNWST76erA@mail.gmail.com>
+In-Reply-To: <CAOp4FwR71iS-mijozYr7zzuAhajJeqjzw1bGo1eicNWST76erA@mail.gmail.com>
+Date: Sat, 12 Apr 2025 07:12:10 -0400
+X-Gm-Features: ATxdqUH440hzgQAgik6z3csttA3XVocWzjrWwLPEcZJwRzbfpbMpBiECnIV3p-0
+Message-ID: <CAHxHggcgJT=3SE8FJVnGduE0C0c1hFKu6fHLdnFL2BW5dE1+bw@mail.gmail.com>
+To: Loganaden Velvindron <loganaden@gmail.com>
 X-Mailman-Approved-At: Fri, 06 Jun 2025 06:40:58 -0400
-Subject: [Cake] [syzbot] [net?] BUG: soft lockup in wg_packet_tx_worker (3)
+Subject: Re: [Cake]
+	=?utf-8?q?=5BMake-wifi-fast=5D__=5BBloat=5D_In_loving_memo?=
+	=?utf-8?q?ry_of_Dave_T=C3=A4ht_=3C3?=
 X-BeenThere: cake@lists.bufferbloat.net
 X-Mailman-Version: 2.1.20
 Precedence: list
@@ -69,158 +93,125 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: syzbot via Cake <cake@lists.bufferbloat.net>
-Reply-To: syzbot <syzbot+75bc3d000ef2479dc914@syzkaller.appspotmail.com>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Vint Cerf via Cake <cake@lists.bufferbloat.net>
+Reply-To: Vint Cerf <vint@google.com>
+Cc: "cerowrt-users@lists.bufferbloat.net"
+ <cerowrt-users@lists.bufferbloat.net>,
+ Herbert Wolverson <hwolverson@libreqos.io>,
+ Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+ libreqos <libreqos@lists.bufferbloat.net>,
+ "cerowrt-commits@lists.bufferbloat.net"
+ <cerowrt-commits@lists.bufferbloat.net>,
+ Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>,
+ "codel@lists.bufferbloat.net" <codel@lists.bufferbloat.net>, "Livingood,
+ Jason" <jason_livingood@comcast.com>,
+ "codel-wireless@lists.bufferbloat.net" <codel-wireless@lists.bufferbloat.net>,
+ "cerowrt-devel@lists.bufferbloat.net" <cerowrt-devel@lists.bufferbloat.net>,
+ bloat <bloat@lists.bufferbloat.net>, Cake List <cake@lists.bufferbloat.net>,
+ "bloat-ietf@lists.bufferbloat.net" <bloat-ietf@lists.bufferbloat.net>,
+ =?UTF-8?Q?Network_Neutrality_is_back=21_Let=C2=B4s_make_the_technical_aspect?=
+ =?UTF-8?Q?s_heard_this_time=21?= <nnagain@lists.bufferbloat.net>,
+ "Frantisek \(Frank\) Borsik" <frank@libreqos.io>,
+ Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
+ =?UTF-8?Q?Robert_Chac=C3=B3n?= <robert@libreqos.io>
+Content-Type: multipart/mixed; boundary="===============4039263051204417046=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-SGVsbG8sCgpzeXpib3QgZm91bmQgdGhlIGZvbGxvd2luZyBpc3N1ZSBvbjoKCkhFQUQgY29tbWl0
-OiAgICBhMjM5MmYzMzM1NzUgZHJtL3BhbnRob3I6IENsZWFuIHVwIEZXIHZlcnNpb24gaW5mb3Jt
-YXRpb24gLi4KZ2l0IHRyZWU6ICAgICAgIGdpdDovL2dpdC5rZXJuZWwub3JnL3B1Yi9zY20vbGlu
-dXgva2VybmVsL2dpdC9hcm02NC9saW51eC5naXQgZm9yLWtlcm5lbGNpCmNvbnNvbGUgb3V0cHV0
-OiBodHRwczovL3N5emthbGxlci5hcHBzcG90LmNvbS94L2xvZy50eHQ/eD0xNGEzOGZiMDU4MDAw
-MAprZXJuZWwgY29uZmlnOiAgaHR0cHM6Ly9zeXprYWxsZXIuYXBwc3BvdC5jb20veC8uY29uZmln
-P3g9OGNjZWVkZjJlMjdlODc3ZApkYXNoYm9hcmQgbGluazogaHR0cHM6Ly9zeXprYWxsZXIuYXBw
-c3BvdC5jb20vYnVnP2V4dGlkPTc1YmMzZDAwMGVmMjQ3OWRjOTE0CmNvbXBpbGVyOiAgICAgICBE
-ZWJpYW4gY2xhbmcgdmVyc2lvbiAxNS4wLjYsIEdOVSBsZCAoR05VIEJpbnV0aWxzIGZvciBEZWJp
-YW4pIDIuNDAKdXNlcnNwYWNlIGFyY2g6IGFybTY0CgpVbmZvcnR1bmF0ZWx5LCBJIGRvbid0IGhh
-dmUgYW55IHJlcHJvZHVjZXIgZm9yIHRoaXMgaXNzdWUgeWV0LgoKRG93bmxvYWRhYmxlIGFzc2V0
-czoKZGlzayBpbWFnZTogaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N5emJvdC1hc3Nl
-dHMvN2RmOGNlYWIzMjc5L2Rpc2stYTIzOTJmMzMucmF3Lnh6CnZtbGludXg6IGh0dHBzOi8vc3Rv
-cmFnZS5nb29nbGVhcGlzLmNvbS9zeXpib3QtYXNzZXRzLzQyYzVhZjQwMzM3MS92bWxpbnV4LWEy
-MzkyZjMzLnh6Cmtlcm5lbCBpbWFnZTogaHR0cHM6Ly9zdG9yYWdlLmdvb2dsZWFwaXMuY29tL3N5
-emJvdC1hc3NldHMvNzM1OTliODQ5ZTIwL0ltYWdlLWEyMzkyZjMzLmd6Lnh6CgpJTVBPUlRBTlQ6
-IGlmIHlvdSBmaXggdGhlIGlzc3VlLCBwbGVhc2UgYWRkIHRoZSBmb2xsb3dpbmcgdGFnIHRvIHRo
-ZSBjb21taXQ6ClJlcG9ydGVkLWJ5OiBzeXpib3QrNzViYzNkMDAwZWYyNDc5ZGM5MTRAc3l6a2Fs
-bGVyLmFwcHNwb3RtYWlsLmNvbQoKd2F0Y2hkb2c6IEJVRzogc29mdCBsb2NrdXAgLSBDUFUjMSBz
-dHVjayBmb3IgMjJzISBba3dvcmtlci8xOjQ6NjUyMF0KTW9kdWxlcyBsaW5rZWQgaW46CmlycSBl
-dmVudCBzdGFtcDogMzc3NjM0ODEKaGFyZGlycXMgbGFzdCAgZW5hYmxlZCBhdCAoMzc3NjM0ODAp
-OiBbPGZmZmY4MDAwOGI4NjMzOGM+XSBfX2V4aXRfdG9fa2VybmVsX21vZGUgYXJjaC9hcm02NC9r
-ZXJuZWwvZW50cnktY29tbW9uLmM6ODUgW2lubGluZV0KaGFyZGlycXMgbGFzdCAgZW5hYmxlZCBh
-dCAoMzc3NjM0ODApOiBbPGZmZmY4MDAwOGI4NjMzOGM+XSBleGl0X3RvX2tlcm5lbF9tb2RlKzB4
-ZGMvMHgxMGMgYXJjaC9hcm02NC9rZXJuZWwvZW50cnktY29tbW9uLmM6OTUKaGFyZGlycXMgbGFz
-dCBkaXNhYmxlZCBhdCAoMzc3NjM0ODEpOiBbPGZmZmY4MDAwOGI4NjBlMDQ+XSBfX2VsMV9pcnEg
-YXJjaC9hcm02NC9rZXJuZWwvZW50cnktY29tbW9uLmM6NTU3IFtpbmxpbmVdCmhhcmRpcnFzIGxh
-c3QgZGlzYWJsZWQgYXQgKDM3NzYzNDgxKTogWzxmZmZmODAwMDhiODYwZTA0Pl0gZWwxX2ludGVy
-cnVwdCsweDI0LzB4NjggYXJjaC9hcm02NC9rZXJuZWwvZW50cnktY29tbW9uLmM6NTc1CnNvZnRp
-cnFzIGxhc3QgIGVuYWJsZWQgYXQgKDU0MTU1NDIpOiBbPGZmZmY4MDAwODU3NmM5Mjg+XSBsb2Nh
-bF9iaF9lbmFibGUrMHgxMC8weDM0IGluY2x1ZGUvbGludXgvYm90dG9tX2hhbGYuaDozMgpzb2Z0
-aXJxcyBsYXN0IGRpc2FibGVkIGF0ICg1NDE1NTQ2KTogWzxmZmZmODAwMDg1Nzc3ZTk4Pl0gd2df
-c29ja2V0X3NlbmRfc2tiX3RvX3BlZXIrMHg2NC8weDFhOCBkcml2ZXJzL25ldC93aXJlZ3VhcmQv
-c29ja2V0LmM6MTczCkNQVTogMSBVSUQ6IDAgUElEOiA2NTIwIENvbW06IGt3b3JrZXIvMTo0IE5v
-dCB0YWludGVkIDYuMTQuMC1yYzctc3l6a2FsbGVyLWdhMjM5MmYzMzM1NzUgIzAKSGFyZHdhcmUg
-bmFtZTogR29vZ2xlIEdvb2dsZSBDb21wdXRlIEVuZ2luZS9Hb29nbGUgQ29tcHV0ZSBFbmdpbmUs
-IEJJT1MgR29vZ2xlIDAyLzEyLzIwMjUKV29ya3F1ZXVlOiB3Zy1jcnlwdC13ZzAgd2dfcGFja2V0
-X3R4X3dvcmtlcgpwc3RhdGU6IDQwNDAwMDA1IChuWmN2IGRhaWYgK1BBTiAtVUFPIC1UQ08gLURJ
-VCAtU1NCUyBCVFlQRT0tLSkKcGMgOiBnZXRfY3VycmVudCBhcmNoL2FybTY0L2luY2x1ZGUvYXNt
-L2N1cnJlbnQuaDoxOSBbaW5saW5lXQpwYyA6IHdyaXRlX2NvbXBfZGF0YSBrZXJuZWwva2Nvdi5j
-OjI0NSBbaW5saW5lXQpwYyA6IF9fc2FuaXRpemVyX2Nvdl90cmFjZV9jb25zdF9jbXA0KzB4OC8w
-eGEwIGtlcm5lbC9rY292LmM6MzE0CmxyIDogY2FrZV9kZXF1ZXVlKzB4NDNjLzB4M2RhMCBuZXQv
-c2NoZWQvc2NoX2Nha2UuYzoyMDEwCnNwIDogZmZmZjgwMDBhM2FlNmU1MAp4Mjk6IGZmZmY4MDAw
-YTNhZTcwYTAgeDI4OiAwMDAwMDAwMDAwMDE5OGQwIHgyNzogMDAwMDAwMDAwMDAwMDAwMAp4MjY6
-IDFmZmZlMDAwMWY0ODk5MzkgeDI1OiBmZmZmMDAwMGZhNDRjOWNjIHgyNDogMDAwMDAwMDAwMDAw
-MDAwMQp4MjM6IDAwMDAwMDAwMDAwMDAwMDAgeDIyOiAwMDAwMDAwMDAwMDAwMDAxIHgyMTogMDAw
-MDAwMDAwMDAwMDAwMAp4MjA6IDAwMDAwMDAwMDAwMDAyMDAgeDE5OiBmZmZmMDAwMGZhNDRjOWNj
-IHgxODogZGZmZjgwMDAwMDAwMDAwMAp4MTc6IDAwMDAwMDAwMzk0YmZjN2QgeDE2OiBmZmZmODAw
-MDgwNmEyNWFjIHgxNTogMDAwMDAwMDAwMDAwMDAwMQp4MTQ6IDFmZmZmMDAwMTJmNTBiNjggeDEz
-OiAwMDAwMDAwMDAwMDAwMDAwIHgxMjogZmZmZjAwMDBmMWJmYzJmOAp4MTE6IGZmZmYwMDAwZjFi
-ZmMyZjAgeDEwOiAwMDAwMDAwMDAwZmYwMTAwIHg5IDogMDAwMDAwMDAwMDAwMDAwMAp4OCA6IGZm
-ZmYwMDAwYzQyY2RiODAgeDcgOiBmZmZmODAwMDgwNTkyODMwIHg2IDogMDAwMDAwMDAwMDAwMDAw
-MAp4NSA6IDAwMDAwMDAwMDAwMDAwMDEgeDQgOiAwMDAwMDAwMDAwMDAwMDAxIHgzIDogZmZmZjgw
-MDA4MDU5MjgzYwp4MiA6IDAwMDAwMDAwMDAwMDAwMDAgeDEgOiAwMDAwMDAwMDAwMDAwMjAwIHgw
-IDogMDAwMDAwMDAwMDAwMDAwMApDYWxsIHRyYWNlOgogX19zYW5pdGl6ZXJfY292X3RyYWNlX2Nv
-bnN0X2NtcDQrMHg4LzB4YTAga2VybmVsL2tjb3YuYzozMTMgKFApCiBkZXF1ZXVlX3NrYiBuZXQv
-c2NoZWQvc2NoX2dlbmVyaWMuYzoyOTMgW2lubGluZV0KIHFkaXNjX3Jlc3RhcnQgbmV0L3NjaGVk
-L3NjaF9nZW5lcmljLmM6Mzk4IFtpbmxpbmVdCiBfX3FkaXNjX3J1bisweDFlMC8weDIzNzggbmV0
-L3NjaGVkL3NjaF9nZW5lcmljLmM6NDE2CiBfX2Rldl94bWl0X3NrYiBuZXQvY29yZS9kZXYuYzo0
-MTExIFtpbmxpbmVdCiBfX2Rldl9xdWV1ZV94bWl0KzB4ZDU4LzB4MzViNCBuZXQvY29yZS9kZXYu
-Yzo0NjE4CiBkZXZfcXVldWVfeG1pdCBpbmNsdWRlL2xpbnV4L25ldGRldmljZS5oOjMzMTMgW2lu
-bGluZV0KIG5laWdoX2hoX291dHB1dCBpbmNsdWRlL25ldC9uZWlnaGJvdXIuaDo1MjMgW2lubGlu
-ZV0KIG5laWdoX291dHB1dCBpbmNsdWRlL25ldC9uZWlnaGJvdXIuaDo1MzcgW2lubGluZV0KIGlw
-Nl9maW5pc2hfb3V0cHV0MisweDE2MTQvMHgyMGY4IG5ldC9pcHY2L2lwNl9vdXRwdXQuYzoxNDEK
-IF9faXA2X2ZpbmlzaF9vdXRwdXQgbmV0L2lwdjYvaXA2X291dHB1dC5jOi0xIFtpbmxpbmVdCiBp
-cDZfZmluaXNoX291dHB1dCsweDQyOC8weDdjNCBuZXQvaXB2Ni9pcDZfb3V0cHV0LmM6MjI2CiBO
-Rl9IT09LX0NPTkQgaW5jbHVkZS9saW51eC9uZXRmaWx0ZXIuaDozMDMgW2lubGluZV0KIGlwNl9v
-dXRwdXQrMHgyNzQvMHg1OTggbmV0L2lwdjYvaXA2X291dHB1dC5jOjI0NwogZHN0X291dHB1dCBp
-bmNsdWRlL25ldC9kc3QuaDo0NTkgW2lubGluZV0KIGlwNl9sb2NhbF9vdXQrMHgxMjAvMHgxNjAg
-bmV0L2lwdjYvb3V0cHV0X2NvcmUuYzoxNTUKIGlwNnR1bm5lbF94bWl0IGluY2x1ZGUvbmV0L2lw
-Nl90dW5uZWwuaDoxNjEgW2lubGluZV0KIHVkcF90dW5uZWw2X3htaXRfc2tiKzB4NGU4LzB4YTA0
-IG5ldC9pcHY2L2lwNl91ZHBfdHVubmVsLmM6MTExCiBzZW5kNisweDU3OC8weDk0MCBkcml2ZXJz
-L25ldC93aXJlZ3VhcmQvc29ja2V0LmM6MTUyCiB3Z19zb2NrZXRfc2VuZF9za2JfdG9fcGVlcisw
-eGZjLzB4MWE4IGRyaXZlcnMvbmV0L3dpcmVndWFyZC9zb2NrZXQuYzoxNzgKIHdnX3BhY2tldF9j
-cmVhdGVfZGF0YV9kb25lIGRyaXZlcnMvbmV0L3dpcmVndWFyZC9zZW5kLmM6MjUxIFtpbmxpbmVd
-CiB3Z19wYWNrZXRfdHhfd29ya2VyKzB4MWE4LzB4NzE4IGRyaXZlcnMvbmV0L3dpcmVndWFyZC9z
-ZW5kLmM6Mjc2CiBwcm9jZXNzX29uZV93b3JrKzB4ODEwLzB4MTYzOCBrZXJuZWwvd29ya3F1ZXVl
-LmM6MzIzOAogcHJvY2Vzc19zY2hlZHVsZWRfd29ya3Mga2VybmVsL3dvcmtxdWV1ZS5jOjMzMTkg
-W2lubGluZV0KIHdvcmtlcl90aHJlYWQrMHg5N2MvMHhlZWMga2VybmVsL3dvcmtxdWV1ZS5jOjM0
-MDAKIGt0aHJlYWQrMHg2NWMvMHg3YjAga2VybmVsL2t0aHJlYWQuYzo0NjQKIHJldF9mcm9tX2Zv
-cmsrMHgxMC8weDIwIGFyY2gvYXJtNjQva2VybmVsL2VudHJ5LlM6ODYyClNlbmRpbmcgTk1JIGZy
-b20gQ1BVIDEgdG8gQ1BVcyAwOgpOTUkgYmFja3RyYWNlIGZvciBjcHUgMApDUFU6IDAgVUlEOiAw
-IFBJRDogNjI5MCBDb21tOiBrd29ya2VyLzA6MyBOb3QgdGFpbnRlZCA2LjE0LjAtcmM3LXN5emth
-bGxlci1nYTIzOTJmMzMzNTc1ICMwCkhhcmR3YXJlIG5hbWU6IEdvb2dsZSBHb29nbGUgQ29tcHV0
-ZSBFbmdpbmUvR29vZ2xlIENvbXB1dGUgRW5naW5lLCBCSU9TIEdvb2dsZSAwMi8xMi8yMDI1Cldv
-cmtxdWV1ZTogd2ctY3J5cHQtd2cwIHdnX3BhY2tldF90eF93b3JrZXIKcHN0YXRlOiAwMDQwMDAw
-NSAobnpjdiBkYWlmICtQQU4gLVVBTyAtVENPIC1ESVQgLVNTQlMgQlRZUEU9LS0pCnBjIDogcXVl
-dWVkX3NwaW5fbG9ja19zbG93cGF0aCsweDE1Yy8weGQwNCBrZXJuZWwvbG9ja2luZy9xc3Bpbmxv
-Y2suYzozODAKbHIgOiBxdWV1ZWRfc3Bpbl9sb2NrX3Nsb3dwYXRoKzB4MTY4LzB4ZDA0IGtlcm5l
-bC9sb2NraW5nL3FzcGlubG9jay5jOjM4MApzcCA6IGZmZmY4MDAwYTUzNjcwMDAKeDI5OiBmZmZm
-ODAwMGE1MzY3MGMwIHgyODogMWZmZmUwMDAxZTM3ZjAxZSB4Mjc6IGRmZmY4MDAwMDAwMDAwMDAK
-eDI2OiAxZmZmZjAwMDE0YTZjZTJjIHgyNTogZmZmZjgwMDBhNTM2NzA0MCB4MjQ6IGRmZmY4MDAw
-MDAwMDAwMDAKeDIzOiBmZmZmODAwMGE1MzY3MDgwIHgyMjogZmZmZjcwMDAxNGE2Y2UwOCB4MjE6
-IDAwMDAwMDAwMDAwMDAwMDEKeDIwOiAxZmZmZjAwMDE0YTZjZTEwIHgxOTogZmZmZjAwMDBmMWJm
-ODBmMCB4MTg6IDFmZmZlMDAwMzY2ZTcyODYKeDE3OiBmZmZmODAwMDhmZDNkMDAwIHgxNjogZmZm
-ZjgwMDA4MGJmOTM2MCB4MTU6IDAwMDAwMDAwMDAwMDAwMDEKeDE0OiAxZmZmZTAwMDFlMzdmMDFl
-IHgxMzogMDAwMDAwMDAwMDAwMDAwMCB4MTI6IDAwMDAwMDAwMDAwMDAwMDAKeDExOiBmZmZmNjAw
-MDFlMzdmMDFmIHgxMDogMWZmZmUwMDAxZTM3ZjAxZSB4OSA6IDAwMDAwMDAwMDAwMDAwMDAKeDgg
-OiAwMDAwMDAwMDAwMDAwMDAxIHg3IDogZmZmZjgwMDA4OTk4NmM0OCB4NiA6IDAwMDAwMDAwMDAw
-MDAwMDAKeDUgOiAwMDAwMDAwMDAwMDAwMDAwIHg0IDogMDAwMDAwMDAwMDAwMDAwMSB4MyA6IGZm
-ZmY4MDAwOGI4ODU5MDgKeDIgOiAwMDAwMDAwMDAwMDAwMDAwIHgxIDogMDAwMDAwMDAwMDAwMDAw
-MSB4MCA6IDAwMDAwMDAwMDAwMDAwMDEKQ2FsbCB0cmFjZToKIF9fY21wd2FpdF9jYXNlXzggYXJj
-aC9hcm02NC9pbmNsdWRlL2FzbS9jbXB4Y2hnLmg6MjI5IFtpbmxpbmVdIChQKQogX19jbXB3YWl0
-IGFyY2gvYXJtNjQvaW5jbHVkZS9hc20vY21weGNoZy5oOjI1NyBbaW5saW5lXSAoUCkKIHF1ZXVl
-ZF9zcGluX2xvY2tfc2xvd3BhdGgrMHgxNWMvMHhkMDQga2VybmVsL2xvY2tpbmcvcXNwaW5sb2Nr
-LmM6MzgwIChQKQogcXVldWVkX3NwaW5fbG9jayBpbmNsdWRlL2FzbS1nZW5lcmljL3FzcGlubG9j
-ay5oOjExNCBbaW5saW5lXQogZG9fcmF3X3NwaW5fbG9jaysweDJlYy8weDMzNCBrZXJuZWwvbG9j
-a2luZy9zcGlubG9ja19kZWJ1Zy5jOjExNgogX19yYXdfc3Bpbl9sb2NrIGluY2x1ZGUvbGludXgv
-c3BpbmxvY2tfYXBpX3NtcC5oOjEzNCBbaW5saW5lXQogX3Jhd19zcGluX2xvY2srMHg1MC8weDYw
-IGtlcm5lbC9sb2NraW5nL3NwaW5sb2NrLmM6MTU0CiBzcGluX2xvY2sgaW5jbHVkZS9saW51eC9z
-cGlubG9jay5oOjM1MSBbaW5saW5lXQogX19kZXZfeG1pdF9za2IgbmV0L2NvcmUvZGV2LmM6NDA3
-OCBbaW5saW5lXQogX19kZXZfcXVldWVfeG1pdCsweGIzMC8weDM1YjQgbmV0L2NvcmUvZGV2LmM6
-NDYxOAogZGV2X3F1ZXVlX3htaXQgaW5jbHVkZS9saW51eC9uZXRkZXZpY2UuaDozMzEzIFtpbmxp
-bmVdCiBuZWlnaF9oaF9vdXRwdXQgaW5jbHVkZS9uZXQvbmVpZ2hib3VyLmg6NTIzIFtpbmxpbmVd
-CiBuZWlnaF9vdXRwdXQgaW5jbHVkZS9uZXQvbmVpZ2hib3VyLmg6NTM3IFtpbmxpbmVdCiBpcDZf
-ZmluaXNoX291dHB1dDIrMHgxNjE0LzB4MjBmOCBuZXQvaXB2Ni9pcDZfb3V0cHV0LmM6MTQxCiBf
-X2lwNl9maW5pc2hfb3V0cHV0IG5ldC9pcHY2L2lwNl9vdXRwdXQuYzotMSBbaW5saW5lXQogaXA2
-X2ZpbmlzaF9vdXRwdXQrMHg0MjgvMHg3YzQgbmV0L2lwdjYvaXA2X291dHB1dC5jOjIyNgogTkZf
-SE9PS19DT05EIGluY2x1ZGUvbGludXgvbmV0ZmlsdGVyLmg6MzAzIFtpbmxpbmVdCiBpcDZfb3V0
-cHV0KzB4Mjc0LzB4NTk4IG5ldC9pcHY2L2lwNl9vdXRwdXQuYzoyNDcKIGRzdF9vdXRwdXQgaW5j
-bHVkZS9uZXQvZHN0Lmg6NDU5IFtpbmxpbmVdCiBpcDZfbG9jYWxfb3V0KzB4MTIwLzB4MTYwIG5l
-dC9pcHY2L291dHB1dF9jb3JlLmM6MTU1CiBpcDZ0dW5uZWxfeG1pdCBpbmNsdWRlL25ldC9pcDZf
-dHVubmVsLmg6MTYxIFtpbmxpbmVdCiB1ZHBfdHVubmVsNl94bWl0X3NrYisweDRlOC8weGEwNCBu
-ZXQvaXB2Ni9pcDZfdWRwX3R1bm5lbC5jOjExMQogc2VuZDYrMHg1NzgvMHg5NDAgZHJpdmVycy9u
-ZXQvd2lyZWd1YXJkL3NvY2tldC5jOjE1Mgogd2dfc29ja2V0X3NlbmRfc2tiX3RvX3BlZXIrMHhm
-Yy8weDFhOCBkcml2ZXJzL25ldC93aXJlZ3VhcmQvc29ja2V0LmM6MTc4CiB3Z19wYWNrZXRfY3Jl
-YXRlX2RhdGFfZG9uZSBkcml2ZXJzL25ldC93aXJlZ3VhcmQvc2VuZC5jOjI1MSBbaW5saW5lXQog
-d2dfcGFja2V0X3R4X3dvcmtlcisweDFhOC8weDcxOCBkcml2ZXJzL25ldC93aXJlZ3VhcmQvc2Vu
-ZC5jOjI3NgogcHJvY2Vzc19vbmVfd29yaysweDgxMC8weDE2Mzgga2VybmVsL3dvcmtxdWV1ZS5j
-OjMyMzgKIHByb2Nlc3Nfc2NoZWR1bGVkX3dvcmtzIGtlcm5lbC93b3JrcXVldWUuYzozMzE5IFtp
-bmxpbmVdCiB3b3JrZXJfdGhyZWFkKzB4OTdjLzB4ZWVjIGtlcm5lbC93b3JrcXVldWUuYzozNDAw
-CiBrdGhyZWFkKzB4NjVjLzB4N2IwIGtlcm5lbC9rdGhyZWFkLmM6NDY0CiByZXRfZnJvbV9mb3Jr
-KzB4MTAvMHgyMCBhcmNoL2FybTY0L2tlcm5lbC9lbnRyeS5TOjg2MgoKCi0tLQpUaGlzIHJlcG9y
-dCBpcyBnZW5lcmF0ZWQgYnkgYSBib3QuIEl0IG1heSBjb250YWluIGVycm9ycy4KU2VlIGh0dHBz
-Oi8vZ29vLmdsL3Rwc21FSiBmb3IgbW9yZSBpbmZvcm1hdGlvbiBhYm91dCBzeXpib3QuCnN5emJv
-dCBlbmdpbmVlcnMgY2FuIGJlIHJlYWNoZWQgYXQgc3l6a2FsbGVyQGdvb2dsZWdyb3Vwcy5jb20u
-CgpzeXpib3Qgd2lsbCBrZWVwIHRyYWNrIG9mIHRoaXMgaXNzdWUuIFNlZToKaHR0cHM6Ly9nb28u
-Z2wvdHBzbUVKI3N0YXR1cyBmb3IgaG93IHRvIGNvbW11bmljYXRlIHdpdGggc3l6Ym90LgoKSWYg
-dGhlIHJlcG9ydCBpcyBhbHJlYWR5IGFkZHJlc3NlZCwgbGV0IHN5emJvdCBrbm93IGJ5IHJlcGx5
-aW5nIHdpdGg6CiNzeXogZml4OiBleGFjdC1jb21taXQtdGl0bGUKCklmIHlvdSB3YW50IHRvIG92
-ZXJ3cml0ZSByZXBvcnQncyBzdWJzeXN0ZW1zLCByZXBseSB3aXRoOgojc3l6IHNldCBzdWJzeXN0
-ZW1zOiBuZXctc3Vic3lzdGVtCihTZWUgdGhlIGxpc3Qgb2Ygc3Vic3lzdGVtIG5hbWVzIG9uIHRo
-ZSB3ZWIgZGFzaGJvYXJkKQoKSWYgdGhlIHJlcG9ydCBpcyBhIGR1cGxpY2F0ZSBvZiBhbm90aGVy
-IG9uZSwgcmVwbHkgd2l0aDoKI3N5eiBkdXA6IGV4YWN0LXN1YmplY3Qtb2YtYW5vdGhlci1yZXBv
-cnQKCklmIHlvdSB3YW50IHRvIHVuZG8gZGVkdXBsaWNhdGlvbiwgcmVwbHkgd2l0aDoKI3N5eiB1
-bmR1cApfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtl
-IG1haWxpbmcgbGlzdApDYWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApodHRwczovL2xpc3RzLmJ1
-ZmZlcmJsb2F0Lm5ldC9saXN0aW5mby9jYWtlCg==
+--===============4039263051204417046==
+Content-Type: multipart/alternative; boundary="000000000000a8ce45063292e4fe"
+
+--000000000000a8ce45063292e4fe
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+He would be a good candidate for the Postel Award, don't you think?
+v
+
+
+On Sat, Apr 12, 2025 at 5:45=E2=80=AFAM Loganaden Velvindron <loganaden@gma=
+il.com>
+wrote:
+
+> >
+> > 2) I was thinking about how we could get Dave recognized for his
+> contributions. Like other unsung heroes, Dave didn't work for BBN or some
+> other moneyed entity who would commission a book or a memorial. (BBN paid
+> Katie Hafner to write the text that later turned into her book "When
+> Wizards Stay Up Late", which oddly only talked about the ARPANET/Internet
+> pioneers who worked for BBN, omitting many of my Internet colleagues.)
+> Dave wasn't the kind of guy that gets Awards from the Computer History
+> Museum or the ACM or IEEE. He wasn't beloved at IETF or ISOC that I know
+> of. He's in the category of folks like Noel Chiappa or Bram Cohen or
+> Richard Stallman or Aaron Swartz - people I think really changed the way =
+we
+> think about computing and internetworking, but who won't be in the offici=
+al
+> histories.
+>
+> He did not fit in a typical corporate culture especially in his later
+> years. He got a certain amount of respect at the
+> IETF.
+>
+
+
+--=20
+Please send any postal/overnight deliveries to:
+Vint Cerf
+Google, LLC
+1900 Reston Metro Plaza, 16th Floor
+Reston, VA 20190
++1 (571) 213 1346
+
+
+until further notice
+
+--000000000000a8ce45063292e4fe
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr">He would be a good candidate for the Postel Award, don&#39=
+;t you think?<div>v</div><div><br></div></div><br><div class=3D"gmail_quote=
+ gmail_quote_container"><div dir=3D"ltr" class=3D"gmail_attr">On Sat, Apr 1=
+2, 2025 at 5:45=E2=80=AFAM Loganaden Velvindron &lt;<a href=3D"mailto:logan=
+aden@gmail.com">loganaden@gmail.com</a>&gt; wrote:<br></div><blockquote cla=
+ss=3D"gmail_quote" style=3D"margin:0px 0px 0px 0.8ex;border-left:1px solid =
+rgb(204,204,204);padding-left:1ex">&gt;<br>
+&gt; 2) I was thinking about how we could get Dave recognized for his contr=
+ibutions. Like other unsung heroes, Dave didn&#39;t work for BBN or some ot=
+her moneyed entity who would commission a book or a memorial. (BBN paid Kat=
+ie Hafner to write the text that later turned into her book &quot;When Wiza=
+rds Stay Up Late&quot;, which oddly only talked about the ARPANET/Internet =
+pioneers who worked for BBN, omitting many of my Internet colleagues.)=C2=
+=A0 Dave wasn&#39;t the kind of guy that gets Awards from the Computer Hist=
+ory Museum or the ACM or IEEE. He wasn&#39;t beloved at IETF or ISOC that I=
+ know of. He&#39;s in the category of folks like Noel Chiappa or Bram Cohen=
+ or Richard Stallman or Aaron Swartz - people I think really changed the wa=
+y we think about computing and internetworking, but who won&#39;t be in the=
+ official histories.<br>
+<br>
+He did not fit in a typical corporate culture especially in his later<br>
+years. He got a certain amount of respect at the<br>
+IETF.<br>
+</blockquote></div><div><br clear=3D"all"></div><div><br></div><span class=
+=3D"gmail_signature_prefix">-- </span><br><div dir=3D"ltr" class=3D"gmail_s=
+ignature"><div dir=3D"ltr"><div>Please send any postal/overnight deliveries=
+ to:</div><div><div>Vint Cerf</div><div>Google, LLC</div><div>1900 Reston M=
+etro Plaza, 16th Floor</div><div>Reston, VA 20190</div><div>+1 (571) 213 13=
+46<br></div><div><br style=3D"color:rgb(34,34,34)"></div></div><div><br></d=
+iv><div>until further notice</div><div><br></div><div><br></div><div><br></=
+div></div></div>
+
+--000000000000a8ce45063292e4fe--
+
+--===============4039263051204417046==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============4039263051204417046==--
