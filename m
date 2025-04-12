@@ -2,82 +2,81 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from lists.bufferbloat.net (lists.bufferbloat.net [IPv6:2600:3c03:e000:3ca:f00f:f00f:b33b:b33b])
-	by mail.lfdr.de (Postfix) with ESMTPS id 5A5C3A86CBB
-	for <lists+cake@lfdr.de>; Sat, 12 Apr 2025 13:17:35 +0200 (CEST)
+	by mail.lfdr.de (Postfix) with ESMTPS id 0EBF0A86D49
+	for <lists+cake@lfdr.de>; Sat, 12 Apr 2025 15:22:01 +0200 (CEST)
 Received: from pitt.bufferbloat.net (localhost [127.0.0.1])
-	by lists.bufferbloat.net (Postfix) with ESMTP id 6AFF03CB4E;
-	Sat, 12 Apr 2025 07:17:30 -0400 (EDT)
+	by lists.bufferbloat.net (Postfix) with ESMTP id E544F3CB54;
+	Sat, 12 Apr 2025 09:21:54 -0400 (EDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=201610; t=1744456650;
-	bh=YfJlrDfG12PA8o2ZIRyawbmAokWnq8ZLZepR42dBua4=;
+	d=lists.bufferbloat.net; s=201610; t=1744464114;
+	bh=t9dTviDswLMKDhrNSa0InQd07xHmiqqUfL7/RC3OeGc=;
 	h=References:In-Reply-To:Date:To:Subject:List-Id:List-Unsubscribe:
 	 List-Archive:List-Post:List-Help:List-Subscribe:From:Reply-To:Cc:
 	 From;
-	b=VspcSInTFu9AxXSCrMkCLuRKte+SPBLorT/k3jwVKXmYRlNPkHbgSL+IbRuI+CfCZ
-	 9xlfm6NukzHxwTTQQ1yXHF94Ukrkw1JxYdjoOcTojQwkVT5POA3J5m85ldmVV4azTu
-	 uUXAzaCfNH7tSZtWdw/X3Vpou9EFGFY0Fbm/husVODvLqTchQjK1xuEIIRXS8ML4/K
-	 lC366DB0xQ9sYXH1G8Tj+lb+CFDV5A66etHb/EXiuoqSrrO0V0e5Nj+ByQ7+H6lHfJ
-	 LzO4furUp5qEbY5xwzTg3WDUCaQLkhYK4jmFCCMQYdfQ5ycOfgcTUEG51rX7rdHIeh
-	 bud57/XtK93/g==
+	b=qGAwK8SE6Q1+iVn+mNnsXXBKvK3HKHFY2wMViymLNlzpCUj9dgAsYHE707xzkXVRF
+	 nkVSrTgykZGKrJZF7qzbcjXFu8fobv75D/ipmzhZTwxMiElocXlag3NtlicsBtMFf2
+	 PQyu9LUZbNMw/IY5x+I7i9RxjHKyQlIWGXo35cBhehj8uapGLDveBqQFHmrSmGBKgJ
+	 sJLTRWi6ZU7FHetpVNhMKk+KovoxyDLZT71dMFm9ZAK4i1uJSD5992ZCot81tvz4Ze
+	 BlwVZWn5HdcfVqSwZV0wj1NgIOcpL0zbNijwKIWvETJGE+pGBtA5fK9inGYIfstv56
+	 9ZUAL3j6tTyvg==
 X-Original-To: cake@lists.bufferbloat.net
 Delivered-To: cake@lists.bufferbloat.net
-Received: from mail-pj1-x102c.google.com (mail-pj1-x102c.google.com
- [IPv6:2607:f8b0:4864:20::102c])
+Received: from mail-ed1-x529.google.com (mail-ed1-x529.google.com
+ [IPv6:2a00:1450:4864:20::529])
  (using TLSv1.2 with cipher ECDHE-RSA-AES128-GCM-SHA256 (128/128 bits))
  (No client certificate requested)
- by lists.bufferbloat.net (Postfix) with ESMTPS id 60C8E3B29E;
- Sat, 12 Apr 2025 07:17:29 -0400 (EDT)
-Received: by mail-pj1-x102c.google.com with SMTP id
- 98e67ed59e1d1-30332dfc820so3215352a91.2; 
- Sat, 12 Apr 2025 04:17:29 -0700 (PDT)
+ by lists.bufferbloat.net (Postfix) with ESMTPS id 35C513B29E;
+ Sat, 12 Apr 2025 09:21:52 -0400 (EDT)
+Received: by mail-ed1-x529.google.com with SMTP id
+ 4fb4d7f45d1cf-5eb5ecf3217so5070067a12.3; 
+ Sat, 12 Apr 2025 06:21:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=gmail.com; s=20230601; t=1744456648; x=1745061448; darn=lists.bufferbloat.net;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:from:to:cc:subject:date
- :message-id:reply-to;
- bh=7voe6owYqSZO3XF5YihD/9I93QrT6QxFERHXlM4/m68=;
- b=Gl1XG3fgQwDZCXTQlFT6ot2HkFXTxuL6hDxNRNjmIIw9XYN19bxX8JRng/Wr1GNO3Q
- U4aurnjRGy8hL/K268M03w4zJPEN4BzQgKaHW3V0nxkjJJ7o8hzBbzKZ2R7HXOow1WRZ
- w3sbTYiy8hH6t3fNVUwMCqozeRRBHXwmodCQq0mggDzpQQPlVLFRHNmLS5NYyXeBNTWe
- awyBFDDMgOd6S8BL5JHU9M0/xpsn+oZcVIBS1Lv6WI6t9J87KJY2c9PDi+gSEpw8RkzP
- SPdK7Jg15wJGecoRfq2JjcCxrv9ApvkD1mny4PSWvMlymKDny0UKeeT37Dk2GpbTTGP9
- 5vDA==
+ d=gmail.com; s=20230601; t=1744464111; x=1745068911; darn=lists.bufferbloat.net;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:from:to:cc:subject:date:message-id:reply-to;
+ bh=QYfMFA6pvQUz25Lrp4GjoBXICLvZJm+Fw1i7IRaCZWA=;
+ b=Wp5NP80fJGBsIb5S0X22ulX00b0mh73LPn8Rm5heyTf6YM73HHupKZDsLyLyuixYII
+ Z+AHTOfsVSvWhazsTWkddvEfszS0FrogwPw4kFLIC/7ESahbmQr8h+XVwIdLg3oWN17C
+ GGpdhyy7+ruid4P0ElePstBtUHTB9ApfNBqLNgwFv09e4o+bUa1OaLYLpZr8gr3EaIPq
+ xg9PDmMVgx+TJzvFl01jrduRGluQuMkXzlaIc9byi+E+FLLMdZi0rJmHjotkyELvvyid
+ 3nkFzaK59K/RhKCjEbS2coEhmtibIs1vw8oQIG5A+21CHg2gb9TvEwEFe4NKTD2cxPgO
+ s5CQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=1e100.net; s=20230601; t=1744456648; x=1745061448;
- h=content-transfer-encoding:cc:to:subject:message-id:date:from
- :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
- :subject:date:message-id:reply-to;
- bh=7voe6owYqSZO3XF5YihD/9I93QrT6QxFERHXlM4/m68=;
- b=saRmsTmjV6sj5+H7/2FfANyQYnhkOgUBp24p3T67AYKd/7wVjMOkA35C9WGgHwkAIk
- ier8HSHj56mxEZ78t2OLCnAwgUrksjuS1OIxn3GX4tCia2QuSUbMwIfDgZw3HrLw8BFh
- UXgbb0rJeaVdFRe+G2BbAy10k2WNlbMWEsC3i+mmCWHrHo/K8g0R7P+CJZzIbh2qDgAA
- geFZOwSLiylZBnspZ78mr5fALLf9SB17ZKeKKh8rkUiHEE6t+7tPuQDGzu05DqMsj3Dm
- Ap+Z9KpU/kTWP2baw3qRBJ10un6pG2U2u5MYRexsxAmgwvxRqmJHtwcJ/QUFyLNC9Nsx
- WwKw==
+ d=1e100.net; s=20230601; t=1744464111; x=1745068911;
+ h=cc:to:subject:message-id:date:from:in-reply-to:references
+ :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+ :reply-to;
+ bh=QYfMFA6pvQUz25Lrp4GjoBXICLvZJm+Fw1i7IRaCZWA=;
+ b=ixos45gghxWqR+YR54tSx7kOQ8hRd4BDL8TX2s/w4Tc55W/rppC9jcMeMFx3BH9zJw
+ /rBMHo/CE80qFAV+GtTixB9hRXB7/fjeUZ7OQLTz9mn45awEc5lTNkPSuZWW+9KEQIu9
+ YYpNp/9kipTRdhM/YN4YbLc32+cfvD23ppsdrjlyxzdOttcse0BqqcHqjDvUDdMjBANH
+ 62I8EliNUBp1FlbwkDXr7l1Lm5z2dD0qu0uK5ZGtqmekBAq8YP7fRlbW4UuUPmQVn9Qb
+ E5dwFVURSPFIwvRau3rHbGOM+yVVNe2b1Cs8Df1+ImAZSly7WQtf1uPLZldwPr5nt4Su
+ 80fQ==
 X-Forwarded-Encrypted: i=1;
- AJvYcCUz4cXN+Q18drpkJqZQimkIa/53pYJ8ULt/zDBxM73mxJlFEBtuFZ4nNPoB1cXnDWfA1+hOFOA=@lists.bufferbloat.net,
- AJvYcCVNP0Gw/Boga+DBnazzVpb27feRWeh2hTrFA6dqhRLNM7lm1fA15LLdsJG8RAkNkgAzvxaVzCo=@lists.bufferbloat.net,
- AJvYcCVbZHdi9WBnANsEMdQIStV4rxZQxyso6H3IEvkq46cGYbXHlq06UEB82w0/VhGYDt9C04zmJLQssE5I@lists.bufferbloat.net,
- AJvYcCVerrWMYVJe59wP0hsTzuYoiJ2/RgGfqoDG0wsTKLD1/MwTiJaud+w8kesQdCqljuJzDLDkb1ii19vVDDCRThw=@lists.bufferbloat.net,
- AJvYcCVlOYaJ1t0cBiWOd9vFE0FdHdiHW2sxKd+6bo7eE9vRnMaZHX9/uUrVHX4auWcSO1bZducXN4+sDaSIJCWUtg==@lists.bufferbloat.net,
- AJvYcCW2pZNJnajZ+qE8H19kujwrC8+x0DIvLn+XXIEJmd1k841DRSY6/9ShKDtO8KRSL5CIYtxrkvRpV4XGICZZPQ==@lists.bufferbloat.net,
- AJvYcCWnZoo9HWGPZYBVg9Z3xnr2Aov9+hEoxycfLWwoF1EhM7SfYCxzNvDaN6AOOZUwgL+cMlyt@lists.bufferbloat.net,
- AJvYcCWw/I0gqWewGdqVdlasRnPXeYzXSg8KoBDLHjQHNieYfOSQ/Fa1qPuzSLi9TOFj7GKe6uzJ+wHLqg==@lists.bufferbloat.net,
- AJvYcCXHU6wQQBo67L3yf7AgjFUgNJcByfiT+7v3YqyVZh1kEJH1YeXG1z73ngA/Ke8AF5IbwdQq2ZTKJ+Y=@lists.bufferbloat.net,
- AJvYcCXSywEtp7+DLmr1JfsXvNKJSG6Mp6kc9aUp1MOSkhUclYRuXnzmf4hLa28Yi8F6FyAZFlJ8Bg==@lists.bufferbloat.net,
- AJvYcCXV/RXRG+eeiWAbmHCQkY9JyS+nDndtwckGxBi+44Ow8kwwomlZ/mQ5IJ6m5CACqRMztsvAAXjV4As=@lists.bufferbloat.net,
- AJvYcCXYqwX04DKRWCQFgBkbNr1tOhRiDhKZWd5YrOeN45+qZkLgicYTSFEfLIePhWdNUnS4gt0Qs4d11JQoJUueMlk=@lists.bufferbloat.net,
- AJvYcCXtfRy5wOowDkOwr0QVNoLz5iCuvzeIcqmki2YCfLZYDmSSjyD6iUDtSvHxzsPZIvYn39uNLNIEWj98qoUhxbw0@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0YzokiB3JARdLIZF19JMoHq8rrkU0jjH2M8/Pv6+6yW+aUAl/rws
- 4xlVIXGP1nHCvbZ6apnqOHLx5nd2p1Vp2q76dHBAStDhkdfB6sMSq7fLU99iKOhnDAPvNDGkFJE
- Z3LqNVkC1zAK3jXlwLxU0JtCk9c+w7gdt
-X-Gm-Gg: ASbGncuQ4oNhm2PY9qEzrJWyzHlV1yG68zyvlGGu134rr2vOfRoj6oePXuIrE3dPPNu
- 3iX7vRgVKWJ5viJ0J9ro0xzfJPPDKtU1vgldmAFMhea1Iq7H1JvDjpJtg+0xBdv/i1MeZD1z4GQ
- zwVSSxwjm9GlGzTLq3QNAoMWLYFMx0ZbduIrdz48D6I7pkL6Wl4dxdjS5z0z1z0TYoNw==
-X-Google-Smtp-Source: AGHT+IGwoja96e31Iq4V3ayzpnatitXbXXiHTM1RirmdkuSoOq4BxJB0PpP9Q2Y4pY7jW6BG6Dw01bALAPUEPRsTtTo=
-X-Received: by 2002:a17:90a:d44d:b0:2fe:a614:5cf7 with SMTP id
- 98e67ed59e1d1-308236244f3mr8832835a91.3.1744456648289; Sat, 12 Apr 2025
- 04:17:28 -0700 (PDT)
+ AJvYcCUC2U+lGlplPFBJvXckbYaHTsWmSXKu61eL9fqAMp8T6FZ7b0fKsO5MFnmLiMPxzmiQjM4nQY9a7gs=@lists.bufferbloat.net,
+ AJvYcCUhOyGFrip7JAu+pIjGh7W7VMLw+ZHY46LCvuv51jZoC8691279y4JSSSt7D2T2V5G28fUXEO9Ftw==@lists.bufferbloat.net,
+ AJvYcCUhzFZ5QpwuEs3iEbM7YTXn7zaVOmtum4D4WSCccBXdBSC8ahjgEi6e/MoO0CY0uHPc+F2V@lists.bufferbloat.net,
+ AJvYcCVHwoy2GgUBXQjRgSACXCbn/Wwu8nSdDxfdMrmEStwvlfjd2Szw/Igd9ZIF1T1cITFZEpHeF8qkISyy0vk5YI8L@lists.bufferbloat.net,
+ AJvYcCVim3TOh8MVfxRcpamKvcbjBw4iz9X/XhKW8+/Z0en+a01RVeaIvpQOlJJvgiu2mxVo+DdDLoM=@lists.bufferbloat.net,
+ AJvYcCVnoFVNV7XcXBxZVOdwmgsB7iPJgS2EuRBmwCHvocmwTiBb3rve/Avjv5JkF+dZgUWStWUjIVwkTW/r2+SFEGE=@lists.bufferbloat.net,
+ AJvYcCVyPX8gLZTeY7WALDwtlbEGG0hWR5Te3jmHoetYllJFWgGM+KHQvEapLH1BVVHPC8NT/RpeIg==@lists.bufferbloat.net,
+ AJvYcCWQ3+eEkJLGjybSRK3bbF5kPDJCGsOsA0x6OSh5FKoDAWv+cNMGc2WtLQ9ZFO7LzptIkG17QmV8MzDzSxnIfDM=@lists.bufferbloat.net,
+ AJvYcCWw+8+Sha3+82kMnqdZnSolCNQ+Cg28Mc/97OfJcuApiLlpe4FQuHkXUMrJWPD22JvvKRR+GXdu8iA=@lists.bufferbloat.net,
+ AJvYcCXC9e7hCMDdznnw+DLc8UE325ZwnJ3WfPI7CzuyZ9Hb1dmpw8IKK/GAwyPqfI/qmUclO5HYoJvUXHr7IgVtyA==@lists.bufferbloat.net,
+ AJvYcCXEa6OI5ssGY8eNd1eH6a1EbP7xMU689BXL+sWV/IU1X3yjp5ovHzzbnXkTYXSfs2hQMEusZjTuzl8u@lists.bufferbloat.net,
+ AJvYcCXJO9PmAjSNQYaZKWfuTqI2TThA+cnlxG7LurXNpv8BvU6KtA7V8fi4x4OxLFFIieKYS71BaI8Yt30St7KGTw==@lists.bufferbloat.net,
+ AJvYcCXj3mEifOi61FIZY9XTq/soVfCkkufl22zEbwDRkur5x924YP66af9Xp9JHEVbuRD2mwtXECTc=@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YxRIh96sm2beuhm/8hf1dNi8RRkYlvTqHtqMiLo8JI5PL+fN73T
+ kvQlibULI1zo2aO2n3AdN4KZi/PK+pbKTpgQT5TP89Z1xchicmRZIvB+ksDXzKfapsl9DJfzYGf
+ 37iURjJPU50jVg2k5+y9lkKgHmFk=
+X-Gm-Gg: ASbGncsj4/QOqmJuXE+kNIVc7bSyjP9kqy3ubKEZ7dYDxu3R2hdzLxsxUFM2nQ2RI0F
+ wWf7XzXerJdoP0LQSE8DQRSlUodWfeQ3tiedvVmHhtou8zYd4Le2TZSppEaeOSXb31LX8BXFfYi
+ yMK27AZtCDI5WOwo5WTpJCFfwNBFBMcn8WWA==
+X-Google-Smtp-Source: AGHT+IGIQ8sg2hmVDeRPqL4wCnfCEjUMw8AimUzGtDghubFcegFFpLtqTSUAFkNvtKyzHf289cbJVWJdbxPC4oRxtOM=
+X-Received: by 2002:a17:907:1c07:b0:ac3:3f11:b49d with SMTP id
+ a640c23a62f3a-acad31f535amr588846166b.0.1744464110536; Sat, 12 Apr 2025
+ 06:21:50 -0700 (PDT)
 MIME-Version: 1.0
 References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
  <014po62q-r99p-71np-52r1-n84n9np63nqr@ynat.uz> <87plhvlyoc.fsf@toke.dk>
@@ -86,11 +85,12 @@ References: <CAJUtOOizHZCey6KihyRHkZ9N4FJwyzuM5RL6QXPejCSWnbPE3g@mail.gmail.com>
  <1743623511.52759201@apps.rackspace.com>
  <CAOp4FwR71iS-mijozYr7zzuAhajJeqjzw1bGo1eicNWST76erA@mail.gmail.com>
  <CAHxHggcgJT=3SE8FJVnGduE0C0c1hFKu6fHLdnFL2BW5dE1+bw@mail.gmail.com>
-In-Reply-To: <CAHxHggcgJT=3SE8FJVnGduE0C0c1hFKu6fHLdnFL2BW5dE1+bw@mail.gmail.com>
-Date: Sat, 12 Apr 2025 15:17:15 +0400
-X-Gm-Features: ATxdqUHZ7Hr7dd42jjXuJh_T68nAv7eMNwGN0ftfglQdQzO47mI1yVftVf0P2Ww
-Message-ID: <CAOp4FwQ=ZLVw9VfO7wLi=J2-FsvCxdpT=NTVWzkOw=DPzNxPYg@mail.gmail.com>
-To: Vint Cerf <vint@google.com>
+ <CAOp4FwQ=ZLVw9VfO7wLi=J2-FsvCxdpT=NTVWzkOw=DPzNxPYg@mail.gmail.com>
+In-Reply-To: <CAOp4FwQ=ZLVw9VfO7wLi=J2-FsvCxdpT=NTVWzkOw=DPzNxPYg@mail.gmail.com>
+Date: Sat, 12 Apr 2025 15:23:57 +0200
+X-Gm-Features: ATxdqUEIGEMTlNFBcsmjbW_hW5_z31mfOC1LV6OWZAnfiIFb4yhAFU7GPu5UGxc
+Message-ID: <CAJUtOOiGKOLbtQtrTp-5BTZFUg_rwYKt-BzftjerZTg23QuD=A@mail.gmail.com>
+To: Loganaden Velvindron <loganaden@gmail.com>
 Subject: Re: [Cake]
 	=?utf-8?q?=5BMake-wifi-fast=5D__=5BBloat=5D_In_loving_memo?=
 	=?utf-8?q?ry_of_Dave_T=C3=A4ht_=3C3?=
@@ -105,17 +105,18 @@ List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Subscribe: <https://lists.bufferbloat.net/listinfo/cake>,
  <mailto:cake-request@lists.bufferbloat.net?subject=subscribe>
-From: Loganaden Velvindron via Cake <cake@lists.bufferbloat.net>
-Reply-To: Loganaden Velvindron <loganaden@gmail.com>
+From: Frantisek Borsik via Cake <cake@lists.bufferbloat.net>
+Reply-To: Frantisek Borsik <frantisek.borsik@gmail.com>
 Cc: "cerowrt-users@lists.bufferbloat.net"
  <cerowrt-users@lists.bufferbloat.net>,
+ "codel@lists.bufferbloat.net" <codel@lists.bufferbloat.net>,
  Herbert Wolverson <hwolverson@libreqos.io>,
  Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
  libreqos <libreqos@lists.bufferbloat.net>,
  "cerowrt-commits@lists.bufferbloat.net"
  <cerowrt-commits@lists.bufferbloat.net>,
  Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>,
- "codel@lists.bufferbloat.net" <codel@lists.bufferbloat.net>, "Livingood,
+ "Frantisek \(Frank\) Borsik" <frank@libreqos.io>, "Livingood,
  Jason" <jason_livingood@comcast.com>,
  "codel-wireless@lists.bufferbloat.net" <codel-wireless@lists.bufferbloat.net>,
  "cerowrt-devel@lists.bufferbloat.net" <cerowrt-devel@lists.bufferbloat.net>,
@@ -123,38 +124,194 @@ Cc: "cerowrt-users@lists.bufferbloat.net"
  "bloat-ietf@lists.bufferbloat.net" <bloat-ietf@lists.bufferbloat.net>,
  =?UTF-8?Q?Network_Neutrality_is_back=21_Let=C2=B4s_make_the_technical_aspect?=
  =?UTF-8?Q?s_heard_this_time=21?= <nnagain@lists.bufferbloat.net>,
- "Frantisek \(Frank\) Borsik" <frank@libreqos.io>,
+ Vint Cerf <vint@google.com>,
  Dave Taht via Starlink <starlink@lists.bufferbloat.net>,
  =?UTF-8?Q?Robert_Chac=C3=B3n?= <robert@libreqos.io>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: multipart/mixed; boundary="===============8575505120677324267=="
 Errors-To: cake-bounces@lists.bufferbloat.net
 Sender: "Cake" <cake-bounces@lists.bufferbloat.net>
 
-RGVmaW5pdGVseSA6LSkKCk9uIFNhdCwgMTIgQXByIDIwMjUgYXQgMTU6MTIsIFZpbnQgQ2VyZiA8
-dmludEBnb29nbGUuY29tPiB3cm90ZToKPgo+IEhlIHdvdWxkIGJlIGEgZ29vZCBjYW5kaWRhdGUg
-Zm9yIHRoZSBQb3N0ZWwgQXdhcmQsIGRvbid0IHlvdSB0aGluaz8KPiB2Cj4KPgo+IE9uIFNhdCwg
-QXByIDEyLCAyMDI1IGF0IDU6NDXigK9BTSBMb2dhbmFkZW4gVmVsdmluZHJvbiA8bG9nYW5hZGVu
-QGdtYWlsLmNvbT4gd3JvdGU6Cj4+Cj4+ID4KPj4gPiAyKSBJIHdhcyB0aGlua2luZyBhYm91dCBo
-b3cgd2UgY291bGQgZ2V0IERhdmUgcmVjb2duaXplZCBmb3IgaGlzIGNvbnRyaWJ1dGlvbnMuIExp
-a2Ugb3RoZXIgdW5zdW5nIGhlcm9lcywgRGF2ZSBkaWRuJ3Qgd29yayBmb3IgQkJOIG9yIHNvbWUg
-b3RoZXIgbW9uZXllZCBlbnRpdHkgd2hvIHdvdWxkIGNvbW1pc3Npb24gYSBib29rIG9yIGEgbWVt
-b3JpYWwuIChCQk4gcGFpZCBLYXRpZSBIYWZuZXIgdG8gd3JpdGUgdGhlIHRleHQgdGhhdCBsYXRl
-ciB0dXJuZWQgaW50byBoZXIgYm9vayAiV2hlbiBXaXphcmRzIFN0YXkgVXAgTGF0ZSIsIHdoaWNo
-IG9kZGx5IG9ubHkgdGFsa2VkIGFib3V0IHRoZSBBUlBBTkVUL0ludGVybmV0IHBpb25lZXJzIHdo
-byB3b3JrZWQgZm9yIEJCTiwgb21pdHRpbmcgbWFueSBvZiBteSBJbnRlcm5ldCBjb2xsZWFndWVz
-LikgIERhdmUgd2Fzbid0IHRoZSBraW5kIG9mIGd1eSB0aGF0IGdldHMgQXdhcmRzIGZyb20gdGhl
-IENvbXB1dGVyIEhpc3RvcnkgTXVzZXVtIG9yIHRoZSBBQ00gb3IgSUVFRS4gSGUgd2Fzbid0IGJl
-bG92ZWQgYXQgSUVURiBvciBJU09DIHRoYXQgSSBrbm93IG9mLiBIZSdzIGluIHRoZSBjYXRlZ29y
-eSBvZiBmb2xrcyBsaWtlIE5vZWwgQ2hpYXBwYSBvciBCcmFtIENvaGVuIG9yIFJpY2hhcmQgU3Rh
-bGxtYW4gb3IgQWFyb24gU3dhcnR6IC0gcGVvcGxlIEkgdGhpbmsgcmVhbGx5IGNoYW5nZWQgdGhl
-IHdheSB3ZSB0aGluayBhYm91dCBjb21wdXRpbmcgYW5kIGludGVybmV0d29ya2luZywgYnV0IHdo
-byB3b24ndCBiZSBpbiB0aGUgb2ZmaWNpYWwgaGlzdG9yaWVzLgo+Pgo+PiBIZSBkaWQgbm90IGZp
-dCBpbiBhIHR5cGljYWwgY29ycG9yYXRlIGN1bHR1cmUgZXNwZWNpYWxseSBpbiBoaXMgbGF0ZXIK
-Pj4geWVhcnMuIEhlIGdvdCBhIGNlcnRhaW4gYW1vdW50IG9mIHJlc3BlY3QgYXQgdGhlCj4+IElF
-VEYuCj4KPgo+Cj4gLS0KPiBQbGVhc2Ugc2VuZCBhbnkgcG9zdGFsL292ZXJuaWdodCBkZWxpdmVy
-aWVzIHRvOgo+IFZpbnQgQ2VyZgo+IEdvb2dsZSwgTExDCj4gMTkwMCBSZXN0b24gTWV0cm8gUGxh
-emEsIDE2dGggRmxvb3IKPiBSZXN0b24sIFZBIDIwMTkwCj4gKzEgKDU3MSkgMjEzIDEzNDYKPgo+
-Cj4gdW50aWwgZnVydGhlciBub3RpY2UKPgo+Cj4KX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJi
-bG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJibG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+--===============8575505120677324267==
+Content-Type: multipart/alternative; boundary="000000000000a1cfdc063294b3f3"
+
+--000000000000a1cfdc063294b3f3
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Lovely. So how we can put it in motion? :) Who would be the best person to
+do it?
+
+
+All the best,
+
+Frank
+
+Frantisek (Frank) Borsik
+
+
+*In loving memory of Dave T=C3=A4ht: *1965-2025
+
+https://libreqos.io/2025/04/01/in-loving-memory-of-dave/
+
+
+https://www.linkedin.com/in/frantisekborsik
+
+Signal, Telegram, WhatsApp: +421919416714
+
+iMessage, mobile: +420775230885
+
+Skype: casioa5302ca
+
+frantisek.borsik@gmail.com
+
+
+On Sat, Apr 12, 2025 at 1:17=E2=80=AFPM Loganaden Velvindron <loganaden@gma=
+il.com>
+wrote:
+
+> Definitely :-)
+>
+> On Sat, 12 Apr 2025 at 15:12, Vint Cerf <vint@google.com> wrote:
+> >
+> > He would be a good candidate for the Postel Award, don't you think?
+> > v
+> >
+> >
+> > On Sat, Apr 12, 2025 at 5:45=E2=80=AFAM Loganaden Velvindron <
+> loganaden@gmail.com> wrote:
+> >>
+> >> >
+> >> > 2) I was thinking about how we could get Dave recognized for his
+> contributions. Like other unsung heroes, Dave didn't work for BBN or some
+> other moneyed entity who would commission a book or a memorial. (BBN paid
+> Katie Hafner to write the text that later turned into her book "When
+> Wizards Stay Up Late", which oddly only talked about the ARPANET/Internet
+> pioneers who worked for BBN, omitting many of my Internet colleagues.)
+> Dave wasn't the kind of guy that gets Awards from the Computer History
+> Museum or the ACM or IEEE. He wasn't beloved at IETF or ISOC that I know
+> of. He's in the category of folks like Noel Chiappa or Bram Cohen or
+> Richard Stallman or Aaron Swartz - people I think really changed the way =
+we
+> think about computing and internetworking, but who won't be in the offici=
+al
+> histories.
+> >>
+> >> He did not fit in a typical corporate culture especially in his later
+> >> years. He got a certain amount of respect at the
+> >> IETF.
+> >
+> >
+> >
+> > --
+> > Please send any postal/overnight deliveries to:
+> > Vint Cerf
+> > Google, LLC
+> > 1900 Reston Metro Plaza, 16th Floor
+> > Reston, VA 20190
+> > +1 (571) 213 1346
+> >
+> >
+> > until further notice
+> >
+> >
+> >
+>
+
+--000000000000a1cfdc063294b3f3
+Content-Type: text/html; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+<div dir=3D"ltr"><div>Lovely. So how we can put it in motion? :) Who would =
+be the best person to do it?</div><div><br></div><div><br></div><div><div d=
+ir=3D"ltr" class=3D"gmail_signature" data-smartmail=3D"gmail_signature"><di=
+v dir=3D"ltr"><div><div dir=3D"ltr"><div><div dir=3D"ltr"><div dir=3D"ltr">=
+<div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div dir=3D"ltr"><div>Al=
+l the best,</div><div><br></div><div><p class=3D"MsoNormal" style=3D"color:=
+rgb(34,34,34)">Frank<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color=
+:rgb(34,34,34)"><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb=
+(34,34,34)">Frantisek (Frank) Borsik<u></u><u></u></p><p class=3D"MsoNormal=
+" style=3D"color:rgb(34,34,34)"><br></p><p class=3D"MsoNormal" style=3D"col=
+or:rgb(34,34,34)"><b><u></u>In loving memory of Dave T=C3=A4ht:=C2=A0</b><s=
+pan style=3D"color:rgb(32,33,36)">1965-2025</span></p><p class=3D"MsoNormal=
+" style=3D"color:rgb(34,34,34)"><u></u><a href=3D"https://libreqos.io/2025/=
+04/01/in-loving-memory-of-dave/" target=3D"_blank">https://libreqos.io/2025=
+/04/01/in-loving-memory-of-dave/</a></p><p class=3D"MsoNormal" style=3D"col=
+or:rgb(34,34,34)"><br></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,3=
+4)"><a href=3D"https://www.linkedin.com/in/frantisekborsik" style=3D"color:=
+rgb(17,85,204)" target=3D"_blank">https://www.linkedin.com/in/frantisekbors=
+ik</a><u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)=
+">Signal, Telegram, WhatsApp: +421919416714=C2=A0<u></u><u></u></p><p class=
+=3D"MsoNormal" style=3D"color:rgb(34,34,34)">iMessage, mobile: +42077523088=
+5<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb(34,34,34)">Sky=
+pe: casioa5302ca<u></u><u></u></p><p class=3D"MsoNormal" style=3D"color:rgb=
+(34,34,34)"><a href=3D"mailto:frantisek.borsik@gmail.com" style=3D"color:rg=
+b(17,85,204)" target=3D"_blank">frantisek.borsik@gmail.com</a></p></div></d=
+iv></div></div></div></div></div></div></div></div></div></div></div><br></=
+div><br><div class=3D"gmail_quote gmail_quote_container"><div dir=3D"ltr" c=
+lass=3D"gmail_attr">On Sat, Apr 12, 2025 at 1:17=E2=80=AFPM Loganaden Velvi=
+ndron &lt;<a href=3D"mailto:loganaden@gmail.com">loganaden@gmail.com</a>&gt=
+; wrote:<br></div><blockquote class=3D"gmail_quote" style=3D"margin:0px 0px=
+ 0px 0.8ex;border-left-width:1px;border-left-style:solid;border-left-color:=
+rgb(204,204,204);padding-left:1ex">Definitely :-)<br>
+<br>
+On Sat, 12 Apr 2025 at 15:12, Vint Cerf &lt;<a href=3D"mailto:vint@google.c=
+om" target=3D"_blank">vint@google.com</a>&gt; wrote:<br>
+&gt;<br>
+&gt; He would be a good candidate for the Postel Award, don&#39;t you think=
+?<br>
+&gt; v<br>
+&gt;<br>
+&gt;<br>
+&gt; On Sat, Apr 12, 2025 at 5:45=E2=80=AFAM Loganaden Velvindron &lt;<a hr=
+ef=3D"mailto:loganaden@gmail.com" target=3D"_blank">loganaden@gmail.com</a>=
+&gt; wrote:<br>
+&gt;&gt;<br>
+&gt;&gt; &gt;<br>
+&gt;&gt; &gt; 2) I was thinking about how we could get Dave recognized for =
+his contributions. Like other unsung heroes, Dave didn&#39;t work for BBN o=
+r some other moneyed entity who would commission a book or a memorial. (BBN=
+ paid Katie Hafner to write the text that later turned into her book &quot;=
+When Wizards Stay Up Late&quot;, which oddly only talked about the ARPANET/=
+Internet pioneers who worked for BBN, omitting many of my Internet colleagu=
+es.)=C2=A0 Dave wasn&#39;t the kind of guy that gets Awards from the Comput=
+er History Museum or the ACM or IEEE. He wasn&#39;t beloved at IETF or ISOC=
+ that I know of. He&#39;s in the category of folks like Noel Chiappa or Bra=
+m Cohen or Richard Stallman or Aaron Swartz - people I think really changed=
+ the way we think about computing and internetworking, but who won&#39;t be=
+ in the official histories.<br>
+&gt;&gt;<br>
+&gt;&gt; He did not fit in a typical corporate culture especially in his la=
+ter<br>
+&gt;&gt; years. He got a certain amount of respect at the<br>
+&gt;&gt; IETF.<br>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+&gt; --<br>
+&gt; Please send any postal/overnight deliveries to:<br>
+&gt; Vint Cerf<br>
+&gt; Google, LLC<br>
+&gt; 1900 Reston Metro Plaza, 16th Floor<br>
+&gt; Reston, VA 20190<br>
+&gt; +1 (571) 213 1346<br>
+&gt;<br>
+&gt;<br>
+&gt; until further notice<br>
+&gt;<br>
+&gt;<br>
+&gt;<br>
+</blockquote></div>
+
+--000000000000a1cfdc063294b3f3--
+
+--===============8575505120677324267==
+Content-Type: text/plain; charset="utf-8"
+MIME-Version: 1.0
+Content-Transfer-Encoding: base64
+Content-Disposition: inline
+
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWls
+aW5nIGxpc3QKQ2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKaHR0cHM6Ly9saXN0cy5idWZmZXJi
+bG9hdC5uZXQvbGlzdGluZm8vY2FrZQo=
+
+--===============8575505120677324267==--
