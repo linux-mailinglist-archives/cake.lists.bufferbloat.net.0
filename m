@@ -1,159 +1,261 @@
 Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
-Received: from mail.toke.dk (mail.toke.dk [IPv6:2a0c:4d80:42:2001::664])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6ED5ABABE79
-	for <lists+cake@lfdr.de>; Tue, 30 Sep 2025 09:51:55 +0200 (CEST)
+Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
+	by mail.lfdr.de (Postfix) with ESMTPS id CA7DBBABA2D
+	for <lists+cake@lfdr.de>; Tue, 30 Sep 2025 08:10:02 +0200 (CEST)
 Received: from [45.145.95.3] (localhost.localdomain [IPv6:::1])
-	by mail.toke.dk (Postfix) with ESMTP id 8A3D270DF98;
-	Tue, 30 Sep 2025 09:51:53 +0200 (CEST)
-Authentication-Results: mail.toke.dk;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20230601 header.b=Xbza7PI2
+	by mail.toke.dk (Postfix) with ESMTP id 876C070D764;
+	Tue, 30 Sep 2025 08:10:02 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+	d=lists.bufferbloat.net; s=20250711; t=1759212602;
+	bh=PId2uLdXNrMJb/MryGNAr7FueL6jlE4MTzA6G/cTXFE=;
+	h=In-Reply-To:Date:Cc:References:To:Subject:List-Id:List-Archive:
+	 List-Help:List-Owner:List-Post:List-Subscribe:List-Unsubscribe:
+	 From:Reply-To:From;
+	b=Y10/0kvYv01E0csc9wMzoVpumyTIbE/mS4o09CVvQQlmLd/6AT0UF4eD8O22d3iX6
+	 aMlueP5E3wNadajVIOrwu0iZyOaZ/uW/c9kOJ7lzvh/oozkHsA6kV5oT9j6JLBGw71
+	 Q/pIGhyxnyZhULgIyIP05lTPjv1BkTBe7ObLDdKDXANlD55HijC1CCZRLVPlNv7+A9
+	 RToIdnZ3MgG35WCtYHejqPchoWAFuVNe5MKXmmi/69sWd4LAuaIdCkIv63n+pRbQH9
+	 ZsPN0t63uLXciZMblZzmElh3HyJcybVfu3PKjoVAenkYf36b9lTqLLLYh6oprLT43x
+	 EhasqsdvxUHnw==
 ARC-Seal: i=1; cv=none; a=rsa-sha256; d=toke.dk; s=arc202507;
- t=1759218713;
- b=fX87uAJwEu0rBFhT8/GzZHKoFp7gtP7anVcerNnUs+McbAYUMN4+Kqt5PWCn3WV7QcAA0
- UkK/pOz1ymTGeAyEv78NOvbG031wP5AjBGi/8oz36eRasUYFAZhooRat/wzYgAhA2rTZtFq
- oAih3jAcEqGKuRRg2qfFyAr9VtuhGaI=
+ t=1759212602;
+ b=dS5cfvsTo56Cn7JufcogkbCRU1HI8MAUd0UxLBTEON85M/VdcSPcJoyT0hdO9sOm1TE3s
+ sosnIip/6rAOeppJ5GtHVnhZVIQSMddQ7ox8QJRwi0J2/JZIgRZtzfnsZAYWJB6Ua0oWUEx
+ SiZ6mb1ts7NbBM/UoVpEXK16qX1k77E=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
- s=arc202507; t=1759218713; h=from : sender : reply-to : subject : date
+ s=arc202507; t=1759212602; h=from : sender : reply-to : subject : date
  : message-id : to : cc : mime-version : content-type :
  content-transfer-encoding : content-id : content-description :
  resent-date : resent-from : resent-sender : resent-to : resent-cc :
  resent-message-id : in-reply-to : references : list-id : list-help :
  list-unsubscribe : list-subscribe : list-post : list-owner :
- list-archive; bh=7ufXuqIopp+wk/20h0D5vJZFgltDAqBUlEzAC0G/qNo=;
- b=YkCH1s774htZeLo3pME68ho9I2DQlY1SDtiKI2s6lEtjpnWLDi8nI7HUaxzhwAce4NJZp
- Y6we6tI9xJ4B0X4IBhwWtRJGUsdnUFSfF8SFvzmQ3X+zvZyuw78lp6jC+E27sOafyWFHK//
- assJ2neHSbkXY5gvM2JaaHiDJdLS/hc=
+ list-archive; bh=sDMCZLJzoPozeQRSrDBHnSJ7elebkSfKsnju5LmACkM=;
+ b=veYkODXpWpHW9QQNCvgeL6lYv/0POvMHy7N0v7fiX03zYeRTDrJC5h5+vQrz65XKtXJAl
+ 3hSIu/XyvOAUKK5swnX5ZGG/MNsjYDDQLtTWbT8sY+6OcqweU1FdW4+2LCd/4J5B36XWjFI
+ Ts8Y4eGwmMtDJnH98BiHYVGMVPyDFok=
 ARC-Authentication-Results: i=1; mail.toke.dk;
  spf=pass smtp.mailfrom=;
- dkim=pass header.d=gmail.com;
+ dkim=pass header.d=gmx.de header.i=moeller0@gmx.de;
  arc=none;
- dmarc=pass header.from=gmail.com policy.dmarc=quarantine
+ dmarc=pass header.from=gmx.de policy.dmarc=quarantine
 Authentication-Results: mail.toke.dk; spf=pass smtp.mailfrom=;
- dkim=pass header.d=gmail.com; arc=none (Message is not ARC signed);
- dmarc=pass (Used From Domain Record) header.from=gmail.com
+ dkim=pass header.d=gmx.de header.i=moeller0@gmx.de;
+ arc=none (Message is not ARC signed);
+ dmarc=pass (Used From Domain Record) header.from=gmx.de
  policy.dmarc=quarantine
-Received: from mail-wr1-x42b.google.com (mail-wr1-x42b.google.com
- [IPv6:2a00:1450:4864:20::42b])
-	by mail.toke.dk (Postfix) with ESMTPS id CEDC970AEC1
-	for <codel@lists.bufferbloat.net>; Mon, 29 Sep 2025 23:04:59 +0200 (CEST)
-Received: by mail-wr1-x42b.google.com with SMTP id
- ffacd0b85a97d-3f0ae439b56so3080203f8f.3
-        for <codel@lists.bufferbloat.net>;
- Mon, 29 Sep 2025 14:04:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759179898; x=1759784698;
- darn=lists.bufferbloat.net;
-        h=mime-version:subject:references:in-reply-to:message-id:cc:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=kPzNBjObbE2MZlmv/92iPO5zu+iqNBGtxIN/9lwbhUo=;
-        b=Xbza7PI2cSljikzds/wVRlVEuTr8wTnFhneYE4+p2xcykgTqw73g7IKkbKOGZrUgI6
-         nbgI9WPbMUduSuE5EBOz3P1AyHW8kvo1nY27MC+yeJC/VGgtCSNjE7BAEC+oQfWzkbnI
-         ZcCpXj4JykJbUSEIAdjn9dp3Rg8Yrm01i5ARYN6Kgcc473Q8hPvC54BOMappg2tEq4Cf
-         votRhkCx73MP3XPE5AK7oNy9dSY/8N4/q+dT573xZZ10pfSbxFtgSQqtulBEOYkiL3xO
-         yOszYbEyM/qgX98Wu6JySRmXlmEETLvJ9VNJlqmmkeBKLmkFHA5M5PTm+AHvnF3zRkuS
-         wB7g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759179898; x=1759784698;
-        h=mime-version:subject:references:in-reply-to:message-id:cc:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=kPzNBjObbE2MZlmv/92iPO5zu+iqNBGtxIN/9lwbhUo=;
-        b=A3jPgG2AkJzYtzVoQ0w530HPH3lrdf6fIifw99vgmPWm6FEq10JA9mZ5H5N7P/lbSH
-         nyggxgMqD/bnm04Z6y7n/jpo0d3HklwKMRw79SgvfYeWLyElaOjDJSnq+zYokTnhIJNt
-         fbK2HyZYXzjvLLxMG3CE7wJFYjyqHX3QrRLOqMB5owml5IyM0yGvdRQW86TKVbEFxsyL
-         Q69YhYEQvoxWZp6XhXx69Scebe0pyVfnAeR7ZcF/Gt7uaAm6N7Q+iRt24WCiMsCuhwiW
-         HTTo7xdmdibHTtoLSKp3RfyXAS4Q83jdjfWB+UxhF+xCEjKZAwkXvk+M3fsOvbbGsUSj
-         tYxQ==
-X-Forwarded-Encrypted: i=1;
- AJvYcCU6Qu++AZ4khcVrXqtsqPZY2kr65RyipkxPEnZ9I1OkCXhKdFwrFuuxIfDpmTIJpRFL0ZyfeQ==@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0YzpsSWo2s1HjcEsuwBCR5U51OwX7yoealt3XgyuVJRzx7swk5xT
-	ZQdaZxRKv+2M9+1sfu6xEPgddHb3HxTaFpg8adRrjBfKLk3UcI+E4Lc0
-X-Gm-Gg: ASbGnctF5pspxuqTbPiRcePfMaDd1tQLY635j7eNv9ocYaPPY40JsXdGBT+yZZmB4JL
-	UoWII6wVEGjyZlNIfWC8ogeSiwozuNV0FCoUIZURR6yqt2T1CUTRAj41lMcEOQDXAeyRUCpCtcL
-	W8U5aLTWkJscNd5xTQG+CaoSS4VDxwq46zLCtok/5fcsjQIUPkGBcP/3sfP9EiN/un4S7DKIe6f
-	lW51/IYwuLUCYg6+X8IXCOqusJgJw6/u8BWJMbeHojB8gzZLnwa36+zspi4WFjoel8RvxMH68M9
-	oE4GtD7UikbhQX8nO1fJJa81B1ioTgeCf/0F/ae2jJLwlb756CTS+ZlVhsvKLJBudUtAzNLvxH0
-	sjpJrub1793WAbUKpsgTFD2ECeFDOp9N0o138O5XNsyMEy2+iJ50=
-X-Google-Smtp-Source: 
- AGHT+IHdYI1C/0hjWrpgQJAzvOqA+HKDEcetgv/iAdvie5UY7LurVqHYTqQvpTEkh/nccdhSux6YSQ==
-X-Received: by 2002:a05:6000:2585:b0:3ee:15b4:174c with SMTP id
- ffacd0b85a97d-40e4486c164mr15759069f8f.3.1759179897982;
-        Mon, 29 Sep 2025 14:04:57 -0700 (PDT)
-Received: from [127.0.0.1] ([197.210.52.229])
-        by smtp.gmail.com with ESMTPSA id
- ffacd0b85a97d-40fc5602efdsm20540747f8f.34.2025.09.29.14.04.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Sep 2025 14:04:57 -0700 (PDT)
-Date: Mon, 29 Sep 2025 22:04:50 +0100 (GMT+01:00)
-From: Inemesit Affia <inemesitaffia@gmail.com>
-To: Frantisek Borsik <frantisek.borsik@gmail.com>
-Cc: libreqos <libreqos@lists.bufferbloat.net>,
-	Cake List <cake@lists.bufferbloat.net>,
-	bloat <bloat@lists.bufferbloat.net>, codel@lists.bufferbloat.net,
-	Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>
-Message-ID: <42638eb0-d2c4-41d5-8012-2e9a5da79a0b@gmail.com>
-In-Reply-To: 
- <CAJUtOOiFbiG6PUWh_kHnhg4OSB-Yt1ok1H0ftrOZM0sc1pyYhA@mail.gmail.com>
-References: 
- <CAJUtOOiFbiG6PUWh_kHnhg4OSB-Yt1ok1H0ftrOZM0sc1pyYhA@mail.gmail.com>
-MIME-Version: 1.0
-X-Correlation-ID: <42638eb0-d2c4-41d5-8012-2e9a5da79a0b@gmail.com>
-X-MailFrom: inemesitaffia@gmail.com
-X-Mailman-Rule-Hits: nonmember-moderation
+Received: from mout.gmx.net (mout.gmx.net [212.227.15.18])
+	by mail.toke.dk (Postfix) with ESMTPS id 0F93470D748
+	for <cake@lists.bufferbloat.net>; Tue, 30 Sep 2025 08:09:58 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.de;
+	s=s31663417; t=1759212598; x=1759817398; i=moeller0@gmx.de;
+	bh=n5uz1RcbPXVUR03Dn1WSJ/fYA7BKLOzc+R36ouoRFZU=;
+	h=X-UI-Sender-Class:Content-Type:Mime-Version:Subject:From:
+	 In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:
+	 References:To:cc:content-transfer-encoding:content-type:date:from:
+	 message-id:mime-version:reply-to:subject:to;
+	b=Hud5PwpfH7L43TG02Svxs7p+tlXR/ZzF1QdaXjll0RJH1yywdozjXW9UD62j882h
+	 U/pQfCcvOBBCZKe0AX8UZqAI2/Uh2DnsELtfrNeuddOYj4PRNSvng4WZ8CFfbGnKr
+	 r7RAkAtriokyaE8Y9wV/BqFLuSxZr1py+f2Q/jHtU+drLfIzrwnBRj/t6+Zi7+Qwg
+	 nGwVVHfDjvVBF5O2I3G70Y9PKdU5FKPx1fE0ec5V78rTETsBisMMlJwZvNjM2sjeG
+	 ihxbPm9QWZox46TG8DXHQiGt0SCSfx+9ud3LNr2V+pRyc/XWyGBKGG/Pi6CrksLub
+	 DnJXykBzJzePV8pRhQ==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from smtpclient.apple ([134.76.241.253]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1MCbIn-1vBQ2Q3XmN-00DzeM; Tue, 30
+ Sep 2025 08:09:57 +0200
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3826.700.81\))
+In-Reply-To: <962896BA-6EE5-4815-B6F9-AC50B7252642@gmail.com>
+Date: Tue, 30 Sep 2025 08:09:46 +0200
+Cc: dave seddon <dave.seddon.ca@gmail.com>,
+ David Lang <david@lang.hm>,
+ m@jaap.pro,
+ "cake@lists.bufferbloat.net" <cake@lists.bufferbloat.net>,
+ Frantisek Borsik <frantisek.borsik@gmail.com>
+Message-Id: <C48271F4-4ADF-4FCA-ADA8-72C4B74D1091@gmx.de>
+References: <alpine.DEB.2.02.2509280400350.14652@nftneq.ynat.uz>
+ <2064666241.42029.1759061544846@app.mailbox.org>
+ <alpine.DEB.2.02.2509280523210.14652@nftneq.ynat.uz>
+ <CAJUtOOj-FfPic8FPjy-QneCsvbtwtn4Zsxs+1yEsUqytEOEheg@mail.gmail.com>
+ <CANypexTvXAdY577pxorqCKL45av3gw+fdupO6xr+gN5p=Wxq=Q@mail.gmail.com>
+ <962896BA-6EE5-4815-B6F9-AC50B7252642@gmail.com>
+To: Jonathan Morton <chromatix99@gmail.com>
+X-Mailer: Apple Mail (2.3826.700.81)
+X-Provags-ID: V03:K1:ns9v/+pyXSi9sadwi8qF/xotK9mKRWwp/vRVxGk9hPM6uMQtzOk
+ kYHjgu2nROJRP7TX6JEEVdQQnOrYEgkh6zHgVUhkIVKr9Ds15aOwsG/38IDa9SrOZpK/e66
+ +8HlsAjsMXeJU50FbUl5FyCIUMfE13ZQA145wfSMZ8aDmu507sWKg+wHd4JdVzRnvIzYSSQ
+ tElwQfyfnX4G5CPUZqaWw==
+X-Spam-Flag: NO
+UI-OutboundReport: notjunk:1;M01:P0:8tYFBvY1Xp4=;UHTQ+U4VvFlCRsHpZCGPOlP9mq2
+ oY+3de3gbgqxW4AP4denbiHk6JjVFVxzPTaUjMoJXV+VucAIkjBBM4Qhfx7l1B8BEtx3lkyNu
+ 4ReIQoEwSrXaW0pEmGD6ltx6qtw0RsDg5E6PRPSP85Dkt8t5UykGp2+1vxviXEVgI9BGy7oHx
+ lN4kymEgAGv+hmyXvb2JIcXEPVXQkFRCEc9NNQrz8I2KHQxUFxTtKIHXHutrfxCwJ+iql1+OV
+ VytjsUEwWmn/MHoJ+NmC3hXbSjVLvLnsJRzF7myRfikl2PkH38REHtq8t0KoxcbvN+iWvTpBn
+ QyBzxDPxq8hHAtCx/yAPRSI4mAJ5ghXYkLlciCIMc8KiUiRuvR6ND8XyXXs0SR2JGuV+u1ok1
+ cfo4iWTui3PLO1zcDO3HBBcswyYMLOBAUVRtDpWbZ/nrXPQ7GUUxHgvRBGLc4bJWoPx84e9UD
+ L0ILE0LcjLA+iUTdwsiBghaJ/8B4uytaTPXJbr0nyfQe6mB2BcQZPnju5VgszlCjfg2U4dSf8
+ 8plDnMh5K71x3Ab/Qt/oDX/FYKEiTgGY9nSM1SoE2q2UCD9yzNv+wWL9IvkBmcsxajeJ26+9m
+ oOJzhRORsHk/cD9wr6Pv0wFq98fkiX+hCrr18FbilD45PD95wY8FV4PRsf+XRpVSb6Ki1lZEu
+ /fD5Q1Awr+usjg8DeBa5+iWUlMWxr53XJer+2rq1Kz27FJU6TxjwniwaXQsUKVbPrp695XQzo
+ nr0wnJCN1dp9FrOCTBNtD4Y8gVa0IFVyQ9Gm8nMKhiwdKseUtT2mU02ykrHo2LJ09Fgqq6Hnv
+ pHui61YuwrThh6NdhU53bPeleEjOiOrWipn8nz33PP5jCk+0V0ybJInt65WqLrZmz2o/5UhQT
+ UMLBksDCbj5okC3VbQkDx478RDCWFgW7Rvq3Jb2hXfDapYJkCvceFzcRTWpLa5D7gcqQxjwuO
+ +UYHs73nJJKQTpAUZoNU768WMUT2RP0rMKlIaa6L567tVCw4tJLEy2HVulsJdIl0dX5ZozKNS
+ z23hzaYGaW6rMdUvw6wPkrsJ1pewsVAFcY9UszblNyiJnQTZB+9sIP9rtIcaMP+nuyIKw7LQs
+ /zyJJNtbBN4xfV9UgpCGGfUHdtV4riDGxvVW4MxPISIQefk5Yluik6zwtBSydYgX8GjjVbsLo
+ WurKiD0/4yEXFIpoWqgd7YYyEfNUjUEG27+G0+ziKclDBDFaqi209/abv322W9TF211AxTO2U
+ 2pMGM+x+/GioxVyuXkCt3vy9B+FaiTu2971g5wtMPSPRJEMvRpqJOUh3trJh2orPr3BbFY38Y
+ 9abH39ufNfPRCcah56R/d4QBwqfVxeg8C1AhCh3xDMBK3ieW8hSh6JqxNI6ccTd0DAVzZ8OmC
+ qT6bvD2x4eNxQynecALkX7CdZvmahLu5L15+J1fwiLjb5pkq+ADlsV7DPLA1yd2qeL9kHz8JJ
+ PHhsjetV1t9PBjyX2IpN4DPWP0MuxXqoztJBjSZkdnkLqT0XVhniHlhqYEwADM3P1lwlL2HrX
+ tTnhINaeFjw6Z5hRZ90+2cEHUB6GArR8zTX0L7yArmEGTtZdI10UYSrXkBV70IDjVSpu9tD7z
+ TeBNv0HTd2kgDomKs4VelV/EiRGFT18pySHoJBrO7K3lSIUFd1RVjXxxFU+0+KlBHJWGBVfBV
+ 1/Ilb+jSbJHbWbWlRn1ho3D7BHNgGpHYRrmjwpfUXi2/kOVIWAix2BQOwrDVCXLwXgAWUr4Is
+ ik7VyeYg8og6zzD7DiP75q1kAiGj9FlK+o3F1qVyddq1HgI7oScxkfG7be9CMWqD9UDAHHhsu
+ /noFaVI+ImeYWFqSuLxqwIobaXQfiMyI5Cfh4CC5ZplWH6aTymitQgBJC/q0HcTxM4CDTlvDJ
+ YSyex5Roh44axZLC7UxJmcOARNnCf3FbaLT9s07mgyN6W5C8AZwdwKebgoPUvRSZHUjKs6ZsO
+ GBQJSgygKpAm3H6erwNL8mlDDzbbK78PZNvg3leR52XmvV8NSzIRSc9W4M1GpO7TNJmAE86ys
+ CPi75ZUPpW5SIsiIcO5IfWXXoWEbocS7dD2KiM3mvWkrGpmRyp3Dtqq7UOMFY3hxuD4znoRpy
+ gOQCKkecXe4ZagRgcsYb8o/j8y4A0VwjdqwFWulIRHtcbSbsp2AeH39NcKiK3AkwafNaILLsm
+ BJW5dDaY1cqjDJwqQfdUcxuXpzKPRGRPdFjEe3qLVCcIe0+6HybK8SchcTCUEIdTFDtT+QX8x
+ ZFr3JuKJQ27pIlSJUaQMQMyKt5p5xmQaWA7JzfsjcbvtGtrf0yZy3cxJ7r/vmkV+X6BAts85A
+ HSBrVnASHTKb3NG4fGP1zjFUJ+/ELnjTPIW9anvBdP9shPv4kYpxcJS6oLThNQpPrO+X1Ogb1
+ +bRDkKcMHFuSxqNrsJbFrbbaK26NdCmiEwEsopp47QJ9Tf9UE86Q5tKCbKGfe/PinJxXIbIJs
+ JvGx27GYuCbs68SaeFXQJgM+Eb2VapfvC1yWbpnYS8nVUfRcM9/utPK3Q5ezCqjt0Xl060X3N
+ JBvTDeLijugzvKqr8FhywnBCCIq1GTWNHR7chYyPhpBT2btAZYDFf0ryqqbF1zxsHnHB2hjjn
+ U0oacY0n1AA/RdEpSxgxW+cNuvJSc3qRYwL26mmhPZcJiFvx+pOWVqO3iehIIpg7TWb0gTRHJ
+ ilxPzwDuzSvkTxpNjy7tSawUXujlsnoDp1AMY5gc3BAusdqL/H3n0hyi8w1wH9zfrClYue5F/
+ ZRM5W/g0iDbxozJzppbw4vqLAtdiIssQfVMMcuO8j4BPveoD4E9f/fgqSwhoMzCmFsoHGWEiv
+ 6wmXjvvlH333ASJ1pEYtiH0AkqGAP0R1yx/Bo3gkKvOxDzkx1C2O0Sl/ecnvUq7Km7ivwW/k8
+ OWPtrlgJQG+e/twEF+pvTHYPUo9bJgSwhwOGfQXTw41zy7pb9rs+vcxcsS+3lG7BFMn6nBARU
+ BLSlVfnUVzBULmFLD6OrmAiEOw4YmxQrjP7+b47QG/UDP7QihjF2nQ4R9cl372gUCTudWzq9A
+ uHosBptVA7/uUyUAj/DHxM3qqzFF7oP/Myu0cV2fsfj3t4mSjj5fDn7XW3ato5PjPqux0tj6t
+ hd8eXsmccUbjAZR45fVrVhYqauAwuq9uzvx1VMr0iQ798l17RiTBm3yy06oWnA+DGyuTGM1jz
+ WX2beeAj5hpODIlBM39S4a5oq/R3TH+6JNm0Mebz1X/WSvvtAWG2hIk9C9kIlqBtKM7XlgfDp
+ mfq7lJkNUYHcBEKrLoiFqv7lnsqW9wm7Gw7eB28GQMGnR0PTTeFsKNw9BX9F0+XfdyQez8A//
+ Pjxnuf3lVg/Hdq+8q9iQDXu60ByquUFvMz6oNYF3clQdUpcGAxPiZjQfSBlEgJlEWx1TXTZjS
+ HiXpNZSlduOvfhG1bdGnrTlcpUSzBKfnIBh7ZoVF27coLrPqFdwA8GO6kooexZGOsqE6L6K8U
+ 7TGhlBLbmPhrw7ipdQciarJUqOzoZEnCUanoBzu6Ha4BnDoqLFDB7SrCukGJ0QwDLK71hi5+k
+ WlWa0jsRwn+4bCwVbInSVR8kUWOGM5qEM3N0/qP9chm1Jk7g4pVCpjXng3yJ7YArmeWT36nft
+ Jp3/YLEwtQFUeW3PBq0pPYPN9pWjeiEpYbYJ5HvZd+8uIFhgRys7WyRof/Ch38uthCpw2LeTz
+ NdBAKqspD+ME795E5z0YxBv7NXRUXcmhtYVSiuTE2HqUpSBiwAYC/IZzJOSjQx7smr2Dnn7cb
+ ogGJgYUPXBgZ+W+3m5z+HJh7mUDR2V2pjaKzqvryyQKlmo3ikD7vY1SZbOXy1FIdcLf4A814R
+ 6HZzFddg/PTBWnFnfGzheAeTJxdtz0gbL1yqrrg1tvz8uaJdCP1Dkkkqkj8N80IeKUfQ0hiij
+ L1+M4rEsyKI8b9Hu4IvXlGXLI0TfebqQrAJNf2C9qO4JgKCNx2k0CJCsy1DAxiikI6vOhujdC
+ vzGQXFxulZ0rI0U825qhMVvgaCV2graElzzCdgLvwwKwK8oKEizZ5TWaeQ2nw3832UPXAcKQi
+ Cbm2Fk4cZIkKrFXc6W+RMBl0TEYVJyCYc1puBnddwavuRZvCchO51eANxkuLK+KjtnFFndD15
+ T7Phzxu/Up8Wkgzw8iNnn4Jx4ASipk6FjHHhxW9J3RYKEkt4GqyNKU0CZ1qSQKnFtVSjmy90F
+ 0ClE/1YEsjwn7StI2RkXTCxPshoHr02devsOr4bHaLa/PcPaN+7ZTukLzs42Ce1cG85d8doWO
+ vdAeaJRBkOqWpVGRxfZ6On/10KNykyZ0iqhkNM29xbMfUtCwfrTap3OpUuK41xsvVBM3ayHqf
+ hYrdg1sZi2JZRGPrpX/e+1v9S3y3jUAdLe5kN9VCWpKvEcpabzJRpRsBs4sOth4mSKUNAuzRP
+ xeeHbRCoMqj847snqWi1mJFkzOhl+adQu9jay2Z0yw4GVjmG7E+TFISvmEndkItei6kPzgugI
+ oH8kTgwbOy0kKmp9psDOixFBdkkMkqdxjWIvlMBYCu9deir8xnnp0Tu2gpTerbcqUB/5SkqeL
+ TjcosFMHbnz2t45d4oKB+euFOl5j6Jq2oTRZ83lLVqykWj6h0A1QTJ2pNl2O0gTSSmRVn3sXS
+ iNUoU8UDbckfQ+6vjslTEgQxdkDDkb2uvrX8A+SDmjx7jUwF+N52TfQYEA5MvURCrcYWaWwwL
+ xlDWp6hF6zLpU5jyNYYyLk/nN7HEpK9DG7XxARy96F7pGFNwbEJ9KzPloNCe8rFMZF+Nt9fTL
+ PzYKYZq+aGyZL/H797AcF6R4rmpR1ChW6+4HD79BUPLY6d4kbAtl37KpY7jJ2qfMQvjbL/pGS
+ JKrL9jq+aJN2i571gFsDZSGHQmlHszJ67fo43F0MVHpOa/hBWXhU1R8tapdxCHGhslVPg2gvQ
+ HvHCgOIXS5Y4c7KqWkVJFyCFI07Lb8mN0QMK/8WZGoN07O03HDZToxyzhR3IgQcCxDTNrUzWF
+ SQky3qCMF50UUtpzcyKmpxjx1lxLv1fRMB/qpbgqtJysyg32DzUi7l4iJ3Of9q+b25VOMKnkD
+ wuL2zCh0vs4CIQ3ihEDYVoWXTc=
+Message-ID-Hash: 6ATH5IOV6SQYLEERD2KEPDQE52V56COD
+X-Message-ID-Hash: 6ATH5IOV6SQYLEERD2KEPDQE52V56COD
+X-MailFrom: moeller0@gmx.de
 X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
- banned-address; emergency; member-moderation
-Message-ID-Hash: YFDU6ZN5OHNLDZDZS65EELCHIZG2JLY6
-X-Message-ID-Hash: YFDU6ZN5OHNLDZDZS65EELCHIZG2JLY6
-X-Mailman-Approved-At: Tue, 30 Sep 2025 09:51:51 +0200
-X-Content-Filtered-By: Mailman/MimeDel 3.3.10
+ banned-address; emergency; member-moderation; nonmember-moderation;
+ administrivia; implicit-dest; max-recipients; max-size; news-moderation;
+ no-subject; digests; suspicious-header
 X-Mailman-Version: 3.3.10
 Precedence: list
-Subject: [Cake] Re: [Starlink] Keynote: QoE/QoS - Bandwidth Is A Lie! at WISPAPALOOZA
- 2025 (October 16)
+Subject: [Cake] Re: help request for cake on a large network
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
 Archived-At: 
- <https://lists.bufferbloat.net/cake/42638eb0-d2c4-41d5-8012-2e9a5da79a0b@gmail.com/>
+ <https://lists.bufferbloat.net/cake/C48271F4-4ADF-4FCA-ADA8-72C4B74D1091@gmx.de/>
 List-Archive: <https://lists.bufferbloat.net/cake/>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Owner: <mailto:cake-owner@lists.bufferbloat.net>
 List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Subscribe: <mailto:cake-join@lists.bufferbloat.net>
 List-Unsubscribe: <mailto:cake-leave@lists.bufferbloat.net>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+From: Sebastian Moeller via Cake <cake@lists.bufferbloat.net>
+Reply-To: Sebastian Moeller <moeller0@gmx.de>
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: 7bit
 
-V2lsbCB3ZSBoYXZlIGFjY2VzcyB0byBsaXZlIHZpZGVvL3JlY29yZGluZz8NCg0KU2VwIDI5LCAy
-MDI1IDk6NTk6MzMgUE0gRnJhbnRpc2VrIEJvcnNpayB2aWEgU3RhcmxpbmsgPHN0YXJsaW5rQGxp
-c3RzLmJ1ZmZlcmJsb2F0Lm5ldD46DQoNCj4gSGVsbG8gdG8gYWxsLA0KPiANCj4gSSB3aWxsIGJl
-IG1vZGVyYXRpbmcgYSBkaXNjdXNzaW9uIHBhbmVsICJLZXlub3RlOiBRb0UvUW9TIC0gQmFuZHdp
-ZHRoIElzIEENCj4gTGllISIgYXQgV0lTUEFQQUxPT1pBIDIwMjUgaW4gTGFzIFZlZ2FzLCBOZXZh
-ZGEsIG9uIFRodXJzZGF5LCBPY3RvYmVyIDE2LA0KPiBhdCA5QU0gUERULg0KPiANCj4gaHR0cHM6
-Ly93d3cud2lzcGFldmVudHMub3JnL1dQQUxPT1pBMjUvc2Vzc2lvbi8zMDA3NDk0L2tleW5vdGUt
-cW9lcW9zLWJhbmR3aWR0aC1pcy1hLWxpZQ0KPiANCj4gLi4ud2l0aCBldmVyeWJvZHkgcmVsZXZh
-bnQgaW4gdGhpcyBnYW1lOg0KPiANCj4gKkFwcExvZ2ljIE5ldHdvcmtzKiAoZm9ybWVybHkgU2Fu
-ZHZpbmUpIHdpbGwgYmUgcmVwcmVzZW50ZWQgYnkgaXRzIENUTywNCj4gQWxleGFuZGVyIEhhdsOk
-bmcsICpCZXF1YW50ICpieSBpdHMgQ0VPIGFuZCBDby1Gb3VuZGVyLCBKb3NlIExvcGV6LCAqQ2Ft
-Yml1bQ0KPiBOZXR3b3JrcyogYnkgaXRzIFNlbmlvciBEaXJlY3RvciBvZiBFbmdpbmVlcmluZywg
-RG1pdHJ5IE1vaXNlZXYsICpQYXJhcXVtDQo+IFRlY2hub2xvZ2llcyogYnkgaXRzIEZvdW5kZXIv
-Q0VPL0RpcmVjdG9yLCBBaml0aCBQYXNxdWFsLCAqUHJlc2VlbSogKEJ5DQo+IEF0ZXJsbyBOZXR3
-b3JrcykgYnkgaXRzIEZvdW5kZXIgYW5kIENoaWVmIFByb2R1Y3QgT2ZmaWNlciwgRGFuIFNpZW1v
-biBhbmQNCj4gbGFzdCBidXQgbm90IGxlYXN0LCAqTGlicmVRb1MqIHdpbGwgYmUgcmVwcmVzZW50
-ZWQgYnkgb3VyIENoaWVmIFByb2R1Y3QNCj4gT2ZmaWNlciwgSGVyYmVydCBXb2x2ZXJzb24uDQo+
-IA0KPiBJdCB3YXMsIG9idmlvdXNseSwgcmVzZXJ2ZWQgdG8gb3VyIGJlbG92ZWQgRGF2ZSBUw6Ro
-dCwgYnV0IEkgd2FzIGZvcmNlZCB0bw0KPiBwaWNrIGl0IHVwIGluc3RlYWQgb2YgaGltLi4uYnkg
-dGhlIGNpcmN1bXN0YW5jZXMuDQo+IA0KPiAqSG9wZSB0byBzZWUgYXQgbGVhc3Qgc29tZSBvZiB5
-b3UgaW4gTGFzIFZlZ2FzIC0gd2Ugd2lsbCBiZSBhdCB0aGUgYm9vdGgNCj4gIzYzMCEqDQo+IA0K
-PiBBbGwgdGhlIGJlc3QsDQo+IA0KPiBGcmFuaw0KPiANCj4gRnJhbnRpc2VrIChGcmFuaykgQm9y
-c2lrDQo+IA0KPiANCj4gKkluIGxvdmluZyBtZW1vcnkgb2YgRGF2ZSBUw6RodDogKjE5NjUtMjAy
-NQ0KPiANCj4gaHR0cHM6Ly9saWJyZXFvcy5pby8yMDI1LzA0LzAxL2luLWxvdmluZy1tZW1vcnkt
-b2YtZGF2ZS8NCj4gDQo+IA0KPiBodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vZnJhbnRpc2Vr
-Ym9yc2lrDQo+IA0KPiBTaWduYWwsIFRlbGVncmFtLCBXaGF0c0FwcDogKzQyMTkxOTQxNjcxNA0K
-PiANCj4gaU1lc3NhZ2UsIG1vYmlsZTogKzQyMDc3NTIzMDg4NQ0KPiANCj4gU2t5cGU6IGNhc2lv
-YTUzMDJjYQ0KPiANCj4gZnJhbnRpc2VrLmJvcnNpa0BnbWFpbC5jb20NCj4gX19fX19fX19fX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18NCj4gU3RhcmxpbmsgbWFpbGluZyBs
-aXN0IC0tIHN0YXJsaW5rQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldA0KPiBUbyB1bnN1YnNjcmliZSBz
-ZW5kIGFuIGVtYWlsIHRvIHN0YXJsaW5rLWxlYXZlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldA0KX19f
-X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX18KQ2FrZSBtYWlsaW5n
-IGxpc3QgLS0gY2FrZUBsaXN0cy5idWZmZXJibG9hdC5uZXQKVG8gdW5zdWJzY3JpYmUgc2VuZCBh
-biBlbWFpbCB0byBjYWtlLWxlYXZlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldAo=
+Hi Jonathan...
+
+thanks for commenting on the details.
+
+> On 30. Sep 2025, at 07:18, Jonathan Morton <chromatix99@gmail.com> wrote:
+> 
+>> On 28 Sep, 2025, at 8:07 pm, dave seddon <dave.seddon.ca@gmail.com> wrote:
+>> 
+>> cakeConfig = {
+>>   Bandwidth = "990M";  # We currently have 1Gb/s, so this is our limit
+>>   OverheadBytes = 38;  # Ethernet overhead (preamble + inter-frame gap + FCS)
+>>   MPUBytes = 84;       # Minimum packet unit for Ethernet
+>>   NAT = true;
+>>   FlowIsolationMode = "triple";
+>>   PriorityQueueingPreset = "besteffort";
+>> };
+> 
+> It's perhaps worth talking about these parameters a bit.
+> 
+> You probably realise that the overhead compensation should be set up for the physical bottleneck link.  Not everything is, or behaves exactly like, an Ethernet cable, even if the connection between your router and the transceiver for that link physically is one.  Or it might really be Ethernet, but with extra headers patched into each Ethernet frame (in a domestic context, that's what PPPoE partially is, but VLANs add an extra couple of words to a frame too).  If in doubt, err on the side of assuming there's more overhead than you know about.  These parameters are, however, completely inadequate to describe wireless links, especially WiFi.
+
++1; over estimating the true overhead (or MPU) slightly has negligible cost (a small reduction in potential maximum throughput), underestimating however can result in noticeable latency under load increases. Some years ago, I retested my assumed de-bloated DSL link (after a few months of uneventful operation) because somewhat felt just not right under load, and lo and behold, my ISP had increased the overhead by 4 bytes (a VLAN tag) in the interim invalidating my overhead settings by 4 bytes... (That was with an ATM/AAL5 link, where measuring the actual overhead is achievable for end-users).
+
+Long story, short: if in doubt rather add a small safety margin to your best overhead estimate... sqm-scripts came down on recommeding 44 bytes as default. Will not cover all possibilities, but goes a long way in covering those encapsulation seen often on ebd user internet access links.
+
+
+> 
+> I'd also like to remind everyone what "triple" flow isolation is.  It's a way to get something like host-and-flow isolation when you're not certain which side of the link the hosts that want isolating from each other are; there's a heuristic which effectively decides, dynamically for each flow, whether to treat it as being src-host or dst-host isolated.  I put it in mainly to serve as a sensible default, since blindly choosing one or the other would get it wrong exactly half the time.  I don't really like seeing it in a config file that someone's actually worked on.
+
+Mmmh, we might want to tweak the tc-cake man page then to make this clearer? ATM it reads:
+
+dual-srchost
+Flows are defined by the 5-tuple, and fairness is applied
+first over source addresses, then over individual flows.
+Good for use on egress traffic from a LAN to the internet,
+where it'll prevent any one LAN host from monopolising the
+uplink, regardless of the number of flows they use.
+
+dual-dsthost
+Flows are defined by the 5-tuple, and fairness is applied
+first over destination addresses, then over individual
+flows. Good for use on ingress traffic to a LAN from the
+internet, where it'll prevent any one LAN host from
+monopolising the downlink, regardless of the number of
+flows they use.
+
+triple-isolate (default)
+Flows are defined by the 5-tuple, and fairness is applied
+over source *and* destination addresses intelligently (ie.
+not merely by host-pairs), and also over individual flows.
+Use this if you're not certain whether to use dual-srchost
+or dual-dsthost; it'll do both jobs at once, preventing any
+one host on *either* side of the link from monopolising it
+with a large number of flows.
+
+
+Reading this I would have the impression that selecting triple even on a bespoke config would be fine, no?
+
+
+> 
+> It's better to explicitly configure this rather than using the heuristic.  The tc-cake keywords are "dual-srchost" if the hosts to be isolated are upstream of Cake, and "dual-dsthost" if they are downstream.  In a typical installation where two instances of Cake are managing both directions of traffic, one will be configured each way.
+> 
+> It's also possible to disable host-isolation entirely, using the "flows" keyword to provide the same kind of flow-isolation as fq_codel (or most other forms of FQ) does.  Cake can also provide only host isolation, relying entirely on statistical multiplexing (and the beneficience of AQM) for managing flows to each host; the keywords are then "srchost" and "dsthost" with the same meaning as above.  If you are seriously worried about the number of active users at critical moments, this could be a useful option for you; the number of hosts Cake can fully handle in this mode is the same as the number of flows it can handle in the normal flow-isolation modes.
+
+I would really like to see some tc -s qdisc output from this network under load, as that should be informative if any twaeks are necessary at all.
+
+
+> 
+> - Jonathan Morton
+> _______________________________________________
+> Cake mailing list -- cake@lists.bufferbloat.net
+> To unsubscribe send an email to cake-leave@lists.bufferbloat.net
+
+_______________________________________________
+Cake mailing list -- cake@lists.bufferbloat.net
+To unsubscribe send an email to cake-leave@lists.bufferbloat.net
