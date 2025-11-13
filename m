@@ -2,168 +2,215 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from mail.toke.dk (mail.toke.dk [IPv6:2a0c:4d80:42:2001::664])
-	by mail.lfdr.de (Postfix) with ESMTPS id D7FE0C4D3D7
-	for <lists+cake@lfdr.de>; Tue, 11 Nov 2025 11:58:33 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 717A1C5764C
+	for <lists+cake@lfdr.de>; Thu, 13 Nov 2025 13:28:05 +0100 (CET)
 Received: from [45.145.95.3] (localhost.localdomain [IPv6:::1])
-	by mail.toke.dk (Postfix) with ESMTP id 358BC94849D;
-	Tue, 11 Nov 2025 11:58:33 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=20250711; t=1762858713;
-	bh=7BAS5aEn+HH6qR0YAnxe+G+wzVVwLJsT6TeAUC1tv48=;
-	h=To:Cc:In-Reply-To:References:Date:Subject:List-Id:List-Archive:
-	 List-Help:List-Owner:List-Post:List-Subscribe:List-Unsubscribe:
-	 From:Reply-To:From;
-	b=HhEERVe9nhsyKGQ11Wt2UiJHY42iRy/ShAleZTyIQYLMkI+nZfd8ROw97Bg+seiBx
-	 xmyRRmKCNjyPEN8DN1qHBVpRzjOMUxFrb1IvdYsk2w/SxMWe7e+z5+6HsXEHWzJ/7F
-	 W43Nx53PRw5Cl/zouyH6SrXJF4MB8mNwm6gaqD/6YNQSUC1P3fPaHOSqkHBQF+BRgR
-	 v9Ku2Q0wAAXJpB6nnYhhGn7eAkdaysoVApdFCiVsSOB6oz3W1tQWqv0g+2ytPBSoO6
-	 t2xzp7wIM2hjWAX+ULZICUeQZC5rZzKI2Z7s7guomAMtOyiFGbI65Qa7Vv9tICwOHG
-	 w3gIYrq9akjNQ==
+	by mail.toke.dk (Postfix) with ESMTP id 492D195603D;
+	Thu, 13 Nov 2025 13:28:04 +0100 (CET)
+Authentication-Results: mail.toke.dk;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=asu.edu header.i=@asu.edu header.a=rsa-sha256 header.s=google header.b=tCHdfpcx
 ARC-Seal: i=1; cv=none; a=rsa-sha256; d=toke.dk; s=arc202507;
- t=1762858713;
- b=UAAYZMmojT51mpTg8rtjWb1TNbPWQ3YSd9rQLGl6IbiKdrX32HI2DawBqDfQjQK2h+ve7
- OXZxJhuO2XRG2M9OSgWxVxK/FNtHt4WXVK2E5rG8IQSgfjiYEYpPoIZnMfq7Qmbmk+OkP18
- NDO/ea4DZ86qSFHzLUaYutu1Dy/vbr0=
+ t=1763036884;
+ b=Boh219D8h2+H5LACV4KnsJfUocrQLfIF2U6X2dTuZrvXo83nTLmFEcnQV21m5iDOjvHBG
+ lNKqcPyeEAMzsw8Q0NN9MJAuaqIXwEyhA4wI8c3nPC7E+L/Cbu4CvH5UJIguYQRuJlXDygF
+ j9Cdj68TsyR/WINi9L/vMH64LkvZpv8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
- s=arc202507; t=1762858713; h=from : sender : reply-to : subject : date
+ s=arc202507; t=1763036884; h=from : sender : reply-to : subject : date
  : message-id : to : cc : mime-version : content-type :
  content-transfer-encoding : content-id : content-description :
  resent-date : resent-from : resent-sender : resent-to : resent-cc :
  resent-message-id : in-reply-to : references : list-id : list-help :
  list-unsubscribe : list-subscribe : list-post : list-owner :
- list-archive; bh=l4/GDOfwx5djJOmPKxMUYXusagokJCOubrXtN76TayI=;
- b=NWO3d1cRZu7MnntkYV+SrXjpgsJVFgsxG1mAYUiFtjZoKG4BT2adMiMqSIr7wrEsuwISN
- sbk2OZEmkmM50jAh9/sIkyddBuAtrrQjbkddCqIxe3DnoKsVQWSvnK5a2aQ6Yutjfc+Yvu8
- QRdtCLtBmCRjNfjMUZr0SrxdF8TCNfE=
+ list-archive; bh=DQdENyUl/TPQcx3jp/Co6pFQMYa7ht3sFh13zcGBScQ=;
+ b=31Jjni96t+tWeARw3PXMNW6YG0dBx90nWvxZEIctg4HktzoeF34zYE4pDj5A7r53zsnQy
+ qU2JNa7yAjeZEkp54pTmrlPJDKFfBGxWPqBexE2phZFUtBM4lvtkbPrH89hgRU/U+glbMZt
+ xYPAFr1flQihHL7CmH6b+QzZ2ywaZY8=
 ARC-Authentication-Results: i=1; mail.toke.dk;
- dkim=pass header.d=toke.dk;
+ spf=pass smtp.mailfrom=asu.edu;
+ dkim=pass header.d=asu.edu;
  arc=none;
- dmarc=pass header.from=toke.dk policy.dmarc=reject
-Authentication-Results: mail.toke.dk; dkim=pass header.d=toke.dk;
- arc=none (Message is not ARC signed);
- dmarc=pass (Used From Domain Record) header.from=toke.dk policy.dmarc=reject
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=toke.dk; s=20161023;
-	t=1762858711; bh=SGEtQRTXbaAjEO3Xhru3pRr1LyZx7uhVks4PV8yKfv4=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=qHQb63ujOCT8xknOAUaVDchjeviKs6RZiVO0LvgZhVHlfrKTF55n6+/aieLq+ow+w
-	 APXzL+H4qFUJGUTGEKMU0TuHbNwNQQawf5dvdAuVAI2rEzJTR0qqC9bzqSP7HyDL0H
-	 EC1vfQPpGdfyApOejNlF3JqIOT2zFGbo5hHFLbBLrHue6psYPbr81r4lGq8XJhkPtK
-	 8KARxHzk3djGwpr3Dhz80kVs238yeBIo73bKwvmq8ul9roLvimL4EttiZccqEjZ9fE
-	 k4RQ61bJUVoNWXsrzob5Jw8u+hmxnf9s5e50lA75ViOTR8ZFNwe06l06IuD50bt7xB
-	 HXh9uSkdprIpA==
-To: Xiang Mei <xmei5@asu.edu>, security@kernel.org
-Cc: cake@lists.bufferbloat.net, bestswngs@gmail.com, Xiang Mei <xmei5@asu.edu>
-In-Reply-To: <20251111072709.336809-1-xmei5@asu.edu>
-References: <20251111072709.336809-1-xmei5@asu.edu>
-Date: Tue, 11 Nov 2025 11:58:28 +0100
-X-Clacks-Overhead: GNU Terry Pratchett
-Message-ID: <878qgcn8dn.fsf@toke.dk>
+ dmarc=none
+Received: from mail-ot1-x32b.google.com (mail-ot1-x32b.google.com
+ [IPv6:2607:f8b0:4864:20::32b])
+	by mail.toke.dk (Postfix) with ESMTPS id 93A89953950
+	for <cake@lists.bufferbloat.net>; Thu, 13 Nov 2025 04:53:11 +0100 (CET)
+Received: by mail-ot1-x32b.google.com with SMTP id
+ 46e09a7af769-7c6da42fbd4so177854a34.1
+        for <cake@lists.bufferbloat.net>;
+ Wed, 12 Nov 2025 19:53:11 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=asu.edu; s=google; t=1763005989; x=1763610789;
+ darn=lists.bufferbloat.net;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=caCuzpiBlKkYiDUgrdd42Zl/DdzHOq3t35PmX7TkYt0=;
+        b=tCHdfpcxtqc0aEQ+P0/9xLoVgCqzeQkfhhlu4uVn6rJ36vzx/FtGsh42gCKpcQUygE
+         6K1P0reGJrH9Z3+DzGY0cspjetImz1BoHy+UqB932PhTLnJm5yKQMC1Su1T1lGuXN2Ss
+         dr5ghpPQ3YBNASXUxygi9y/hJb4mk+9eXq5KzjSDimzsErfVpoC6NiIXGyujKnJ4Tfj8
+         oqKfNuFR20NKvkSLXvyP3NhvuJy7H/c09wGcmHhpOgK5AYcFszFG/lYGwuhaeqf0k8ur
+         LYr26fiBCWcIW2fcDF0y4wqoE00DVWvEfECeU+B2Fl/D1ruOn+VGsb4fDWi1H4IJLaji
+         bOsQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1763005989; x=1763610789;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=caCuzpiBlKkYiDUgrdd42Zl/DdzHOq3t35PmX7TkYt0=;
+        b=MSh6xvUQ8FKzUhWDP7GCwW6R9P2wGQuYuzOBO4H8LcNrd1f0IZ1qmwrg6lOJFePWxT
+         2/A9D/FgLiFWb6SqiNQywSzPlGcN2FDmU/vwcrcKd19CZUllCXvHJmm5pMhkoDoNsIVJ
+         rNWuVo6iJPiXW98uX+zn2ydauZKFdWlzCyLVOutvxXy9kW7Z0B+nJFLFHnSfqajJ+YQ7
+         ANPdPYx10wcvnkw8PYtmkFmUVLcqgQRg9KKxHYnDpFdKx7LR3mbbkIitfp7Vg1KkCqYv
+         RwAjfVA8UIt4f8pnUJAkWXCT4gEwheYUWjODnPoPvI5Rh1VzOkBn6N8d8k6F3/vdlVH2
+         fQbw==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCUACrxvBf92vAXflv2EYLSlbmM04JkSBYWINPrzcxFf5oqWua+jZxMTpIGui6aMI4AzKkUO@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YwYOH7hTL2rSYNF6DewkCRW10eZZ9V7Cmqa2IbswJ1os/AWoR/c
+	X0H/d2gTzLVl6W2VSiKcAHUoaZPxw8znCaihR49PIJ3LtyMtX3vMwqDzevoZoz90iw==
+X-Gm-Gg: ASbGnctJVbq2bLEomcZSkkVM9QD8WCk/NeNUfW9wdJ09TwKcaEzfsi8N3/3idb0A2Uc
+	OZMqnYSzDlzcq8YE4hnd/bEhpTlf3G9LWNqndAQt6WktezUBIld645YoR8TFBFfWekV6Cyh2dLn
+	XL1h0YMZflqolHmjftaY8dJNw2HN5KRZ/lYoxHsl8Fq8zRgam5Q94yEW251CWsuvszU0foGeHTL
+	/EiL2yTsxghBpViLVUzSmusT2BpID9kPh1T3eDEGZmjccfuY9su4lKDFFwBCw7mUzSrNj0BVCrG
+	O0wAPt0LM1DzgQPEpn2UEB6qV7f0sF5DwWhTEXEsdXtl4s2RH6lvtRW0C+//pdvwTc7kYbq2BMs
+	LFNbRtIEchEO9YLkgr89WIy1nbTz7yjhYLh97jts9iEHEgS2fBYHXgVpv0f81LqCHc/Bvd5+LXN
+	xg2fRuyFdWEbvaJVhBGMXS9dhaHwQnOzaaZPMEKq7d
+X-Google-Smtp-Source: 
+ AGHT+IE2luF+rjX/JkLUxs9uL/f2+K18J1dp2UU3f3l59WkOKXnh/MsO3gJCC0+/Ax1GTVQ77a0ZIQ==
+X-Received: by 2002:a05:6830:34a5:b0:7c5:4005:fff3 with SMTP id
+ 46e09a7af769-7c72e3e5ca8mr2222124a34.29.1763005988809;
+        Wed, 12 Nov 2025 19:53:08 -0800 (PST)
+Received: from p1.scai.dhcp.asu.edu (209-147-139-51.nat.asu.edu.
+ [209.147.139.51])
+        by smtp.gmail.com with ESMTPSA id
+ 46e09a7af769-7c73a283c41sm471470a34.6.2025.11.12.19.53.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 12 Nov 2025 19:53:08 -0800 (PST)
+From: Xiang Mei <xmei5@asu.edu>
+To: security@kernel.org
+Cc: netdev@vger.kernel.org,
+	toke@toke.dk,
+	cake@lists.bufferbloat.net,
+	bestswngs@gmail.com,
+	Xiang Mei <xmei5@asu.edu>
+Date: Wed, 12 Nov 2025 20:53:03 -0700
+Message-ID: <20251113035303.51165-1-xmei5@asu.edu>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Message-ID-Hash: SCRJCBEPBPHPDCHC5D4I5LQDT773WCX6
-X-Message-ID-Hash: SCRJCBEPBPHPDCHC5D4I5LQDT773WCX6
-X-MailFrom: toke@toke.dk
+X-MailFrom: xmei5@asu.edu
+X-Mailman-Rule-Hits: nonmember-moderation
 X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
- banned-address; emergency; member-moderation; nonmember-moderation;
- administrivia; implicit-dest; max-recipients; max-size; news-moderation;
- no-subject; digests; suspicious-header
+ banned-address; emergency; member-moderation
+Message-ID-Hash: T3YKTXQQ4BHXGYPFSBF2GD3QGWWWMCZL
+X-Message-ID-Hash: T3YKTXQQ4BHXGYPFSBF2GD3QGWWWMCZL
+X-Mailman-Approved-At: Thu, 13 Nov 2025 13:28:02 +0100
 X-Mailman-Version: 3.3.10
 Precedence: list
-Subject: [Cake] Re: [PATCH V2 RESEND] net/sched: sch_cake: Fix incorrect qlen reduction
- in cake_drop
+Subject: [Cake] [PATCH net v3] net/sched: sch_cake: Fix incorrect qlen reduction in
+ cake_drop
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
-Archived-At: <https://lists.bufferbloat.net/cake/878qgcn8dn.fsf@toke.dk/>
+Archived-At: 
+ <https://lists.bufferbloat.net/cake/20251113035303.51165-1-xmei5@asu.edu/>
 List-Archive: <https://lists.bufferbloat.net/cake/>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Owner: <mailto:cake-owner@lists.bufferbloat.net>
 List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Subscribe: <mailto:cake-join@lists.bufferbloat.net>
 List-Unsubscribe: <mailto:cake-leave@lists.bufferbloat.net>
-From: =?utf-8?q?Toke_H=C3=B8iland-J=C3=B8rgensen_via_Cake?=
- <cake@lists.bufferbloat.net>
-Reply-To: Toke =?utf-8?Q?H=C3=B8iland-J=C3=B8rgensen?= <toke@toke.dk>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-Xiang Mei <xmei5@asu.edu> writes:
+In cake_drop(), qdisc_tree_reduce_backlog() is called to decrement
+the qlen of the qdisc hierarchy. However, this can incorrectly reduce
+qlen when the dropped packet was never enqueued, leading to a possible
+NULL dereference (e.g., when QFQ is the parent qdisc).
 
-> In cake_drop(), the function qdisc_tree_reduce_backlog() is called to
-> decrement the qlen of the qdisc hierarchy. However, it may incorrectly
-> reduce the qlen when the dropped packet was not enqueued, leading to
-> a potential null-pointer dereference (e.g., when using qfq sched as
-> the parent qdisc).
->
-> This issue occurs when the caller (cake_enqueue()) returns NET_XMIT_CN,
-> causing the parent qdisc not to enqueue the current packet, while
-> qdisc_tree_reduce_backlog() still decrements the backlog.
->
-> This patch prevents invalid qlen reduction by verifying that the
-> dropped packet was actually enqueued before adjusting the backlog.
->
-> Fixes: 15de71d06a40 ("net/sched: Make cake_enqueue return NET_XMIT_CN when past buffer_limit")
-> Signed-off-by: Xiang Mei <xmei5@asu.edu>
+This happens when cake_enqueue() returns NET_XMIT_CN: the parent
+qdisc does not enqueue the skb, but cake_drop() still reduces backlog.
 
-Thank you for the patch! I think the issue is valid, but I don't think
-the fix is quite right - see below.
+This patch avoids the extra reduction by checking whether the packet
+was actually enqueued. It also moves qdisc_tree_reduce_backlog()
+out of cake_drop() to keep backlog accounting consistent.
 
-Also, this should probably go through netdev? Please include
-netdev@vger.kernel.org and add a 'net' tag to the patch subject when you
-respin (so it'll look like [PATCH net v3]).
+Fixes: 15de71d06a40 ("net/sched: Make cake_enqueue return NET_XMIT_CN when past buffer_limit")
+Signed-off-by: Xiang Mei <xmei5@asu.edu>
+---
+v2: add missing cc
+v3: move qdisc_tree_reduce_backlog out of cake_drop
 
-> ---
-> v2: add missing cc
->
->  net/sched/sch_cake.c | 7 ++++---
->  1 file changed, 4 insertions(+), 3 deletions(-)
->
-> diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
-> index 32bacfc314c2..3a2ba9dfc22d 100644
-> --- a/net/sched/sch_cake.c
-> +++ b/net/sched/sch_cake.c
-> @@ -1548,7 +1548,7 @@ static int cake_advance_shaper(struct cake_sched_data *q,
->  	return len;
->  }
->  
-> -static unsigned int cake_drop(struct Qdisc *sch, struct sk_buff **to_free)
-> +static unsigned int cake_drop(struct Qdisc *sch, struct sk_buff **to_free, u32 current_flow)
->  {
->  	struct cake_sched_data *q = qdisc_priv(sch);
->  	ktime_t now = ktime_get();
-> @@ -1597,7 +1597,8 @@ static unsigned int cake_drop(struct Qdisc *sch, struct sk_buff **to_free)
->  
->  	qdisc_drop_reason(skb, sch, to_free, SKB_DROP_REASON_QDISC_OVERLIMIT);
->  	sch->q.qlen--;
-> -	qdisc_tree_reduce_backlog(sch, 1, len);
-> +	if (likely(current_flow != idx + (tin << 16)))
-> +		qdisc_tree_reduce_backlog(sch, 1, len);
+ net/sched/sch_cake.c | 40 ++++++++++++++++++++++++----------------
+ 1 file changed, 24 insertions(+), 16 deletions(-)
 
-Since cake_drop() is called in a loop, the number of bytes/packets
-dropped may not match the packet coming in. So we can't just skip this.
+diff --git a/net/sched/sch_cake.c b/net/sched/sch_cake.c
+index 32bacfc314c2..179cafe05085 100644
+--- a/net/sched/sch_cake.c
++++ b/net/sched/sch_cake.c
+@@ -1597,7 +1597,6 @@ static unsigned int cake_drop(struct Qdisc *sch, struct sk_buff **to_free)
+ 
+ 	qdisc_drop_reason(skb, sch, to_free, SKB_DROP_REASON_QDISC_OVERLIMIT);
+ 	sch->q.qlen--;
+-	qdisc_tree_reduce_backlog(sch, 1, len);
+ 
+ 	cake_heapify(q, 0);
+ 
+@@ -1750,7 +1749,9 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+ 	ktime_t now = ktime_get();
+ 	struct cake_tin_data *b;
+ 	struct cake_flow *flow;
+-	u32 idx, tin;
++	u32 dropped = 0;
++	u32 idx, tin, prev_qlen, prev_backlog, drop_id;
++	bool same_flow = false;
+ 
+ 	/* choose flow to insert into */
+ 	idx = cake_classify(sch, &b, skb, q->flow_mode, &ret);
+@@ -1927,24 +1928,31 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+ 	if (q->buffer_used > q->buffer_max_used)
+ 		q->buffer_max_used = q->buffer_used;
+ 
+-	if (q->buffer_used > q->buffer_limit) {
+-		bool same_flow = false;
+-		u32 dropped = 0;
+-		u32 drop_id;
++	if (q->buffer_used <= q->buffer_limit)
++		return NET_XMIT_SUCCESS;
+ 
+-		while (q->buffer_used > q->buffer_limit) {
+-			dropped++;
+-			drop_id = cake_drop(sch, to_free);
++	prev_qlen = sch->q.qlen;
++	prev_backlog = sch->qstats.backlog;
+ 
+-			if ((drop_id >> 16) == tin &&
+-			    (drop_id & 0xFFFF) == idx)
+-				same_flow = true;
+-		}
+-		b->drop_overlimit += dropped;
++	while (q->buffer_used > q->buffer_limit) {
++		dropped++;
++		drop_id = cake_drop(sch, to_free);
++		if ((drop_id >> 16) == tin &&
++		    (drop_id & 0xFFFF) == idx)
++			same_flow = true;
++	}
++	b->drop_overlimit += dropped;
++
++	/* Compute the droppped qlen and pkt length */
++	prev_qlen -= sch->q.qlen;
++	prev_backlog -= sch->qstats.backlog;
+ 
+-		if (same_flow)
+-			return NET_XMIT_CN;
++	if (same_flow) {
++		qdisc_tree_reduce_backlog(sch, prev_qlen - 1,
++					  prev_backlog - len);
++		return NET_XMIT_CN;
+ 	}
++	qdisc_tree_reduce_backlog(sch, prev_qlen, prev_backlog);
+ 	return NET_XMIT_SUCCESS;
+ }
+ 
+-- 
+2.43.0
 
-I think the simplest would probably be to move the
-qdisc_tree_reduce_backlog() out of cake_drop entirely, and then
-replicate the logic from fq_codel in the caller. I.e., the bit where it
-saves the qlen and backlog before dropping and calls
-qdisc_tree_reduce_backlog() once after. So we'll end up with something
-like:
-
-prev_backlog = sch->qstats.backlog;
-prev_qlen = sch->q.qlen;
-while (q->buffer_used > q->buffer_limit) {
-/*...*/
-}
-prev_qlen -= sch->q.qlen;
-prev_backlog -= sch->qstats.backlog;
-if (same_flow)
-   qdisc_tree_reduce_backlog(sch, prev_qlen - 1,
-				  prev_backlog - pkt_len);
-   return NET_XMIT_CN;
-}
-qdisc_tree_reduce_backlog(sch, prev_qlen,b
-				  prev_backlog);
-
-/* etc */
-
--Toke
 _______________________________________________
 Cake mailing list -- cake@lists.bufferbloat.net
 To unsubscribe send an email to cake-leave@lists.bufferbloat.net
