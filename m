@@ -1,30 +1,30 @@
 Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
-Received: from mail.toke.dk (mail.toke.dk [IPv6:2a0c:4d80:42:2001::664])
-	by mail.lfdr.de (Postfix) with ESMTPS id 6AF39C8803E
-	for <lists+cake@lfdr.de>; Wed, 26 Nov 2025 05:08:44 +0100 (CET)
+Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
+	by mail.lfdr.de (Postfix) with ESMTPS id 1B955C880E4
+	for <lists+cake@lfdr.de>; Wed, 26 Nov 2025 05:31:12 +0100 (CET)
 Received: from [45.145.95.3] (localhost.localdomain [IPv6:::1])
-	by mail.toke.dk (Postfix) with ESMTP id 86CD99CDA37;
-	Wed, 26 Nov 2025 05:08:42 +0100 (CET)
+	by mail.toke.dk (Postfix) with ESMTP id 207EF9CDBE1;
+	Wed, 26 Nov 2025 05:31:11 +0100 (CET)
 Authentication-Results: mail.toke.dk;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20230601 header.b=CWXRLPSG
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20230601 header.b=cWpkmK3u
 ARC-Seal: i=1; cv=none; a=rsa-sha256; d=toke.dk; s=arc202507;
- t=1764130122;
- b=Lq1kjBTh1Yit5NqTXHDhFkKEwpk0opT1w65eyNO8eQrkM/VDxuWzh/9BrhXVTMTEbig0q
- r1hIOZHfgXmKhca3fCXoLW9Tk9YQZhfDj/YYqdXvUEmo1xNxT++pOLocAKf8HHqElMKBZS5
- s+CcdfATZbsEWxfHGcclsfSbhLCotds=
+ t=1764131471;
+ b=x/F3j5zWC1Kkw8CjsZ92i4Or9Qu9sjFtPc6RzjfRX8veczoIeMW89toV8P358iNLWW5Dk
+ qAF2a389lndLP2CpNTG++vBLqVR28C4VSHHy+7bugS2MxTSrGudkV29yjocVCjUoAJizw3c
+ wMUjeKjOXpVpDkog+j9JvUEURPygPFw=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
- s=arc202507; t=1764130122; h=from : sender : reply-to : subject : date
+ s=arc202507; t=1764131471; h=from : sender : reply-to : subject : date
  : message-id : to : cc : mime-version : content-type :
  content-transfer-encoding : content-id : content-description :
  resent-date : resent-from : resent-sender : resent-to : resent-cc :
  resent-message-id : in-reply-to : references : list-id : list-help :
  list-unsubscribe : list-subscribe : list-post : list-owner :
- list-archive; bh=XchfwkPUiSUiO33WeWWav9dg1WkEFVZ/NVkeF6Myg74=;
- b=YmNX/FHtX4AdBzAVuqkmzR2wZ683g5XEPK4cSyfC4jw4asYIS8EgX6SD8ENr9QQUTXIMd
- 29RYipNloudp6gpBz+HvCSKDWIRpjfdMyJH/51o1nEhZaZL74DkQvwyyMZS4+LCAMYybNKj
- lourHIesf3cvgXm4icR2CMY5KbrMeFI=
+ list-archive; bh=Al2Qy9WtBKuQ6llO2g3KMyXztVTWnmj86zIFssYtL1o=;
+ b=awsxZmkhctJWlf3QBLG122+2uTkxe0ncZbzrXFL+y4RO4RkHotmrlolDpxtEZ4CkmJlVv
+ CYkaHxPGeK6rYGjmVBrBG23SeR73Wql93zh5JwjVwQko/W56uHS+NqjYqc/cIRy/qb1FhH3
+ YbrffndIWGXpBFZXaDdvmdB+wTy7GPc=
 ARC-Authentication-Results: i=1; mail.toke.dk;
  spf=pass smtp.mailfrom=;
  dkim=pass header.d=gmail.com;
@@ -34,72 +34,71 @@ Authentication-Results: mail.toke.dk; spf=pass smtp.mailfrom=;
  dkim=pass header.d=gmail.com; arc=none (Message is not ARC signed);
  dmarc=pass (Used From Domain Record) header.from=gmail.com
  policy.dmarc=quarantine
-Received: from mail-dl1-x122d.google.com (mail-dl1-x122d.google.com
- [IPv6:2607:f8b0:4864:20::122d])
-	by mail.toke.dk (Postfix) with ESMTPS id 98F0D9CDA16
-	for <cake@lists.bufferbloat.net>; Wed, 26 Nov 2025 05:08:39 +0100 (CET)
-Received: by mail-dl1-x122d.google.com with SMTP id
- a92af1059eb24-11b6bc976d6so615167c88.0
+Received: from mail-pl1-x632.google.com (mail-pl1-x632.google.com
+ [IPv6:2607:f8b0:4864:20::632])
+	by mail.toke.dk (Postfix) with ESMTPS id AA8199CDBC0
+	for <cake@lists.bufferbloat.net>; Wed, 26 Nov 2025 05:31:08 +0100 (CET)
+Received: by mail-pl1-x632.google.com with SMTP id
+ d9443c01a7336-297d4a56f97so93078285ad.1
         for <cake@lists.bufferbloat.net>;
- Tue, 25 Nov 2025 20:08:39 -0800 (PST)
+ Tue, 25 Nov 2025 20:31:08 -0800 (PST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1764130116; x=1764734916;
+        d=gmail.com; s=20230601; t=1764131466; x=1764736266;
  darn=lists.bufferbloat.net;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=0Z7iBqBHKRdUYuyoB8rzzmFsKnz3Y3mqQuJiu2GxZKQ=;
-        b=CWXRLPSGID/WRkbEcvQfCdxyEs71T/wMKJVo3WD+JXAaZTTS8/jIiMtixWMKT1xpTi
-         ymELp/VA3r7V9iHn9rQoA+UMxOW0VMmEz7fn7e3w9JBMF3lwnc6AqvgfnlJMsUmJoaXI
-         j04xF5z9x+WFS91utI6HYh9Acakg1BEx4aTTo/DOfw8AOowlJQknFcbK8vxYxzM6pDrB
-         ib4ymfGPm11IXslgII/X2getVwlyijwIZvfCk4dPwnxAjIZF5UHEfR1pQTtJ3cK+8FRp
-         SB32uU+xo3P7u+bFYXiVOwocj7eLmnEmK2rKqdWdCfBSh9mBYBuQIWvsZFyILTwf7Iwa
-         UScA==
+        bh=r+0j5ZCXovitLFtrZUw5JaximmZcnfm7BzzfoeHP48I=;
+        b=cWpkmK3uipr0fUhlm+dFKZKNO8d7XI4JK6MgSwbt3wXkhP7VUgwkKw/deP8mXerGt2
+         CwBn1Ewl7Q1JNxzS43vklABM8fva2IE6jRa149YJjvVnBg6uCSvFVyWdxu2pRN9FU3PG
+         bNkzJe/aL15PonvfrmzpR4h5UPNGwlIGpinHVvY0XvLm5N0TrJU8tHgwHPP0avofnTqQ
+         9VPnsOpmjDzHxHe+JsDuX3esoMqIEkN9obtoTZ+1h7jyADSBBN2Bh4oNhYNyGVAoWzjZ
+         LTUOYo4h1k/8JqKsoXbdbc2BsgHl1l1Fi/ujC2LsvXttyDf7ysROWAcB1/g6Kis4H9my
+         051w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1764130116; x=1764734916;
+        d=1e100.net; s=20230601; t=1764131466; x=1764736266;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-gg:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0Z7iBqBHKRdUYuyoB8rzzmFsKnz3Y3mqQuJiu2GxZKQ=;
-        b=YFKdtD2A6A16cK396Ec2MtxghHYKdert2JzAF7NXiWlsdxY4UdTkGURPdGoE+o8x9c
-         zQd/6dShUPcWdVrQC3S32aW9djSwlhzPHWeTjbXNPjUfHiVK6cLz67EwfBmPc3yMYC/c
-         vJmpNEHeJgztxX7YZA8P/fqH5Kbx4tKiIwlkUnPx2Q91iZWJLYEwNTwbaKJqpG/sQWJS
-         az2PKsiY2Kt492IYty0eYlzhQAwUGY48dbWc3ci17XZAP/4LwXkenJRmpBHVpxh9h62C
-         ywaH8wgD4EMlT2PxxAV+dDGgtbJwW/g3Ot1uK9uloimxJGI3UJDWImXoNuFk0jIHshDD
-         c6VA==
+        bh=r+0j5ZCXovitLFtrZUw5JaximmZcnfm7BzzfoeHP48I=;
+        b=i15YPzoeIWiN/JhZqpaDFfG0q+zu73DVikFg2RU4Z7M5T2Gr+anHfaRtNWrhnXrBKv
+         w8jRMf0pGwTLPuuPtvQowNtxf9acYaVu82h2cZ5uHBxu++/aLuFB1qHcHP+LVotkXFgR
+         Zw2ICuz34EI2FRq7VdmlPOm2ckcu9eXQaIwLfIWSuyMBGeC+FvWasla9AK4Et8kTFls1
+         ZAKj1T3gLD/sTk+cEqNJiYjTCEBSxZxHeU4SRhF4C5mdXc1ZnIYqzefRNRHH7jFjB+Cp
+         avYVLKb7qb95xuTpTtJQlEqw/oSCyIm3fm+7HMjs048ve6wTrKqjMB8e9bV4OQi/eim4
+         rSSw==
 X-Forwarded-Encrypted: i=1;
- AJvYcCULlqnmLQtbdKuuiaFcSZGB5lXHMy2DSpuOilmEZdWWAGPr7CUafbuXBUnsTuGyQmr5Y5co@lists.bufferbloat.net
-X-Gm-Message-State: AOJu0Yyt6Aesqust/I4xWFt606B3f07xJwDjv1P27pV8UyOZ4LrZvMRe
-	t1NfvdZ6a7cZk/ye8xDSAAMiDR3zoUzIH298TreQscGmLryD9UyLFsXh
-X-Gm-Gg: ASbGncs7dAQ64rg9+5VAloPO2FZsJAsPGmqKrLBSYEmhRyTy3qgrGx5WgdaPT7UuReA
-	V3i/x8stc4iO1Okoywo2ATSuM0xL3ySmcq39+daiZn8jCTyqCYwaMMlggplBAJjOc2kh15dot9y
-	IZrmXq4Cy4cMd2canTe/R8MP4FrGqkucSbdWaonT3nUnQP0qR5AVoiBTrmxQzQobcQ4uxaVcO5t
-	run/v54cwZ1/888dlGMfZ2gOaV5pQ9gffpLP4QQ2bnd7CIZnryXeNT53rM2RSikTtfvoZZOnFLZ
-	ns0v7rqa8jsrDG0iL80+5ypsHDDsZLkoEZS875eDqkS8r3vXHaCgPUNm28DpbhpbufBk0vX+ihf
-	BsN2HfAdaHrraQ9VJZPBC9X0mTrmFad2GYem3rk6s/8iP0OHuVl5RIBqFftTky4y8yfw0J7Cnqt
-	XMvoWSTrpj1Qhw7RQf
+ AJvYcCUyspTf5ONsLBZOEp29z7ukjL/9aEscnulLIoNJrSp9eA6gx53LjLTL7eyupdRinOc47aLp@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0YxeXGyT65jTSwDxUOFxUbdZ4+376ILAn38uwDa4ha4gplsPYhrI
+	KEqNh8zBFiZYikgvYgI84w8R9ApuvbKQ4qbfrdqLWfm2/aXotwO2jRhc
+X-Gm-Gg: ASbGncs/SKgkX87mvowb1Adq5iVBOgXC7kVocUgmHzZdcX2DqUdlSXPLsDBYfZCdKtQ
+	cqlyPybtR8eijavl4VoLbfCtC3D/ZB7eSIraGuxyGybObzE1el84eLNBCoM/dVGj5C9YeWfsjjK
+	joN7r/6mDi0BurJzS9VjcJgWd8j1hBval2gjIL8u+EYzOTYZqQXn26djjfR+0L/TRzxrhoRu90X
+	9Fi8++R4pDFiYmvQws00c7wo8HsnWifJdCqCSKjd1KLGl+W9K7ZvyrqaZM3JTfLLLHzRP5fINkl
+	C/WMmNTNjGybfKZH/YEpJ98ei1zbJyqooY5lSTUMAsbfS/GaQI7xjj2Clc+7sDbhV6Pt0UG75Ac
+	uWsvz+t9uO1JZelSw7MY+ESgIpNCkbVS9KX+uF4PIeg7iNeikWblXyT3uC01HXs3J/beg6sTZ1H
+	HRDILmOuBPkCXDgCfh
 X-Google-Smtp-Source: 
- AGHT+IHRA4qM1tECY85nqFQqlvSC4l5L/JqdviFcbhtwG92e/0qqF3TshJ38yUfhDPGNR1ZIZIRR4w==
-X-Received: by 2002:a05:7022:6285:b0:11b:a8e3:847b with SMTP id
- a92af1059eb24-11c9c9363d0mr15232292c88.5.1764130116076;
-        Tue, 25 Nov 2025 20:08:36 -0800 (PST)
+ AGHT+IEgFSocOGRxdsFFHqcX/YYQDzfJhKqycM/hi1zu+7nlJPv9Vwh3GUd1FyO8F3MlsgtDdk85iQ==
+X-Received: by 2002:a05:701b:2803:b0:11b:2138:476a with SMTP id
+ a92af1059eb24-11c9d8539eamr9419041c88.27.1764131465883;
+        Tue, 25 Nov 2025 20:31:05 -0800 (PST)
 Received: from localhost ([2601:647:6802:dbc0:a2cf:2e69:756:191b])
         by smtp.gmail.com with ESMTPSA id
- a92af1059eb24-11c93e6dbc8sm92476368c88.10.2025.11.25.20.08.35
+ a92af1059eb24-11c93e6da4dsm83069512c88.9.2025.11.25.20.31.05
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 25 Nov 2025 20:08:35 -0800 (PST)
-Date: Tue, 25 Nov 2025 20:08:34 -0800
+        Tue, 25 Nov 2025 20:31:05 -0800 (PST)
+Date: Tue, 25 Nov 2025 20:31:04 -0800
 From: Cong Wang <xiyou.wangcong@gmail.com>
 To: Xiang Mei <xmei5@asu.edu>
 Cc: security@kernel.org, netdev@vger.kernel.org, toke@toke.dk,
 	cake@lists.bufferbloat.net, bestswngs@gmail.com
-Message-ID: <aSZ9QhUImq0nH8mi@pop-os.localdomain>
+Message-ID: <aSaCiO/+zrzk9eF1@pop-os.localdomain>
 References: <20251125220213.3155360-1-xmei5@asu.edu>
- <20251125220213.3155360-2-xmei5@asu.edu>
 MIME-Version: 1.0
 Content-Disposition: inline
-In-Reply-To: <20251125220213.3155360-2-xmei5@asu.edu>
-Message-ID-Hash: WAEYP6YGTDWKAC333MGK7W5T354LYBJJ
-X-Message-ID-Hash: WAEYP6YGTDWKAC333MGK7W5T354LYBJJ
+In-Reply-To: <20251125220213.3155360-1-xmei5@asu.edu>
+Message-ID-Hash: JPM3QWAOBQXZMROYQYMBZAIC75MHMOMP
+X-Message-ID-Hash: JPM3QWAOBQXZMROYQYMBZAIC75MHMOMP
 X-MailFrom: xiyou.wangcong@gmail.com
 X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
  banned-address; emergency; member-moderation; nonmember-moderation;
@@ -107,11 +106,11 @@ X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
  no-subject; digests; suspicious-header
 X-Mailman-Version: 3.3.10
 Precedence: list
-Subject: [Cake] Re: [PATCH net v6 2/2] selftests/tc-testing: Check Cake Scheduler when
- enqueue drops packets
+Subject: [Cake] Re: [PATCH net v6 1/2] net/sched: sch_cake: Fix incorrect qlen
+ reduction in cake_drop
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
 Archived-At: 
- <https://lists.bufferbloat.net/cake/aSZ9QhUImq0nH8mi@pop-os.localdomain/>
+ <https://lists.bufferbloat.net/cake/aSaCiO/+zrzk9eF1@pop-os.localdomain/>
 List-Archive: <https://lists.bufferbloat.net/cake/>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Owner: <mailto:cake-owner@lists.bufferbloat.net>
@@ -121,23 +120,44 @@ List-Unsubscribe: <mailto:cake-leave@lists.bufferbloat.net>
 Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: 7bit
 
-On Tue, Nov 25, 2025 at 03:02:13PM -0700, Xiang Mei wrote:
-> Add tests that trigger packet drops in cake_enqueue(). The tests use
-> CAKE under a QFQ parent/class, then replace CAKE with NETEM to exercise
-> the previously fixed bug where cake_enqueue() drops a packet in the
-> same flow and returns NET_XMIT_CN.
-> 
-> Signed-off-by: Xiang Mei <xmei5@asu.edu>
-> ---
->  .../tc-testing/tc-tests/qdiscs/cake.json      | 28 +++++++++++++++++++
->  1 file changed, 28 insertions(+)
-> 
+On Tue, Nov 25, 2025 at 03:02:12PM -0700, Xiang Mei wrote:
+> @@ -1927,24 +1928,30 @@ static s32 cake_enqueue(struct sk_buff *skb, struct Qdisc *sch,
+>  	if (q->buffer_used > q->buffer_max_used)
+>  		q->buffer_max_used = q->buffer_used;
+>  
+> -	if (q->buffer_used > q->buffer_limit) {
+> -		bool same_flow = false;
+> -		u32 dropped = 0;
+> -		u32 drop_id;
+> +	if (q->buffer_used <= q->buffer_limit)
+> +		return NET_XMIT_SUCCESS;
+>  
+> -		while (q->buffer_used > q->buffer_limit) {
+> -			dropped++;
+> -			drop_id = cake_drop(sch, to_free);
+> +	prev_qlen = sch->q.qlen;
+> +	prev_backlog = sch->qstats.backlog;
+>  
+> -			if ((drop_id >> 16) == tin &&
+> -			    (drop_id & 0xFFFF) == idx)
+> -				same_flow = true;
+> -		}
+> -		b->drop_overlimit += dropped;
+> +	while (q->buffer_used > q->buffer_limit) {
+> +		drop_id = cake_drop(sch, to_free);
+> +		if ((drop_id >> 16) == tin &&
+> +		    (drop_id & 0xFFFF) == idx)
+> +			same_flow = true;
+> +	}
+> +
+> +	/* Compute the droppped qlen and pkt length */
 
-Usually tools/testing/selftests/tc-testing/tc-tests/infra/qdiscs.json
-is a better place for testing Qdisc combinations.
+Just a nit: this comment is not needed, because the code below is
+readable enough to explain itself. :)
+
 
 Regards,
-Cong
+Cong Wang
 _______________________________________________
 Cake mailing list -- cake@lists.bufferbloat.net
 To unsubscribe send an email to cake-leave@lists.bufferbloat.net
