@@ -2,39 +2,39 @@ Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
 Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
-	by mail.lfdr.de (Postfix) with ESMTPS id 72250C9B818
-	for <lists+cake@lfdr.de>; Tue, 02 Dec 2025 13:43:18 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 00BE8C9CBAE
+	for <lists+cake@lfdr.de>; Tue, 02 Dec 2025 20:10:43 +0100 (CET)
 Received: from [45.145.95.3] (localhost.localdomain [IPv6:::1])
-	by mail.toke.dk (Postfix) with ESMTP id 8AAB4A1F7A5;
-	Tue, 02 Dec 2025 13:43:12 +0100 (CET)
+	by mail.toke.dk (Postfix) with ESMTP id EB747A2337F;
+	Tue, 02 Dec 2025 20:10:42 +0100 (CET)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=20250711; t=1764679392;
-	bh=uM41Q4ckMmlWFK6FT3THVLw/1UaV1dNutUOXuj0l8SI=;
-	h=Date:References:In-Reply-To:To:Cc:Subject:List-Id:List-Archive:
+	d=lists.bufferbloat.net; s=20250711; t=1764702642;
+	bh=9JWFYXHZ/Gg8FS/6oO7WW4wzBHQJTuTH6/SPZaJSyZY=;
+	h=Date:To:Cc:In-Reply-To:References:Subject:List-Id:List-Archive:
 	 List-Help:List-Owner:List-Post:List-Subscribe:List-Unsubscribe:
 	 From:Reply-To:From;
-	b=AByqvaEkQQ69f7mOxPi8aHihTTRWPam3SeT99U52H0yBxYI58jz/UW0LpLjS/K7zI
-	 VzAkbsz72V5vulI0TdACMueOdjkstRDtB6mBX3z7EZYUAMsQKrcqmkeDMkKwF5l3y2
-	 4Gjz/h3koJ8cBjGRmLigi66cbLvFBMXznnkEg2OIRDw35MdjkMrxEl1FYWXBZPNly+
-	 WRdFI3PfQ+ojezh+o3VpIHLk+3W/sScFypEpQ15pFyVTlK5Fsp6i8scdySq+TPJ2fx
-	 9hPB98Y0mgKwMlTqYGKkzmj4B0D8moqvzQPeQnqzu6gk4puacVMEIr3UMtXWTtD8HA
-	 CMKK0lTijTJEg==
+	b=hTJEtvIcKU3Uao4Tl6mB04iyssAS/7YxfHT5r4r84RsG45p8j6nmTW7jDHdekKdyC
+	 UdD3XxnnhlKQZ0Os9RBPRBsmJLygxnhHWYEr3D0ipIzmKgQu3rp8SKjZFZV26ix2GB
+	 UcPuOFqhkm2O1QSHtM5gL8WDgo+zXNklB/1p8jK2QNluLGBg3GjTfqjX/V007mEhWV
+	 p9hkvS11Qx6xLxEhv0bhWHROgaacDcynraFYfBE8i0zY0EsVZpsz4I/N9BBae8aCUk
+	 yQ9+1lzAag6Z2GMe4kDCVk0cOhdGieMeBrLrO9squB3RYlGrSS07YkQRsNQKgXmL7u
+	 QsNkOkxkT2UcA==
 ARC-Seal: i=1; cv=none; a=rsa-sha256; d=toke.dk; s=arc202507;
- t=1764679392;
- b=ly7HkQ5m7emfPESj1ypyIwB9aPvjOCn5RLVv5+pXqYPmK1YSA1eMRXavD/eBrWV1GrEtT
- vz5vNOxnCLjuJYBbsG0Ct6AwYkyBdzDDpAJX+3tfBE1DGCa+LkdTHBHu25JmK0UJQEpDT4A
- L8hvag+ITAMmsbi8oyn3K0KcJUOWvsI=
+ t=1764702642;
+ b=O3MwrI5cYh+L/nd7AmBtB2uPRKsoY6vRhaWA/CFbHzk4DmyDxl4IuqxAfIbITZSyrppUo
+ OrNHOVjLzPySY7oAN7K2uiEUyAdA+mQ5X/R+MhRUhu+5lYMb4n68ixS85aGXsU0W9wcWt+F
+ tLXoVOq9jVXtvqo2WPVomPyALaC3rT8=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
- s=arc202507; t=1764679392; h=from : sender : reply-to : subject : date
+ s=arc202507; t=1764702642; h=from : sender : reply-to : subject : date
  : message-id : to : cc : mime-version : content-type :
  content-transfer-encoding : content-id : content-description :
  resent-date : resent-from : resent-sender : resent-to : resent-cc :
  resent-message-id : in-reply-to : references : list-id : list-help :
  list-unsubscribe : list-subscribe : list-post : list-owner :
- list-archive; bh=TLir2hwu0UHM/KMTb4jwzQmyVEIW7HOxfCfO9/LMxQo=;
- b=VO2U0mr3bPaLuXkq0Ei1WP8KDM6l/ggRQfGOXV78P9qgOFrOtreO+2F1v92PTlh2gDLTK
- ry7uAtN506mBon+GCoUDZChdsQzujIj2UmYYT6toX6ClaaZ1QEFqAireKIanIwCRhLyecrQ
- QE4gVvJjqQmsiMFdiE7u/0LT0d7xKb8=
+ list-archive; bh=9JWFYXHZ/Gg8FS/6oO7WW4wzBHQJTuTH6/SPZaJSyZY=;
+ b=OsZI39/4UPXt3wfWW3ahm9QWDnpWWyWGs+ReEtw/mFor13/yJDYPP19QhrKRxZVZgYNfr
+ 6Le+8ihyTDwBoPNK+EFy3jxwasLO61GqlEd0Om1x2qga9TIdOHWvM6ifhcerSNE3YYVi22P
+ qQF9tfAhdKQu285zuus8frdw9JOZ2TE=
 ARC-Authentication-Results: i=1; mail.toke.dk;
  spf=pass smtp.mailfrom=;
  dkim=pass header.d=kernel.org;
@@ -44,90 +44,69 @@ Authentication-Results: mail.toke.dk; spf=pass smtp.mailfrom=;
  dkim=pass header.d=kernel.org; arc=none (Message is not ARC signed);
  dmarc=pass (Used From Domain Record) header.from=kernel.org
  policy.dmarc=quarantine
-Received: from tor.source.kernel.org (tor.source.kernel.org [172.105.4.254])
-	by mail.toke.dk (Postfix) with ESMTPS id BC4F0A1F780
-	for <cake@lists.bufferbloat.net>; Tue, 02 Dec 2025 13:43:09 +0100 (CET)
+Received: from sea.source.kernel.org (sea.source.kernel.org
+ [IPv6:2600:3c0a:e001:78e:0:1991:8:25])
+	by mail.toke.dk (Postfix) with ESMTPS id 8A4D1A2336C
+	for <cake@lists.bufferbloat.net>; Tue, 02 Dec 2025 20:10:40 +0100 (CET)
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 198C7600B0;
-	Tue,  2 Dec 2025 12:43:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7251C116D0;
-	Tue,  2 Dec 2025 12:43:07 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 9B742409FC;
+	Tue,  2 Dec 2025 19:10:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0083BC4CEF1;
+	Tue,  2 Dec 2025 19:10:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764679387;
-	bh=aw3nZTvPz3Ho4XxxGAvYd5yHZRyDxEc2M1vfQsO+02Q=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=qcA7L4PX7XAxay0QB6MpvHYcIxhqqUEB8Au1aXD9ibowQEpyv3qGDMk6JcHEbSIFK
-	 d4fyzrQbS2ZOd8o0QJg26gJIMTGMMw6fSUiBkuS2XsyFqJs4/5xGz3JVcg90T5x15o
-	 ZGa+zkYmSRykAIxvQqEfwsl7nZTZE8e20ZFMmJuXHLsXQx60i+H8+G5CB6O6/OYjF6
-	 9LDMiAyDmNOkzE+xidXv1UHJdHcYufD5LO1LM0zYxj5P5x9lNppVNPnLsg9EULBVDG
-	 xKgOkXg43y2S4s/lEoqGPwy8i/QGsrsmsyqPfgQmlWwoF4PpS7uEO23kxHhie33fBo
-	 UBwI4oL9BjWRQ==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id
- 78AA73A54A15;
-	Tue,  2 Dec 2025 12:40:08 +0000 (UTC)
+	s=k20201202; t=1764702637;
+	bh=rsSmygFIAY4vcsAN+Ighfqm8RnZc6tR4kLbyvhedq/M=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=s5mRWO6fc8qP65IKNSltvE3lIlBCybMoyAF3pHpQ9KCqRktrkW5kly26zhDCsot7K
+	 PtAPi5fa+Tmx2zw/4Xz8O4hvF6TS5wWPaIFVylY/5Nj1+zLCb3J2rMjFBqtO9Nd/n+
+	 256U7WSX/V8JSAlavp42jYjFz9iCU1NjIgH6+DPauCnoxIpqzw01Ejfwf+WhgkEmtB
+	 C35oc1k2ZcKLNow/vl7pAF5x4CcitD+gXzqnqA3kk2OfPTtr9z28lfF5lKAdcOyBLy
+	 2A355eB7RTbcpWIBJF+24jqr/SSVQdBoDFiD4438mPFaUEghp8Cgk5/ABCpRXga/pU
+	 sz5gyVnvL09rQ==
+Date: Tue, 2 Dec 2025 11:10:36 -0800
+To: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@redhat.com>
+Cc: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@toke.dk>, Jamal Hadi
+ Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.com>, Jiri Pirko
+ <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet
+ <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
+ <horms@kernel.org>, Jonas =?UTF-8?B?S8O2cHBlbGVy?=
+ <j.koeppeler@tu-berlin.de>, cake@lists.bufferbloat.net,
+ netdev@vger.kernel.org
+Message-ID: <20251202111036.07964fdd@kernel.org>
+In-Reply-To: <20251201-mq-cake-sub-qdisc-v4-0-50dd3211a1c6@redhat.com>
+References: <20251201-mq-cake-sub-qdisc-v4-0-50dd3211a1c6@redhat.com>
 MIME-Version: 1.0
-Message-Id: 
- <176467920730.3217664.13875625137012436727.git-patchwork-notify@kernel.org>
-Date: Tue, 02 Dec 2025 12:40:07 +0000
-References: <20251128001415.377823-1-xmei5@asu.edu>
-In-Reply-To: <20251128001415.377823-1-xmei5@asu.edu>
-To: Xiang Mei <xmei5@asu.edu>
-Cc: security@kernel.org, netdev@vger.kernel.org, toke@toke.dk,
- xiyou.wangcong@gmail.com, cake@lists.bufferbloat.net, bestswngs@gmail.com
-Message-ID-Hash: RAEIIGMS4IQSSH5O56IPL2SGY2XPUB7F
-X-Message-ID-Hash: RAEIIGMS4IQSSH5O56IPL2SGY2XPUB7F
-X-MailFrom: patchwork-bot+netdevbpf@kernel.org
+Message-ID-Hash: 2BAGLZE5DTBYWZCNIDFJXWNBKRTSXPOU
+X-Message-ID-Hash: 2BAGLZE5DTBYWZCNIDFJXWNBKRTSXPOU
+X-MailFrom: kuba@kernel.org
 X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
  banned-address; emergency; member-moderation; nonmember-moderation;
  administrivia; implicit-dest; max-recipients; max-size; news-moderation;
  no-subject; digests; suspicious-header
 X-Mailman-Version: 3.3.10
 Precedence: list
-Subject: [Cake] Re: [PATCH net v8 1/2] net/sched: sch_cake: Fix incorrect qlen
- reduction in cake_drop
+Subject: [Cake] Re: [PATCH net-next v4 0/5] Multi-queue aware sch_cake
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
 Archived-At: 
- <https://lists.bufferbloat.net/cake/176467920730.3217664.13875625137012436727.git-patchwork-notify@kernel.org/>
+ <https://lists.bufferbloat.net/cake/20251202111036.07964fdd@kernel.org/>
 List-Archive: <https://lists.bufferbloat.net/cake/>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Owner: <mailto:cake-owner@lists.bufferbloat.net>
 List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Subscribe: <mailto:cake-join@lists.bufferbloat.net>
 List-Unsubscribe: <mailto:cake-leave@lists.bufferbloat.net>
-From: patchwork-bot+netdevbpf--- via Cake <cake@lists.bufferbloat.net>
-Reply-To: patchwork-bot+netdevbpf@kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+From: Jakub Kicinski via Cake <cake@lists.bufferbloat.net>
+Reply-To: Jakub Kicinski <kuba@kernel.org>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Hello:
-
-This series was applied to netdev/net.git (main)
-by Paolo Abeni <pabeni@redhat.com>:
-
-On Thu, 27 Nov 2025 17:14:14 -0700 you wrote:
-> In cake_drop(), qdisc_tree_reduce_backlog() is used to update the qlen
-> and backlog of the qdisc hierarchy. Its caller, cake_enqueue(), assumes
-> that the parent qdisc will enqueue the current packet. However, this
-> assumption breaks when cake_enqueue() returns NET_XMIT_CN: the parent
-> qdisc stops enqueuing current packet, leaving the tree qlen/backlog
-> accounting inconsistent. This mismatch can lead to a NULL dereference
-> (e.g., when the parent Qdisc is qfq_qdisc).
-> 
-> [...]
-
-Here is the summary with links:
-  - [net,v8,1/2] net/sched: sch_cake: Fix incorrect qlen reduction in cake_drop
-    https://git.kernel.org/netdev/net/c/9fefc78f7f02
-  - [net,v8,2/2] selftests/tc-testing: Test CAKE scheduler when enqueue drops packets
-    https://git.kernel.org/netdev/net/c/108f9405ce81
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-_______________________________________________
-Cake mailing list -- cake@lists.bufferbloat.net
-To unsubscribe send an email to cake-leave@lists.bufferbloat.net
+T24gTW9uLCAwMSBEZWMgMjAyNSAxMTowMDoxOCArMDEwMCBUb2tlIEjDuGlsYW5kLUrDuHJnZW5z
+ZW4gd3JvdGU6DQo+IFRoaXMgc2VyaWVzIGFkZHMgYSBtdWx0aS1xdWV1ZSBhd2FyZSB2YXJpYW50
+IG9mIHRoZSBzY2hfY2FrZSBzY2hlZHVsZXIsDQo+IGNhbGxlZCAnY2FrZV9tcScuIFVzaW5nIHRo
+aXMgbWFrZXMgaXQgcG9zc2libGUgdG8gc2NhbGUgdGhlIHJhdGUgc2hhcGVyDQo+IG9mIHNjaF9j
+YWtlIGFjcm9zcyBtdWx0aXBsZSBDUFVzLCB3aGlsZSBzdGlsbCBlbmZvcmNpbmcgYSBzaW5nbGUg
+Z2xvYmFsDQo+IHJhdGUgb24gdGhlIGludGVyZmFjZS4NCg0KTGV0J3MgcHVzaCB0aGlzIG91dCB0
+byB2Ni4yMCAob3IgbHVja3kgdjcuMSkuDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdCAtLSBjYWtlQGxpc3RzLmJ1ZmZlcmJs
+b2F0Lm5ldApUbyB1bnN1YnNjcmliZSBzZW5kIGFuIGVtYWlsIHRvIGNha2UtbGVhdmVAbGlzdHMu
+YnVmZmVyYmxvYXQubmV0Cg==
