@@ -1,112 +1,180 @@
 Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
-Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
-	by mail.lfdr.de (Postfix) with ESMTPS id 00BE8C9CBAE
-	for <lists+cake@lfdr.de>; Tue, 02 Dec 2025 20:10:43 +0100 (CET)
+Received: from mail.toke.dk (mail.toke.dk [IPv6:2a0c:4d80:42:2001::664])
+	by mail.lfdr.de (Postfix) with ESMTPS id 47D47C9DCE3
+	for <lists+cake@lfdr.de>; Wed, 03 Dec 2025 06:31:23 +0100 (CET)
 Received: from [45.145.95.3] (localhost.localdomain [IPv6:::1])
-	by mail.toke.dk (Postfix) with ESMTP id EB747A2337F;
-	Tue, 02 Dec 2025 20:10:42 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=20250711; t=1764702642;
-	bh=9JWFYXHZ/Gg8FS/6oO7WW4wzBHQJTuTH6/SPZaJSyZY=;
-	h=Date:To:Cc:In-Reply-To:References:Subject:List-Id:List-Archive:
-	 List-Help:List-Owner:List-Post:List-Subscribe:List-Unsubscribe:
-	 From:Reply-To:From;
-	b=hTJEtvIcKU3Uao4Tl6mB04iyssAS/7YxfHT5r4r84RsG45p8j6nmTW7jDHdekKdyC
-	 UdD3XxnnhlKQZ0Os9RBPRBsmJLygxnhHWYEr3D0ipIzmKgQu3rp8SKjZFZV26ix2GB
-	 UcPuOFqhkm2O1QSHtM5gL8WDgo+zXNklB/1p8jK2QNluLGBg3GjTfqjX/V007mEhWV
-	 p9hkvS11Qx6xLxEhv0bhWHROgaacDcynraFYfBE8i0zY0EsVZpsz4I/N9BBae8aCUk
-	 yQ9+1lzAag6Z2GMe4kDCVk0cOhdGieMeBrLrO9squB3RYlGrSS07YkQRsNQKgXmL7u
-	 QsNkOkxkT2UcA==
+	by mail.toke.dk (Postfix) with ESMTP id E9F47A269C6;
+	Wed, 03 Dec 2025 06:31:21 +0100 (CET)
+Authentication-Results: mail.toke.dk;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20230601 header.b=eZLTgzRX
 ARC-Seal: i=1; cv=none; a=rsa-sha256; d=toke.dk; s=arc202507;
- t=1764702642;
- b=O3MwrI5cYh+L/nd7AmBtB2uPRKsoY6vRhaWA/CFbHzk4DmyDxl4IuqxAfIbITZSyrppUo
- OrNHOVjLzPySY7oAN7K2uiEUyAdA+mQ5X/R+MhRUhu+5lYMb4n68ixS85aGXsU0W9wcWt+F
- tLXoVOq9jVXtvqo2WPVomPyALaC3rT8=
+ t=1764739881;
+ b=P9fZ9RzCn0aKlf7mWFsADoOd1/e8PFpcX4AYJTS45jeL8FwqqaDOUhriQJOurPLxkxcek
+ /zbR5Ktcru8YfvqhlLd3GqmExHB6aM4EPSXibgV13f6UEq+URBf9Ois8kmtVnUve3+bOo8S
+ zHZsQVzDN/xtIFk1tQA447NTPK0EtqU=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
- s=arc202507; t=1764702642; h=from : sender : reply-to : subject : date
+ s=arc202507; t=1764739881; h=from : sender : reply-to : subject : date
  : message-id : to : cc : mime-version : content-type :
  content-transfer-encoding : content-id : content-description :
  resent-date : resent-from : resent-sender : resent-to : resent-cc :
  resent-message-id : in-reply-to : references : list-id : list-help :
  list-unsubscribe : list-subscribe : list-post : list-owner :
- list-archive; bh=9JWFYXHZ/Gg8FS/6oO7WW4wzBHQJTuTH6/SPZaJSyZY=;
- b=OsZI39/4UPXt3wfWW3ahm9QWDnpWWyWGs+ReEtw/mFor13/yJDYPP19QhrKRxZVZgYNfr
- 6Le+8ihyTDwBoPNK+EFy3jxwasLO61GqlEd0Om1x2qga9TIdOHWvM6ifhcerSNE3YYVi22P
- qQF9tfAhdKQu285zuus8frdw9JOZ2TE=
+ list-archive; bh=7mXuaXQhIWEPMhPTsB6ppyjV/NMXtvCbUVRT234ZJQ4=;
+ b=4m5BoB0TSsLnFneyS6pP5cI3nM0p69FtokQRxt4TLRzbvZSN1a6gpP9gg6+vmMIJULd9a
+ qf1luZ+bkaLNfzsrhP3LWddhFiDyWlU+Ychgg5Zvp8D5Pzaxr9016Q94jgFpW7MBDxxQakW
+ kKnd/KZS+3Y92zWsSgbP+56HlZj1P+s=
 ARC-Authentication-Results: i=1; mail.toke.dk;
  spf=pass smtp.mailfrom=;
- dkim=pass header.d=kernel.org;
+ dkim=pass header.d=gmail.com;
  arc=none;
- dmarc=pass header.from=kernel.org policy.dmarc=quarantine
+ dmarc=pass header.from=gmail.com policy.dmarc=quarantine
 Authentication-Results: mail.toke.dk; spf=pass smtp.mailfrom=;
- dkim=pass header.d=kernel.org; arc=none (Message is not ARC signed);
- dmarc=pass (Used From Domain Record) header.from=kernel.org
+ dkim=pass header.d=gmail.com; arc=none (Message is not ARC signed);
+ dmarc=pass (Used From Domain Record) header.from=gmail.com
  policy.dmarc=quarantine
-Received: from sea.source.kernel.org (sea.source.kernel.org
- [IPv6:2600:3c0a:e001:78e:0:1991:8:25])
-	by mail.toke.dk (Postfix) with ESMTPS id 8A4D1A2336C
-	for <cake@lists.bufferbloat.net>; Tue, 02 Dec 2025 20:10:40 +0100 (CET)
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9B742409FC;
-	Tue,  2 Dec 2025 19:10:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0083BC4CEF1;
-	Tue,  2 Dec 2025 19:10:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1764702637;
-	bh=rsSmygFIAY4vcsAN+Ighfqm8RnZc6tR4kLbyvhedq/M=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=s5mRWO6fc8qP65IKNSltvE3lIlBCybMoyAF3pHpQ9KCqRktrkW5kly26zhDCsot7K
-	 PtAPi5fa+Tmx2zw/4Xz8O4hvF6TS5wWPaIFVylY/5Nj1+zLCb3J2rMjFBqtO9Nd/n+
-	 256U7WSX/V8JSAlavp42jYjFz9iCU1NjIgH6+DPauCnoxIpqzw01Ejfwf+WhgkEmtB
-	 C35oc1k2ZcKLNow/vl7pAF5x4CcitD+gXzqnqA3kk2OfPTtr9z28lfF5lKAdcOyBLy
-	 2A355eB7RTbcpWIBJF+24jqr/SSVQdBoDFiD4438mPFaUEghp8Cgk5/ABCpRXga/pU
-	 sz5gyVnvL09rQ==
-Date: Tue, 2 Dec 2025 11:10:36 -0800
-To: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@redhat.com>
-Cc: Toke =?UTF-8?B?SMO4aWxhbmQtSsO4cmdlbnNlbg==?= <toke@toke.dk>, Jamal Hadi
- Salim <jhs@mojatatu.com>, Cong Wang <xiyou.wangcong@gmail.com>, Jiri Pirko
- <jiri@resnulli.us>, "David S. Miller" <davem@davemloft.net>, Eric Dumazet
- <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Simon Horman
- <horms@kernel.org>, Jonas =?UTF-8?B?S8O2cHBlbGVy?=
- <j.koeppeler@tu-berlin.de>, cake@lists.bufferbloat.net,
- netdev@vger.kernel.org
-Message-ID: <20251202111036.07964fdd@kernel.org>
-In-Reply-To: <20251201-mq-cake-sub-qdisc-v4-0-50dd3211a1c6@redhat.com>
-References: <20251201-mq-cake-sub-qdisc-v4-0-50dd3211a1c6@redhat.com>
+Received: from mail-pg1-x533.google.com (mail-pg1-x533.google.com
+ [IPv6:2607:f8b0:4864:20::533])
+	by mail.toke.dk (Postfix) with ESMTPS id 837BDA269AE
+	for <cake@lists.bufferbloat.net>; Wed, 03 Dec 2025 06:31:19 +0100 (CET)
+Received: by mail-pg1-x533.google.com with SMTP id
+ 41be03b00d2f7-bd1ce1b35e7so4415047a12.0
+        for <cake@lists.bufferbloat.net>;
+ Tue, 02 Dec 2025 21:31:19 -0800 (PST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1764739877; x=1765344677;
+ darn=lists.bufferbloat.net;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=Krz802YddshXmZcDWgXdxQ3kx1TO7yAoW+miWDBifF0=;
+        b=eZLTgzRXTbLHqoDFNBVLm/FeYSztMNJC0zVwO8yHSCSzKDnOUyJeiiuVWvY9kgq+7c
+         TfeVFGmyPU0i5/FNRL3+IPidKry+toaRxO6QOxuK3QHy+F0zev8phSCR7vBgnhM1H05X
+         iikWfqi1sX3UaTjVpGUwn2waa5gLG1e8YcXeQt6S0FVNOewP8W7M46QN0XXl3ObavrRi
+         MM+08SPNcFWAVQ8iie0kpz81FuGfUb/Xjxav7h03EYvVCTrVpxxkYsK11D5nxKVSs+Ih
+         bWSBnxRwJCS5n/NuysVDT5m//MmqnYLLi61/PPHBm3sPWKoTjRJMIvxPTTJQvwBWhR72
+         ++IQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1764739877; x=1765344677;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Krz802YddshXmZcDWgXdxQ3kx1TO7yAoW+miWDBifF0=;
+        b=H9Yd5uymwJFcElW0zi6UwC2bnL03S7Zy7ULBdJrjJoqPQ7ezPDUR2THR+9hfyn8YkF
+         ZeDQKlgqY78lUxe+Pp39K/7Zk8PKXau+jvhHvnYHDnwSd/X9m01SPlBCyI22pCqIoZx3
+         v6NXMhK/3AXB75tvvBUYy+F+/SL6A+QtGlCUBkLZdhEnQKxMjIWiGXIZsfU99CMS85j4
+         MK3luezq7DDD2VCbmMX1Pf+iRiIQxKhPVXAICXh8kVysvK5TBEv9gMBvGW3pqTWr68k6
+         6An0iUDugSYAv/Wo8uwfW0OSrb5Vcf/VzKExPnpmgTYjDEmm+jnbPk4X9T8+XNkmyRAl
+         rtWw==
+X-Forwarded-Encrypted: i=1;
+ AJvYcCURbjV/+EvDfg/i3BSL9ZRb4/YCpfi8/O7niGTyXb8g2x5GD9v8LcJl3UIKbsDgxy1huruF@lists.bufferbloat.net
+X-Gm-Message-State: AOJu0Yz3XEFZFQsXBeAudpnuofbqCsgaR3rYqy+4+qJCj4TLVrK9Liay
+	OijE00gf88v7X6C3l8bC/sfCFEQ+TJ2u31uSi7sCCZCF/MId2u9qWJP7
+X-Gm-Gg: ASbGncsp54CwB/m5RwgBrNAorxL0jxlRyoLpTRTDHEHSRXXOocpp2yyxoodHg0ylLsS
+	ZFJxI8ZJOULG9JopIFNvXoDbRK8i7689xVhs6LmPFHgpRHfipAxQ1HprTuthfIL6vbua0dSWycg
+	xZsRCwIidMyBWlCKDkKrax8h6HO+M/guhokolIYXlSHkRAqx60Az0xnVJ1CALu/dFw1t0Ks6477
+	57DiihKrSeboFIn1Va3qcX/PjMl81LzlGyBm0b/g03ZIscQXeHLKpDjzP1BPa4724nXYQvprR2q
+	yv9EwyTBzYy/repkhQWo8YB21h4kB9YnZEbn1+kkjiZ7B9rmEvNPO1U4K9DewYIU3ImVOs5WiMD
+	BtTNk9zMpQR/ZnegMvUKFNt8ihegz27Fx6ia5NfrxtMG2VhwlIKLhPZJvaiG5Lhe/bG+03uYGtD
+	iNvxetYUuI+/UTosB6DHch7qxFhfuC
+X-Google-Smtp-Source: 
+ AGHT+IFr9CcjVghg9hmrfzNjTHcxJgo+bljuesXO+WbZ3zPiDNG3V9QwN/EEccXkdDd9cJbrMdBp5g==
+X-Received: by 2002:a05:7022:78f:b0:11b:d211:3a64 with SMTP id
+ a92af1059eb24-11df0ba160emr1177470c88.0.1764739876929;
+        Tue, 02 Dec 2025 21:31:16 -0800 (PST)
+Received: from localhost ([2601:647:6802:dbc0:57e5:a934:7b10:c032])
+        by smtp.gmail.com with ESMTPSA id
+ a92af1059eb24-11dcb057cb0sm97283794c88.9.2025.12.02.21.31.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 02 Dec 2025 21:31:16 -0800 (PST)
+Date: Tue, 2 Dec 2025 21:31:15 -0800
+From: Cong Wang <xiyou.wangcong@gmail.com>
+To: Toke =?iso-8859-1?Q?H=F8iland-J=F8rgensen?= <toke@toke.dk>
+Cc: Jakub Kicinski <kuba@kernel.org>, Jamal Hadi Salim <jhs@mojatatu.com>,
+	Jiri Pirko <jiri@resnulli.us>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Simon Horman <horms@kernel.org>,
+	Jonas =?iso-8859-1?Q?K=F6ppeler?= <j.koeppeler@tu-berlin.de>,
+	cake@lists.bufferbloat.net, netdev@vger.kernel.org
+Message-ID: <aS/LIzlRuJWDGL6m@pop-os.localdomain>
+References: <20251127-mq-cake-sub-qdisc-v2-0-24d9ead047b9@redhat.com>
+ <aSiYGOyPk+KeXAhn@pop-os.localdomain>
+ <87o6onb7ii.fsf@toke.dk>
+ <20251128095041.29df1d22@kernel.org>
+ <87cy51bxe1.fsf@toke.dk>
+ <20251128184852.7ceb3e72@kernel.org>
+ <877bv9b381.fsf@toke.dk>
 MIME-Version: 1.0
-Message-ID-Hash: 2BAGLZE5DTBYWZCNIDFJXWNBKRTSXPOU
-X-Message-ID-Hash: 2BAGLZE5DTBYWZCNIDFJXWNBKRTSXPOU
-X-MailFrom: kuba@kernel.org
+Content-Disposition: inline
+In-Reply-To: <877bv9b381.fsf@toke.dk>
+Message-ID-Hash: R2P4XWKG3FRPGE6PLK7IE62HAPON4WS5
+X-Message-ID-Hash: R2P4XWKG3FRPGE6PLK7IE62HAPON4WS5
+X-MailFrom: xiyou.wangcong@gmail.com
 X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
  banned-address; emergency; member-moderation; nonmember-moderation;
  administrivia; implicit-dest; max-recipients; max-size; news-moderation;
  no-subject; digests; suspicious-header
 X-Mailman-Version: 3.3.10
 Precedence: list
-Subject: [Cake] Re: [PATCH net-next v4 0/5] Multi-queue aware sch_cake
+Subject: [Cake] Re: [PATCH net-next v2 0/4] Multi-queue aware sch_cake
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
 Archived-At: 
- <https://lists.bufferbloat.net/cake/20251202111036.07964fdd@kernel.org/>
+ <https://lists.bufferbloat.net/cake/aS/LIzlRuJWDGL6m@pop-os.localdomain/>
 List-Archive: <https://lists.bufferbloat.net/cake/>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Owner: <mailto:cake-owner@lists.bufferbloat.net>
 List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Subscribe: <mailto:cake-join@lists.bufferbloat.net>
 List-Unsubscribe: <mailto:cake-leave@lists.bufferbloat.net>
-From: Jakub Kicinski via Cake <cake@lists.bufferbloat.net>
-Reply-To: Jakub Kicinski <kuba@kernel.org>
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+Content-Type: text/plain; charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
 
-T24gTW9uLCAwMSBEZWMgMjAyNSAxMTowMDoxOCArMDEwMCBUb2tlIEjDuGlsYW5kLUrDuHJnZW5z
-ZW4gd3JvdGU6DQo+IFRoaXMgc2VyaWVzIGFkZHMgYSBtdWx0aS1xdWV1ZSBhd2FyZSB2YXJpYW50
-IG9mIHRoZSBzY2hfY2FrZSBzY2hlZHVsZXIsDQo+IGNhbGxlZCAnY2FrZV9tcScuIFVzaW5nIHRo
-aXMgbWFrZXMgaXQgcG9zc2libGUgdG8gc2NhbGUgdGhlIHJhdGUgc2hhcGVyDQo+IG9mIHNjaF9j
-YWtlIGFjcm9zcyBtdWx0aXBsZSBDUFVzLCB3aGlsZSBzdGlsbCBlbmZvcmNpbmcgYSBzaW5nbGUg
-Z2xvYmFsDQo+IHJhdGUgb24gdGhlIGludGVyZmFjZS4NCg0KTGV0J3MgcHVzaCB0aGlzIG91dCB0
-byB2Ni4yMCAob3IgbHVja3kgdjcuMSkuDQpfX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-X19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdCAtLSBjYWtlQGxpc3RzLmJ1ZmZlcmJs
-b2F0Lm5ldApUbyB1bnN1YnNjcmliZSBzZW5kIGFuIGVtYWlsIHRvIGNha2UtbGVhdmVAbGlzdHMu
-YnVmZmVyYmxvYXQubmV0Cg==
+On Sat, Nov 29, 2025 at 10:25:02AM +0100, Toke H=F8iland-J=F8rgensen wrote:
+> Jakub Kicinski <kuba@kernel.org> writes:
+>=20
+> > On Fri, 28 Nov 2025 23:33:26 +0100 Toke H=F8iland-J=F8rgensen wrote:
+> >> Jakub Kicinski <kuba@kernel.org> writes:
+> >> > On Thu, 27 Nov 2025 20:27:49 +0100 Toke H=F8iland-J=F8rgensen wrote:=
+ =20
+> >> >> Yeah; how about I follow up with a selftest after this has been mer=
+ged
+> >> >> into both the kernel and iproute2? =20
+> >> >
+> >> > Why is iproute2 a blocker? Because you're not sure if the "API" won't
+> >> > change or because you're worried about NIPA or.. ? =20
+> >>=20
+> >> No, just that the patch that adds the new qdisc to iproute2 needs to be
+> >> merged before the selftests can use them. Which they won't be until the
+> >> kernel patches are merged, so we'll have to follow up with the selftes=
+ts
+> >> once that has happened. IIUC, at least :)
+> >
+> > You can add a URL to the branch with the pending iproute2 changes
+> > when you post the selftests and we'll pull them in NIPA, or post=20
+> > the patches at the same time (just not in one thread).
+>=20
+> Ah, cool.
+>=20
+> Given the likely impending merge window, how would you feel about
+> merging this series as-is and taking the selftests as a follow-up? Would
+> be kinda neat to get it in this cycle :)
+
+A followup is definitely okay.
+
+Maybe it is time to think about getting rid of such dependence on
+iproute2? I am thinking about replacing those iproute2 commands with
+libnl (or other netlink libraries). I know this is a lot of work, but
+we have AI today, so perhaps it would just take AI a few days.
+
+Another benefit of this is we would avoid parsing with regex, which has
+been a headache even for me.
+
+Anyway, it is a long-term thing.
+
+Regards,
+Cong
+_______________________________________________
+Cake mailing list -- cake@lists.bufferbloat.net
+To unsubscribe send an email to cake-leave@lists.bufferbloat.net
