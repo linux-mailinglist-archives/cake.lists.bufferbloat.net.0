@@ -1,133 +1,143 @@
 Return-Path: <cake-bounces@lists.bufferbloat.net>
 X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
-Received: from mail.toke.dk (mail.toke.dk [IPv6:2a0c:4d80:42:2001::664])
-	by mail.lfdr.de (Postfix) with ESMTPS id 3D842D3ABAC
-	for <lists+cake@lfdr.de>; Mon, 19 Jan 2026 15:22:55 +0100 (CET)
+Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
+	by mail.lfdr.de (Postfix) with ESMTPS id F176AD3B456
+	for <lists+cake@lfdr.de>; Mon, 19 Jan 2026 18:31:23 +0100 (CET)
 Received: from [45.145.95.3] (localhost.localdomain [IPv6:::1])
-	by mail.toke.dk (Postfix) with ESMTP id EDA87BD405F;
-	Mon, 19 Jan 2026 15:22:53 +0100 (CET)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-	d=lists.bufferbloat.net; s=20250711; t=1768832573;
-	bh=Hx7cHYAa8dnmvEbgYW9Q7edIuojqkVtT0EhsPMfXPuI=;
-	h=Date:References:In-Reply-To:To:Cc:Subject:List-Id:List-Archive:
-	 List-Help:List-Owner:List-Post:List-Subscribe:List-Unsubscribe:
-	 From:Reply-To:From;
-	b=lwcBi+M15otPW1tVU/7WvHWA4AdUshxcddvE383SFNI+jrqkHIZ5zLqnwkfED5VWG
-	 93T6hC6GB16+4atbOUQyiEXLfAWd53pEAiQfxjs+RI+z72rQMpkEhmOE3SK/2Jx5xO
-	 aSSMRrVocfVgOB3JiGapE876nWXeSa4fV+mwB2Mwvyx9txCTbOe+DxcLUiNZ0ceu1p
-	 wEUeAoVDKLNqmF1NAYS9LJMTu7dMgJYdjVB12KDgpbnILSWmYKXKHTH60fxM+F5jC/
-	 eQLFBrIGUMB7YbUD6U69Std/Y3rXamlxL2p8aFrW0cwHdEWhz7GHw2xQcT97eEYZ16
-	 DCLReWRsqTR8A==
-ARC-Seal: i=1; cv=none; a=rsa-sha256; d=toke.dk; s=arc202507;
- t=1768832573;
- b=X55bQDsTDhrv3+ojsLmMv95GebMD7/Pr2RweWsuOyRUDUXDvAzAb2zwci5cLLtuESIGU3
- VWw/wd6dlkhxz21n95iw0XdmvZYC6o8AKUGJPjBTnloA4z7YzlGkvBIngqgZiYqvzIM6vrj
- bNbXG3SJer15meQPxR/9/DPVAzjMxOA=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
- s=arc202507; t=1768832573; h=from : sender : reply-to : subject : date
+	by mail.toke.dk (Postfix) with ESMTP id AD393BD4F65;
+	Mon, 19 Jan 2026 18:31:17 +0100 (CET)
+Authentication-Results: mail.toke.dk;
+	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20230601 header.b=UMyVW1vg
+ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=toke.dk; s=arc202507;
+ t=1768843877;
+ b=yjaNQodv1Qj1AxdjXVO3F5GkQYTV5A/sBA8aJhQz9F37GXF0thb657NvRLPtmBthxrL2Y
+ pKJv7bi7d0iDQ+v8qvSe+7cfDe1VIogB4eUOF5twlHEQpEoHwwejAlYU5PgNmRWiD5cnzvk
+ SaIi2ssLF5vWRuqf04oaHZU4hjvs+xs=
+ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
+ s=arc202507; t=1768843877; h=from : sender : reply-to : subject : date
  : message-id : to : cc : mime-version : content-type :
  content-transfer-encoding : content-id : content-description :
  resent-date : resent-from : resent-sender : resent-to : resent-cc :
  resent-message-id : in-reply-to : references : list-id : list-help :
  list-unsubscribe : list-subscribe : list-post : list-owner :
- list-archive; bh=SokyF6S0jnuEsyiS5djF+OrTM9D/NqI5PAOJDK2TMvk=;
- b=PUIow1pyWa04CNuZqBrS6xIUfNlH/vebxddjrQx1Sz8ZSsmfjnxUCbRx9oJy0Z0pSUbxg
- miM6OOdmYtZGX/MO5vPxZ95b7UTYOa2gd0deQYB0iyNjfmpa0WM6E2EKA2K1or4dAUt4tq/
- g5heYHgYtnjgnYf37s5WgE2lTufBD+I=
-ARC-Authentication-Results: i=1; mail.toke.dk;
+ list-archive; bh=dYXXrJ3qL/BMrLo54N5xnOktW1+ZH9XEI0TU7llxdFQ=;
+ b=KbbGHb8RZJu0wmZwBrSI3N1epbg+p4jI3gOTcuhfbp4eoS9sMlebPOkmeXH3fcs4kAAnn
+ 050u1ZiUs7IxeQbQ0JjPgiiiChhqWkwGvd8XUfroeVnAhB8plMtsnqXBIP6Ri/saNvSZEVo
+ 0zSkXhz6NZ3tT5wFMMrAIIrJ9lx5uFY=
+ARC-Authentication-Results: i=2; mail.toke.dk;
  spf=pass smtp.mailfrom=;
- dkim=pass header.d=kernel.org;
- arc=none;
- dmarc=pass header.from=kernel.org policy.dmarc=quarantine
+ dkim=pass header.d=gmail.com;
+ arc=pass;
+ dmarc=pass header.from=gmail.com policy.dmarc=quarantine
 Authentication-Results: mail.toke.dk; spf=pass smtp.mailfrom=;
- dkim=pass header.d=kernel.org; arc=none (Message is not ARC signed);
- dmarc=pass (Used From Domain Record) header.from=kernel.org
+ dkim=pass header.d=gmail.com; arc=pass;
+ dmarc=pass (Used From Domain Record) header.from=gmail.com
  policy.dmarc=quarantine
-Received: from tor.source.kernel.org (tor.source.kernel.org [172.105.4.254])
-	by mail.toke.dk (Postfix) with ESMTPS id F323DBD4047
-	for <cake@lists.bufferbloat.net>; Mon, 19 Jan 2026 15:22:50 +0100 (CET)
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43442600C3;
-	Mon, 19 Jan 2026 14:22:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB602C116C6;
-	Mon, 19 Jan 2026 14:22:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1768832569;
-	bh=SkF1fRiMvz80DrYwLS5zkrf4jjOADfRiN8RZM2e8wWc=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Nh6dozxT2RE2Dr1wXAvtWqW/T4XORVZPoHAfV4iagqisvSvrnesQnZFIUMR63tfD0
-	 RpngvBjEDo8Cw6dv7Cev5nAiILQ+sGggpAlnIrWuqpzNndSFXD86mGeJutP+10J9w7
-	 UtHuP7YiuLlDw3M1DvI+KGWyT1XsEUPAfyK25gHNmdC0VWIHCW8pf1iN3YWhlvfybD
-	 s+1HUxevjXaI4O0uweDXVL1EgC05rmgs2MOzCTa2cEMkhG8qlxjqVPWci+B3ROCw+x
-	 JQQa/RYJYMwNpY02IgllZxkHiBY0Ned2aSkjPVmXAZTWN/jytfRRxiEw1mQlgPoV9d
-	 WLiVTw8bXLOiw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id
- F2A993A55FAF;
-	Mon, 19 Jan 2026 14:19:19 +0000 (UTC)
+Received: from mail-ej1-x62d.google.com (mail-ej1-x62d.google.com
+ [IPv6:2a00:1450:4864:20::62d])
+	by mail.toke.dk (Postfix) with ESMTPS id 538E3BD4F02
+	for <cake@lists.bufferbloat.net>; Mon, 19 Jan 2026 18:31:15 +0100 (CET)
+Received: by mail-ej1-x62d.google.com with SMTP id
+ a640c23a62f3a-b8010b8f078so754332766b.0
+        for <cake@lists.bufferbloat.net>;
+ Mon, 19 Jan 2026 09:31:15 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768843874; cv=none;
+        d=google.com; s=arc-20240605;
+        b=AscRQEQvnLncakeMU1LTFW+buWFCeo4EUO9rOFY98OCVNH2s9M5CiAoATJvHXMBvT1
+         iFfk91wb406W5mjj298A2Eto1VPuR96MUW7xZhIfaCrXTcIPYQS4SUzozhxI5E80PgMQ
+         VnWumDIBoGButdzDD6EYiMNMWkbuiOs/eOYNSA4+VX3xIYhbMmRmdbfSmme6/S0t2gpS
+         eW6qsI+4d9QD3MyDKZxgdK5Aa01dr1DticrpdK7f1MRMRwSu1CNkUPOtQjZGtOEY1P1i
+         uzXBm4bLTTcC9FGkyzV6Mp6GtxPSg2W10GsrE4ufeF9J/JLwNIgS2GDMqumRHzymob3w
+         8bmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
+ s=arc-20240605;
+        h=to:subject:message-id:date:from:mime-version:dkim-signature;
+        bh=QcBXzL0CLGrrVSlbMn+sa0BVAjHRdeqdgxHHH5ErpF4=;
+        fh=OxtPrE7OdfJrSXSkk9vBlYMWYTVrWOrDGzXVa2DrSJY=;
+        b=Rgq4o9npMJ/U9ixXtChbgjj21yD1X8Hx8yhhQCklrjINoombjQoUJ85dqpLKE36PIC
+         BDMuqQQ5i+zuIkr8LwvA+/BgPvc7C39iJMeoYb4465QB7k5RzfCy0Ur+SyHML1/Ku9aQ
+         onYDq+vpznkx5gSrSzTEFsOKOaIWZehcXUed46H9lLUyYSwOloJZv5G/gxu3lp/CexF1
+         uYPNa7ofj1k2rBCW95ldRgZRHlnE2arTbAQXMu9u9m5We3zhy80RSfsavURoNdi8iLvf
+         qE3IkJX3jbQn3Bcn74IOC6Bl1HIu8XKGbojv0/g2BnmIt2Jm3sy3xnGfJRYp+/1uHrnA
+         lYbA==;
+        darn=lists.bufferbloat.net
+ARC-Authentication-Results: i=1; mx.google.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1768843874; x=1769448674;
+ darn=lists.bufferbloat.net;
+        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=QcBXzL0CLGrrVSlbMn+sa0BVAjHRdeqdgxHHH5ErpF4=;
+        b=UMyVW1vgyPqwtDTeBNjTLMXyEGlJsMCfG0VDbpei49UeTjXvqbWW6WJLLivc3+eJnh
+         w7FK2IaTRxwZ3ocpm1+dO0AlkV0Ge/keEaQ2s8JUcTLgWB/MvC8rk93Or8lFcpB8BwLH
+         1qWX2ClkX82AX7ZebhL7prRwoEHjvt6NJhUzogApUNsdVMlsqatZ1fA8tWq1GvdNYR88
+         3UViBrlKyuy/9kzKbqSy61oVZUDzLJWc94NqKzXSXm16bnLodsnFq1kuHaIvem1Je3w1
+         TcYg/1z+uhyhh4VQT9dwTOQQJNKkaKOZnfqB7cnsf0GmiBqXaa5Y9Ll+AImvyF38jA/e
+         30Jw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1768843874; x=1769448674;
+        h=to:subject:message-id:date:from:mime-version:x-gm-gg
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=QcBXzL0CLGrrVSlbMn+sa0BVAjHRdeqdgxHHH5ErpF4=;
+        b=CufkTXcFW8wqW1QZva4KyIM0yypPNor4M8FE8QTNdjslb3l3YROvJH2PNeWMoJSrUJ
+         Y6H//95eGLTlvUdt4oe+XpySE1vvYviY1huv4pw0SFL1O5lun0Y1qjG6G4vUMvuwqgAY
+         6bd4RIi5iZrbYOwzrYAQ99woGIv1OYX3GqeO0s3W5KXQQsghqADg8LHlMFbvbTS+MT8/
+         m96cgjsCWvX4LIxLT5HNeDTUgBSQOwb//TD3D18ERjdgc8w4ES0WlmDaDLFgG1Oy5AJj
+         eDPSbAN3t+fXIpkYtzuiLr/400ojBppT9q8yc1OshzYPh/LiEpBrybz9dg30Gz3ICDuQ
+         DeWQ==
+X-Gm-Message-State: AOJu0YxgEBf5oDMvlRMdgoyh5R405+xqsJ6qrfiUIbjMWFR2Ecdb4z3U
+	7UBiEdzkPhUxdIpbwm3jW4+B20pzW/hio7hUT7F+fVTgKfHxcPTyko5NQq7FE48E1QMUhepXPmp
+	9uPIs2vRj65HWW7Dx17HIdl/8+j6odR/SfwrF86o=
+X-Gm-Gg: AY/fxX7zQ280JMEws2hmPDv4i4oqu1t/Pe4sUG97WFVaamezS3Nx8Q139b7MVmFTNCz
+	JHwQ7G1VTAkjlC689jX9mZl3JBSZ5ykGX3/iltOXuuzL7QJQ1xf9xeZmP6r9vhr6dZ/ooXH2WPS
+	pF/TGuW+YD2CmCZ/zjvY4kTQxzPn/yB3O0nUALvRyYlAVMhy3BKbInNXF6MEhwTzO+LttdobCGa
+	/0Qr3aXIelAxVk9MciNQYCfhI1Po0EjDjvwenc6ClzmeTxe9TfwLeyk0jstyC6nElk0KNMpzygX
+	Mr914yEq0S4=
+X-Received: by 2002:a17:906:dc94:b0:b87:31b5:d68 with SMTP id
+ a640c23a62f3a-b8796c137aemr872661966b.65.1768843873046; Mon, 19 Jan 2026
+ 09:31:13 -0800 (PST)
 MIME-Version: 1.0
-Message-Id: 
- <176883235852.1426077.2358286619749506519.git-patchwork-notify@kernel.org>
-Date: Mon, 19 Jan 2026 14:19:18 +0000
-References: <20260113143157.2581680-1-toke@redhat.com>
-In-Reply-To: <20260113143157.2581680-1-toke@redhat.com>
-To: 
- =?utf-8?b?VG9rZSBIw7hpbGFuZC1Kw7hyZ2Vuc2VuIDx0b2tlQHJlZGhhdC5jb20+?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: toke@toke.dk, jhs@mojatatu.com, xiyou.wangcong@gmail.com,
- jiri@resnulli.us, pabeni@redhat.com, davem@davemloft.net,
- edumazet@google.com, kuba@kernel.org, horms@kernel.org,
- cake@lists.bufferbloat.net, netdev@vger.kernel.org
-Message-ID-Hash: E6GVU3CAZM23M5KLSLHJ7PAHAKZIPP3D
-X-Message-ID-Hash: E6GVU3CAZM23M5KLSLHJ7PAHAKZIPP3D
-X-MailFrom: patchwork-bot+netdevbpf@kernel.org
+From: Frantisek Borsik <frantisek.borsik@gmail.com>
+Date: Mon, 19 Jan 2026 18:33:46 +0100
+X-Gm-Features: AZwV_QjIHiCKZiRA7F6tsm5Al5X4J1sGldgJd4X1FWtM_V3rfViZBVwbb33qMTg
+Message-ID: 
+ <CAJUtOOjf3vaQLtbZbmm559EuDJzpCkmysToVy_anS2NVtbJnVA@mail.gmail.com>
+To: Cake List <cake@lists.bufferbloat.net>, codel@lists.bufferbloat.net,
+	bloat <bloat@lists.bufferbloat.net>,
+	Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
+	Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>
+Message-ID-Hash: 65FVSZBBWEUMUZDF5HP76KSIXKCCLAYN
+X-Message-ID-Hash: 65FVSZBBWEUMUZDF5HP76KSIXKCCLAYN
+X-MailFrom: frantisek.borsik@gmail.com
 X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
  banned-address; emergency; member-moderation; nonmember-moderation;
  administrivia; implicit-dest; max-recipients; max-size; news-moderation;
  no-subject; digests; suspicious-header
+X-Content-Filtered-By: Mailman/MimeDel 3.3.10
 X-Mailman-Version: 3.3.10
 Precedence: list
-Subject: [Cake] Re: [PATCH net-next] net/sched: cake: avoid separate allocation of
- struct cake_sched_config
+Subject: [Cake] CAKE_MQ Slated For Linux 7.0 To Adapt SCH_CAKE For Today's Multi-Core
+ World
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
 Archived-At: 
- <https://lists.bufferbloat.net/cake/176883235852.1426077.2358286619749506519.git-patchwork-notify@kernel.org/>
+ <https://lists.bufferbloat.net/cake/CAJUtOOjf3vaQLtbZbmm559EuDJzpCkmysToVy_anS2NVtbJnVA@mail.gmail.com/>
 List-Archive: <https://lists.bufferbloat.net/cake/>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Owner: <mailto:cake-owner@lists.bufferbloat.net>
 List-Post: <mailto:cake@lists.bufferbloat.net>
 List-Subscribe: <mailto:cake-join@lists.bufferbloat.net>
 List-Unsubscribe: <mailto:cake-leave@lists.bufferbloat.net>
-From: patchwork-bot+netdevbpf--- via Cake <cake@lists.bufferbloat.net>
-Reply-To: patchwork-bot+netdevbpf@kernel.org
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 
-Hello:
-
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
-
-On Tue, 13 Jan 2026 15:31:56 +0100 you wrote:
-> Paolo pointed out that we can avoid separately allocating struct
-> cake_sched_config even in the non-mq case, by embedding it into struct
-> cake_sched_data. This reduces the complexity of the logic that swaps the
-> pointers and frees the old value, at the cost of adding 56 bytes to the
-> latter. Since cake_sched_data is already almost 17k bytes, this seems
-> like a reasonable tradeoff.
-> 
-> [...]
-
-Here is the summary with links:
-  - [net-next] net/sched: cake: avoid separate allocation of struct cake_sched_config
-    https://git.kernel.org/netdev/net-next/c/2a85541d95f7
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
-_______________________________________________
-Cake mailing list -- cake@lists.bufferbloat.net
-To unsubscribe send an email to cake-leave@lists.bufferbloat.net
+R3JlYXQgbmV3cyENCg0KaHR0cHM6Ly93d3cucGhvcm9uaXguY29tL25ld3MvTGludXgtNy4wLUNB
+S0UtTVENCg0KQWxsIHRoZSBiZXN0LA0KDQpGcmFuaw0KDQpGcmFudGlzZWsgKEZyYW5rKSBCb3Jz
+aWsNCg0KDQoqSW4gbG92aW5nIG1lbW9yeSBvZiBEYXZlIFTDpGh0OiAqMTk2NS0yMDI1DQoNCmh0
+dHBzOi8vbGlicmVxb3MuaW8vMjAyNS8wNC8wMS9pbi1sb3ZpbmctbWVtb3J5LW9mLWRhdmUvDQoN
+Cg0KaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2ZyYW50aXNla2JvcnNpaw0KDQpTaWduYWws
+IFRlbGVncmFtLCBXaGF0c0FwcDogKzQyMTkxOTQxNjcxNA0KDQppTWVzc2FnZSwgbW9iaWxlOiAr
+NDIwNzc1MjMwODg1DQoNClNreXBlOiBjYXNpb2E1MzAyY2ENCg0KZnJhbnRpc2VrLmJvcnNpa0Bn
+bWFpbC5jb20NCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
+CkNha2UgbWFpbGluZyBsaXN0IC0tIGNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0ClRvIHVuc3Vi
+c2NyaWJlIHNlbmQgYW4gZW1haWwgdG8gY2FrZS1sZWF2ZUBsaXN0cy5idWZmZXJibG9hdC5uZXQK
