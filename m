@@ -1,115 +1,111 @@
 Return-Path: <cake-bounces@lists.bufferbloat.net>
-X-Original-To: lists+cake@lfdr.de
 Delivered-To: lists+cake@lfdr.de
+Received: from mail.lfdr.de
+	by lfdr with LMTP
+	id GKD6M8Wtb2nxEwAAu9opvQ
+	(envelope-from <cake-bounces@lists.bufferbloat.net>)
+	for <lists+cake@lfdr.de>; Tue, 20 Jan 2026 17:31:01 +0100
+X-Original-To: lists+cake@lfdr.de
 Received: from mail.toke.dk (mail.toke.dk [45.145.95.4])
-	by mail.lfdr.de (Postfix) with ESMTPS id F176AD3B456
-	for <lists+cake@lfdr.de>; Mon, 19 Jan 2026 18:31:23 +0100 (CET)
+	by mail.lfdr.de (Postfix) with ESMTPS id 4804647921
+	for <lists+cake@lfdr.de>; Tue, 20 Jan 2026 17:31:01 +0100 (CET)
 Received: from [45.145.95.3] (localhost.localdomain [IPv6:::1])
-	by mail.toke.dk (Postfix) with ESMTP id AD393BD4F65;
-	Mon, 19 Jan 2026 18:31:17 +0100 (CET)
-Authentication-Results: mail.toke.dk;
-	dkim=fail reason="signature verification failed" (2048-bit key; unprotected) header.d=gmail.com header.i=@gmail.com header.a=rsa-sha256 header.s=20230601 header.b=UMyVW1vg
+	by mail.toke.dk (Postfix) with ESMTP id 1A07EBE1255;
+	Tue, 20 Jan 2026 14:27:57 +0100 (CET)
 ARC-Seal: i=2; cv=pass; a=rsa-sha256; d=toke.dk; s=arc202507;
- t=1768843877;
- b=yjaNQodv1Qj1AxdjXVO3F5GkQYTV5A/sBA8aJhQz9F37GXF0thb657NvRLPtmBthxrL2Y
- pKJv7bi7d0iDQ+v8qvSe+7cfDe1VIogB4eUOF5twlHEQpEoHwwejAlYU5PgNmRWiD5cnzvk
- SaIi2ssLF5vWRuqf04oaHZU4hjvs+xs=
+ t=1768915677;
+ b=nUPCDo6XFefIyWPU0dfvAww0iEYvzhwT3rsGWo3pOJXeuOfp+s789SDbpTE5vohqqLcSX
+ EgxPPnMwz+KhJ++CMYPLo1zYOMUeOOniG3so/SpxzrwMgSh/+3CNu1/ZBqDMngd72pp1hee
+ 7NwgGSSGTb028kMOF/V1QLDHx7bR5Nk=
 ARC-Message-Signature: i=2; a=rsa-sha256; c=relaxed/relaxed; d=toke.dk;
- s=arc202507; t=1768843877; h=from : sender : reply-to : subject : date
+ s=arc202507; t=1768915677; h=from : sender : reply-to : subject : date
  : message-id : to : cc : mime-version : content-type :
  content-transfer-encoding : content-id : content-description :
  resent-date : resent-from : resent-sender : resent-to : resent-cc :
  resent-message-id : in-reply-to : references : list-id : list-help :
  list-unsubscribe : list-subscribe : list-post : list-owner :
- list-archive; bh=dYXXrJ3qL/BMrLo54N5xnOktW1+ZH9XEI0TU7llxdFQ=;
- b=KbbGHb8RZJu0wmZwBrSI3N1epbg+p4jI3gOTcuhfbp4eoS9sMlebPOkmeXH3fcs4kAAnn
- 050u1ZiUs7IxeQbQ0JjPgiiiChhqWkwGvd8XUfroeVnAhB8plMtsnqXBIP6Ri/saNvSZEVo
- 0zSkXhz6NZ3tT5wFMMrAIIrJ9lx5uFY=
+ list-archive; bh=ML1d5JQoLv6c1xThXzLmlJEw5ataXBfJAKHcshg3pvo=;
+ b=y0nijczxIVmiCAdjPk5nSPg32ZBYXYbEtuq4Uny2zX0iCMIh95ENugGlAX7114Fjc6omT
+ 6YFpXWmUgeBiR0O8HTu7CklBX0+aGkjvMthuJiTn2EVSTEcLqSheRmooJATS+d2YF76JuWQ
+ krRgZ/0yrwpp1NyHDrN8nSRqDOjSOAo=
 ARC-Authentication-Results: i=2; mail.toke.dk;
  spf=pass smtp.mailfrom=;
- dkim=pass header.d=gmail.com;
+ dkim=fail;
  arc=pass;
- dmarc=pass header.from=gmail.com policy.dmarc=quarantine
-Authentication-Results: mail.toke.dk; spf=pass smtp.mailfrom=;
- dkim=pass header.d=gmail.com; arc=pass;
- dmarc=pass (Used From Domain Record) header.from=gmail.com
- policy.dmarc=quarantine
-Received: from mail-ej1-x62d.google.com (mail-ej1-x62d.google.com
- [IPv6:2a00:1450:4864:20::62d])
-	by mail.toke.dk (Postfix) with ESMTPS id 538E3BD4F02
-	for <cake@lists.bufferbloat.net>; Mon, 19 Jan 2026 18:31:15 +0100 (CET)
-Received: by mail-ej1-x62d.google.com with SMTP id
- a640c23a62f3a-b8010b8f078so754332766b.0
+ dmarc=fail header.from=freedesktop.org policy.dmarc=none
+Authentication-Results: mail.toke.dk; spf=pass smtp.mailfrom=; dkim=fail;
+ arc=pass;
+ dmarc=fail (Used From Domain Record) header.from=freedesktop.org policy.dmarc=none
+Received: from mail-dy1-f173.google.com (mail-dy1-f173.google.com
+ [74.125.82.173])
+	by mail.toke.dk (Postfix) with ESMTPS id D5743BE1212
+	for <cake@lists.bufferbloat.net>; Tue, 20 Jan 2026 14:27:53 +0100 (CET)
+Received: by mail-dy1-f173.google.com with SMTP id
+ 5a478bee46e88-2b0ea1edf11so9816109eec.0
         for <cake@lists.bufferbloat.net>;
- Mon, 19 Jan 2026 09:31:15 -0800 (PST)
-ARC-Seal: i=1; a=rsa-sha256; t=1768843874; cv=none;
+ Tue, 20 Jan 2026 05:27:53 -0800 (PST)
+ARC-Seal: i=1; a=rsa-sha256; t=1768915672; cv=none;
         d=google.com; s=arc-20240605;
-        b=AscRQEQvnLncakeMU1LTFW+buWFCeo4EUO9rOFY98OCVNH2s9M5CiAoATJvHXMBvT1
-         iFfk91wb406W5mjj298A2Eto1VPuR96MUW7xZhIfaCrXTcIPYQS4SUzozhxI5E80PgMQ
-         VnWumDIBoGButdzDD6EYiMNMWkbuiOs/eOYNSA4+VX3xIYhbMmRmdbfSmme6/S0t2gpS
-         eW6qsI+4d9QD3MyDKZxgdK5Aa01dr1DticrpdK7f1MRMRwSu1CNkUPOtQjZGtOEY1P1i
-         uzXBm4bLTTcC9FGkyzV6Mp6GtxPSg2W10GsrE4ufeF9J/JLwNIgS2GDMqumRHzymob3w
-         8bmA==
+        b=Le6XhqsUu5yjLkB6TixYVQiBuBt0N+LpgIy4LYDVIjR/q0bThUGZGx9c5MjZTkQwVA
+         Kq426XXV7LvS9FmIhnVLVDJOuxHxHjQWXhhf854kl3Cqmf90Oe4gvJ3QTjpcaFUrdhzc
+         kW6vEcrnV5pKg+EBTXnNOHf7zGVN3UeWereUyQ9b2r9RsxdwwWuH0ZlSFIQq/qQsZ6H7
+         k2LwWMqP2KTCVpxGck7Ve4dSFuSg/XsAlhNMAp8GvJZYu2X1JEj5x5q7pxcJ+RU4tGtu
+         1Jo7tYDSKj/kPeCK/DGaFkZlb1Et7N6n+pn4AX++xP2ECKWiqRAhcQHDA9A86wVAPs+b
+         jJRQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=google.com;
  s=arc-20240605;
-        h=to:subject:message-id:date:from:mime-version:dkim-signature;
-        bh=QcBXzL0CLGrrVSlbMn+sa0BVAjHRdeqdgxHHH5ErpF4=;
-        fh=OxtPrE7OdfJrSXSkk9vBlYMWYTVrWOrDGzXVa2DrSJY=;
-        b=Rgq4o9npMJ/U9ixXtChbgjj21yD1X8Hx8yhhQCklrjINoombjQoUJ85dqpLKE36PIC
-         BDMuqQQ5i+zuIkr8LwvA+/BgPvc7C39iJMeoYb4465QB7k5RzfCy0Ur+SyHML1/Ku9aQ
-         onYDq+vpznkx5gSrSzTEFsOKOaIWZehcXUed46H9lLUyYSwOloJZv5G/gxu3lp/CexF1
-         uYPNa7ofj1k2rBCW95ldRgZRHlnE2arTbAQXMu9u9m5We3zhy80RSfsavURoNdi8iLvf
-         qE3IkJX3jbQn3Bcn74IOC6Bl1HIu8XKGbojv0/g2BnmIt2Jm3sy3xnGfJRYp+/1uHrnA
-         lYbA==;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version;
+        bh=A6hALL783i0u88gAbsPIlOQ382lI3F90JeuK4u9wgIc=;
+        fh=3l2SUcciY3Q3SdHcAoqtrWmeqN4yMrMfx21G8W5CI/8=;
+        b=T9JEwH6dPkyD5okz0XrlBaW+MMob3tMHpOQX1oFJxLUr3X1nzm6hCK1XoXfQiqP1td
+         8wlxilAoox2kAuWNiQg5uPyWS7b+MXEhfsoFgYGv2qI20MqL5OEfSwTc9KISHgI+wUAE
+         6x0cS3Ru4BWYZuYbws4G7Cq7dJ027Y3I+SFNtgQiMBE/igTb2Jb5r5uzM0tulW8RR7aq
+         eThPPqaaeT6aihYnR57aJJ/9qTq4cVWiC4rBjs8CLV7ufAaQUe9wXcIZg9DQobwuLpHH
+         1A0YWXDlZtmHpuDTqRlJoiZ6JrbCHCvyoDQgtlN3TwmCys49omqXWhjlOEqpVuqVg6EB
+         yaqg==;
         darn=lists.bufferbloat.net
 ARC-Authentication-Results: i=1; mx.google.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1768843874; x=1769448674;
- darn=lists.bufferbloat.net;
-        h=to:subject:message-id:date:from:mime-version:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=QcBXzL0CLGrrVSlbMn+sa0BVAjHRdeqdgxHHH5ErpF4=;
-        b=UMyVW1vgyPqwtDTeBNjTLMXyEGlJsMCfG0VDbpei49UeTjXvqbWW6WJLLivc3+eJnh
-         w7FK2IaTRxwZ3ocpm1+dO0AlkV0Ge/keEaQ2s8JUcTLgWB/MvC8rk93Or8lFcpB8BwLH
-         1qWX2ClkX82AX7ZebhL7prRwoEHjvt6NJhUzogApUNsdVMlsqatZ1fA8tWq1GvdNYR88
-         3UViBrlKyuy/9kzKbqSy61oVZUDzLJWc94NqKzXSXm16bnLodsnFq1kuHaIvem1Je3w1
-         TcYg/1z+uhyhh4VQT9dwTOQQJNKkaKOZnfqB7cnsf0GmiBqXaa5Y9Ll+AImvyF38jA/e
-         30Jw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1768843874; x=1769448674;
-        h=to:subject:message-id:date:from:mime-version:x-gm-gg
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QcBXzL0CLGrrVSlbMn+sa0BVAjHRdeqdgxHHH5ErpF4=;
-        b=CufkTXcFW8wqW1QZva4KyIM0yypPNor4M8FE8QTNdjslb3l3YROvJH2PNeWMoJSrUJ
-         Y6H//95eGLTlvUdt4oe+XpySE1vvYviY1huv4pw0SFL1O5lun0Y1qjG6G4vUMvuwqgAY
-         6bd4RIi5iZrbYOwzrYAQ99woGIv1OYX3GqeO0s3W5KXQQsghqADg8LHlMFbvbTS+MT8/
-         m96cgjsCWvX4LIxLT5HNeDTUgBSQOwb//TD3D18ERjdgc8w4ES0WlmDaDLFgG1Oy5AJj
-         eDPSbAN3t+fXIpkYtzuiLr/400ojBppT9q8yc1OshzYPh/LiEpBrybz9dg30Gz3ICDuQ
-         DeWQ==
-X-Gm-Message-State: AOJu0YxgEBf5oDMvlRMdgoyh5R405+xqsJ6qrfiUIbjMWFR2Ecdb4z3U
-	7UBiEdzkPhUxdIpbwm3jW4+B20pzW/hio7hUT7F+fVTgKfHxcPTyko5NQq7FE48E1QMUhepXPmp
-	9uPIs2vRj65HWW7Dx17HIdl/8+j6odR/SfwrF86o=
-X-Gm-Gg: AY/fxX7zQ280JMEws2hmPDv4i4oqu1t/Pe4sUG97WFVaamezS3Nx8Q139b7MVmFTNCz
-	JHwQ7G1VTAkjlC689jX9mZl3JBSZ5ykGX3/iltOXuuzL7QJQ1xf9xeZmP6r9vhr6dZ/ooXH2WPS
-	pF/TGuW+YD2CmCZ/zjvY4kTQxzPn/yB3O0nUALvRyYlAVMhy3BKbInNXF6MEhwTzO+LttdobCGa
-	/0Qr3aXIelAxVk9MciNQYCfhI1Po0EjDjvwenc6ClzmeTxe9TfwLeyk0jstyC6nElk0KNMpzygX
-	Mr914yEq0S4=
-X-Received: by 2002:a17:906:dc94:b0:b87:31b5:d68 with SMTP id
- a640c23a62f3a-b8796c137aemr872661966b.65.1768843873046; Mon, 19 Jan 2026
- 09:31:13 -0800 (PST)
+        d=1e100.net; s=20230601; t=1768915672; x=1769520472;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-gg:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=A6hALL783i0u88gAbsPIlOQ382lI3F90JeuK4u9wgIc=;
+        b=iFNkvXdHHTn+yTki5kAvTYusgOsEVti6SvldIJEqNNMN0rmpdkx7i89Yr+WvK23dE+
+         vyz2wdk2rxhDM9ywAim4SwX6/3uChQn2TvW6/qPUOcTJInubdzoj+TCLZRBORnn5c357
+         Bm/IE7PnDeBU7pK+CEgdYStPiT1xixBkFQxahH4PZj95QS9Fqi2SFObK+7OTm2fkd7b2
+         9tbXnx5UwQTv9U/8t4EgBmIhyh3vaOhjbThSvM63iP+Ly8o+bcyrDGoYkqf6MasXDoWG
+         Nowcvtjla1dMS6+BAtJXgXtadyClle+5coyIJj4iwKSwvXnhyx31sVXgXvuRjFBGq9RO
+         tFiA==
+X-Gm-Message-State: AOJu0Yzg+jrOEKeRB22w5Hzg3pZFkI8/WEvgfbd/Gzdz3qQ9DDQZwQ/U
+	9u1pFKa+alv6BrlwMtCsZMpmDKiv4zTNILZKlww4ziTLpUWUp2g9FQAFb5NBr5oA7GSnCt8uze9
+	iEhauHuRmiCL+W149aScHAMkomhW7v+c=
+X-Gm-Gg: AZuq6aKGT2SqX1SG+uq07HrurgmcmUWK2609ETAPHaY1ht9GgjLQ2R8xYnN02NJIvPr
+	dceWq4fVmFFvYdHplshRwaJWMycWFBIaRvgQaG69nkznDx/5wwX2rojnV8JazIYZtYJFF+CNrIG
+	mOkoOzDo2z8YhikDWF/iezdF6Zl61LvXdmntM1R9inOepLOYXZSf3k+63DGB81YB5Mgl9rD/s6/
+	kKPEfOnq//F5xahCnHbIpXNK4RYxnWAM16z/k8Tt+0Kfg+Gg7ihBocH4ZVdUNzLVMgmnz0=
+X-Received: by 2002:a05:7301:6508:b0:2b6:aeb8:3d8c with SMTP id
+ 5a478bee46e88-2b6b503bcb5mr11690565eec.32.1768915671316; Tue, 20 Jan 2026
+ 05:27:51 -0800 (PST)
 MIME-Version: 1.0
-From: Frantisek Borsik <frantisek.borsik@gmail.com>
-Date: Mon, 19 Jan 2026 18:33:46 +0100
-X-Gm-Features: AZwV_QjIHiCKZiRA7F6tsm5Al5X4J1sGldgJd4X1FWtM_V3rfViZBVwbb33qMTg
-Message-ID: 
+References: 
  <CAJUtOOjf3vaQLtbZbmm559EuDJzpCkmysToVy_anS2NVtbJnVA@mail.gmail.com>
-To: Cake List <cake@lists.bufferbloat.net>, codel@lists.bufferbloat.net,
+In-Reply-To: 
+ <CAJUtOOjf3vaQLtbZbmm559EuDJzpCkmysToVy_anS2NVtbJnVA@mail.gmail.com>
+From: Jim Gettys <jg@freedesktop.org>
+Date: Tue, 20 Jan 2026 08:27:42 -0500
+X-Gm-Features: AZwV_Qg3tOPUsry650IyNG0g4nFbFHp0OJYoIHp0xIUwBw_rPUgqVycqS_YLeJc
+Message-ID: 
+ <CAGhGL2B4Ve1WQGd_-=Ne8Wzex+H6mn2ztbB6pCVV6sqOZBOL+A@mail.gmail.com>
+To: Frantisek Borsik <frantisek.borsik@gmail.com>
+Cc: Cake List <cake@lists.bufferbloat.net>, codel@lists.bufferbloat.net,
 	bloat <bloat@lists.bufferbloat.net>,
 	Make-Wifi-fast <make-wifi-fast@lists.bufferbloat.net>,
 	Jeremy Austin via Rpm <rpm@lists.bufferbloat.net>
-Message-ID-Hash: 65FVSZBBWEUMUZDF5HP76KSIXKCCLAYN
-X-Message-ID-Hash: 65FVSZBBWEUMUZDF5HP76KSIXKCCLAYN
-X-MailFrom: frantisek.borsik@gmail.com
+Message-ID-Hash: 26W56TPQ46JGF3DBOKIAD5DXQYFC3YLA
+X-Message-ID-Hash: 26W56TPQ46JGF3DBOKIAD5DXQYFC3YLA
+X-MailFrom: gettysjim@gmail.com
 X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
  banned-address; emergency; member-moderation; nonmember-moderation;
  administrivia; implicit-dest; max-recipients; max-size; news-moderation;
@@ -117,11 +113,11 @@ X-Mailman-Rule-Misses: dmarc-mitigation; no-senders; approved; loop;
 X-Content-Filtered-By: Mailman/MimeDel 3.3.10
 X-Mailman-Version: 3.3.10
 Precedence: list
-Subject: [Cake] CAKE_MQ Slated For Linux 7.0 To Adapt SCH_CAKE For Today's Multi-Core
- World
+Subject: [Cake] Re: [Bloat] CAKE_MQ Slated For Linux 7.0 To Adapt SCH_CAKE For Today's
+ Multi-Core World
 List-Id: Cake - FQ_codel the next generation <cake.lists.bufferbloat.net>
 Archived-At: 
- <https://lists.bufferbloat.net/cake/CAJUtOOjf3vaQLtbZbmm559EuDJzpCkmysToVy_anS2NVtbJnVA@mail.gmail.com/>
+ <https://lists.bufferbloat.net/cake/CAGhGL2B4Ve1WQGd_-=Ne8Wzex+H6mn2ztbB6pCVV6sqOZBOL+A@mail.gmail.com/>
 List-Archive: <https://lists.bufferbloat.net/cake/>
 List-Help: <mailto:cake-request@lists.bufferbloat.net?subject=help>
 List-Owner: <mailto:cake-owner@lists.bufferbloat.net>
@@ -130,14 +126,52 @@ List-Subscribe: <mailto:cake-join@lists.bufferbloat.net>
 List-Unsubscribe: <mailto:cake-leave@lists.bufferbloat.net>
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: base64
+X-Spamd-Result: default: False [-1.31 / 15.00];
+	ARC_ALLOW(-1.00)[toke.dk:s=arc202507:i=2];
+	MAILLIST(-0.20)[mailman];
+	R_SPF_ALLOW(-0.20)[+mx];
+	MIME_GOOD(-0.10)[text/plain];
+	DMARC_POLICY_SOFTFAIL(0.10)[freedesktop.org : SPF not aligned (relaxed), No valid DKIM,none];
+	MIME_BASE64_TEXT(0.10)[];
+	HAS_LIST_UNSUB(-0.01)[];
+	FORGED_RECIPIENTS(0.00)[m:frantisek.borsik@gmail.com,m:cake@lists.bufferbloat.net,m:codel@lists.bufferbloat.net,m:bloat@lists.bufferbloat.net,m:make-wifi-fast@lists.bufferbloat.net,m:rpm@lists.bufferbloat.net,m:frantisekborsik@gmail.com,s:lists@lfdr.de];
+	FREEMAIL_TO(0.00)[gmail.com];
+	FORGED_SENDER_MAILLIST(0.00)[];
+	RCVD_COUNT_THREE(0.00)[3];
+	TO_DN_SOME(0.00)[];
+	FORGED_SENDER(0.00)[jg@freedesktop.org,cake-bounces@lists.bufferbloat.net];
+	MIME_TRACE(0.00)[0:+];
+	FORWARDED(0.00)[cake@lists.bufferbloat.net];
+	FROM_HAS_DN(0.00)[];
+	MISSING_XM_UA(0.00)[];
+	FORGED_RECIPIENTS_MAILLIST(0.00)[];
+	PREVIOUSLY_DELIVERED(0.00)[cake@lists.bufferbloat.net];
+	FORGED_SENDER_FORWARDING(0.00)[];
+	FROM_NEQ_ENVFROM(0.00)[jg@freedesktop.org,cake-bounces@lists.bufferbloat.net];
+	RCVD_TLS_LAST(0.00)[];
+	R_DKIM_NA(0.00)[];
+	TAGGED_RCPT(0.00)[cake];
+	FORGED_RECIPIENTS_FORWARDING(0.00)[];
+	RCPT_COUNT_FIVE(0.00)[6];
+	ASN(0.00)[asn:208327, ipnet:45.145.95.0/24, country:DK];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[mail.gmail.com:mid,linkedin.com:url,libreqos.io:url,bufferbloat.net:email,mail.toke.dk:rdns,mail.toke.dk:helo]
+X-Rspamd-Queue-Id: 4804647921
+X-Rspamd-Action: no action
+X-Rspamd-Server: lfdr
 
-R3JlYXQgbmV3cyENCg0KaHR0cHM6Ly93d3cucGhvcm9uaXguY29tL25ld3MvTGludXgtNy4wLUNB
-S0UtTVENCg0KQWxsIHRoZSBiZXN0LA0KDQpGcmFuaw0KDQpGcmFudGlzZWsgKEZyYW5rKSBCb3Jz
-aWsNCg0KDQoqSW4gbG92aW5nIG1lbW9yeSBvZiBEYXZlIFTDpGh0OiAqMTk2NS0yMDI1DQoNCmh0
-dHBzOi8vbGlicmVxb3MuaW8vMjAyNS8wNC8wMS9pbi1sb3ZpbmctbWVtb3J5LW9mLWRhdmUvDQoN
-Cg0KaHR0cHM6Ly93d3cubGlua2VkaW4uY29tL2luL2ZyYW50aXNla2JvcnNpaw0KDQpTaWduYWws
-IFRlbGVncmFtLCBXaGF0c0FwcDogKzQyMTkxOTQxNjcxNA0KDQppTWVzc2FnZSwgbW9iaWxlOiAr
-NDIwNzc1MjMwODg1DQoNClNreXBlOiBjYXNpb2E1MzAyY2ENCg0KZnJhbnRpc2VrLmJvcnNpa0Bn
-bWFpbC5jb20NCl9fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19f
-CkNha2UgbWFpbGluZyBsaXN0IC0tIGNha2VAbGlzdHMuYnVmZmVyYmxvYXQubmV0ClRvIHVuc3Vi
-c2NyaWJlIHNlbmQgYW4gZW1haWwgdG8gY2FrZS1sZWF2ZUBsaXN0cy5idWZmZXJibG9hdC5uZXQK
+Q29vbCENCg0KSmltDQoNCk9uIE1vbiwgSmFuIDE5LCAyMDI2LCAxMjozMeKAr1BNIEZyYW50aXNl
+ayBCb3JzaWsgPGZyYW50aXNlay5ib3JzaWtAZ21haWwuY29tPg0Kd3JvdGU6DQoNCj4gR3JlYXQg
+bmV3cyENCj4NCj4gaHR0cHM6Ly93d3cucGhvcm9uaXguY29tL25ld3MvTGludXgtNy4wLUNBS0Ut
+TVENCj4NCj4gQWxsIHRoZSBiZXN0LA0KPg0KPiBGcmFuaw0KPg0KPiBGcmFudGlzZWsgKEZyYW5r
+KSBCb3JzaWsNCj4NCj4NCj4gKkluIGxvdmluZyBtZW1vcnkgb2YgRGF2ZSBUw6RodDogKjE5NjUt
+MjAyNQ0KPg0KPiBodHRwczovL2xpYnJlcW9zLmlvLzIwMjUvMDQvMDEvaW4tbG92aW5nLW1lbW9y
+eS1vZi1kYXZlLw0KPg0KPg0KPiBodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vZnJhbnRpc2Vr
+Ym9yc2lrDQo+DQo+IFNpZ25hbCwgVGVsZWdyYW0sIFdoYXRzQXBwOiArNDIxOTE5NDE2NzE0DQo+
+DQo+IGlNZXNzYWdlLCBtb2JpbGU6ICs0MjA3NzUyMzA4ODUNCj4NCj4gU2t5cGU6IGNhc2lvYTUz
+MDJjYQ0KPg0KPiBmcmFudGlzZWsuYm9yc2lrQGdtYWlsLmNvbQ0KPiBfX19fX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXw0KPiBCbG9hdCBtYWlsaW5nIGxpc3QgLS0g
+YmxvYXRAbGlzdHMuYnVmZmVyYmxvYXQubmV0DQo+IFRvIHVuc3Vic2NyaWJlIHNlbmQgYW4gZW1h
+aWwgdG8gYmxvYXQtbGVhdmVAbGlzdHMuYnVmZmVyYmxvYXQubmV0DQo+DQpfX19fX19fX19fX19f
+X19fX19fX19fX19fX19fX19fX19fX19fX19fX19fX19fXwpDYWtlIG1haWxpbmcgbGlzdCAtLSBj
+YWtlQGxpc3RzLmJ1ZmZlcmJsb2F0Lm5ldApUbyB1bnN1YnNjcmliZSBzZW5kIGFuIGVtYWlsIHRv
+IGNha2UtbGVhdmVAbGlzdHMuYnVmZmVyYmxvYXQubmV0Cg==
